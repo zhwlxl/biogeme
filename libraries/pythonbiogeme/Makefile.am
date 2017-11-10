@@ -71,6 +71,7 @@ bioArithUnaryMinus.cc \
 bioArithBayes.cc \
 bioArithBayesMH.cc \
 bioArithBayesMean.cc \
+bioPrematureStop.cc \
 bioConstraintWrapper.cc \
 bioConstraints.cc \
 bioCountOperations.cc \
@@ -92,6 +93,7 @@ bioLiteralRepository.cc \
 bioLiteralValues.cc \
 bioMain.cc \
 bioMetaIterator.cc \
+bioRandomMetaIterator.cc \
 bioMinimizationProblem.cc \
 bioModel.cc \
 bioModelParser.cc \
@@ -99,7 +101,7 @@ bioParameters.cc \
 bioPythonWrapper.cc \
 bioRandomDraws.cc \
 bioRandomVariable.cc \
-bioRawResults.cc \
+bioOptimizationResults.cc \
 bioReporting.cc \
 bioRowIterator.cc \
 bioIdIterator.cc \
@@ -160,6 +162,7 @@ bioArithUnaryMinus.h \
 bioArithBayes.h \
 bioArithBayesMH.h \
 bioArithBayesMean.h \
+bioPrematureStop.h \
 bioArithVariable.h \
 bioCompositeLiteral.h \
 bioConstraintWrapper.h \
@@ -180,6 +183,7 @@ bioLiteralRepository.h \
 bioLiteralValues.h \
 bioMain.h \
 bioMetaIterator.h \
+bioRandomMetaIterator.h \
 bioMinimizationProblem.h \
 bioModel.h \
 bioModelParser.h \
@@ -191,7 +195,7 @@ bioPrecompiledFunction.h \
 bioPythonWrapper.h \
 bioRandomDraws.h \
 bioRandomVariable.h \
-bioRawResults.h \
+bioOptimizationResults.h \
 bioReporting.h \
 bioRowIterator.h \
 bioIdIterator.h \

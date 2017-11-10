@@ -3,9 +3,13 @@ This file has been adapted for g++ compiler by Michel Bierlaire
 Thu Feb 21 08:35:48 2002
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <cstdlib>
-#include "patMath.h"
 #include "patType.h"
+#include "patMath.h"
 
 void apprgrdn ( unsigned short n,
                 patReal g[],

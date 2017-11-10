@@ -17,18 +17,22 @@
 #include <stdio.h>
 
 /* #line 14 "/usr/local/lib/bison.h" */
-#line 21 "patSpecParser.yy.tab.h"
+#line 21 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 #define YY_patBisonSpec_ERROR_BODY  = 0
 #define YY_patBisonSpec_LEX_BODY  = 0
 #define YY_patBisonSpec_MEMBERS  patSpecScanner scanner; patModelSpec *pModel; virtual ~patBisonSpec() {};
 #define YY_patBisonSpec_CONSTRUCTOR_PARAM  const patString& fname_
 #define YY_patBisonSpec_CONSTRUCTOR_INIT  : scanner(fname_) , pModel(NULL)
-#line 18 "patSpecParser.yy"
+#line 18 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
   
 #include <fstream>
 #include <sstream>
-#include <assert.h>
+#include <cassert>
 
 #include "patLoop.h"
 #include "patDisplay.h"
@@ -155,7 +159,7 @@ public:
 
 
 
-#line 152 "patSpecParser.yy"
+#line 156 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 typedef union {
   long            itype;
   float            ftype;
@@ -230,21 +234,21 @@ typedef union {
 #ifndef YY_patBisonSpec_PURE
 
 /* #line 63 "/usr/local/lib/bison.h" */
-#line 234 "patSpecParser.yy.tab.h"
+#line 238 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 
 #line 63 "/usr/local/lib/bison.h"
 /* YY_patBisonSpec_PURE */
 #endif
 
 /* #line 65 "/usr/local/lib/bison.h" */
-#line 241 "patSpecParser.yy.tab.h"
+#line 245 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 
 #line 65 "/usr/local/lib/bison.h"
 /* prefix */
 #ifndef YY_patBisonSpec_DEBUG
 
 /* #line 67 "/usr/local/lib/bison.h" */
-#line 248 "patSpecParser.yy.tab.h"
+#line 252 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 
 #line 67 "/usr/local/lib/bison.h"
 /* YY_patBisonSpec_DEBUG */
@@ -252,7 +256,7 @@ typedef union {
 #ifndef YY_patBisonSpec_LSP_NEEDED
 
 /* #line 70 "/usr/local/lib/bison.h" */
-#line 256 "patSpecParser.yy.tab.h"
+#line 260 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 
 #line 70 "/usr/local/lib/bison.h"
  /* YY_patBisonSpec_LSP_NEEDED*/
@@ -330,7 +334,7 @@ extern YY_patBisonSpec_STYPE YY_patBisonSpec_LVAL;
 
 
 /* #line 143 "/usr/local/lib/bison.h" */
-#line 334 "patSpecParser.yy.tab.h"
+#line 338 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 #define	pat_gevDataFile	258
 #define	pat_gevModelDescription	259
 #define	pat_gevChoice	260
@@ -480,7 +484,7 @@ public:
 /* static const int token ... */
 
 /* #line 182 "/usr/local/lib/bison.h" */
-#line 484 "patSpecParser.yy.tab.h"
+#line 488 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 static const int pat_gevDataFile;
 static const int pat_gevModelDescription;
 static const int pat_gevChoice;
@@ -594,7 +598,7 @@ static const int patPAIR;
 enum YY_patBisonSpec_ENUM_TOKEN { YY_patBisonSpec_NULL_TOKEN=0
 
 /* #line 185 "/usr/local/lib/bison.h" */
-#line 598 "patSpecParser.yy.tab.h"
+#line 602 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 	,pat_gevDataFile=258
 	,pat_gevModelDescription=259
 	,pat_gevChoice=260
@@ -756,9 +760,9 @@ public:
 /* END */
 
 /* #line 236 "/usr/local/lib/bison.h" */
-#line 760 "patSpecParser.yy.tab.h"
+#line 764 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.h"
 
-#line 1560 "patSpecParser.yy"
+#line 1564 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 
 //--------------------------------------------------------------------
 // Following pieces of code will be verbosely copied into the parser.

@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioIteratorSpan.h"
 #include <iostream>
 #include "patMath.h"

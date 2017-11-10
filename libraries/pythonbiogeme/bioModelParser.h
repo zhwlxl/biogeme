@@ -40,6 +40,7 @@ private:
 						      patError*& err) ;
   
   patULong getFormula(PyObject* pBioObject, patError*& err);
+  map<patString,vector<patReal> >* getOldBetas(PyObject* pBioObject, patError*& err);
   map<patString, patULong>* getStatistics(PyObject* pBioObject, patError*& err) ;
   map<patString, patULong>* getFormulas(PyObject* pBioObject, patError*& err) ;
   map<patString, bioRandomDraws::bioDraw >* getDraws(PyObject* pBioObject, patError*& err) ;

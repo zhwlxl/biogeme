@@ -1,0 +1,99 @@
+\hypertarget{namespaceloglikelihood}{\section{loglikelihood Namespace Reference}
+\label{namespaceloglikelihood}\index{loglikelihood@{loglikelihood}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceloglikelihood_a5b2503cb3556094aaf0ef67176297496}{loglikelihood}
+\begin{DoxyCompactList}\small\item\em Simply computes the log of the probability. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceloglikelihood_ad38ed3ddf12bbc51eb728fb56a0bc8de}{mixedloglikelihood}
+\begin{DoxyCompactList}\small\item\em Compute a simulated loglikelihood function. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceloglikelihood_a88aabd751d1bfaad0a74cf8513efefc1}{likelihoodregression}
+\begin{DoxyCompactList}\small\item\em Computes likelihood function of a regression model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceloglikelihood_a88aabd751d1bfaad0a74cf8513efefc1}{\index{loglikelihood@{loglikelihood}!likelihoodregression@{likelihoodregression}}
+\index{likelihoodregression@{likelihoodregression}!loglikelihood@{loglikelihood}}
+\subsubsection[{likelihoodregression}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+likelihoodregression (
+\begin{DoxyParamCaption}
+\item[{}]{meas, }
+\item[{}]{model, }
+\item[{}]{sigma}
+\end{DoxyParamCaption}
+)}}\label{namespaceloglikelihood_a88aabd751d1bfaad0a74cf8513efefc1}
+
+
+Computes likelihood function of a regression model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meas} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value $y$ of the measure for the current observation. \\
+\hline
+{\em model} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the output $m$ of the model for the current observation. \\
+\hline
+{\em sigma} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} (typically, a \href{http://biogeme.epfl.ch/expressions.php#parameter}{\tt parameter}) providing the standard error $\sigma$ of the error term. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The likelihood of the regression, assuming a normal distribution, that is \[ \frac{1}{\sigma} \phi\left( \frac{y-m}{\sigma} \right) \] where $ \phi(\cdot)$ is the pdf of the normal distribution.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespaceloglikelihood_a88aabd751d1bfaad0a74cf8513efefc1}{likelihoodregression}(meas,model,sigma):
+2     t = (meas - model) / sigma
+3     f = bioNormalPdf(t) / sigma
+4     \textcolor{keywordflow}{return} f
+\end{DoxyCode}
+ \hypertarget{namespaceloglikelihood_a5b2503cb3556094aaf0ef67176297496}{\index{loglikelihood@{loglikelihood}!loglikelihood@{loglikelihood}}
+\index{loglikelihood@{loglikelihood}!loglikelihood@{loglikelihood}}
+\subsubsection[{loglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}}\label{namespaceloglikelihood_a5b2503cb3556094aaf0ef67176297496}
+
+
+Simply computes the log of the probability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The logarithm of the probability.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespaceloglikelihood_a5b2503cb3556094aaf0ef67176297496}{loglikelihood}(prob):
+2     loglikelihood = log(prob)
+3     \textcolor{keywordflow}{return} loglikelihood
+\end{DoxyCode}
+ \hypertarget{namespaceloglikelihood_ad38ed3ddf12bbc51eb728fb56a0bc8de}{\index{loglikelihood@{loglikelihood}!mixedloglikelihood@{mixedloglikelihood}}
+\index{mixedloglikelihood@{mixedloglikelihood}!loglikelihood@{loglikelihood}}
+\subsubsection[{mixedloglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+mixedloglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}}\label{namespaceloglikelihood_ad38ed3ddf12bbc51eb728fb56a0bc8de}
+
+
+Compute a simulated loglikelihood function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. Although it is not formally necessary, the expression should contain one or more \href{http://biogeme.epfl.ch/expressions.php#draws}{\tt random variables} of a given distribution, and therefore write \[ P(i|\xi_1,\ldots,\xi_L)\] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The simulated loglikelihood, given by \[ \ln\left(\sum_{r=1}^R P(i|\xi^r_1,\ldots,\xi^r_L) \right)\] where $R$ is the number of draws, and $\xi_j^r$ is the {\itshape r}th draw of the random variable $\xi_j$.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespaceloglikelihood_ad38ed3ddf12bbc51eb728fb56a0bc8de}{mixedloglikelihood}(prob):
+2     drawIterator(\textcolor{stringliteral}{'drawIter'})
+3     l = Sum(prob,\textcolor{stringliteral}{'drawIter'})
+4     \textcolor{keywordflow}{return} log(l)
+\end{DoxyCode}
+ 

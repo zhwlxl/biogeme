@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 
 #include "patMath.h"
@@ -218,25 +222,15 @@ bioFunctionAndDerivatives* bioArithBinaryPlus::getNumericalFunctionAndGradient(v
   }
 
   // The second derivative matrix
-  if (result.theHessian != NULL && computeHessian) {
-    if (l->theHessian == NULL) {
-      err = new patErrNullPointer("trHessian") ;
-      WARNING(err->describe()) ;
-      return NULL ;
-    }
-    if (r->theHessian == NULL) {
-      err = new patErrNullPointer("trHessian") ;
-      WARNING(err->describe()) ;
-      return NULL ;
-    }
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
-	patReal r1 = l->theHessian->getElement(i,j,err) ;
+	patReal r1 = l->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
 	}
-	patReal r2 = r->theHessian->getElement(i,j,err) ;
+	patReal r2 = r->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
@@ -248,7 +242,7 @@ bioFunctionAndDerivatives* bioArithBinaryPlus::getNumericalFunctionAndGradient(v
 	    res = patMaxReal ;
 	  }
 	}
-	result.theHessian->setElement(i,j,res,err) ; 
+	result.theHessian.setElement(i,j,res,err) ; 
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

@@ -1,0 +1,21 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Berndt et~al.]{Berndt, Hall, Hall \harvardand\
+  Hausman}{1974}{BernHallHallHaus74}
+Berndt, E.~K., Hall, B.~H., Hall, R.~E. \harvardand\ Hausman, J.~A.
+  \harvardyearleft 1974\harvardyearright .
+\newblock Estimation and inference in nonlinear structural models, {\em Annals
+  of Economic and Social Measurement} {\bf 3/4}:~653--665.
+
+\harvarditem{Kauermann \harvardand\ Carroll}{2001}{KaueCarr2001}
+Kauermann, G. \harvardand\ Carroll, R.  \harvardyearleft 2001\harvardyearright
+  .
+\newblock A note on the efficiency of sandwich covariance matrix estimation,
+  {\em Journal of the American Statistical Association} {\bf 96}(456).
+
+\harvarditem{White}{1982}{Whit82}
+White, H.  \harvardyearleft 1982\harvardyearright .
+\newblock Maximum likelihood estimation of misspecified models, {\em
+  Econometrica} {\bf 50}:~1--25.
+
+\end{thebibliography}

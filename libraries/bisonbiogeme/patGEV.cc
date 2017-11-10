@@ -7,9 +7,11 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
+#include "patPower.h"
 #include "patDisplay.h"
 #include "patMath.h"
 #include "patErrMiscError.h"
@@ -41,7 +43,7 @@ patReal patGEV::getDerivative_xi_finDiff(unsigned long index,
   }
 
   patVariables xplus = *x ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(xplus[index]),patReal(1.0)) * patSgn(xplus[index]) ;
   xplus[index] += stepsize ;
   patReal Gplus = evaluate(&xplus,param,mu,available,err) ;
@@ -67,7 +69,7 @@ patReal patGEV::getDerivative_mu_finDiff(const patVariables* x,
   }
 
   patReal muplus = *mu ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(muplus),patReal(1.0)) * patSgn(muplus) ;
   muplus += stepsize ;
   patReal Gplus = evaluate(x,param,&muplus,available,err) ;
@@ -94,7 +96,7 @@ patReal patGEV::getDerivative_param_finDiff(unsigned long index,
   }
   
   patVariables xplus = *param ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(xplus[index]),patReal(1.0)) * patSgn(xplus[index]) ;
   xplus[index] += stepsize ;
   patReal Gplus = evaluate(x,&xplus,mu,available,err) ;
@@ -137,7 +139,7 @@ patReal patGEV::getSecondDerivative_xi_xj_finDiff(unsigned long index1,
   }
 
   patVariables xplus = *x ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(xplus[index2]),patReal(1.0)) * patSgn(xplus[index2]) ;
   xplus[index2] += stepsize ;
   patReal Gplus = getDerivative_xi(index1,&xplus,param,mu,available,err) ;
@@ -165,7 +167,7 @@ patReal patGEV::getSecondDerivative_xi_mu_finDiff(unsigned long index,
   }
 
   patReal muplus = *mu ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(muplus),patReal(1.0)) * patSgn(muplus) ;
   muplus += stepsize ;
   patReal Gplus = getDerivative_xi(index,x,param,&muplus,available,err) ;
@@ -195,7 +197,7 @@ patReal patGEV::getSecondDerivative_param_finDiff(unsigned long indexVar,
   }
   
   patVariables xplus = *x ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
   patReal stepsize = sqrteta * patMax(patAbs(xplus[indexVar]),patReal(1.0)) * patSgn(xplus[indexVar]) ;
   xplus[indexVar] += stepsize ;
   patReal Gplus = getDerivative_param(indexParam,&xplus,param,mu,available,err) ;

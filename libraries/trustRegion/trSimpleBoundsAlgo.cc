@@ -9,6 +9,10 @@
 // Source: Conn, Gould Toint (2000) Trust Region Methods
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 // For debug only
 #include <numeric>
 //
@@ -30,13 +34,15 @@
 #include "trBoxGCP.h"
 #include "patFileExists.h"
 #include "patIterationBackup.h"
+#include "bioAlgorithmManager.h"
 
 trSimpleBoundsAlgo::trSimpleBoundsAlgo(patNonLinearProblem* aProblem,
 				       const trVector& initSolution,
 				       trParameters p,
 				       patIterationBackup* inter,
+				       bioAlgorithmManager* aStoppingCriteria,
 				       patError*& err) :
-  trNonLinearAlgo(aProblem),
+  trNonLinearAlgo(aProblem,aStoppingCriteria),
   status(trUNKNOWN),
   solution(initSolution),
   trueHessian(NULL),
@@ -665,7 +671,7 @@ patString trSimpleBoundsAlgo::run(patError*& err) {
     
   }
   
-  cout << setprecision(7) << endl  ;
+  GENERAL_MESSAGE(setprecision(7))  ;
 
   if (patFileExists()(theParameters.stopFileName)) {
     status = trUSER ;
@@ -735,9 +741,16 @@ patBoolean trSimpleBoundsAlgo::stop(patReal& gMax,patError*& err) {
 
   theInteraction->saveCurrentIteration() ;
 
-  if (patFileExists()(theParameters.stopFileName)) {
-    WARNING("Iterations interrupted by the user with the file " 
-    	    << theParameters.stopFileName) ;
+  if (theStoppingCriteria == NULL) {
+    err = new patErrNullPointer("bioAlgorithmManager") ;
+    WARNING(err->describe()) ;
+    return patTRUE ;
+  }
+  theStoppingCriteria->setCurrentIterate(solution) ;
+  theStoppingCriteria->setCurrentGradient(gk) ;
+  theStoppingCriteria->setCurrentFunction(function) ;
+  if (theStoppingCriteria->interruptIterations()) {
+    WARNING(theStoppingCriteria->reasonForInterruption()) ;
     return patTRUE ;
   }
 
@@ -857,7 +870,7 @@ patBoolean trSimpleBoundsAlgo::checkOpt(const trVector& x,
   trVector::const_iterator gIter = g.begin() ;
   trVector::const_iterator xIter = solution.begin() ;
   for ( ; gIter != g.end() ; ++gIter, ++xIter) {
-    patReal gRel = patAbs(*gIter) * patMax(1.0,patAbs(*xIter)) / 
+    patReal gRel = patAbs(*gIter) * patMax(patOne,patAbs(*xIter)) / 
       patMax(patAbs(function),patAbs(theParameters.typicalF)) ;
     gMax = patMax(gMax,gRel) ;
   }
@@ -869,7 +882,7 @@ patReal trSimpleBoundsAlgo::computeRhoK(patReal fold,
 					patReal modelImprovement) {
 
   patReal rhok  ;
-  patReal deltaK = 10.0*patEPSILON*patMax(1.0,patAbs(fold)) ;
+  patReal deltaK = 10.0*patEPSILON*patMax(patOne,patAbs(fold)) ;
   patReal deltaF = fnew - fold - deltaK ;
   patReal deltaM = modelImprovement - deltaK ;
   if (patAbs(deltaF) < 10*patEPSILON 

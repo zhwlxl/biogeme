@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patFormatRealNumbers.h"
 #include <iostream>
 #include <iomanip>
@@ -18,6 +19,17 @@
 #include "patPower.h"
 #include "patConst.h"
 
+patFormatRealNumbers::patFormatRealNumbers(patBoolean fsn,
+					   int ttest,
+					   int param,
+					   int stats) :
+  forceScientificNotation(fsn),
+  decimalDigitsTTest(ttest),
+  significantDigitsParameters(param),
+  decimalDigitsStats(stats) {
+
+}
+
 patFormatRealNumbers::patFormatRealNumbers() :
   forceScientificNotation(patFALSE),
   decimalDigitsTTest(2),
@@ -25,6 +37,7 @@ patFormatRealNumbers::patFormatRealNumbers() :
   decimalDigitsStats(3) {
 
 }
+
 patString patFormatRealNumbers::format(patBoolean scientific,
 				       patBoolean significant, 
 				       unsigned short digits,

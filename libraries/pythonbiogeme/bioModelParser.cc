@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <iostream>
 #include <list>
 #include <new>
@@ -181,7 +185,18 @@ bioModel *bioModelParser::readModel(patError*& err) {
   }
   theModel->setStatistics(statistics) ;
 
+  // Get the valuies of the old betas, that are supposed to be
+  // previous solutions already visited, such as local optima.
+
+  map<patString,vector<patReal> >* oldBetas = getOldBetas(pBioObject,err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL ;
+  }
+  theModel->setOldBetas(oldBetas) ;
+
   // Get expression for draws
+  
 
   map<patString, bioRandomDraws::bioDraw >* draws = getDraws(pBioObject,err) ;
   if (err != NULL) {
@@ -237,8 +252,10 @@ bioModel *bioModelParser::readModel(patError*& err) {
   // }
   // theModel->setStan(stan) ;
 
+  
   // The likelihood function
   patULong theFormulaId = getFormula(pBioObject,err) ;
+
 
   if (err != NULL) {
     WARNING(err->describe()) ;
@@ -293,19 +310,46 @@ bioModel *bioModelParser::readModel(patError*& err) {
     }
   }
 
-
   Py_DECREF(pModule) ;
 
   
   //  DEBUG_MESSAGE("Model specification read!") ;
 
   // Stop Python
-  PyErr_Clear(); 
-  Py_Finalize() ;
-  
+  // These statements generate segmentation fault on some implementations of Python. Therefore, they are removed temporarily. 
+  //PyErr_Clear();
+  //Py_Finalize() ;
+
   return theModel ;
 }
 
+
+map<patString,vector<patReal> >* bioModelParser::getOldBetas(PyObject* pBioObject,patError*& err) {
+  PyObject* pOldBetas(NULL) ;
+  PyObject* pKeyList(NULL) ;
+  map<patString,vector<patReal> >* result = new map<patString,vector<patReal> > ;
+  GET_PY_OBJ(pBioObject, OLDBETAS, pOldBetas) ;
+  if (pOldBetas != NULL) {
+    if (pOldBetas != Py_None) {
+      pKeyList = PyDict_Keys(pOldBetas) ;
+      Py_ssize_t listSize = PyList_Size(pKeyList) ;
+      for (Py_ssize_t pos=0 ; pos<listSize ; ++pos) {
+	PyObject* pName = PyList_GetItem(pKeyList, pos) ;
+	PyObject* pOldValues = PyDict_GetItem(pOldBetas, pName) ;
+	patString betaName = patString(PyBytes_AsString(PyUnicode_AsASCIIString(pName))) ;
+	Py_ssize_t valueListSize = PyList_Size(pOldValues) ;
+	vector<patReal> values ;
+	for (Py_ssize_t i = 0 ; i < valueListSize ; ++i) {
+	  PyObject* pValue = PyList_GetItem(pOldValues,i) ;
+	  patReal val(PyFloat_AsDouble(pValue)) ;
+	  values.push_back(val) ;
+	}
+	(*result)[betaName] = values ;
+      }
+    }
+  }
+  return result ;
+}
 
 patULong bioModelParser::getFormula(PyObject* pBioObject,patError*& err) {
   bioExpression* theFormula ;

@@ -6,10 +6,16 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+
 #include "bioIpopt.h"
 #include "patDisplay.h"
 #include "patNonLinearProblem.h"
 #include "patErrMiscError.h"
+#include "bioAlgorithmManager.h"
 #include "trVector.h"
 #include "trFunction.h"
 #include "bioParameters.h"
@@ -19,8 +25,10 @@
 #include "IpSolveStatistics.hpp"
 #endif
 
-bioIpopt::bioIpopt(patIterationBackup* i, patNonLinearProblem* aProblem):
-  trNonLinearAlgo(aProblem) ,
+bioIpopt::bioIpopt(patIterationBackup* i,
+		   bioAlgorithmManager* aStoppingCriteria,
+		   patNonLinearProblem* aProblem):
+  trNonLinearAlgo(aProblem,aStoppingCriteria) ,
   startingPointDefined(patFALSE),
   theInteraction(i) {
 
@@ -39,7 +47,7 @@ bioIpopt::bioIpopt(patIterationBackup* i, patNonLinearProblem* aProblem):
   patError* err(NULL) ;
   exactHessian =  (bioParameters::the()->getValueInt("useAnalyticalHessianForOptimization",err)) != 0 ;
   if (exactHessian) {
-    theHessian = new trHessian(bioParameters::the()->getTrParameters(err),n) ;
+    theHessian = new trHessian(bioParameters::the()->getTrParameters(),n) ;
   }
   else {
     theHessian = NULL ;
@@ -71,7 +79,28 @@ bool bioIpopt::get_nlp_info(Index& n, Index& m, Index& nnz_jac_g,
   index_style = TNLP::C_STYLE;
   return true ;
 }
-  
+
+bool bioIpopt::intermediate_callback(AlgorithmMode mode,
+				     Index iter, Number obj_value,
+				     Number inf_pr, Number inf_du,
+				     Number mu, Number d_norm,
+				     Number regularization_size,
+				     Number alpha_du, Number alpha_pr,
+				     Index ls_trials,
+				     const IpoptData* ip_data,
+				     IpoptCalculatedQuantities* ip_cq) {
+
+  if (theStoppingCriteria != NULL) {
+
+    // Must communicate the current iterate to the stopping criterion.
+    // It is not straightforward.
+    // See online documentation
+    if (theStoppingCriteria->interruptIterations()) {
+      return false ;
+    }
+  }
+  return true ;
+}
 
 bool bioIpopt::get_bounds_info(Index n, Number* x_l, Number* x_u,
 			       Index m, Number* g_l, Number* g_u) {

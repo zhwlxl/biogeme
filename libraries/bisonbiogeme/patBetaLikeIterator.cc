@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patBetaLikeIterator.h"
 
 patBetaLikeIterator::patBetaLikeIterator(map<patString,patBetaLikeParameter>* x) : theMap(x) {

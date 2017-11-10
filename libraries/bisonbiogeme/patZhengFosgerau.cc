@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patZhengFosgerau.h"
 #include "patErrOutOfRange.h"
 #include "patErrNullPointer.h"

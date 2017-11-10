@@ -15,6 +15,10 @@ class patFormatRealNumbers {
 
  public:
   patFormatRealNumbers() ;
+  patFormatRealNumbers(patBoolean fsn,
+		       int ttest,
+		       int param,
+		       int stats) ;
   void setForceScientificNotation(patBoolean forceScientificNotation) ;
   void setDecimalDigitsTTests(int d) ;
   void setDecimalDigitsStats(int d) ;

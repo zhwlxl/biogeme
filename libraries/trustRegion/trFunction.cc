@@ -6,8 +6,13 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patMath.h"
 #include "patErrNullPointer.h"
+#include "patPower.h"
 #include "trFunction.h"
 #include "patFileExists.h"
 #include "patLoopTime.h"
@@ -63,7 +68,7 @@ trVector* trFunction::computeFinDiffGradient(trVector* x,
 
 
   trVector xplus = *x ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
 
   unsigned long dim = getDimension() ;
 
@@ -143,7 +148,7 @@ trHessian* trFunction::computeFinDiffHessian(trVector* x,
   vector<trVector> h(dim,trVector(dim)) ;
 
   trVector xplus(*x) ;
-  patReal sqrteta = pow(patEPSILON, 0.5);
+  patReal sqrteta = patPower(patEPSILON, 0.5);
 
   GENERAL_MESSAGE("Compute hessian by finite difference") ;
   GENERAL_MESSAGE("You can interrupt it by creating a file named " << stopFileName) ;
@@ -178,7 +183,7 @@ trHessian* trFunction::computeFinDiffHessian(trVector* x,
     }
 
     patReal stepsizej = sqrteta*
-      patMax(patAbs(xplus[j]), patReal(1.0))*patSgn(xplus[j]);
+      patMax(patAbs(xplus[j]), patOne)*patSgn(xplus[j]);
 
     patReal tempj = xplus[j];
     

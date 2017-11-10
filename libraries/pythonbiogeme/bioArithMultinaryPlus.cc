@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 #ifdef DEBUG
@@ -155,8 +155,8 @@ bioFunctionAndDerivatives* bioArithMultinaryPlus::getNumericalFunctionAndGradien
   for (patULong k = 0 ; k < literalIds.size() ; ++k) {
     result.theGradient[k] = 0.0 ;
   }
-  if (result.theHessian != NULL && computeHessian) {
-    result.theHessian->setToZero() ;
+  if (computeHessian) {
+    result.theHessian.setToZero() ;
   }
   for (vector<bioExpression*>::iterator i = listOfChildren.begin() ;
        i != listOfChildren.end() ;
@@ -170,15 +170,15 @@ bioFunctionAndDerivatives* bioArithMultinaryPlus::getNumericalFunctionAndGradien
     for (patULong k = 0 ; k < literalIds.size() ; ++k) {
       result.theGradient[k] += fg->theGradient[k] ;
     }
-    if (result.theHessian != NULL && computeHessian) {
+    if (computeHessian) {
       for (patULong k = 0 ; k < literalIds.size() ; ++k) {
 	for (patULong j = k ; j < literalIds.size() ; ++j) {
-	  patReal v = fg->theHessian->getElement(k,j,err) ;
+	  patReal v = fg->theHessian.getElement(k,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
 	  }
-	  result.theHessian->addElement(k,j,v,err) ;
+	  result.theHessian.addElement(k,j,v,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;

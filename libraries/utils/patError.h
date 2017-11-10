@@ -9,7 +9,7 @@
 #ifndef patError_h
 #define patError_h
 
-#include <string>
+#include "patString.h"
 #include "patConst.h"
 #include "patAbsTime.h"
 
@@ -32,7 +32,7 @@ public:
   /**
      Purely virtual. Provides a description of the error
    */
-  virtual string describe() = PURE_VIRTUAL ;
+  virtual patString describe() = PURE_VIRTUAL ;
   /** Purely virtual. Tries to repair the error. If it fails to do so, it
       will return patFALSE. Included in the first design, but never implemented.
   */
@@ -44,13 +44,13 @@ public:
   patAbsTime time() const ;
   /** A specific comment can be defined. For example, a description of the
       file name and the line number where the error occurred.*/
-  void setComment(const string& c) ;
+  void setComment(const patString& c) ;
 
   /** The comment can be updated */
-  void addComment(const string& c) ;
+  void addComment(const patString& c) ;
 
 protected:
-  string comment_ ;
+  patString comment_ ;
 private:
   patAbsTime timeStamp ;
 

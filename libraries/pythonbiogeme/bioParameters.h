@@ -23,7 +23,7 @@ class bioParameters {
  public:
   static bioParameters* the() ;
   // Parameters for the trust region algorithm
-  trParameters getTrParameters(patError*& err) const ;
+  trParameters getTrParameters() const ;
   patReal getValueReal(patString p, patError*& err) const ;
   patString getValueString(patString p, patError*& err) const ;
   long getValueInt(patString p, patError*& err) const ;

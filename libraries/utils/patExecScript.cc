@@ -7,12 +7,13 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 
 #include "patExecScript.h"
 
-#include <string>
+#include <cstring>
 #include <iostream>
 #include "patDisplay.h"
 

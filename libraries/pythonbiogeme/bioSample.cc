@@ -7,19 +7,25 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <set>
 #include <iostream>
 #include <fstream>
 #include "patFileNames.h"
+#include "patRandomInteger.h"
 #include "bioSample.h"
 #include "bioParameters.h"
+#include "patFileTime.h"
 #include "patDisplay.h"
 #include "patOutputFiles.h"
 #include "patErrMiscError.h"
 #include "patErrOutOfRange.h"
 #include "bioIteratorInfoRepository.h"
 #include "bioMetaIterator.h"
+#include "bioRandomMetaIterator.h"
 #include "bioRowIterator.h"
 #include "bioIdIterator.h"
 #include "bioLiteralRepository.h"
@@ -94,12 +100,29 @@ void bioSample::readFile(bioExpression* exclude,
 			 patError*& err) {
   patString binaryFile = getBinaryFileName() ;
   if (patFileExists()(binaryFile)) {
-    readBinaryFile(exclude, 
+    patFileTime theTextTime(fileName) ;
+    patFileTime theBinaryTime(binaryFile) ;
+    
+    if (theBinaryTime < theTextTime) {
+      GENERAL_MESSAGE("Binary file last modified on " << theBinaryTime) ;
+      GENERAL_MESSAGE("Text file last modified on " << theTextTime) ;
+      GENERAL_MESSAGE("Binary file is ignored") ;
+      readTextFile(exclude, 
 		   userExpressions, 
 		   err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+    }
+    else {
+      readBinaryFile(exclude, 
+		     userExpressions, 
+		     err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
     }
   }
   else {
@@ -444,6 +467,21 @@ bioMetaIterator* bioSample::createMetaIterator(bioIteratorSpan theSpan, bioItera
   return ptr ;
 }
 
+bioRandomMetaIterator* bioSample::createRandomMetaIterator(bioIteratorSpan theSpan, bioIteratorSpan theThreadSpan, patError*& err) const {
+  
+  if (theSpan.lastRow == patBadId) {
+    theSpan.lastRow = size() ;
+  }
+  bioRandomMetaIterator* ptr = new bioRandomMetaIterator(theSpan, 
+							 err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+  }
+  return ptr ;
+}
+
+
+
 bioRowIterator* bioSample::createRowIterator(bioIteratorSpan theSpan, bioIteratorSpan theThreadSpan, patBoolean printMessages, patError*& err) const {
   
   if (theSpan.lastRow == patBadId) {
@@ -709,3 +747,102 @@ patString bioSample::getDataFileName() const {
     return getTextFileName() ;
   }
 }
+
+bioSample::bioSample(patULong _nbrOfExcludedRows,
+		     patReal _rowNumber,
+		     patULong _physicalRowNumber,
+		     vector<patString>& _headers,
+		     vector<patVariables>& _samples,
+		     patULong _numberOfRealColumns,
+		     patString _fileName) :
+  nbrOfExcludedRows(_numberOfRealColumns),
+  rowNumber(_rowNumber),
+  physicalRowNumber(_physicalRowNumber),
+  headers(_headers),
+  samples(_samples),
+  numberOfRealColumns(_numberOfRealColumns),
+  fileName(_fileName),
+  dataReadFromBinary(patFALSE) {
+  
+  }
+
+bioSample bioSample::getBootstrap(patError*& err) {
+  patBoolean isPanelData = bioIteratorInfoRepository::the()->isTopIteratorMeta(err) ;
+  DEBUG_MESSAGE("Is panel data? " << isPanelData) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return *this ;
+  }
+  if (isPanelData) {
+    return getPanelBootstrap(err) ;
+  }
+  else {
+    return getRegularBootstrap(err) ;
+  }
+}
+
+bioSample bioSample::getRegularBootstrap(patError*& err) {
+  vector<patVariables> bootstrapSample ;
+  for (patULong r = 0 ; r < size() ; ++r) {
+    patULong selectedRow = patRandomInteger::the()->drawNumber(0,size()) ;
+    bootstrapSample.push_back(samples[selectedRow]) ;
+  }
+
+  return bioSample(nbrOfExcludedRows,
+		   rowNumber,
+		   physicalRowNumber,
+		   headers,
+		   bootstrapSample,
+		   numberOfRealColumns,
+		   patString("__bootstrap.dat")) ;
+}
+
+
+bioSample bioSample::getPanelBootstrap(patError*& err) {
+  DEBUG_MESSAGE("Get panel bootstrap") ;
+  patBoolean isPanelData = bioIteratorInfoRepository::the()->isTopIteratorMeta(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return *this ;
+  }
+  if (!isPanelData) {
+    err = new patErrMiscError("The data has no panel structure.") ;
+    WARNING(err->describe()) ;
+    return *this ;
+  }
+  bioIteratorSpan
+    theSpan(bioIteratorInfoRepository::the()->getTopIteratorName(),0) ;
+  DEBUG_MESSAGE("Span " << theSpan) ;
+  bioRandomMetaIterator* randomIterator =  createRandomMetaIterator(theSpan, theSpan, err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return *this ;
+  }
+  DEBUG_MESSAGE("Strt samplimg") ;
+  vector<patVariables> bootstrapSample ;
+  for (randomIterator->first() ;
+       !randomIterator->isDone() ;
+       randomIterator->next()) {
+    bioIteratorSpan theCurrentSpan = randomIterator->currentItem() ;
+    for (patULong row = theCurrentSpan.firstRow ;
+	 row < theCurrentSpan.lastRow ;
+	 ++row) {
+      if (row >= samples.size()) {
+	err = new patErrOutOfRange<patULong>(row,0,samples.size()-1) ;
+	WARNING(err->describe()) ;
+	return *this ;
+      }
+      bootstrapSample.push_back(samples[row]) ;
+    }
+  }
+  DEBUG_MESSAGE("Sampling done: " << bootstrapSample.size() << " data") ;
+  
+  return bioSample(nbrOfExcludedRows,
+		   rowNumber,
+		   physicalRowNumber,
+		   headers,
+		   bootstrapSample,
+		   numberOfRealColumns,
+		   patString("__bootstrapPanel.dat")) ;
+}
+

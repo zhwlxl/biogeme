@@ -7,13 +7,16 @@
 */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <iomanip>
 
 #include "patIterationBackup.h"
+#include "bioAlgorithmManager.h"
 #include "patCfsqp.h"
 #include "patFileExists.h"
+#include "patPower.h"
 
 /*
   THIS SOFTWARE MAY NOT BE COPIED TO MACHINES OUTSIDE THE SITE FOR
@@ -219,7 +222,7 @@ cfsqp1(int,int,int,int,int,int,int,int,int,int,int *,int,
        void (*)(int,int,patReal *,patReal *,
 		void (*)(int,int,patReal *,patReal *,void *),void *),
        patIterationBackup* theInteraction,
-       patString stopFile);
+       bioAlgorithmManager* theStoppingCriteria);
 static void
 check(int,int,int,int *,int,int,int,int,int,int,int,int *,patReal,
       patReal,struct _parameter *);
@@ -261,7 +264,7 @@ hessian(int,int,int,int,int,int,int,int,int,int,int,int *,int,
 static void
 out(int,int,int,int,int,int,int,int,int,int,int,int *,patReal *,
     struct _constraint *,struct _objective *,patReal,
-    patReal,patReal,patReal,patReal,int, patIterationBackup*, patString);
+    patReal,patReal,patReal,patReal,int, patIterationBackup*, bioAlgorithmManager*);
 static void
 update_omega(int,int,int,int *,int,int,int,int,patReal,patReal,
              struct _constraint *,struct _objective *,patReal *,
@@ -306,12 +309,12 @@ cfsqp(int nparam,int nf,int nfsr,int nineqn,int nineq,int neqn,
                      void (*)(int,int,patReal *,patReal *,void *),void *),
       void *cd, 
       patIterationBackup* theAlgoInteraction,
-      patString stopFile, int *nIter)
+      bioAlgorithmManager* theStoppingCriteria, int *nIter)
 #else
   void
 cfsqp(nparam,nf,nfsr,nineqn,nineq,neqn,neq,ncsrl,ncsrn,mesh_pts,
       mode,iprint,miter,inform,bigbnd,eps,epseqn,udelta,bl,bu,x,
-      f,g,lambda,obj,constr,gradob,gradcn,cd, theAlgoInteraction,stopFile, nIter)
+      f,g,lambda,obj,constr,gradob,gradcn,cd, theAlgoInteraction,theStoppingCriteria, nIter)
   int     nparam,nf,nfsr,neqn,nineqn,nineq,neq,ncsrl,ncsrn,mode,
   iprint,miter,*mesh_pts,*inform;
 patReal  bigbnd,eps,epseqn,udelta;
@@ -319,7 +322,7 @@ patReal  *bl,*bu,*x,*f,*g,*lambda;
 void    (* obj)(),(* constr)(),(* gradob)(),(* gradcn)();
 void    *cd;
 patIterationBackup* theAlgoInteraction ;
-patString stopFile ;
+bioAlgorithmManager* theStoppingCriteria ;
 int *nIter ;
 #endif
 
@@ -861,7 +864,7 @@ int *nIter ;
 
   cfsqp1(miter,nparam,nob,nobL,nfsip1,nineqn,neq,neqn,ncsipl1,ncsipn1,
 	 mesh_pts1,ncnstr,nctotl,nrowa,feasb,epskt,epseqn,indxob,
-	 indxcn,param,cs,ob,signeq,obj,constr,gradob,gradcn, theAlgoInteraction, stopFile);
+	 indxcn,param,cs,ob,signeq,obj,constr,gradob,gradcn, theAlgoInteraction, theStoppingCriteria);
 
   free_iv(iw);
   free_dv(w);
@@ -983,12 +986,12 @@ cfsqp1(int miter,int nparam,int nob,int nobL,int nfsip,int nineqn,
        void (*gradcn)(int,int,patReal *,patReal *,
 		      void (*)(int,int,patReal *,patReal *,void *),void *),
        patIterationBackup* theAlgoInteraction,
-       patString stopFile)
+       bioAlgorithmManager* theStoppingCriteria)
 #else
   static void
 cfsqp1(miter,nparam,nob,nobL,nfsip,nineqn,neq,neqn,ncsipl,ncsipn,
        mesh_pts,ncnstr,nctotl,nrowa,feasb,epskt,epseqn,indxob,
-       indxcn,param,cs,ob,signeq,obj,constr,gradob,gradcn,theAlgoInteraction,stopFile)
+       indxcn,param,cs,ob,signeq,obj,constr,gradob,gradcn,theAlgoInteraction,theStoppingCriteria)
   int     miter,nparam,nob,nobL,nfsip,nineqn,neq,neqn,ncnstr,
   nctotl,nrowa,feasb,ncsipl,ncsipn,*mesh_pts;
 int     *indxob,*indxcn;
@@ -998,7 +1001,7 @@ struct _constraint *cs;
 struct _objective  *ob;
 struct _parameter  *param;
 patIterationBackup* theAlgoInteraction ;
-patString stopFile ;
+bioAlgorithmManager* theStoppingCriteria ;
 void   (* obj)(),(* constr)(),(* gradob)(),(* gradcn)();
 #endif
 {
@@ -1158,7 +1161,7 @@ void   (* obj)(),(* constr)(),(* gradob)(),(* gradcn)();
 
     out(miter,nparam,nob,nobL,nfsip,nineqn,nn,nineqn,ncnst1,
 	ncsipl,ncsipn,mesh_pts,param->x,cs,ob,fM,fmax,steps,
-	sktnom,d0nm,feasb,theAlgoInteraction,stopFile);
+	sktnom,d0nm,feasb,theAlgoInteraction,theStoppingCriteria);
     if (nstop==0) {
       if (!feasb) {
 	dealloc1(nparam,nrowa,a,hess,hess1,di,d,gm,
@@ -2100,8 +2103,8 @@ void    (* obj)(),(* constr)();
     for (i=1; i<=nparam; i++) d[i]=0.e0;
   }
   if (glob_info.mode!=1) {
-    v0=pow(*d0nm,2.1);
-    v1=DMAX1(0.5e0,pow(dnm1,2.5));
+    v0=patPower(*d0nm,2.1);
+    v1=DMAX1(0.5e0,patPower(dnm1,2.5));
     rho=v0/(v0+v1);
     rhog=rho;
   } else {
@@ -2326,7 +2329,7 @@ void    (* obj)(),(* constr)();
   }
  L1110:
   matrvc(nparam,nparam,hess,di,cvec);
-  vv=-DMIN1(0.01e0*dnm,pow(dnm,2.5));
+  vv=-DMIN1(0.01e0*dnm,patPower(dnm,2.5));
   /*--------------------------------------------------------------*/
   /*    compute a correction dtilde to d=(1-rho)d0+rho*d1         */
   /*--------------------------------------------------------------*/
@@ -3333,11 +3336,11 @@ out(int miter,int nparam,int nob,int nobL,int nfsip,int ncn,
     struct _objective *ob,patReal fM,patReal fmax,
     patReal steps,patReal sktnom,patReal d0norm,int feasb,
     patIterationBackup* theInteraction,
-    patString stopFile)
+    bioAlgorithmManager* theStoppingCriteria)
 #else
   static void
 out(miter,nparam,nob,nobL,nfsip,ncn,nn,nineqn,ncnstr,ncsipl,ncsipn,
-    mesh_pts,x,cs,ob,fM,fmax,steps,sktnom,d0norm,feasb, theInteraction,stopFile)
+    mesh_pts,x,cs,ob,fM,fmax,steps,sktnom,d0norm,feasb, theInteraction,theStoppingCriteria)
   int     miter,nparam,nob,nobL,nfsip,ncn,nn,ncnstr,feasb,
   ncsipl,ncsipn,nineqn,*mesh_pts;
 patReal  fM,fmax,steps,sktnom,d0norm;
@@ -3345,7 +3348,7 @@ patReal  *x;
 struct  _constraint *cs;
 struct  _objective  *ob;
 patIterationBackup* theInteraction ;
-patString stopFile ;
+bioAlgorithmManager* theStoppingCriteria;
 #endif
 {
   int i,j,index,display,offset;
@@ -3356,14 +3359,24 @@ patString stopFile ;
   dummy=0.e0;
 
   theInteraction->saveCurrentIteration() ;
-  if (patFileExists()(stopFile)) {
-    WARNING("Iterations interrupted by the user with the file " 
-    	    << stopFile) ;
-    glob_prnt.info=10;
-    nstop=0;
-    if (glob_prnt.iprint==0) goto L9000;
-  }
 
+  if (theStoppingCriteria != NULL) {
+    patVariables currentSolution(nparam) ;
+    patVariables currentGradient(nparam) ;
+    for (unsigned short i = 0 ; i < nparam ; ++i) {
+      currentSolution[i] = x[i] ;
+      currentGradient[i] = ob[1].grad[i] ;
+    }
+    theStoppingCriteria->setCurrentIterate(currentSolution) ;
+    theStoppingCriteria->setCurrentGradient(currentGradient) ;
+    theStoppingCriteria->setCurrentFunction(ob[1].val) ;
+    if (theStoppingCriteria->interruptIterations()) {
+      WARNING(theStoppingCriteria->reasonForInterruption()) ;
+      glob_prnt.info=10;
+      nstop=0;
+      if (glob_prnt.iprint==0) goto L9000;
+    }
+  }
   if (glob_prnt.iter>=miter && nstop != 0) {
     glob_prnt.info=3;
     nstop=0;

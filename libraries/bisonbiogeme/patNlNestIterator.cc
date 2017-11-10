@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patNlNestIterator.h"
 
 patNlNestIterator::patNlNestIterator(map<patString,patNlNestDefinition>* x) : theMap(x) {

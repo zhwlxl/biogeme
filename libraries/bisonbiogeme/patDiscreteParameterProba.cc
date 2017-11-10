@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patDiscreteParameterProba.h"
 #include "patProbaModel.h"
 #include "patProbaPanelModel.h"

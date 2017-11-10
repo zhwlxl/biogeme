@@ -1,0 +1,31 @@
+  patULong bootstrap = bioParameters::the()->getValueInt("bootstrapStdErr",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+
+  patDisplay::the().initProgressReport("Performs bootstrapping",
+				       bootstrap) ;
+  
+  patLoopTime loopTime(bootstrap) ;
+  for (patULong rs = 0 ;
+       rs < bootstrap ;
+       ++rs) {
+      loopTime.setIteration(rs) ;
+      if (!patDisplay::the().updateProgressReport(rs)) {
+	patDisplay::the().terminateProgressReport() ;
+	err = new patErrMiscError("Interrupted by the user") ;
+	WARNING(err->describe()) ;
+	return  ;
+      }
+      GENERAL_MESSAGE(loopTime) ;
+      bioSample bootstrapSample = theSample->getBootstrap() ;
+      theFunction->setSample(&bootstrapSample,err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+
+      
+  }
+  patDisplay::the().terminateProgressReport() ;

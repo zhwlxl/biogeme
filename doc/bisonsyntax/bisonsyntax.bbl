@@ -1,0 +1,54 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Ben-Akiva et~al.]{Ben-Akiva, Bolduc \harvardand\
+  Bradley}{1993}{BenABoldBrad93}
+Ben-Akiva, M., Bolduc, D. \harvardand\ Bradley, M.  \harvardyearleft
+  1993\harvardyearright .
+\newblock Estimation of travel model choice models with randomly distributed
+  values of time, {\em Transportation Research Record} {\bf 1413}:~88--97.
+
+\harvarditem{Bierlaire}{2002}{Bier02}
+Bierlaire, M.  \harvardyearleft 2002\harvardyearright .
+\newblock The network {GEV} model, {\em Proceedings of the 2nd Swiss
+  Transportation Research Conference}, Ascona, Switzerland.
+
+\harvarditem{Bierlaire}{2015}{BierBiogeme2015a}
+Bierlaire, M.  \harvardyearleft 2015\harvardyearright .
+\newblock {BisonBiogeme} 2.4: estimating a first model, {\em Series on Biogeme
+  TRANSP-OR 150720}, Ecole Polytechnique F\'ed\'erale de Lausanne.
+\newline\harvardurl{biogeme.epfl.ch}
+
+\harvarditem[Bierlaire et~al.]{Bierlaire, Bolduc \harvardand\
+  McFadden}{2008}{BierBoldMcFa08}
+Bierlaire, M., Bolduc, D. \harvardand\ McFadden, D.  \harvardyearleft
+  2008\harvardyearright .
+\newblock The estimation of generalized extreme value models from choice-based
+  samples, {\em Transportation Research Part B} {\bf 42}(4):~381--394.
+
+\harvarditem{Bierlaire \harvardand\ Frejinger}{2008}{BierFrej07}
+Bierlaire, M. \harvardand\ Frejinger, E.  \harvardyearleft
+  2008\harvardyearright .
+\newblock Route choice modeling with network-free data, {\em Transportation
+  Research Part C: Emerging Technologies} {\bf 16}(2):~187--198.
+
+\harvarditem{Bradley \harvardand\ Daly}{1991}{BradDaly91}
+Bradley, M.~A. \harvardand\ Daly, A.  \harvardyearleft 1991\harvardyearright .
+\newblock Estimation of logit choice models using mixed stated preferences and
+  revealed preferences information, {\em Methods for understanding travel
+  behaviour in the 1990's}, International Association for Travel Behaviour,
+  Qu{\'e}bec, pp.~116--133.
+\newblock 6th international conference on travel behaviour.
+
+\harvarditem{Fosgerau}{2008}{Fosg08}
+Fosgerau, M.  \harvardyearleft 2008\harvardyearright .
+\newblock Specification testing of discrete choice models: a note on the use of
+  a nonparametric test, {\em Journal of Choice Modelling} {\bf 1}(1):~26--239.
+
+\harvarditem{Fosgerau \harvardand\ Bierlaire}{2007}{FosgBier07}
+Fosgerau, M. \harvardand\ Bierlaire, M.  \harvardyearleft 2007\harvardyearright
+  .
+\newblock A practical test for the choice of mixing distribution in discrete
+  choice models, {\em Transportation Research Part B: Methodological} {\bf
+  41}(7):~784--794.
+
+\end{thebibliography}

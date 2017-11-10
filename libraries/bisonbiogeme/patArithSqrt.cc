@@ -7,9 +7,11 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <cmath>
+#include "patPower.h"
 #include "patArithSqrt.h"
 #include "patErrNullPointer.h"
 #include "patDisplay.h"
@@ -45,7 +47,7 @@ patReal patArithSqrt::getValue(patError*& err) const {
     WARNING(err->describe()) ;
     return patReal();
   }
-  return pow(result,0.5) ;
+  return patPower(result,0.5) ;
 }
 
 patReal patArithSqrt::getDerivative(unsigned long index, 
@@ -69,7 +71,7 @@ patReal patArithSqrt::getDerivative(unsigned long index,
     return patReal();
   }
 
-  return (0.5 * pow(value,-0.5) * deriv) ;
+  return (0.5 * patPower(value,-0.5) * deriv) ;
 
   
 }

@@ -15,7 +15,7 @@
 @author \URL[Michel Bierlaire]{http://roso.epfl.ch/mbi}, EPFL (Sun Apr  4 15:39:30 2004)
 */
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 #include <cassert>
 

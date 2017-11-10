@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioArithGaussHermite.h"
 #include "bioExpression.h"
 #include "bioLiteralRepository.h"
@@ -46,7 +50,7 @@ vector<patReal> bioArithGaussHermite::getValue(patReal x, patError*& err) {
     if (withHessian) {
       for (patULong i = 0 ; i < fg->theGradient.size() ; ++i) {
 	for (patULong j = i ; j < fg->theGradient.size() ; ++j) {
-	  patReal v = fg->theHessian->getElement(i,j,err) ;
+	  patReal v = fg->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return vector<patReal>() ;

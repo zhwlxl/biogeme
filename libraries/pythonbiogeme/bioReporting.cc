@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <set>
 #include <iomanip>
 
@@ -17,7 +21,7 @@
 #include "patErrOutOfRange.h"
 #include "patMath.h"
 #include "bioReporting.h"
-#include "bioRawResults.h"
+#include "bioOptimizationResults.h"
 #include "patDisplay.h"
 #include "patSvd.h"
 #include "patPValue.h"
@@ -34,7 +38,7 @@
 
 bioReporting::bioReporting(patError*& err) :
   reportDraws(patFALSE),
-  theRawResults(NULL),
+  theOptimizationResults(NULL),
   theBayesianResults(NULL),
   nbrDraws(bioRandomDraws::the()->nbrOfDraws()),
   nbrParameters(patBadId),
@@ -53,10 +57,10 @@ bioReporting::bioReporting(patError*& err) :
 
 }
 
-void bioReporting::computeEstimationResults(bioRawResults* rr, patError*& err) {
-  theRawResults = rr ;
+void bioReporting::computeEstimationResults(bioOptimizationResults* rr, patError*& err) {
+  theOptimizationResults = rr ;
   if (rr == NULL) {
-    err = new patErrNullPointer("bioRawResults") ;
+    err = new patErrNullPointer("bioOptimizationResults") ;
     WARNING(err->describe()) ;
     return ;
   }
@@ -70,7 +74,7 @@ void bioReporting::computeEstimationResults(bioRawResults* rr, patError*& err) {
 void bioReporting::compute(patError*& err) {
 
   // Set the beta values
-  bioLiteralRepository::the()->setBetaValues(theRawResults->solution,err) ;
+  bioLiteralRepository::the()->setBetaValues(theOptimizationResults->solution,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
@@ -78,45 +82,109 @@ void bioReporting::compute(patError*& err) {
   
   // Standard errors
 
-  if (theRawResults->varianceCovariance != NULL) {
-    for (patULong i = 0 ; i < theRawResults->varianceCovariance->nRows() ; ++i) {
-      if ((*theRawResults->varianceCovariance)[i][i] <= patEPSILON) {
+  patULong n = theOptimizationResults->getSize() ;
+  if (theOptimizationResults->hessian != NULL) {
+    raoCramer = theOptimizationResults->getInverseHessian(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    for (patULong i = 0 ; i < n ; ++i) {
+      if (raoCramer[i][i] <= patEPSILON) {
 	stdErr.push_back(patMaxReal) ;
       }
       else{
-	stdErr.push_back(sqrt((*theRawResults->varianceCovariance)[i][i])) ; 
+	stdErr.push_back(sqrt(raoCramer[i][i])) ; 
       }
     }
   }
 
-  
-  if (theRawResults->robustVarianceCovariance != NULL) {
-    for (patULong i = 0 ; i < theRawResults->robustVarianceCovariance->nRows() ; ++i) {
-      if ((*theRawResults->robustVarianceCovariance)[i][i] <= patEPSILON) {
+
+  // Robust estimator
+
+  patMyMatrix tmp(n,n) ;
+  robustVarCovar = tmp ;
+  if (theOptimizationResults->hessian != NULL && theOptimizationResults->bhhh != NULL) {
+     patMyMatrix matBhhh(theOptimizationResults->bhhh->getMatrixForLinAlgPackage(err)) ;
+     if (err != NULL) {
+       WARNING(err->describe()) ;
+       return ;
+     }
+     mult(matBhhh,raoCramer,tmp,err) ; 
+     if (err != NULL) {
+       WARNING(err->describe()) ;
+       return ;
+     }
+     mult(raoCramer,tmp,robustVarCovar,err) ;
+     if (err != NULL) {
+       WARNING(err->describe()) ;
+       return ;
+     }
+
+    for (patULong i = 0 ; i < n ; ++i) {
+      if (robustVarCovar[i][i] <= patEPSILON) {
 	robustStdErr.push_back(patMaxReal) ;
       } 
       else {
-	robustStdErr.push_back(sqrt((*theRawResults->robustVarianceCovariance)[i][i])) ; 
+	robustStdErr.push_back(sqrt(robustVarCovar[i][i])) ; 
       }
     }
   }
 
+  // Bootsrap
+  
+  if (bootstrapAvailable()) {
+    patULong bootstrapDraws = theOptimizationResults->bootstrapSolutions.size() ;   
+    patMyMatrix btmp(n,n,0.0) ;
+    patVariables mean(n,0.0) ;
+    for (patULong i = 0 ; i < n ; ++i) {
+      for (patULong r = 0 ; r < bootstrapDraws; ++r) {
+	mean[i] += theOptimizationResults->bootstrapSolutions[r][i] ;
+      } 
+      mean[i] /= patReal(bootstrapDraws) ;
+    }
+    
+    for (patULong i = 0 ; i < n ; ++i) {
+      for (patULong j = i ; j < n ; ++j) {
+	for (patULong r = 0 ; r < bootstrapDraws; ++r) {
+	  btmp[i][j] +=
+	    (theOptimizationResults->bootstrapSolutions[r][i] - mean[i]) *
+	    (theOptimizationResults->bootstrapSolutions[r][j] - mean[j]) ;
+	}
+	btmp[i][j] /= patReal(bootstrapDraws-1) ;
+	if (i != j) {
+	  btmp[j][i] = btmp[i][j] ;
+	}
+      }
+    }
+    bootstrapVarCovar = btmp ;
+
+    for (patULong i = 0 ; i < n ; ++i) {
+      if (bootstrapVarCovar[i][i] <= patEPSILON) {
+	bootstrapStdErr.push_back(patMaxReal) ;
+      } 
+      else {
+	bootstrapStdErr.push_back(sqrt(bootstrapVarCovar[i][i])) ; 
+      }
+    }
+
+  }
   nbrParameters = bioLiteralRepository::the()->getNumberOfEstimatedParameters() ;
   
 }
 
 patBoolean bioReporting::isRaoCramerAvailable() const {
-  if (theRawResults == NULL) {
+  if (theOptimizationResults == NULL) {
     return patFALSE ;
   }
-  return (theRawResults->varianceCovariance != NULL) ;
+  return (theOptimizationResults->hessian != NULL) ;
 }
 
 patBoolean bioReporting::isSandwichAvailable() const {
-  if (theRawResults == NULL) {
+  if (theOptimizationResults == NULL) {
     return patFALSE ;
   }
-  return (theRawResults->robustVarianceCovariance != NULL) ;
+  return (theOptimizationResults->isSandwichAvailable()) ;
 }
 
 
@@ -186,7 +254,28 @@ void bioReporting::writeLaTeX(patString fileName, patError*& err) {
   latexFile << "\\end{tabular}" << endl ;
 
  latexFile << "\\\\" << endl ; 
-  patFormatRealNumbers theNumber ;
+
+ int fsn =  bioParameters::the()->getValueInt("forceScientificNotation",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int tstats = bioParameters::the()->getValueInt("precisionTStats",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int param = bioParameters::the()->getValueInt("precisionParameters",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int stats =  bioParameters::the()->getValueInt("precisionStatistics",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ patFormatRealNumbers theNumber(fsn,tstats,param,stats) ;
 
   latexFile << "\\begin{tabular}{rcl}" << endl ;
   latexFile << "\\multicolumn{3}{l}{\\bf Summary statistics}\\\\" << endl ;
@@ -196,12 +285,13 @@ void bioReporting::writeLaTeX(patString fileName, patError*& err) {
   if (initLoglikelihood != 0.0) {
     latexFile << " $\\mathcal{L}(\\beta_0)$ &=&  $"<< theNumber.formatStats(initLoglikelihood)<<"$ \\\\" << endl ;
   }
-  if (theRawResults != NULL) {
-    latexFile << " $\\mathcal{L}(\\hat{\\beta})$ &=& $"<<theNumber.formatStats(theRawResults->valueAtSolution)<<" $  \\\\" << endl ;
+  if (theOptimizationResults != NULL) {
+    patReal valueAtSolution = -theOptimizationResults->objective ;
+    latexFile << " $\\mathcal{L}(\\hat{\\beta})$ &=& $"<<theNumber.formatStats(valueAtSolution)<<" $  \\\\" << endl ;
     if (initLoglikelihood != 0.0) {
-      latexFile << " $-2[\\mathcal{L}(\\beta_0) -\\mathcal{L}(\\hat{\\beta})]$ &=& $"<<theNumber.formatStats( -2.0 * (initLoglikelihood - theRawResults->valueAtSolution))<<"$ \\\\" << endl ;
-      latexFile << "    $\\rho^2$ &=&   $"<<theNumber.formatStats(1.0 - (theRawResults->valueAtSolution / initLoglikelihood))<<"$ \\\\" << endl ;
-      latexFile << "    $\\bar{\\rho}^2$ &=&    $"<< theNumber.formatStats(1.0 - ((theRawResults->valueAtSolution-nbrParameters) / initLoglikelihood))<<"$ \\\\" << endl ;
+      latexFile << " $-2[\\mathcal{L}(\\beta_0) -\\mathcal{L}(\\hat{\\beta})]$ &=& $"<<theNumber.formatStats( -2.0 * (initLoglikelihood - valueAtSolution))<<"$ \\\\" << endl ;
+      latexFile << "    $\\rho^2$ &=&   $"<<theNumber.formatStats(1.0 - (valueAtSolution / initLoglikelihood))<<"$ \\\\" << endl ;
+      latexFile << "    $\\bar{\\rho}^2$ &=&    $"<< theNumber.formatStats(1.0 - ((valueAtSolution-nbrParameters) / initLoglikelihood))<<"$ \\\\" << endl ;
     }
   }
 
@@ -216,7 +306,27 @@ void bioReporting::writeLaTeX(patString fileName, patError*& err) {
 }
 
 void bioReporting::writeHtml(patString fileName, patError*& err) {
-  patFormatRealNumbers theNumber ;
+ int fsn =  bioParameters::the()->getValueInt("forceScientificNotation",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int tstats = bioParameters::the()->getValueInt("precisionTStats",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int param = bioParameters::the()->getValueInt("precisionParameters",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ int stats =  bioParameters::the()->getValueInt("precisionStatistics",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return ;
+ }
+ patFormatRealNumbers theNumber(fsn,tstats,param,stats) ;
   ofstream htmlFile(fileName.c_str()) ;
   patAbsTime now ;
   now.setTimeOfDay() ;
@@ -296,7 +406,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
   }
 
 
-  if (theRawResults != NULL) {
+  if (theOptimizationResults != NULL) {
     
     htmlFile << "<h1>Estimation report</h1>" << endl ;
     htmlFile << endl ;
@@ -325,26 +435,27 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
       htmlFile << "<tr class=biostyle><td align=right><strong>Init log likelihood</strong>:	</td> <td>"<< theNumber.formatStats(initLoglikelihood) 
 	       <<"</td></tr>" << endl ;
     }
-    if (theRawResults != NULL) {
+    if (theOptimizationResults != NULL) {
+      patReal valueAtSolution = -theOptimizationResults->objective ;
       htmlFile << "<tr class=biostyle><td align=right><strong>Final log likelihood</strong>:	</td> <td>"
-	       << theNumber.formatStats(theRawResults->valueAtSolution) 
+	       << theNumber.formatStats(valueAtSolution) 
 	       <<"</td></tr>" << endl ;
       htmlFile << "<tr class=biostyle><td align=right><strong>Likelihood ratio test for the init. model</strong>:	</td> <td>"
-	       << theNumber.formatStats(-2.0 * (initLoglikelihood  - theRawResults->valueAtSolution))  
+	       << theNumber.formatStats(-2.0 * (initLoglikelihood  - valueAtSolution))  
 	       <<"</td></tr>" << endl ;
       htmlFile << "<tr class=biostyle><td align=right><strong>Rho-square for the init. model</strong>:	</td> <td>"
-	       << theNumber.formatStats(1.0-(theRawResults->valueAtSolution/initLoglikelihood))
+	       << theNumber.formatStats(1.0-(valueAtSolution/initLoglikelihood))
 	       <<"</td></tr>" << endl ;
       htmlFile << "<tr class=biostyle><td align=right><strong>Rho-square-bar for the init. model</strong>:	</td> <td>"
-	       << theNumber.formatStats(1.0-((theRawResults->valueAtSolution-patReal(nbrParameters))/initLoglikelihood)) 
+	       << theNumber.formatStats(1.0-((valueAtSolution-patReal(nbrParameters))/initLoglikelihood)) 
 	       <<"</td></tr>" << endl ;
 
             htmlFile << "<tr class=biostyle><td align=right><strong>Akaike Information Criterion</strong>:	</td> <td>"
-		     << theNumber.formatStats(2.0 * patReal(nbrParameters) - 2.0 * theRawResults->valueAtSolution) 
+		     << theNumber.formatStats(2.0 * patReal(nbrParameters) - 2.0 * valueAtSolution) 
 	       <<"</td></tr>" << endl ;
 
 	    htmlFile << "<tr class=biostyle><td align=right><strong>Bayesian Information Criterion</strong>:	</td> <td>"
-		     << theNumber.formatStats(- 2.0 * theRawResults->valueAtSolution + patReal(nbrParameters) * log(patReal(sampleSize)) ) 
+		     << theNumber.formatStats(- 2.0 * valueAtSolution + patReal(nbrParameters) * log(patReal(sampleSize)) ) 
 	       <<"</td></tr>" << endl ;
 
       
@@ -352,7 +463,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	       << theNumber.format(patTRUE,
 				   patFALSE,
 				   3,
-				   theRawResults->gradientNorm) 
+				   theOptimizationResults->getGradientNorm()) 
 	       <<"</td></tr>" << endl ;
       htmlFile << "<tr class=biostyle><td align=right><strong>Diagnostic</strong>:	</td> <td>" ;
       if (algorithm != "") {
@@ -387,7 +498,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
     patIterator<bioFixedParameter*>* theBetaIter = bioLiteralRepository::the()->getSortedIteratorFixedParameters() ;
     patIterator<bioFixedParameter*>* theSecondBetaIter = bioLiteralRepository::the()->getSortedIteratorFixedParameters() ;
 
-    if (theRawResults != NULL) {
+    if (theOptimizationResults != NULL) {
       htmlFile << "<h2>Estimated parameters</h2>" << endl ;
       htmlFile << "<p><font size='-1'>Click on the headers of the columns to sort the table  [<a href='http://www.kryogenix.org/code/browser/sorttable/' target='_blank'>Credits</a>]</font></p>" << endl ;
       htmlFile << "<table border=\"1\" class=\"sortable\">" << endl ;
@@ -422,6 +533,23 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	}
 	// Col 10
 	htmlFile << "<th></th>" ;
+      }
+      if (bootstrapAvailable()) {
+	// Col 11
+	htmlFile << "<th>BS["<< getBootstrapDraws() <<"] Std err</th>" ;
+	// Col 12
+	htmlFile << "<th>BS["<< getBootstrapDraws() <<"] t-test</th>" ;
+	if (printPValue) {
+	  // Col 13
+	  htmlFile << "<th>p-value</th>" ;
+	}
+	// Col 14
+	htmlFile << "<th></th>" ;
+      }
+      int printGradient = bioParameters::the()->getValueInt("printGradient") ;
+      if (printGradient != 0) {
+	// col 11
+	htmlFile << "<th>Gradient</th>" ;
       }
       htmlFile << "</tr>" ;
       htmlFile << endl ;
@@ -541,18 +669,40 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	      htmlFile << "<td></td>" ;
 	    }
 	  }
-	  else {
+	  if (bootstrapAvailable()) {
+	    patReal bttest;
+	    if (bootstrapStdErr[i] != patMaxReal) {
+	      bttest = theValue  / bootstrapStdErr[i] ; 
+	    }
+	    else {
+	      bttest = 0.0 ;
+	    }
 	    // Col 7
-	    htmlFile << "<td></td>" ;
+	    htmlFile << "<td>" << theNumber.formatParameters(bootstrapStdErr[i]) << "</td>" ;
 	    // Col 8
+	    htmlFile << "<td>" << theNumber.formatTTests(bttest) << "</td>" ; 
 	    if (printPValue) {
+	    
+	      patReal pvalue = patPValue(patAbs(bttest),err) ;
+	      if (err != NULL) {
+		WARNING(err->describe()) ;
+		return ;
+	      }
+	      // Col 9
+	      htmlFile << "<td>" << theNumber.formatTTests(pvalue) << "</td>" ;
+	    }
+	    // Col 10
+	    if (patAbs(bttest) < tTestThreshold ||
+		!patFinite(bttest)) {
+	      htmlFile << "<td>" << warningSign << "</td>";
+	    }
+	    else {
 	      htmlFile << "<td></td>" ;
 	    }
-	    // Col 9
-	    htmlFile << "<td></td>" ;
-	    // Col 10
-	    htmlFile << "<td></td>" ;
 	  }
+	  if (printGradient != 0) {
+	    htmlFile << "<td>" << theNumber.formatParameters(theOptimizationResults->gradient[i]) << "</td>" ;
+	  }	  
 	  htmlFile << "</tr>" << endl ;
 	}
     
@@ -577,11 +727,15 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	  }
 	  patReal varI(0) ;
 	  if (isRaoCramerAvailable()) {
-	    varI = (*theRawResults->varianceCovariance)[i][i] ;
+	    varI = raoCramer[i][i] ;
 	  }
 	  patReal robustVarI(0) ;
 	  if (isSandwichAvailable()) {
-	    robustVarI = (*theRawResults->robustVarianceCovariance)[i][i] ;
+	    robustVarI = robustVarCovar[i][i] ;
+	  }    
+	  patReal bootstrapVarI(0) ;
+	  if (bootstrapAvailable()) {
+	    bootstrapVarI = bootstrapVarCovar[i][i] ;
 	  }    
 	  for (theSecondBetaIter->first() ;
 	       !theSecondBetaIter->isDone() ;
@@ -607,8 +761,8 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 		  return ;
 		}
 		if (isRaoCramerAvailable()) {
-		  patReal varJ = (*theRawResults->varianceCovariance)[j][j] ;
-		  c.covariance = (*theRawResults->varianceCovariance)[i][j] ;
+		  patReal varJ = raoCramer[j][j] ;
+		  c.covariance = raoCramer[i][j] ;
 		  patReal tmp = varI * varJ ;
 		  c.correlation = (tmp > 0) 
 		    ? c.covariance / sqrt(tmp) 
@@ -619,14 +773,26 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 		    : 0.0  ;
 		}
 		if (isSandwichAvailable()) {
-		  patReal robustVarJ = (*theRawResults->robustVarianceCovariance)[j][j] ;
-		  c.robust_covariance = (*theRawResults->robustVarianceCovariance)[i][j] ;
+		  patReal robustVarJ = robustVarCovar[j][j] ;
+		  c.robust_covariance = robustVarCovar[i][j] ;
 		  patReal tmp = robustVarI * robustVarJ ;
 		  c.robust_correlation = (tmp > 0) 
 		    ? c.robust_covariance / sqrt(tmp) 
 		    : 0.0 ;
 		  tmp = robustVarI + robustVarJ - 2.0 * c.robust_covariance ;
 		  c.robust_ttest = (tmp > 0)
+		    ? (vi - vj) / sqrt(tmp) 
+		    : 0.0  ;
+		}
+		if (bootstrapAvailable()) {
+		  patReal bootstrapVarJ = bootstrapVarCovar[j][j] ;
+		  c.bootstrap_covariance = bootstrapVarCovar[i][j] ;
+		  patReal tmp = bootstrapVarI * bootstrapVarJ ;
+		  c.bootstrap_correlation = (tmp > 0) 
+		    ? c.bootstrap_covariance / sqrt(tmp) 
+		    : 0.0 ;
+		  tmp = bootstrapVarI + bootstrapVarJ - 2.0 * c.bootstrap_covariance ;
+		  c.bootstrap_ttest = (tmp > 0)
 		    ? (vi - vj) / sqrt(tmp) 
 		    : 0.0  ;
 		}
@@ -655,20 +821,34 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
       if (printPValue) {
 	htmlFile << "<th>p-value</th>" ;
       }
-      // Col 7
-      htmlFile << "<th></th>" ;
-      // Col 8
-      htmlFile << "<th>Rob. cov.</th>" ;
-      // Col 9
-      htmlFile << "<th>Rob. corr.</th>" ;
-      // Col 10
-      htmlFile << "<th>Rob. t-test</th>" ;
-      if (printPValue) {
-	htmlFile << "<th>p-value</th>" ;
+      if (isSandwichAvailable()) {
+	// Col 7
+	htmlFile << "<th></th>" ;
+	// Col 8
+	htmlFile << "<th>Rob. cov.</th>" ;
+	// Col 9
+	htmlFile << "<th>Rob. corr.</th>" ;
+	// Col 10
+	htmlFile << "<th>Rob. t-test</th>" ;
+	if (printPValue) {
+	  htmlFile << "<th>p-value</th>" ;
+	}
+      if (bootstrapAvailable()) {
+	// Col 7
+	htmlFile << "<th></th>" ;
+	// Col 8
+	htmlFile << "<th>BS["<< getBootstrapDraws() <<"] cov.</th>" ;
+	// Col 9
+	htmlFile << "<th>BS["<< getBootstrapDraws() <<"] corr.</th>" ;
+	// Col 10
+	htmlFile << "<th>BS["<< getBootstrapDraws() <<"] t-test</th>" ;
+	if (printPValue) {
+	  htmlFile << "<th>p-value</th>" ;
+	}
+	// Col 11
+	htmlFile << "<th></th>";
+	// Col 12
       }
-      // Col 11
-      htmlFile << "<th></th>";
-      // Col 12
       htmlFile << "</tr>"  << endl ;
   
       for (std::set<patCorrelation,patCompareCorrelation>::iterator i = correlation.begin() ;
@@ -727,12 +907,43 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	  }
 	  
 	}
+	if (bootstrapAvailable()) {
+	  // Col 8
+	  htmlFile << "<td>" << theNumber.formatParameters(i->bootstrap_covariance) << "</td>" ;
+	  // Col 9
+	  htmlFile << "<td>" << theNumber.formatParameters(i->bootstrap_correlation) << "</td>" ;
+	  // Col 10
+	  htmlFile << "<td>" << theNumber.formatTTests(i->bootstrap_ttest) << "</td>";
+	  // Col 11
+	  if (printPValue) {
+	    
+	    patReal pvalue = patPValue(patAbs(i->bootstrap_ttest),err) ;
+	    if (err != NULL) {
+	      WARNING(err->describe()) ;
+	      return ;
+	    }
+	    htmlFile << "<td>" << theNumber.formatTTests(pvalue) << "</td>"  ;
+	  }
+	  // Col 12
+	  if (patAbs(i->bootstrap_ttest) < tTestThreshold) {
+	    htmlFile << "<td>" << warningSign  << "</td>" ;
+	  }
+	  else {
+	    htmlFile << "<td></td>" ;
+	  }
+	  
+	}
 	htmlFile << "</tr>" ;
+      }
       }
       htmlFile << "</table>" << endl ;
 
-      htmlFile << "<p>Smallest singular value: " << theRawResults->smallestSingularValue << "</p>" ;
-      if (!theRawResults->eigenVectors.empty()) {
+      htmlFile << "<p>Smallest singular value: " << theOptimizationResults->getSmallestSingularValue(err) << "</p>" ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+      if (!theOptimizationResults->eigenVectors.empty()) {
 	htmlFile << "<h2>Unidentifiable model</h2>" << endl ;
 	htmlFile << "<p>The log likelihood is (almost) flat along the following combinations of parameters</p>" << endl ;
 	htmlFile << "<table border=\"0\">" << endl ;
@@ -745,8 +956,8 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 	//    patIterator<patBetaLikeParameter>* theParamIter = createAllParametersIterator() ;
     
 	for(map<patReal,patVariables>::iterator iter = 
-	      theRawResults->eigenVectors.begin() ;
-	    iter != theRawResults->eigenVectors.end() ;
+	      theOptimizationResults->eigenVectors.begin() ;
+	    iter != theOptimizationResults->eigenVectors.end() ;
 	    ++iter) {
 	  htmlFile << "<tr class=biostyle><td>Sing. value</td><td>=</td><td>"
 		   << iter->first 
@@ -1024,7 +1235,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
     
     htmlFile << "<h2>Aggregate values</h2>" ;
     htmlFile << "<table border='1'>" << endl ;
-    htmlFile << "<tr><th></th>" ;
+    htmlFile << "<tr><th></th><th></th>" ;
 
     patString weightHeader = bioParameters::the()->getValueString("HeaderForWeightInSimulatedResults",err) ;
     if (err != NULL) {
@@ -1080,6 +1291,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 
     htmlFile << "<tr>" ;
     htmlFile << "<th>Total</th>" ;
+    htmlFile << "<th>&Sigma;<sub>n</sub>x<sub>n</sub></th>" ;
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1108,6 +1320,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
     if (withWeight) {
       htmlFile << "<tr>" ;
       htmlFile << "<th>Weighted total</th>" ;
+      htmlFile << "<th>&Sigma;<sub>n</sub>w<sub>n</sub>x<sub>n</sub></th>" ;
       for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	   i != simulatedValues->end() ;
 	   ++i) {
@@ -1132,10 +1345,13 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
       }
     
       htmlFile << "</tr>" ;
+
     }
 
     htmlFile << "<tr>" ;
     htmlFile << "<th>Average</th>" ;
+    htmlFile << "<th>&Sigma;<sub>n</sub>x<sub>n</sub> / N<sub>S</sub></th>" ;
+
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1164,6 +1380,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
     if (withWeight) {
       htmlFile << "<tr>" ;
       htmlFile << "<th>Weighted average</th>" ;
+      htmlFile << "<th>&Sigma;<sub>n</sub>w<sub>n</sub>x<sub>n</sub> / N<sub>S</sub></th>" ;
       for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	   i != simulatedValues->end() ;
 	   ++i) {
@@ -1188,11 +1405,42 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
       }
     
       htmlFile << "</tr>" ;
+
+      htmlFile << "<tr>" ;
+      htmlFile << "<th>Normalized weighted average</th>" ;
+      htmlFile << "<th>&Sigma;<sub>n</sub>w<sub>n</sub>x<sub>n</sub> / &Sigma;<sub>n</sub>w<sub>n</sub></th>" ;
+      for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
+	   i != simulatedValues->end() ;
+	   ++i) {
+	htmlFile << "<td>" << i->second.getNormalizedWeightedTotal(err) << "</td>" ;
+	  if (err != NULL) {
+	    WARNING(err->describe()) ;
+	    return ;
+	  }
+	if (i->second.hasSimulatedValues()) {
+	  patInterval ci = i->second.getNormalizedWeightedTotalConfidenceInterval(err)  ;
+	  if (err != NULL) {
+	    WARNING(err->describe()) ;
+	    return ;
+	  }
+	  htmlFile << "<td>" 
+		   << ci.getLowerBound() 
+		   << "</td><td>" 
+		   << ci.getUpperBound() 
+		   << "</td>" ;
+	  
+	}
+      }
+    
+      htmlFile << "</tr>" ;
+
     }
 
 
     htmlFile << "<tr>" ;
     htmlFile << "<th>Non zeros</th>" ;
+    htmlFile << "<th>N<sub>nz</sub></th>" ;
+
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1210,6 +1458,8 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 
     htmlFile << "<tr>" ;
     htmlFile << "<th>Non zeros average</th>" ;
+    htmlFile << "<th>&Sigma;<sub>n</sub>x<sub>n</sub> / N<sub>nz</sub></th>" ;
+    
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1238,6 +1488,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
     if (withWeight) {
       htmlFile << "<tr>" ;
       htmlFile << "<th>Weighted non zeros average</th>" ;
+      htmlFile << "<th>&Sigma;<sub>n</sub>w<sub>n</sub>x<sub>n</sub> / N<sub>nz</sub></th>" ;
       for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	   i != simulatedValues->end() ;
 	   ++i) {
@@ -1266,6 +1517,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 
     htmlFile << "<tr>" ;
     htmlFile << "<th>Minimum</th>" ;
+    htmlFile << "<th>min<sub>n</sub>x<sub>n</sub></th>" ;
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1294,6 +1546,7 @@ void bioReporting::writeHtml(patString fileName, patError*& err) {
 
         htmlFile << "<tr>" ;
     htmlFile << "<th>Maximum</th>" ;
+    htmlFile << "<th>max<sub>n</sub>x<sub>n</sub></th>" ;
     for (map<patString,bioSimulatedValues >::iterator i = simulatedValues->begin() ;
 	 i != simulatedValues->end() ;
 	 ++i) {
@@ -1604,7 +1857,7 @@ void bioReporting::printEstimatedParameters(patString filename, patError*& err) 
 	  else {
 	    pyEst << "," ;
 	  }
-	  pyEst << (*theRawResults->robustVarianceCovariance)[i][j] ; 
+	  pyEst << robustVarCovar[i][j] ; 
 	}
       }
       pyEst << "]" ;
@@ -1682,7 +1935,7 @@ void bioReporting::addMonteCarloReport(patStatistics* mainDraws,
     mcStdDev.push_back(sqrt(mainDraws->getVariance())/sqrt(patReal(mainDraws->getSize()))) ;
     patReal a = theFilter->getCoefficient() ;
     patReal newVar = mainDraws->getVariance() - a * a * cvDraws->getVariance() ;
-      mcCorrectedStdDev.push_back(sqrt(patMax(newVar,0.0))/sqrt(patReal(mainDraws->getSize()))) ;
+      mcCorrectedStdDev.push_back(sqrt(patMax(newVar,patZero))/sqrt(patReal(mainDraws->getSize()))) ;
     mcSimulated.push_back(cvDraws->getMean()) ;
     mcAnalytical.push_back(analytical) ;
       
@@ -1704,6 +1957,22 @@ void bioReporting::writeALogit(patString fileName, patError*& err) {
   GENERAL_MESSAGE("File " << fileName << " created") ;
 }
 
- void bioReporting::setAlgorithm(patString a) {
-   algorithm = a ; 
- }
+void bioReporting::setAlgorithm(patString a) {
+  algorithm = a ; 
+}
+
+patBoolean bioReporting::bootstrapAvailable() {
+  if (theOptimizationResults == NULL) {
+    return patFALSE ;
+  }
+  return (!theOptimizationResults->bootstrapSolutions.empty()) ;
+}
+
+patULong bioReporting::getBootstrapDraws() {
+  if (theOptimizationResults == NULL) {
+    return 0 ;
+  }
+  return (theOptimizationResults->bootstrapSolutions.size()) ;
+  
+}
+

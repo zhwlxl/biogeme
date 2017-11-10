@@ -1,0 +1,10 @@
+Read a biogeme data file from R
+
+data <- read.table("swissmetro.dat",header=TRUE)
+
+Warning: R automatically adds row names, that are the row numbers. 
+
+Write a biogeme data from R. Make sure not to include the row names
+and to remove the quotes (")
+
+write.table(data,"tmp.dat",quote=FALSE,row.names=FALSE)

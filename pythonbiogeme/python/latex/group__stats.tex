@@ -1,0 +1,137 @@
+\hypertarget{group__stats}{}\section{Functions calculating statistics on the sample}
+\label{group__stats}\index{Functions calculating statistics on the sample@{Functions calculating statistics on the sample}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__stats_gad835cf7d8238366c55cf50498b7e84c3}{statistics.\+null\+Loglikelihood} (availability, iterator)
+\begin{DoxyCompactList}\small\item\em Computes the null log likelihood from the sample and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{group__stats_gabfe5347e76156feff2601f69a602e576}{statistics.\+choice\+Statistics} (choice\+Set, choice, iterator)
+\begin{DoxyCompactList}\small\item\em Computes the number of times each alternative is chosen in the data set and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{group__stats_ga314ae0f380b27de667e17b638355ec3d}{statistics.\+availability\+Statistics} (availability, iterator)
+\begin{DoxyCompactList}\small\item\em Computes the number of times each alternative is declared available in the data set and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{group__stats_ga0c4141fb56233c42e293bc5986d865e6}{statistics.\+cte\+Loglikelihood} (choice\+Set, choice, iterator)
+\begin{DoxyCompactList}\small\item\em Computes the constant loglikelihood from the sample and ask Biogeme to include it in the output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Functions calculating statistics on the sample@{Functions calculating statistics on the sample}!availability\+Statistics@{availability\+Statistics}}
+\index{availability\+Statistics@{availability\+Statistics}!Functions calculating statistics on the sample@{Functions calculating statistics on the sample}}
+\subsubsection[{\texorpdfstring{availability\+Statistics(availability, iterator)}{availabilityStatistics(availability, iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+availability\+Statistics (
+\begin{DoxyParamCaption}
+\item[{}]{availability, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{group__stats_ga314ae0f380b27de667e17b638355ec3d}{}\label{group__stats_ga314ae0f380b27de667e17b638355ec3d}
+
+
+Computes the number of times each alternative is declared available in the data set and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt Dictionary} containing for each alternative the expression for its availability. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} n with an entry n\mbox{[}i\mbox{]} for each alternative i containing the number of times it is available. 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file statistics.\+py.
+
+\index{Functions calculating statistics on the sample@{Functions calculating statistics on the sample}!choice\+Statistics@{choice\+Statistics}}
+\index{choice\+Statistics@{choice\+Statistics}!Functions calculating statistics on the sample@{Functions calculating statistics on the sample}}
+\subsubsection[{\texorpdfstring{choice\+Statistics(choice\+Set, choice, iterator)}{choiceStatistics(choiceSet, choice, iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+choice\+Statistics (
+\begin{DoxyParamCaption}
+\item[{}]{choice\+Set, }
+\item[{}]{choice, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{group__stats_gabfe5347e76156feff2601f69a602e576}{}\label{group__stats_gabfe5347e76156feff2601f69a602e576}
+
+
+Computes the number of times each alternative is chosen in the data set and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice\+Set} & list containing the alternatives for which statistics must be computed. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} n with an entry n\mbox{[}i\mbox{]} for each alternative i containing the number of times it is chosen. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Note that availability is ignored here. 
+\end{DoxyNote}
+
+
+Definition at line 30 of file statistics.\+py.
+
+\index{Functions calculating statistics on the sample@{Functions calculating statistics on the sample}!cte\+Loglikelihood@{cte\+Loglikelihood}}
+\index{cte\+Loglikelihood@{cte\+Loglikelihood}!Functions calculating statistics on the sample@{Functions calculating statistics on the sample}}
+\subsubsection[{\texorpdfstring{cte\+Loglikelihood(choice\+Set, choice, iterator)}{cteLoglikelihood(choiceSet, choice, iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+cte\+Loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{choice\+Set, }
+\item[{}]{choice, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{group__stats_ga0c4141fb56233c42e293bc5986d865e6}{}\label{group__stats_ga0c4141fb56233c42e293bc5986d865e6}
+
+
+Computes the constant loglikelihood from the sample and ask Biogeme to include it in the output file. 
+
+It assumes that the full choice set is available for each observation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice\+Set} & list containing the alternatives in the choice set. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+log likelihood of a logit model where the only parameters are the alternative specific constants. If $n_i$ is the number of times alternative $i$ is chosen, then it is given by \[ \mathcal{L} = \sum_i n_i \ln(n_i) - n \ln(n) \] where $ n = \sum_i n_i $ is the total number of observations. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Note that availability is ignored here. 
+\end{DoxyNote}
+
+
+Definition at line 60 of file statistics.\+py.
+
+\index{Functions calculating statistics on the sample@{Functions calculating statistics on the sample}!null\+Loglikelihood@{null\+Loglikelihood}}
+\index{null\+Loglikelihood@{null\+Loglikelihood}!Functions calculating statistics on the sample@{Functions calculating statistics on the sample}}
+\subsubsection[{\texorpdfstring{null\+Loglikelihood(availability, iterator)}{nullLoglikelihood(availability, iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+null\+Loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{availability, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{group__stats_gad835cf7d8238366c55cf50498b7e84c3}{}\label{group__stats_gad835cf7d8238366c55cf50498b7e84c3}
+
+
+Computes the null log likelihood from the sample and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative ID with its availability condition. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+log likelihood of a model where the choice probability for observation $n$ is given by is $1/J_n$, where $J_n$ is the number of available alternatives, i.\+e. \[ \mathcal{L} = -\sum_n \ln(J_n) \] 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file statistics.\+py.
+

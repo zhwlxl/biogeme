@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioLiteral.h"
 
 bioLiteral::bioLiteral(patString theName, patULong theId):name(theName), uniqueId(theId) {

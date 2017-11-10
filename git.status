@@ -1,0 +1,1985 @@
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   libraries/utils/patLap.h
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   ../release_scripts/osx/createApp.sh
+	modified:   ../release_scripts/osx/makeFromSource.sh
+	modified:   ../release_scripts/windows/ressources/pythonbiogeme.bat
+	modified:   .DS_Store
+	modified:   biogeme-2.4.tar.gz
+	modified:   config.h.in~
+	modified:   configure.ac
+	deleted:    doc/firstmodel.tex
+	deleted:    doc/tutorialBiogeme.blg
+	deleted:    doc/tutorialBiogeme.fdb_latexmk
+	deleted:    doc/tutorialBiogeme.fls
+	deleted:    doc/tutorialBiogeme.idx
+	deleted:    doc/tutorialBiogeme.ilg
+	deleted:    doc/tutorialBiogeme.ind
+	deleted:    doc/tutorialBiogeme.toc
+	modified:   gui/Makefile.am
+	deleted:    libraries/pythonbiogeme/bioArithMergedSum.h
+	deleted:    libraries/pythonbiogeme/bioArithProd_new.cc
+	deleted:    libraries/pythonbiogeme/bioArithProd_new.h
+	deleted:    libraries/randomNumbers/patAntithetic.cc
+	deleted:    libraries/randomNumbers/patAntithetic.h
+	deleted:    libraries/randomNumbers/patZeroOneAntithetic.cc
+	deleted:    libraries/randomNumbers/patZeroOneAntithetic.h
+	deleted:    libraries/utils/patRandom.h
+	modified:   parameters.out
+	modified:   pythonbiogeme/python/Doxyfile
+	deleted:    pythonbiogeme/python/html/_formulas.aux
+	deleted:    pythonbiogeme/python/html/_formulas.dvi
+	deleted:    pythonbiogeme/python/html/annotated.html
+	deleted:    pythonbiogeme/python/html/bc_s.png
+	deleted:    pythonbiogeme/python/html/bdwn.png
+	deleted:    pythonbiogeme/python/html/bio__expression_8py.html
+	deleted:    pythonbiogeme/python/html/bio__expression_8py_source.html
+	deleted:    pythonbiogeme/python/html/bio__iterator_8py.html
+	deleted:    pythonbiogeme/python/html/bio__iterator_8py_source.html
+	deleted:    pythonbiogeme/python/html/bio_matrix_8py.html
+	deleted:    pythonbiogeme/python/html/bio_matrix_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_81-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_82-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_82-cygwin-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_83-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_83m-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme-python3_84-config_8py_source.html
+	deleted:    pythonbiogeme/python/html/biogeme_8py_source.html
+	deleted:    pythonbiogeme/python/html/boxcox_8py.html
+	deleted:    pythonbiogeme/python/html/boxcox_8py_source.html
+	deleted:    pythonbiogeme/python/html/citelist.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_beta-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_beta.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_beta.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_bin_op-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_bin_op.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_bin_op.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_variable-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_variable.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_define_variable.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_derive-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_derive.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_derive.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_elem-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_elem.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_elem.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_enumerate-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_enumerate.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_enumerate.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_expression-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_expression.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_expression.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_integrate-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_integrate.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_integrate.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_m_h-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_m_h.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_m_h.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo_control_variate-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo_control_variate.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_monte_carlo_control_variate.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_numeric-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_numeric.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_numeric.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_operator-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_operator.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_prod-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_prod.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_prod.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_random_variable-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_random_variable.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_random_variable.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_sum-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_sum.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_sum.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_un_op-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_un_op.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_un_op.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_variable-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_variable.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1_variable.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1abs-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1abs.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1abs.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_bayes_normal_draw-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_bayes_normal_draw.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_bayes_normal_draw.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_log_logit-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_log_logit.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_log_logit.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_logit-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_logit.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_logit.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_mult_sum-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_mult_sum.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_mult_sum.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_cdf-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_cdf.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_cdf.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_pdf-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_pdf.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_normal_pdf.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_recycle_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_recycle_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_recycle_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_symmetric_draws-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_symmetric_draws.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1bio_uniform_symmetric_draws.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1exp-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1exp.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1exp.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1log-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1log.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1log.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1max-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1max.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1max.png
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1min-members.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1min.html
+	deleted:    pythonbiogeme/python/html/classbio__expression_1_1min.png
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1draw_iterator-members.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1draw_iterator.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1draw_iterator.png
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1iterator-members.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1iterator.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1iterator.png
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1meta_iterator-members.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1meta_iterator.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1meta_iterator.png
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1row_iterator-members.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1row_iterator.html
+	deleted:    pythonbiogeme/python/html/classbio__iterator_1_1row_iterator.png
+	deleted:    pythonbiogeme/python/html/classbio_matrix_1_1bio_matrix-members.html
+	deleted:    pythonbiogeme/python/html/classbio_matrix_1_1bio_matrix.html
+	deleted:    pythonbiogeme/python/html/classbio_matrix_1_1bio_matrix.png
+	deleted:    pythonbiogeme/python/html/classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t-members.html
+	deleted:    pythonbiogeme/python/html/classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t.html
+	deleted:    pythonbiogeme/python/html/classes.html
+	deleted:    pythonbiogeme/python/html/closed.png
+	deleted:    pythonbiogeme/python/html/cnl_8py.html
+	deleted:    pythonbiogeme/python/html/cnl_8py_source.html
+	deleted:    pythonbiogeme/python/html/distributions_8py.html
+	deleted:    pythonbiogeme/python/html/distributions_8py_source.html
+	deleted:    pythonbiogeme/python/html/doxygen.css
+	deleted:    pythonbiogeme/python/html/doxygen.png
+	deleted:    pythonbiogeme/python/html/dynsections.js
+	deleted:    pythonbiogeme/python/html/files.html
+	deleted:    pythonbiogeme/python/html/form_0.png
+	deleted:    pythonbiogeme/python/html/form_1.png
+	deleted:    pythonbiogeme/python/html/form_10.png
+	deleted:    pythonbiogeme/python/html/form_11.png
+	deleted:    pythonbiogeme/python/html/form_12.png
+	deleted:    pythonbiogeme/python/html/form_13.png
+	deleted:    pythonbiogeme/python/html/form_14.png
+	deleted:    pythonbiogeme/python/html/form_15.png
+	deleted:    pythonbiogeme/python/html/form_16.png
+	deleted:    pythonbiogeme/python/html/form_17.png
+	deleted:    pythonbiogeme/python/html/form_18.png
+	deleted:    pythonbiogeme/python/html/form_19.png
+	deleted:    pythonbiogeme/python/html/form_2.png
+	deleted:    pythonbiogeme/python/html/form_20.png
+	deleted:    pythonbiogeme/python/html/form_21.png
+	deleted:    pythonbiogeme/python/html/form_22.png
+	deleted:    pythonbiogeme/python/html/form_23.png
+	deleted:    pythonbiogeme/python/html/form_24.png
+	deleted:    pythonbiogeme/python/html/form_25.png
+	deleted:    pythonbiogeme/python/html/form_26.png
+	deleted:    pythonbiogeme/python/html/form_27.png
+	deleted:    pythonbiogeme/python/html/form_28.png
+	deleted:    pythonbiogeme/python/html/form_29.png
+	deleted:    pythonbiogeme/python/html/form_3.png
+	deleted:    pythonbiogeme/python/html/form_30.png
+	deleted:    pythonbiogeme/python/html/form_31.png
+	deleted:    pythonbiogeme/python/html/form_32.png
+	deleted:    pythonbiogeme/python/html/form_33.png
+	deleted:    pythonbiogeme/python/html/form_34.png
+	deleted:    pythonbiogeme/python/html/form_35.png
+	deleted:    pythonbiogeme/python/html/form_36.png
+	deleted:    pythonbiogeme/python/html/form_37.png
+	deleted:    pythonbiogeme/python/html/form_38.png
+	deleted:    pythonbiogeme/python/html/form_39.png
+	deleted:    pythonbiogeme/python/html/form_4.png
+	deleted:    pythonbiogeme/python/html/form_40.png
+	deleted:    pythonbiogeme/python/html/form_41.png
+	deleted:    pythonbiogeme/python/html/form_42.png
+	deleted:    pythonbiogeme/python/html/form_43.png
+	deleted:    pythonbiogeme/python/html/form_44.png
+	deleted:    pythonbiogeme/python/html/form_45.png
+	deleted:    pythonbiogeme/python/html/form_46.png
+	deleted:    pythonbiogeme/python/html/form_47.png
+	deleted:    pythonbiogeme/python/html/form_48.png
+	deleted:    pythonbiogeme/python/html/form_49.png
+	deleted:    pythonbiogeme/python/html/form_5.png
+	deleted:    pythonbiogeme/python/html/form_50.png
+	deleted:    pythonbiogeme/python/html/form_51.png
+	deleted:    pythonbiogeme/python/html/form_52.png
+	deleted:    pythonbiogeme/python/html/form_53.png
+	deleted:    pythonbiogeme/python/html/form_54.png
+	deleted:    pythonbiogeme/python/html/form_55.png
+	deleted:    pythonbiogeme/python/html/form_56.png
+	deleted:    pythonbiogeme/python/html/form_57.png
+	deleted:    pythonbiogeme/python/html/form_58.png
+	deleted:    pythonbiogeme/python/html/form_59.png
+	deleted:    pythonbiogeme/python/html/form_6.png
+	deleted:    pythonbiogeme/python/html/form_60.png
+	deleted:    pythonbiogeme/python/html/form_61.png
+	deleted:    pythonbiogeme/python/html/form_62.png
+	deleted:    pythonbiogeme/python/html/form_63.png
+	deleted:    pythonbiogeme/python/html/form_64.png
+	deleted:    pythonbiogeme/python/html/form_65.png
+	deleted:    pythonbiogeme/python/html/form_66.png
+	deleted:    pythonbiogeme/python/html/form_67.png
+	deleted:    pythonbiogeme/python/html/form_68.png
+	deleted:    pythonbiogeme/python/html/form_69.png
+	deleted:    pythonbiogeme/python/html/form_7.png
+	deleted:    pythonbiogeme/python/html/form_70.png
+	deleted:    pythonbiogeme/python/html/form_71.png
+	deleted:    pythonbiogeme/python/html/form_72.png
+	deleted:    pythonbiogeme/python/html/form_73.png
+	deleted:    pythonbiogeme/python/html/form_74.png
+	deleted:    pythonbiogeme/python/html/form_75.png
+	deleted:    pythonbiogeme/python/html/form_76.png
+	deleted:    pythonbiogeme/python/html/form_77.png
+	deleted:    pythonbiogeme/python/html/form_78.png
+	deleted:    pythonbiogeme/python/html/form_79.png
+	deleted:    pythonbiogeme/python/html/form_8.png
+	deleted:    pythonbiogeme/python/html/form_80.png
+	deleted:    pythonbiogeme/python/html/form_81.png
+	deleted:    pythonbiogeme/python/html/form_82.png
+	deleted:    pythonbiogeme/python/html/form_83.png
+	deleted:    pythonbiogeme/python/html/form_9.png
+	deleted:    pythonbiogeme/python/html/formula.repository
+	deleted:    pythonbiogeme/python/html/ftv2blank.png
+	deleted:    pythonbiogeme/python/html/ftv2doc.png
+	deleted:    pythonbiogeme/python/html/ftv2folderclosed.png
+	deleted:    pythonbiogeme/python/html/ftv2folderopen.png
+	deleted:    pythonbiogeme/python/html/ftv2lastnode.png
+	deleted:    pythonbiogeme/python/html/ftv2link.png
+	deleted:    pythonbiogeme/python/html/ftv2mlastnode.png
+	deleted:    pythonbiogeme/python/html/ftv2mnode.png
+	deleted:    pythonbiogeme/python/html/ftv2node.png
+	deleted:    pythonbiogeme/python/html/ftv2plastnode.png
+	deleted:    pythonbiogeme/python/html/ftv2pnode.png
+	deleted:    pythonbiogeme/python/html/ftv2splitbar.png
+	deleted:    pythonbiogeme/python/html/ftv2vertline.png
+	deleted:    pythonbiogeme/python/html/functions.html
+	deleted:    pythonbiogeme/python/html/functions_func.html
+	deleted:    pythonbiogeme/python/html/functions_vars.html
+	deleted:    pythonbiogeme/python/html/group__biogeme.html
+	deleted:    pythonbiogeme/python/html/group__likelihood.html
+	deleted:    pythonbiogeme/python/html/group__models.html
+	deleted:    pythonbiogeme/python/html/group__pdfcdf.html
+	deleted:    pythonbiogeme/python/html/group__specs.html
+	deleted:    pythonbiogeme/python/html/group__stats.html
+	deleted:    pythonbiogeme/python/html/groups_8py_source.html
+	deleted:    pythonbiogeme/python/html/hierarchy.html
+	deleted:    pythonbiogeme/python/html/index.html
+	deleted:    pythonbiogeme/python/html/jquery.js
+	deleted:    pythonbiogeme/python/html/legendre_8py.html
+	deleted:    pythonbiogeme/python/html/legendre_8py_source.html
+	deleted:    pythonbiogeme/python/html/logit_8py.html
+	deleted:    pythonbiogeme/python/html/logit_8py_source.html
+	deleted:    pythonbiogeme/python/html/loglikelihood_8py.html
+	deleted:    pythonbiogeme/python/html/loglikelihood_8py_source.html
+	deleted:    pythonbiogeme/python/html/mev_8py.html
+	deleted:    pythonbiogeme/python/html/mev_8py_source.html
+	deleted:    pythonbiogeme/python/html/modules.html
+	deleted:    pythonbiogeme/python/html/namespacebiogeme.html
+	deleted:    pythonbiogeme/python/html/namespaces.html
+	deleted:    pythonbiogeme/python/html/nav_f.png
+	deleted:    pythonbiogeme/python/html/nav_g.png
+	deleted:    pythonbiogeme/python/html/nav_h.png
+	deleted:    pythonbiogeme/python/html/nested_8py.html
+	deleted:    pythonbiogeme/python/html/nested_8py_source.html
+	deleted:    pythonbiogeme/python/html/open.png
+	deleted:    pythonbiogeme/python/html/pages.html
+	deleted:    pythonbiogeme/python/html/search/all_0.html
+	deleted:    pythonbiogeme/python/html/search/all_0.js
+	deleted:    pythonbiogeme/python/html/search/all_1.html
+	deleted:    pythonbiogeme/python/html/search/all_1.js
+	deleted:    pythonbiogeme/python/html/search/all_10.html
+	deleted:    pythonbiogeme/python/html/search/all_10.js
+	deleted:    pythonbiogeme/python/html/search/all_11.html
+	deleted:    pythonbiogeme/python/html/search/all_11.js
+	deleted:    pythonbiogeme/python/html/search/all_12.html
+	deleted:    pythonbiogeme/python/html/search/all_12.js
+	deleted:    pythonbiogeme/python/html/search/all_13.html
+	deleted:    pythonbiogeme/python/html/search/all_13.js
+	deleted:    pythonbiogeme/python/html/search/all_2.html
+	deleted:    pythonbiogeme/python/html/search/all_2.js
+	deleted:    pythonbiogeme/python/html/search/all_3.html
+	deleted:    pythonbiogeme/python/html/search/all_3.js
+	deleted:    pythonbiogeme/python/html/search/all_4.html
+	deleted:    pythonbiogeme/python/html/search/all_4.js
+	deleted:    pythonbiogeme/python/html/search/all_5.html
+	deleted:    pythonbiogeme/python/html/search/all_5.js
+	deleted:    pythonbiogeme/python/html/search/all_6.html
+	deleted:    pythonbiogeme/python/html/search/all_6.js
+	deleted:    pythonbiogeme/python/html/search/all_7.html
+	deleted:    pythonbiogeme/python/html/search/all_7.js
+	deleted:    pythonbiogeme/python/html/search/all_8.html
+	deleted:    pythonbiogeme/python/html/search/all_8.js
+	deleted:    pythonbiogeme/python/html/search/all_9.html
+	deleted:    pythonbiogeme/python/html/search/all_9.js
+	deleted:    pythonbiogeme/python/html/search/all_a.html
+	deleted:    pythonbiogeme/python/html/search/all_a.js
+	deleted:    pythonbiogeme/python/html/search/all_b.html
+	deleted:    pythonbiogeme/python/html/search/all_b.js
+	deleted:    pythonbiogeme/python/html/search/all_c.html
+	deleted:    pythonbiogeme/python/html/search/all_c.js
+	deleted:    pythonbiogeme/python/html/search/all_d.html
+	deleted:    pythonbiogeme/python/html/search/all_d.js
+	deleted:    pythonbiogeme/python/html/search/all_e.html
+	deleted:    pythonbiogeme/python/html/search/all_e.js
+	deleted:    pythonbiogeme/python/html/search/all_f.html
+	deleted:    pythonbiogeme/python/html/search/all_f.js
+	deleted:    pythonbiogeme/python/html/search/classes_0.html
+	deleted:    pythonbiogeme/python/html/search/classes_0.js
+	deleted:    pythonbiogeme/python/html/search/classes_1.html
+	deleted:    pythonbiogeme/python/html/search/classes_1.js
+	deleted:    pythonbiogeme/python/html/search/classes_2.html
+	deleted:    pythonbiogeme/python/html/search/classes_2.js
+	deleted:    pythonbiogeme/python/html/search/classes_3.html
+	deleted:    pythonbiogeme/python/html/search/classes_3.js
+	deleted:    pythonbiogeme/python/html/search/classes_4.html
+	deleted:    pythonbiogeme/python/html/search/classes_4.js
+	deleted:    pythonbiogeme/python/html/search/classes_5.html
+	deleted:    pythonbiogeme/python/html/search/classes_5.js
+	deleted:    pythonbiogeme/python/html/search/classes_6.html
+	deleted:    pythonbiogeme/python/html/search/classes_6.js
+	deleted:    pythonbiogeme/python/html/search/classes_7.html
+	deleted:    pythonbiogeme/python/html/search/classes_7.js
+	deleted:    pythonbiogeme/python/html/search/classes_8.html
+	deleted:    pythonbiogeme/python/html/search/classes_8.js
+	deleted:    pythonbiogeme/python/html/search/classes_9.html
+	deleted:    pythonbiogeme/python/html/search/classes_9.js
+	deleted:    pythonbiogeme/python/html/search/classes_a.html
+	deleted:    pythonbiogeme/python/html/search/classes_a.js
+	deleted:    pythonbiogeme/python/html/search/classes_b.html
+	deleted:    pythonbiogeme/python/html/search/classes_b.js
+	deleted:    pythonbiogeme/python/html/search/classes_c.html
+	deleted:    pythonbiogeme/python/html/search/classes_c.js
+	deleted:    pythonbiogeme/python/html/search/classes_d.html
+	deleted:    pythonbiogeme/python/html/search/classes_d.js
+	deleted:    pythonbiogeme/python/html/search/close.png
+	deleted:    pythonbiogeme/python/html/search/files_0.html
+	deleted:    pythonbiogeme/python/html/search/files_0.js
+	deleted:    pythonbiogeme/python/html/search/files_1.html
+	deleted:    pythonbiogeme/python/html/search/files_1.js
+	deleted:    pythonbiogeme/python/html/search/files_2.html
+	deleted:    pythonbiogeme/python/html/search/files_2.js
+	deleted:    pythonbiogeme/python/html/search/files_3.html
+	deleted:    pythonbiogeme/python/html/search/files_3.js
+	deleted:    pythonbiogeme/python/html/search/files_4.html
+	deleted:    pythonbiogeme/python/html/search/files_4.js
+	deleted:    pythonbiogeme/python/html/search/files_5.html
+	deleted:    pythonbiogeme/python/html/search/files_5.js
+	deleted:    pythonbiogeme/python/html/search/files_6.html
+	deleted:    pythonbiogeme/python/html/search/files_6.js
+	deleted:    pythonbiogeme/python/html/search/files_7.html
+	deleted:    pythonbiogeme/python/html/search/files_7.js
+	deleted:    pythonbiogeme/python/html/search/functions_0.html
+	deleted:    pythonbiogeme/python/html/search/functions_0.js
+	deleted:    pythonbiogeme/python/html/search/functions_1.html
+	deleted:    pythonbiogeme/python/html/search/functions_1.js
+	deleted:    pythonbiogeme/python/html/search/functions_2.html
+	deleted:    pythonbiogeme/python/html/search/functions_2.js
+	deleted:    pythonbiogeme/python/html/search/functions_3.html
+	deleted:    pythonbiogeme/python/html/search/functions_3.js
+	deleted:    pythonbiogeme/python/html/search/functions_4.html
+	deleted:    pythonbiogeme/python/html/search/functions_4.js
+	deleted:    pythonbiogeme/python/html/search/functions_5.html
+	deleted:    pythonbiogeme/python/html/search/functions_5.js
+	deleted:    pythonbiogeme/python/html/search/functions_6.html
+	deleted:    pythonbiogeme/python/html/search/functions_6.js
+	deleted:    pythonbiogeme/python/html/search/functions_7.html
+	deleted:    pythonbiogeme/python/html/search/functions_7.js
+	deleted:    pythonbiogeme/python/html/search/functions_8.html
+	deleted:    pythonbiogeme/python/html/search/functions_8.js
+	deleted:    pythonbiogeme/python/html/search/functions_9.html
+	deleted:    pythonbiogeme/python/html/search/functions_9.js
+	deleted:    pythonbiogeme/python/html/search/functions_a.html
+	deleted:    pythonbiogeme/python/html/search/functions_a.js
+	deleted:    pythonbiogeme/python/html/search/functions_b.html
+	deleted:    pythonbiogeme/python/html/search/functions_b.js
+	deleted:    pythonbiogeme/python/html/search/groups_0.html
+	deleted:    pythonbiogeme/python/html/search/groups_0.js
+	deleted:    pythonbiogeme/python/html/search/groups_1.html
+	deleted:    pythonbiogeme/python/html/search/groups_1.js
+	deleted:    pythonbiogeme/python/html/search/groups_2.html
+	deleted:    pythonbiogeme/python/html/search/groups_2.js
+	deleted:    pythonbiogeme/python/html/search/mag_sel.png
+	deleted:    pythonbiogeme/python/html/search/namespaces_0.html
+	deleted:    pythonbiogeme/python/html/search/namespaces_0.js
+	deleted:    pythonbiogeme/python/html/search/nomatches.html
+	deleted:    pythonbiogeme/python/html/search/pages_0.html
+	deleted:    pythonbiogeme/python/html/search/pages_0.js
+	deleted:    pythonbiogeme/python/html/search/search.css
+	deleted:    pythonbiogeme/python/html/search/search.js
+	deleted:    pythonbiogeme/python/html/search/search_l.png
+	deleted:    pythonbiogeme/python/html/search/search_m.png
+	deleted:    pythonbiogeme/python/html/search/search_r.png
+	deleted:    pythonbiogeme/python/html/search/variables_0.html
+	deleted:    pythonbiogeme/python/html/search/variables_0.js
+	deleted:    pythonbiogeme/python/html/search/variables_1.html
+	deleted:    pythonbiogeme/python/html/search/variables_1.js
+	deleted:    pythonbiogeme/python/html/search/variables_2.html
+	deleted:    pythonbiogeme/python/html/search/variables_2.js
+	deleted:    pythonbiogeme/python/html/search/variables_3.html
+	deleted:    pythonbiogeme/python/html/search/variables_3.js
+	deleted:    pythonbiogeme/python/html/search/variables_4.html
+	deleted:    pythonbiogeme/python/html/search/variables_4.js
+	deleted:    pythonbiogeme/python/html/search/variables_5.html
+	deleted:    pythonbiogeme/python/html/search/variables_5.js
+	deleted:    pythonbiogeme/python/html/search/variables_6.html
+	deleted:    pythonbiogeme/python/html/search/variables_6.js
+	deleted:    pythonbiogeme/python/html/search/variables_7.html
+	deleted:    pythonbiogeme/python/html/search/variables_7.js
+	deleted:    pythonbiogeme/python/html/search/variables_8.html
+	deleted:    pythonbiogeme/python/html/search/variables_8.js
+	deleted:    pythonbiogeme/python/html/simulate_discrete_distribution_8py_source.html
+	deleted:    pythonbiogeme/python/html/statistics_8py.html
+	deleted:    pythonbiogeme/python/html/statistics_8py_source.html
+	deleted:    pythonbiogeme/python/html/sync_off.png
+	deleted:    pythonbiogeme/python/html/sync_on.png
+	deleted:    pythonbiogeme/python/html/tab_a.png
+	deleted:    pythonbiogeme/python/html/tab_b.png
+	deleted:    pythonbiogeme/python/html/tab_h.png
+	deleted:    pythonbiogeme/python/html/tab_s.png
+	deleted:    pythonbiogeme/python/html/tabs.css
+	deleted:    pythonbiogeme/python/html/weightedloglikelihood_8py.html
+	deleted:    pythonbiogeme/python/html/weightedloglikelihood_8py_source.html
+	modified:   testing/testing
+	modified:   tools/prepareData/biocheckdata
+	modified:   tools/prepareData/biopreparedata
+	modified:   tools/prepareData/biopreparedata.py
+	modified:   tools/prepareData/biosampledata
+	deleted:    webui/html/closing.html
+	deleted:    webui/html/console.html
+	deleted:    webui/html/doc.html
+	modified:   webui/html/files.html
+	deleted:    webui/html/help.html
+	deleted:    webui/html/home.html
+	deleted:    webui/html/results.html
+	deleted:    webui/html/runbiogeme.html
+	deleted:    webui/html/runbiosim.html
+	deleted:    webui/html/runpythonbiogeme.html
+	deleted:    webui/html/settings.html
+	modified:   webui/webbiogeme
+	modified:   ../test/README.txt
+	modified:   ../test/alreadyTested.txt
+	modified:   ../test/optima/01logit_optima.html
+	modified:   ../test/optima/01logit_optima.py
+	modified:   ../test/optima/02weight_optima.html
+	modified:   ../test/optima/02weight_optima.py
+	modified:   ../test/optima/03scale_optima.html
+	modified:   ../test/optima/03scale_optima.py
+	modified:   ../test/optima/04modifVariables_optima.html
+	modified:   ../test/optima/04modifVariables_optima.py
+	modified:   ../test/optima/05normalMixtureIntegral_optima.py
+	modified:   ../test/optima/05normalMixture_optima.html
+	modified:   ../test/optima/05normalMixture_optima.py
+	modified:   ../test/optima/06unifMixtureIntegral_optima.html
+	modified:   ../test/optima/06unifMixtureIntegral_optima.py
+	modified:   ../test/optima/06unifMixture_optima.html
+	modified:   ../test/optima/06unifMixture_optima.py
+	modified:   ../test/optima/07discreteMixture_optima.html
+	modified:   ../test/optima/07discreteMixture_optima.py
+	modified:   ../test/optima/08boxcox_optima.html
+	modified:   ../test/optima/08boxcox_optima.py
+	modified:   ../test/optima/09nested_optima.html
+	modified:   ../test/optima/09nested_optima.py
+	modified:   ../test/optima/10nestedBottom_optima.html
+	modified:   ../test/optima/10nestedBottom_optima.py
+	modified:   ../test/optima/11cnl_optima.html
+	modified:   ../test/optima/11cnl_optima.py
+	modified:   ../test/optima/14selectionBias_optima.html
+	modified:   ../test/optima/14selectionBias_optima.py
+	deleted:    ../test/optima/17lognormalMixtureIntegral_optima.html
+	modified:   ../test/optima/17lognormalMixtureIntegral_optima.py
+	modified:   ../test/optima/17lognormalMixture_optima.html
+	modified:   ../test/optima/17lognormalMixture_optima.py
+	modified:   ../test/optima/18latentclass_optima.html
+	modified:   ../test/optima/18latentclass_optima.py
+	deleted:    ../test/optima/19latentvariable_optima.html
+	modified:   ../test/optima/19latentvariable_optima.py
+	modified:   ../test/optima/21basemodel.html
+	modified:   ../test/optima/21basemodel.py
+	modified:   ../test/optima/22basemodel_simul.html
+	modified:   ../test/optima/22basemodel_simul.py
+	modified:   ../test/optima/models.txt
+	modified:   ../test/runpython.py
+	modified:   ../test/swissmetro/01logit.html
+	modified:   ../test/swissmetro/01logit.py
+	deleted:    ../test/swissmetro/01logit_simul.html
+	modified:   ../test/swissmetro/01logit_simul.py
+	deleted:    ../test/swissmetro/01logit_stat.html
+	modified:   ../test/swissmetro/01logit_stat.py
+	deleted:    ../test/swissmetro/02weight.html
+	modified:   ../test/swissmetro/02weight.py
+	deleted:    ../test/swissmetro/03scale.html
+	modified:   ../test/swissmetro/03scale.py
+	deleted:    ../test/swissmetro/04modifVariables.html
+	modified:   ../test/swissmetro/04modifVariables.py
+	deleted:    ../test/swissmetro/05normalMixture.html
+	modified:   ../test/swissmetro/05normalMixture.py
+	deleted:    ../test/swissmetro/05normalMixtureIntegral.html
+	modified:   ../test/swissmetro/05normalMixtureIntegral.py
+	deleted:    ../test/swissmetro/06unifMixture.html
+	modified:   ../test/swissmetro/06unifMixture.py
+	deleted:    ../test/swissmetro/06unifMixtureIntegral.html
+	modified:   ../test/swissmetro/06unifMixtureIntegral.py
+	deleted:    ../test/swissmetro/07discreteMixture.html
+	modified:   ../test/swissmetro/07discreteMixture.py
+	deleted:    ../test/swissmetro/08boxcox.html
+	modified:   ../test/swissmetro/08boxcox.py
+	deleted:    ../test/swissmetro/09nested.html
+	modified:   ../test/swissmetro/09nested.py
+	deleted:    ../test/swissmetro/10nestedBottom.html
+	modified:   ../test/swissmetro/10nestedBottom.py
+	deleted:    ../test/swissmetro/11cnl.html
+	modified:   ../test/swissmetro/11cnl.py
+	modified:   ../test/swissmetro/12panel.html
+	modified:   ../test/swissmetro/12panel.py
+	deleted:    ../test/swissmetro/13panelNormalized.html
+	modified:   ../test/swissmetro/13panelNormalized.py
+	deleted:    ../test/swissmetro/14selectionBias.html
+	modified:   ../test/swissmetro/14selectionBias.py
+	deleted:    ../test/swissmetro/15panelDiscrete.html
+	modified:   ../test/swissmetro/15panelDiscrete.py
+	deleted:    ../test/swissmetro/17lognormalMixture.html
+	modified:   ../test/swissmetro/17lognormalMixture.py
+	deleted:    ../test/swissmetro/17lognormalMixtureIntegral.html
+	modified:   ../test/swissmetro/17lognormalMixtureIntegral.py
+	deleted:    ../test/swissmetro/21ordinalLogit.html
+	modified:   ../test/swissmetro/21ordinalLogit.py
+	deleted:    ../test/swissmetro/21probit.html
+	modified:   ../test/swissmetro/21probit.py
+	deleted:    ../test/swissmetro/22sumExample.html
+	modified:   ../test/swissmetro/22sumExample.py
+	modified:   ../test/swissmetro/models.txt
+	modified:   ../test/swissmetro_bison/01logit.mod
+	deleted:    ../test/swissmetro_bison/01logit_simul.mod
+	deleted:    ../test/swissmetro_bison/02weight_simul.mod
+	deleted:    ../test/swissmetro_bison/03scale_simul.mod
+	deleted:    ../test/swissmetro_bison/04modifVariables_simul.mod
+	deleted:    ../test/swissmetro_bison/05normalMixture_simul.mod
+	deleted:    ../test/swissmetro_bison/06unifMixture_simul.mod
+	deleted:    ../test/swissmetro_bison/07discreteMixture_simul.mod
+	deleted:    ../test/swissmetro_bison/08boxcox_simul.mod
+	deleted:    ../test/swissmetro_bison/09nested_simul.mod
+	deleted:    ../test/swissmetro_bison/10nestedBottom_simul.mod
+	deleted:    ../test/swissmetro_bison/11cnl_simul.mod
+	deleted:    ../test/swissmetro_bison/12panel_simul.mod
+	deleted:    ../test/swissmetro_bison/13panelNormalized_simul.mod
+	deleted:    ../test/swissmetro_bison/14selectionBias_simul.mod
+	deleted:    ../test/swissmetro_bison/15panelDiscrete_simul.mod
+	deleted:    ../test/swissmetro_bison/16legendre_simul.mod
+	deleted:    ../test/swissmetro_bison/17lognormalMixtureWithDerivatives_simul.mod
+	deleted:    ../test/swissmetro_bison/17lognormalMixture_simul.mod
+	modified:   ../test/tests.txt
+	modified:   ../../web/examples/swissmetro/bison/01logit.html
+	deleted:    ../../web/examples/swissmetro/bison/01logit_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/02weight.html
+	deleted:    ../../web/examples/swissmetro/bison/02weight_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/03scale.html
+	deleted:    ../../web/examples/swissmetro/bison/03scale_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/04modifVariables.html
+	deleted:    ../../web/examples/swissmetro/bison/04modifVariables_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/05normalMixture.html
+	modified:   ../../web/examples/swissmetro/bison/05normalMixture.mod
+	deleted:    ../../web/examples/swissmetro/bison/05normalMixture_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/06unifMixture.html
+	modified:   ../../web/examples/swissmetro/bison/06unifMixture.mod
+	deleted:    ../../web/examples/swissmetro/bison/06unifMixture_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/07discreteMixture.html
+	deleted:    ../../web/examples/swissmetro/bison/07discreteMixture_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/08boxcox.html
+	deleted:    ../../web/examples/swissmetro/bison/08boxcox_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/09nested.html
+	deleted:    ../../web/examples/swissmetro/bison/09nested_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/10nestedBottom.html
+	deleted:    ../../web/examples/swissmetro/bison/10nestedBottom_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/11cnl.html
+	deleted:    ../../web/examples/swissmetro/bison/11cnl_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/12panel.html
+	modified:   ../../web/examples/swissmetro/bison/12panel.mod
+	deleted:    ../../web/examples/swissmetro/bison/12panel_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/13panelNormalized.html
+	modified:   ../../web/examples/swissmetro/bison/13panelNormalized.mod
+	deleted:    ../../web/examples/swissmetro/bison/13panelNormalized_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/14selectionBias.html
+	deleted:    ../../web/examples/swissmetro/bison/14selectionBias_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/15panelDiscrete.html
+	modified:   ../../web/examples/swissmetro/bison/15panelDiscrete.mod
+	deleted:    ../../web/examples/swissmetro/bison/15panelDiscrete_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/16legendre.html
+	modified:   ../../web/examples/swissmetro/bison/16legendre.mod
+	deleted:    ../../web/examples/swissmetro/bison/16legendre_simul.mod
+	modified:   ../../web/examples/swissmetro/bison/17lognormalMixture.html
+	modified:   ../../web/examples/swissmetro/bison/17lognormalMixture.mod
+	modified:   ../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.html
+	modified:   ../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.mod
+	deleted:    ../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives_simul.mod
+	deleted:    ../../web/examples/swissmetro/bison/17lognormalMixture_simul.mod
+	deleted:    ../../web/examples/swissmetro/bison/21ordinalLogit.mod
+	deleted:    ../../web/examples/swissmetro/bison/multi.mod
+	deleted:    ../../web/examples/swissmetro/bison/tmp.mod
+	deleted:    ../../web/examples/swissmetro/examples.html
+	modified:   ../../web/examples/swissmetro/python/01logit.html
+	modified:   ../../web/examples/swissmetro/python/01logit.py
+	modified:   ../../web/examples/swissmetro/python/01logit_param.py
+	modified:   ../../web/examples/swissmetro/python/01logit_simul.html
+	modified:   ../../web/examples/swissmetro/python/01logit_simul.py
+	modified:   ../../web/examples/swissmetro/python/01logit_stat.html
+	modified:   ../../web/examples/swissmetro/python/01logit_stat.py
+	modified:   ../../web/examples/swissmetro/python/02weight.html
+	modified:   ../../web/examples/swissmetro/python/02weight.py
+	modified:   ../../web/examples/swissmetro/python/02weight_param.py
+	modified:   ../../web/examples/swissmetro/python/03scale.html
+	modified:   ../../web/examples/swissmetro/python/03scale.py
+	modified:   ../../web/examples/swissmetro/python/03scale_param.py
+	modified:   ../../web/examples/swissmetro/python/04modifVariables.html
+	modified:   ../../web/examples/swissmetro/python/04modifVariables.py
+	modified:   ../../web/examples/swissmetro/python/04modifVariables_param.py
+	modified:   ../../web/examples/swissmetro/python/05normalMixture.html
+	modified:   ../../web/examples/swissmetro/python/05normalMixture.py
+	modified:   ../../web/examples/swissmetro/python/05normalMixtureIntegral.html
+	modified:   ../../web/examples/swissmetro/python/05normalMixtureIntegral.py
+	modified:   ../../web/examples/swissmetro/python/05normalMixtureIntegral_param.py
+	modified:   ../../web/examples/swissmetro/python/05normalMixture_param.py
+	modified:   ../../web/examples/swissmetro/python/06unifMixture.html
+	modified:   ../../web/examples/swissmetro/python/06unifMixture.py
+	modified:   ../../web/examples/swissmetro/python/06unifMixtureIntegral.html
+	modified:   ../../web/examples/swissmetro/python/06unifMixtureIntegral.py
+	modified:   ../../web/examples/swissmetro/python/06unifMixtureIntegral_param.py
+	modified:   ../../web/examples/swissmetro/python/06unifMixture_param.py
+	modified:   ../../web/examples/swissmetro/python/07discreteMixture.html
+	modified:   ../../web/examples/swissmetro/python/07discreteMixture.py
+	modified:   ../../web/examples/swissmetro/python/07discreteMixture_param.py
+	modified:   ../../web/examples/swissmetro/python/08boxcox.html
+	modified:   ../../web/examples/swissmetro/python/08boxcox.py
+	modified:   ../../web/examples/swissmetro/python/08boxcox_param.py
+	modified:   ../../web/examples/swissmetro/python/09nested.html
+	modified:   ../../web/examples/swissmetro/python/09nested.py
+	modified:   ../../web/examples/swissmetro/python/09nested_param.py
+	modified:   ../../web/examples/swissmetro/python/10nestedBottom.html
+	modified:   ../../web/examples/swissmetro/python/10nestedBottom.py
+	modified:   ../../web/examples/swissmetro/python/10nestedBottom_param.py
+	modified:   ../../web/examples/swissmetro/python/11cnl.html
+	modified:   ../../web/examples/swissmetro/python/11cnl.py
+	modified:   ../../web/examples/swissmetro/python/11cnl_param.py
+	modified:   ../../web/examples/swissmetro/python/12panel.html
+	modified:   ../../web/examples/swissmetro/python/12panel.py
+	modified:   ../../web/examples/swissmetro/python/12panel_param.py
+	modified:   ../../web/examples/swissmetro/python/13panelNormalized.html
+	modified:   ../../web/examples/swissmetro/python/13panelNormalized.py
+	modified:   ../../web/examples/swissmetro/python/13panelNormalized_param.py
+	modified:   ../../web/examples/swissmetro/python/14selectionBias.html
+	modified:   ../../web/examples/swissmetro/python/14selectionBias.py
+	modified:   ../../web/examples/swissmetro/python/14selectionBias_param.py
+	modified:   ../../web/examples/swissmetro/python/15panelDiscrete.html
+	modified:   ../../web/examples/swissmetro/python/15panelDiscrete.py
+	modified:   ../../web/examples/swissmetro/python/15panelDiscrete_param.py
+	modified:   ../../web/examples/swissmetro/python/17lognormalMixture.html
+	modified:   ../../web/examples/swissmetro/python/17lognormalMixture.py
+	modified:   ../../web/examples/swissmetro/python/17lognormalMixtureIntegral.html
+	modified:   ../../web/examples/swissmetro/python/17lognormalMixtureIntegral.py
+	modified:   ../../web/examples/swissmetro/python/17lognormalMixtureIntegral_param.py
+	deleted:    ../../web/examples/swissmetro/python/18latentClasses.html
+	deleted:    ../../web/examples/swissmetro/python/18latentClasses.py
+	deleted:    ../../web/examples/swissmetro/python/18latentClasses_param.py
+	deleted:    ../../web/examples/swissmetro/python/19latentVariable.html
+	deleted:    ../../web/examples/swissmetro/python/19latentVariable.py
+	deleted:    ../../web/examples/swissmetro/python/19latentVariable_param.py
+	deleted:    ../../web/examples/swissmetro/python/20latentVariable.html
+	deleted:    ../../web/examples/swissmetro/python/20latentVariable.py
+	deleted:    ../../web/examples/swissmetro/python/20latentVariable_param.py
+	deleted:    ../../web/examples/swissmetro/python/21ordinalLogit.py
+	deleted:    ../../web/examples/swissmetro/python/21ordinalLogit_debug.py
+	modified:   ../../web/examples/swissmetro/python/21ordinalLogit_param.py
+	modified:   ../../web/examples/swissmetro/python/21probit.py
+	modified:   ../../web/examples/swissmetro/python/21probit_param.py
+	deleted:    ../../web/examples/swissmetro/python/22probit.py
+	modified:   ../../web/examples/swissmetro/python/22sumExample.py
+	modified:   ../../web/examples/swissmetro/python/22sumExample_param.py
+	deleted:    ../../web/examples/swissmetro/python/23sumExample.py
+	deleted:    ../../web/pages/bisonParam.html
+	modified:   ../../web/pages/bootstrap.min.css
+	deleted:    ../../web/pages/home.html
+	deleted:    ../../web/pages/install.html
+	modified:   ../../web/pages/navbar.js
+	deleted:    ../../web/pages/pythonDoc.html
+	modified:   ../../web/pages/pythonGoodies.html
+	deleted:    ../../web/pages/pythonParam.html
+	deleted:    ../../web/release/src/empty.tar.gz
+	deleted:    ../../web/release/windows/Biogeme-setup.exe
+	modified:   ../../web/replacePythonParams.py
+	modified:   ../../web/update.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../../.DS_Store
+	../.DS_Store
+	../howto/.DS_Store
+	../howto/compile_pythonbiogeme_on_cygwin.txt
+	../howto/create_.deb.txt
+	../howto/create_.pkg.txt
+	../howto/create_a_standalone_biogeme_on_windows.txt
+	../howto/create_an_win_installer.txt
+	../howto/create_mac_app.txt
+	../howto/create_mac_dmg.txt
+	../howto/cross_compile_bisonbiogeme_from_cygwin.txt
+	../howto/files/
+	../howto/launch_server_for_gui.txt
+	../release_scripts/.DS_Store
+	../release_scripts/osx/#makeARelease.sh#
+	../release_scripts/osx/.#makeARelease.sh
+	../release_scripts/osx/distribution.xml.bak
+	../release_scripts/source/
+	../release_scripts/windows/.DS_Store
+	../release_scripts/windows/createInstallerBison.sh~
+	../release_scripts/windows/createInstallerPython.sh~
+	../release_scripts/windows/nsis.log
+	../release_scripts/windows/ressources/cygsetup.bat
+	../release_scripts/windows/ressources/cygsetup.bat~
+	01logit_optima.html
+	git.status
+	pythonbiogeme/python/Doxyfile.bak
+	pythonbiogeme/python/biogeme-python3.5-config.py
+	webui/html/_formulas.aux
+	webui/html/_formulas.dvi
+	webui/html/annotated.html
+	webui/html/arrowdown.png
+	webui/html/arrowright.png
+	webui/html/bc_s.png
+	webui/html/bdwn.png
+	webui/html/bio__expression_8py.html
+	webui/html/bio__expression_8py_source.html
+	webui/html/bio__iterator_8py.html
+	webui/html/bio__iterator_8py_source.html
+	webui/html/bio_matrix_8py.html
+	webui/html/bio_matrix_8py_source.html
+	webui/html/biogeme-python3_81-config_8py_source.html
+	webui/html/biogeme-python3_82-config_8py_source.html
+	webui/html/biogeme-python3_82-cygwin-config_8py_source.html
+	webui/html/biogeme-python3_83-config_8py_source.html
+	webui/html/biogeme-python3_83m-config_8py_source.html
+	webui/html/biogeme-python3_84-config_8py_source.html
+	webui/html/biogeme-python3_85-config_8py_source.html
+	webui/html/biogeme_8py_source.html
+	webui/html/boxcox_8py.html
+	webui/html/boxcox_8py_source.html
+	webui/html/citelist.html
+	webui/html/classbio__expression_1_1_beta-members.html
+	webui/html/classbio__expression_1_1_beta.html
+	webui/html/classbio__expression_1_1_beta.png
+	webui/html/classbio__expression_1_1_bin_op-members.html
+	webui/html/classbio__expression_1_1_bin_op.html
+	webui/html/classbio__expression_1_1_bin_op.png
+	webui/html/classbio__expression_1_1_define_draws-members.html
+	webui/html/classbio__expression_1_1_define_draws.html
+	webui/html/classbio__expression_1_1_define_draws.png
+	webui/html/classbio__expression_1_1_define_variable-members.html
+	webui/html/classbio__expression_1_1_define_variable.html
+	webui/html/classbio__expression_1_1_define_variable.png
+	webui/html/classbio__expression_1_1_derive-members.html
+	webui/html/classbio__expression_1_1_derive.html
+	webui/html/classbio__expression_1_1_derive.png
+	webui/html/classbio__expression_1_1_elem-members.html
+	webui/html/classbio__expression_1_1_elem.html
+	webui/html/classbio__expression_1_1_elem.png
+	webui/html/classbio__expression_1_1_enumerate-members.html
+	webui/html/classbio__expression_1_1_enumerate.html
+	webui/html/classbio__expression_1_1_enumerate.png
+	webui/html/classbio__expression_1_1_expression-members.html
+	webui/html/classbio__expression_1_1_expression.html
+	webui/html/classbio__expression_1_1_expression.png
+	webui/html/classbio__expression_1_1_integrate-members.html
+	webui/html/classbio__expression_1_1_integrate.html
+	webui/html/classbio__expression_1_1_integrate.png
+	webui/html/classbio__expression_1_1_m_h-members.html
+	webui/html/classbio__expression_1_1_m_h.html
+	webui/html/classbio__expression_1_1_m_h.png
+	webui/html/classbio__expression_1_1_monte_carlo-members.html
+	webui/html/classbio__expression_1_1_monte_carlo.html
+	webui/html/classbio__expression_1_1_monte_carlo.png
+	webui/html/classbio__expression_1_1_monte_carlo_control_variate-members.html
+	webui/html/classbio__expression_1_1_monte_carlo_control_variate.html
+	webui/html/classbio__expression_1_1_monte_carlo_control_variate.png
+	webui/html/classbio__expression_1_1_numeric-members.html
+	webui/html/classbio__expression_1_1_numeric.html
+	webui/html/classbio__expression_1_1_numeric.png
+	webui/html/classbio__expression_1_1_operator-members.html
+	webui/html/classbio__expression_1_1_operator.html
+	webui/html/classbio__expression_1_1_prod-members.html
+	webui/html/classbio__expression_1_1_prod.html
+	webui/html/classbio__expression_1_1_prod.png
+	webui/html/classbio__expression_1_1_random_variable-members.html
+	webui/html/classbio__expression_1_1_random_variable.html
+	webui/html/classbio__expression_1_1_random_variable.png
+	webui/html/classbio__expression_1_1_sum-members.html
+	webui/html/classbio__expression_1_1_sum.html
+	webui/html/classbio__expression_1_1_sum.png
+	webui/html/classbio__expression_1_1_un_op-members.html
+	webui/html/classbio__expression_1_1_un_op.html
+	webui/html/classbio__expression_1_1_un_op.png
+	webui/html/classbio__expression_1_1_variable-members.html
+	webui/html/classbio__expression_1_1_variable.html
+	webui/html/classbio__expression_1_1_variable.png
+	webui/html/classbio__expression_1_1abs-members.html
+	webui/html/classbio__expression_1_1abs.html
+	webui/html/classbio__expression_1_1abs.png
+	webui/html/classbio__expression_1_1bio_bayes_normal_draw-members.html
+	webui/html/classbio__expression_1_1bio_bayes_normal_draw.html
+	webui/html/classbio__expression_1_1bio_bayes_normal_draw.png
+	webui/html/classbio__expression_1_1bio_draws-members.html
+	webui/html/classbio__expression_1_1bio_draws.html
+	webui/html/classbio__expression_1_1bio_draws.png
+	webui/html/classbio__expression_1_1bio_log_logit-members.html
+	webui/html/classbio__expression_1_1bio_log_logit.html
+	webui/html/classbio__expression_1_1bio_log_logit.png
+	webui/html/classbio__expression_1_1bio_logit-members.html
+	webui/html/classbio__expression_1_1bio_logit.html
+	webui/html/classbio__expression_1_1bio_logit.png
+	webui/html/classbio__expression_1_1bio_mult_sum-members.html
+	webui/html/classbio__expression_1_1bio_mult_sum.html
+	webui/html/classbio__expression_1_1bio_mult_sum.png
+	webui/html/classbio__expression_1_1bio_normal_cdf-members.html
+	webui/html/classbio__expression_1_1bio_normal_cdf.html
+	webui/html/classbio__expression_1_1bio_normal_cdf.png
+	webui/html/classbio__expression_1_1bio_normal_draws-members.html
+	webui/html/classbio__expression_1_1bio_normal_draws.html
+	webui/html/classbio__expression_1_1bio_normal_draws.png
+	webui/html/classbio__expression_1_1bio_normal_pdf-members.html
+	webui/html/classbio__expression_1_1bio_normal_pdf.html
+	webui/html/classbio__expression_1_1bio_normal_pdf.png
+	webui/html/classbio__expression_1_1bio_recycle_draws-members.html
+	webui/html/classbio__expression_1_1bio_recycle_draws.html
+	webui/html/classbio__expression_1_1bio_recycle_draws.png
+	webui/html/classbio__expression_1_1bio_uniform_draws-members.html
+	webui/html/classbio__expression_1_1bio_uniform_draws.html
+	webui/html/classbio__expression_1_1bio_uniform_draws.png
+	webui/html/classbio__expression_1_1bio_uniform_symmetric_draws-members.html
+	webui/html/classbio__expression_1_1bio_uniform_symmetric_draws.html
+	webui/html/classbio__expression_1_1bio_uniform_symmetric_draws.png
+	webui/html/classbio__expression_1_1exp-members.html
+	webui/html/classbio__expression_1_1exp.html
+	webui/html/classbio__expression_1_1exp.png
+	webui/html/classbio__expression_1_1log-members.html
+	webui/html/classbio__expression_1_1log.html
+	webui/html/classbio__expression_1_1log.png
+	webui/html/classbio__expression_1_1max-members.html
+	webui/html/classbio__expression_1_1max.html
+	webui/html/classbio__expression_1_1max.png
+	webui/html/classbio__expression_1_1min-members.html
+	webui/html/classbio__expression_1_1min.html
+	webui/html/classbio__expression_1_1min.png
+	webui/html/classbio__iterator_1_1draw_iterator-members.html
+	webui/html/classbio__iterator_1_1draw_iterator.html
+	webui/html/classbio__iterator_1_1draw_iterator.png
+	webui/html/classbio__iterator_1_1iterator-members.html
+	webui/html/classbio__iterator_1_1iterator.html
+	webui/html/classbio__iterator_1_1iterator.png
+	webui/html/classbio__iterator_1_1meta_iterator-members.html
+	webui/html/classbio__iterator_1_1meta_iterator.html
+	webui/html/classbio__iterator_1_1meta_iterator.png
+	webui/html/classbio__iterator_1_1row_iterator-members.html
+	webui/html/classbio__iterator_1_1row_iterator.html
+	webui/html/classbio__iterator_1_1row_iterator.png
+	webui/html/classbio_matrix_1_1bio_matrix-members.html
+	webui/html/classbio_matrix_1_1bio_matrix.html
+	webui/html/classbio_matrix_1_1bio_matrix.png
+	webui/html/classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t-members.html
+	webui/html/classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t.html
+	webui/html/classes.html
+	webui/html/closed.png
+	webui/html/cnl_8py.html
+	webui/html/cnl_8py_source.html
+	webui/html/distributions_8py.html
+	webui/html/distributions_8py_source.html
+	webui/html/doc.png
+	webui/html/doxygen.css
+	webui/html/doxygen.png
+	webui/html/dynsections.js
+	webui/html/folderclosed.png
+	webui/html/folderopen.png
+	webui/html/form_0.png
+	webui/html/form_1.png
+	webui/html/form_10.png
+	webui/html/form_11.png
+	webui/html/form_12.png
+	webui/html/form_13.png
+	webui/html/form_14.png
+	webui/html/form_15.png
+	webui/html/form_16.png
+	webui/html/form_17.png
+	webui/html/form_18.png
+	webui/html/form_19.png
+	webui/html/form_2.png
+	webui/html/form_20.png
+	webui/html/form_21.png
+	webui/html/form_22.png
+	webui/html/form_23.png
+	webui/html/form_24.png
+	webui/html/form_25.png
+	webui/html/form_26.png
+	webui/html/form_27.png
+	webui/html/form_28.png
+	webui/html/form_29.png
+	webui/html/form_3.png
+	webui/html/form_30.png
+	webui/html/form_31.png
+	webui/html/form_32.png
+	webui/html/form_33.png
+	webui/html/form_34.png
+	webui/html/form_35.png
+	webui/html/form_36.png
+	webui/html/form_37.png
+	webui/html/form_38.png
+	webui/html/form_39.png
+	webui/html/form_4.png
+	webui/html/form_40.png
+	webui/html/form_41.png
+	webui/html/form_42.png
+	webui/html/form_43.png
+	webui/html/form_44.png
+	webui/html/form_45.png
+	webui/html/form_46.png
+	webui/html/form_47.png
+	webui/html/form_48.png
+	webui/html/form_49.png
+	webui/html/form_5.png
+	webui/html/form_50.png
+	webui/html/form_51.png
+	webui/html/form_52.png
+	webui/html/form_53.png
+	webui/html/form_54.png
+	webui/html/form_55.png
+	webui/html/form_56.png
+	webui/html/form_57.png
+	webui/html/form_58.png
+	webui/html/form_59.png
+	webui/html/form_6.png
+	webui/html/form_60.png
+	webui/html/form_61.png
+	webui/html/form_62.png
+	webui/html/form_63.png
+	webui/html/form_64.png
+	webui/html/form_65.png
+	webui/html/form_66.png
+	webui/html/form_67.png
+	webui/html/form_68.png
+	webui/html/form_69.png
+	webui/html/form_7.png
+	webui/html/form_70.png
+	webui/html/form_71.png
+	webui/html/form_72.png
+	webui/html/form_73.png
+	webui/html/form_74.png
+	webui/html/form_75.png
+	webui/html/form_76.png
+	webui/html/form_77.png
+	webui/html/form_78.png
+	webui/html/form_79.png
+	webui/html/form_8.png
+	webui/html/form_80.png
+	webui/html/form_81.png
+	webui/html/form_82.png
+	webui/html/form_83.png
+	webui/html/form_9.png
+	webui/html/formula.repository
+	webui/html/ftv2blank.png
+	webui/html/ftv2doc.png
+	webui/html/ftv2folderclosed.png
+	webui/html/ftv2folderopen.png
+	webui/html/ftv2lastnode.png
+	webui/html/ftv2link.png
+	webui/html/ftv2mlastnode.png
+	webui/html/ftv2mnode.png
+	webui/html/ftv2node.png
+	webui/html/ftv2plastnode.png
+	webui/html/ftv2pnode.png
+	webui/html/ftv2splitbar.png
+	webui/html/ftv2vertline.png
+	webui/html/functions.html
+	webui/html/functions_func.html
+	webui/html/functions_vars.html
+	webui/html/group__biogeme.html
+	webui/html/group__likelihood.html
+	webui/html/group__models.html
+	webui/html/group__pdfcdf.html
+	webui/html/group__specs.html
+	webui/html/group__stats.html
+	webui/html/groups_8py_source.html
+	webui/html/hierarchy.html
+	webui/html/index.html
+	webui/html/jquery.js
+	webui/html/legendre_8py.html
+	webui/html/legendre_8py_source.html
+	webui/html/logit_8py.html
+	webui/html/logit_8py_source.html
+	webui/html/loglikelihood_8py.html
+	webui/html/loglikelihood_8py_source.html
+	webui/html/mev_8py.html
+	webui/html/mev_8py_source.html
+	webui/html/modules.html
+	webui/html/namespacebiogeme.html
+	webui/html/namespaces.html
+	webui/html/nav_f.png
+	webui/html/nav_g.png
+	webui/html/nav_h.png
+	webui/html/nested_8py.html
+	webui/html/nested_8py_source.html
+	webui/html/open.png
+	webui/html/pages.html
+	webui/html/search/
+	webui/html/simulate_discrete_distribution_8py_source.html
+	webui/html/splitbar.png
+	webui/html/statistics_8py.html
+	webui/html/statistics_8py_source.html
+	webui/html/sync_off.png
+	webui/html/sync_on.png
+	webui/html/tab_a.png
+	webui/html/tab_b.png
+	webui/html/tab_h.png
+	webui/html/tab_s.png
+	webui/html/tabs.css
+	webui/html/weightedloglikelihood_8py.html
+	webui/html/weightedloglikelihood_8py_source.html
+	../test/#differences.log#
+	../test/.DS_Store
+	../test/__pycache__/
+	../test/alltests.txt
+	../test/compareTwoFiles.py
+	../test/debug.py
+	../test/differences.log
+	../test/monteCarlo/
+	../test/optima/01logit_optima-err.log
+	../test/optima/01logit_optima.log
+	../test/optima/01logit_optima.tex
+	../test/optima/02weight_optima-err.log
+	../test/optima/02weight_optima.log
+	../test/optima/02weight_optima.tex
+	../test/optima/03scale_optima-err.log
+	../test/optima/03scale_optima.log
+	../test/optima/03scale_optima.tex
+	../test/optima/04modifVariables_optima-err.log
+	../test/optima/04modifVariables_optima.log
+	../test/optima/04modifVariables_optima.tex
+	../test/optima/05normalMixture_optima-err.log
+	../test/optima/05normalMixture_optima.log
+	../test/optima/05normalMixture_optima.tex
+	../test/optima/06unifMixtureIntegral_optima-err.log
+	../test/optima/06unifMixtureIntegral_optima.log
+	../test/optima/06unifMixtureIntegral_optima.tex
+	../test/optima/06unifMixture_optima-err.log
+	../test/optima/06unifMixture_optima.log
+	../test/optima/06unifMixture_optima.tex
+	../test/optima/07discreteMixture_optima-err.log
+	../test/optima/07discreteMixture_optima.log
+	../test/optima/07discreteMixture_optima.tex
+	../test/optima/08boxcox_optima-err.log
+	../test/optima/08boxcox_optima.log
+	../test/optima/08boxcox_optima.tex
+	../test/optima/09nested_optima-err.log
+	../test/optima/09nested_optima.log
+	../test/optima/09nested_optima.tex
+	../test/optima/10nestedBottom_optima-err.log
+	../test/optima/10nestedBottom_optima.log
+	../test/optima/10nestedBottom_optima.tex
+	../test/optima/11cnl_optima-err.log
+	../test/optima/11cnl_optima.log
+	../test/optima/11cnl_optima.tex
+	../test/optima/14selectionBias_optima-err.log
+	../test/optima/14selectionBias_optima.log
+	../test/optima/14selectionBias_optima.tex
+	../test/optima/17lognormalMixture_optima-err.log
+	../test/optima/17lognormalMixture_optima.log
+	../test/optima/17lognormalMixture_optima.tex
+	../test/optima/18latentclass_optima-err.log
+	../test/optima/18latentclass_optima.log
+	../test/optima/18latentclass_optima.tex
+	../test/optima/21basemodel-err.log
+	../test/optima/21basemodel.log
+	../test/optima/21basemodel.tex
+	../test/optima/22basemodel_simul-err.log
+	../test/optima/22basemodel_simul.log
+	../test/optima/__parametersUsed.py
+	../test/optima/__pycache__/
+	../test/optima/beta.draws
+	../test/optima/default.log
+	../test/optima/headers.py
+	../test/optima/hess.lis
+	../test/optima/hessian.lis
+	../test/optima/pythonparam.html
+	../test/runbison.py
+	../test/swissmetro/#models.txt#
+	../test/swissmetro/01logit.aux
+	../test/swissmetro/01logit.fdb_latexmk
+	../test/swissmetro/01logit.fls
+	../test/swissmetro/01logit.log
+	../test/swissmetro/01logit.tex
+	../test/swissmetro/01logit_param.py
+	../test/swissmetro/01logit_python.py
+	../test/swissmetro/01logit_python.py~
+	../test/swissmetro/01logit~1.aux
+	../test/swissmetro/01logit~1.fdb_latexmk
+	../test/swissmetro/01logit~1.html
+	../test/swissmetro/01logit~1.tex
+	../test/swissmetro/01logit~1_param.py
+	../test/swissmetro/02weight~4.aux
+	../test/swissmetro/02weight~4.fdb_latexmk
+	../test/swissmetro/02weight~4.tex
+	../test/swissmetro/03scale.aux
+	../test/swissmetro/03scale.fdb_latexmk
+	../test/swissmetro/03scale.tex
+	../test/swissmetro/03scale~1.aux
+	../test/swissmetro/03scale~1.fdb_latexmk
+	../test/swissmetro/03scale~1.tex
+	../test/swissmetro/03scale~2.aux
+	../test/swissmetro/03scale~2.fdb_latexmk
+	../test/swissmetro/03scale~2.tex
+	../test/swissmetro/03scale~3.aux
+	../test/swissmetro/03scale~3.fdb_latexmk
+	../test/swissmetro/03scale~3.tex
+	../test/swissmetro/03scale~4.aux
+	../test/swissmetro/03scale~4.fdb_latexmk
+	../test/swissmetro/03scale~4.tex
+	../test/swissmetro/04modifVariables.aux
+	../test/swissmetro/04modifVariables.fdb_latexmk
+	../test/swissmetro/04modifVariables.tex
+	../test/swissmetro/04modifVariables~1.aux
+	../test/swissmetro/04modifVariables~1.fdb_latexmk
+	../test/swissmetro/04modifVariables~1.tex
+	../test/swissmetro/04modifVariables~2.aux
+	../test/swissmetro/04modifVariables~2.fdb_latexmk
+	../test/swissmetro/04modifVariables~2.tex
+	../test/swissmetro/04modifVariables~3.aux
+	../test/swissmetro/04modifVariables~3.fdb_latexmk
+	../test/swissmetro/04modifVariables~3.tex
+	../test/swissmetro/04modifVariables~4.aux
+	../test/swissmetro/04modifVariables~4.fdb_latexmk
+	../test/swissmetro/04modifVariables~4.tex
+	../test/swissmetro/05normalMixture.aux
+	../test/swissmetro/05normalMixture.fdb_latexmk
+	../test/swissmetro/05normalMixture.tex
+	../test/swissmetro/05normalMixtureIntegral.aux
+	../test/swissmetro/05normalMixtureIntegral.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral.tex
+	../test/swissmetro/05normalMixtureIntegral~1.aux
+	../test/swissmetro/05normalMixtureIntegral~1.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral~1.tex
+	../test/swissmetro/05normalMixtureIntegral~2.aux
+	../test/swissmetro/05normalMixtureIntegral~2.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral~2.tex
+	../test/swissmetro/05normalMixtureIntegral~3.aux
+	../test/swissmetro/05normalMixtureIntegral~3.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral~3.tex
+	../test/swissmetro/05normalMixtureIntegral~4.aux
+	../test/swissmetro/05normalMixtureIntegral~4.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral~4.tex
+	../test/swissmetro/05normalMixtureIntegral~5.aux
+	../test/swissmetro/05normalMixtureIntegral~5.fdb_latexmk
+	../test/swissmetro/05normalMixtureIntegral~5.tex
+	../test/swissmetro/05normalMixture~1.aux
+	../test/swissmetro/05normalMixture~1.fdb_latexmk
+	../test/swissmetro/05normalMixture~1.tex
+	../test/swissmetro/05normalMixture~2.aux
+	../test/swissmetro/05normalMixture~2.fdb_latexmk
+	../test/swissmetro/05normalMixture~2.tex
+	../test/swissmetro/05normalMixture~3.aux
+	../test/swissmetro/05normalMixture~3.fdb_latexmk
+	../test/swissmetro/05normalMixture~3.tex
+	../test/swissmetro/05normalMixture~4.aux
+	../test/swissmetro/05normalMixture~4.fdb_latexmk
+	../test/swissmetro/05normalMixture~4.tex
+	../test/swissmetro/06unifMixture.aux
+	../test/swissmetro/06unifMixture.fdb_latexmk
+	../test/swissmetro/06unifMixture.fls
+	../test/swissmetro/06unifMixture.log
+	../test/swissmetro/06unifMixture.tex
+	../test/swissmetro/06unifMixtureIntegral.tex
+	../test/swissmetro/06unifMixtureIntegral~1.tex
+	../test/swissmetro/06unifMixtureIntegral~2.tex
+	../test/swissmetro/06unifMixture~1.tex
+	../test/swissmetro/06unifMixture~2.tex
+	../test/swissmetro/07discreteMixture.tex
+	../test/swissmetro/07discreteMixture~1.tex
+	../test/swissmetro/07discreteMixture~2.tex
+	../test/swissmetro/08boxcox.tex
+	../test/swissmetro/08boxcox~1.tex
+	../test/swissmetro/08boxcox~2.tex
+	../test/swissmetro/09nested.tex
+	../test/swissmetro/09nested~1.tex
+	../test/swissmetro/09nested~2.tex
+	../test/swissmetro/10nestedBottom.tex
+	../test/swissmetro/10nestedBottom~1.tex
+	../test/swissmetro/10nestedBottom~2.tex
+	../test/swissmetro/11cnl.tex
+	../test/swissmetro/11cnl_simul.py
+	../test/swissmetro/11cnl_simul.py~
+	../test/swissmetro/11cnl~1.tex
+	../test/swissmetro/11cnl~2.tex
+	../test/swissmetro/11cnl~3.tex
+	../test/swissmetro/12panel.log
+	../test/swissmetro/12panel.tex
+	../test/swissmetro/12panel_param.py
+	../test/swissmetro/12panel~1.html
+	../test/swissmetro/12panel~1.tex
+	../test/swissmetro/12panel~2.tex
+	../test/swissmetro/12panel~3.tex
+	../test/swissmetro/13panelNormalized.tex
+	../test/swissmetro/13panelNormalized~1.tex
+	../test/swissmetro/13panelNormalized~2.tex
+	../test/swissmetro/14selectionBias.tex
+	../test/swissmetro/14selectionBias~1.tex
+	../test/swissmetro/14selectionBias~2.tex
+	../test/swissmetro/15panelDiscrete.tex
+	../test/swissmetro/15panelDiscrete~1.tex
+	../test/swissmetro/15panelDiscrete~2.tex
+	../test/swissmetro/17lognormalMixture.tex
+	../test/swissmetro/17lognormalMixtureIntegral.tex
+	../test/swissmetro/17lognormalMixtureIntegral~1.tex
+	../test/swissmetro/17lognormalMixture~1.tex
+	../test/swissmetro/21ordinalLogit.tex
+	../test/swissmetro/21ordinalLogit~1.tex
+	../test/swissmetro/21ordinalLogit~2.tex
+	../test/swissmetro/21probit.tex
+	../test/swissmetro/21probit~1.tex
+	../test/swissmetro/21probit~2.tex
+	../test/swissmetro/22sumExample.tex
+	../test/swissmetro/22sumExample~1.tex
+	../test/swissmetro/22sumExample~2.tex
+	../test/swissmetro/22sumExample~3.tex
+	../test/swissmetro/24truncatedNormalMixture.py
+	../test/swissmetro/24truncatedNormalMixture.py~
+	../test/swissmetro/24truncatedNormalMixture.tex
+	../test/swissmetro/24truncatedNormalMixture~1.tex
+	../test/swissmetro/24truncatedNormalMixture~2.tex
+	../test/swissmetro/25triangularMixture.py
+	../test/swissmetro/25triangularMixture.py~
+	../test/swissmetro/25triangularMixture.tex
+	../test/swissmetro/25triangularMixture~1.tex
+	../test/swissmetro/25triangularMixture~2.tex
+	../test/swissmetro/26triangularPanelMixture.py
+	../test/swissmetro/26triangularPanelMixture.py~
+	../test/swissmetro/26triangularPanelMixture.tex
+	../test/swissmetro/26triangularPanelMixture~1.tex
+	../test/swissmetro/26triangularPanelMixture~2.tex
+	../test/swissmetro/__parametersUsed.py
+	../test/swissmetro/__pycache__/
+	../test/swissmetro/beta.draws
+	../test/swissmetro/default.log
+	../test/swissmetro/headers.py
+	../test/swissmetro/hess.lis
+	../test/swissmetro/hessian.lis
+	../test/swissmetro/latex29268.fls
+	../test/swissmetro/latex29269.fls
+	../test/swissmetro/latex29270.fls
+	../test/swissmetro/latex29271.fls
+	../test/swissmetro/latex29272.fls
+	../test/swissmetro/latex29273.fls
+	../test/swissmetro/latex29274.fls
+	../test/swissmetro/latex29275.fls
+	../test/swissmetro/latex29276.fls
+	../test/swissmetro/latex29277.fls
+	../test/swissmetro/latex29278.fls
+	../test/swissmetro/latex29279.fls
+	../test/swissmetro/latex29280.fls
+	../test/swissmetro/latex29281.fls
+	../test/swissmetro/latex29282.fls
+	../test/swissmetro/latex29283.fls
+	../test/swissmetro/latex29284.fls
+	../test/swissmetro/latex29285.fls
+	../test/swissmetro/latex29286.fls
+	../test/swissmetro/latex29287.fls
+	../test/swissmetro/latex29288.fls
+	../test/swissmetro/latex29289.fls
+	../test/swissmetro/latex29290.fls
+	../test/swissmetro/pythonparam.html
+	../test/swissmetro/tmp.log
+	../test/swissmetro/tmp.log~
+	../test/swissmetro/tmp/
+	../test/swissmetro_bison/#run.csh#
+	../test/swissmetro_bison/01logit-err.log
+	../test/swissmetro_bison/01logit.-err.log
+	../test/swissmetro_bison/01logit..log
+	../test/swissmetro_bison/01logit.F12
+	../test/swissmetro_bison/01logit.html
+	../test/swissmetro_bison/01logit.log
+	../test/swissmetro_bison/01logit.rep
+	../test/swissmetro_bison/01logit.res
+	../test/swissmetro_bison/01logit.sta
+	../test/swissmetro_bison/01logit.tex
+	../test/swissmetro_bison/01logit~1.F12
+	../test/swissmetro_bison/01logit~1.html
+	../test/swissmetro_bison/01logit~1.rep
+	../test/swissmetro_bison/01logit~1.res
+	../test/swissmetro_bison/01logit~1.sta
+	../test/swissmetro_bison/01logit~1.tex
+	../test/swissmetro_bison/01logit~2.F12
+	../test/swissmetro_bison/01logit~2.html
+	../test/swissmetro_bison/01logit~2.rep
+	../test/swissmetro_bison/01logit~2.res
+	../test/swissmetro_bison/01logit~2.sta
+	../test/swissmetro_bison/01logit~2.tex
+	../test/swissmetro_bison/01logit~3.F12
+	../test/swissmetro_bison/01logit~3.html
+	../test/swissmetro_bison/01logit~3.rep
+	../test/swissmetro_bison/01logit~3.res
+	../test/swissmetro_bison/01logit~3.sta
+	../test/swissmetro_bison/01logit~3.tex
+	../test/swissmetro_bison/02weight-err.log
+	../test/swissmetro_bison/02weight.-err.log
+	../test/swissmetro_bison/02weight..log
+	../test/swissmetro_bison/02weight.F12
+	../test/swissmetro_bison/02weight.html
+	../test/swissmetro_bison/02weight.log
+	../test/swissmetro_bison/02weight.rep
+	../test/swissmetro_bison/02weight.res
+	../test/swissmetro_bison/02weight.sta
+	../test/swissmetro_bison/02weight.tex
+	../test/swissmetro_bison/02weight~1.F12
+	../test/swissmetro_bison/02weight~1.html
+	../test/swissmetro_bison/02weight~1.rep
+	../test/swissmetro_bison/02weight~1.res
+	../test/swissmetro_bison/02weight~1.sta
+	../test/swissmetro_bison/02weight~1.tex
+	../test/swissmetro_bison/02weight~2.F12
+	../test/swissmetro_bison/02weight~2.html
+	../test/swissmetro_bison/02weight~2.rep
+	../test/swissmetro_bison/02weight~2.res
+	../test/swissmetro_bison/02weight~2.sta
+	../test/swissmetro_bison/02weight~2.tex
+	../test/swissmetro_bison/03scale-err.log
+	../test/swissmetro_bison/03scale.-err.log
+	../test/swissmetro_bison/03scale..log
+	../test/swissmetro_bison/03scale.F12
+	../test/swissmetro_bison/03scale.html
+	../test/swissmetro_bison/03scale.log
+	../test/swissmetro_bison/03scale.rep
+	../test/swissmetro_bison/03scale.res
+	../test/swissmetro_bison/03scale.sta
+	../test/swissmetro_bison/03scale.tex
+	../test/swissmetro_bison/03scale~1.F12
+	../test/swissmetro_bison/03scale~1.html
+	../test/swissmetro_bison/03scale~1.rep
+	../test/swissmetro_bison/03scale~1.res
+	../test/swissmetro_bison/03scale~1.sta
+	../test/swissmetro_bison/03scale~1.tex
+	../test/swissmetro_bison/03scale~2.F12
+	../test/swissmetro_bison/03scale~2.html
+	../test/swissmetro_bison/03scale~2.rep
+	../test/swissmetro_bison/03scale~2.res
+	../test/swissmetro_bison/03scale~2.sta
+	../test/swissmetro_bison/03scale~2.tex
+	../test/swissmetro_bison/04modifVariables-err.log
+	../test/swissmetro_bison/04modifVariables.-err.log
+	../test/swissmetro_bison/04modifVariables..log
+	../test/swissmetro_bison/04modifVariables.F12
+	../test/swissmetro_bison/04modifVariables.html
+	../test/swissmetro_bison/04modifVariables.log
+	../test/swissmetro_bison/04modifVariables.rep
+	../test/swissmetro_bison/04modifVariables.res
+	../test/swissmetro_bison/04modifVariables.sta
+	../test/swissmetro_bison/04modifVariables.tex
+	../test/swissmetro_bison/04modifVariables~1.F12
+	../test/swissmetro_bison/04modifVariables~1.html
+	../test/swissmetro_bison/04modifVariables~1.rep
+	../test/swissmetro_bison/04modifVariables~1.res
+	../test/swissmetro_bison/04modifVariables~1.sta
+	../test/swissmetro_bison/04modifVariables~1.tex
+	../test/swissmetro_bison/04modifVariables~2.sta
+	../test/swissmetro_bison/05normalMixture-err.log
+	../test/swissmetro_bison/05normalMixture.-err.log
+	../test/swissmetro_bison/05normalMixture..log
+	../test/swissmetro_bison/05normalMixture.F12
+	../test/swissmetro_bison/05normalMixture.html
+	../test/swissmetro_bison/05normalMixture.log
+	../test/swissmetro_bison/05normalMixture.rep
+	../test/swissmetro_bison/05normalMixture.res
+	../test/swissmetro_bison/05normalMixture.sta
+	../test/swissmetro_bison/05normalMixture.tex
+	../test/swissmetro_bison/05normalMixture~1.F12
+	../test/swissmetro_bison/05normalMixture~1.html
+	../test/swissmetro_bison/05normalMixture~1.rep
+	../test/swissmetro_bison/05normalMixture~1.res
+	../test/swissmetro_bison/05normalMixture~1.sta
+	../test/swissmetro_bison/05normalMixture~1.tex
+	../test/swissmetro_bison/06unifMixture-err.log
+	../test/swissmetro_bison/06unifMixture.-err.log
+	../test/swissmetro_bison/06unifMixture..log
+	../test/swissmetro_bison/06unifMixture.F12
+	../test/swissmetro_bison/06unifMixture.html
+	../test/swissmetro_bison/06unifMixture.log
+	../test/swissmetro_bison/06unifMixture.rep
+	../test/swissmetro_bison/06unifMixture.res
+	../test/swissmetro_bison/06unifMixture.sta
+	../test/swissmetro_bison/06unifMixture.tex
+	../test/swissmetro_bison/06unifMixture~1.F12
+	../test/swissmetro_bison/06unifMixture~1.html
+	../test/swissmetro_bison/06unifMixture~1.rep
+	../test/swissmetro_bison/06unifMixture~1.res
+	../test/swissmetro_bison/06unifMixture~1.sta
+	../test/swissmetro_bison/06unifMixture~1.tex
+	../test/swissmetro_bison/07discreteMixture-err.log
+	../test/swissmetro_bison/07discreteMixture.-err.log
+	../test/swissmetro_bison/07discreteMixture..log
+	../test/swissmetro_bison/07discreteMixture.log
+	../test/swissmetro_bison/07discreteMixture.sta
+	../test/swissmetro_bison/07discreteMixture~1.sta
+	../test/swissmetro_bison/07discreteMixture~2.sta
+	../test/swissmetro_bison/08boxcox-err.log
+	../test/swissmetro_bison/08boxcox.-err.log
+	../test/swissmetro_bison/08boxcox..log
+	../test/swissmetro_bison/08boxcox.F12
+	../test/swissmetro_bison/08boxcox.html
+	../test/swissmetro_bison/08boxcox.log
+	../test/swissmetro_bison/08boxcox.rep
+	../test/swissmetro_bison/08boxcox.res
+	../test/swissmetro_bison/08boxcox.sta
+	../test/swissmetro_bison/08boxcox.tex
+	../test/swissmetro_bison/08boxcox~1.F12
+	../test/swissmetro_bison/08boxcox~1.html
+	../test/swissmetro_bison/08boxcox~1.rep
+	../test/swissmetro_bison/08boxcox~1.res
+	../test/swissmetro_bison/08boxcox~1.sta
+	../test/swissmetro_bison/08boxcox~1.tex
+	../test/swissmetro_bison/09nested-err.log
+	../test/swissmetro_bison/09nested.-err.log
+	../test/swissmetro_bison/09nested..log
+	../test/swissmetro_bison/09nested.F12
+	../test/swissmetro_bison/09nested.html
+	../test/swissmetro_bison/09nested.log
+	../test/swissmetro_bison/09nested.rep
+	../test/swissmetro_bison/09nested.res
+	../test/swissmetro_bison/09nested.sta
+	../test/swissmetro_bison/09nested.tex
+	../test/swissmetro_bison/09nested~1.F12
+	../test/swissmetro_bison/09nested~1.html
+	../test/swissmetro_bison/09nested~1.rep
+	../test/swissmetro_bison/09nested~1.res
+	../test/swissmetro_bison/09nested~1.sta
+	../test/swissmetro_bison/09nested~1.tex
+	../test/swissmetro_bison/10nestedBottom-err.log
+	../test/swissmetro_bison/10nestedBottom.-err.log
+	../test/swissmetro_bison/10nestedBottom..log
+	../test/swissmetro_bison/10nestedBottom.F12
+	../test/swissmetro_bison/10nestedBottom.html
+	../test/swissmetro_bison/10nestedBottom.log
+	../test/swissmetro_bison/10nestedBottom.rep
+	../test/swissmetro_bison/10nestedBottom.res
+	../test/swissmetro_bison/10nestedBottom.sta
+	../test/swissmetro_bison/10nestedBottom.tex
+	../test/swissmetro_bison/10nestedBottom~1.F12
+	../test/swissmetro_bison/10nestedBottom~1.html
+	../test/swissmetro_bison/10nestedBottom~1.rep
+	../test/swissmetro_bison/10nestedBottom~1.res
+	../test/swissmetro_bison/10nestedBottom~1.sta
+	../test/swissmetro_bison/10nestedBottom~1.tex
+	../test/swissmetro_bison/11cnl-err.log
+	../test/swissmetro_bison/11cnl.-err.log
+	../test/swissmetro_bison/11cnl..log
+	../test/swissmetro_bison/11cnl.log
+	../test/swissmetro_bison/11cnl.sta
+	../test/swissmetro_bison/11cnl~1.sta
+	../test/swissmetro_bison/11cnl~2.sta
+	../test/swissmetro_bison/12panel-err.log
+	../test/swissmetro_bison/12panel.-err.log
+	../test/swissmetro_bison/12panel..log
+	../test/swissmetro_bison/12panel.F12
+	../test/swissmetro_bison/12panel.html
+	../test/swissmetro_bison/12panel.log
+	../test/swissmetro_bison/12panel.rep
+	../test/swissmetro_bison/12panel.res
+	../test/swissmetro_bison/12panel.sta
+	../test/swissmetro_bison/12panel.tex
+	../test/swissmetro_bison/12panel~1.F12
+	../test/swissmetro_bison/12panel~1.html
+	../test/swissmetro_bison/12panel~1.rep
+	../test/swissmetro_bison/12panel~1.res
+	../test/swissmetro_bison/12panel~1.sta
+	../test/swissmetro_bison/12panel~1.tex
+	../test/swissmetro_bison/13panelNormalized-err.log
+	../test/swissmetro_bison/13panelNormalized.-err.log
+	../test/swissmetro_bison/13panelNormalized..log
+	../test/swissmetro_bison/13panelNormalized.F12
+	../test/swissmetro_bison/13panelNormalized.html
+	../test/swissmetro_bison/13panelNormalized.log
+	../test/swissmetro_bison/13panelNormalized.rep
+	../test/swissmetro_bison/13panelNormalized.res
+	../test/swissmetro_bison/13panelNormalized.sta
+	../test/swissmetro_bison/13panelNormalized.tex
+	../test/swissmetro_bison/13panelNormalized~1.F12
+	../test/swissmetro_bison/13panelNormalized~1.html
+	../test/swissmetro_bison/13panelNormalized~1.rep
+	../test/swissmetro_bison/13panelNormalized~1.res
+	../test/swissmetro_bison/13panelNormalized~1.sta
+	../test/swissmetro_bison/13panelNormalized~1.tex
+	../test/swissmetro_bison/14selectionBias-err.log
+	../test/swissmetro_bison/14selectionBias.-err.log
+	../test/swissmetro_bison/14selectionBias..log
+	../test/swissmetro_bison/14selectionBias.F12
+	../test/swissmetro_bison/14selectionBias.html
+	../test/swissmetro_bison/14selectionBias.log
+	../test/swissmetro_bison/14selectionBias.rep
+	../test/swissmetro_bison/14selectionBias.res
+	../test/swissmetro_bison/14selectionBias.sta
+	../test/swissmetro_bison/14selectionBias.tex
+	../test/swissmetro_bison/14selectionBias~1.F12
+	../test/swissmetro_bison/14selectionBias~1.html
+	../test/swissmetro_bison/14selectionBias~1.rep
+	../test/swissmetro_bison/14selectionBias~1.res
+	../test/swissmetro_bison/14selectionBias~1.sta
+	../test/swissmetro_bison/14selectionBias~1.tex
+	../test/swissmetro_bison/15panelDiscrete-err.log
+	../test/swissmetro_bison/15panelDiscrete.-err.log
+	../test/swissmetro_bison/15panelDiscrete..log
+	../test/swissmetro_bison/15panelDiscrete.log
+	../test/swissmetro_bison/15panelDiscrete.sta
+	../test/swissmetro_bison/15panelDiscrete~1.sta
+	../test/swissmetro_bison/15panelDiscrete~2.sta
+	../test/swissmetro_bison/16legendre-err.log
+	../test/swissmetro_bison/16legendre.-err.log
+	../test/swissmetro_bison/16legendre..log
+	../test/swissmetro_bison/16legendre.F12
+	../test/swissmetro_bison/16legendre.html
+	../test/swissmetro_bison/16legendre.log
+	../test/swissmetro_bison/16legendre.rep
+	../test/swissmetro_bison/16legendre.res
+	../test/swissmetro_bison/16legendre.sta
+	../test/swissmetro_bison/16legendre.tex
+	../test/swissmetro_bison/16legendre~1.F12
+	../test/swissmetro_bison/16legendre~1.html
+	../test/swissmetro_bison/16legendre~1.rep
+	../test/swissmetro_bison/16legendre~1.res
+	../test/swissmetro_bison/16legendre~1.sta
+	../test/swissmetro_bison/16legendre~1.tex
+	../test/swissmetro_bison/17lognormalMixture-err.log
+	../test/swissmetro_bison/17lognormalMixture.-err.log
+	../test/swissmetro_bison/17lognormalMixture..log
+	../test/swissmetro_bison/17lognormalMixture.F12
+	../test/swissmetro_bison/17lognormalMixture.html
+	../test/swissmetro_bison/17lognormalMixture.log
+	../test/swissmetro_bison/17lognormalMixture.rep
+	../test/swissmetro_bison/17lognormalMixture.res
+	../test/swissmetro_bison/17lognormalMixture.sta
+	../test/swissmetro_bison/17lognormalMixture.tex
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives-err.log
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.-err.log
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives..log
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.F12
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.html
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.log
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.rep
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.res
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.sta
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives.tex
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.F12
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.html
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.rep
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.res
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.sta
+	../test/swissmetro_bison/17lognormalMixtureWithDerivatives~1.tex
+	../test/swissmetro_bison/17lognormalMixture~1.F12
+	../test/swissmetro_bison/17lognormalMixture~1.html
+	../test/swissmetro_bison/17lognormalMixture~1.rep
+	../test/swissmetro_bison/17lognormalMixture~1.res
+	../test/swissmetro_bison/17lognormalMixture~1.sta
+	../test/swissmetro_bison/17lognormalMixture~1.tex
+	../test/swissmetro_bison/18ordinalLogit-err.log
+	../test/swissmetro_bison/18ordinalLogit.-err.log
+	../test/swissmetro_bison/18ordinalLogit..log
+	../test/swissmetro_bison/18ordinalLogit.F12
+	../test/swissmetro_bison/18ordinalLogit.html
+	../test/swissmetro_bison/18ordinalLogit.log
+	../test/swissmetro_bison/18ordinalLogit.par
+	../test/swissmetro_bison/18ordinalLogit.rep
+	../test/swissmetro_bison/18ordinalLogit.res
+	../test/swissmetro_bison/18ordinalLogit.sta
+	../test/swissmetro_bison/18ordinalLogit.tex
+	../test/swissmetro_bison/18ordinalLogit~1.F12
+	../test/swissmetro_bison/18ordinalLogit~1.html
+	../test/swissmetro_bison/18ordinalLogit~1.rep
+	../test/swissmetro_bison/18ordinalLogit~1.res
+	../test/swissmetro_bison/18ordinalLogit~1.sta
+	../test/swissmetro_bison/18ordinalLogit~1.tex
+	../test/swissmetro_bison/18ordinalLogit~2.sta
+	../test/swissmetro_bison/19ngev_nl-err.log
+	../test/swissmetro_bison/19ngev_nl.-err.log
+	../test/swissmetro_bison/19ngev_nl..log
+	../test/swissmetro_bison/19ngev_nl.F12
+	../test/swissmetro_bison/19ngev_nl.html
+	../test/swissmetro_bison/19ngev_nl.log
+	../test/swissmetro_bison/19ngev_nl.rep
+	../test/swissmetro_bison/19ngev_nl.res
+	../test/swissmetro_bison/19ngev_nl.sta
+	../test/swissmetro_bison/19ngev_nl.tex
+	../test/swissmetro_bison/19ngev_nl~1.F12
+	../test/swissmetro_bison/19ngev_nl~1.html
+	../test/swissmetro_bison/19ngev_nl~1.rep
+	../test/swissmetro_bison/19ngev_nl~1.res
+	../test/swissmetro_bison/19ngev_nl~1.sta
+	../test/swissmetro_bison/19ngev_nl~1.tex
+	../test/swissmetro_bison/20ngev_cnl-err.log
+	../test/swissmetro_bison/20ngev_cnl.-err.log
+	../test/swissmetro_bison/20ngev_cnl..log
+	../test/swissmetro_bison/20ngev_cnl.log
+	../test/swissmetro_bison/20ngev_cnl.sta
+	../test/swissmetro_bison/20ngev_cnl~1.sta
+	../test/swissmetro_bison/20ngev_cnl~2.sta
+	../test/swissmetro_bison/21ordinalLogit-err.log
+	../test/swissmetro_bison/21ordinalLogit.-err.log
+	../test/swissmetro_bison/21ordinalLogit..log
+	../test/swissmetro_bison/21ordinalLogit.F12
+	../test/swissmetro_bison/21ordinalLogit.html
+	../test/swissmetro_bison/21ordinalLogit.log
+	../test/swissmetro_bison/21ordinalLogit.par~
+	../test/swissmetro_bison/21ordinalLogit.rep
+	../test/swissmetro_bison/21ordinalLogit.res
+	../test/swissmetro_bison/21ordinalLogit.sta
+	../test/swissmetro_bison/21ordinalLogit.tex
+	../test/swissmetro_bison/21ordinalLogit~1.F12
+	../test/swissmetro_bison/21ordinalLogit~1.html
+	../test/swissmetro_bison/21ordinalLogit~1.rep
+	../test/swissmetro_bison/21ordinalLogit~1.res
+	../test/swissmetro_bison/21ordinalLogit~1.sta
+	../test/swissmetro_bison/21ordinalLogit~1.tex
+	../test/swissmetro_bison/21ordinalLogit~2.sta
+	../test/swissmetro_bison/__specFile.debug
+	../test/swissmetro_bison/default.par
+	../test/swissmetro_bison/hess.lis
+	../test/swissmetro_bison/hessian.lis
+	../test/swissmetro_bison/model.debug
+	../test/swissmetro_bison/models.txt
+	../test/swissmetro_bison/parameters.out
+	../test/swissmetro_bison/run.csh
+	../test/swissmetro_bison/run.csh~
+	../test/swissmetro_bison/summary.html
+	../test/swissmetro_bison/swissmetro_bison.dat
+	../test/tests_bison.txt
+	../test/tmp/
+	../test/working/
+	../../html/
+	../../web/#tmp#
+	../../web/.DS_Store
+	../../web/archives/
+	../../web/bisonParam.html
+	../../web/documentation/montecarlo-2.4.pdf
+	../../web/documentation/tutorialBiogeme-2.4.pdf
+	../../web/examples/.DS_Store
+	../../web/examples/makeHtml.py
+	../../web/examples/makeHtml.py~
+	../../web/examples/montecarlo/
+	../../web/examples/optima/
+	../../web/examples/swissmetro/.DS_Store
+	../../web/examples/swissmetro/bison/#hess.lis#
+	../../web/examples/swissmetro/bison/01logit.F12
+	../../web/examples/swissmetro/bison/01logit.log
+	../../web/examples/swissmetro/bison/01logit.rep
+	../../web/examples/swissmetro/bison/01logit.res
+	../../web/examples/swissmetro/bison/01logit.sta
+	../../web/examples/swissmetro/bison/01logit.tex
+	../../web/examples/swissmetro/bison/01logit~1.tex
+	../../web/examples/swissmetro/bison/01logit~2.tex
+	../../web/examples/swissmetro/bison/02weight.F12
+	../../web/examples/swissmetro/bison/02weight.log
+	../../web/examples/swissmetro/bison/02weight.rep
+	../../web/examples/swissmetro/bison/02weight.res
+	../../web/examples/swissmetro/bison/02weight.sta
+	../../web/examples/swissmetro/bison/02weight.tex
+	../../web/examples/swissmetro/bison/03scale.F12
+	../../web/examples/swissmetro/bison/03scale.log
+	../../web/examples/swissmetro/bison/03scale.rep
+	../../web/examples/swissmetro/bison/03scale.res
+	../../web/examples/swissmetro/bison/03scale.sta
+	../../web/examples/swissmetro/bison/03scale.tex
+	../../web/examples/swissmetro/bison/04modifVariables.F12
+	../../web/examples/swissmetro/bison/04modifVariables.log
+	../../web/examples/swissmetro/bison/04modifVariables.rep
+	../../web/examples/swissmetro/bison/04modifVariables.res
+	../../web/examples/swissmetro/bison/04modifVariables.sta
+	../../web/examples/swissmetro/bison/04modifVariables.tex
+	../../web/examples/swissmetro/bison/05normalMixture.F12
+	../../web/examples/swissmetro/bison/05normalMixture.log
+	../../web/examples/swissmetro/bison/05normalMixture.rep
+	../../web/examples/swissmetro/bison/05normalMixture.res
+	../../web/examples/swissmetro/bison/05normalMixture.sta
+	../../web/examples/swissmetro/bison/05normalMixture.tex
+	../../web/examples/swissmetro/bison/05normalMixture~1.tex
+	../../web/examples/swissmetro/bison/05normalMixture~2.tex
+	../../web/examples/swissmetro/bison/06unifMixture.F12
+	../../web/examples/swissmetro/bison/06unifMixture.log
+	../../web/examples/swissmetro/bison/06unifMixture.rep
+	../../web/examples/swissmetro/bison/06unifMixture.res
+	../../web/examples/swissmetro/bison/06unifMixture.sta
+	../../web/examples/swissmetro/bison/06unifMixture.tex
+	../../web/examples/swissmetro/bison/07discreteMixture.F12
+	../../web/examples/swissmetro/bison/07discreteMixture.log
+	../../web/examples/swissmetro/bison/07discreteMixture.rep
+	../../web/examples/swissmetro/bison/07discreteMixture.res
+	../../web/examples/swissmetro/bison/07discreteMixture.sta
+	../../web/examples/swissmetro/bison/07discreteMixture.tex
+	../../web/examples/swissmetro/bison/08boxcox.F12
+	../../web/examples/swissmetro/bison/08boxcox.log
+	../../web/examples/swissmetro/bison/08boxcox.rep
+	../../web/examples/swissmetro/bison/08boxcox.res
+	../../web/examples/swissmetro/bison/08boxcox.sta
+	../../web/examples/swissmetro/bison/08boxcox.tex
+	../../web/examples/swissmetro/bison/09nested.F12
+	../../web/examples/swissmetro/bison/09nested.log
+	../../web/examples/swissmetro/bison/09nested.rep
+	../../web/examples/swissmetro/bison/09nested.res
+	../../web/examples/swissmetro/bison/09nested.sta
+	../../web/examples/swissmetro/bison/09nested.tex
+	../../web/examples/swissmetro/bison/10nestedBottom.F12
+	../../web/examples/swissmetro/bison/10nestedBottom.log
+	../../web/examples/swissmetro/bison/10nestedBottom.rep
+	../../web/examples/swissmetro/bison/10nestedBottom.res
+	../../web/examples/swissmetro/bison/10nestedBottom.sta
+	../../web/examples/swissmetro/bison/10nestedBottom.tex
+	../../web/examples/swissmetro/bison/11cnl.F12
+	../../web/examples/swissmetro/bison/11cnl.log
+	../../web/examples/swissmetro/bison/11cnl.rep
+	../../web/examples/swissmetro/bison/11cnl.res
+	../../web/examples/swissmetro/bison/11cnl.sta
+	../../web/examples/swissmetro/bison/11cnl.tex
+	../../web/examples/swissmetro/bison/12panel.F12
+	../../web/examples/swissmetro/bison/12panel.keep
+	../../web/examples/swissmetro/bison/12panel.log
+	../../web/examples/swissmetro/bison/12panel.rep
+	../../web/examples/swissmetro/bison/12panel.res
+	../../web/examples/swissmetro/bison/12panel.sta
+	../../web/examples/swissmetro/bison/12panel.tex
+	../../web/examples/swissmetro/bison/12panel~1.tex
+	../../web/examples/swissmetro/bison/12panel~2.tex
+	../../web/examples/swissmetro/bison/13panelNormalized.F12
+	../../web/examples/swissmetro/bison/13panelNormalized.log
+	../../web/examples/swissmetro/bison/13panelNormalized.rep
+	../../web/examples/swissmetro/bison/13panelNormalized.res
+	../../web/examples/swissmetro/bison/13panelNormalized.sta
+	../../web/examples/swissmetro/bison/13panelNormalized.tex
+	../../web/examples/swissmetro/bison/14selectionBias.F12
+	../../web/examples/swissmetro/bison/14selectionBias.log
+	../../web/examples/swissmetro/bison/14selectionBias.rep
+	../../web/examples/swissmetro/bison/14selectionBias.res
+	../../web/examples/swissmetro/bison/14selectionBias.sta
+	../../web/examples/swissmetro/bison/14selectionBias.tex
+	../../web/examples/swissmetro/bison/15panelDiscrete.F12
+	../../web/examples/swissmetro/bison/15panelDiscrete.log
+	../../web/examples/swissmetro/bison/15panelDiscrete.rep
+	../../web/examples/swissmetro/bison/15panelDiscrete.res
+	../../web/examples/swissmetro/bison/15panelDiscrete.sta
+	../../web/examples/swissmetro/bison/15panelDiscrete.tex
+	../../web/examples/swissmetro/bison/16legendre.F12
+	../../web/examples/swissmetro/bison/16legendre.log
+	../../web/examples/swissmetro/bison/16legendre.old
+	../../web/examples/swissmetro/bison/16legendre.rep
+	../../web/examples/swissmetro/bison/16legendre.res
+	../../web/examples/swissmetro/bison/16legendre.sta
+	../../web/examples/swissmetro/bison/16legendre.tex
+	../../web/examples/swissmetro/bison/16legendre~1.tex
+	../../web/examples/swissmetro/bison/16legendre~2.tex
+	../../web/examples/swissmetro/bison/16legendre~3.tex
+	../../web/examples/swissmetro/bison/16legendre~4.tex
+	../../web/examples/swissmetro/bison/16legendre~5.tex
+	../../web/examples/swissmetro/bison/17lognormalMixture.F12
+	../../web/examples/swissmetro/bison/17lognormalMixture.log
+	../../web/examples/swissmetro/bison/17lognormalMixture.rep
+	../../web/examples/swissmetro/bison/17lognormalMixture.res
+	../../web/examples/swissmetro/bison/17lognormalMixture.sta
+	../../web/examples/swissmetro/bison/17lognormalMixture.tex
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.F12
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.log
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.rep
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.res
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.sta
+	../../web/examples/swissmetro/bison/17lognormalMixtureWithDerivatives.tex
+	../../web/examples/swissmetro/bison/18ordinalLogit.F12
+	../../web/examples/swissmetro/bison/18ordinalLogit.html
+	../../web/examples/swissmetro/bison/18ordinalLogit.log
+	../../web/examples/swissmetro/bison/18ordinalLogit.rep
+	../../web/examples/swissmetro/bison/18ordinalLogit.res
+	../../web/examples/swissmetro/bison/18ordinalLogit.sta
+	../../web/examples/swissmetro/bison/18ordinalLogit.tex
+	../../web/examples/swissmetro/bison/19ngev_nl.F12
+	../../web/examples/swissmetro/bison/19ngev_nl.html
+	../../web/examples/swissmetro/bison/19ngev_nl.log
+	../../web/examples/swissmetro/bison/19ngev_nl.rep
+	../../web/examples/swissmetro/bison/19ngev_nl.res
+	../../web/examples/swissmetro/bison/19ngev_nl.sta
+	../../web/examples/swissmetro/bison/19ngev_nl.tex
+	../../web/examples/swissmetro/bison/20ngev_cnl.F12
+	../../web/examples/swissmetro/bison/20ngev_cnl.html
+	../../web/examples/swissmetro/bison/20ngev_cnl.log
+	../../web/examples/swissmetro/bison/20ngev_cnl.rep
+	../../web/examples/swissmetro/bison/20ngev_cnl.res
+	../../web/examples/swissmetro/bison/20ngev_cnl.sta
+	../../web/examples/swissmetro/bison/20ngev_cnl.tex
+	../../web/examples/swissmetro/bison/20ngev_cnl~1.tex
+	../../web/examples/swissmetro/bison/__specFile.debug
+	../../web/examples/swissmetro/bison/default.par
+	../../web/examples/swissmetro/bison/default.par~
+	../../web/examples/swissmetro/bison/hess.lis
+	../../web/examples/swissmetro/bison/hessian.lis
+	../../web/examples/swissmetro/bison/model.debug
+	../../web/examples/swissmetro/bison/parameters.out
+	../../web/examples/swissmetro/bison/run.sh
+	../../web/examples/swissmetro/bison/run.sh~
+	../../web/examples/swissmetro/bison/summary.html
+	../../web/examples/swissmetro/examples_swissmetro.html
+	../../web/examples/swissmetro/examples_swissmetro.html.orig
+	../../web/examples/swissmetro/python/#tmp#
+	../../web/examples/swissmetro/python/01logit.tex
+	../../web/examples/swissmetro/python/01logit_python.html
+	../../web/examples/swissmetro/python/01logit_python.py
+	../../web/examples/swissmetro/python/01logit_python.tex
+	../../web/examples/swissmetro/python/01logit_python_param.py
+	../../web/examples/swissmetro/python/02weight.tex
+	../../web/examples/swissmetro/python/03scale.tex
+	../../web/examples/swissmetro/python/04modifVariables.tex
+	../../web/examples/swissmetro/python/05normalMixture.tex
+	../../web/examples/swissmetro/python/05normalMixtureIntegral.tex
+	../../web/examples/swissmetro/python/06unifMixture.tex
+	../../web/examples/swissmetro/python/06unifMixtureIntegral.tex
+	../../web/examples/swissmetro/python/07discreteMixture.tex
+	../../web/examples/swissmetro/python/08boxcox.tex
+	../../web/examples/swissmetro/python/09nested.tex
+	../../web/examples/swissmetro/python/10nestedBottom.tex
+	../../web/examples/swissmetro/python/11cnl.tex
+	../../web/examples/swissmetro/python/11cnl_simul.html
+	../../web/examples/swissmetro/python/11cnl_simul.py
+	../../web/examples/swissmetro/python/12panel.log
+	../../web/examples/swissmetro/python/12panel.tex
+	../../web/examples/swissmetro/python/12panel_bis.html
+	../../web/examples/swissmetro/python/12panel_bis.html~
+	../../web/examples/swissmetro/python/12panel_bis.py
+	../../web/examples/swissmetro/python/12panel_bis.py~
+	../../web/examples/swissmetro/python/12panel~1.tex
+	../../web/examples/swissmetro/python/12panel~1_param.py
+	../../web/examples/swissmetro/python/13panelNormalized.tex
+	../../web/examples/swissmetro/python/14selectionBias.tex
+	../../web/examples/swissmetro/python/15panelDiscrete.tex
+	../../web/examples/swissmetro/python/17lognormalMixture.tex
+	../../web/examples/swissmetro/python/17lognormalMixtureIntegral.tex
+	../../web/examples/swissmetro/python/17lognormalMixture_param.py
+	../../web/examples/swissmetro/python/18ordinalLogit.html
+	../../web/examples/swissmetro/python/18ordinalLogit.html~
+	../../web/examples/swissmetro/python/18ordinalLogit.py
+	../../web/examples/swissmetro/python/18ordinalLogit.py~
+	../../web/examples/swissmetro/python/21ordinalLogit.tex
+	../../web/examples/swissmetro/python/21probit.html
+	../../web/examples/swissmetro/python/21probit.tex
+	../../web/examples/swissmetro/python/22sumExample.html
+	../../web/examples/swissmetro/python/22sumExample.tex
+	../../web/examples/swissmetro/python/24truncatedNormalMixture.html
+	../../web/examples/swissmetro/python/24truncatedNormalMixture.py
+	../../web/examples/swissmetro/python/24truncatedNormalMixture.tex
+	../../web/examples/swissmetro/python/24truncatedNormalMixture_param.py
+	../../web/examples/swissmetro/python/25triangularMixture.html
+	../../web/examples/swissmetro/python/25triangularMixture.py
+	../../web/examples/swissmetro/python/25triangularMixture.tex
+	../../web/examples/swissmetro/python/25triangularMixture_param.py
+	../../web/examples/swissmetro/python/26triangularPanelMixture.html
+	../../web/examples/swissmetro/python/26triangularPanelMixture.py
+	../../web/examples/swissmetro/python/26triangularPanelMixture.py~
+	../../web/examples/swissmetro/python/26triangularPanelMixture.tex
+	../../web/examples/swissmetro/python/26triangularPanelMixture_param.py
+	../../web/examples/swissmetro/python/__parametersUsed.py
+	../../web/examples/swissmetro/python/__pycache__/
+	../../web/examples/swissmetro/python/beta.draws
+	../../web/examples/swissmetro/python/default.log
+	../../web/examples/swissmetro/python/headers.py
+	../../web/examples/swissmetro/python/hess.lis
+	../../web/examples/swissmetro/python/hessian.lis
+	../../web/examples/swissmetro/python/pythonparam.html
+	../../web/examples/swissmetro/python/run.csh
+	../../web/examples/swissmetro/python/run.csh~
+	../../web/examples/tmp.py
+	../../web/examples/tmp.py~
+	../../web/examples_optima.html
+	../../web/examples_optima.html.bkp
+	../../web/examples_swissmetro.html
+	../../web/examples_swissmetro.html.bkp
+	../../web/install.html
+	../../web/install.html-e
+	../../web/menu.html
+	../../web/pages/#examples_swissmetro.html#
+	../../web/pages/#test.html#
+	../../web/pages/archives.html.orig
+	../../web/pages/archives.html.orig~
+	../../web/pages/backtotop.js
+	../../web/pages/bisonParam.html.bkp
+	../../web/pages/bisonParam.html.orig
+	../../web/pages/examples_montecarlo.html
+	../../web/pages/examples_optima.html
+	../../web/pages/examples_optima.html.bkp
+	../../web/pages/examples_swissmetro.html
+	../../web/pages/examples_swissmetro.html.bkp
+	../../web/pages/examples_swissmetro.html~
+	../../web/pages/home.html.bkp
+	../../web/pages/home.html.orig
+	../../web/pages/home.html.orig~
+	../../web/pages/home.html.tmp
+	../../web/pages/install.html-e
+	../../web/pages/install.html.bkp
+	../../web/pages/install.html.orig
+	../../web/pages/install.html.orig~
+	../../web/pages/menu.css
+	../../web/pages/menu.html.orig
+	../../web/pages/menu.html.orig~
+	../../web/pages/menu.js
+	../../web/pages/navbar.html
+	../../web/pages/navbar.js.orig
+	../../web/pages/pythonDoc.html-e
+	../../web/pages/pythonDoc.html.bkp
+	../../web/pages/pythonDoc.html.orig
+	../../web/pages/pythonDoc.html.orig~
+	../../web/pages/pythonGoodies.html.bkp
+	../../web/pages/pythonGoodies.html.orig
+	../../web/pages/pythonGoodoes.html
+	../../web/pages/pythonParam.html-e
+	../../web/pages/pythonParam.html.bkp
+	../../web/pages/pythonParam.html.orig
+	../../web/pages/test.html
+	../../web/pages/utilities.html.bkp
+	../../web/pages/utilities.html.orig
+	../../web/pythonDoc.html
+	../../web/release/.DS_Store
+	../../web/release/osx/.DS_Store
+	../../web/release/osx/Biogeme-2.4.dmg
+	../../web/release/src/.DS_Store
+	../../web/release/src/biogeme-2.4.tar.gz
+	../../web/release/windows/.DS_Store
+	../../web/release/windows/biogeme-2.4.zip
+	../../web/tmp.log
+	../../web/utilities.html
+	../../web/webpage
+	../../web/website.old/
+	../../web/website/
+

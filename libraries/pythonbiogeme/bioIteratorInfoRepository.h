@@ -44,6 +44,8 @@ public:
 
   vector<patString> getListOfIterators() const ;
   patString getIndexName(patString name, patError*& err) const ;
+  patString getTopIteratorName() const ;
+  patBoolean isTopIteratorMeta(patError*& err) const ;
 private:
 
   const bioIteratorInfo* getIteratorInfo(patString name, patError*& err) const ;

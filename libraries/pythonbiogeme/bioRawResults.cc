@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patErrNullPointer.h"
 #include "bioRawResults.h"
 #include "bioMinimizationProblem.h"

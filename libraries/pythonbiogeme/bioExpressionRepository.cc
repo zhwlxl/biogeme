@@ -5,6 +5,11 @@
 // Date :      Sat Sep 12 16:03:17 2009
 //
 //--------------------------------------------------------------------
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "bioExpressionRepository.h"
 #include "patDisplay.h"

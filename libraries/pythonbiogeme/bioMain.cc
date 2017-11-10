@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <Python.h>
 #include <iomanip>
 #include "patFileExists.h"
@@ -31,7 +35,6 @@
 #include "patCfsqp.h"
 #include "bioIpopt.h"
 #include "patSolvOpt.h"
-#include "bioRawResults.h"
 #include "bioReporting.h"
 #include "bioStatistics.h"
 #include "bioSimulation.h"
@@ -40,6 +43,9 @@
 #include "bioPrecompiledFunction.h"
 #include "bioArithPrint.h"
 #include "bioArithBayes.h"
+#include "bioAlgoStopFile.h"
+#include "bioPrematureStop.h"
+#include "bioAlgorithmStopping.h"
 
 #include "patEnvPathVariable.h"
 
@@ -54,7 +60,7 @@
 #endif
 
 
-bioMain::bioMain() : theFunction(NULL),theSample(NULL), theModel(NULL), theStatistics(NULL), theConstraints(NULL), theRawResults(NULL), theReport(NULL), theRepository(NULL) {
+bioMain::bioMain() : theFunction(NULL),theSample(NULL), theModel(NULL), theStatistics(NULL), theConstraints(NULL), theReport(NULL), algo(NULL), theRepository(NULL),theStopFileCriterion(NULL) {
 
   patOutputFiles::the()->clearList() ;
   
@@ -66,9 +72,9 @@ bioMain::~bioMain() {
   DELETE_PTR(theModel) ;
   DELETE_PTR(theStatistics) ;
   DELETE_PTR(theConstraints) ;
-  DELETE_PTR(theRawResults) ;
   DELETE_PTR(theReport) ;
-  DELETE_PTR(theRepository) 
+  DELETE_PTR(theRepository);
+  DELETE_PTR(theStopFileCriterion) ;
 }
 
 void bioMain::setFunction(bioPythonWrapper* f) {
@@ -117,7 +123,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
     return ;
   }
 
-  //  DEBUG_MESSAGE("Sample file: " << sampleFile) ;
+
   
   theSample = new bioSample(sampleFile,err) ;
   if (err != NULL) {
@@ -126,7 +132,6 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
   }
   //  DEBUG_MESSAGE("Number of columns: " << theSample->getNumberOfColumns()) ;
 
-  
   // Init Python
 #ifdef STANDALONE_EXECUTABLE
   Py_NoSiteFlag = 1;
@@ -157,7 +162,6 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
 
   patFileNames::the()->setModelName(fn) ;
 
-  //  GENERAL_MESSAGE("READ MODEL FROM " << fn) ;
   bioModelParser* parser = new bioModelParser(fn,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
@@ -169,7 +173,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
     WARNING(err->describe()) ;
     return ;
   }
-
+  
   int displayLevel = bioParameters::the()->getValueInt("biogemeDisplay",err) ; 
   if (err != NULL) {
     WARNING(err->describe()) ;
@@ -200,6 +204,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
   else {
     patDisplay::the().setLogImportanceLevel(patImportance::patDEBUG) ;
   }
+
   
   theRepository = theModel->getRepository() ;
   if (theRepository == NULL) {
@@ -207,8 +212,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
     WARNING(err->describe()) ;
     return ;
   }
-  //  GENERAL_MESSAGE("MODEL READ") ;
-
+  GENERAL_MESSAGE("MODEL READ") ;
 
   bioExpression* excludeExpression = theRepository->getExpression(theModel->getExcludeExpr()) ;
   vector<pair<patString, patULong> >* userExpressions = theModel->getUserExpressions() ;
@@ -219,7 +223,6 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
     bioExpression* aExpr = theRepository->getExpression(i->second) ;
     ptrUserExpressions.push_back(pair<patString,bioExpression*>(i->first,aExpr)) ;
   }
-  DEBUG_MESSAGE("Prepare sample") ;
   theSample->prepare(excludeExpression,&ptrUserExpressions,err) ;
   if (err != NULL) {
     WARNING(err->describe()); 
@@ -250,7 +253,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
 
 
   patString dumpFileName("__parametersUsed.py") ;
-  ofstream po(dumpFileName) ;
+  ofstream po(dumpFileName.c_str()) ;
   po << bioParameters::the()->printPythonCode() << endl;
   po.close() ;
   patOutputFiles::the()->addUsefulFile(dumpFileName,"Values of the parameters actually used") ;
@@ -295,6 +298,7 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
       WARNING(err->describe()); 
       return ;
     }
+
   }
   else if (theModel->mustBayesEstimate()) {
     bayesian(err) ;
@@ -424,11 +428,6 @@ void bioMain::estimate(patError*& err) {
   }
 
 
-  // Bounds
-
-  patVariables l = bioLiteralRepository::the()->getLowerBounds() ;
-  patVariables u = bioLiteralRepository::the()->getUpperBounds() ;
-  trBounds theBounds(l,u) ;
   
   patVariables beta = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
   DEBUG_MESSAGE("Number of betas = " << beta.size()) ;
@@ -470,8 +469,20 @@ void bioMain::estimate(patError*& err) {
     return ;
   }
 
-  patBoolean computeHessian =  (bioParameters::the()->getValueInt("deriveAnalyticalHessian",err)) != 0 ;
+  patBoolean computeLastHessian =  (bioParameters::the()->getValueInt("calculateAnalyticalHessian",err)) != 0 ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+  patBoolean useHessianForOptimization =  (bioParameters::the()->getValueInt("useAnalyticalHessianForOptimization",err)) != 0 ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
 
+  patBoolean computeHessian = computeLastHessian || useHessianForOptimization ;
+
+  
   // WARNING("Derivatives are always checked") ;
   // checkDeriv = patTRUE ;
 
@@ -480,7 +491,7 @@ void bioMain::estimate(patError*& err) {
     DEBUG_MESSAGE("computing derivative");
 
     patVariables grad(beta.size(),0.0) ;
-    trHessian hess(bioParameters::the()->getTrParameters(err),beta.size()) ;
+    trHessian hess(bioParameters::the()->getTrParameters(),beta.size()) ;
     beg.setTimeOfDay() ;
 
     patReal theFct ;
@@ -511,7 +522,7 @@ void bioMain::estimate(patError*& err) {
     patTimeInterval tig(beg,endc) ;
 
     patVariables finDiffGrad(beta.size(),0.0) ;
-    trHessian finDiffHess(bioParameters::the()->getTrParameters(err),beta.size()) ;
+    trHessian finDiffHess(bioParameters::the()->getTrParameters(),beta.size()) ;
     beg.setTimeOfDay() ;
     theFunction->computeFinDiffGradient(&beta,&finDiffGrad,&success,err) ;
     endc.setTimeOfDay() ;
@@ -564,229 +575,84 @@ void bioMain::estimate(patError*& err) {
     }
   }
 
-
-  //Optimization problem
-
-  bioMinimizationProblem theProblem(theFunction, theBounds,theTrParameters) ;
-  
-
-  // Constraints
-  if (theConstraints != NULL) {
-    theConstraints->addConstraints() ;
-    vector<bioConstraintWrapper*>* c = theConstraints->getConstraints() ;
-    for (vector<bioConstraintWrapper*>::iterator i = c->begin() ;
-	 i != c->end() ;
-	 ++i) {
-      theProblem.addEqualityConstraint(*i) ;
-    }
-    
-  }
-  
-  // Optimization algorithm
-
-  beg.setTimeOfDay() ;
-
-  patString selectedAlgo = bioParameters::the()->getValueString("optimizationAlgorithm",err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return ;
-  }
-
-  if (theProblem.nNonTrivialConstraints() > 0) {
-    if (selectedAlgo == "BIO") {
-      err = new patErrMiscError("Algorithm BIO deals only with bound constraints. Use CFSQP instead.") ;
-      WARNING(err->describe()) ;
-      return ;
-    }
-
-			      
-    patULong nle = theProblem.nNonLinearEq() ;
-    for (patULong i = 0 ; i < nle ; ++i) {
-      trFunction* f = theProblem.getNonLinEquality(i,err) ;
-      if (err != NULL) {
-	WARNING(err->describe()) ;
-	return ;
-      }
-      patBoolean success ;
-      f->computeFunction(&beta,&success,err) ;
-      if (err != NULL) {
-	WARNING(err->describe()) ;
-	return ;
-      }
-    }
-  }
-
-
-  if (!theProblem.isFeasible(beta,err)) {
-    WARNING("Starting point not feasible") ;
-  }
-
-  trNonLinearAlgo* algo ;
-  if (selectedAlgo == "BIO") {
-    patIterationBackup* aBackup = new bioIterationBackup() ;
-    algo = new trSimpleBoundsAlgo(&theProblem,
-				  beta,
-				  theTrParameters,
-				  aBackup,
-				  err) ;
-    
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-  }
-
-  else if (selectedAlgo == "CFSQP") {
-      
-    DETAILED_MESSAGE("Use CFSQP") ;
-      
-    patIterationBackup* aBackup = new bioIterationBackup() ;
-    patCfsqp* algoCfsqp = new patCfsqp(aBackup,&theProblem) ;
-
-    int mode = bioParameters::the()->getValueInt("cfsqpMode",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    int iprint = bioParameters::the()->getValueInt("cfsqpIprint",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    int miter = bioParameters::the()->getValueInt("cfsqpMaxIter",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    patReal eps = bioParameters::the()->getValueReal("cfsqpEps",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    patReal epseqn = bioParameters::the()->getValueReal("cfsqpEpsEqn",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    patReal udelta = bioParameters::the()->getValueReal("cfsqpUdelta",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    patString stopFile = bioParameters::the()->getValueString("stopFileName",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-    
-    algoCfsqp->setParameters(mode,
-			     iprint,
-			     miter,
-			     eps,
-			     epseqn,
-			     udelta,
-			     stopFile) ;
-    algo = algoCfsqp ;
-    if (algo == NULL) {
-      err = new patErrNullPointer("patCfsqp") ;
-      return ;
-    }
-    algo->defineStartingPoint(beta) ;
-  }
-  else if (selectedAlgo == "SOLVOPT") {
-    patIterationBackup* aBackup = new bioIterationBackup() ;
-    algo = new patSolvOpt(theSolvoptParameters,&theProblem) ;
-    if (algo == NULL) {
-      err = new patErrNullPointer("patSolvOpt") ;
-      WARNING(err->describe()) ;
-      return ;
-    }
-    algo->setBackup(aBackup) ;
-    algo->defineStartingPoint(beta) ;
-  }
-  else if (selectedAlgo == "DONLP2") {
-    err = new patErrMiscError("Algorithm DONLP2 is not supported anymore") ;
-    WARNING(err->describe()) ;
-    return ;     
-  }
-  else if (selectedAlgo == "IPOPT") {
-    patIterationBackup* aBackup = new bioIterationBackup() ;
-    algo = new bioIpopt(aBackup,&theProblem) ;
-    algo->defineStartingPoint(beta) ;
-  }
-  else {
-    stringstream str ;
-    str << "Unknown algorithm: " << selectedAlgo ;
-    err = new patErrMiscError(str.str()) ;
-    WARNING(err->describe()) ;
-    return ;
-  }
-
-  if (!algo->isAvailable()) {
-    stringstream str ;
-    str << "Algorithm " << algo->getName() << " is not available" ;
-    err = new patErrMiscError(str.str()) ;
-    WARNING(err->describe()) ;
-    return ;
-  }
-  
-  patString algoName(algo->getName()) ;
-
-  if (theReport) {
-    theReport->setAlgorithm(algoName) ;
-  }
-  
-  DEBUG_MESSAGE("About to run algorithm: " << algoName) ;
-  
-  patString diag = algo->run(err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return ;
-  }
-  endc.setTimeOfDay() ;
-  patTimeInterval ti0(beg,endc) ;
-  
-  DETAILED_MESSAGE("Run time interval: " << ti0 ) ;
-  DETAILED_MESSAGE("Run time: " << ti0.getLength()) ;
-
-  DEBUG_MESSAGE("get solutions");
-  patVariables solution = algo->getSolution(err) ;
+  bioOptimizationResults* optimizationResults = optimize(beta,theSample,patTRUE,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
   }
 
   DEBUG_MESSAGE("set beta values");
-  bioLiteralRepository::the()->setBetaValues(solution,err) ;
+  bioLiteralRepository::the()->setBetaValues(optimizationResults->solution,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
   }
 
-  DEBUG_MESSAGE("Raw values");
-  theRawResults = new bioRawResults(&theProblem,solution,err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return ;
-  }
-
-  DEBUG_MESSAGE("compute estimation results");
-  theReport->computeEstimationResults(theRawResults,err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return ;
-  }
-
-
-  theReport->setDiagnostic(diag) ;
-  theReport->setIterations(algo->nbrIter()) ;
-  theReport->setRunTime(ti0.getLength()) ;
+  theReport->setDiagnostic(optimizationResults->diagnostic) ;
+  theReport->setIterations(optimizationResults->iterations) ;
+  theReport->setRunTime(optimizationResults->runTime) ;
   theReport->setInitLL(initLikelihood) ;
+  
+
+  patString stopFileName = bioParameters::the()->getValueString("stopFileName",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+  patULong bootstrap = bioParameters::the()->getValueInt("bootstrapStdErr",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+  if (bootstrap > 0) {
+    GENERAL_MESSAGE("Bootstrap: performing " << bootstrap << " estimates") ;
+    GENERAL_MESSAGE("You can interrupt it by creating a file named " << stopFileName) ;
+  }
+  patLoopTime loopTime(bootstrap) ;
+  patReal currentStepProgress =  0.0 ;
+  for (patULong bt = 0 ; bt < bootstrap ; ++bt) {
+    if (patFileExists()(stopFileName)) {
+      WARNING("Computation interrupted by the user with the file " 
+	      << stopFileName) ;
+      bt = bootstrap ;
+    }
+    else {
+      patReal currentProgress = 100.0 * bt / bootstrap ;
+      if (bt != 0 && currentProgress >= currentStepProgress) {
+	loopTime.setIteration(bt) ;
+	GENERAL_MESSAGE(currentStepProgress << "%\t" << loopTime) ;
+	currentStepProgress += 10.0 ;
+      }
+      patDisplay::the().cancelDisplay() ;
+      DEBUG_MESSAGE("About to get bootstrap") ;
+      bioSample btSample = theSample->getBootstrap(err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+      bioOptimizationResults* btResults = optimize(optimizationResults->solution,&btSample,patFALSE,err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+      optimizationResults->bootstrapSolutions.push_back(btResults->solution) ;
+      patDisplay::the().resumeDisplay() ;
+    }
+  }
+
+  theReport->computeEstimationResults(optimizationResults,err);
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+
+
   pythonEstimated = patFileNames::the()->getPythonEstimated(err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
   }
+
   theReport->printEstimatedParameters(pythonEstimated,err) ;
 
   DEBUG_MESSAGE("estimate done");
@@ -827,12 +693,15 @@ void bioMain::bayesian(patError*& err) {
 void bioMain::simulate(patError*& err) {
 
 
-
+  DEBUG_MESSAGE("Read the specification") ;
+  
   bioArithPrint* expr = theModel->getSimulation() ;
   expr->checkMonteCarlo(patFALSE,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
   }
+
+  DEBUG_MESSAGE("Done.") ;
 
   if (theSample == NULL) {
     err = new patErrMiscError("No sample has been loaded. Biogeme cannot perform the simulation") ;
@@ -840,7 +709,9 @@ void bioMain::simulate(patError*& err) {
     return ;
   }
 
+  DEBUG_MESSAGE("Set the sample") ;
   expr->setSample(theSample) ;
+  DEBUG_MESSAGE("Set the report") ;
   expr->setReport(theReport) ;
 
   
@@ -850,6 +721,7 @@ void bioMain::simulate(patError*& err) {
 
   patULong weightId = theModel->getWeightExpr() ;
   bioExpression* weight = theRepository->getExpression(weightId) ;
+  DEBUG_MESSAGE("Start simulation") ;
   expr->simulate(theModel->getVarCovarForSensitivity(),
 		 theModel->getNamesForSensitivity(),
 		 weight,
@@ -894,7 +766,7 @@ void bioMain::statistics(patError*& err) {
 }
 
 void bioMain::setParameters(patError*& err) {
-  theTrParameters =bioParameters::the()->getTrParameters(err) ;
+  theTrParameters =bioParameters::the()->getTrParameters() ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
@@ -1016,4 +888,257 @@ patString bioMain::getLatexFile() const {
 
 patString bioMain::getPythonEstimated() const {
   return pythonEstimated ;
+}
+
+bioOptimizationResults* bioMain::optimize(patVariables beta,
+					 bioSample* sample,
+					 patBoolean secondDerivatives,
+					 patError*& err) {
+  if (sample == NULL) {
+    err = new patErrMiscError("No sample has been loaded. Biogeme cannot estimate the parameters") ;
+    WARNING(err->describe()) ;
+    return NULL ;
+  }
+  
+  theFunction->setSample(sample,err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+
+  // Bounds
+
+  patVariables l = bioLiteralRepository::the()->getLowerBounds() ;
+  patVariables u = bioLiteralRepository::the()->getUpperBounds() ;
+  trBounds theBounds(l,u) ;
+
+  bioMinimizationProblem theProblem(theFunction, theBounds,theTrParameters) ;
+  
+  
+  // Constraints
+  if (theConstraints != NULL) {
+    theConstraints->addConstraints() ;
+    vector<bioConstraintWrapper*>* c = theConstraints->getConstraints() ;
+    for (vector<bioConstraintWrapper*>::iterator i = c->begin() ;
+	 i != c->end() ;
+	 ++i) {
+      theProblem.addEqualityConstraint(*i) ;
+    }
+    
+  }
+
+  patAbsTime beg ;
+  patAbsTime endc ;
+  
+  // User defined stopping criteria
+  
+  patString stopFileName = bioParameters::the()->getValueString("stopFileName") ;
+  theStopFileCriterion = new bioAlgoStopFile(stopFileName) ;
+  theUserDefinedStoppingCriteria = new bioAlgorithmStopping(theStopFileCriterion) ;
+
+  vector<patVariables>* listOfPreviousLocalOptima = theModel->getOldBetas(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL ;
+  }
+  
+  if (listOfPreviousLocalOptima != NULL) {
+    thePrematureCriterion = new bioPrematureStop(listOfPreviousLocalOptima,err) ;
+    theUserDefinedStoppingCriteria->addStoppingCriterion(thePrematureCriterion) ;
+  }
+
+  
+
+    
+  // Optimization algorithm
+
+  beg.setTimeOfDay() ;
+
+  patString selectedAlgo = bioParameters::the()->getValueString("optimizationAlgorithm",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+
+  if (theProblem.nNonTrivialConstraints() > 0) {
+    if (selectedAlgo == "BIO") {
+      err = new patErrMiscError("Algorithm BIO deals only with bound constraints. Use CFSQP instead.") ;
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+
+			      
+    patULong nle = theProblem.nNonLinearEq() ;
+    for (patULong i = 0 ; i < nle ; ++i) {
+      trFunction* f = theProblem.getNonLinEquality(i,err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return NULL;
+      }
+      patBoolean success ;
+      f->computeFunction(&beta,&success,err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return NULL;
+      }
+    }
+  }
+
+
+
+  
+  if (!theProblem.isFeasible(beta,err)) {
+    WARNING("Starting point not feasible") ;
+  }
+
+  if (selectedAlgo == "BIO") {
+    patIterationBackup* aBackup = new bioIterationBackup() ;
+
+
+      algo = new trSimpleBoundsAlgo(&theProblem,
+				  beta,
+				  theTrParameters,
+				  aBackup,
+				  theUserDefinedStoppingCriteria,
+				  err) ;
+    
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+  }
+
+  else if (selectedAlgo == "CFSQP") {
+      
+    DETAILED_MESSAGE("Use CFSQP") ;
+      
+    patIterationBackup* aBackup = new bioIterationBackup() ;
+    patCfsqp* algoCfsqp = new patCfsqp(aBackup,thePrematureCriterion,&theProblem) ;
+
+    int mode = bioParameters::the()->getValueInt("cfsqpMode",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+    int iprint = bioParameters::the()->getValueInt("cfsqpIprint",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+    int miter = bioParameters::the()->getValueInt("cfsqpMaxIter",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+    patReal eps = bioParameters::the()->getValueReal("cfsqpEps",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+    patReal epseqn = bioParameters::the()->getValueReal("cfsqpEpsEqn",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL ;
+    }
+    patReal udelta = bioParameters::the()->getValueReal("cfsqpUdelta",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL ;
+    }
+    patString stopFile = bioParameters::the()->getValueString("stopFileName",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL ;
+    }
+    
+    algoCfsqp->setParameters(mode,
+			     iprint,
+			     miter,
+			     eps,
+			     epseqn,
+			     udelta) ;
+    algo = algoCfsqp ;
+    if (algo == NULL) {
+      err = new patErrNullPointer("patCfsqp") ;
+      return NULL;
+    }
+    algo->defineStartingPoint(beta) ;
+  }
+  else if (selectedAlgo == "SOLVOPT") {
+    patIterationBackup* aBackup = new bioIterationBackup() ;
+    algo = new patSolvOpt(theSolvoptParameters,
+			  thePrematureCriterion,
+			  &theProblem) ;
+    if (algo == NULL) {
+      err = new patErrNullPointer("patSolvOpt") ;
+      WARNING(err->describe()) ;
+      return NULL;
+    }
+    algo->setBackup(aBackup) ;
+    algo->defineStartingPoint(beta) ;
+  }
+  else if (selectedAlgo == "DONLP2") {
+    err = new patErrMiscError("Algorithm DONLP2 is not supported anymore") ;
+    WARNING(err->describe()) ;
+    return NULL;     
+  }
+  else if (selectedAlgo == "IPOPT") {
+    patIterationBackup* aBackup = new bioIterationBackup() ;
+    algo = new bioIpopt(aBackup,thePrematureCriterion,&theProblem) ;
+    algo->defineStartingPoint(beta) ;
+  }
+  else {
+    stringstream str ;
+    str << "Unknown algorithm: " << selectedAlgo ;
+    err = new patErrMiscError(str.str()) ;
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+
+
+
+  if (!algo->isAvailable()) {
+    stringstream str ;
+    str << "Algorithm " << algo->getName() << " is not available" ;
+    err = new patErrMiscError(str.str()) ;
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+  
+  patString algoName(algo->getName()) ;
+
+  if (theReport) {
+    theReport->setAlgorithm(algoName) ;
+  }
+  
+  DEBUG_MESSAGE("About to run algorithm: " << algoName) ;
+  
+
+  patString diag = algo->run(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+  endc.setTimeOfDay() ;
+  patTimeInterval ti0(beg,endc) ;
+  
+  DETAILED_MESSAGE("Run time interval: " << ti0 ) ;
+  DETAILED_MESSAGE("Run time: " << ti0.getLength()) ;
+
+
+  DEBUG_MESSAGE("get solutions");
+  patVariables solution = algo->getSolution(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return NULL;
+  }
+
+
+  bioOptimizationResults* theResults = theProblem.getOptimizationResults(solution,secondDerivatives,err) ;
+  theResults->diagnostic = diag ;
+  theResults->iterations = algo->nbrIter() ;
+  theResults->runTime = ti0.getLength() ;
+  return theResults ;
+  
+  
 }

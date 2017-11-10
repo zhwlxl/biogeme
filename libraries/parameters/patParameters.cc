@@ -8,6 +8,10 @@
 //--------------------------------------------------------------------
 //
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patOutputFiles.h"
 #include "patParameters.h"
 #include "patParserParam.hh"

@@ -1,3 +1,7 @@
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 
 /* ************************************************************/
 
@@ -11,8 +15,8 @@ We manually included AT&T's f2c.h in this source file, i.e.
 it does not have to be present separately in order to compile.
 */
 
-#include "patMath.h"
 #include "patType.h"
+#include "patMath.h"
 
 /* CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
                      !!!! NOTICE !!!! 

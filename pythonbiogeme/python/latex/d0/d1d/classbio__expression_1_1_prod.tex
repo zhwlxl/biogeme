@@ -1,0 +1,112 @@
+\hypertarget{classbio__expression_1_1_prod}{\section{bio\+\_\+expression.\+Prod Class Reference}
+\label{classbio__expression_1_1_prod}\index{bio\+\_\+expression.\+Prod@{bio\+\_\+expression.\+Prod}}
+}
+
+
+Class representing the product of the same expression applied to a list of data.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Prod\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d1d/classbio__expression_1_1_prod}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_prod_a7a9fca02306c4691b36695e696444a69}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_prod_aa14b586932ec2e8fd8e4c863220d5168}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_prod_ad701a84ab99b64715360bd7cd3f23b72}{function}
+\item 
+\hyperlink{classbio__expression_1_1_prod_a44847763ff32dfe95d002b49e733bfc2}{iterator\+Name}
+\item 
+\hyperlink{classbio__expression_1_1_prod_a2b418ff03d043dd99bca62aef5b42962}{positive}
+\item 
+\hyperlink{classbio__expression_1_1_prod_abc58ca6ede4902b55b96afb0ecaf22c7}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the product of the same expression applied to a list of data. 
+
+The concept of iterators identifies a sequence such that, for each instance, the value of the variables is read from the data file, and an expression can be evaluated. The two expressions described in this section consider one iterator and one expression, and evaluate the expression for each instance defined by the iterator. A product can then be computed. The following example computes the loglikelihood for a model with panel data. 
+\begin{DoxyCode}
+1 metaIterator(\textcolor{stringliteral}{'personIter'},\textcolor{stringliteral}{'\_\_dataFile\_\_'},\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'Id'})
+2 rowIterator(\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'personIter'})
+3 drawIterator(\textcolor{stringliteral}{'drawIter'})
+4 
+5 condProbIndiv = Prod(prob,\textcolor{stringliteral}{'panelObsIter'})
+6 probIndiv = Sum(condProbIndiv,\textcolor{stringliteral}{'drawIter'})
+7 loglikelihood = Sum(log(probIndiv),\textcolor{stringliteral}{'personIter'})
+\end{DoxyCode}
+ The iterator person\+Iter iterates on each individual in the file, characterized by the identifier Id. The iterator panel\+Obs\+Iter iterates on the observations (that is, the rows in the data file) associated with the current individual. The iterator draw\+Iter iterates on the draws generated for the Monte-\/\+Carlo simulation.
+
+Assuming that prob is the likelihood of the observation in one raw, for a given set of draws, the following quantities are computed\+:
+\begin{DoxyItemize}
+\item The conditional probability of the sequence of observations for the current individual n\+:
+\end{DoxyItemize}
+
+\[ \mbox{condProbIndiv} = P(y_1,\ldots,y_T|\xi_n) = \prod_t P(y_t|\xi_n)\]
+
+
+\begin{DoxyItemize}
+\item The unconditional probability of the sequence of observations for the current individual n\+: \[ \mbox{probIndiv} = \int_{\xi_n}P(y_1,\ldots,y_T|\xi_n) \approx \sum_r P(y_1,\ldots,y_T|\xi_r) / R \] where $\xi_r$ are the R draws generated from $\xi_n$. Note that the operator \hyperlink{classbio__expression_1_1_sum}{Sum} automatically divides by R as the iterator is of type draw\+Iterator.
+\item The loglikelihood for all individuals in the sample\+: \[ \mbox{loglikelihood} = \sum_n \log(\sum_r P(y_1,\ldots,y_T|\xi_r) / R) \] 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_prod_a7a9fca02306c4691b36695e696444a69}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Prod.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{iterator\+Name, }
+\item[{}]{positive = {\ttfamily False}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_prod_a7a9fca02306c4691b36695e696444a69}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & any valid \hyperlink{namespacebio__expression}{bio\+\_\+expression} \\
+\hline
+{\em iterator\+Name} & name of an iterator already defined \\
+\hline
+{\em positive} & Set it to True if all factors of the product are strictly positive. In that case, it will be computed as \[ \prod_r x_r = \exp(\sum_r \ln x_r)\] \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_prod_aa14b586932ec2e8fd8e4c863220d5168}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Prod.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_prod_aa14b586932ec2e8fd8e4c863220d5168}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_prod_ad701a84ab99b64715360bd7cd3f23b72}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!function@{function}}
+\index{function@{function}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Prod.\+function}}\label{classbio__expression_1_1_prod_ad701a84ab99b64715360bd7cd3f23b72}
+\hypertarget{classbio__expression_1_1_prod_a44847763ff32dfe95d002b49e733bfc2}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!iterator\+Name@{iterator\+Name}}
+\index{iterator\+Name@{iterator\+Name}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{iterator\+Name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Prod.\+iterator\+Name}}\label{classbio__expression_1_1_prod_a44847763ff32dfe95d002b49e733bfc2}
+\hypertarget{classbio__expression_1_1_prod_abc58ca6ede4902b55b96afb0ecaf22c7}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Prod.\+operator\+Index}}\label{classbio__expression_1_1_prod_abc58ca6ede4902b55b96afb0ecaf22c7}
+\hypertarget{classbio__expression_1_1_prod_a2b418ff03d043dd99bca62aef5b42962}{\index{bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}!positive@{positive}}
+\index{positive@{positive}!bio\+\_\+expression\+::\+Prod@{bio\+\_\+expression\+::\+Prod}}
+\subsubsection[{positive}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Prod.\+positive}}\label{classbio__expression_1_1_prod_a2b418ff03d043dd99bca62aef5b42962}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

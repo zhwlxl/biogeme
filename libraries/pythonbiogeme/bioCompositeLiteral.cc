@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "bioCompositeLiteral.h"
 #include "patDisplay.h"

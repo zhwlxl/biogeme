@@ -6,23 +6,19 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patMath.h"
 #include "patDisplay.h"
 #include "bioFunctionAndDerivatives.h"
 #include "bioParameters.h"
 
-bioFunctionAndDerivatives::bioFunctionAndDerivatives(patULong n) : theGradient(n,0.0), theHessian(NULL) {
-  patError* err(NULL) ;
-  patBoolean computeHessian =  (bioParameters::the()->getValueInt("deriveAnalyticalHessian",err)) != 0 ;
-  if (computeHessian) {
-    theHessian = new trHessian(bioParameters::the()->getTrParameters(err),n) ;
-  }
+bioFunctionAndDerivatives::bioFunctionAndDerivatives(patULong n) : theGradient(n,0.0), theHessian(bioParameters::the()->getTrParameters(),n) {
 }
 
 bioFunctionAndDerivatives::~bioFunctionAndDerivatives() {
-  if (theHessian != NULL) {
-    DELETE_PTR(theHessian) ;
-  }
 }
 
 ostream& operator<<(ostream &str, const bioFunctionAndDerivatives& x) {
@@ -30,9 +26,7 @@ ostream& operator<<(ostream &str, const bioFunctionAndDerivatives& x) {
   for (patULong i = 0 ; i < x.theGradient.size() ; ++i) {
     str << " [g" << i << "]:" << x.theGradient[i] ;
   }
-  if (x.theHessian != NULL) {
-    str << *x.theHessian ;
-  }
+  str << x.theHessian ;
   return str ;
 }
 
@@ -41,39 +35,27 @@ patBoolean bioFunctionAndDerivatives::empty() const {
 }
 void bioFunctionAndDerivatives::resize(patULong s) {
   theGradient.resize(s) ;
-  if (theHessian != NULL) {
-    theHessian->resize(s) ;
-  }
+  theHessian.resize(s) ;
 
 }
 
 void bioFunctionAndDerivatives::resize(patULong s, patReal r) {
   theGradient.resize(s,r) ;
-  
-  if (theHessian != NULL) {
-    theHessian->resize(s) ;
-  }
+  theHessian.resize(s) ;
 
 }
 
 patString bioFunctionAndDerivatives::printSize() {
   stringstream str ;
   str << "Gradient: " << theGradient.size() << ". " ;
-  if (theHessian != NULL) {
-    str << "Hessian: " << theHessian->getDimension() ;
-  }
+  str << "Hessian: " << theHessian.getDimension() ;
   return patString(str.str()) ;
 }
 
 bioFunctionAndDerivatives& bioFunctionAndDerivatives::operator=(bioFunctionAndDerivatives& obj) {
   theFunction = obj.theFunction ;
   theGradient = obj.theGradient ;
-  if(theHessian != NULL) {
-    DELETE_PTR(theHessian) ;
-  }
-  if (obj.theHessian != NULL) {
-    theHessian = new trHessian(*obj.theHessian) ;
-  }
+  theHessian = obj.theHessian ;
   return *this ;
 }
 
@@ -89,13 +71,8 @@ patReal bioFunctionAndDerivatives::compare(const bioFunctionAndDerivatives& x,
   }
 
   
-  patULong n1(0), n2(0) ; 
-  if (theHessian != NULL) {
-    n1 = theHessian->getDimension() ;
-  }
-  if (x.theHessian != NULL) {
-    n2 = theHessian->getDimension() ;
-  }
+  patULong  n1 = theHessian.getDimension() ;
+  patULong  n2 = x.theHessian.getDimension() ;
   if (n1 != n2) {
     stringstream str ;
     str << "incompatible dimensions: " << n1 << " and " << n2 ;

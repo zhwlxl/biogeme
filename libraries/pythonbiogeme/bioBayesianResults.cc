@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioBayesianResults.h"
 
 bioBayesianResults::bioBayesianResults(): theBayesianDraws(NULL),varCovar(NULL) {

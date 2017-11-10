@@ -9,11 +9,11 @@
 #ifndef patDisplay_h
 #define patDisplay_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <memory>
-#include <mutex>
+//#include <mutex>
 using namespace std ;
 
 
@@ -115,6 +115,14 @@ class patDisplay {
    */
   void setLogMessage(patLogMessage* up) ;
 
+  /**
+   */
+  void cancelDisplay() ;
+
+  /**
+   */
+  void resumeDisplay() ;
+
  private:
   patDisplay() ;
   patDisplay(const patDisplay& td) ;
@@ -133,6 +141,8 @@ private:
   patString logFileName ;
 
   patLogMessage* logMessage ;
+
+  patBoolean displayCanceled ;
 };
 
 #endif

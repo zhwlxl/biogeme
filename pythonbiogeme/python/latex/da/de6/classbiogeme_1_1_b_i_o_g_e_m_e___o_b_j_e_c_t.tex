@@ -1,0 +1,166 @@
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t}{\section{biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T Class Reference}
+\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t}\index{biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+}
+
+
+This class gathers the components needed by biogeme to perform the estimation or the simulation.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a8212f908dfb89c81d93ba1fc8d975113}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a953283b252f993ee4fc27703ba3d45bf}{\+\_\+\+\_\+once\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3e2437d2271f3f9fe27913e1e1312c47}{E\+S\+T\+I\+M\+A\+T\+E} = None
+\begin{DoxyCompactList}\small\item\em Expression of the likelihood function to be maximized. \end{DoxyCompactList}\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ab1eb6d8235bf68d484b0a81eb7d41003}{S\+I\+M\+U\+L\+A\+T\+E} = None
+\begin{DoxyCompactList}\small\item\em Enumerate expression to perform sample enumeration. \end{DoxyCompactList}\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a599c398c094f98e58d93b96c2dc81b97}{E\+X\+C\+L\+U\+D\+E} = None
+\begin{DoxyCompactList}\small\item\em Expression identifying the observations to be ignored in the data file. \end{DoxyCompactList}\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a2a9babe593d7115e3bfd57057ab9c97e}{W\+E\+I\+G\+H\+T} = None
+\begin{DoxyCompactList}\small\item\em Expression computing the weight of each observation, for W\+E\+S\+M\+L. \end{DoxyCompactList}\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ad9fc8223d62db27a51cd10f55b796ea0}{V\+A\+R\+C\+O\+V\+A\+R} = None
+\begin{DoxyCompactList}\small\item\em Object of type \hyperlink{namespacebio_matrix}{bio\+Matrix} that contains the variance covariance matrix of the estimators, in order to perform a sensitivity analysis of the simulated quantities. \end{DoxyCompactList}\item 
+\hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_accb5e1ba6dbea4d40a8eef3f33ac2c8e}{B\+A\+Y\+E\+S\+I\+A\+N} = None
+\begin{DoxyCompactList}\small\item\em Expression describing a simulation method for the Bayesian estimation of the parameters. \end{DoxyCompactList}\item 
+dictionary \hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a93741a718b3b53d9c9430bba5bab00f0}{S\+T\+A\+T\+I\+S\+T\+I\+C\+S} = \{\}
+\begin{DoxyCompactList}\small\item\em Dictionary of expressions computing statistics on the data. \end{DoxyCompactList}\item 
+dictionary \hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a7eb3a18b4249b2ead855e356c2b40ad4}{C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S} = \{\}
+\begin{DoxyCompactList}\small\item\em Dictionary of expressions defining constraints on the parameters to be estimated. \end{DoxyCompactList}\item 
+dictionary \hyperlink{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3f178e0954e495b10c6f08083f1ed7f7}{P\+A\+R\+A\+M\+E\+T\+E\+R\+S} = \{\}
+\begin{DoxyCompactList}\small\item\em Used to set the value of the parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class gathers the components needed by biogeme to perform the estimation or the simulation. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a8212f908dfb89c81d93ba1fc8d975113}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a8212f908dfb89c81d93ba1fc8d975113}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a953283b252f993ee4fc27703ba3d45bf}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!\+\_\+\+\_\+once\+\_\+\+\_\+@{\+\_\+\+\_\+once\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+once\+\_\+\+\_\+@{\+\_\+\+\_\+once\+\_\+\+\_\+}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{\+\_\+\+\_\+once\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+\_\+\+\_\+once\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a953283b252f993ee4fc27703ba3d45bf}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_accb5e1ba6dbea4d40a8eef3f33ac2c8e}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!B\+A\+Y\+E\+S\+I\+A\+N@{B\+A\+Y\+E\+S\+I\+A\+N}}
+\index{B\+A\+Y\+E\+S\+I\+A\+N@{B\+A\+Y\+E\+S\+I\+A\+N}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{B\+A\+Y\+E\+S\+I\+A\+N}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+B\+A\+Y\+E\+S\+I\+A\+N = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_accb5e1ba6dbea4d40a8eef3f33ac2c8e}
+
+
+Expression describing a simulation method for the Bayesian estimation of the parameters. 
+
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a7eb3a18b4249b2ead855e356c2b40ad4}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S@{C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S}}
+\index{C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S@{C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}dictionary biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+S = \{\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a7eb3a18b4249b2ead855e356c2b40ad4}
+
+
+Dictionary of expressions defining constraints on the parameters to be estimated. 
+
+In general, it is preferable not to use these constraints. There is most of the time a way to write the model with unconstrained parameters. The two typical examples are\+:
+\begin{DoxyItemize}
+\item Constrain a parameter beta to be nonnegative\+: replace it by the exponential of another parameter.
+\item A set of parameters b1, b2, ... bn must sum up to one. Replace them by their normalized version\+: bi = ci / (c1 + c2 + ... + cn), where c1, ... cn are unconstrained parameters to be estimated.
+\item A combination of the two gives bi = exp(ci) / (exp(c1) + exp(c2) + ... + exp(cn)) 
+\end{DoxyItemize}\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3e2437d2271f3f9fe27913e1e1312c47}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!E\+S\+T\+I\+M\+A\+T\+E@{E\+S\+T\+I\+M\+A\+T\+E}}
+\index{E\+S\+T\+I\+M\+A\+T\+E@{E\+S\+T\+I\+M\+A\+T\+E}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{E\+S\+T\+I\+M\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+E\+S\+T\+I\+M\+A\+T\+E = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3e2437d2271f3f9fe27913e1e1312c47}
+
+
+Expression of the likelihood function to be maximized. 
+
+Example\+:
+\begin{DoxyCode}
+1 BIOGEME\_OBJECT.ESTIMATE = Sum(log(prob),\textcolor{stringliteral}{'obsIter'}) 
+\end{DoxyCode}
+ \hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a599c398c094f98e58d93b96c2dc81b97}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!E\+X\+C\+L\+U\+D\+E@{E\+X\+C\+L\+U\+D\+E}}
+\index{E\+X\+C\+L\+U\+D\+E@{E\+X\+C\+L\+U\+D\+E}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{E\+X\+C\+L\+U\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+E\+X\+C\+L\+U\+D\+E = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a599c398c094f98e58d93b96c2dc81b97}
+
+
+Expression identifying the observations to be ignored in the data file. 
+
+Example\+: 
+\begin{DoxyCode}
+1 BIOGEME\_OBJECT.EXCLUDE = (TRAVEL\_TIME < 0)
+\end{DoxyCode}
+ \hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3f178e0954e495b10c6f08083f1ed7f7}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!P\+A\+R\+A\+M\+E\+T\+E\+R\+S@{P\+A\+R\+A\+M\+E\+T\+E\+R\+S}}
+\index{P\+A\+R\+A\+M\+E\+T\+E\+R\+S@{P\+A\+R\+A\+M\+E\+T\+E\+R\+S}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{P\+A\+R\+A\+M\+E\+T\+E\+R\+S}]{\setlength{\rightskip}{0pt plus 5cm}dictionary biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+P\+A\+R\+A\+M\+E\+T\+E\+R\+S = \{\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a3f178e0954e495b10c6f08083f1ed7f7}
+
+
+Used to set the value of the parameters. 
+
+The syntax is 
+\begin{DoxyCode}
+1 BIOGEME\_OBJECT.PARAMETERS[\textcolor{stringliteral}{'parameterName'}] = \textcolor{stringliteral}{'value'} 
+\end{DoxyCode}
+ \hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ab1eb6d8235bf68d484b0a81eb7d41003}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!S\+I\+M\+U\+L\+A\+T\+E@{S\+I\+M\+U\+L\+A\+T\+E}}
+\index{S\+I\+M\+U\+L\+A\+T\+E@{S\+I\+M\+U\+L\+A\+T\+E}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{S\+I\+M\+U\+L\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+S\+I\+M\+U\+L\+A\+T\+E = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ab1eb6d8235bf68d484b0a81eb7d41003}
+
+
+Enumerate expression to perform sample enumeration. 
+
+Example\+: 
+\begin{DoxyCode}
+1 simulate = Enumerate(\textcolor{stringliteral}{'Choice prob.'}, prob)
+2 BIOGEME\_OBJECT.SIMULATE = Enumerate(simulate,\textcolor{stringliteral}{'obsIter'}) 
+\end{DoxyCode}
+ \hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a93741a718b3b53d9c9430bba5bab00f0}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!S\+T\+A\+T\+I\+S\+T\+I\+C\+S@{S\+T\+A\+T\+I\+S\+T\+I\+C\+S}}
+\index{S\+T\+A\+T\+I\+S\+T\+I\+C\+S@{S\+T\+A\+T\+I\+S\+T\+I\+C\+S}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{S\+T\+A\+T\+I\+S\+T\+I\+C\+S}]{\setlength{\rightskip}{0pt plus 5cm}dictionary biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+S\+T\+A\+T\+I\+S\+T\+I\+C\+S = \{\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a93741a718b3b53d9c9430bba5bab00f0}
+
+
+Dictionary of expressions computing statistics on the data. 
+
+The index of each entry is associated with the value in the report. Example calculating the null loglikelihood of a choice model\+: 
+\begin{DoxyCode}
+1 total = 0 
+2 \textcolor{keywordflow}{for} i,a \textcolor{keywordflow}{in} availability.items() :
+3     total += (a != 0)
+4 nl = -Sum(log(total),iterator)
+5 BIOGEME\_OBJECT.STATISTICS[\textcolor{stringliteral}{'Null loglikelihood'}] = nl
+\end{DoxyCode}
+ \hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ad9fc8223d62db27a51cd10f55b796ea0}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!V\+A\+R\+C\+O\+V\+A\+R@{V\+A\+R\+C\+O\+V\+A\+R}}
+\index{V\+A\+R\+C\+O\+V\+A\+R@{V\+A\+R\+C\+O\+V\+A\+R}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{V\+A\+R\+C\+O\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+V\+A\+R\+C\+O\+V\+A\+R = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_ad9fc8223d62db27a51cd10f55b796ea0}
+
+
+Object of type \hyperlink{namespacebio_matrix}{bio\+Matrix} that contains the variance covariance matrix of the estimators, in order to perform a sensitivity analysis of the simulated quantities. 
+
+\hypertarget{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a2a9babe593d7115e3bfd57057ab9c97e}{\index{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}!W\+E\+I\+G\+H\+T@{W\+E\+I\+G\+H\+T}}
+\index{W\+E\+I\+G\+H\+T@{W\+E\+I\+G\+H\+T}!biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T@{biogeme\+::\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T}}
+\subsubsection[{W\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}biogeme.\+B\+I\+O\+G\+E\+M\+E\+\_\+\+O\+B\+J\+E\+C\+T.\+W\+E\+I\+G\+H\+T = None\hspace{0.3cm}{\ttfamily [static]}}}\label{classbiogeme_1_1_b_i_o_g_e_m_e___o_b_j_e_c_t_a2a9babe593d7115e3bfd57057ab9c97e}
+
+
+Expression computing the weight of each observation, for W\+E\+S\+M\+L. 
+
+Typically, a variable in the data file. Example\+:
+\begin{DoxyCode}
+1 BIOGEME\_OBJECT.WEIGHT = weight 
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{biogeme_8py}{biogeme.\+py}\end{DoxyCompactItemize}

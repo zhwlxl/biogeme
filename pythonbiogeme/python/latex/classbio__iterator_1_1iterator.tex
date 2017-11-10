@@ -1,0 +1,58 @@
+\hypertarget{classbio__iterator_1_1iterator}{}\section{bio\+\_\+iterator.\+iterator Class Reference}
+\label{classbio__iterator_1_1iterator}\index{bio\+\_\+iterator.\+iterator@{bio\+\_\+iterator.\+iterator}}
+
+
+Generic class for an iterator.  
+
+
+Inheritance diagram for bio\+\_\+iterator.\+iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__iterator_1_1iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, iterator\+Name, name, child, variable)\hypertarget{classbio__iterator_1_1iterator_a938eec8f7f8398efabc0e94e0e69a9c7}{}\label{classbio__iterator_1_1iterator_a938eec8f7f8398efabc0e94e0e69a9c7}
+
+\item 
+def {\bfseries \+\_\+\+\_\+str\+\_\+\+\_\+} (self)\hypertarget{classbio__iterator_1_1iterator_a3015cba9030f10b6de833c03f632fa2a}{}\label{classbio__iterator_1_1iterator_a3015cba9030f10b6de833c03f632fa2a}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries iterator\+Name}\hypertarget{classbio__iterator_1_1iterator_a10e4188d8459b5342d609df5a1267a5d}{}\label{classbio__iterator_1_1iterator_a10e4188d8459b5342d609df5a1267a5d}
+
+\item 
+{\bfseries name}\hypertarget{classbio__iterator_1_1iterator_a0dbadbe5cc949e2bfa25591b22956989}{}\label{classbio__iterator_1_1iterator_a0dbadbe5cc949e2bfa25591b22956989}
+
+\item 
+{\bfseries child}\hypertarget{classbio__iterator_1_1iterator_a67a5a5a22ba01bcaa168c9e056eb25d0}{}\label{classbio__iterator_1_1iterator_a67a5a5a22ba01bcaa168c9e056eb25d0}
+
+\item 
+{\bfseries variable}\hypertarget{classbio__iterator_1_1iterator_a2fd1e60735f344291efbbbf0fbf8a48a}{}\label{classbio__iterator_1_1iterator_a2fd1e60735f344291efbbbf0fbf8a48a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic class for an iterator. 
+
+Iterators are designed to define loops on the entries of the data file. It is assumed that the data file is composed of rows, each containing the same number of numeric entries. The first row of the file contains the headers, labeling each of these entries. There are three types of iterators\+:
+\begin{DoxyItemize}
+\item row iterators are designed to iterate on rows of the data file. This is the most common type of iterators.
+\item meta iterators are designed to iterate on group of rows of the data file. They are typically used for panel data, where several rows correspond to the same individual.
+\item draw iterators are designed to iterate on the data file when user defined draws are generated. Note that this is valid only since biogeme 2.\+4. Before, this iterator was used for the calculation of the integral itself, together with an Operator Sum.
+\end{DoxyItemize}
+
+Hierarchical nesting of iterators is possible, so that iterators may have a parent and a child. 
+
+Definition at line 23 of file bio\+\_\+iterator.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__iterator_8py}{bio\+\_\+iterator.\+py}\end{DoxyCompactItemize}

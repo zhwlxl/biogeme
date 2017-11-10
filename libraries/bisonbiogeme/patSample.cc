@@ -7,12 +7,14 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <iomanip>
 #include <algorithm>
 #include "patUnixUniform.h"
 #include "patMath.h"
+#include "patPower.h"
 #include "patFileNames.h"
 #include "patParameters.h"
 #include "patOutputFiles.h"
@@ -942,7 +944,7 @@ void patSample::processData(patRandomNumberGenerator* normalRndNumbers ,
     pair<patString,unsigned long> attr = iter->currentItem() ;
     patReal l = 
       patMax(patZero,ceil(log10(patAbs(meanOfAttributes[attr.first])))) ; 
-    levelOfMagnitude[attr.second] = pow(10.0,l) ;
+    levelOfMagnitude[attr.second] = patPower(10.0,l) ;
   }
 
   DELETE_PTR(iter) ;

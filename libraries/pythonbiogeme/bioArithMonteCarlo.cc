@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include <iomanip>
 
@@ -276,9 +280,9 @@ patReal bioArithMonteCarlo::getValue(patBoolean prepareGradient, patULong curren
 patULong bioArithMonteCarlo::getNumberOfOperations() const {
   patError* err(NULL) ;
     
-  patULong R = bioParameters::the()->getValueInt("NbrOfDraws",err)  ;
+  patULong Rdraws = bioParameters::the()->getValueInt("NbrOfDraws",err)  ;
     
-  return(1 + R * child->getNumberOfOperations()) ;
+  return(1 + Rdraws * child->getNumberOfOperations()) ;
 }
 
 
@@ -290,8 +294,8 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradient(v
 
   
   vector<patReal> gradient(literalIds.size(),0.0) ;
-  if (result.theHessian != NULL && computeHessian) {
-    result.theHessian->setToZero() ;
+  if (computeHessian) {
+    result.theHessian.setToZero() ;
   }
   if (theIter == NULL) {
     theIter = bioRandomDraws::the()->createIterator(err) ;
@@ -317,7 +321,7 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradient(v
   }
 
   patReal r(0.0) ;
-  patReal R(numberOfDraws) ;
+  patReal Rdraws(numberOfDraws) ;
   for (theIter->first() ;
        !theIter->isDone() ;
        theIter->next()) {
@@ -328,19 +332,19 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradient(v
       return NULL ;
     }
     if (performCheck) {
-      r += fg->theFunction / R;
+      r += fg->theFunction / Rdraws ;
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
-	gradient[i] += fg->theGradient[i] / R ;
+	gradient[i] += fg->theGradient[i] / Rdraws ;
       }
-      if (result.theHessian != NULL) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
-	    patReal r = fg->theHessian->getElement(i,j,err) / patReal(R) ;
+	    patReal r = fg->theHessian.getElement(i,j,err) / patReal(Rdraws) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    result.theHessian->addElement(i,j,r,err) ;
+	    result.theHessian.addElement(i,j,r,err) ;
 	  }	
 	}
       }
@@ -350,22 +354,22 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradient(v
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	gradient[i] += fg->theGradient[i] ;
       }
-      if (result.theHessian != NULL) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
-	    patReal r = fg->theHessian->getElement(i,j,err) ;
+	    patReal r = fg->theHessian.getElement(i,j,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    result.theHessian->addElement(i,j,r,err) ;
+	    result.theHessian.addElement(i,j,r,err) ;
 	  }	
 	}
       }
     }
   }
   if (!performCheck) {
-      r /= R ;
+      r /= Rdraws ;
   }
   result.theFunction = r ;
   if (performCheck) {
@@ -375,13 +379,13 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradient(v
   }
   else {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
-      result.theGradient[i] = gradient[i]/patReal(R) ;
+      result.theGradient[i] = gradient[i]/patReal(Rdraws) ;
     }
-    if (result.theHessian != NULL) {
-      patReal invR = 1.0 / patReal(R) ;
+    if (computeHessian) {
+      patReal invR = 1.0 / patReal(Rdraws) ;
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
-	  result.theHessian->multElement(i,j,invR,err) ;
+	  result.theHessian.multElement(i,j,invR,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -409,11 +413,11 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradientCo
     result.resize(literalIds.size()) ;
   }
 
-  patReal R(numberOfDraws) ;
+  patReal Rdraws(numberOfDraws) ;
   
   vector<patReal> gradient(literalIds.size(),0.0) ;
-  if (result.theHessian != NULL && computeHessian) {
-    result.theHessian->setToZero() ;
+  if (computeHessian) {
+    result.theHessian.setToZero() ;
   }
   if (theIter == NULL) {
     theIter = bioRandomDraws::the()->createIterator(err) ;
@@ -460,23 +464,23 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradientCo
     
     if (performCheck) {
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
-	gradient[i] += (fg->theGradient[i] + coef * (cv->theGradient[i]-analytical->theGradient[i] )) / R ;
+	gradient[i] += (fg->theGradient[i] + coef * (cv->theGradient[i]-analytical->theGradient[i] )) / Rdraws ;
       }
-      if (result.theHessian != NULL) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
-	    patReal dd = fg->theHessian->getElement(i,j,err) / R ;
+	    patReal dd = fg->theHessian.getElement(i,j,err) / Rdraws ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    patReal cvd = cv->theHessian->getElement(i,j,err) / R ;
+	    patReal cvd = cv->theHessian.getElement(i,j,err) / Rdraws ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    patReal anad = analytical->theHessian->getElement(i,j,err) / R ;
-	    result.theHessian->addElement(i,j,dd+coef*(cvd-anad),err) ;
+	    patReal anad = analytical->theHessian.getElement(i,j,err) / Rdraws ;
+	    result.theHessian.addElement(i,j,dd+coef*(cvd-anad),err) ;
 	  }	
 	}
       }
@@ -485,21 +489,21 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradientCo
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	gradient[i] += (fg->theGradient[i] + coef * (cv->theGradient[i]-analytical->theGradient[i] )) ;
       }
-      if (result.theHessian != NULL) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
-	    patReal dd = fg->theHessian->getElement(i,j,err) ;
+	    patReal dd = fg->theHessian.getElement(i,j,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    patReal cvd = cv->theHessian->getElement(i,j,err) ;
+	    patReal cvd = cv->theHessian.getElement(i,j,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
-	    patReal anad = analytical->theHessian->getElement(i,j,err) ;
-	    result.theHessian->addElement(i,j,dd+coef*(cvd-anad),err) ;
+	    patReal anad = analytical->theHessian.getElement(i,j,err) ;
+	    result.theHessian.addElement(i,j,dd+coef*(cvd-anad),err) ;
 	  }	
 	}
       }
@@ -513,13 +517,13 @@ bioFunctionAndDerivatives* bioArithMonteCarlo::getNumericalFunctionAndGradientCo
   }
   else {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
-      result.theGradient[i] = gradient[i]/patReal(R) ;
+      result.theGradient[i] = gradient[i]/patReal(Rdraws) ;
     }
-    if (result.theHessian != NULL) {
-      patReal invR = 1.0 / patReal(R) ;
+    if (computeHessian) {
+      patReal invR = 1.0 / patReal(Rdraws) ;
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
-	  result.theHessian->multElement(i,j,invR,err) ;
+	  result.theHessian.multElement(i,j,invR,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;

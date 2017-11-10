@@ -1,0 +1,74 @@
+\hypertarget{classbio__iterator_1_1row_iterator}{\section{bio\+\_\+iterator.\+row\+Iterator Class Reference}
+\label{classbio__iterator_1_1row_iterator}\index{bio\+\_\+iterator.\+row\+Iterator@{bio\+\_\+iterator.\+row\+Iterator}}
+}
+
+
+row iterators are designed to iterate on rows of the data file.  
+
+
+Inheritance diagram for bio\+\_\+iterator.\+row\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/dfb/classbio__iterator_1_1row_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__iterator_1_1row_iterator_aa47088d10b947c713cb60678e14a8f9d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__iterator_1_1row_iterator_a176ad0bad3c81c72fe75cd63929ec926}{type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+row iterators are designed to iterate on rows of the data file. 
+
+Examples\+:
+\begin{DoxyItemize}
+\item Iterator on the data \href{file:@code}{\tt file\+:@code} \hyperlink{classbio__iterator_1_1row_iterator}{row\+Iterator}('obs\+Iter') 
+\item Iterator on another iterator\+: 
+\begin{DoxyCode}
+1 metaIterator(\textcolor{stringliteral}{'personIter'},\textcolor{stringliteral}{'\_\_dataFile\_\_'},\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'Id'})
+2 rowIterator(\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'personIter'})
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__iterator_1_1row_iterator_aa47088d10b947c713cb60678e14a8f9d}{\index{bio\+\_\+iterator\+::row\+Iterator@{bio\+\_\+iterator\+::row\+Iterator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+iterator\+::row\+Iterator@{bio\+\_\+iterator\+::row\+Iterator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+iterator.\+row\+Iterator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{iterator\+Name, }
+\item[{}]{name = {\ttfamily \char`\"{}\+\_\+\+\_\+dataFile\+\_\+\+\_\+\char`\"{}}, }
+\item[{}]{child = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{}]{variable = {\ttfamily \char`\"{}\+\_\+\+\_\+rowId\+\_\+\+\_\+\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classbio__iterator_1_1row_iterator_aa47088d10b947c713cb60678e14a8f9d}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator\+Name} & Name of the iterator. \\
+\hline
+{\em name} & Name of the set of data that is being iterated. It is either the name of a metaiterator, or the string {\bfseries data\+File}, when the iterator spans the entire database. \\
+\hline
+{\em child} & Row iterators have no children. Use the default value. \\
+\hline
+{\em variable} & Ignored by row iterators. Use the default value. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__iterator_1_1row_iterator_a176ad0bad3c81c72fe75cd63929ec926}{\index{bio\+\_\+iterator\+::row\+Iterator@{bio\+\_\+iterator\+::row\+Iterator}!type@{type}}
+\index{type@{type}!bio\+\_\+iterator\+::row\+Iterator@{bio\+\_\+iterator\+::row\+Iterator}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+row\+Iterator.\+type}}\label{classbio__iterator_1_1row_iterator_a176ad0bad3c81c72fe75cd63929ec926}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__iterator_8py}{bio\+\_\+iterator.\+py}\end{DoxyCompactItemize}

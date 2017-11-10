@@ -1,6 +1,6 @@
 #define YY_patBisonSpec_h_included
 
-/*  A Bison++ parser, made from patSpecParser.yy  */
+/*  A Bison++ parser, made from /Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy  */
 
  /* with Bison++ version bison++ Version 1.21-8, adapted from GNU bison by coetmeur@icdc.fr
   */
@@ -81,18 +81,22 @@ void *alloca ();
 #define YYBISON 1  
 
 /* #line 73 "/usr/local/lib/bison.cc" */
-#line 85 "patSpecParser.yy.tab.c"
+#line 85 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 #define YY_patBisonSpec_ERROR_BODY  = 0
 #define YY_patBisonSpec_LEX_BODY  = 0
 #define YY_patBisonSpec_MEMBERS  patSpecScanner scanner; patModelSpec *pModel; virtual ~patBisonSpec() {};
 #define YY_patBisonSpec_CONSTRUCTOR_PARAM  const patString& fname_
 #define YY_patBisonSpec_CONSTRUCTOR_INIT  : scanner(fname_) , pModel(NULL)
-#line 18 "patSpecParser.yy"
+#line 18 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
   
 #include <fstream>
 #include <sstream>
-#include <assert.h>
+#include <cassert>
 
 #include "patLoop.h"
 #include "patDisplay.h"
@@ -219,7 +223,7 @@ public:
 
 
 
-#line 152 "patSpecParser.yy"
+#line 156 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 typedef union {
   long            itype;
   float            ftype;
@@ -289,7 +293,7 @@ typedef union {
 #ifndef YY_patBisonSpec_PURE
 
 /* #line 117 "/usr/local/lib/bison.cc" */
-#line 293 "patSpecParser.yy.tab.c"
+#line 297 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
 #line 117 "/usr/local/lib/bison.cc"
 /*  YY_patBisonSpec_PURE */
@@ -298,14 +302,14 @@ typedef union {
 /* section apres lecture def, avant lecture grammaire S2 */
 
 /* #line 121 "/usr/local/lib/bison.cc" */
-#line 302 "patSpecParser.yy.tab.c"
+#line 306 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
 #line 121 "/usr/local/lib/bison.cc"
 /* prefix */
 #ifndef YY_patBisonSpec_DEBUG
 
 /* #line 123 "/usr/local/lib/bison.cc" */
-#line 309 "patSpecParser.yy.tab.c"
+#line 313 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
 #line 123 "/usr/local/lib/bison.cc"
 /* YY_patBisonSpec_DEBUG */
@@ -315,7 +319,7 @@ typedef union {
 #ifndef YY_patBisonSpec_LSP_NEEDED
 
 /* #line 128 "/usr/local/lib/bison.cc" */
-#line 319 "patSpecParser.yy.tab.c"
+#line 323 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
 #line 128 "/usr/local/lib/bison.cc"
  /* YY_patBisonSpec_LSP_NEEDED*/
@@ -428,7 +432,7 @@ typedef
 /* TOKEN C */
 
 /* #line 236 "/usr/local/lib/bison.cc" */
-#line 432 "patSpecParser.yy.tab.c"
+#line 436 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 #define	pat_gevDataFile	258
 #define	pat_gevModelDescription	259
 #define	pat_gevChoice	260
@@ -583,7 +587,7 @@ public:
 /* static const int token ... */
 
 /* #line 280 "/usr/local/lib/bison.cc" */
-#line 587 "patSpecParser.yy.tab.c"
+#line 591 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 static const int pat_gevDataFile;
 static const int pat_gevModelDescription;
 static const int pat_gevChoice;
@@ -697,7 +701,7 @@ static const int patPAIR;
 enum YY_patBisonSpec_ENUM_TOKEN { YY_patBisonSpec_NULL_TOKEN=0
 
 /* #line 283 "/usr/local/lib/bison.cc" */
-#line 701 "patSpecParser.yy.tab.c"
+#line 705 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 	,pat_gevDataFile=258
 	,pat_gevModelDescription=259
 	,pat_gevChoice=260
@@ -839,7 +843,7 @@ public:
 #if YY_patBisonSpec_USE_CONST_TOKEN != 0
 
 /* #line 314 "/usr/local/lib/bison.cc" */
-#line 843 "patSpecParser.yy.tab.c"
+#line 847 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 const int YY_patBisonSpec_CLASS::pat_gevDataFile=258;
 const int YY_patBisonSpec_CLASS::pat_gevModelDescription=259;
 const int YY_patBisonSpec_CLASS::pat_gevChoice=260;
@@ -961,7 +965,7 @@ YY_patBisonSpec_CONSTRUCTOR_CODE;
 #endif
 
 /* #line 325 "/usr/local/lib/bison.cc" */
-#line 965 "patSpecParser.yy.tab.c"
+#line 969 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
 
 #define	YYFINAL		524
@@ -1142,37 +1146,37 @@ static const short yyrhs[] = {   109,
 
 #if YY_patBisonSpec_DEBUG != 0
 static const short yyrline[] = { 0,
-   309,   314,   314,   317,   318,   319,   320,   321,   322,   323,
-   324,   325,   326,   327,   328,   329,   330,   331,   332,   333,
-   334,   335,   336,   337,   338,   339,   340,   341,   342,   343,
-   344,   345,   346,   347,   348,   349,   350,   351,   352,   353,
-   354,   355,   356,   357,   358,   359,   360,   366,   369,   373,
-   380,   381,   385,   385,   387,   390,   394,   399,   406,   407,
-   415,   416,   425,   428,   432,   440,   445,   449,   456,   458,
-   459,   460,   462,   468,   471,   479,   481,   481,   483,   492,
-   498,   505,   511,   513,   514,   515,   517,   526,   528,   529,
-   530,   532,   538,   540,   541,   542,   544,   555,   557,   558,
-   559,   561,   578,   593,   597,   599,   606,   611,   611,   613,
-   613,   613,   613,   615,   622,   628,   633,   637,   639,   640,
-   641,   643,   645,   651,   654,   655,   656,   658,   663,   666,
-   667,   668,   670,   680,   682,   683,   684,   686,   697,   710,
-   722,   731,   738,   744,   752,   752,   754,   754,   754,   756,
-   762,   764,   769,   773,   777,   781,   785,   792,   794,   796,
-   796,   798,   807,   811,   818,   821,   823,   823,   825,   833,
-   836,   838,   838,   840,   852,   854,   854,   854,   856,   867,
-   871,   877,   882,   887,   891,   897,   903,   908,   912,   918,
-   924,   934,   942,   953,   953,   953,   955,   961,   969,   974,
-   980,   987,   995,   998,  1002,  1010,  1011,  1011,  1011,  1012,
-  1020,  1021,  1021,  1021,  1022,  1033,  1035,  1035,  1035,  1037,
-  1057,  1059,  1059,  1059,  1061,  1074,  1076,  1076,  1078,  1084,
-  1084,  1086,  1094,  1096,  1096,  1096,  1098,  1103,  1105,  1105,
-  1105,  1107,  1119,  1123,  1129,  1133,  1142,  1144,  1144,  1146,
-  1162,  1165,  1171,  1182,  1195,  1210,  1213,  1216,  1219,  1222,
-  1225,  1230,  1233,  1237,  1247,  1265,  1285,  1293,  1301,  1308,
-  1316,  1323,  1331,  1338,  1343,  1352,  1362,  1372,  1381,  1390,
-  1400,  1410,  1420,  1430,  1440,  1450,  1460,  1470,  1480,  1490,
-  1500,  1504,  1510,  1519,  1522,  1526,  1529,  1533,  1538,  1545,
-  1550
+   313,   318,   318,   321,   322,   323,   324,   325,   326,   327,
+   328,   329,   330,   331,   332,   333,   334,   335,   336,   337,
+   338,   339,   340,   341,   342,   343,   344,   345,   346,   347,
+   348,   349,   350,   351,   352,   353,   354,   355,   356,   357,
+   358,   359,   360,   361,   362,   363,   364,   370,   373,   377,
+   384,   385,   389,   389,   391,   394,   398,   403,   410,   411,
+   419,   420,   429,   432,   436,   444,   449,   453,   460,   462,
+   463,   464,   466,   472,   475,   483,   485,   485,   487,   496,
+   502,   509,   515,   517,   518,   519,   521,   530,   532,   533,
+   534,   536,   542,   544,   545,   546,   548,   559,   561,   562,
+   563,   565,   582,   597,   601,   603,   610,   615,   615,   617,
+   617,   617,   617,   619,   626,   632,   637,   641,   643,   644,
+   645,   647,   649,   655,   658,   659,   660,   662,   667,   670,
+   671,   672,   674,   684,   686,   687,   688,   690,   701,   714,
+   726,   735,   742,   748,   756,   756,   758,   758,   758,   760,
+   766,   768,   773,   777,   781,   785,   789,   796,   798,   800,
+   800,   802,   811,   815,   822,   825,   827,   827,   829,   837,
+   840,   842,   842,   844,   856,   858,   858,   858,   860,   871,
+   875,   881,   886,   891,   895,   901,   907,   912,   916,   922,
+   928,   938,   946,   957,   957,   957,   959,   965,   973,   978,
+   984,   991,   999,  1002,  1006,  1014,  1015,  1015,  1015,  1016,
+  1024,  1025,  1025,  1025,  1026,  1037,  1039,  1039,  1039,  1041,
+  1061,  1063,  1063,  1063,  1065,  1078,  1080,  1080,  1082,  1088,
+  1088,  1090,  1098,  1100,  1100,  1100,  1102,  1107,  1109,  1109,
+  1109,  1111,  1123,  1127,  1133,  1137,  1146,  1148,  1148,  1150,
+  1166,  1169,  1175,  1186,  1199,  1214,  1217,  1220,  1223,  1226,
+  1229,  1234,  1237,  1241,  1251,  1269,  1289,  1297,  1305,  1312,
+  1320,  1327,  1335,  1342,  1347,  1356,  1366,  1376,  1385,  1394,
+  1404,  1414,  1424,  1434,  1444,  1454,  1464,  1474,  1484,  1494,
+  1504,  1508,  1514,  1523,  1526,  1530,  1533,  1537,  1542,  1549,
+  1554
 };
 
 static const char * const yytname[] = {   "$","error","$illegal.","pat_gevDataFile",
@@ -1859,9 +1863,9 @@ static void __yy_bcopy (from, to, count)
 #endif
 #endif
 {
-  register char *f = from;
-  register char *t = to;
-  register int i = count;
+   char *f = from;
+   char *t = to;
+   int i = count;
 
   while (i-- > 0)
     *t++ = *f++;
@@ -1882,10 +1886,10 @@ YY_patBisonSpec_PARSE_PARAM_DEF
 #endif
 #endif
 {
-  register int yystate;
-  register int yyn;
-  register short *yyssp;
-  register YY_patBisonSpec_STYPE *yyvsp;
+   int yystate;
+   int yyn;
+   short *yyssp;
+   YY_patBisonSpec_STYPE *yyvsp;
   int yyerrstatus;      /*  number of tokens to shift before error messages enabled */
   int yychar1=0;          /*  lookahead token as an internal (translated) token number */
 
@@ -2164,56 +2168,56 @@ YYLABEL(yyreduce)
 
 
 /* #line 811 "/usr/local/lib/bison.cc" */
-#line 2168 "patSpecParser.yy.tab.c"
+#line 2172 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
 
   switch (yyn) {
 
 case 1:
-#line 309 "patSpecParser.yy"
+#line 313 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
                DEBUG_MESSAGE("Finished parsing  <"
 	       << scanner.filename() << ">");
 ;
     break;}
 case 49:
-#line 369 "patSpecParser.yy"
+#line 373 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DETAILED_MESSAGE("Section [DataFile] is now obsolete") ;
 ;
     break;}
 case 50:
-#line 373 "patSpecParser.yy"
+#line 377 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelDescription(yyvsp[0].liststringtype) ;
 ;
     break;}
 case 52:
-#line 381 "patSpecParser.yy"
+#line 385 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
 ;
     break;}
 case 55:
-#line 387 "patSpecParser.yy"
+#line 391 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   
 ;
     break;}
 case 56:
-#line 390 "patSpecParser.yy"
+#line 394 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
 ;
     break;}
 case 57:
-#line 394 "patSpecParser.yy"
+#line 398 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->addLatexName(patString(*yyvsp[-1].stype),patString(*yyvsp[0].stype)) ;
 ;
     break;}
 case 58:
-#line 399 "patSpecParser.yy"
+#line 403 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2221,7 +2225,7 @@ case 58:
 ;
     break;}
 case 60:
-#line 408 "patSpecParser.yy"
+#line 412 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2229,7 +2233,7 @@ case 60:
 ;
     break;}
 case 62:
-#line 417 "patSpecParser.yy"
+#line 421 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2237,19 +2241,19 @@ case 62:
 ;
     break;}
 case 63:
-#line 425 "patSpecParser.yy"
+#line 429 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
 ;
     break;}
 case 64:
-#line 428 "patSpecParser.yy"
+#line 432 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
 ;
     break;}
 case 65:
-#line 432 "patSpecParser.yy"
+#line 436 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-1].arithType != NULL) ;
@@ -2259,21 +2263,21 @@ case 65:
 ;
     break;}
 case 66:
-#line 441 "patSpecParser.yy"
+#line 445 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   WARNING("Empty list of names") ;
   yyval.liststringtype = NULL ;
 ;
     break;}
 case 67:
-#line 445 "patSpecParser.yy"
+#line 449 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.liststringtype = new list<patString> ;
   yyval.liststringtype->push_back(*yyvsp[0].stype) ;
 ;
     break;}
 case 68:
-#line 449 "patSpecParser.yy"
+#line 453 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].liststringtype != NULL) ;
   yyvsp[-1].liststringtype->push_back(*yyvsp[0].stype) ;
@@ -2281,19 +2285,19 @@ case 68:
 ;
     break;}
 case 73:
-#line 462 "patSpecParser.yy"
+#line 466 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->addMassAtZero(*yyvsp[-1].stype,yyvsp[0].ftype) ;
 ;
     break;}
 case 74:
-#line 468 "patSpecParser.yy"
+#line 472 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("No weight defined") ;
 ;
     break;}
 case 75:
-#line 472 "patSpecParser.yy"
+#line 476 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2301,7 +2305,7 @@ case 75:
 ;
     break;}
 case 79:
-#line 483 "patSpecParser.yy"
+#line 487 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-4].stype != NULL) ;
@@ -2310,14 +2314,14 @@ case 79:
 ;
     break;}
 case 80:
-#line 492 "patSpecParser.yy"
+#line 496 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setMu(yyvsp[-3].ftype,yyvsp[-2].ftype,yyvsp[-1].ftype,yyvsp[0].itype!=0) ;
 ;
     break;}
 case 81:
-#line 498 "patSpecParser.yy"
+#line 502 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -2326,14 +2330,14 @@ case 81:
 ;
     break;}
 case 82:
-#line 505 "patSpecParser.yy"
+#line 509 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setSampleEnumeration(yyvsp[0].itype) ;
 ;
     break;}
 case 87:
-#line 517 "patSpecParser.yy"
+#line 521 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-5].stype != NULL) ;
@@ -2344,7 +2348,7 @@ case 87:
 ;
     break;}
 case 92:
-#line 532 "patSpecParser.yy"
+#line 536 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-1].stype != NULL) ;
@@ -2352,7 +2356,7 @@ case 92:
 ;
     break;}
 case 97:
-#line 544 "patSpecParser.yy"
+#line 548 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-2].stype != NULL) ;
   assert(yyvsp[-1].stype != NULL) ;
@@ -2365,7 +2369,7 @@ case 97:
 ;
     break;}
 case 102:
-#line 562 "patSpecParser.yy"
+#line 566 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
    DEBUG_MESSAGE("Proba " << *yyvsp[-5].stype) ;
    DEBUG_MESSAGE("Bandwith = " << yyvsp[-3].ftype) ;
@@ -2384,7 +2388,7 @@ case 102:
  ;
     break;}
 case 103:
-#line 578 "patSpecParser.yy"
+#line 582 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
    DEBUG_MESSAGE("Expression " << *yyvsp[-5].arithType) ;
    DEBUG_MESSAGE("Bandwith = " << yyvsp[-3].ftype) ;
@@ -2401,13 +2405,13 @@ case 103:
  ;
     break;}
 case 104:
-#line 594 "patSpecParser.yy"
+#line 598 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setGeneralizedExtremeValueParameter(*yyvsp[0].stype) ;
 ;
     break;}
 case 106:
-#line 599 "patSpecParser.yy"
+#line 603 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setStartingTime(patString(*yyvsp[-1].stype)) ;
   pModel->setDurationParameter(patString(*yyvsp[0].stype)) ;
@@ -2416,14 +2420,14 @@ case 106:
 ;
     break;}
 case 107:
-#line 606 "patSpecParser.yy"
+#line 610 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setRegressionObservation(patString(*yyvsp[-1].stype)) ;
   DEBUG_MESSAGE("Regression dependent: " << *yyvsp[-1].stype) ;
 ;
     break;}
 case 114:
-#line 615 "patSpecParser.yy"
+#line 619 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
   assert(yyvsp[0].uftype != NULL) ;
@@ -2432,45 +2436,45 @@ case 114:
 ;
     break;}
 case 115:
-#line 622 "patSpecParser.yy"
+#line 626 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setAcqSigma(patString(*yyvsp[0].stype)) ;
 ;
     break;}
 case 116:
-#line 628 "patSpecParser.yy"
+#line 632 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->addValRegressionModel(yyvsp[0].uftype) ;
   DELETE_PTR(yyvsp[0].uftype) ;
 ;
     break;}
 case 117:
-#line 633 "patSpecParser.yy"
+#line 637 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setValSigma(patString(*yyvsp[0].stype)) ;
 ;
     break;}
 case 122:
-#line 643 "patSpecParser.yy"
+#line 647 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setOrdinalLogitLeftAlternative(yyvsp[-1].itype) ;
 ;
     break;}
 case 123:
-#line 646 "patSpecParser.yy"
+#line 650 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->addOrdinalLogitThreshold(yyvsp[-1].itype,patString(*yyvsp[0].stype)) ;
 ;
     break;}
 case 128:
-#line 658 "patSpecParser.yy"
+#line 662 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->addNonLinearUtility(yyvsp[-1].itype,yyvsp[0].arithType) ;
 ;
     break;}
 case 133:
-#line 670 "patSpecParser.yy"
+#line 674 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-1].stype != NULL) ;
@@ -2478,7 +2482,7 @@ case 133:
 ;
     break;}
 case 138:
-#line 686 "patSpecParser.yy"
+#line 690 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel!= NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -2492,7 +2496,7 @@ case 138:
 ;
     break;}
 case 139:
-#line 697 "patSpecParser.yy"
+#line 701 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel!= NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -2507,7 +2511,7 @@ case 139:
 ;
     break;}
 case 140:
-#line 710 "patSpecParser.yy"
+#line 714 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 
   patLoop* theLoop = new patLoop ;
@@ -2519,7 +2523,7 @@ case 140:
 ;
     break;}
 case 141:
-#line 722 "patSpecParser.yy"
+#line 726 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("No group defined") ;
   assert (pModel != NULL) ;
@@ -2531,7 +2535,7 @@ case 141:
 ;
     break;}
 case 142:
-#line 731 "patSpecParser.yy"
+#line 735 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2539,7 +2543,7 @@ case 142:
 ;
     break;}
 case 143:
-#line 738 "patSpecParser.yy"
+#line 742 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("No exclusion condition") ;
   patArithConstant* ptr = new patArithConstant(NULL) ;
@@ -2548,7 +2552,7 @@ case 143:
 ;
     break;}
 case 144:
-#line 744 "patSpecParser.yy"
+#line 748 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -2557,14 +2561,14 @@ case 144:
 ;
     break;}
 case 150:
-#line 756 "patSpecParser.yy"
+#line 760 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert (pModel != NULL) ;
   pModel->addScale(yyvsp[-4].itype,yyvsp[-3].ftype,yyvsp[-2].ftype,yyvsp[-1].ftype,yyvsp[0].itype!=0) ;
 ;
     break;}
 case 152:
-#line 764 "patSpecParser.yy"
+#line 768 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("Model OL") ;
   assert (pModel != NULL) ;
@@ -2572,47 +2576,47 @@ case 152:
 ;
     break;}
 case 153:
-#line 769 "patSpecParser.yy"
+#line 773 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelType(patModelSpec::patBPtype) ;
 ;
     break;}
 case 154:
-#line 773 "patSpecParser.yy"
+#line 777 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelType(patModelSpec::patMNLtype) ;
 ;
     break;}
 case 155:
-#line 777 "patSpecParser.yy"
+#line 781 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelType(patModelSpec::patNLtype) ;
 ;
     break;}
 case 156:
-#line 781 "patSpecParser.yy"
+#line 785 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelType(patModelSpec::patCNLtype) ;
 ;
     break;}
 case 157:
-#line 785 "patSpecParser.yy"
+#line 789 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   pModel->setModelType(patModelSpec::patNetworkGEVtype) ;
 ;
     break;}
 case 158:
-#line 792 "patSpecParser.yy"
+#line 796 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
 ;
     break;}
 case 162:
-#line 798 "patSpecParser.yy"
+#line 802 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-5].stype != NULL) ;
@@ -2623,14 +2627,14 @@ case 162:
 ;
     break;}
 case 163:
-#line 807 "patSpecParser.yy"
+#line 811 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.listshorttype = new list<long> ;
   yyval.listshorttype->push_back(yyvsp[0].itype) ;
 ;
     break;}
 case 164:
-#line 811 "patSpecParser.yy"
+#line 815 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].listshorttype != NULL) ;
   yyvsp[-1].listshorttype->push_back(yyvsp[0].itype) ;
@@ -2638,13 +2642,13 @@ case 164:
 ;
     break;}
 case 165:
-#line 818 "patSpecParser.yy"
+#line 822 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("No nests defined for CNL model") ;
 ;
     break;}
 case 169:
-#line 825 "patSpecParser.yy"
+#line 829 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-4].stype != NULL) ;
@@ -2653,13 +2657,13 @@ case 169:
 ;
     break;}
 case 170:
-#line 833 "patSpecParser.yy"
+#line 837 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   DEBUG_MESSAGE("No alpha defined for CNL model") ;
 ;
     break;}
 case 174:
-#line 840 "patSpecParser.yy"
+#line 844 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-5].stype != NULL) ;
@@ -2672,7 +2676,7 @@ case 174:
 ;
     break;}
 case 179:
-#line 856 "patSpecParser.yy"
+#line 860 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert (pModel != NULL) ;
   assert (yyvsp[-2].stype != NULL) ;
@@ -2685,39 +2689,39 @@ case 179:
 ;
     break;}
 case 180:
-#line 867 "patSpecParser.yy"
+#line 871 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setNumberOfDraws(yyvsp[0].itype) ;
 ;
     break;}
 case 181:
-#line 871 "patSpecParser.yy"
+#line 875 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setListLinearConstraints(yyvsp[0].llctype) ;
   DELETE_PTR(yyvsp[0].llctype) ;
 ;
     break;}
 case 182:
-#line 877 "patSpecParser.yy"
+#line 881 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setListNonLinearEqualityConstraints(yyvsp[0].lnlctype) ;
 ;
     break;}
 case 183:
-#line 882 "patSpecParser.yy"
+#line 886 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   pModel->setListNonLinearInequalityConstraints(yyvsp[0].lnlctype) ;
 ;
     break;}
 case 184:
-#line 887 "patSpecParser.yy"
+#line 891 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patListNonLinearConstraints* ptr = NULL ;
   yyval.lnlctype = ptr ;
 ;
     break;}
 case 185:
-#line 891 "patSpecParser.yy"
+#line 895 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patListNonLinearConstraints* ptr = new patListNonLinearConstraints;
   ptr->push_back(*yyvsp[0].nlctype) ;
@@ -2726,7 +2730,7 @@ case 185:
 ;
     break;}
 case 186:
-#line 897 "patSpecParser.yy"
+#line 901 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyvsp[-1].lnlctype->push_back(*yyvsp[0].nlctype) ;
   DELETE_PTR(yyvsp[0].nlctype) ;
@@ -2734,21 +2738,21 @@ case 186:
 ;
     break;}
 case 187:
-#line 903 "patSpecParser.yy"
+#line 907 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patNonLinearConstraint* ptr = new patNonLinearConstraint(yyvsp[0].arithType) ;
   yyval.nlctype = ptr ;
 ;
     break;}
 case 188:
-#line 908 "patSpecParser.yy"
+#line 912 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patListLinearConstraint* ptr = NULL ;
   yyval.llctype = ptr ;
 ;
     break;}
 case 189:
-#line 912 "patSpecParser.yy"
+#line 916 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patListLinearConstraint* ptr = new patListLinearConstraint ;
   ptr->push_back(*yyvsp[0].lctype) ;
@@ -2757,7 +2761,7 @@ case 189:
 ;
     break;}
 case 190:
-#line 918 "patSpecParser.yy"
+#line 922 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyvsp[-1].llctype->push_back(*yyvsp[0].lctype) ;
   DELETE_PTR(yyvsp[0].lctype) ;
@@ -2765,7 +2769,7 @@ case 190:
 ;
     break;}
 case 191:
-#line 925 "patSpecParser.yy"
+#line 929 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {  
   patLinearConstraint* ptr = new patLinearConstraint ;
   ptr->theEquation = *yyvsp[-2].cetype ;
@@ -2777,7 +2781,7 @@ case 191:
 ;
     break;}
 case 192:
-#line 934 "patSpecParser.yy"
+#line 938 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patLinearConstraint* ptr = new patLinearConstraint ;
   ptr->theEquation = *yyvsp[-2].cetype ;
@@ -2788,7 +2792,7 @@ case 192:
 ;
     break;}
 case 193:
-#line 942 "patSpecParser.yy"
+#line 946 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patLinearConstraint* ptr = new patLinearConstraint ;
   ptr->theEquation = *yyvsp[-2].cetype ;
@@ -2800,7 +2804,7 @@ case 193:
 ;
     break;}
 case 197:
-#line 955 "patSpecParser.yy"
+#line 959 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patConstraintEquation* ptr = new patConstraintEquation ;
   ptr->push_back(*yyvsp[0].cttype) ;
@@ -2809,7 +2813,7 @@ case 197:
 ;
     break;}
 case 198:
-#line 961 "patSpecParser.yy"
+#line 965 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patConstraintEquation* ptr = new patConstraintEquation ;
   yyvsp[0].cttype->fact = - yyvsp[0].cttype->fact ;
@@ -2819,7 +2823,7 @@ case 198:
 ;
     break;}
 case 199:
-#line 969 "patSpecParser.yy"
+#line 973 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyvsp[-2].cetype->push_back(*yyvsp[0].cttype) ;
   DELETE_PTR(yyvsp[0].cttype) ;
@@ -2827,7 +2831,7 @@ case 199:
 ;
     break;}
 case 200:
-#line 974 "patSpecParser.yy"
+#line 978 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyvsp[0].cttype->fact = - yyvsp[0].cttype->fact ;
   yyvsp[-2].cetype->push_back(*yyvsp[0].cttype) ;
@@ -2836,7 +2840,7 @@ case 200:
 ;
     break;}
 case 201:
-#line 980 "patSpecParser.yy"
+#line 984 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patConstraintTerm* ptr = new patConstraintTerm ;
   ptr->fact = 1.0 ;
@@ -2846,7 +2850,7 @@ case 201:
 ;
     break;}
 case 202:
-#line 987 "patSpecParser.yy"
+#line 991 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patConstraintTerm* ptr = new patConstraintTerm ;
   ptr->fact = yyvsp[-2].ftype ;
@@ -2856,19 +2860,19 @@ case 202:
 ;
     break;}
 case 203:
-#line 995 "patSpecParser.yy"
+#line 999 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.stype = yyvsp[0].stype ;
 ;
     break;}
 case 204:
-#line 998 "patSpecParser.yy"
+#line 1002 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.stype = yyvsp[0].stype ;
 ;
     break;}
 case 205:
-#line 1002 "patSpecParser.yy"
+#line 1006 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patString* ptr = new patString(pModel->buildLinkName(*yyvsp[-3].stype,*yyvsp[-1].stype)) ;
   DELETE_PTR(yyvsp[-3].stype) ;
@@ -2877,7 +2881,7 @@ case 205:
 ;
     break;}
 case 210:
-#line 1012 "patSpecParser.yy"
+#line 1016 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-4].stype != NULL) ;
@@ -2886,7 +2890,7 @@ case 210:
 ;
     break;}
 case 215:
-#line 1022 "patSpecParser.yy"
+#line 1026 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-5].stype != NULL) ;
@@ -2898,7 +2902,7 @@ case 215:
 ;
     break;}
 case 220:
-#line 1037 "patSpecParser.yy"
+#line 1041 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -2919,7 +2923,7 @@ case 220:
 ;
     break;}
 case 225:
-#line 1061 "patSpecParser.yy"
+#line 1065 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -2931,7 +2935,7 @@ case 225:
 ;
     break;}
 case 229:
-#line 1078 "patSpecParser.yy"
+#line 1082 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].stype != NULL) ;
   pModel->setSnpBaseParameter(patString(*yyvsp[-1].stype)) ;
@@ -2939,7 +2943,7 @@ case 229:
 ;
     break;}
 case 232:
-#line 1086 "patSpecParser.yy"
+#line 1090 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[0].stype != NULL) ;
   pModel->addSnpTerm(yyvsp[-1].itype,patString(*yyvsp[0].stype)) ;
@@ -2948,14 +2952,14 @@ case 232:
 ;
     break;}
 case 237:
-#line 1098 "patSpecParser.yy"
+#line 1102 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[0].stype != NULL) ;
   pModel->addSelectionBiasParameter(yyvsp[-1].itype,*yyvsp[0].stype) ;
 ;
     break;}
 case 242:
-#line 1107 "patSpecParser.yy"
+#line 1111 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patError* err(NULL) ;
   pModel->addDiscreteParameter(*yyvsp[-3].stype,*yyvsp[-1].discreteDistType,err) ;
@@ -2969,7 +2973,7 @@ case 242:
 ;
     break;}
 case 243:
-#line 1119 "patSpecParser.yy"
+#line 1123 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   vector<patThreeStrings>* ptr = new vector<patThreeStrings> ;
   ptr->push_back(*yyvsp[0].discreteTermType) ;
@@ -2977,7 +2981,7 @@ case 243:
 ;
     break;}
 case 244:
-#line 1123 "patSpecParser.yy"
+#line 1127 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].discreteDistType != NULL) ;
   yyvsp[-1].discreteDistType->push_back(*yyvsp[0].discreteTermType) ;
@@ -2985,14 +2989,14 @@ case 244:
 ;
     break;}
 case 245:
-#line 1129 "patSpecParser.yy"
+#line 1133 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.discreteTermType= new patThreeStrings(*yyvsp[-3].stype,patString(),*yyvsp[-1].stype) ;
   DEBUG_MESSAGE("-> discrete term " << *yyvsp[-3].stype << "(" << *yyvsp[-1].stype << ")") ;
 ;
     break;}
 case 246:
-#line 1133 "patSpecParser.yy"
+#line 1137 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.discreteTermType= new patThreeStrings(yyvsp[-3].arithRandomType->getLocationParameter(),
 			  yyvsp[-3].arithRandomType->getScaleParameter(),
@@ -3001,7 +3005,7 @@ case 246:
 ;
     break;}
 case 250:
-#line 1146 "patSpecParser.yy"
+#line 1150 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(pModel != NULL) ;
   assert(yyvsp[-2].stype != NULL) ;
@@ -3019,13 +3023,13 @@ case 250:
 ;
     break;}
 case 251:
-#line 1162 "patSpecParser.yy"
+#line 1166 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.uftype = new patUtilFunction ;
 ;
     break;}
 case 252:
-#line 1165 "patSpecParser.yy"
+#line 1169 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert ( yyvsp[0].uttype != NULL) ;
   yyval.uftype = new patUtilFunction ;
@@ -3034,7 +3038,7 @@ case 252:
 ;
     break;}
 case 253:
-#line 1171 "patSpecParser.yy"
+#line 1175 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   
   assert(yyvsp[-2].uftype != NULL) ;
@@ -3045,7 +3049,7 @@ case 253:
 ;
     break;}
 case 254:
-#line 1182 "patSpecParser.yy"
+#line 1186 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-2].stype != NULL) ;
   assert(yyvsp[0].stype != NULL) ;
@@ -3061,7 +3065,7 @@ case 254:
 ;
     break;}
 case 255:
-#line 1195 "patSpecParser.yy"
+#line 1199 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-2].arithRandomType != NULL) ;
   assert(yyvsp[0].stype != NULL) ;
@@ -3078,55 +3082,55 @@ case 255:
 ;
     break;}
 case 256:
-#line 1210 "patSpecParser.yy"
+#line 1214 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[0].arithType ;
 ;
     break;}
 case 257:
-#line 1213 "patSpecParser.yy"
+#line 1217 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[0].arithType ;
 ;
     break;}
 case 258:
-#line 1216 "patSpecParser.yy"
+#line 1220 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[0].arithType ;
 ;
     break;}
 case 259:
-#line 1219 "patSpecParser.yy"
+#line 1223 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[0].arithRandomType ;
 ;
     break;}
 case 260:
-#line 1222 "patSpecParser.yy"
+#line 1226 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[-1].arithType ;
 ;
     break;}
 case 261:
-#line 1225 "patSpecParser.yy"
+#line 1229 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[0].arithType ;
 ;
     break;}
 case 262:
-#line 1230 "patSpecParser.yy"
+#line 1234 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithRandomType = yyvsp[0].arithRandomType ;
 ;
     break;}
 case 263:
-#line 1233 "patSpecParser.yy"
+#line 1237 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithRandomType = yyvsp[0].arithRandomType ;
 ;
     break;}
 case 264:
-#line 1237 "patSpecParser.yy"
+#line 1241 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-3].arithType != NULL) ;
   assert(yyvsp[-1].stype != NULL) ;
@@ -3138,7 +3142,7 @@ case 264:
 ;
     break;}
 case 265:
-#line 1247 "patSpecParser.yy"
+#line 1251 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   //  pModel->addDrawHeader(*$1,*$3);
   patArithNormalRandom* ptr = new patArithNormalRandom(NULL) ;
@@ -3158,7 +3162,7 @@ case 265:
 ;
     break;}
 case 266:
-#line 1265 "patSpecParser.yy"
+#line 1269 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   //  pModel->addDrawHeader(*$1,*$3);
   patArithUnifRandom* ptr = new patArithUnifRandom(NULL) ;
@@ -3178,7 +3182,7 @@ case 266:
 ;
     break;}
 case 267:
-#line 1285 "patSpecParser.yy"
+#line 1289 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[0].arithType != NULL) ;
   patArithUnaryMinus* ptr = new patArithUnaryMinus(NULL,yyvsp[0].arithType) ;
@@ -3189,7 +3193,7 @@ case 267:
 ;
     break;}
 case 268:
-#line 1293 "patSpecParser.yy"
+#line 1297 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[0].arithType != NULL) ;
   patArithNot* ptr = new patArithNot(NULL,yyvsp[0].arithType) ;
@@ -3200,7 +3204,7 @@ case 268:
 ;
     break;}
 case 269:
-#line 1301 "patSpecParser.yy"
+#line 1305 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].arithType != NULL) ;
   patArithSqrt* ptr = new patArithSqrt(NULL,yyvsp[-1].arithType) ;
@@ -3210,7 +3214,7 @@ case 269:
 ;
     break;}
 case 270:
-#line 1308 "patSpecParser.yy"
+#line 1312 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].arithType != NULL) ;
   patArithLog* ptr = new patArithLog(NULL,yyvsp[-1].arithType) ;
@@ -3221,7 +3225,7 @@ case 270:
 ;
     break;}
 case 271:
-#line 1316 "patSpecParser.yy"
+#line 1320 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].arithType != NULL) ;
   patArithExp* ptr = new patArithExp(NULL,yyvsp[-1].arithType) ;
@@ -3231,7 +3235,7 @@ case 271:
 ;
     break;}
 case 272:
-#line 1323 "patSpecParser.yy"
+#line 1327 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].arithType != NULL) ;
   patArithAbs* ptr = new patArithAbs(NULL,yyvsp[-1].arithType) ;
@@ -3242,7 +3246,7 @@ case 272:
 ;
     break;}
 case 273:
-#line 1331 "patSpecParser.yy"
+#line 1335 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-1].arithType != NULL) ;
   patArithInt* ptr = new patArithInt(NULL,yyvsp[-1].arithType) ;
@@ -3252,13 +3256,13 @@ case 273:
 ;
     break;}
 case 274:
-#line 1338 "patSpecParser.yy"
+#line 1342 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[-1].arithType;  
 ;
     break;}
 case 275:
-#line 1343 "patSpecParser.yy"
+#line 1347 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[-2].arithType != NULL) ;
   assert(yyvsp[0].arithType != NULL) ;
@@ -3270,7 +3274,7 @@ case 275:
 ;
     break;}
 case 276:
-#line 1352 "patSpecParser.yy"
+#line 1356 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithBinaryMinus* ptr = new patArithBinaryMinus(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3283,7 +3287,7 @@ case 276:
 ;
     break;}
 case 277:
-#line 1362 "patSpecParser.yy"
+#line 1366 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithMult* ptr = new patArithMult(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3296,7 +3300,7 @@ case 277:
 ;
     break;}
 case 278:
-#line 1372 "patSpecParser.yy"
+#line 1376 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithDivide* ptr = new patArithDivide(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3308,7 +3312,7 @@ case 278:
 ;
     break;}
 case 279:
-#line 1381 "patSpecParser.yy"
+#line 1385 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithPower* ptr = new patArithPower(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3320,7 +3324,7 @@ case 279:
 ;
     break;}
 case 280:
-#line 1390 "patSpecParser.yy"
+#line 1394 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithEqual* ptr = new patArithEqual(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3333,7 +3337,7 @@ case 280:
 ;
     break;}
 case 281:
-#line 1400 "patSpecParser.yy"
+#line 1404 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithNotEqual* ptr = new patArithNotEqual(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3346,7 +3350,7 @@ case 281:
 ;
     break;}
 case 282:
-#line 1410 "patSpecParser.yy"
+#line 1414 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithOr* ptr = new patArithOr(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3359,7 +3363,7 @@ case 282:
 ;
     break;}
 case 283:
-#line 1420 "patSpecParser.yy"
+#line 1424 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithAnd* ptr = new patArithAnd(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3372,7 +3376,7 @@ case 283:
 ;
     break;}
 case 284:
-#line 1430 "patSpecParser.yy"
+#line 1434 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithLess* ptr = new patArithLess(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3385,7 +3389,7 @@ case 284:
 ;
     break;}
 case 285:
-#line 1440 "patSpecParser.yy"
+#line 1444 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithLessEqual* ptr = new patArithLessEqual(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3398,7 +3402,7 @@ case 285:
 ;
     break;}
 case 286:
-#line 1450 "patSpecParser.yy"
+#line 1454 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithGreater* ptr = new patArithGreater(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3411,7 +3415,7 @@ case 286:
 ;
     break;}
 case 287:
-#line 1460 "patSpecParser.yy"
+#line 1464 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithGreaterEqual* ptr = new patArithGreaterEqual(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3424,7 +3428,7 @@ case 287:
 ;
     break;}
 case 288:
-#line 1470 "patSpecParser.yy"
+#line 1474 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithMax* ptr = new patArithMax(NULL,yyvsp[-3].arithType,yyvsp[-1].arithType) ;
   assert(ptr != NULL) ;
@@ -3437,7 +3441,7 @@ case 288:
 ;
     break;}
 case 289:
-#line 1480 "patSpecParser.yy"
+#line 1484 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithMin* ptr = new patArithMin(NULL,yyvsp[-3].arithType,yyvsp[-1].arithType) ;
   assert(ptr != NULL) ;
@@ -3450,7 +3454,7 @@ case 289:
 ;
     break;}
 case 290:
-#line 1490 "patSpecParser.yy"
+#line 1494 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithMod* ptr = new patArithMod(NULL,yyvsp[-2].arithType,yyvsp[0].arithType) ;
   assert(ptr != NULL) ;
@@ -3463,13 +3467,13 @@ case 290:
 ;
     break;}
 case 291:
-#line 1500 "patSpecParser.yy"
+#line 1504 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.arithType = yyvsp[-1].arithType;  
 ;
     break;}
 case 292:
-#line 1504 "patSpecParser.yy"
+#line 1508 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patArithConstant* ptr = new patArithConstant(NULL) ;
   assert(ptr != NULL) ;
@@ -3478,7 +3482,7 @@ case 292:
 ;
     break;}
 case 293:
-#line 1510 "patSpecParser.yy"
+#line 1514 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   assert(yyvsp[0].stype != NULL);
   patArithVariable* ptr = new patArithVariable(NULL) ;
@@ -3489,38 +3493,38 @@ case 293:
 ;
     break;}
 case 294:
-#line 1519 "patSpecParser.yy"
+#line 1523 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.ftype = yyvsp[0].ftype ;
 ;
     break;}
 case 295:
-#line 1522 "patSpecParser.yy"
+#line 1526 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.ftype = float(yyvsp[0].itype) ;
 ;
     break;}
 case 296:
-#line 1526 "patSpecParser.yy"
+#line 1530 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.stype = yyvsp[0].stype ;
 ;
     break;}
 case 297:
-#line 1529 "patSpecParser.yy"
+#line 1533 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.stype = yyvsp[0].stype ;
 ;
     break;}
 case 298:
-#line 1533 "patSpecParser.yy"
+#line 1537 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patString* str = new patString((scanner.removeDelimeters()));
   yyval.stype = str ;
 ;
     break;}
 case 299:
-#line 1538 "patSpecParser.yy"
+#line 1542 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   patString* str = new patString(scanner.value());
   //Remove the last character which is [ \t\n]
@@ -3529,13 +3533,13 @@ case 299:
 ;
     break;}
 case 300:
-#line 1545 "patSpecParser.yy"
+#line 1549 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.ftype = atof( scanner.value().c_str() );
 ;
     break;}
 case 301:
-#line 1550 "patSpecParser.yy"
+#line 1554 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 {
   yyval.itype = atoi( scanner.value().c_str() );
 ;
@@ -3744,8 +3748,8 @@ YYLABEL(yyerrhandle)
 /* END */
 
 /* #line 1010 "/usr/local/lib/bison.cc" */
-#line 3748 "patSpecParser.yy.tab.c"
-#line 1558 "patSpecParser.yy"
+#line 3752 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy.tab.c"
+#line 1562 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/bisonbiogeme/patSpecParser.yy"
 
 
 

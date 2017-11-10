@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <algorithm>
 #include <iomanip>
 #include <set>
@@ -2172,9 +2173,9 @@ void patModelSpec::computeVarCovarOfRandomParameters(patError*& err) {
 
 //   print_all_matrix(gamma) ;
 
-  patMyMatrix R(N,N) ;
+  patMyMatrix Rmatrix(N,N) ;
 
-  multABTransp(gamma,gamma,R,err) ;
+  multABTransp(gamma,gamma,Rmatrix,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
@@ -2268,7 +2269,7 @@ void patModelSpec::computeVarCovarOfRandomParameters(patError*& err) {
        i != randomParameters.end() ;
        ++i) {
     unsigned long Nindex = numberFromRandomParameterName[i->first] ;
-    patReal var = R[Nindex][Nindex] ;
+    patReal var = Rmatrix[Nindex][Nindex] ;
     patReal stdErr ;
     patBetaLikeParameter* stdDev = i->second.first.scale ;
     if (stdDev->isFixed) {
@@ -2289,7 +2290,7 @@ void patModelSpec::computeVarCovarOfRandomParameters(patError*& err) {
        ++i) {
     unsigned long NindexRow = numberFromRandomParameterName[i->first.first] ;
     unsigned long NindexCol = numberFromRandomParameterName[i->first.second] ;
-    patReal covar = R[NindexRow][NindexCol] ;
+    patReal covar = Rmatrix[NindexRow][NindexCol] ;
     patReal stdErr ;
     if (i->second->isFixed) {
       relevantCovariance[i->first] = patFALSE ;

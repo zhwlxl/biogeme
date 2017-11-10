@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "patMath.h"
 #include "patDisplay.h"
@@ -335,12 +339,12 @@ bioFunctionAndDerivatives* bioArithMult::getNumericalFunctionAndGradient(vector<
     }
   }
 
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
 	patReal v ;
 	if (r->theFunction != 0.0) {
-	  patReal lhs = l->theHessian->getElement(i,j,err) ;
+	  patReal lhs = l->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -351,7 +355,7 @@ bioFunctionAndDerivatives* bioArithMult::getNumericalFunctionAndGradient(vector<
 	  v = 0.0 ;
 	}
 	if (l->theFunction != 0) {
-	  patReal rhs = r->theHessian->getElement(i,j,err) ;
+	  patReal rhs = r->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -370,7 +374,7 @@ bioFunctionAndDerivatives* bioArithMult::getNumericalFunctionAndGradient(vector<
 	    v = patMaxReal ;
 	  }
 	}
-	result.theHessian->setElement(i,j,v,err) ;
+	result.theHessian.setElement(i,j,v,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

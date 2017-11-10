@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Biogeme: algorithms</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">BIOGEME <acronym
+	title="Biogeme" class="local-color-text">Algorithms</acronym></a></h1>
+
+<div class="clear "></div>
+
+
+<div id="content" class="content">
+
+
+<h3>Optimization algorithms</h3>
+<div class="fullbox">
+<p>
+   Biogeme can use five different optimization algorithms: <code>CFSQP</code>,
+   <code>DONLP2</code>, <code>SOLVOPT</code>, <code>BIO</code> and <code>BIOMC</code>. Note that it is possible that each of them 
+   produce different solutions. Usually, the discrepancies are small, and
+   due to numerical differences and various stopping criteria. Also, none
+   of them identifies a global maximum of the likelihood
+   function. Therefore, it may happen that one of them is caught in a
+   local maxima, different from local maxima found by other
+   algorithms. 
+</p><p>
+   Which one to choose is difficult to say. They all have advantages and
+   disadvantages. BIO (which stands for BIerlaire's Optimization, like in
+   Biogeme) has been specifically adapted for this software
+   package, but it cannot accommodate nontrivial constraints yet. A version for simulated maximum likelihood estimation, called BIOMC, is also available. CFSQP is not free and, therefore, not included in the general
+   distribution of Biogeme. DONLP2 is slower than CFSQP, but faster
+   than SOLVOPT.  SOLVOPT can sometimes be very slow. The algorithm is
+   not to blame. It has not been originally designed for the kind of
+   optimization problem involved in Biogeme. However, it seems robust on
+   ill-specified models. When other algorithms fail to converge, SOLVOPT
+   may succeed in finding a solution.  Therefore, our recommendation would be:
+<ol>
+<li> If there are no non-trivial constraint on the parameters, use BIO.</li>
+<li> If there are, or if BIO is very slow, use CFSQP if you have it.</li>
+<li> If not, use DONLP2.</li>
+<li> If all fail, try SOLVOPT.</li>
+<li> If it fails again, redefine your model. </li>
+</ol>
+   It is always a good idea to solve the same problem with several
+   algorithms.
+
+
+</div>
+
+<div class="fullbox">
+<h4>BIO</h4>
+BIO is a trust-region algorithm (see <a href="http://books.google.ch/books?id=5kNC4fqssYQC&lpg=PR15&ots=j0REQL2LSS&dq=conn%20gould%20toint%202000&lr&hl=fr&pg=PP1#v=onepage&q=conn%20gould%20toint%202000&f=false" target="_blank">Conn et al, 2000</a>) 
+designed
+         for problems with simple bounds constraints, using a
+         truncated conjugate-gradient method to solve the trust-region
+  subproblem. By default, it uses the BHHH (<a href="http://www.nber.org/chapters/c10206.pdf">Berndt et al, 1974</a>)
+         matrix as an approximation of the second derivatives matrix.  At each
+         iteration, it displays 
+<ol>
+           <li> The value used in the stopping criterion at
+               iterate <em>x</em>, that
+               is the infinite norm of the relative gradient, computed as
+<p><em>
+	 &gamma; = max<sub>i</sub>|| |g<sub>i</sub>(x<sub>i</sub>)| max(1,|x<sub>i</sub>|) / max(f(x),t<sub>f</sub>) ||
+</em></p>
+               where <em>g</em> is the projection of the gradient of <em>f</em> onto the feasible
+	 set, <em>t<sub>f</sub></em> is defined by the parameter <code>BTRTypf</code>
+	 (see <a href="http://books.google.ch/books?id=RtxcWd0eBD0C&lpg=PR11&ots=pC6Arb8OuY&dq=dennis%20schnabel%201996&lr&hl=fr&pg=PP1#v=onepage&q=dennis%20schnabel%201996&f=false" target="_blank">Dennis and Schnabel, 1996</a>).</li>
+<li>The iteration number.</li>
+<li>The radius of the trust region.</li>
+<li> The current value of the objective function. As it is a
+               minimization algorithm, the objective function is the opposite of
+               the log-likelihood and, therefore, is a positive value.</li>
+<li> The exit status of the subproblem solver.</li>
+ <li> The value used to check if the radius of the trust region is
+               appropriate, that is 
+<p><em>
+ (f(x<sup>+</sup>) - f(x<sub>c</sub>))/(m(x<sup>+</sup>)-m(x<sub>c</sub>))
+    </em></p>
+               where <em>x<sub>c</sub></em> is the current iterate, <em>x<sup>+</sup></em> the new candidate, and <em>m</em>
+               the quadratic model approximating <em>f</em>  at <em>x<sub>c</sub></em> (see <a href="http://books.google.ch/books?id=5kNC4fqssYQC&lpg=PR15&ots=j0REQL2LSS&dq=conn%20gould%20toint%202000&lr&hl=fr&pg=PP1#v=onepage&q=conn%20gould%20toint%202000&f=false" target="_blank">Conn et al, 2000</a> for details).</li>
+<li> The number of variables not constrained to one of their bounds.</li>
+<li> The status of the iteration, that is very successful (++),
+               successful (+) or unsuccessful (-).</li>
+<li> If the subproblem is preconditioned, a <code>P</code> is also displayed.</li>
+</ol>
+</div>
+<div class="fullbox">
+<h4>BIOMC</h4>
+It is a version of BIO
+         designed for simulated maximum likelihood. The idea is to use
+         BIO with few draws in the beginning, in order to obtain a
+         rough value of the parameters, and then to increase the
+         number of draws until reaching the number required by the
+         user (<em>d<sub>u</sub></em>). Let <em>d<sub>k</sub></em> be the  number of draws considered by BIOMC at iteraton <em>k</em>
+         (where <em>d<sub>0</sub></em> is defined by the parameter <code>BTRStartDraws</code>). Then, algorithm BIO runs until the following condition is verified:
+</p>
+<p>
+	  <em>ln(&gamma;) / ln(&epsilon;) &geq; d<sub>k</sub> / d<sub>u</sub>,</em>
+
+</p>
+	  where &gamma; is defined above (see BIO) and &epsilon; is defined by the parameter <code>BTRTolerance</code>, so that the convergence requirements are not as strong when the number of draws is low. Then, the number of draws is increased:
+</p>
+<p>
+	  <em>d<sub>k+1</sub> = min(&lambda; d<sub>k</sub>,d<sub>u</sub>),</em>
+</p>
+<p>
+	  where the factor &lambda; is defined by the parameter <code>BTRIncreaseDraws</code>, and the process starts again. The algorithm stops when <em>d<sub>k</sub>=d<sub>u</sub></em>.
+         
+In general, BIOMC is not faster than BIO. But it allows to obtain good approximations of the parameters pretty quickly.
+</div>
+<div class="fullbox">
+<h4>CFSQP</h4>
+CFSQP does not stand for <em>Canadian Food Safety and Quality Program</em>. It is the version written in C of the Feasible Sequential Quadratic Programming algorithm developed by E.R. Panier, A.L. Tits, J.L. Zhou, and C.T. Lawrence and distributed by <a href="http://www.aemdesign.com/" target="_blank">aemDesign</a>.
+ The conditions for
+         external use are the following
+<ol>
+<li> The CFSQP routines may not be distributed to third parties.
+                 Interested parties shall contact AEM Design directly.</li>
+<li> If modifications are performed on the routines, these
+                 modifications shall be communicated to AEM Design.  The
+                 modified routines will remain the sole property of the authors.</li>
+<li> Due acknowledgment shall be made of the use of the CFSQP
+                 routines in research reports or publications. Whenever
+                 such reports are released for public access, a copy shall
+                 be forwarded to AEM Design.</li>
+<li> The CFSQP routines may only be used for research and
+                 development, unless it has been agreed otherwise with AEM
+                 Design in writing.</li>
+</ol>
+
+         If you have a CFSQP license, and need a Windows version of Biogeme with CFSQP, send
+         an Email to <a href="mailto:michel.bierlaire@epfl.ch?subject=Request for a version of BIOGEME with CFSQP">michel.bierlaire@epfl.ch</a>
+         to receive the executable.
+
+
+</div>
+<div class="fullbox">
+<h4>SOLVOPT</h4>
+<a href="http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt">Solvopt</a> is defined by its authors, Alexei V. Kuntsevich and
+         Franz Kappel, as follows: <em>The program SolvOpt (Solver for local
+         optimization problems) is concerned with minimization resp. maximization of
+         nonlinear, possibly non-smooth objective functions and with the solution of
+         nonlinear programming problems taking into account constraints by the
+         so-called method of exact penalization.</em> The package implements a version of the
+         minimization method with space dilation by <a href="http://dx.doi.org/10.1002/bimj.4710280427" target="_blank">Shor (1985)</a>. See <a href="http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf">Kuntsevich and Kappel (1997)</a> for a tutorial of          the package and the description of the algorithm.</div>
+<div class="fullbox">
+<h4>DONLP2</h4>
+ DONLP2 is a sequential equality constrained quadratic
+         programming method, developed by P. Spellucci. The algorithm is
+				      described by <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.46.1795" target="_blank">Spellucci, 1999</a>. The conditions of
+         use of the DONLP2 package are the following.
+
+<ol>
+<li> donlp2 is under the exclusive copyright of P. Spellucci                   
+	 (<a href="mailto:spellucci@mathematik.tu-darmstadt.de?subject=DONLP2 in Biogeme">spellucci@mathematik.tu-darmstadt.de</a>)
+                ``donlp2" is a reserved name          </li>                                     
+<li> donlp2 and its constituent parts come with no warranty, whether expressed or 
+               implied, that it is free of errors or suitable for any specific purpose.                                                         
+               It must not be used to solve any problem, whose incorrect solution        
+               could result in injury to a person , institution or property.             
+               It is at the users own risk to use donlp2 or parts of it and the          
+               author disclaims all liability for such use.                              </li>
+<li> donlp2 is distributed ``as is". In particular, no maintenance, support     
+               or trouble-shooting or subsequent upgrade is implied.                     </li>
+<li> The use of donlp2 must be acknowledged, in any publication which contains 
+               results obtained with it or parts of it. Citation of the authors name     
+               and netlib-source is suitable.                                            </li>
+<li> The free use of donlp2 and parts of it is restricted for research purposes
+               commercial uses require permission and licensing from P. Spellucci.       
+</li>
+</ol>
+</div>
+</div>
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+
+<ul class="tree">
+<li><a href="index.html">Back</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</ul>
+
+
+</div>    
+    <div class="clear"></div>
+
+<a href="index.html">Back</a><BR>
+<a href="http://biogeme.epfl.ch">Biogeme</a>
+
+</body>
+</html>

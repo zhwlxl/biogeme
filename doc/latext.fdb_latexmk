@@ -1,0 +1,11 @@
+# Fdb version 3
+["dvipdf"] 0 "latext.dvi" "latext.pdf" "latext" 0
+  "latext.dvi" 0 -1 0 "latex"
+  (generated)
+  "latext.pdf"
+["latex"] 1464276591 "latext" "latext.dvi" "latext" 1464276595
+  "latext" 0 -1 0 ""
+  "latext.aux" 1464276591 8 a94a2480d3289e625eea47cd1b285758 ""
+  (generated)
+  "latext.dvi"
+  "latext.log"

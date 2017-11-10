@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patArithBinaryMinus.h"
 #include "patErrNullPointer.h"
 #include "patDisplay.h"

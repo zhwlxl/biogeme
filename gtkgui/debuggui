@@ -1,0 +1,22 @@
+#!/bin/bash -e
+# -e: Exit immediately if a command exits with a non-zero status.
+
+prefix="/usr/local"
+exec_prefix="${prefix}"
+bindir="${exec_prefix}/bin"
+pkgincludedir="${prefix}/include/biogeme"
+pkglibdir="${exec_prefix}/lib/biogeme"
+datarootdir="${prefix}/share"
+datadir="${datarootdir}"
+pkgdatadir="${datarootdir}/biogeme"
+versionsuffix=""
+
+lldb="/usr/bin/lldb"
+
+export PYTHONPATH=.:"${pkgdatadir}":$PYTHONPATH
+export LD_LIBRARY_PATH="${pkglibdir}":$LD_LIBRARY_PATH
+
+echo 'This is biogeme (pythonbiogeme) 2.7b'
+
+"${lldb}" "${bindir}/gtkguibiogeme${versionsuffix}" "$p" "$d"
+echo 'Done'

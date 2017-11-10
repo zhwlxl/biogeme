@@ -65,6 +65,7 @@ public :
 		     const trVector& initSolution,
 		     trParameters theParameters,
 		     patIterationBackup* inter,
+		     bioAlgorithmManager* aStoppingCriteria,
 		     patError*& err) ;
   /**
    */

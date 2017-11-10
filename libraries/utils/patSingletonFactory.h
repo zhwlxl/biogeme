@@ -14,6 +14,7 @@
 #include "patVersion.h"
 #include "patTimer.h"
 #include "patNormalCdf.h"
+#include "patRandomInteger.h"
 
 // This object is in charge of managing objects that must have only
 // one instance
@@ -30,6 +31,7 @@ class patSingletonFactory {
   patVersion* patVersion_the() ;
   patTimer* patTimer_the() ;
   patNormalCdf* patNormalCdf_the() ;
+  patRandomInteger* patRandomInteger_the() ;
 
  protected:
 
@@ -38,6 +40,7 @@ class patSingletonFactory {
   patVersion* thePatVersion ;
   patTimer* thePatTimer ;
   patNormalCdf* thePatNormalCdf ;
+  patRandomInteger* thePatRandomInteger ;
   patSingletonFactory() ;
 };
 

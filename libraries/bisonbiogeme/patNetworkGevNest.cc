@@ -7,10 +7,12 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
 #include <algorithm>
+#include "patPower.h"
 #include "patMath.h"
 #include "patDisplay.h"
 #include "patErrMiscError.h"
@@ -63,7 +65,7 @@ patReal patNetworkGevNest::evaluate(const patVariables* x,
       WARNING(err->describe()) ;
       return patReal() ;
     }
-    patReal term = (Gj == 0) ? 0.0 : alpha * pow(Gj,mui/muj) ;
+    patReal term = (Gj == 0) ? 0.0 : alpha * patPower(Gj,mui/muj) ;
     if (!isfinite(term)) {
       WARNING("Numerical problem: " 
 	      << alpha 
@@ -134,7 +136,7 @@ patReal patNetworkGevNest::getDerivative_xi(unsigned long index,
     if (dGjxk != 0.0) {
       patReal term = (Gj == 0.0) 
 	? 0.0 
-	: alpha * ratio * pow(Gj,ratio-1.0) * dGjxk ;
+	: alpha * ratio * patPower(Gj,ratio-1.0) * dGjxk ;
       if (!isfinite(term)) {
 	WARNING("Numerical problem: " << alpha << "*" << ratio << "*pow(" << Gj << "," << ratio-1.0 << ")*" << dGjxk) ;
       }
@@ -184,7 +186,7 @@ patReal patNetworkGevNest::getDerivative_mu(const patVariables* x,
     }
     patReal term = (Gj == 0.0) 
       ? 0.0 
-      : (alpha / muj) * pow(Gj,ratio) * log(Gj) ;
+      : (alpha / muj) * patPower(Gj,ratio) * log(Gj) ;
     res +=  term ;
   }
   return res ;
@@ -237,7 +239,7 @@ patReal patNetworkGevNest::getDerivative_param(unsigned long index,
       }
       patReal term = (Gj == 0.0) 
 	? 0.0 
-	: (alpha / muj) * pow(Gj,ratio) * log(Gj) ;
+	: (alpha / muj) * patPower(Gj,ratio) * log(Gj) ;
       res +=  term ;
     }
 
@@ -288,8 +290,8 @@ patReal patNetworkGevNest::getDerivative_param(unsigned long index,
       patReal ratio2 = mui / (muj * muj) ;
       patReal res = (Gj == 0.0) 
 	? 0.0 
-	: (alpha * ratio) * pow(Gj,ratio-1.0) * dGjmuj
-	- alpha * ratio2 * pow(Gj,ratio) * log(Gj) ;
+	: (alpha * ratio) * patPower(Gj,ratio-1.0) * dGjmuj
+	- alpha * ratio2 * patPower(Gj,ratio) * log(Gj) ;
       return res ;
     }
     else {
@@ -323,7 +325,7 @@ patReal patNetworkGevNest::getDerivative_param(unsigned long index,
 	    patReal ratio = mui / muj ;
 	    patReal term = (Gj == 0.0) 
 	      ? 0.0 
-	      : alpha * ratio * dG_param * pow(Gj,ratio-1.0) ;
+	      : alpha * ratio * dG_param * patPower(Gj,ratio-1.0) ;
 	    res +=  term ;
 	  }
 	}
@@ -342,7 +344,7 @@ patReal patNetworkGevNest::getDerivative_param(unsigned long index,
 	  WARNING(err->describe()) ;
 	  return patReal() ;
 	}
-	patReal res = (Gj == 0.0) ? 0.0 : pow(Gj,mui/muj) ;
+	patReal res = (Gj == 0.0) ? 0.0 : patPower(Gj,mui/muj) ;
 	return res ;
       }
     }
@@ -430,10 +432,10 @@ patReal patNetworkGevNest::getSecondDerivative_xi_xj(unsigned long index1,
     patReal term(0.0) ;
     if (Gj != 0.0) {
       if (dGjxk != 0.0 && dGjxm != 0.0) {
-	term += alpha * ratio * (ratio - 1.0) * pow(Gj,ratio-2.0) * dGjxk * dGjxm ;
+	term += alpha * ratio * (ratio - 1.0) * patPower(Gj,ratio-2.0) * dGjxk * dGjxm ;
       }
       if (d2Gjxkxm != 0.0) {
-	term += alpha * ratio * pow(Gj,ratio-1.0) * d2Gjxkxm ;
+	term += alpha * ratio * patPower(Gj,ratio-1.0) * d2Gjxkxm ;
       }      
       res +=  term ;
     }
@@ -495,8 +497,8 @@ patReal patNetworkGevNest::getSecondDerivative_xi_mu(unsigned long index,
     }
     patReal term = (Gj == 0.0) 
       ? 0.0 
-      : (alpha / muj) * pow(Gj,ratio-1.0) * dGjxk 
-      + (ratio * alpha / muj) * pow(Gj,ratio - 1.0)  * log(Gj) * dGjxk ;
+      : (alpha / muj) * patPower(Gj,ratio-1.0) * dGjxk 
+      + (ratio * alpha / muj) * patPower(Gj,ratio - 1.0)  * log(Gj) * dGjxk ;
     res += term ;
   }
 
@@ -569,8 +571,8 @@ patReal patNetworkGevNest::getSecondDerivative_param(unsigned long indexVar,
 
       patReal term = (Gj == 0.0) 
 	? 0.0 
-	: (alpha / muj)  * pow(Gj,ratio -1.0) * dGjxk
-	+ (alpha * ratio / muj) * pow(Gj,ratio - 1.0) * log(Gj) * dGjxk ;
+	: (alpha / muj)  * patPower(Gj,ratio -1.0) * dGjxk
+	+ (alpha * ratio / muj) * patPower(Gj,ratio - 1.0) * log(Gj) * dGjxk ;
       res += term ;
     }
     return res ;
@@ -639,10 +641,10 @@ patReal patNetworkGevNest::getSecondDerivative_param(unsigned long indexVar,
       patReal ratio = mui / muj ;
       patReal ratio2 = mui / (muj * muj) ;
       patReal res = (Gj == 0.0) ? 0.0 :
-	alpha * ratio * (ratio - 1.0) * pow(Gj,ratio-2.0) * dGjmuj * dGjxk
-	+ alpha * ratio * pow(Gj,ratio-1.0)*d2Gimujxk
-	- alpha * ratio2 * ratio * pow(Gj,ratio-1.0) * dGjxk * log(Gj) 
-	- alpha * ratio2 * pow(Gj,ratio-1) * dGjxk ;
+	alpha * ratio * (ratio - 1.0) * patPower(Gj,ratio-2.0) * dGjmuj * dGjxk
+	+ alpha * ratio * patPower(Gj,ratio-1.0)*d2Gimujxk
+	- alpha * ratio2 * ratio * patPower(Gj,ratio-1.0) * dGjxk * log(Gj) 
+	- alpha * ratio2 * patPower(Gj,ratio-1) * dGjxk ;
 
       return res ;
     }
@@ -699,9 +701,9 @@ patReal patNetworkGevNest::getSecondDerivative_param(unsigned long indexVar,
 	  
 	  patReal term = (Gj == 0.0) 
 	    ? 0.0 
-	    : alpha * ratio * (ratio - 1.0) * pow(Gj,ratio-2.0) 
+	    : alpha * ratio * (ratio - 1.0) * patPower(Gj,ratio-2.0) 
 	    * dGjxk * dGjgamma 
-	    + alpha * ratio * pow(Gj,ratio-1.0) * d2Gjxkgamma ;
+	    + alpha * ratio * patPower(Gj,ratio-1.0) * d2Gjxkgamma ;
 	  res += term ;
 	}
 	return res ;
@@ -733,7 +735,7 @@ patReal patNetworkGevNest::getSecondDerivative_param(unsigned long indexVar,
 	}
 	
 
-	patReal res = (Gj == 0.0) ? 0.0 : ratio * pow(Gj,ratio-1.0) * dGjxk ;
+	patReal res = (Gj == 0.0) ? 0.0 : ratio * patPower(Gj,ratio-1.0) * dGjxk ;
 	return res ;
       }
     }

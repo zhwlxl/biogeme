@@ -1,0 +1,53 @@
+\hypertarget{classbio__expression_1_1bio_bayes_normal_draw}{}\section{bio\+\_\+expression.\+bio\+Bayes\+Normal\+Draw Class Reference}
+\label{classbio__expression_1_1bio_bayes_normal_draw}\index{bio\+\_\+expression.\+bio\+Bayes\+Normal\+Draw@{bio\+\_\+expression.\+bio\+Bayes\+Normal\+Draw}}
+
+
+Class performing draws from the posterior of the mean of a normal variable knowing realizations and variance.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Bayes\+Normal\+Draw\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_bayes_normal_draw}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, mean, realizations, varcovar)\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_abe042eac39764a2f7c2644593c68a4af}{}\label{classbio__expression_1_1bio_bayes_normal_draw_abe042eac39764a2f7c2644593c68a4af}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries error}\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_a30b0bf4a22a9cb18339f80fac27c7a94}{}\label{classbio__expression_1_1bio_bayes_normal_draw_a30b0bf4a22a9cb18339f80fac27c7a94}
+
+\item 
+{\bfseries mean}\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_a753389533e490c43d924c3885bf7be59}{}\label{classbio__expression_1_1bio_bayes_normal_draw_a753389533e490c43d924c3885bf7be59}
+
+\item 
+{\bfseries realizations}\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_a114f339f8620e3a99143c5012edb9878}{}\label{classbio__expression_1_1bio_bayes_normal_draw_a114f339f8620e3a99143c5012edb9878}
+
+\item 
+{\bfseries varcovar}\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_ae7e9d848ba62ec07f1a10e301ebfcb8a}{}\label{classbio__expression_1_1bio_bayes_normal_draw_ae7e9d848ba62ec07f1a10e301ebfcb8a}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1bio_bayes_normal_draw_a3f4f5dd2af4e503c67ed20f9ddf8809b}{}\label{classbio__expression_1_1bio_bayes_normal_draw_a3f4f5dd2af4e503c67ed20f9ddf8809b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class performing draws from the posterior of the mean of a normal variable knowing realizations and variance. 
+
+See Train (2003) p. 304 step 1.
+
+Let $\beta_n$, $n=1,\ldots,N$ be realizations from a multivariate normal distribution $N(b,W)$. This class draws from the posterior of $b$, that is from \[ N(\bar{\beta},W/N) \]. 
+
+Definition at line 1043 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

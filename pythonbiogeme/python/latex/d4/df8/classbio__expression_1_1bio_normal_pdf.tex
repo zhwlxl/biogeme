@@ -1,0 +1,79 @@
+\hypertarget{classbio__expression_1_1bio_normal_pdf}{\section{bio\+\_\+expression.\+bio\+Normal\+Pdf Class Reference}
+\label{classbio__expression_1_1bio_normal_pdf}\index{bio\+\_\+expression.\+bio\+Normal\+Pdf@{bio\+\_\+expression.\+bio\+Normal\+Pdf}}
+}
+
+
+Class representing the probability density function of a standardized normally distributed random variable.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Normal\+Pdf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/df8/classbio__expression_1_1bio_normal_pdf}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_pdf_a7abe9d9e7a408dad8e8c22c044500371}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_pdf_abf918e4335d35391b77f1fb991518f60}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1bio_normal_pdf_ad59a9659d06a48d7d4a44037f56882c0}{function}
+\item 
+\hyperlink{classbio__expression_1_1bio_normal_pdf_a1129591234db4f63d55b09674e027fa7}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the probability density function of a standardized normally distributed random variable. 
+
+The pdf of the normal distribution is \[ \mbox{bioNormalPdf}(x) = \frac{1}{\sqrt{2\pi}}e^{-t^2/2}. \] The computation of a normal mixture of logit models is performed using the following syntax, where condprob is the conditional (logit) choice probability\+: 
+\begin{DoxyCode}
+1 omega = RandomVariable(\textcolor{stringliteral}{'omega'})
+2 density = bioNormalPdf(omega) 
+3 result = Integrate(condprob * density,\textcolor{stringliteral}{'omega'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_pdf_a7abe9d9e7a408dad8e8c22c044500371}{\index{bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Pdf.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_normal_pdf_a7abe9d9e7a408dad8e8c22c044500371}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & an expression providing the value of the argument of the pdf \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_pdf_abf918e4335d35391b77f1fb991518f60}{\index{bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Pdf.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_normal_pdf_abf918e4335d35391b77f1fb991518f60}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_pdf_ad59a9659d06a48d7d4a44037f56882c0}{\index{bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}!function@{function}}
+\index{function@{function}!bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Normal\+Pdf.\+function}}\label{classbio__expression_1_1bio_normal_pdf_ad59a9659d06a48d7d4a44037f56882c0}
+\hypertarget{classbio__expression_1_1bio_normal_pdf_a1129591234db4f63d55b09674e027fa7}{\index{bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Normal\+Pdf.\+operator\+Index}}\label{classbio__expression_1_1bio_normal_pdf_a1129591234db4f63d55b09674e027fa7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

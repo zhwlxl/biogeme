@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <iterator>
 #include "patDisplay.h"
 #include "patErrNullPointer.h"
@@ -139,4 +143,10 @@ patULong bioRowIterator::getCurrentRow() const {
 
 patULong bioRowIterator::nbrOfItems() const {
   return dataBase->size() ;
+}
+
+
+ostream& operator<<(ostream &str, const bioRowIterator& x) {
+  str << "Iterator from rows " << x.firstRow << " to " << x.lastRow ;
+  return str ; 
 }

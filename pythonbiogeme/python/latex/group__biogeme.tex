@@ -1,0 +1,124 @@
+\hypertarget{group__biogeme}{\section{Add-\/ons to simplify model specification in Python}
+\label{group__biogeme}\index{Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__biogeme_ga5b2503cb3556094aaf0ef67176297496}{loglikelihood.\+loglikelihood}
+\begin{DoxyCompactList}\small\item\em Simply computes the log of the probability. \end{DoxyCompactList}\item 
+def \hyperlink{group__biogeme_gad38ed3ddf12bbc51eb728fb56a0bc8de}{loglikelihood.\+mixedloglikelihood}
+\begin{DoxyCompactList}\small\item\em Compute a simulated loglikelihood function. \end{DoxyCompactList}\item 
+def \hyperlink{group__biogeme_ga88aabd751d1bfaad0a74cf8513efefc1}{loglikelihood.\+likelihoodregression}
+\begin{DoxyCompactList}\small\item\em Computes likelihood function of a regression model. \end{DoxyCompactList}\item 
+def \hyperlink{group__biogeme_ga699531bc64b4cecc340c6f4546da92bc}{weightedloglikelihood.\+weightedloglikelihood}
+\begin{DoxyCompactList}\small\item\em Computes the log likelihood function for the W\+E\+S\+M\+L estimator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__biogeme_ga88aabd751d1bfaad0a74cf8513efefc1}{\index{Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}!likelihoodregression@{likelihoodregression}}
+\index{likelihoodregression@{likelihoodregression}!Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}}
+\subsubsection[{likelihoodregression}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+likelihoodregression (
+\begin{DoxyParamCaption}
+\item[{}]{meas, }
+\item[{}]{model, }
+\item[{}]{sigma}
+\end{DoxyParamCaption}
+)}}\label{group__biogeme_ga88aabd751d1bfaad0a74cf8513efefc1}
+
+
+Computes likelihood function of a regression model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meas} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value $y$ of the measure for the current observation. \\
+\hline
+{\em model} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the output $m$ of the model for the current observation. \\
+\hline
+{\em sigma} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} (typically, a \href{http://biogeme.epfl.ch/expressions.php#parameter}{\tt parameter}) providing the standard error $\sigma$ of the error term. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The likelihood of the regression, assuming a normal distribution, that is \[ \frac{1}{\sigma} \phi\left( \frac{y-m}{\sigma} \right) \] where $ \phi(\cdot)$ is the pdf of the normal distribution. 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file loglikelihood.\+py.
+
+\hypertarget{group__biogeme_ga5b2503cb3556094aaf0ef67176297496}{\index{Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}!loglikelihood@{loglikelihood}}
+\index{loglikelihood@{loglikelihood}!Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}}
+\subsubsection[{loglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}}\label{group__biogeme_ga5b2503cb3556094aaf0ef67176297496}
+
+
+Simply computes the log of the probability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The logarithm of the probability. 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file loglikelihood.\+py.
+
+\hypertarget{group__biogeme_gad38ed3ddf12bbc51eb728fb56a0bc8de}{\index{Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}!mixedloglikelihood@{mixedloglikelihood}}
+\index{mixedloglikelihood@{mixedloglikelihood}!Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}}
+\subsubsection[{mixedloglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+mixedloglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}}\label{group__biogeme_gad38ed3ddf12bbc51eb728fb56a0bc8de}
+
+
+Compute a simulated loglikelihood function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. Although it is not formally necessary, the expression should contain one or more \href{http://biogeme.epfl.ch/expressions.php#draws}{\tt random variables} of a given distribution, and therefore write \[ P(i|\xi_1,\ldots,\xi_L)\] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The simulated loglikelihood, given by \[ \ln\left(\sum_{r=1}^R P(i|\xi^r_1,\ldots,\xi^r_L) \right)\] where $R$ is the number of draws, and $\xi_j^r$ is the {\itshape r}th draw of the random variable $\xi_j$. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file loglikelihood.\+py.
+
+\hypertarget{group__biogeme_ga699531bc64b4cecc340c6f4546da92bc}{\index{Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}!weightedloglikelihood@{weightedloglikelihood}}
+\index{weightedloglikelihood@{weightedloglikelihood}!Add-\/ons to simplify model specification in Python@{Add-\/ons to simplify model specification in Python}}
+\subsubsection[{weightedloglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def weightedloglikelihood.\+weightedloglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{choice, }
+\item[{}]{weight}
+\end{DoxyParamCaption}
+)}}\label{group__biogeme_ga699531bc64b4cecc340c6f4546da92bc}
+
+
+Computes the log likelihood function for the W\+E\+S\+M\+L estimator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} were the keys are the identifiers of the alternatives in the choice set, and the values are expressions representing the choice probabilities. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em weight} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the weighted log likelihood function 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file weightedloglikelihood.\+py.
+

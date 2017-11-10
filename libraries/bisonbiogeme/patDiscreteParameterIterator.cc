@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <cassert>
 #include "patDiscreteParameterIterator.h"
 #include "patDiscreteParameter.h"

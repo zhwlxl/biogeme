@@ -29,6 +29,9 @@ libutils_a_CXXFLAGS = $(AM_CXXFLAGS)
 endif
 
 libutils_la_SOURCES = patAbsTime.cc \
+    bioAlgorithmManager.cc \
+    bioAlgorithmStopping.cc \
+    bioAlgoStopFile.cc \
     patAngle.cc \
     patCompareCorrelation.cc \
     patDisplay.cc \
@@ -50,12 +53,14 @@ libutils_la_SOURCES = patAbsTime.cc \
     patImportance.cc \
     patLargeNumbers.cc \
     patFileSize.cc \
+    patFileTime.cc \
     patStatistics.cc \
     patLoopTime.cc \
     patMessage.cc \
     patNonParamRegression.cc \
     patNormalCdf.cc \
     patNormalPdf.cc \
+    patRandomInteger.cc \
     patOutputTable.cc \
     patPValue.cc \
     patPower.cc \
@@ -71,6 +76,9 @@ libutils_la_SOURCES = patAbsTime.cc \
     patInterval.cc \
     patGetWorkingDir.cc \
 FlexLexer.h \
+bioAlgorithmManager.h \
+bioAlgorithmStopping.h \
+bioAlgoStopFile.h \
 patAbsTime.h \
 patAngle.h \
 patBiogemeRun.h \
@@ -102,6 +110,7 @@ patIterator.h \
 patLargeNumbers.h \
 patLogMessage.h \
 patFileSize.h \
+patFileTime.h \
 patStatistics.h \
 patLoop.h \
 patLoopTime.h \
@@ -111,6 +120,7 @@ patMtl.h \
 patNonParamRegression.h \
 patNormalCdf.h \
 patNormalPdf.h \
+patRandomInteger.h \
 patOutputTable.h \
 patPValue.h \
 patPower.h \

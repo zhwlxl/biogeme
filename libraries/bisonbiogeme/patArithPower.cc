@@ -7,10 +7,12 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
 #include "patArithPower.h"
+#include "patPower.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"
 #include "patDisplay.h"
@@ -66,7 +68,7 @@ patReal patArithPower::getValue(patError*& err) const {
   }
 
 
-  patReal result = pow(l,r) ;
+  patReal result = patPower(l,r) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return patReal();
@@ -132,7 +134,7 @@ patReal patArithPower::getDerivative(unsigned long index,
 //   DEBUG_MESSAGE("rightDeriv=" << rightDeriv) ;
 
  
-  patReal power =  pow(leftValue,rightValue) ;
+  patReal power =  patPower(leftValue,rightValue) ;
   patReal result = 0 ;
   
   

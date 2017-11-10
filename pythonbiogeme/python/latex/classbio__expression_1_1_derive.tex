@@ -1,0 +1,74 @@
+\hypertarget{classbio__expression_1_1_derive}{}\section{bio\+\_\+expression.\+Derive Class Reference}
+\label{classbio__expression_1_1_derive}\index{bio\+\_\+expression.\+Derive@{bio\+\_\+expression.\+Derive}}
+
+
+Class generating the analytical derivative of an expression.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Derive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1_derive}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_derive_a4bf3a91d11c13e4ef1016be2671ef2ed}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, term, v)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1_derive_a2c4192fb0d697c4484eaaf5478e52a23}{}\label{classbio__expression_1_1_derive_a2c4192fb0d697c4484eaaf5478e52a23}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries function}\hypertarget{classbio__expression_1_1_derive_a1a2eee35fb9f6d59bcd3566d3ed19c83}{}\label{classbio__expression_1_1_derive_a1a2eee35fb9f6d59bcd3566d3ed19c83}
+
+\item 
+{\bfseries variable}\hypertarget{classbio__expression_1_1_derive_a341cac7e9fa0b5aec5de04f9a78b6f6b}{}\label{classbio__expression_1_1_derive_a341cac7e9fa0b5aec5de04f9a78b6f6b}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1_derive_acc082adfb3029c3237009c0f47502918}{}\label{classbio__expression_1_1_derive_acc082adfb3029c3237009c0f47502918}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class generating the analytical derivative of an expression. 
+
+This class generates the expression for \[ \frac{\partial f(x)}{\partial x} \] The computation of derivatives is usually not necessary for estimation, as Biogeme automatically generates the analytical derivatives of the log likelihood function. It is particularly usuful for simulation, to compute the elasticities of complex models. Example\+: The computation of the elasticity of a model prob with respect to the variable T\+R\+A\+I\+N\+\_\+\+TT, say, is obtained as follows, whatever the model defined by prob\+: 
+\begin{DoxyCode}
+1 elasticity = Derive(prob,\textcolor{stringliteral}{'TRAIN\_TT'}) * TRAIN\_TT / prob
+\end{DoxyCode}
+ 
+
+Definition at line 768 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, term, v)}{__init__(self, term, v)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Derive.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1_derive_a4bf3a91d11c13e4ef1016be2671ef2ed}{}\label{classbio__expression_1_1_derive_a4bf3a91d11c13e4ef1016be2671ef2ed}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & any valid bio\+\_\+expression to derive \\
+\hline
+{\em v} & the variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 771 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

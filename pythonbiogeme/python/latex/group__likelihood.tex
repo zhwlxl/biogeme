@@ -1,0 +1,154 @@
+\hypertarget{group__likelihood}{}\section{Functions helping to write the log likelihood function}
+\label{group__likelihood}\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__likelihood_ga44d204f6304b9df0f33c9118870c1b0a}{loglikelihood.\+loglikelihood} (prob)
+\begin{DoxyCompactList}\small\item\em Simply computes the log of the probability. \end{DoxyCompactList}\item 
+def \hyperlink{group__likelihood_ga91e0cba6602eaa8a9cd7813a2ab713b4}{loglikelihood.\+mixedloglikelihood} (prob)
+\begin{DoxyCompactList}\small\item\em Compute a simulated loglikelihood function. \end{DoxyCompactList}\item 
+def \hyperlink{group__likelihood_ga4f03d3819c7c23d8553a9e1aa10d86f1}{loglikelihood.\+likelihoodregression} (meas, model, sigma)
+\begin{DoxyCompactList}\small\item\em Computes likelihood function of a regression model. \end{DoxyCompactList}\item 
+def \hyperlink{group__likelihood_gab419ed5a3f2ef8c780f4ed099263c867}{loglikelihood.\+loglikelihoodregression} (meas, model, sigma)
+\begin{DoxyCompactList}\small\item\em Computes log likelihood function of a regression model. \end{DoxyCompactList}\item 
+def \hyperlink{group__likelihood_ga3f8882d4180ae23324dd8492dffb9149}{weightedloglikelihood.\+weightedloglikelihood} (prob, choice, weight)
+\begin{DoxyCompactList}\small\item\em Computes the log likelihood function for the W\+E\+S\+ML estimator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}!likelihoodregression@{likelihoodregression}}
+\index{likelihoodregression@{likelihoodregression}!Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsubsection[{\texorpdfstring{likelihoodregression(meas, model, sigma)}{likelihoodregression(meas, model, sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+likelihoodregression (
+\begin{DoxyParamCaption}
+\item[{}]{meas, }
+\item[{}]{model, }
+\item[{}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{group__likelihood_ga4f03d3819c7c23d8553a9e1aa10d86f1}{}\label{group__likelihood_ga4f03d3819c7c23d8553a9e1aa10d86f1}
+
+
+Computes likelihood function of a regression model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meas} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value $y$ of the measure for the current observation. \\
+\hline
+{\em model} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the output $m$ of the model for the current observation. \\
+\hline
+{\em sigma} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} (typically, a \href{http://biogeme.epfl.ch/expressions.php#parameter}{\tt parameter}) providing the standard error $\sigma$ of the error term. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The likelihood of the regression, assuming a normal distribution, that is \[ \frac{1}{\sigma} \phi\left( \frac{y-m}{\sigma} \right) \] where $ \phi(\cdot)$ is the pdf of the normal distribution. 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file loglikelihood.\+py.
+
+\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}!loglikelihood@{loglikelihood}}
+\index{loglikelihood@{loglikelihood}!Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsubsection[{\texorpdfstring{loglikelihood(prob)}{loglikelihood(prob)}}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}\hypertarget{group__likelihood_ga44d204f6304b9df0f33c9118870c1b0a}{}\label{group__likelihood_ga44d204f6304b9df0f33c9118870c1b0a}
+
+
+Simply computes the log of the probability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The logarithm of the probability. 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file loglikelihood.\+py.
+
+\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}!loglikelihoodregression@{loglikelihoodregression}}
+\index{loglikelihoodregression@{loglikelihoodregression}!Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsubsection[{\texorpdfstring{loglikelihoodregression(meas, model, sigma)}{loglikelihoodregression(meas, model, sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+loglikelihoodregression (
+\begin{DoxyParamCaption}
+\item[{}]{meas, }
+\item[{}]{model, }
+\item[{}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{group__likelihood_gab419ed5a3f2ef8c780f4ed099263c867}{}\label{group__likelihood_gab419ed5a3f2ef8c780f4ed099263c867}
+
+
+Computes log likelihood function of a regression model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em meas} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value $y$ of the measure for the current observation. \\
+\hline
+{\em model} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the output $m$ of the model for the current observation. \\
+\hline
+{\em sigma} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} (typically, a \href{http://biogeme.epfl.ch/expressions.php#parameter}{\tt parameter}) providing the standard error $\sigma$ of the error term. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The likelihood of the regression, assuming a normal distribution, that is \[ -\left( \frac{(y-m)^2}{2\sigma^2} \right) - \log(\sigma) - \frac{1}{2}\log(2\pi) \] 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file loglikelihood.\+py.
+
+\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}!mixedloglikelihood@{mixedloglikelihood}}
+\index{mixedloglikelihood@{mixedloglikelihood}!Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsubsection[{\texorpdfstring{mixedloglikelihood(prob)}{mixedloglikelihood(prob)}}]{\setlength{\rightskip}{0pt plus 5cm}def loglikelihood.\+mixedloglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob}
+\end{DoxyParamCaption}
+)}\hypertarget{group__likelihood_ga91e0cba6602eaa8a9cd7813a2ab713b4}{}\label{group__likelihood_ga91e0cba6602eaa8a9cd7813a2ab713b4}
+
+
+Compute a simulated loglikelihood function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} providing the value of the probability. Although it is not formally necessary, the expression should contain one or more \href{http://biogeme.epfl.ch/expressions.php#draws}{\tt random variables} of a given distribution, and therefore write \[ P(i|\xi_1,\ldots,\xi_L)\] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The simulated loglikelihood, given by \[ \ln\left(\sum_{r=1}^R P(i|\xi^r_1,\ldots,\xi^r_L) \right)\] where $R$ is the number of draws, and $\xi_j^r$ is the {\itshape r}th draw of the random variable $\xi_j$. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file loglikelihood.\+py.
+
+\index{Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}!weightedloglikelihood@{weightedloglikelihood}}
+\index{weightedloglikelihood@{weightedloglikelihood}!Functions helping to write the log likelihood function@{Functions helping to write the log likelihood function}}
+\subsubsection[{\texorpdfstring{weightedloglikelihood(prob, choice, weight)}{weightedloglikelihood(prob, choice, weight)}}]{\setlength{\rightskip}{0pt plus 5cm}def weightedloglikelihood.\+weightedloglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{prob, }
+\item[{}]{choice, }
+\item[{}]{weight}
+\end{DoxyParamCaption}
+)}\hypertarget{group__likelihood_ga3f8882d4180ae23324dd8492dffb9149}{}\label{group__likelihood_ga3f8882d4180ae23324dd8492dffb9149}
+
+
+Computes the log likelihood function for the W\+E\+S\+ML estimator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prob} & \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} were the keys are the identifiers of the alternatives in the choice set, and the values are expressions representing the choice probabilities. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em weight} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the weighted log likelihood function 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file weightedloglikelihood.\+py.
+

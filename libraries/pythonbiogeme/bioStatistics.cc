@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioStatistics.h"
 
 vector<pair<patString,patReal> >* bioStatistics::getStatistics() {

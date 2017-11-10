@@ -1,0 +1,42 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{Monte-Carlo integration}}{1}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-2}{Uniform draws}}{5}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-30003}{QQ2-1-3}{Illustration with PythonBiogeme}}{6}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-40004}{QQ2-1-4}{Variance reduction}}{11}\relax 
+\doTocEntry\tocsubsection{4.1}{\csname a:TocLink\endcsname{1}{x1-50004.1}{QQ2-1-5}{Antithetic draws}}{11}\relax 
+\doTocEntry\tocsubsection{4.2}{\csname a:TocLink\endcsname{1}{x1-60004.2}{QQ2-1-6}{Control variate}}{17}\relax 
+\doTocEntry\toclot{1}{\csname a:TocLink\endcsname{1}{x1-60111}{}{\ignorespaces Comparison of variants of Monte-Carlo integration on the simple example}}{table}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-70005}{QQ2-1-8}{Mixtures of logit}}{24}\relax 
+\doTocEntry\tocsubsection{5.1}{\csname a:TocLink\endcsname{1}{x1-80005.1}{QQ2-1-9}{Comparison of integration methods on one integral}}{27}\relax 
+\doTocEntry\toclot{2}{\csname a:TocLink\endcsname{1}{x1-80942}{}{\ignorespaces Comparison of variants of Monte-Carlo integration on the mixture of logit example}}{table}\relax 
+\doTocEntry\tocsubsection{5.2}{\csname a:TocLink\endcsname{1}{x1-90005.2}{QQ2-1-11}{Comparison of integration methods for maximum likelihood estimation}}{36}\relax 
+\doTocEntry\toclot{3}{\csname a:TocLink\endcsname{1}{x1-90153}{}{\ignorespaces Final log likelihood and run time for each integration method}}{table}\relax 
+\doTocEntry\toclot{4}{\csname a:TocLink\endcsname{1}{x1-90164}{}{\ignorespaces Estimation results with numerical integration}}{table}\relax 
+\doTocEntry\toclot{5}{\csname a:TocLink\endcsname{1}{x1-90175}{}{\ignorespaces Estimation results with Monte-Carlo, no variance reduction, 2000 MHLS draws}}{table}\relax 
+\doTocEntry\toclot{6}{\csname a:TocLink\endcsname{1}{x1-90186}{}{\ignorespaces Estimation results with antithetic draws, 1000 MHLS draws}}{table}\relax 
+\doTocEntry\toclot{7}{\csname a:TocLink\endcsname{1}{x1-90197}{}{\ignorespaces Estimation results with control variates, 2000 MHLS draws}}{table}\relax 
+\doTocEntry\toclot{8}{\csname a:TocLink\endcsname{1}{x1-90208}{}{\ignorespaces Estimation results with Monte-Carlo integration, no variance reduction, 500 MHLS draws}}{table}\relax 
+\doTocEntry\toclot{9}{\csname a:TocLink\endcsname{1}{x1-90219}{}{\ignorespaces Estimation results with antithetic draws, 250 MHLS draws}}{table}\relax 
+\doTocEntry\toclot{10}{\csname a:TocLink\endcsname{1}{x1-902210}{}{\ignorespaces Estimation results with control variates, 500 MHLS draws}}{table}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-100006}{QQ2-1-20}{Conclusion}}{61}\relax 
+\doTocEntry\tocsection{A}{\csname a:TocLink\endcsname{1}{x1-11000A}{QQ2-1-21}{Complete specification files}}{62}\relax 
+\doTocEntry\tocsubsection{A.1}{\csname a:TocLink\endcsname{1}{x1-12000A.1}{QQ2-1-22}{\lstinline $01simpleIntegral.py$}}{62}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-12001}{}{../../../test/monteCarlo/01simpleIntegral.py}}{62}\relax 
+\doTocEntry\tocsubsection{A.2}{\csname a:TocLink\endcsname{1}{x1-13000A.2}{QQ2-1-24}{\lstinline $02antithetic.py$}}{62}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-13001}{}{../../../test/monteCarlo/02antithetic.py}}{62}\relax 
+\doTocEntry\tocsubsection{A.3}{\csname a:TocLink\endcsname{1}{x1-14000A.3}{QQ2-1-26}{\lstinline $03controlVariate.py$}}{62}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-14001}{}{../../../test/monteCarlo/03controlVariate.py}}{62}\relax 
+\doTocEntry\tocsubsection{A.4}{\csname a:TocLink\endcsname{1}{x1-15000A.4}{QQ2-1-28}{\lstinline $05normalMixtureTrueAnalytical.py$}}{62}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-15001}{}{../../../test/monteCarlo/05normalMixtureTrueAnalytical.py}}{62}\relax 
+\doTocEntry\tocsubsection{A.5}{\csname a:TocLink\endcsname{1}{x1-16000A.5}{QQ2-1-30}{\lstinline $06normalMixture.py$}}{63}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-16001}{}{../../../test/monteCarlo/06normalMixture.py}}{63}\relax 
+\doTocEntry\tocsubsection{A.6}{\csname a:TocLink\endcsname{1}{x1-17000A.6}{QQ2-1-32}{\lstinline $07normalMixtureAntithetic.py$}}{63}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-17001}{}{../../../test/monteCarlo/07normalMixtureAntithetic.py}}{63}\relax 
+\doTocEntry\tocsubsection{A.7}{\csname a:TocLink\endcsname{1}{x1-18000A.7}{QQ2-1-34}{\lstinline $08normalMixtureControlVariate.py$}}{63}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-18001}{}{../../../test/monteCarlo/08normalMixtureControlVariate.py}}{63}\relax 
+\doTocEntry\tocsubsection{A.8}{\csname a:TocLink\endcsname{1}{x1-19000A.8}{QQ2-1-36}{\lstinline $11estimationNumerical.py$}}{63}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-19001}{}{../../../test/monteCarlo/11estimationNumerical.py}}{63}\relax 
+\doTocEntry\tocsubsection{A.9}{\csname a:TocLink\endcsname{1}{x1-20000A.9}{QQ2-1-38}{\lstinline $12estimationMonteCarlo.py$}}{64}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-20001}{}{../../../test/monteCarlo/12estimationMonteCarlo.py}}{64}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-21000A.9}{QQ2-1-40}{References}}{65}\relax 
+\par 

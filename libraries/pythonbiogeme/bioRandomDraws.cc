@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "patMath.h"
 #include "bioSample.h"
@@ -419,7 +423,7 @@ void bioRandomDraws::generateDraws(bioSample* theSample, patError*& err) {
 
   if (dump != 0) {
     patString dumpFileName("draws.lis") ;
-    ofstream df(dumpFileName) ;
+    ofstream df(dumpFileName.c_str()) ;
     for (patULong rv = 0 ; rv < types.size() ; ++rv) {
       for (vector<patULongLong>::iterator ids = listOfIds[rv].begin() ;
 	   ids != listOfIds[rv].end();
@@ -445,7 +449,7 @@ void bioRandomDraws::generateDraws(bioSample* theSample, patError*& err) {
     
     if (uniformDraws != NULL) {
       patString dumpFileName("uniformDraws.lis") ;
-      ofstream df(dumpFileName) ;
+      ofstream df(dumpFileName.c_str()) ;
       for (patULong rv = 0 ; rv < types.size() ; ++rv) {
 	for (vector<patULongLong>::iterator ids = listOfIds[rv].begin() ;
 	     ids != listOfIds[rv].end();

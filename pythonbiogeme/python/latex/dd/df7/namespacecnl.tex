@@ -1,0 +1,75 @@
+\hypertarget{namespacecnl}{\section{cnl Namespace Reference}
+\label{namespacecnl}\index{cnl@{cnl}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecnl_a5c49f615c6eb1ee3a25a18ef0442df95}{cnl\+\_\+avail}
+\begin{DoxyCompactList}\small\item\em Implements the cross-\/nested logit model as a M\+E\+V model. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecnl_abde9d7fd0bf593200d88a61ef07715a1}{cnlmu}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacecnl_a5c49f615c6eb1ee3a25a18ef0442df95}{\index{cnl@{cnl}!cnl\+\_\+avail@{cnl\+\_\+avail}}
+\index{cnl\+\_\+avail@{cnl\+\_\+avail}!cnl@{cnl}}
+\subsubsection[{cnl\+\_\+avail}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+cnl\+\_\+avail (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}}\label{namespacecnl_a5c49f615c6eb1ee3a25a18ef0442df95}
+
+
+Implements the cross-\/nested logit model as a M\+E\+V model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping the alternative ids with the cross-\/nested parameters for the corresponding nest. Example with two nests and 6 alternatives\+: 
+\begin{DoxyCode}
+1 alphaA = \{1: alpha1a,
+2           2: alpha2a,
+3           3: alpha3a,
+4           4: alpha4a,
+5           5: alpha5a,
+6           6: alpha6a\}
+7 alphaB = \{1: alpha1b,
+8           2: alpha2b,
+9           3: alpha3b,
+10           4: alpha4b,
+11           5: alpha5b,
+12           6: alpha6b\}
+13 nesta = MUA , alphaA
+14 nestb = MUB , alphaB
+15 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the cross-\/nested logit model.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ \hypertarget{namespacecnl_abde9d7fd0bf593200d88a61ef07715a1}{\index{cnl@{cnl}!cnlmu@{cnlmu}}
+\index{cnlmu@{cnlmu}!cnl@{cnl}}
+\subsubsection[{cnlmu}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+cnlmu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{bmu}
+\end{DoxyParamCaption}
+)}}\label{namespacecnl_abde9d7fd0bf593200d88a61ef07715a1}

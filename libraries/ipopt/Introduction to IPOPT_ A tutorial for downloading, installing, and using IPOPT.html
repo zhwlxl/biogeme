@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)https://www.coin-or.org/Ipopt/documentation/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to IPOPT:
+A tutorial for downloading, installing, and using IPOPT </title>
+<meta name="description" content="Introduction to IPOPT:
+A tutorial for downloading, installing, and using IPOPT ">
+<meta name="keywords" content="documentation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta name="Generator" content="LaTeX2HTML v2008">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="./Introduction to IPOPT_ A tutorial for downloading, installing, and using IPOPT_files/documentation.css">
+
+<link rel="next" href="https://www.coin-or.org/Ipopt/documentation/node1.html">
+</head>
+
+<body>
+
+<div class="navigation"><!--Navigation Panel-->
+<a name="tex2html124" href="https://www.coin-or.org/Ipopt/documentation/node1.html">
+<img width="37" height="24" align="BOTTOM" border="0" alt="next" src="./Introduction to IPOPT_ A tutorial for downloading, installing, and using IPOPT_files/next.png"></a> 
+<img width="26" height="24" align="BOTTOM" border="0" alt="up" src="./Introduction to IPOPT_ A tutorial for downloading, installing, and using IPOPT_files/up_g.png"> 
+<img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="./Introduction to IPOPT_ A tutorial for downloading, installing, and using IPOPT_files/prev_g.png"> 
+<a name="tex2html122" href="https://www.coin-or.org/Ipopt/documentation/node2.html">
+<img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="./Introduction to IPOPT_ A tutorial for downloading, installing, and using IPOPT_files/contents.png"></a>  
+<br>
+<b> Next:</b> <a name="tex2html125" href="https://www.coin-or.org/Ipopt/documentation/node1.html">History of this document</a>
+ &nbsp; <b>  <a name="tex2html123" href="https://www.coin-or.org/Ipopt/documentation/node2.html">Contents</a></b> 
+<br>
+<br></div>
+<!--End of Navigation Panel-->
+
+<p>
+
+</p><p>
+</p><h1 align="CENTER">Introduction to I<small>POPT</small>:
+<br>
+A tutorial for downloading, installing, and using I<small>POPT</small> </h1>
+<p align="CENTER"><strong>Revision number of this document: <!-- MATH
+ $Revision: 2617$
+ -->
+<span class="MATH"></span></strong>
+</p>
+<hr>
+
+<p>
+
+</p><h3>Abstract:</h3>
+<div class="ABSTRACT">
+  This document is a guide to using I<small>POPT</small> 3.12.  It includes
+  instructions on how to obtain and compile I<small>POPT</small>, a description of
+  the interface, user options, etc., as well as a tutorial on how to
+  solve a nonlinear optimization problem with I<small>POPT</small>.
+</div>
+<p>
+
+</p><p>
+<br></p><hr>
+<!--Table of Child-Links-->
+<a name="CHILD_LINKS"></a>
+
+<ul class="ChildLinks">
+<li><a name="tex2html126" href="https://www.coin-or.org/Ipopt/documentation/node1.html">History of this document</a>
+</li><li><a name="tex2html127" href="https://www.coin-or.org/Ipopt/documentation/node2.html">Contents</a>
+</li><li><a name="tex2html128" href="https://www.coin-or.org/Ipopt/documentation/node3.html">Introduction</a>
+<ul>
+<li><a name="tex2html129" href="https://www.coin-or.org/Ipopt/documentation/node4.html">Mathematical Background</a>
+</li><li><a name="tex2html130" href="https://www.coin-or.org/Ipopt/documentation/node5.html">Availability</a>
+</li><li><a name="tex2html131" href="https://www.coin-or.org/Ipopt/documentation/node6.html">Prerequisites</a>
+</li><li><a name="tex2html132" href="https://www.coin-or.org/Ipopt/documentation/node7.html">How to use I<small>POPT</small> </a>
+</li><li><a name="tex2html133" href="https://www.coin-or.org/Ipopt/documentation/node8.html">More Information and Contributions</a>
+</li><li><a name="tex2html134" href="https://www.coin-or.org/Ipopt/documentation/node9.html">History of I<small>POPT</small> </a>
+</li></ul>
+<br>
+</li><li><a name="tex2html135" href="https://www.coin-or.org/Ipopt/documentation/node10.html">Installing I<small>POPT</small> </a>
+<ul>
+<li><a name="tex2html136" href="https://www.coin-or.org/Ipopt/documentation/node11.html">Getting System Packages (Compilers, ...)</a>
+</li><li><a name="tex2html137" href="https://www.coin-or.org/Ipopt/documentation/node12.html">Getting the I<small>POPT</small> Code</a>
+<ul>
+<li><a name="tex2html138" href="https://www.coin-or.org/Ipopt/documentation/node12.html#SECTION00042100000000000000">Getting the I<small>POPT</small> code via subversion</a>
+</li><li><a name="tex2html139" href="https://www.coin-or.org/Ipopt/documentation/node12.html#SECTION00042200000000000000">Getting the I<small>POPT</small> code via git (expert users only)</a>
+</li><li><a name="tex2html140" href="https://www.coin-or.org/Ipopt/documentation/node12.html#SECTION00042300000000000000">Getting the I<small>POPT</small> code as a tarball</a>
+</li></ul>
+</li><li><a name="tex2html141" href="https://www.coin-or.org/Ipopt/documentation/node13.html">Download External Code</a>
+<ul>
+<li><a name="tex2html142" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043100000000000000">Download BLAS, LAPACK and ASL</a>
+</li><li><a name="tex2html143" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043200000000000000">Download HSL Subroutines</a>
+</li><li><a name="tex2html144" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043300000000000000">Obtaining the MUMPS Linear Solver</a>
+</li><li><a name="tex2html145" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043400000000000000">Obtaining the Linear Solver Pardiso</a>
+</li><li><a name="tex2html146" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043500000000000000">Obtaining the Linear Solver WSMP</a>
+</li><li><a name="tex2html147" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043600000000000000">Using the Linear Solver Loader</a>
+</li><li><a name="tex2html148" href="https://www.coin-or.org/Ipopt/documentation/node13.html#SECTION00043700000000000000">Obtaining METIS</a>
+</li></ul>
+</li><li><a name="tex2html149" href="https://www.coin-or.org/Ipopt/documentation/node14.html">Compiling and Installing I<small>POPT</small> </a>
+</li><li><a name="tex2html150" href="https://www.coin-or.org/Ipopt/documentation/node15.html">Installation on Windows</a>
+<ul>
+<li><a name="tex2html151" href="https://www.coin-or.org/Ipopt/documentation/node15.html#SECTION00045100000000000000">Installation with Cygwin using GNU compilers</a>
+</li><li><a name="tex2html152" href="https://www.coin-or.org/Ipopt/documentation/node15.html#SECTION00045200000000000000">Installation with Cygwin using the MSVC++ compiler</a>
+</li><li><a name="tex2html153" href="https://www.coin-or.org/Ipopt/documentation/node15.html#SECTION00045300000000000000">Installation with MSYS/MinGW</a>
+</li></ul>
+</li><li><a name="tex2html154" href="https://www.coin-or.org/Ipopt/documentation/node16.html">Compiling and Installing the Java Interface JI<small>POPT</small> </a>
+</li><li><a name="tex2html155" href="https://www.coin-or.org/Ipopt/documentation/node17.html">Compiling and Installing the R Interface <tt>ipoptr</tt> </a>
+</li><li><a name="tex2html156" href="https://www.coin-or.org/Ipopt/documentation/node18.html">Compiling and Installing the MATLAB interface</a>
+<ul>
+<li><a name="tex2html157" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048100000000000000">Setting up <tt>mex</tt></a>
+</li><li><a name="tex2html158" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048200000000000000">Adjusting configuration and build of I<small>POPT</small> </a>
+</li><li><a name="tex2html159" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048300000000000000">Building the MATLAB interface</a>
+</li><li><a name="tex2html160" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048400000000000000">Making MATLAB aware of the <tt>mex</tt> file</a>
+</li><li><a name="tex2html161" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048500000000000000">Additional notes</a>
+</li><li><a name="tex2html162" href="https://www.coin-or.org/Ipopt/documentation/node18.html#SECTION00048600000000000000">Troubleshooting</a>
+</li></ul>
+</li><li><a name="tex2html163" href="https://www.coin-or.org/Ipopt/documentation/node19.html">Expert Installation Options for I<small>POPT</small> </a>
+</li></ul>
+<br>
+</li><li><a name="tex2html164" href="https://www.coin-or.org/Ipopt/documentation/node20.html">Interfacing your NLP to I<small>POPT</small> </a>
+<ul>
+<li><a name="tex2html165" href="https://www.coin-or.org/Ipopt/documentation/node21.html">Using I<small>POPT</small> through AMPL</a>
+<ul>
+<li><a name="tex2html166" href="https://www.coin-or.org/Ipopt/documentation/node21.html#SECTION00051100000000000000">Using I<small>POPT</small> from the command line</a>
+</li></ul>
+</li><li><a name="tex2html167" href="https://www.coin-or.org/Ipopt/documentation/node22.html">Interfacing with I<small>POPT</small> through code</a>
+</li><li><a name="tex2html168" href="https://www.coin-or.org/Ipopt/documentation/node23.html">The C++ Interface</a>
+<ul>
+<li><a name="tex2html169" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053100000000000000">Coding the Problem Representation</a>
+<ul>
+<li><a name="tex2html170" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053110000000000000">Method <tt>get_nlp_info</tt></a>
+</li><li><a name="tex2html171" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053120000000000000">Method <tt>get_bounds_info</tt></a>
+</li><li><a name="tex2html172" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053130000000000000">Method <tt>get_starting_point</tt></a>
+</li><li><a name="tex2html173" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053140000000000000">Method <tt>eval_f</tt></a>
+</li><li><a name="tex2html174" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053150000000000000">Method <tt>eval_grad_f</tt></a>
+</li><li><a name="tex2html175" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053160000000000000">Method <tt>eval_g</tt></a>
+</li><li><a name="tex2html176" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053170000000000000">Method <tt>eval_jac_g</tt></a>
+</li><li><a name="tex2html177" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053180000000000000">Method <tt>eval_h</tt></a>
+</li><li><a name="tex2html178" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053190000000000000">Method <tt>finalize_solution</tt></a>
+</li></ul>
+</li><li><a name="tex2html179" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053200000000000000">Coding the Executable (<tt>main</tt>)</a>
+</li><li><a name="tex2html180" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053300000000000000">Compiling and Testing the Example</a>
+</li><li><a name="tex2html181" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053400000000000000">Additional methods in <tt>TNLP</tt></a>
+<ul>
+<li><a name="tex2html182" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053410000000000000">Method <tt>intermediate_callback</tt></a>
+</li><li><a name="tex2html183" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053420000000000000">Method <tt>get_scaling_parameters</tt></a>
+</li><li><a name="tex2html184" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053430000000000000">Method <tt>get_number_of_nonlinear_variables</tt></a>
+</li><li><a name="tex2html185" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053440000000000000">Method <tt>get_list_of_nonlinear_variables</tt></a>
+</li><li><a name="tex2html186" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053450000000000000">Method <tt>get_variables_linearity</tt></a>
+</li><li><a name="tex2html187" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053460000000000000">Method <tt>get_constraints_linearity</tt></a>
+</li><li><a name="tex2html188" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053470000000000000">Method <tt>get_var_con_metadata</tt></a>
+</li><li><a name="tex2html189" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053480000000000000">Method <tt>finalize_metadata</tt></a>
+</li><li><a name="tex2html190" href="https://www.coin-or.org/Ipopt/documentation/node23.html#SECTION00053490000000000000">Method <tt>get_warm_start_iterate</tt></a>
+</li></ul>
+</li></ul>
+</li><li><a name="tex2html191" href="https://www.coin-or.org/Ipopt/documentation/node24.html">The C Interface</a>
+</li><li><a name="tex2html192" href="https://www.coin-or.org/Ipopt/documentation/node25.html">The Fortran Interface</a>
+</li><li><a name="tex2html193" href="https://www.coin-or.org/Ipopt/documentation/node26.html">The Java Interface</a>
+</li><li><a name="tex2html194" href="https://www.coin-or.org/Ipopt/documentation/node27.html">The R Interface</a>
+</li><li><a name="tex2html195" href="https://www.coin-or.org/Ipopt/documentation/node28.html">The MATLAB Interface</a>
+</li></ul>
+<br>
+</li><li><a name="tex2html196" href="https://www.coin-or.org/Ipopt/documentation/node29.html">Special Features</a>
+<ul>
+<li><a name="tex2html197" href="https://www.coin-or.org/Ipopt/documentation/node30.html">Derivative Checker</a>
+</li><li><a name="tex2html198" href="https://www.coin-or.org/Ipopt/documentation/node31.html">Quasi-Newton Approximation of Second Derivatives</a>
+</li><li><a name="tex2html199" href="https://www.coin-or.org/Ipopt/documentation/node32.html">Warm-Starting Capabilities via AMPL</a>
+</li><li><a name="tex2html200" href="https://www.coin-or.org/Ipopt/documentation/node33.html"><small>S</small>I<small>POPT</small>: Optimal Sensitivity Based on I<small>POPT</small> </a>
+</li><li><a name="tex2html201" href="https://www.coin-or.org/Ipopt/documentation/node34.html">Inertia-Free Curvature Test</a>
+</li></ul>
+<br>
+</li><li><a name="tex2html202" href="https://www.coin-or.org/Ipopt/documentation/node35.html">I<small>POPT</small> Options</a>
+</li><li><a name="tex2html203" href="https://www.coin-or.org/Ipopt/documentation/node36.html">I<small>POPT</small> Output</a>
+<ul>
+<li><a name="tex2html204" href="https://www.coin-or.org/Ipopt/documentation/node37.html">Diagnostic Tags for I<small>POPT</small> </a>
+</li></ul>
+<br>
+</li><li><a name="tex2html205" href="https://www.coin-or.org/Ipopt/documentation/node38.html">Triplet Format for Sparse Matrices</a>
+</li><li><a name="tex2html206" href="https://www.coin-or.org/Ipopt/documentation/node39.html">The Smart Pointer Implementation: <tt>SmartPtr&lt;T&gt;</tt></a>
+</li><li><a name="tex2html207" href="https://www.coin-or.org/Ipopt/documentation/node40.html">Options Reference</a>
+<ul>
+<li><a name="tex2html208" href="https://www.coin-or.org/Ipopt/documentation/node41.html">Output</a>
+<ul>
+<li><a name="tex2html209" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111010000000000000">print_level:</a>
+</li><li><a name="tex2html210" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111020000000000000">print_user_options:</a>
+</li><li><a name="tex2html211" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111030000000000000">print_options_documentation:</a>
+</li><li><a name="tex2html212" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111040000000000000">print_frequency_iter:</a>
+</li><li><a name="tex2html213" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111050000000000000">print_frequency_time:</a>
+</li><li><a name="tex2html214" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111060000000000000">output_file:</a>
+</li><li><a name="tex2html215" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111070000000000000">file_print_level:</a>
+</li><li><a name="tex2html216" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111080000000000000">option_file_name:</a>
+</li><li><a name="tex2html217" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION000111090000000000000">print_info_string:</a>
+</li><li><a name="tex2html218" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION0001110100000000000000">inf_pr_output:</a>
+</li><li><a name="tex2html219" href="https://www.coin-or.org/Ipopt/documentation/node41.html#SECTION0001110110000000000000">print_timing_statistics:</a>
+</li></ul>
+</li><li><a name="tex2html220" href="https://www.coin-or.org/Ipopt/documentation/node42.html">Termination</a>
+<ul>
+<li><a name="tex2html221" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112010000000000000">tol:</a>
+</li><li><a name="tex2html222" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112020000000000000">max_iter:</a>
+</li><li><a name="tex2html223" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112030000000000000">max_cpu_time:</a>
+</li><li><a name="tex2html224" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112040000000000000">dual_inf_tol:</a>
+</li><li><a name="tex2html225" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112050000000000000">constr_viol_tol:</a>
+</li><li><a name="tex2html226" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112060000000000000">compl_inf_tol:</a>
+</li><li><a name="tex2html227" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112070000000000000">acceptable_tol:</a>
+</li><li><a name="tex2html228" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112080000000000000">acceptable_iter:</a>
+</li><li><a name="tex2html229" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION000112090000000000000">acceptable_constr_viol_tol:</a>
+</li><li><a name="tex2html230" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION0001120100000000000000">acceptable_dual_inf_tol:</a>
+</li><li><a name="tex2html231" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION0001120110000000000000">acceptable_compl_inf_tol:</a>
+</li><li><a name="tex2html232" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION0001120120000000000000">acceptable_obj_change_tol:</a>
+</li><li><a name="tex2html233" href="https://www.coin-or.org/Ipopt/documentation/node42.html#SECTION0001120130000000000000">diverging_iterates_tol:</a>
+</li></ul>
+</li><li><a name="tex2html234" href="https://www.coin-or.org/Ipopt/documentation/node43.html">NLP Scaling</a>
+<ul>
+<li><a name="tex2html235" href="https://www.coin-or.org/Ipopt/documentation/node43.html#SECTION000113010000000000000">obj_scaling_factor:</a>
+</li><li><a name="tex2html236" href="https://www.coin-or.org/Ipopt/documentation/node43.html#SECTION000113020000000000000">nlp_scaling_method:</a>
+</li><li><a name="tex2html237" href="https://www.coin-or.org/Ipopt/documentation/node43.html#SECTION000113030000000000000">nlp_scaling_max_gradient:</a>
+</li><li><a name="tex2html238" href="https://www.coin-or.org/Ipopt/documentation/node43.html#SECTION000113040000000000000">nlp_scaling_min_value:</a>
+</li></ul>
+</li><li><a name="tex2html239" href="https://www.coin-or.org/Ipopt/documentation/node44.html">NLP</a>
+<ul>
+<li><a name="tex2html240" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114010000000000000">bound_relax_factor:</a>
+</li><li><a name="tex2html241" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114020000000000000">honor_original_bounds:</a>
+</li><li><a name="tex2html242" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114030000000000000">check_derivatives_for_naninf:</a>
+</li><li><a name="tex2html243" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114040000000000000">nlp_lower_bound_inf:</a>
+</li><li><a name="tex2html244" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114050000000000000">nlp_upper_bound_inf:</a>
+</li><li><a name="tex2html245" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114060000000000000">fixed_variable_treatment:</a>
+</li><li><a name="tex2html246" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114070000000000000">jac_c_constant:</a>
+</li><li><a name="tex2html247" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114080000000000000">jac_d_constant:</a>
+</li><li><a name="tex2html248" href="https://www.coin-or.org/Ipopt/documentation/node44.html#SECTION000114090000000000000">hessian_constant:</a>
+</li></ul>
+</li><li><a name="tex2html249" href="https://www.coin-or.org/Ipopt/documentation/node45.html">Initialization</a>
+<ul>
+<li><a name="tex2html250" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115010000000000000">bound_frac:</a>
+</li><li><a name="tex2html251" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115020000000000000">bound_push:</a>
+</li><li><a name="tex2html252" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115030000000000000">slack_bound_frac:</a>
+</li><li><a name="tex2html253" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115040000000000000">slack_bound_push:</a>
+</li><li><a name="tex2html254" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115050000000000000">bound_mult_init_val:</a>
+</li><li><a name="tex2html255" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115060000000000000">constr_mult_init_max:</a>
+</li><li><a name="tex2html256" href="https://www.coin-or.org/Ipopt/documentation/node45.html#SECTION000115070000000000000">bound_mult_init_method:</a>
+</li></ul>
+</li><li><a name="tex2html257" href="https://www.coin-or.org/Ipopt/documentation/node46.html">Barrier Parameter</a>
+<ul>
+<li><a name="tex2html258" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116010000000000000">mehrotra_algorithm:</a>
+</li><li><a name="tex2html259" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116020000000000000">mu_strategy:</a>
+</li><li><a name="tex2html260" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116030000000000000">mu_oracle:</a>
+</li><li><a name="tex2html261" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116040000000000000">quality_function_max_section_steps:</a>
+</li><li><a name="tex2html262" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116050000000000000">fixed_mu_oracle:</a>
+</li><li><a name="tex2html263" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116060000000000000">adaptive_mu_globalization:</a>
+</li><li><a name="tex2html264" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116070000000000000">mu_init:</a>
+</li><li><a name="tex2html265" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116080000000000000">mu_max_fact:</a>
+</li><li><a name="tex2html266" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION000116090000000000000">mu_max:</a>
+</li><li><a name="tex2html267" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION0001160100000000000000">mu_min:</a>
+</li><li><a name="tex2html268" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION0001160110000000000000">mu_target:</a>
+</li><li><a name="tex2html269" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION0001160120000000000000">barrier_tol_factor:</a>
+</li><li><a name="tex2html270" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION0001160130000000000000">mu_linear_decrease_factor:</a>
+</li><li><a name="tex2html271" href="https://www.coin-or.org/Ipopt/documentation/node46.html#SECTION0001160140000000000000">mu_superlinear_decrease_power:</a>
+</li></ul>
+</li><li><a name="tex2html272" href="https://www.coin-or.org/Ipopt/documentation/node47.html">Multiplier Updates</a>
+<ul>
+<li><a name="tex2html273" href="https://www.coin-or.org/Ipopt/documentation/node47.html#SECTION000117010000000000000">alpha_for_y:</a>
+</li><li><a name="tex2html274" href="https://www.coin-or.org/Ipopt/documentation/node47.html#SECTION000117020000000000000">alpha_for_y_tol:</a>
+</li><li><a name="tex2html275" href="https://www.coin-or.org/Ipopt/documentation/node47.html#SECTION000117030000000000000">recalc_y:</a>
+</li><li><a name="tex2html276" href="https://www.coin-or.org/Ipopt/documentation/node47.html#SECTION000117040000000000000">recalc_y_feas_tol:</a>
+</li></ul>
+</li><li><a name="tex2html277" href="https://www.coin-or.org/Ipopt/documentation/node48.html">Line Search</a>
+<ul>
+<li><a name="tex2html278" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118010000000000000">max_soc:</a>
+</li><li><a name="tex2html279" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118020000000000000">watchdog_shortened_iter_trigger:</a>
+</li><li><a name="tex2html280" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118030000000000000">watchdog_trial_iter_max:</a>
+</li><li><a name="tex2html281" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118040000000000000">accept_every_trial_step:</a>
+</li><li><a name="tex2html282" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118050000000000000">corrector_type:</a>
+</li><li><a name="tex2html283" href="https://www.coin-or.org/Ipopt/documentation/node48.html#SECTION000118060000000000000">soc_method:</a>
+</li></ul>
+</li><li><a name="tex2html284" href="https://www.coin-or.org/Ipopt/documentation/node49.html">Warm Start</a>
+<ul>
+<li><a name="tex2html285" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119010000000000000">warm_start_init_point:</a>
+</li><li><a name="tex2html286" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119020000000000000">warm_start_bound_push:</a>
+</li><li><a name="tex2html287" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119030000000000000">warm_start_bound_frac:</a>
+</li><li><a name="tex2html288" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119040000000000000">warm_start_slack_bound_frac:</a>
+</li><li><a name="tex2html289" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119050000000000000">warm_start_slack_bound_push:</a>
+</li><li><a name="tex2html290" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119060000000000000">warm_start_mult_bound_push:</a>
+</li><li><a name="tex2html291" href="https://www.coin-or.org/Ipopt/documentation/node49.html#SECTION000119070000000000000">warm_start_mult_init_max:</a>
+</li></ul>
+</li><li><a name="tex2html292" href="https://www.coin-or.org/Ipopt/documentation/node50.html">Restoration Phase</a>
+<ul>
+<li><a name="tex2html293" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110010000000000000">expect_infeasible_problem:</a>
+</li><li><a name="tex2html294" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110020000000000000">expect_infeasible_problem_ctol:</a>
+</li><li><a name="tex2html295" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110030000000000000">expect_infeasible_problem_ytol:</a>
+</li><li><a name="tex2html296" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110040000000000000">start_with_resto:</a>
+</li><li><a name="tex2html297" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110050000000000000">soft_resto_pderror_reduction_factor:</a>
+</li><li><a name="tex2html298" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110060000000000000">required_infeasibility_reduction:</a>
+</li><li><a name="tex2html299" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110070000000000000">bound_mult_reset_threshold:</a>
+</li><li><a name="tex2html300" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110080000000000000">constr_mult_reset_threshold:</a>
+</li><li><a name="tex2html301" href="https://www.coin-or.org/Ipopt/documentation/node50.html#SECTION0001110090000000000000">evaluate_orig_obj_at_resto_trial:</a>
+</li></ul>
+</li><li><a name="tex2html302" href="https://www.coin-or.org/Ipopt/documentation/node51.html">Linear Solver</a>
+<ul>
+<li><a name="tex2html303" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111010000000000000">linear_solver:</a>
+</li><li><a name="tex2html304" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111020000000000000">linear_system_scaling:</a>
+</li><li><a name="tex2html305" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111030000000000000">linear_scaling_on_demand:</a>
+</li><li><a name="tex2html306" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111040000000000000">max_refinement_steps:</a>
+</li><li><a name="tex2html307" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111050000000000000">min_refinement_steps:</a>
+</li><li><a name="tex2html308" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111060000000000000">neg_curv_test_reg:</a>
+</li><li><a name="tex2html309" href="https://www.coin-or.org/Ipopt/documentation/node51.html#SECTION0001111070000000000000">neg_curv_test_tol:</a>
+</li></ul>
+</li><li><a name="tex2html310" href="https://www.coin-or.org/Ipopt/documentation/node52.html">Hessian Perturbation</a>
+<ul>
+<li><a name="tex2html311" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112010000000000000">max_hessian_perturbation:</a>
+</li><li><a name="tex2html312" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112020000000000000">min_hessian_perturbation:</a>
+</li><li><a name="tex2html313" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112030000000000000">first_hessian_perturbation:</a>
+</li><li><a name="tex2html314" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112040000000000000">perturb_inc_fact_first:</a>
+</li><li><a name="tex2html315" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112050000000000000">perturb_inc_fact:</a>
+</li><li><a name="tex2html316" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112060000000000000">perturb_dec_fact:</a>
+</li><li><a name="tex2html317" href="https://www.coin-or.org/Ipopt/documentation/node52.html#SECTION0001112070000000000000">jacobian_regularization_value:</a>
+</li></ul>
+</li><li><a name="tex2html318" href="https://www.coin-or.org/Ipopt/documentation/node53.html">Quasi-Newton</a>
+<ul>
+<li><a name="tex2html319" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113010000000000000">hessian_approximation:</a>
+</li><li><a name="tex2html320" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113020000000000000">limited_memory_update_type:</a>
+</li><li><a name="tex2html321" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113030000000000000">limited_memory_max_history:</a>
+</li><li><a name="tex2html322" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113040000000000000">limited_memory_max_skipping:</a>
+</li><li><a name="tex2html323" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113050000000000000">limited_memory_initialization:</a>
+</li><li><a name="tex2html324" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113060000000000000">limited_memory_init_val:</a>
+</li><li><a name="tex2html325" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113070000000000000">limited_memory_init_val_max:</a>
+</li><li><a name="tex2html326" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113080000000000000">limited_memory_init_val_min:</a>
+</li><li><a name="tex2html327" href="https://www.coin-or.org/Ipopt/documentation/node53.html#SECTION0001113090000000000000">limited_memory_special_for_resto:</a>
+</li></ul>
+</li><li><a name="tex2html328" href="https://www.coin-or.org/Ipopt/documentation/node54.html">Derivative Test</a>
+<ul>
+<li><a name="tex2html329" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114010000000000000">derivative_test:</a>
+</li><li><a name="tex2html330" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114020000000000000">derivative_test_perturbation:</a>
+</li><li><a name="tex2html331" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114030000000000000">derivative_test_tol:</a>
+</li><li><a name="tex2html332" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114040000000000000">derivative_test_print_all:</a>
+</li><li><a name="tex2html333" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114050000000000000">derivative_test_first_index:</a>
+</li><li><a name="tex2html334" href="https://www.coin-or.org/Ipopt/documentation/node54.html#SECTION0001114060000000000000">point_perturbation_radius:</a>
+</li></ul>
+</li><li><a name="tex2html335" href="https://www.coin-or.org/Ipopt/documentation/node55.html">MA27 Linear Solver</a>
+<ul>
+<li><a name="tex2html336" href="https://www.coin-or.org/Ipopt/documentation/node55.html#SECTION0001115010000000000000">ma27_pivtol:</a>
+</li><li><a name="tex2html337" href="https://www.coin-or.org/Ipopt/documentation/node55.html#SECTION0001115020000000000000">ma27_pivtolmax:</a>
+</li><li><a name="tex2html338" href="https://www.coin-or.org/Ipopt/documentation/node55.html#SECTION0001115030000000000000">ma27_liw_init_factor:</a>
+</li><li><a name="tex2html339" href="https://www.coin-or.org/Ipopt/documentation/node55.html#SECTION0001115040000000000000">ma27_la_init_factor:</a>
+</li><li><a name="tex2html340" href="https://www.coin-or.org/Ipopt/documentation/node55.html#SECTION0001115050000000000000">ma27_meminc_factor:</a>
+</li></ul>
+</li><li><a name="tex2html341" href="https://www.coin-or.org/Ipopt/documentation/node56.html">MA57 Linear Solver</a>
+<ul>
+<li><a name="tex2html342" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116010000000000000">ma57_pivtol:</a>
+</li><li><a name="tex2html343" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116020000000000000">ma57_pivtolmax:</a>
+</li><li><a name="tex2html344" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116030000000000000">ma57_pre_alloc:</a>
+</li><li><a name="tex2html345" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116040000000000000">ma57_pivot_order:</a>
+</li><li><a name="tex2html346" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116050000000000000">ma57_automatic_scaling:</a>
+</li><li><a name="tex2html347" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116060000000000000">ma57_block_size:</a>
+</li><li><a name="tex2html348" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116070000000000000">ma57_node_amalgamation:</a>
+</li><li><a name="tex2html349" href="https://www.coin-or.org/Ipopt/documentation/node56.html#SECTION0001116080000000000000">ma57_small_pivot_flag:</a>
+</li></ul>
+</li><li><a name="tex2html350" href="https://www.coin-or.org/Ipopt/documentation/node57.html">MA77 Linear Solver</a>
+<ul>
+<li><a name="tex2html351" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117010000000000000">ma77_print_level:</a>
+</li><li><a name="tex2html352" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117020000000000000">ma77_buffer_lpage:</a>
+</li><li><a name="tex2html353" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117030000000000000">ma77_buffer_npage:</a>
+</li><li><a name="tex2html354" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117040000000000000">ma77_file_size:</a>
+</li><li><a name="tex2html355" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117050000000000000">ma77_maxstore:</a>
+</li><li><a name="tex2html356" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117060000000000000">ma77_nemin:</a>
+</li><li><a name="tex2html357" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117070000000000000">ma77_order:</a>
+</li><li><a name="tex2html358" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117080000000000000">ma77_small:</a>
+</li><li><a name="tex2html359" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION0001117090000000000000">ma77_static:</a>
+</li><li><a name="tex2html360" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION00011170100000000000000">ma77_u:</a>
+</li><li><a name="tex2html361" href="https://www.coin-or.org/Ipopt/documentation/node57.html#SECTION00011170110000000000000">ma77_umax:</a>
+</li></ul>
+</li><li><a name="tex2html362" href="https://www.coin-or.org/Ipopt/documentation/node58.html">MA86 Linear Solver</a>
+<ul>
+<li><a name="tex2html363" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118010000000000000">ma86_print_level:</a>
+</li><li><a name="tex2html364" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118020000000000000">ma86_nemin:</a>
+</li><li><a name="tex2html365" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118030000000000000">ma86_order:</a>
+</li><li><a name="tex2html366" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118040000000000000">ma86_scaling:</a>
+</li><li><a name="tex2html367" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118050000000000000">ma86_small:</a>
+</li><li><a name="tex2html368" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118060000000000000">ma86_static:</a>
+</li><li><a name="tex2html369" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118070000000000000">ma86_u:</a>
+</li><li><a name="tex2html370" href="https://www.coin-or.org/Ipopt/documentation/node58.html#SECTION0001118080000000000000">ma86_umax:</a>
+</li></ul>
+</li><li><a name="tex2html371" href="https://www.coin-or.org/Ipopt/documentation/node59.html">MA97 Linear Solver</a>
+<ul>
+<li><a name="tex2html372" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119010000000000000">ma97_print_level:</a>
+</li><li><a name="tex2html373" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119020000000000000">ma97_nemin:</a>
+</li><li><a name="tex2html374" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119030000000000000">ma97_order:</a>
+</li><li><a name="tex2html375" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119040000000000000">ma97_scaling:</a>
+</li><li><a name="tex2html376" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119050000000000000">ma97_scaling1:</a>
+</li><li><a name="tex2html377" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119060000000000000">ma97_scaling2:</a>
+</li><li><a name="tex2html378" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119070000000000000">ma97_scaling3:</a>
+</li><li><a name="tex2html379" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119080000000000000">ma97_small:</a>
+</li><li><a name="tex2html380" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION0001119090000000000000">ma97_solve_blas3:</a>
+</li><li><a name="tex2html381" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION00011190100000000000000">ma97_switch1:</a>
+</li><li><a name="tex2html382" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION00011190110000000000000">ma97_switch2:</a>
+</li><li><a name="tex2html383" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION00011190120000000000000">ma97_switch3:</a>
+</li><li><a name="tex2html384" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION00011190130000000000000">ma97_u:</a>
+</li><li><a name="tex2html385" href="https://www.coin-or.org/Ipopt/documentation/node59.html#SECTION00011190140000000000000">ma97_umax:</a>
+</li></ul>
+</li><li><a name="tex2html386" href="https://www.coin-or.org/Ipopt/documentation/node60.html">MUMPS Linear Solver</a>
+<ul>
+<li><a name="tex2html387" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120010000000000000">mumps_pivtol:</a>
+</li><li><a name="tex2html388" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120020000000000000">mumps_pivtolmax:</a>
+</li><li><a name="tex2html389" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120030000000000000">mumps_mem_percent:</a>
+</li><li><a name="tex2html390" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120040000000000000">mumps_permuting_scaling:</a>
+</li><li><a name="tex2html391" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120050000000000000">mumps_pivot_order:</a>
+</li><li><a name="tex2html392" href="https://www.coin-or.org/Ipopt/documentation/node60.html#SECTION0001120060000000000000">mumps_scaling:</a>
+</li></ul>
+</li><li><a name="tex2html393" href="https://www.coin-or.org/Ipopt/documentation/node61.html">Pardiso Linear Solver</a>
+<ul>
+<li><a name="tex2html394" href="https://www.coin-or.org/Ipopt/documentation/node61.html#SECTION0001121010000000000000">pardiso_matching_strategy:</a>
+</li><li><a name="tex2html395" href="https://www.coin-or.org/Ipopt/documentation/node61.html#SECTION0001121020000000000000">pardiso_max_iterative_refinement_steps:</a>
+</li><li><a name="tex2html396" href="https://www.coin-or.org/Ipopt/documentation/node61.html#SECTION0001121030000000000000">pardiso_msglvl:</a>
+</li><li><a name="tex2html397" href="https://www.coin-or.org/Ipopt/documentation/node61.html#SECTION0001121040000000000000">pardiso_order:</a>
+</li></ul>
+</li><li><a name="tex2html398" href="https://www.coin-or.org/Ipopt/documentation/node62.html">WSMP Linear Solver</a>
+<ul>
+<li><a name="tex2html399" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122010000000000000">wsmp_num_threads:</a>
+</li><li><a name="tex2html400" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122020000000000000">wsmp_ordering_option:</a>
+</li><li><a name="tex2html401" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122030000000000000">wsmp_pivtol:</a>
+</li><li><a name="tex2html402" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122040000000000000">wsmp_pivtolmax:</a>
+</li><li><a name="tex2html403" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122050000000000000">wsmp_scaling:</a>
+</li><li><a name="tex2html404" href="https://www.coin-or.org/Ipopt/documentation/node62.html#SECTION0001122060000000000000">wsmp_singularity_threshold:</a>
+</li></ul>
+</li></ul>
+<br>
+</li><li><a name="tex2html405" href="https://www.coin-or.org/Ipopt/documentation/node63.html">Options available via the AMPL Interface</a>
+</li><li><a name="tex2html406" href="https://www.coin-or.org/Ipopt/documentation/node64.html">Bibliography</a>
+</li></ul>
+<!--End of Table of Child-Links-->
+<br><hr>
+
+
+
+</body></html>

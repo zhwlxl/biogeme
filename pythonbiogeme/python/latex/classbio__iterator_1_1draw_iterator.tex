@@ -1,0 +1,67 @@
+\hypertarget{classbio__iterator_1_1draw_iterator}{}\section{bio\+\_\+iterator.\+draw\+Iterator Class Reference}
+\label{classbio__iterator_1_1draw_iterator}\index{bio\+\_\+iterator.\+draw\+Iterator@{bio\+\_\+iterator.\+draw\+Iterator}}
+
+
+Iterates on the data file for generate the user defined draws (since biogeme 2.\+4)  
+
+
+Inheritance diagram for bio\+\_\+iterator.\+draw\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__iterator_1_1draw_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__iterator_1_1draw_iterator_a09538e110b5cbce26caca6684846e71b}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, iterator\+Name, name=\char`\"{}\+\_\+\+\_\+data\+File\+\_\+\+\_\+\char`\"{}, child=\char`\"{}\char`\"{}, variable=\char`\"{}\+\_\+\+\_\+row\+Id\+\_\+\+\_\+\char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Iterates on the data file for generate the user defined draws (since biogeme 2.\+4) 
+
+It is typically used with the Define\+Draws expression to generate user defined draws. Typical usage\+: 
+\begin{DoxyCode}
+1 drawIterator(\textcolor{stringliteral}{'drawIter'}) 
+2 TRIANG = DefineDraws(\textcolor{stringliteral}{'TRIANG'}, 0.5 * (bioDraws(\textcolor{stringliteral}{'BUNIF1'})+bioDraws(\textcolor{stringliteral}{'BUNIF2'})),\textcolor{stringliteral}{'drawIter'})
+\end{DoxyCode}
+ 
+
+Definition at line 45 of file bio\+\_\+iterator.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+iterator\+::draw\+Iterator@{bio\+\_\+iterator\+::draw\+Iterator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+iterator\+::draw\+Iterator@{bio\+\_\+iterator\+::draw\+Iterator}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, iterator\+Name, name=""\+\_\+\+\_\+data\+File\+\_\+\+\_\+"", child="""", variable=""\+\_\+\+\_\+row\+Id\+\_\+\+\_\+"")}{__init__(self, iteratorName, name="__dataFile__", child="", variable="__rowId__")}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+iterator.\+draw\+Iterator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{iterator\+Name, }
+\item[{}]{name = {\ttfamily \char`\"{}\+\_\+\+\_\+dataFile\+\_\+\+\_\+\char`\"{}}, }
+\item[{}]{child = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{}]{variable = {\ttfamily \char`\"{}\+\_\+\+\_\+rowId\+\_\+\+\_\+\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__iterator_1_1draw_iterator_a09538e110b5cbce26caca6684846e71b}{}\label{classbio__iterator_1_1draw_iterator_a09538e110b5cbce26caca6684846e71b}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator\+Name} & Name of the iterator. \\
+\hline
+{\em name} & Name of the set of data that is being iterated. It is typically ignored for draw iterators. Use the default value. \\
+\hline
+{\em child} & Draw iterators have no children. Use the default value. \\
+\hline
+{\em variable} & Variable that contains the ID of the individuals in the data file. A different draw is generated for each different value of this variable. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file bio\+\_\+iterator.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__iterator_8py}{bio\+\_\+iterator.\+py}\end{DoxyCompactItemize}

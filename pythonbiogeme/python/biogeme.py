@@ -57,6 +57,16 @@ class BIOGEME_OBJECT:
    #    BIOGEME_OBJECT.STATISTICS['Null loglikelihood'] = nl
    # @endcode
    STATISTICS = {}
+   
+   ## Dictionary of old values for beta parameters. This is used to prematurely    # interrupt the iterations if we get close to an already visited point 
+   # Example: 
+   # previous_ASC_CAR = [1.0, -0.155]
+   # previous_ASC_TRAIN = [1.0, -0.701]
+   # previous_B_TIME = [2.0, -1.28]
+   # previous_B_COST = [3.0, -1.08]
+   # BIOGEME_OBJECT.OLDBETAS = {'ASC_CAR': previous_ASC_CAR, 'ASC_TRAIN': previous_AS
+   OLDBETAS = {}
+   
    ## Dictionary of expressions defining constraints on the parameters
    # to be estimated. In general, it is preferable not to use these
    # constraints. There is most of the time a way to write the model

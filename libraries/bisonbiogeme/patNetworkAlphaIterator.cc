@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patNetworkAlphaIterator.h"
 
 patNetworkAlphaIterator::patNetworkAlphaIterator(map<patString,patNetworkGevLinkParameter>* x) : theMap(x) {

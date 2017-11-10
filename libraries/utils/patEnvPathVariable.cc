@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patEnvPathVariable.h"
 
 patEnvPathVariable::patEnvPathVariable(patString name, char d): 

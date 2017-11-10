@@ -1,0 +1,46 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{Models and notations}}{1}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-2}{Indirect measurement of latent variables}}{5}\relax 
+\doTocEntry\tocsubsection{2.1}{\csname a:TocLink\endcsname{1}{x1-30002.1}{QQ2-1-3}{Indicators as continuous variables}}{9}\relax 
+\doTocEntry\toclot{1}{\csname a:TocLink\endcsname{1}{x1-30121}{}{\ignorespaces Estimation results for the linear regression}}{table}\relax 
+\doTocEntry\toclot{2}{\csname a:TocLink\endcsname{1}{x1-30132}{}{\ignorespaces Estimation results for the linear regression (ctd)}}{table}\relax 
+\doTocEntry\tocsubsection{2.2}{\csname a:TocLink\endcsname{1}{x1-40002.2}{QQ2-1-6}{Indicators as discrete variables}}{18}\relax 
+\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-40021}{}{\ignorespaces Measurement equation for discrete indicators}}{figure}\relax 
+\doTocEntry\toclot{3}{\csname a:TocLink\endcsname{1}{x1-40193}{}{\ignorespaces Estimation results for the ordered probit regression}}{table}\relax 
+\doTocEntry\toclot{4}{\csname a:TocLink\endcsname{1}{x1-40204}{}{\ignorespaces Estimation results for the ordered probit regression (ctd)}}{table}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-50003}{QQ2-1-10}{Choice model}}{28}\relax 
+\doTocEntry\toclot{5}{\csname a:TocLink\endcsname{1}{x1-50085}{}{\ignorespaces \label {tab:choiceOnly}Estimation results for the mixture of logit models}}{table}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-60004}{QQ2-1-12}{Sequential estimation}}{35}\relax 
+\doTocEntry\toclot{6}{\csname a:TocLink\endcsname{1}{x1-60016}{}{\ignorespaces Estimation results for the sequential estimation}}{table}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-70005}{QQ2-1-14}{Full information estimation}}{39}\relax 
+\doTocEntry\toclot{7}{\csname a:TocLink\endcsname{1}{x1-70037}{}{\ignorespaces Estimation results for the full information estimation}}{table}\relax 
+\doTocEntry\toclot{8}{\csname a:TocLink\endcsname{1}{x1-70048}{}{\ignorespaces Estimation results for the full information estimation (ctd.)}}{table}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-80006}{QQ2-1-17}{Serial correlation}}{47}\relax 
+\doTocEntry\toclot{9}{\csname a:TocLink\endcsname{1}{x1-80019}{}{\ignorespaces Estimation results for the full information estimation with agent effect}}{table}\relax 
+\doTocEntry\toclot{10}{\csname a:TocLink\endcsname{1}{x1-800210}{}{\ignorespaces Estimation results for the full information estimation with agent effect (ctd.)}}{table}\relax 
+\doTocEntry\tocsection{7}{\csname a:TocLink\endcsname{1}{x1-90007}{QQ2-1-20}{Discussions}}{54}\relax 
+\doTocEntry\toclof{2}{\csname a:TocLink\endcsname{1}{x1-90082}{}{\ignorespaces Latent variable as a function of income with the estimated coefficients}}{figure}\relax 
+\doTocEntry\tocsection{A}{\csname a:TocLink\endcsname{1}{x1-10000A}{QQ2-1-22}{Description of the case study}}{57}\relax 
+\doTocEntry\tocsubsection{A.1}{\csname a:TocLink\endcsname{1}{x1-11000A.1}{QQ2-1-23}{Data collection}}{57}\relax 
+\doTocEntry\tocsubsection{A.2}{\csname a:TocLink\endcsname{1}{x1-12000A.2}{QQ2-1-24}{Variables and descriptive statistics}}{57}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-12002}{}{\numberline {11}{\ignorespaces  Description of variables\relax }}}{59}\relax 
+\doTocEntry\toclot{}{\csname a:TocLink\endcsname{1}{x1-12004}{}{\numberline {12}{\ignorespaces Attitude questions. Coding: 1= strongly disagree, 2=disagree, 3=neutral, 4= agree, 5= strongly agree, 6=not applicable, -1= missing value, -2= all answers to attitude questions missing\relax }}}{66}\relax 
+\doTocEntry\toclot{13}{\csname a:TocLink\endcsname{1}{x1-1200513}{}{\ignorespaces  Descriptive statistics of the main variables (no data excluded) }}{table}\relax 
+\doTocEntry\toclot{14}{\csname a:TocLink\endcsname{1}{x1-1200614}{}{\ignorespaces  Descriptive statistics of the main variables affected by missing data (observations with -1 excluded)}}{table}\relax 
+\doTocEntry\tocsection{B}{\csname a:TocLink\endcsname{1}{x1-13000B}{QQ2-1-29}{Complete specification files}}{77}\relax 
+\doTocEntry\tocsubsection{B.1}{\csname a:TocLink\endcsname{1}{x1-14000B.1}{QQ2-1-30}{\lstinline $factoranalysis.r$}}{77}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-14001}{}{../../../test/latent/r/factoranalysis.r}}{77}\relax 
+\doTocEntry\tocsubsection{B.2}{\csname a:TocLink\endcsname{1}{x1-15000B.2}{QQ2-1-32}{\lstinline $01oneLatentRegression.py$}}{77}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-15001}{}{../../../test/latent/01oneLatentRegression.py}}{77}\relax 
+\doTocEntry\tocsubsection{B.3}{\csname a:TocLink\endcsname{1}{x1-16000B.3}{QQ2-1-34}{\lstinline $02oneLatentOrdered.py$}}{77}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-16001}{}{../../../test/latent/02oneLatentOrdered.py}}{77}\relax 
+\doTocEntry\tocsubsection{B.4}{\csname a:TocLink\endcsname{1}{x1-17000B.4}{QQ2-1-36}{\lstinline $03choiceOnly.py$}}{77}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-17001}{}{../../../test/latent/03choiceOnly.py}}{77}\relax 
+\doTocEntry\tocsubsection{B.5}{\csname a:TocLink\endcsname{1}{x1-18000B.5}{QQ2-1-38}{\lstinline $04latentChoiceSeq.py$}}{78}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-18001}{}{../../../test/latent/04latentChoiceSeq.py}}{78}\relax 
+\doTocEntry\tocsubsection{B.6}{\csname a:TocLink\endcsname{1}{x1-19000B.6}{QQ2-1-40}{\lstinline $05latentChoiceFull.py$}}{78}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-19001}{}{../../../test/latent/05latentChoiceFull.py}}{78}\relax 
+\doTocEntry\tocsubsection{B.7}{\csname a:TocLink\endcsname{1}{x1-20000B.7}{QQ2-1-42}{\lstinline $06serialCorrelation.py$}}{78}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-20001}{}{../../../test/latent/06serialCorrelation.py}}{78}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-21000B.7}{QQ2-1-44}{References}}{79}\relax 
+\par 

@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "trHessian.h"
 #include "trSchnabelEskow.h"
 #include "patErrNullPointer.h"

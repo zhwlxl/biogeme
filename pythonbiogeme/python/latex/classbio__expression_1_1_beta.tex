@@ -1,0 +1,101 @@
+\hypertarget{classbio__expression_1_1_beta}{}\section{bio\+\_\+expression.\+Beta Class Reference}
+\label{classbio__expression_1_1_beta}\index{bio\+\_\+expression.\+Beta@{bio\+\_\+expression.\+Beta}}
+
+
+Class representing a parameter to be estimated.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Beta\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1_beta}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_beta_a3702c09cb80e1ed9fde790cca1031842}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, name, value, lowerbound, upperbound, status, desc=\textquotesingle{}\textquotesingle{})
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1_beta_a7d4f19902aee5b0bfd854d685f57f22e}{}\label{classbio__expression_1_1_beta_a7d4f19902aee5b0bfd854d685f57f22e}
+
+\item 
+def {\bfseries get\+ID} (self)\hypertarget{classbio__expression_1_1_beta_a6a253bc47ef7b3765df67712434ad09f}{}\label{classbio__expression_1_1_beta_a6a253bc47ef7b3765df67712434ad09f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries name}\hypertarget{classbio__expression_1_1_beta_ae40aca026321dc4873216baea65c209a}{}\label{classbio__expression_1_1_beta_ae40aca026321dc4873216baea65c209a}
+
+\item 
+{\bfseries val}\hypertarget{classbio__expression_1_1_beta_af9ff8e36aac16ad655894d20003fb8af}{}\label{classbio__expression_1_1_beta_af9ff8e36aac16ad655894d20003fb8af}
+
+\item 
+{\bfseries lb}\hypertarget{classbio__expression_1_1_beta_a7709223a6780122c4dd1f17516b53f5c}{}\label{classbio__expression_1_1_beta_a7709223a6780122c4dd1f17516b53f5c}
+
+\item 
+{\bfseries ub}\hypertarget{classbio__expression_1_1_beta_a0923a6e1480c5747a7eecae9a23ca6ad}{}\label{classbio__expression_1_1_beta_a0923a6e1480c5747a7eecae9a23ca6ad}
+
+\item 
+{\bfseries st}\hypertarget{classbio__expression_1_1_beta_a7789b899e6f1bb2186387f234f48ca30}{}\label{classbio__expression_1_1_beta_a7789b899e6f1bb2186387f234f48ca30}
+
+\item 
+{\bfseries desc}\hypertarget{classbio__expression_1_1_beta_aad1a82e31c5f2389dfac1e4358265ea4}{}\label{classbio__expression_1_1_beta_aad1a82e31c5f2389dfac1e4358265ea4}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1_beta_a7435b0e78fc4790d737438a508dda221}{}\label{classbio__expression_1_1_beta_a7435b0e78fc4790d737438a508dda221}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a parameter to be estimated. 
+
+It is highly recommended to use the same name as an argument as the name of the python variable on the left of the equal sign. Indeed, Biogeme has no access to the name of the python variable, and the report will use only the name provided as an argument. Example\+: 
+\begin{DoxyCode}
+1 beta = Beta( \textcolor{stringliteral}{'beta'}, 0.0, -10000, 10000, 0)
+\end{DoxyCode}
+ 
+
+Definition at line 330 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, name, value, lowerbound, upperbound, status, desc=\textquotesingle{}\textquotesingle{})}{__init__(self, name, value, lowerbound, upperbound, status, desc='')}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Beta.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{value, }
+\item[{}]{lowerbound, }
+\item[{}]{upperbound, }
+\item[{}]{status, }
+\item[{}]{desc = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1_beta_a3702c09cb80e1ed9fde790cca1031842}{}\label{classbio__expression_1_1_beta_a3702c09cb80e1ed9fde790cca1031842}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+{\em value} & starting value of the parameter \\
+\hline
+{\em lowerbound} & minimum value that the parameter can take \\
+\hline
+{\em upperbound} & maximum value that the parameter can take \\
+\hline
+{\em status} & 0 if the parameter must be estimated, 1 if the starting value is maintained \\
+\hline
+{\em desc} & text used in the La\+TeX output file (optional, default value\+:\textquotesingle{}\textquotesingle{} \mbox{[}empty string\mbox{]}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 337 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

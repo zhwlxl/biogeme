@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioArithUnaryMinus.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"
@@ -126,20 +130,15 @@ bioFunctionAndDerivatives* bioArithUnaryMinus::getNumericalFunctionAndGradient(v
 
 
   // The second derivative matrix
-  if (result.theHessian != NULL && computeHessian) {
-    if (c->theHessian == NULL) {
-      err = new patErrNullPointer("trHessian") ;
-      WARNING(err->describe()) ;
-      return NULL ;
-    }
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
-	patReal r = - c->theHessian->getElement(i,j,err) ;
+	patReal r = - c->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
 	}
-	result.theHessian->setElement(i,j,r,err) ; 
+	result.theHessian.setElement(i,j,r,err) ; 
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

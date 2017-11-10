@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <cassert>
 #include <iostream>
 #include "patDisplay.h"
@@ -21,7 +22,8 @@
 patDisplay::patDisplay() : screenImportance(patImportance::patDEBUG), 
 			   logImportance(patImportance::patDEBUG),
 			   logFileName(patFileNames::the()->getLogFile().c_str()),
-			   logMessage(NULL) {
+			   logMessage(NULL),
+			   displayCanceled(patFALSE) {
 
   patAbsTime now ;
   now.setTimeOfDay() ;
@@ -41,7 +43,8 @@ patDisplay::patDisplay() : screenImportance(patImportance::patDEBUG),
 patDisplay::patDisplay(const patDisplay& td) : screenImportance(patImportance::patDEBUG), 
 			   logImportance(patImportance::patDEBUG),
 			   logFile(patFileNames::the()->getLogFile().c_str()),
-			   logMessage(NULL) {
+					       logMessage(NULL),
+					       displayCanceled(patFALSE) {
   //  singleInstance = td.singleInstance ;
 }
 
@@ -74,6 +77,9 @@ void patDisplay::addMessage(const patImportance& aType,
 			    const patString& fileName,
 			    const patString& lineNumber) {
 
+  if (displayCanceled) {
+    return ;
+  }
   patMessage theMessage ;
 
   theMessage.theImportance = aType ;
@@ -143,3 +149,12 @@ void patDisplay::setLogMessage(patLogMessage* up) {
 
 // std::once_flag patDisplay::only_one ;
 // std::shared_ptr<patDisplay> patDisplay::singleInstance = nullptr ;
+
+void patDisplay::cancelDisplay() {
+  displayCanceled = patTRUE ;
+}
+
+void patDisplay::resumeDisplay() {
+  displayCanceled = patFALSE ;
+}
+

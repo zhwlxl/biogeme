@@ -1,0 +1,18 @@
+# Fdb version 3
+["cusdep gp tex fig-ordinal-1"] 0 "fig-ordinal-1.gp" "fig-ordinal-1.tex" "fig-ordinal-1" 1466582154
+  "fig-ordinal-1.gp" 1465374163 1034 5b580ec23c5a9726a3b79459949329d6 ""
+  (generated)
+  "fig-ordinal-1.tex"
+["dvipdf"] 0 "fig-ordinal-1.dvi" "fig-ordinal-1.pdf" "fig-ordinal-1" 0
+  "fig-ordinal-1.dvi" 0 -1 0 "latex"
+  (generated)
+  "fig-ordinal-1.pdf"
+["latex"] 1466582150 "fig-ordinal-1.tex" "fig-ordinal-1.dvi" "fig-ordinal-1" 1466582154
+  "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
+  "/usr/local/texlive/2016/texmf-var/web2c/pdftex/latex.fmt" 1465458905 3873334 b2bb05e6bbc4a69d5bb989dce070f240 ""
+  "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
+  "fig-ordinal-1.aux" 1466223726 8 a94a2480d3289e625eea47cd1b285758 ""
+  "fig-ordinal-1.tex" 1465374625 3897 a2c2d3b30b81c36a464454f7976872fe "cusdep gp tex fig-ordinal-1"
+  (generated)
+  "fig-ordinal-1.dvi"
+  "fig-ordinal-1.log"

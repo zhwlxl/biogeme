@@ -16,10 +16,14 @@
 %define CONSTRUCTOR_INIT : scanner(fname_) , pModel(NULL)
 
 %header{
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
   
 #include <fstream>
 #include <sstream>
-#include <assert.h>
+#include <cassert>
 
 #include "patLoop.h"
 #include "patDisplay.h"

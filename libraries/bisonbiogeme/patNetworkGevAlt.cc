@@ -7,9 +7,11 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
+#include "patPower.h"
 #include "patMath.h"
 #include "patDisplay.h"
 #include "patErrMiscError.h"
@@ -38,7 +40,7 @@ patReal patNetworkGevAlt::evaluate(const patVariables* x,
     return 0.0 ;
   }
   
-  patReal res =  pow((*x)[altIndex],(*param)[indexOfMu]) ;
+  patReal res =  patPower((*x)[altIndex],(*param)[indexOfMu]) ;
   return res ;
 }
 
@@ -69,7 +71,7 @@ patReal patNetworkGevAlt::getDerivative_xi(unsigned long index,
     return 0.0 ;
   }
   patReal mui = (*param)[indexOfMu] ;
-  patReal res = (mui * pow((*x)[index],mui-1.0)) ;
+  patReal res = (mui * patPower((*x)[index],mui-1.0)) ;
   if (patAbs(finDiff-res) > 1.0e-6) {
     DEBUG_MESSAGE("Err = " << patAbs(finDiff-res) << " Deriv: " << res << " Finite Diff: " <<finDiff) ;
   }
@@ -118,7 +120,7 @@ patReal patNetworkGevAlt::getDerivative_param(unsigned long index,
   }
   patReal mui = (*param)[indexOfMu] ;
   patReal xval = (*x)[altIndex] ;
-  patReal res = (log(xval) * pow(xval,mui)) ;
+  patReal res = (log(xval) * patPower(xval,mui)) ;
   if (patAbs(finDiff-res) > 1.0e-6) {
     DEBUG_MESSAGE("Err = " << patAbs(finDiff-res) << " Deriv: " 
 		  << res << " Finite Diff: " <<finDiff) ;
@@ -163,7 +165,7 @@ patReal patNetworkGevAlt::getSecondDerivative_xi_xj(unsigned long index1,
   }
   patReal mui = (*param)[indexOfMu] ;
   patReal xval = (*x)[altIndex] ;
-  patReal res = (mui * (mui-1.0) * pow(xval,mui - 2.0)) ;
+  patReal res = (mui * (mui-1.0) * patPower(xval,mui - 2.0)) ;
   if (patAbs(finDiff-res) > 1.0e-6) {
     DEBUG_MESSAGE("Err = " << patAbs(finDiff-res) << " Deriv: " << res << " Finite Diff: " <<finDiff) ;
   }
@@ -218,7 +220,7 @@ patReal patNetworkGevAlt::getSecondDerivative_param(unsigned long indexVar,
   }
   patReal mui = (*param)[indexOfMu] ;
   patReal xval = (*x)[indexVar] ;
-  patReal res = (pow(xval,mui-1.0) + mui * log(xval) * pow(xval,mui-1.0)) ;
+  patReal res = (patPower(xval,mui-1.0) + mui * log(xval) * patPower(xval,mui-1.0)) ;
   if (patAbs(finDiff-res) > 1.0e-6) {
     DEBUG_MESSAGE("Err = " << patAbs(finDiff-res) << " Deriv: " << res << " Finite Diff: " <<finDiff) ;
   }

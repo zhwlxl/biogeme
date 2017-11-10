@@ -9,10 +9,6 @@
 #ifndef patMath_h
 #define patMath_h
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <cmath>
 
 #ifndef M_PI

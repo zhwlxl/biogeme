@@ -1,0 +1,85 @@
+\hypertarget{classbio__expression_1_1bio_uniform_draws}{\section{bio\+\_\+expression.\+bio\+Uniform\+Draws Class Reference}
+\label{classbio__expression_1_1bio_uniform_draws}\index{bio\+\_\+expression.\+bio\+Uniform\+Draws@{bio\+\_\+expression.\+bio\+Uniform\+Draws}}
+}
+
+
+Class representing a uniformly distributed random variable on \mbox{[}0,1\mbox{]} for simulated integration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Uniform\+Draws\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/dd8/classbio__expression_1_1bio_uniform_draws}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_draws_aad44943de1683c71b8fe596178b30550}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_draws_a005fefa2fe7bc6e09918c35850701980}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_draws_aeefe9e06713e94d4452737ffaae08b6b}{name}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_draws_abd25acf45bf3ce1538f5b9db2c8846cf}{index}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_draws_ac4174426e493fe9f054e548d8093c841}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a uniformly distributed random variable on \mbox{[}0,1\mbox{]} for simulated integration. 
+
+A different set of draws will be generated for each group in the data file. By default, the groups are identified by {\bfseries row\+Id}, and a set of draws is generated for each row in the sample. Another typical case corresponds to panel data, where several rows correspond to the same individual. If Id identifies individuals in the data set, a set of draws will be generated for each individual, and not for each observation. Example\+: 
+\begin{DoxyCode}
+1 Errorcomp = bioUniformDraws(\textcolor{stringliteral}{'Errorcomp'},\textcolor{stringliteral}{'Id'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_draws_aad44943de1683c71b8fe596178b30550}{\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Draws.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{index = {\ttfamily '\+\_\+\+\_\+rowId\+\_\+\+\_\+'}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_uniform_draws_aad44943de1683c71b8fe596178b30550}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the random variable \\
+\hline
+{\em index} & name of the identifier of groups of data associated with a different set of draws. (optional, default='{\bfseries row\+Id}') \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_draws_a005fefa2fe7bc6e09918c35850701980}{\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Draws.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_uniform_draws_a005fefa2fe7bc6e09918c35850701980}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_draws_abd25acf45bf3ce1538f5b9db2c8846cf}{\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!index@{index}}
+\index{index@{index}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Draws.\+index}}\label{classbio__expression_1_1bio_uniform_draws_abd25acf45bf3ce1538f5b9db2c8846cf}
+\hypertarget{classbio__expression_1_1bio_uniform_draws_aeefe9e06713e94d4452737ffaae08b6b}{\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!name@{name}}
+\index{name@{name}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Draws.\+name}}\label{classbio__expression_1_1bio_uniform_draws_aeefe9e06713e94d4452737ffaae08b6b}
+\hypertarget{classbio__expression_1_1bio_uniform_draws_ac4174426e493fe9f054e548d8093c841}{\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Draws.\+operator\+Index}}\label{classbio__expression_1_1bio_uniform_draws_ac4174426e493fe9f054e548d8093c841}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

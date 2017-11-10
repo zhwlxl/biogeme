@@ -1,0 +1,87 @@
+\hypertarget{classbio__expression_1_1_elem}{}\section{bio\+\_\+expression.\+Elem Class Reference}
+\label{classbio__expression_1_1_elem}\index{bio\+\_\+expression.\+Elem@{bio\+\_\+expression.\+Elem}}
+
+
+Class extracting an expression from a dictionary.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Elem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1_elem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_elem_a2011b697f2308ae92b9028915bcf7a8b}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, dictionary, key, default=\hyperlink{classbio__expression_1_1_numeric}{Numeric}(0))
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1_elem_a96df9f74810ff7621426dfb884539c3f}{}\label{classbio__expression_1_1_elem_a96df9f74810ff7621426dfb884539c3f}
+
+\item 
+def {\bfseries get\+ID} (self)\hypertarget{classbio__expression_1_1_elem_a2ef3c4c71329ff164aa61b3bb83444ee}{}\label{classbio__expression_1_1_elem_a2ef3c4c71329ff164aa61b3bb83444ee}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries prob}\hypertarget{classbio__expression_1_1_elem_a17c61b7da60297dbf7f4164a2a78aa49}{}\label{classbio__expression_1_1_elem_a17c61b7da60297dbf7f4164a2a78aa49}
+
+\item 
+{\bfseries choice}\hypertarget{classbio__expression_1_1_elem_a024d48dfc32b4486db3e0147bb57f2cf}{}\label{classbio__expression_1_1_elem_a024d48dfc32b4486db3e0147bb57f2cf}
+
+\item 
+{\bfseries default}\hypertarget{classbio__expression_1_1_elem_ae9652f5b42921e03b8623baf034e01be}{}\label{classbio__expression_1_1_elem_ae9652f5b42921e03b8623baf034e01be}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1_elem_a862e4fd7b70af8a2bd3c0db048dc90a5}{}\label{classbio__expression_1_1_elem_a862e4fd7b70af8a2bd3c0db048dc90a5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class extracting an expression from a dictionary. 
+
+A typical example consists in returning the probability of a chosen alternative in a choice model. Consider the following dictionary\+: 
+\begin{DoxyCode}
+1 P = \{  1: exp(V1) / (exp(V1)+exp(V2)+exp(V3)),
+2 2: exp(V2) / (exp(V1)+exp(V2)+exp(V3)),
+3 3: exp(V3) / (exp(V1)+exp(V2)+exp(V3))\}
+\end{DoxyCode}
+ and assume that the variable Choice in the data file contains the identifier of the chosen alternative of the corresponding observation, that is 1, 2 or 3. Then, the probability of the chosen alternative is given by 
+\begin{DoxyCode}
+1 chosenProba = Elem(P,Choice)
+\end{DoxyCode}
+ If the result of \char`\"{}\+Choice\char`\"{} does not correspond to any valid entry in the dictionary, a warning is issued and the value of the default expression is returned. The warning is issued because this situation is usually not wanted by the user. To turn off the warning, set the parameter warns\+For\+Illegal\+Elements to 0. 
+
+Definition at line 823 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, dictionary, key, default=\+Numeric(0))}{__init__(self, dictionary, key, default=Numeric(0))}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Elem.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dictionary, }
+\item[{}]{key, }
+\item[{}]{default = {\ttfamily {\bf Numeric}(0)}}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1_elem_a2011b697f2308ae92b9028915bcf7a8b}{}\label{classbio__expression_1_1_elem_a2011b697f2308ae92b9028915bcf7a8b}
+
+\begin{DoxyParams}{Parameters}
+{\em dictionary} & A dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) such that the indices are numerical values that can match the result of an expression \\
+\hline
+{\em key} & expression identifying the entry in the dictionary  If the result of key does not correspond to any valid entry in the dictionary, the value of the default expression is returned. This argument is optional. If omitted, the default value is 0. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 832 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

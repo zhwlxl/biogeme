@@ -9,10 +9,6 @@
 #ifndef bioIpopt_h
 #define bioIpopt_h 
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 /**
 @doc This class defines a C++ interface to the IPOPT routine, by Andreas Waechter et al.
 
@@ -42,7 +38,9 @@ class bioIpopt : public trNonLinearAlgo
 public:
   /**
    */
-  bioIpopt(patIterationBackup* i, patNonLinearProblem* aProblem = NULL) ;
+  bioIpopt(patIterationBackup* i,
+	   bioAlgorithmManager* aStoppingCriteria,
+	   patNonLinearProblem* aProblem = NULL) ;
   /**
    */
   virtual ~bioIpopt() ;
@@ -88,6 +86,17 @@ public:
 		      bool new_lambda, Index nele_hess, Index* iRow,
 		      Index* jCol, Number* values);
   
+  virtual bool intermediate_callback(AlgorithmMode mode,
+				     Index iter, Number obj_value,
+				     Number inf_pr, Number inf_du,
+				     Number mu, Number d_norm,
+				     Number regularization_size,
+				     Number alpha_du, Number alpha_pr,
+				     Index ls_trials,
+				     const IpoptData* ip_data,
+				     IpoptCalculatedQuantities* ip_cq) ;
+
+
   //@}
   
   /** @name Solution Methods */
@@ -151,8 +160,7 @@ private:
   patVariables upperLambda ;
 
   patIterationBackup* theInteraction ;
-  patString stopFile ;
-
+  
   patBoolean exactHessian ;
   trHessian* theHessian ;
 };

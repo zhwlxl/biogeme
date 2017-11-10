@@ -1,0 +1,38 @@
+\hypertarget{namespaceboxcox}{\section{boxcox Namespace Reference}
+\label{namespaceboxcox}\index{boxcox@{boxcox}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceboxcox_a818b6adba100cc667a5eb59b7968b3a2}{boxcox}
+\begin{DoxyCompactList}\small\item\em Implements the Box-\/\+Cox transform of a variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceboxcox_a818b6adba100cc667a5eb59b7968b3a2}{\index{boxcox@{boxcox}!boxcox@{boxcox}}
+\index{boxcox@{boxcox}!boxcox@{boxcox}}
+\subsubsection[{boxcox}]{\setlength{\rightskip}{0pt plus 5cm}def boxcox.\+boxcox (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{namespaceboxcox_a818b6adba100cc667a5eb59b7968b3a2}
+
+
+Implements the Box-\/\+Cox transform of a variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & variable to be transformed \\
+\hline
+{\em lambda} & parameter of the transformation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Box-\/\+Cox transform, that is \[ \frac{x^\lambda - 1 }{\lambda} \] 
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespaceboxcox_a818b6adba100cc667a5eb59b7968b3a2}{boxcox}(x,l):
+2     \textcolor{keywordflow}{return} (x**l - 1) / l
+\end{DoxyCode}
+ 
+\end{DoxyReturn}

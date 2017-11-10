@@ -5,8 +5,9 @@
 //----------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
 #include "patGeoCoordinates.h"
 #include "patConst.h"

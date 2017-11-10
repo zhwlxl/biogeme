@@ -5,8 +5,9 @@
 //----------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <iostream>
 #include "patAngle.h"
 #include "patConst.h"

@@ -1,0 +1,85 @@
+\hypertarget{classbio__expression_1_1bio_normal_draws}{\section{bio\+\_\+expression.\+bio\+Normal\+Draws Class Reference}
+\label{classbio__expression_1_1bio_normal_draws}\index{bio\+\_\+expression.\+bio\+Normal\+Draws@{bio\+\_\+expression.\+bio\+Normal\+Draws}}
+}
+
+
+Class representing a normally distributed random variable for simulated integration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Normal\+Draws\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/dbb/classbio__expression_1_1bio_normal_draws}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_draws_ac79c7efc6b14790ff14cb7d1019bbcf5}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_draws_af80629e4f2b5157907ee0fd4a772dc80}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1bio_normal_draws_a19eeeea8d6a800cfb132da8ee32407c8}{name}
+\item 
+\hyperlink{classbio__expression_1_1bio_normal_draws_a5e8ba3573b5e4c8944d22d55fc1a2962}{index}
+\item 
+\hyperlink{classbio__expression_1_1bio_normal_draws_a792d7baa7f509b11688b54a15b9f9ed0}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a normally distributed random variable for simulated integration. 
+
+A different set of draws will be generated for each group in the data file. By default, the groups are identified by {\bfseries row\+Id}, and a set of draws is generated for each row in the sample. Another typical case corresponds to panel data, where several rows correspond to the same individual. If Id identifies individuals in the data set, a set of draws will be generated for each individual, and not for each observation. Example\+: 
+\begin{DoxyCode}
+1 Errorcomp = bioNormalDraws(\textcolor{stringliteral}{'Errorcomp'},\textcolor{stringliteral}{'Id'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_draws_ac79c7efc6b14790ff14cb7d1019bbcf5}{\index{bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Draws.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{index = {\ttfamily '\+\_\+\+\_\+rowId\+\_\+\+\_\+'}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_normal_draws_ac79c7efc6b14790ff14cb7d1019bbcf5}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the random variable \\
+\hline
+{\em index} & name of the identifier of groups of data associated with a different set of draws. (optional, default='{\bfseries row\+Id}') \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_draws_af80629e4f2b5157907ee0fd4a772dc80}{\index{bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Draws.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_normal_draws_af80629e4f2b5157907ee0fd4a772dc80}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1bio_normal_draws_a5e8ba3573b5e4c8944d22d55fc1a2962}{\index{bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}!index@{index}}
+\index{index@{index}!bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Normal\+Draws.\+index}}\label{classbio__expression_1_1bio_normal_draws_a5e8ba3573b5e4c8944d22d55fc1a2962}
+\hypertarget{classbio__expression_1_1bio_normal_draws_a19eeeea8d6a800cfb132da8ee32407c8}{\index{bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}!name@{name}}
+\index{name@{name}!bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Normal\+Draws.\+name}}\label{classbio__expression_1_1bio_normal_draws_a19eeeea8d6a800cfb132da8ee32407c8}
+\hypertarget{classbio__expression_1_1bio_normal_draws_a792d7baa7f509b11688b54a15b9f9ed0}{\index{bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::bio\+Normal\+Draws@{bio\+\_\+expression\+::bio\+Normal\+Draws}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Normal\+Draws.\+operator\+Index}}\label{classbio__expression_1_1bio_normal_draws_a792d7baa7f509b11688b54a15b9f9ed0}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

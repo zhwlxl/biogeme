@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioArithVariable.h"
 #include "bioParameters.h"
 #include "bioVariable.h" 

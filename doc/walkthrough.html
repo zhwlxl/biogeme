@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Bison biogeme: walkthrough</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">BISON BIOGEME <acronym
+	title="Biogeme" class="local-color-text">Walkthrough</acronym></a></h1>
+
+<div class="clear "></div>
+
+
+<div id="content" class="content">
+
+<div class="fullbox">
+<p>
+<p>In order to introduce the syntax of  Biogeme, we are explaining in details an example where a logit model with 3 alternatives is estimated. The following files are necessary to run the example:
+<ul>
+<li><a href="01logit.mod" target="_blank">The model specification file: <code>01logit.mod</code></a></li>
+<li><a href="swissmetro.dat" target="_blank">The data file: <code>swissmetro.dat</code></a></li>
+</ul>
+</div>
+<div class="fullbox">
+<h3>The model</h3>
+The model is a logit model with 3 alternatives. The utility functions are defined as:
+<code>
+<pre>
+V_1 = V_TRAIN =  ASC_TRAIN + B_TIME * TRAIN_TT_SCALED + B_COST * TRAIN_COST_SCALED
+V_2 = V_SM = ASC_SM + B_TIME * SM_TT_SCALED + B_COST * SM_COST_SCALED
+V_3 = V_CAR =  ASC_CAR + B_TIME * CAR_TT_SCALED + B_COST * CAR_CO_SCALED
+</pre>
+</code>
+where 
+<code>TRAIN_TT_SCALED</code>,
+<code>TRAIN_COST_SCALED</code>,
+<code>SM_TT_SCALED</code>,
+<code>SM_COST_SCALED</code>,
+<code>CAR_TT_SCALED</code>,
+<code>CAR_CO_SCALED</code>
+are variables, and 
+  <code>ASC_TRAIN</code>,
+  <code>ASC_SM</code>,
+  <code>ASC_CAR</code>,
+  <code>B_TIME</code>,
+  <code>B_COST</code> are parameters to be estimated. Note that it is not possible to identify all alternative specific constants  
+  <code>ASC_TRAIN</code>,
+  <code>ASC_SM</code>,
+  <code>ASC_CAR</code> from data. Consequently,  <code>ASC_SM</code> is normalized to 0. 
+
+The availability of an alternative <code>i</code> is determined by the variable <code>avi</code>, <code>i</code>=1,...3, which is equal to 1 if the alternative is available, 0 otherwise. The probability of choosing an available alternative <code>i</code> is given by the logit model:
+<p>
+<code>P(i) = exp(Vi) / (av exp(V1)+av2 exp(V2)+av3 exp(V3)).</code>
+</p>
+Given a data set of <code>N</code> observations, the loglikelihood of the sample is 
+<p>
+<code>L = &Sigma;<sub>n</sub>log P(i<sub>n</sub>)</code>
+</p>
+where <code>i<sub>n</sub></code> is the alternative actually chosen by individual <code>n</code>.
+</div>
+
+<div class="fullbox">
+<h3>The data file</h3>
+
+Biogeme assumes that the data file contains in its first line a list of labels corresponding to the available data, and that each subsequent line contains the exact same number of numerical data, each row corresponding to an observation. Delimiters can be tabs or spaces.
+
+The data file used for this example can be downloaded <a href="swissmetro.dat">here</a>.
+</div>
+<div class="fullbox">
+<h3>The model specification file</h3>
+We explain here line by line the <a href="01logit.mod">model specification file</a>. It is organized into sections. In principle, the order in which the sections appear is irrelevant.
+
+<h4>[ModelDescription]</h4>
+
+This section allows to mention a description of the model that will be
+copied in the report file. Each line of the description must be
+delimited by double quotes.
+
+<code>
+<pre>
+[ModelDescription]
+"Example of a logit model for a transportation mode choice with 3 alternatives:"
+"- Train"
+"- Car"
+"- Swissmetro, an hypothetical high-speed train"
+</pre>
+</code>
+
+<h4>[Choice]</h4>
+It simply describes to Biogeme where the dependent variable (that is, the chosen alternative) can be found in the file. 
+<code>
+<pre>
+[Choice]
+CHOICE   
+</pre>
+</code>
+
+  Note that the syntax is case sensitive, and that <code>CHOICE</code> is different from <code>choice</code>, and from <code>Choice</code>. 
+
+<h4>[Beta]</h4>
+
+Each parameter to be estimated must be declared in this section. For each parameter, the following must be mentioned:
+<ol>
+<li>the name of the parameter</li>
+<li>the default value</li>
+<li>a lower bound</li>
+<li>an upper bound</li>
+<li>a flag that indicates if the parameter must be estimated (0) or if it keeps its default value (1).
+</ol>
+
+
+<code>
+<pre>
+[Beta]
+// Name Value  LowerBound UpperBound  status (0=variable, 1=fixed)
+ASC_CAR 	0 -10              10              0
+ASC_TRAIN  	0 -10              10              0
+ASC_SM	        0 -10              10              1
+B_TIME		0 -10              10              0
+B_COST		0 -10              10              0
+</pre>
+</code>
+Note that the fifth entry  for <code>ASC_SM</code> is 1, as we want to maintain it  to its default value, that is 0.0.
+
+<h4>[LaTeX]</h4>
+
+Among other  output files, Biogeme generates a file in <a href="http://www.latex-project.org/" target="_blank">LaTeX</a> format. In this section, the name of the parameters can be specified in LaTeX syntax, to appear properly in the output file.
+
+<code>
+<pre>
+[LaTeX]
+ASC_CAR "Cte. car"
+ASC_SBB "Cte. train"
+ASC_SM	"Cte. Swissmetro"
+B_TIME	"$\beta_\text{time}$"
+B_COST	"$\beta_\text{cost}$"
+</pre>
+</code>
+
+<h4>[Utilities]</h4>
+
+The specification of the
+utility functions is described in this section. The specification for one alternative
+must start at a new row, and may actually span several rows. 
+For each of them, four entries are specified:
+<ol>
+<li>The identifier of the alternative, with a numbering convention
+  consistent with the section <code>[Choice]</code>.</li>
+<li>The name of the alternative.</li>
+<li>The availability condition. In this case, it is a direct
+reference to one of the entries  in the data file.</li>
+<li> The linear-in-parameter utility function is composed of a list of terms,
+         separated by a <code>+</code>. Each term is composed of the name of a
+         parameter and the name of an attribute,
+         separated by a <code>*</code>.          Note that a space is
+required  after each parameter name.
+</ol>
+
+
+<code>
+<pre>
+[Utilities]
+// Id Name  Avail  linear-in-parameter expression
+    1 A1_TRAIN TRAIN_AV_SP ASC_TRAIN * one 
+                            + B_TIME * TRAIN_TT_SCALED 
+                            + B_COST * TRAIN_COST_SCALED
+    2 A2_SM    SM_AV          ASC_SM * one
+                            + B_TIME * SM_TT_SCALED
+                            + B_COST * SM_COST_SCALED
+    3 A3_Car   CAR_AV_SP     ASC_CAR * one 
+                            + B_TIME * CAR_TT_SCALED
+                            + B_COST * CAR_CO_SCALED
+</pre>
+</code>
+
+
+<h4>[Expressions]</h4>
+It describes to Biogeme how to
+compute attributes not directly available from the data file. 
+
+<ul>
+<li> When boolean variables are involved, the value TRUE is represented by 1, and the value FALSE is represented by 0. Therefore, a multiplication involving a boolean variable is equivalent to a "AND" operator.
+<code>
+<pre>
+CAR_AV_SP =  CAR_AV   * (  SP   !=  0  )
+TRAIN_AV_SP =  TRAIN_AV   * (  SP   !=  0  )
+SM_COST =  SM_CO   * (  GA   ==  0  ) 
+TRAIN_COST =  TRAIN_CO   * (  GA   ==  0  )
+</pre>
+</code>
+</li>
+<li> Variables can be rescaled
+<code>
+<pre>
+TRAIN_TT_SCALED = TRAIN_TT / 100.0
+TRAIN_COST_SCALED = TRAIN_COST / 100
+SM_TT_SCALED = SM_TT / 100.0
+SM_COST_SCALED = SM_COST / 100
+CAR_TT_SCALED = CAR_TT / 100
+CAR_CO_SCALED = CAR_CO / 100
+</pre>
+</code>
+</li>
+</ul>
+
+<h4>[Exclude]</h4>
+It contains a boolean expression.  All observations verifying the  expression will be ignored. Here, the modeler  has developed the model only for work trips.  
+Observations such that the dependent variable CHOICE is 0 are also removed.
+<code>
+<pre>
+(( PURPOSE != 1 ) * (  PURPOSE   !=  3  ) + ( CHOICE == 0 )) 
+</pre>
+</code>
+
+<h4>[Model]</h4>
+It tells Biogeme which assumptions must
+be used regarding the error term, that is which type of model must be
+estimated. In this example, it is the logit model (or MNL, for <em>multinomial logit</em>, as it is sometimes called).
+
+<code>
+<pre>
+[Model]
+// $MNL stands for MultiNomial Logit 
+$MNL
+</pre>
+</code>
+
+</div>
+
+
+<div class="fullbox">
+<h3>Running biogeme</h3>
+
+If Biogeme has been installed properly, the estimation is started with the following statement:
+<code>
+<pre>
+biogeme 01logit swissmetro.dat
+</pre>
+</code>
+
+The following appears on the screen:
+
+<p>Information about the version of Biogeme. The date is when the
+software was compiled. </p>
+
+<code>
+<pre>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+biogeme 2.2 [Mar 3 jan 2012 18:26:41 CET]
+Michel Bierlaire, EPFL
+-- Compiled by michelbierlaire on Darwin
+See http://biogeme.epfl.ch
+                    !! CFSQP is available !!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	"In every non-trivial program there is at least one bug."
+</pre>
+</code>
+<p>Biogeme checks if a file called <code>mymodel.par</code>,
+containing various parameters, exists. If not, it checks if the file
+called <code>default.par</code> exists. If not, it creates it and set
+default values to the parameters. That's what most users need in the
+beginning. Note that the information like
+<code>[15:48:50]patFileNames.cc:49</code> can be safely ignored.</p>
+<code>
+<pre>
+[14:57:01]patFileNames.cc:49  01logit.par does not exist
+[14:57:01]patFileNames.cc:53  Trying default.par instead
+[14:57:01]patBiogeme.cc:178  File default.par does not exist. Default values will be used
+[14:57:01]patBiogeme.cc:180  A file default.par has been created
+</pre>
+</code>
+<p> Biogeme then reads the model and data files and reports various information.</p>
+<code>
+<pre>
+
+ Opening file swissmetro.dat
+ Data  file... line 500	Memory: 97 Kb
+ Data  file... line 1000	Memory: 184 Kb
+ Data  file... line 1500	Memory: 184 Kb
+ Data  file... line 2000	Memory: 191 Kb
+ Data  file... line 2500	Memory: 289 Kb
+ Data  file... line 3000	Memory: 386 Kb
+ Data  file... line 3500	Memory: 484 Kb
+ Data  file... line 4000	Memory: 503 Kb
+ Data  file... line 4500	Memory: 600 Kb
+ Data  file... line 5000	Memory: 647 Kb
+ Data  file... line 5500	Memory: 745 Kb
+ Data  file... line 6000	Memory: 842 Kb
+ Data  file... line 6500	Memory: 940 Kb
+ Data  file... line 7000	Memory: 1 Mb
+ Data  file... line 7500	Memory: 1 Mb
+ Data  file... line 8000	Memory: 1 Mb
+ Data  file... line 8500	Memory: 1 Mb
+ Data  file... line 9000	Memory: 1 Mb
+ Data  file... line 9500	Memory: 1 Mb
+ Data  file... line 10000	Memory: 1 Mb
+ Data  file... line 10500	Memory: 1 Mb
+ Total obs.:   10727
+ Total memory: 1321.88 Kb
+ Run time for data processing: 00:01
+</pre>
+</code>
+<p>Biogeme then starts the estimation. It displays miscellaneous
+information at each iteration of the estimation algorithm. </p>
+<code>
+<pre>
+  Init loglike=-6964.66
+     gmax Iter   radius        f(x)     Status       rhok nFree
+ +1.44e-03    1 1.00e+00 +6.9646630e+03 ****Converg  +1.05e+00 4  ++
+ +1.82e-03    2 2.00e+00 +5.5911931e+03 ****Converg  +9.74e-01 4  ++
+ +1.93e-03    3 4.00e+00 +5.3677413e+03 ****Converg  +1.12e+00 4  ++
+ +2.04e-03    4 8.00e+00 +5.3424604e+03 ****Converg  +1.52e+00 4  ++
+ +1.92e-03    5 1.60e+01 +5.3362826e+03 ****Converg  +1.66e+00 4  ++
+ +1.92e-03    6 3.20e+01 +5.3336219e+03 ****Converg  +1.69e+00 4  ++
+ +1.97e-03    7 6.40e+01 +5.3324003e+03 ****Converg  +1.69e+00 4  ++
+ +2.01e-03    8 1.28e+02 +5.3318102e+03 ****Converg  +1.70e+00 4  ++
+ +2.03e-03    9 2.56e+02 +5.3315246e+03 ****Converg  +1.70e+00 4  ++
+ +2.03e-03   10 5.12e+02 +5.3313855e+03 ****Converg  +1.70e+00 4  ++
+ +1.43e-03   11 1.02e+03 +5.3313175e+03 ****Converg  +1.70e+00 4  ++
+ +1.01e-03   12 2.05e+03 +5.3312842e+03 ****Converg  +1.70e+00 4  ++
+ +7.11e-04   13 4.10e+03 +5.3312679e+03 ****Converg  +1.70e+00 4  ++
+ +5.00e-04   14 8.19e+03 +5.3312598e+03 ****Converg  +1.70e+00 4  ++
+ +3.52e-04   15 1.64e+04 +5.3312559e+03 ****Converg  +1.70e+00 4  ++
+ +2.47e-04   16 3.28e+04 +5.3312539e+03 ****Converg  +1.70e+00 4  ++
+ +1.74e-04   17 6.55e+04 +5.3312529e+03 ****Converg  +1.70e+00 4  ++
+ +1.22e-04   18 1.31e+05 +5.3312525e+03 ****Converg  +1.70e+00 4  ++
+ +8.58e-05   19 2.62e+05 +5.3312522e+03 ****Converg  +1.70e+00 4  ++
+ +6.03e-05   20 5.24e+05 +5.3312521e+03 ****Converg  +1.70e+00 4  ++
+ +4.23e-05   21 1.05e+06 +5.3312521e+03 ****Converg  +1.70e+00 4  ++
+ +2.97e-05   22 2.10e+06 +5.3312520e+03 ****Converg  +1.70e+00 4  ++
+ +2.09e-05   23 4.19e+06 +5.3312520e+03 ****Converg  +1.70e+00 4  ++
+ +1.47e-05   24 8.39e+06 +5.3312520e+03 ****Converg  +1.70e+00 4  ++
+ +1.03e-05   25 1.68e+07 +5.3312520e+03 ****Converg  +1.70e+00 4  ++
+ +7.24e-06   26 3.36e+07 +5.3312520e+03 ****Converg  +1.70e+00 4  ++
+
+ Convergence reached...
+--> time interval [14:57:02,14:57:03]
+</pre>
+</code>
+<p>Biogeme reports the running time and prepares the output files.</p>
+<code>
+<pre>
+Run time: 00:01
+ Final log-likelihood=-5331.25
+ Be patient... BIOGEME is preparing the output files
+--> time interval [14:57:03,14:57:03]
+ Run time for var/covar computation: 00:00
+</pre>
+</code>
+<p>For the record, Biogeme reports the list of files that were actually used as
+input.</p>
+<code>
+<pre>
+ BIOGEME Input files
+ ===================
+ Parameters:			default.par
+ Model specification:		01logit.mod
+ Sample 1 :				swissmetro.dat
+</pre>
+</code>
+<p> Biogeme reports the list of files that have been created,
+containing the results of the estimation, as well as many other pieces
+of information.</p>
+<code>
+<pre>
+ BIOGEME Output files
+ ====================
+ Estimation results:		01logit.rep
+ Estimation results (HTML):	01logit.html
+ Estimation results (Latex):	01logit.tex
+ Estimation results (ALogit):	01logit.F12
+ Result model spec. file:	01logit.res
+ Sample statistics:		01logit.sta
+</pre>
+</code>
+<p> Biogeme reports also the name of files that may be helpful in
+understanding problems with the model.</p>
+<code>
+<pre>
+ BIOGEME Debug files
+ ===================
+ Log file:			01logit.log
+ Parameters debug:		parameters.out
+ Model debug:			model.debug
+ Model spec. file debug:		__specFile.debug
+</pre>
+</code>
+<p>Biogeme reports some information specific to the
+model. For logit, it reports the minimum argument of all exponentials
+computed during the process, in order to signal a possible
+underflow. Most users do not worry about this information.</p>
+<code>
+<pre>
+ Model informations: Multinomial Logit Model
+ ==================
+ The minimum argument of exp was -18.352
+
+ Run time for estimation:      00:01
+ Total run time:               00:02
+</pre>
+</code>
+
+<p>For the results, most users will consult the <a href="01logit.html" target="_blank">HTML file</a> using their
+preferred browser.  A file written in ASCII format is also available,
+with the extension <code>.rep</code>. A file with LaTeX code is also
+created, so that the results can easily be integrated in a report or
+an article written with this word processor.</p>
+</div>
+
+</div>
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+
+<ul class="tree">
+<li><a href="index.html">Content</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</ul>
+
+</div>    
+    <div class="clear"></div>
+
+<a href="index.html">Content</a><BR>
+<a href="http://biogeme.epfl.ch">Biogeme</a>
+
+
+</body>
+</html>

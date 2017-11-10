@@ -1,0 +1,172 @@
+\hypertarget{namespacenested}{\section{nested Namespace Reference}
+\label{namespacenested}\index{nested@{nested}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}{get\+Mev\+For\+Nested}
+\begin{DoxyCompactList}\small\item\em Implements the M\+E\+V generating function for the nested logit model. \end{DoxyCompactList}\item 
+def \hyperlink{namespacenested_a0149b4461a68ff10b324dd90bb7cb807}{nested}
+\begin{DoxyCompactList}\small\item\em Implements the nested logit model as a M\+E\+V model. \end{DoxyCompactList}\item 
+def \hyperlink{namespacenested_a30f3c62c03360a18a57e123ed1cceccc}{nested\+Mev\+Mu}
+\begin{DoxyCompactList}\small\item\em Implements the nested logit model as a M\+E\+V model, where mu is also a parameter, if the user wants to test different normalization schemes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}{\index{nested@{nested}!get\+Mev\+For\+Nested@{get\+Mev\+For\+Nested}}
+\index{get\+Mev\+For\+Nested@{get\+Mev\+For\+Nested}!nested@{nested}}
+\subsubsection[{get\+Mev\+For\+Nested}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+get\+Mev\+For\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests}
+\end{DoxyParamCaption}
+)}}\label{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}
+
+
+Implements the M\+E\+V generating function for the nested logit model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{1}{\mu_m}-1} \] where $m$ is the (only) nest containing alternative $i$, and $G$ is the M\+E\+V generating function.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}{getMevForNested}(V,availability,nests) :
+2 
+3     y = \{\}
+4     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+5         y[i] = exp(v)
+6     
+7     Gi = \{\}
+8     \textcolor{keywordflow}{for} m \textcolor{keywordflow}{in} nests:
+9         sum = 0.0
+10         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} m[1]:
+11             sum += Elem(\{0:0,1: y[i] ** m[0]\},availability[i]!=0) 
+12         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} m[1]:
+13             Gi[i] = Elem(\{0:0,1:y[i]**(m[0]-1.0) * sum ** (1.0/m[0] - 1.0)\},availability[i]!=0)
+14     \textcolor{keywordflow}{return} Gi
+\end{DoxyCode}
+ \hypertarget{namespacenested_a0149b4461a68ff10b324dd90bb7cb807}{\index{nested@{nested}!nested@{nested}}
+\index{nested@{nested}!nested@{nested}}
+\subsubsection[{nested}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+nested (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}}\label{namespacenested_a0149b4461a68ff10b324dd90bb7cb807}
+
+
+Implements the nested logit model as a M\+E\+V model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the nested logit model, based on the derivatives of the M\+E\+V generating function produced by the function \hyperlink{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}{nested\+::get\+Mev\+For\+Nested}
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespacenested_a0149b4461a68ff10b324dd90bb7cb807}{nested}(V,availability,nests,choice) :
+2     Gi = \hyperlink{namespacenested_a6201f3dcdea4ce319e0f2ba2feef4b07}{getMevForNested}(V,availability,nests)
+3     P = \hyperlink{namespacemev}{mev}(V,Gi,availability,choice) 
+4     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ \hypertarget{namespacenested_a30f3c62c03360a18a57e123ed1cceccc}{\index{nested@{nested}!nested\+Mev\+Mu@{nested\+Mev\+Mu}}
+\index{nested\+Mev\+Mu@{nested\+Mev\+Mu}!nested@{nested}}
+\subsubsection[{nested\+Mev\+Mu}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+nested\+Mev\+Mu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{mu}
+\end{DoxyParamCaption}
+)}}\label{namespacenested_a30f3c62c03360a18a57e123ed1cceccc}
+
+
+Implements the nested logit model as a M\+E\+V model, where mu is also a parameter, if the user wants to test different normalization schemes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em mu} & expression producing the value of the top-\/level scale parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nested logit choice probability based on the following derivatives of the M\+E\+V generating function\+: \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = \mu e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{\mu}{\mu_m}-1} \] where $m$ is the (only) nest containing alternative $i$, and $G$ is the M\+E\+V generating function.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{namespacenested_a30f3c62c03360a18a57e123ed1cceccc}{nestedMevMu}(V,availability,nests,choice,mu) :
+2 
+3     y = \{\}
+4     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+5         y[i] = exp(v)
+6     
+7     Gi = \{\}
+8     \textcolor{keywordflow}{for} m \textcolor{keywordflow}{in} nests:
+9         sum = 0.0
+10         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} m[1]:
+11             sum += Elem(\{0:0,1: y[i] ** m[0]\},availability[i]!=0) 
+12         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} m[1]:
+13             Gi[i] = Elem(\{0:0,1:mu * y[i]**(m[0]-1.0) * sum ** (mu/m[0] - 1.0)\},availability[i]!=0)
+14     P = \hyperlink{namespacemev}{mev}(V,Gi,availability,choice) 
+15     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 

@@ -6,6 +6,9 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include "patMath.h"
 #include "patDisplay.h"
@@ -155,17 +158,17 @@ bioFunctionAndDerivatives* bioArithExp::getNumericalFunctionAndGradient(vector<p
       result.theGradient[i] = result.theFunction * c->theGradient[i] ;
     }
   }
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       if (c->theGradient[i] == 0.0) {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
-	  patReal h = c->theHessian->getElement(i,j,err) ;
+	  patReal h = c->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
 	  }
 	  patReal v = result.theFunction * h ;
-	  result.theHessian->setElement(i,j,v,err) ;
+	  result.theHessian.setElement(i,j,v,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -174,13 +177,13 @@ bioFunctionAndDerivatives* bioArithExp::getNumericalFunctionAndGradient(vector<p
       }
       else {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
-	  patReal h = c->theHessian->getElement(i,j,err) ;
+	  patReal h = c->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
 	  }
 	  patReal v = result.theFunction * (c->theGradient[i] * c->theGradient[j] + h) ;
-	  result.theHessian->setElement(i,j,v,err) ;
+	  result.theHessian.setElement(i,j,v,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;

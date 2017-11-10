@@ -1,0 +1,89 @@
+\hypertarget{classbio__expression_1_1_define_variable}{\section{bio\+\_\+expression.\+Define\+Variable Class Reference}
+\label{classbio__expression_1_1_define_variable}\index{bio\+\_\+expression.\+Define\+Variable@{bio\+\_\+expression.\+Define\+Variable}}
+}
+
+
+Class representing the definition of a new variable.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Define\+Variable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d2b/classbio__expression_1_1_define_variable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_define_variable_a38cfcca48dc82ed6ce11cbba0a931026}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_define_variable_ae005a4c392c3a5b21d24117e453ad8a7}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_define_variable_ad6fbc0e163c5cd0a76e0d86960d831a7}{name}
+\item 
+\hyperlink{classbio__expression_1_1_define_variable_a06ba185542aaef35a3ed57c92b427126}{expression}
+\item 
+\hyperlink{classbio__expression_1_1_define_variable_a4f43782aed1e3a2fdf23b75480952cd5}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the definition of a new variable. 
+
+Defining a new variable is equivalent to add a column to the data file. Note that the expression defining the new variable is computed during the processing of the data file, before the estimation, so that it saves computational time to define variables using this technique. Example\+: 
+\begin{DoxyCode}
+1 TRAIN\_TT\_SCALED = DefineVariable(\textcolor{stringliteral}{'TRAIN\_TT\_SCALED'}, TRAIN\_TT / 100.0)
+\end{DoxyCode}
+ will result in a more efficient estimation than the statement\+: 
+\begin{DoxyCode}
+1 TRAIN\_TT\_SCALED = TRAIN\_TT / 100.0
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_define_variable_a38cfcca48dc82ed6ce11cbba0a931026}{\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Define\+Variable.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{expression}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_define_variable_a38cfcca48dc82ed6ce11cbba0a931026}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the variable \\
+\hline
+{\em expression} & expression to compute the value of the variable \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_define_variable_ae005a4c392c3a5b21d24117e453ad8a7}{\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Define\+Variable.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_define_variable_ae005a4c392c3a5b21d24117e453ad8a7}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_define_variable_a06ba185542aaef35a3ed57c92b427126}{\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!expression@{expression}}
+\index{expression@{expression}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{expression}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Define\+Variable.\+expression}}\label{classbio__expression_1_1_define_variable_a06ba185542aaef35a3ed57c92b427126}
+\hypertarget{classbio__expression_1_1_define_variable_ad6fbc0e163c5cd0a76e0d86960d831a7}{\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!name@{name}}
+\index{name@{name}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Define\+Variable.\+name}}\label{classbio__expression_1_1_define_variable_ad6fbc0e163c5cd0a76e0d86960d831a7}
+\hypertarget{classbio__expression_1_1_define_variable_a4f43782aed1e3a2fdf23b75480952cd5}{\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Define\+Variable.\+operator\+Index}}\label{classbio__expression_1_1_define_variable_a4f43782aed1e3a2fdf23b75480952cd5}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

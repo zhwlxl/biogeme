@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <algorithm>
 #include <sstream>
 #include "patDisplay.h"
@@ -470,8 +474,10 @@ ostream& operator<<(ostream &str, const bioLiteralRepository& x) {
 
 patString bioLiteralRepository::printFixedParameters(patBoolean estimation) const {
   stringstream str ;
-  for (vector<bioFixedParameter>::const_iterator i = listOfFixedParameters.begin() ;
-       i != listOfFixedParameters.end() ;
+  vector<bioFixedParameter> s = listOfFixedParameters ;
+  sort(s.begin(),s.end()) ;
+  for (vector<bioFixedParameter>::const_iterator i = s.begin() ;
+       i != s.end() ;
        ++i) {
     str << i->printPythonCode(estimation) << endl ;
   }

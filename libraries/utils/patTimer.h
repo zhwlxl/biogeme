@@ -9,7 +9,7 @@
 #ifndef patTimer_h
 #define patTimer_h
 
-#include <time.h>
+#include <ctime>
 #include <map>
 #include "patString.h"
 #include "patType.h"

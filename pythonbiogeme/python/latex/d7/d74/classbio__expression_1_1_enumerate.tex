@@ -1,0 +1,95 @@
+\hypertarget{classbio__expression_1_1_enumerate}{\section{bio\+\_\+expression.\+Enumerate Class Reference}
+\label{classbio__expression_1_1_enumerate}\index{bio\+\_\+expression.\+Enumerate@{bio\+\_\+expression.\+Enumerate}}
+}
+
+
+Class performing a sample enumeration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Enumerate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d74/classbio__expression_1_1_enumerate}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_enumerate_ab7cd2488a92f201b862e15beb632e73f}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_enumerate_acbbe6290ed6808c1e8673b55131d9a92}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_enumerate_a073ebe902289aa7fc272670590867337}{the\+Dict}
+\item 
+\hyperlink{classbio__expression_1_1_enumerate_a1674f2a07f9b8955d89cdf3be608b385}{iterator\+Name}
+\item 
+\hyperlink{classbio__expression_1_1_enumerate_a4383c04f076c1aeb5bc2a60a9932f619}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class performing a sample enumeration. 
+
+The concept of iterators (see the section \char`\"{}\+Iterators\char`\"{}), identifies a sequence such that, for each instance, the value of the variables is read from the data file, and an expression can be evaluated. In sample enumeration, expressions are computed for each instance in the sample and reported in a file. Example\+: 
+\begin{DoxyCode}
+1 simulate = \{\textcolor{stringliteral}{'Prob. 1'}: P1, \textcolor{stringliteral}{'Prob. 2'}: P2, \textcolor{stringliteral}{'Util. 1'}: V1, \textcolor{stringliteral}{'Util. 2'}:V2, \textcolor{stringliteral}{'Diff. util.'}: V1-V2\}
+2 rowIterator(\textcolor{stringliteral}{'obsIter'}) 
+3 BIOGEME\_OBJECT.SIMULATE = Enumerate(simulate,\textcolor{stringliteral}{'obsIter'})
+\end{DoxyCode}
+ Note that this expression is used exclusively for simulation. Contrarily to all other expressions, it does not return any value and, consequently, cannot be included in another expression. Something like
+\begin{DoxyCode}
+1 X + Enumerate(V,\textcolor{stringliteral}{'obsIter'}) / 2 
+\end{DoxyCode}
+ does not make any sense. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_enumerate_ab7cd2488a92f201b862e15beb632e73f}{\index{bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Enumerate.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{iterator\+Name}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_enumerate_ab7cd2488a92f201b862e15beb632e73f}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & a dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation})) of the form 
+\begin{DoxyCode}
+1 \{label: expression, label: expression,...\}
+\end{DoxyCode}
+ where label is used to describe the results in the output file, and expression is a valid expression. \\
+\hline
+{\em iterator\+Name} & name of an iterator already defined. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_enumerate_acbbe6290ed6808c1e8673b55131d9a92}{\index{bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Enumerate.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_enumerate_acbbe6290ed6808c1e8673b55131d9a92}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_enumerate_a1674f2a07f9b8955d89cdf3be608b385}{\index{bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}!iterator\+Name@{iterator\+Name}}
+\index{iterator\+Name@{iterator\+Name}!bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}}
+\subsubsection[{iterator\+Name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Enumerate.\+iterator\+Name}}\label{classbio__expression_1_1_enumerate_a1674f2a07f9b8955d89cdf3be608b385}
+\hypertarget{classbio__expression_1_1_enumerate_a4383c04f076c1aeb5bc2a60a9932f619}{\index{bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Enumerate.\+operator\+Index}}\label{classbio__expression_1_1_enumerate_a4383c04f076c1aeb5bc2a60a9932f619}
+\hypertarget{classbio__expression_1_1_enumerate_a073ebe902289aa7fc272670590867337}{\index{bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}!the\+Dict@{the\+Dict}}
+\index{the\+Dict@{the\+Dict}!bio\+\_\+expression\+::\+Enumerate@{bio\+\_\+expression\+::\+Enumerate}}
+\subsubsection[{the\+Dict}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Enumerate.\+the\+Dict}}\label{classbio__expression_1_1_enumerate_a073ebe902289aa7fc272670590867337}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

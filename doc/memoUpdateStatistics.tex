@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+
+%\usepackage{fancyhdr}
+%\usepackage{euler,beton}
+\usepackage{euler}
+\usepackage{times}
+
+%Package to display boxes around texts. Used especially for the internal notes.
+\usepackage{framed}
+
+\newcommand{\note}[1]{
+\begin{framed}{}%
+\textbf{\underline{Internal note}:} #1
+\end{framed}}
+
+\usepackage[dcucite,abbr]{harvard}
+\harvardparenthesis{none}\harvardyearparenthesis{round}
+
+\usepackage{index}
+%\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{moreverb}
+\usepackage{varioref}
+\usepackage{epsfig}
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\renewcommand{\bf}{\textbf}
+
+\makeindex
+
+
+\title{Memo: updating statistics}
+\author{Michel Bierlaire\thanks{Ecole Polytechnique F\'ed\'erale de Lausanne, Transport and Mobility Laboratory, CH-1015 Lausanne,
+Switzerland. Email: michel.bierlaire@epfl.ch}}
+
+\date{\today}
+
+
+\begin{document}
+
+%\newcommand{\citeasnoun}[1]{\cite{#1}}
+
+\newcommand{\prob}{\operatorname{Pr}}
+\newcommand{\expect}{\operatorname{E}}
+\newcommand{\req}[1]{(\ref{#1})}
+\newcommand{\BIOGEME}{Biogeme}
+%\newcommand{\BIOROUTE}{Bioroute~1.9}
+\newcommand{\BIOSIM}{Biosim}
+\newcommand{\PBIOGEME}{PythonBiogeme}
+
+% A redefinir
+
+\newcommand{\paramitem}[1]{\texttt{#1}\index{default.par!#1}}
+\newcommand{\specitem}[1]{\texttt{[#1]}\index{Model specification file!#1}}
+\newcommand{\routeitem}[1]{\texttt{[#1]}\index{BIOROUTE!#1}}
+\newcommand{\fileitem}[1]{\texttt{#1}\index{Files!#1}}
+
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\L}{\mathcal{L}}
+\maketitle
+
+Consider a series of values $x_i$, $i=1,\ldots,n$. We are interested
+in the following quantities:
+\begin{itemize}
+\item the mean:
+\begin{equation}
+\bar{x}_n = \frac{1}{n} \sum_{i=1}^n x_i,
+\end{equation}
+\item the sum of squares:
+\begin{equation}
+S_n = \sum_{i=1}^n (x_i - \bar{x}_n)^2,
+\end{equation}
+\item the variance
+\begin{equation}
+V_n = \frac{S_n}{n-1},
+\end{equation}
+\item the standard deviation
+\begin{equation}
+s_n = \frac{V_n}{\sqrt{n}}.
+\end{equation}
+\end{itemize}
+We collect a set of $m$ additional pieces of data $x_i$,
+$i=n+1,\ldots,n+m$, and we would like to update the above quantities.
+
+\section{Mean}
+\begin{align}
+\bar{x}_{n+m} & = \frac{1}{n+m} \sum_{i=1}^{n+m} x_i \\
+             & = \frac{1}{n+m} \left(\sum_{i=1}^{n} x_i+\sum_{i=n+1}^{n+m} x_i\right) \\
+             & = \frac{1}{n+m} \left(n \bar{x}_n +\sum_{i=n+1}^{n+m} x_i\right) \\
+\end{align}
+
+\section{Sum of squares}
+Define
+\begin{equation}
+e = \bar{x}_n  - \bar{x}_{n+m}
+\end{equation}
+
+\begin{align}
+ \sum_{i=1}^{n} (x_i - \bar{x}_{n+m})^2 
+&=  \sum_{i=1}^{n} (x_i -
+ \bar{x}_n + \bar{x}_n  - \bar{x}_{n+m})^2  \\
+&=  \sum_{i=1}^{n} (x_i -
+ \bar{x}_n +e)^2  \\
+&= \sum_{i=1}^{n} ((x_i-\bar{x}_n)^2 + e^2 + 2e (x_i-\bar{x}_n)) \\
+&= S_n + ne^2 + 2e\sum_{i=1}^{n} (x_i -\bar{x}_n) \\
+&= S_n + ne^2
+\end{align}
+Therefore,
+\begin{align}
+S_{n+m} &= \sum_{i=1}^{n+m} (x_i - \bar{x}_{n+m})^2 \\
+  &= \sum_{i=1}^{n} (x_i - \bar{x}_{n+m})^2 + \sum_{i=n+1}^{m} (x_i -    \bar{x}_{n+m})^2 \\
+ &= S_n + ne^2 + \sum_{i=n+1}^{m} (x_i - \bar{x}_{n+m})^2 \\
+\end{align}
+\section{Variance}
+\begin{equation}
+  V_{n+m} = \frac{S_{n+m}}{n+m-1} 
+\end{equation}
+\section{Standard deviation}
+\begin{equation}
+s_{n+m} = \frac{V_{n+m}}{\sqrt{n+m}}.
+\end{equation}
+\end{document}
+
+
+
+
+

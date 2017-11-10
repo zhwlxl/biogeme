@@ -1,0 +1,60 @@
+\hypertarget{classbio__expression_1_1bio_uniform_draws}{}\section{bio\+\_\+expression.\+bio\+Uniform\+Draws Class Reference}
+\label{classbio__expression_1_1bio_uniform_draws}\index{bio\+\_\+expression.\+bio\+Uniform\+Draws@{bio\+\_\+expression.\+bio\+Uniform\+Draws}}
+
+
+Class representing a uniformly distributed random variable on \mbox{[}0,1\mbox{]} for simulated integration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Uniform\+Draws\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_uniform_draws}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_draws_a132717324d8d03e3233a4798629bdf32}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, name, index=\textquotesingle{}\+\_\+\+\_\+row\+Id\+\_\+\+\_\+\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class representing a uniformly distributed random variable on \mbox{[}0,1\mbox{]} for simulated integration. 
+
+A different set of draws will be generated for each group in the data file. By default, the groups are identified by {\bfseries row\+Id}, and a set of draws is generated for each row in the sample. Another typical case corresponds to panel data, where several rows correspond to the same individual. If Id identifies individuals in the data set, a set of draws will be generated for each individual, and not for each observation. Example\+: 
+\begin{DoxyCode}
+1 Errorcomp = bioUniformDraws(\textcolor{stringliteral}{'Errorcomp'},\textcolor{stringliteral}{'Id'})
+\end{DoxyCode}
+ 
+
+Definition at line 454 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Uniform\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Draws}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, name, index=\textquotesingle{}\+\_\+\+\_\+row\+Id\+\_\+\+\_\+\textquotesingle{})}{__init__(self, name, index='__rowId__')}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Draws.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{index = {\ttfamily \textquotesingle{}\+\_\+\+\_\+rowId\+\_\+\+\_\+\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_uniform_draws_a132717324d8d03e3233a4798629bdf32}{}\label{classbio__expression_1_1bio_uniform_draws_a132717324d8d03e3233a4798629bdf32}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the random variable \\
+\hline
+{\em index} & name of the identifier of groups of data associated with a different set of draws. (optional, default=\textquotesingle{}{\bfseries row\+Id}\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 459 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

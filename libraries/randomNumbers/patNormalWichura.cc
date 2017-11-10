@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "patNormalWichura.h"
 #include "patMath.h"
 #include "patUniform.h" 

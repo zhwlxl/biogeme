@@ -1,0 +1,70 @@
+\hypertarget{classbio__expression_1_1bio_normal_pdf}{}\section{bio\+\_\+expression.\+bio\+Normal\+Pdf Class Reference}
+\label{classbio__expression_1_1bio_normal_pdf}\index{bio\+\_\+expression.\+bio\+Normal\+Pdf@{bio\+\_\+expression.\+bio\+Normal\+Pdf}}
+
+
+Class representing the probability density function of a standardized normally distributed random variable.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Normal\+Pdf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_normal_pdf}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_pdf_a1b793b98222055da71bce055cb7f99c2}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, term)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1bio_normal_pdf_a93319a5c1574d28d8636a4f2404694e7}{}\label{classbio__expression_1_1bio_normal_pdf_a93319a5c1574d28d8636a4f2404694e7}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries function}\hypertarget{classbio__expression_1_1bio_normal_pdf_ad59a9659d06a48d7d4a44037f56882c0}{}\label{classbio__expression_1_1bio_normal_pdf_ad59a9659d06a48d7d4a44037f56882c0}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1bio_normal_pdf_a1129591234db4f63d55b09674e027fa7}{}\label{classbio__expression_1_1bio_normal_pdf_a1129591234db4f63d55b09674e027fa7}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the probability density function of a standardized normally distributed random variable. 
+
+The pdf of the normal distribution is \[ \mbox{bioNormalPdf}(x) = \frac{1}{\sqrt{2\pi}}e^{-t^2/2}. \] The computation of a normal mixture of logit models is performed using the following syntax, where condprob is the conditional (logit) choice probability\+: 
+\begin{DoxyCode}
+1 omega = RandomVariable(\textcolor{stringliteral}{'omega'})
+2 density = bioNormalPdf(omega) 
+3 result = Integrate(condprob * density,\textcolor{stringliteral}{'omega'})
+\end{DoxyCode}
+ 
+
+Definition at line 793 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Normal\+Pdf@{bio\+\_\+expression\+::bio\+Normal\+Pdf}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, term)}{__init__(self, term)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Pdf.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_normal_pdf_a1b793b98222055da71bce055cb7f99c2}{}\label{classbio__expression_1_1bio_normal_pdf_a1b793b98222055da71bce055cb7f99c2}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & an expression providing the value of the argument of the pdf \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 795 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

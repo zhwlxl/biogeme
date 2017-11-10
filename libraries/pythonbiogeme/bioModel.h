@@ -53,6 +53,8 @@ public:
   bioExpressionRepository* getRepository() ;
   void addUserExpression(patString name, patULong exprId) ;
   patBoolean involvesMonteCarlo() ;
+  void setOldBetas(map<patString,vector<patReal> >* r) ;
+  vector<patVariables>* getOldBetas(patError*& err) ;
 protected:
   patULong theFormula ;
   map<patString, patULong>* statistics ;
@@ -67,6 +69,7 @@ protected:
   vector<patString> namesForSensitivity ;
   patBoolean performSensitivityAnalysis ;
   bioArithBayes* theBayesianExpr ;
+  map<patString,vector<patReal> >* oldBetas ;
 };
 
 

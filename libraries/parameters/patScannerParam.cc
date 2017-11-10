@@ -1791,10 +1791,10 @@ static yyconst flex_int32_t yy_rule_can_match_eol[240] =
 #line 17 "patScannerParam.ll"
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 #include "patParserParam.hh"
-#include <string>
+#include <cstring>
 #define YY_BREAK
 
 #line 1801 "patScannerParam.cc"

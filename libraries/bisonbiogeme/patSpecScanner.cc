@@ -911,10 +911,10 @@ static yyconst flex_int32_t yy_rule_can_match_eol[104] =
 #line 15 "patSpecScanner.ll"
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 #include "patSpecParser.hh"
-#include <string>
+#include <cstring>
 #define YY_BREAK
 
 //STR	["]([^"^\n^\r]*)[\n"]

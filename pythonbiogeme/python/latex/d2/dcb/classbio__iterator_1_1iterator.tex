@@ -1,0 +1,88 @@
+\hypertarget{classbio__iterator_1_1iterator}{\section{bio\+\_\+iterator.\+iterator Class Reference}
+\label{classbio__iterator_1_1iterator}\index{bio\+\_\+iterator.\+iterator@{bio\+\_\+iterator.\+iterator}}
+}
+
+
+Generic class for an iterator.  
+
+
+Inheritance diagram for bio\+\_\+iterator.\+iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dcb/classbio__iterator_1_1iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__iterator_1_1iterator_aecf8b6945608caee98de17dca54e3315}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__iterator_1_1iterator_a9f521a484ac8082a4ffee14d9ba2192c}{\+\_\+\+\_\+str\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__iterator_1_1iterator_a10e4188d8459b5342d609df5a1267a5d}{iterator\+Name}
+\item 
+\hyperlink{classbio__iterator_1_1iterator_a0dbadbe5cc949e2bfa25591b22956989}{name}
+\item 
+\hyperlink{classbio__iterator_1_1iterator_a67a5a5a22ba01bcaa168c9e056eb25d0}{child}
+\item 
+\hyperlink{classbio__iterator_1_1iterator_a2fd1e60735f344291efbbbf0fbf8a48a}{variable}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic class for an iterator. 
+
+Iterators are designed to define loops on the entries of the data file. It is assumed that the data file is composed of rows, each containing the same number of numeric entries. The first row of the file contains the headers, labeling each of these entries. There are three types of iterators\+:
+\begin{DoxyItemize}
+\item row iterators are designed to iterate on rows of the data file. This is the most common type of iterators.
+\item meta iterators are designed to iterate on group of rows of the data file. They are typically used for panel data, where several rows correspond to the same individual.
+\item draw iterators are designed to iterate on the draws generated for the random variables used in Monte-\/\+Carlo simulation.
+\end{DoxyItemize}
+
+Hierarchical nesting of iterators is possible, so that iterators may have a parent and a child. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__iterator_1_1iterator_aecf8b6945608caee98de17dca54e3315}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+iterator.\+iterator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{iterator\+Name, }
+\item[{}]{name, }
+\item[{}]{child, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}}\label{classbio__iterator_1_1iterator_aecf8b6945608caee98de17dca54e3315}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__iterator_1_1iterator_a9f521a484ac8082a4ffee14d9ba2192c}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{\+\_\+\+\_\+str\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+iterator.\+iterator.\+\_\+\+\_\+str\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__iterator_1_1iterator_a9f521a484ac8082a4ffee14d9ba2192c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__iterator_1_1iterator_a67a5a5a22ba01bcaa168c9e056eb25d0}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!child@{child}}
+\index{child@{child}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{child}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+iterator.\+child}}\label{classbio__iterator_1_1iterator_a67a5a5a22ba01bcaa168c9e056eb25d0}
+\hypertarget{classbio__iterator_1_1iterator_a10e4188d8459b5342d609df5a1267a5d}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!iterator\+Name@{iterator\+Name}}
+\index{iterator\+Name@{iterator\+Name}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{iterator\+Name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+iterator.\+iterator\+Name}}\label{classbio__iterator_1_1iterator_a10e4188d8459b5342d609df5a1267a5d}
+\hypertarget{classbio__iterator_1_1iterator_a0dbadbe5cc949e2bfa25591b22956989}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!name@{name}}
+\index{name@{name}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+iterator.\+name}}\label{classbio__iterator_1_1iterator_a0dbadbe5cc949e2bfa25591b22956989}
+\hypertarget{classbio__iterator_1_1iterator_a2fd1e60735f344291efbbbf0fbf8a48a}{\index{bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}!variable@{variable}}
+\index{variable@{variable}!bio\+\_\+iterator\+::iterator@{bio\+\_\+iterator\+::iterator}}
+\subsubsection[{variable}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+iterator.\+variable}}\label{classbio__iterator_1_1iterator_a2fd1e60735f344291efbbbf0fbf8a48a}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__iterator_8py}{bio\+\_\+iterator.\+py}\end{DoxyCompactItemize}

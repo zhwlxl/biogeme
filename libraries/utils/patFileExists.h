@@ -10,7 +10,7 @@
 #ifndef patFileExists_h
 #define patFileExists_h
 
-#include <string>
+#include <cstring>
 #include "patType.h"
 
 /**

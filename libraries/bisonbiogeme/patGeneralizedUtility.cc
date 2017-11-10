@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patGeneralizedUtility.h"
 #include "patModelSpec.h"
 #include "patValueVariables.h"

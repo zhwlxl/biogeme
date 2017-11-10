@@ -17,12 +17,12 @@ class bioFunctionAndDerivatives {
   
 public:
 
-  bioFunctionAndDerivatives(patULong n = 0) ;
+  bioFunctionAndDerivatives(patULong n) ;
   ~bioFunctionAndDerivatives() ;
   bioFunctionAndDerivatives& operator=(bioFunctionAndDerivatives& obj) ;
   patReal theFunction ;
   vector<patReal> theGradient ;
-  trHessian *theHessian ;
+  trHessian theHessian ;
   patBoolean empty() const ;
   patString printSize() ;
   void resize(patULong s) ;

@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 // #include "patDonlp2.h"
  #include "patString.h"
 #include "patMath.h"
@@ -50,6 +51,7 @@
  #include "patCfsqp.h"
  #include "patSolvOpt.h"
 // #include "trBasicTrustRegionAlgo.h"
+#include "bioAlgoStopFile.h"
  #include "patSampleEnumeration.h"
  #include "patErrNullPointer.h"
  #include "patVersion.h"
@@ -551,7 +553,7 @@ void patBiogeme::initProbaModel(patError*& err) {
     }
   }
   patString fileName("model.debug") ;
-  ofstream debug(fileName) ;
+  ofstream debug(fileName.c_str()) ;
   debug << *patModelSpec::the() << endl ;
   debug.close() ;
   patOutputFiles::the()->addDebugFile(fileName,"Debugging information");
@@ -936,10 +938,13 @@ void patBiogeme::initAlgorithm(patError*& err) {
     }
     else {
       patIterationBackup* aBackup = new patBiogemeIterationBackup() ;
+      patString stopFileName = patParameters::the()->getgevStopFileName() ;
+      theStopFileCriterion = new bioAlgoStopFile(stopFileName) ;
       algo = new trSimpleBoundsAlgo(theProblem,
 				    x0,
 				    theTrParameters,
 				    aBackup,
+				    theStopFileCriterion,
 				    err) ;
       
       if (err != NULL) {
@@ -957,11 +962,14 @@ void patBiogeme::initAlgorithm(patError*& err) {
       return ;
     }
     patIterationBackup* aBackup = new patBiogemeIterationBackup() ;
-    algo = new trSimpleBoundsAlgo(theProblem,
-				  x0,
-				  theTrParameters,
-				  aBackup,
-				  err) ;
+      patString stopFileName = patParameters::the()->getgevStopFileName() ;
+      theStopFileCriterion = new bioAlgoStopFile(stopFileName) ;
+      algo = new trSimpleBoundsAlgo(theProblem,
+				    x0,
+				    theTrParameters,
+				    aBackup,
+				    theStopFileCriterion,
+				    err) ;
       
     if (err != NULL) {
       WARNING(err->describe()) ;
@@ -975,14 +983,15 @@ void patBiogeme::initAlgorithm(patError*& err) {
     DETAILED_MESSAGE("Use CFSQP") ;
       
     patIterationBackup* aBackup = new patBiogemeIterationBackup() ;
-    patCfsqp* cfsqpAlgo = new patCfsqp(aBackup,theProblem) ;
+    patString stopFileName = patParameters::the()->getgevStopFileName() ;
+    theStopFileCriterion = new bioAlgoStopFile(stopFileName) ;
+    patCfsqp* cfsqpAlgo = new patCfsqp(aBackup,theStopFileCriterion,theProblem) ;
     cfsqpAlgo->setParameters(patParameters::the()->getcfsqpMode(),
 			     patParameters::the()->getcfsqpIprint(),
 			     patParameters::the()->getcfsqpMaxIter(),
 			     patParameters::the()->getcfsqpEps(),
 			     patParameters::the()->getcfsqpEpsEqn(),
-			     patParameters::the()->getcfsqpUdelta(),
-			     patParameters::the()->getgevStopFileName()) ;
+			     patParameters::the()->getcfsqpUdelta()) ;
     algo = cfsqpAlgo ;
     if (algo == NULL) {
       err = new patErrNullPointer("patCfsqp") ;
@@ -992,7 +1001,9 @@ void patBiogeme::initAlgorithm(patError*& err) {
   }
   else if (patParameters::the()->getgevAlgo() == "SOLVOPT") {
     DEBUG_MESSAGE("Use SolvOpt algorithm") ;
-    algo = new patSolvOpt(theSolvoptParameters,theProblem) ;
+      patString stopFileName = patParameters::the()->getgevStopFileName() ;
+      theStopFileCriterion = new bioAlgoStopFile(stopFileName) ;
+      algo = new patSolvOpt(theSolvoptParameters,theStopFileCriterion,theProblem) ;
     if (algo == NULL) {
       err = new patErrNullPointer("patSolvOpt") ;
       WARNING(err->describe()) ;

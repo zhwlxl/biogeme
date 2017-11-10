@@ -1,0 +1,106 @@
+\hypertarget{classbio__expression_1_1_elem}{\section{bio\+\_\+expression.\+Elem Class Reference}
+\label{classbio__expression_1_1_elem}\index{bio\+\_\+expression.\+Elem@{bio\+\_\+expression.\+Elem}}
+}
+
+
+Class extracting an expression from a dictionary.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Elem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d21/classbio__expression_1_1_elem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_elem_a364649cdfb339e7177200501136b4a3b}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_elem_a2733a5fe40635709324de8507de2ca5a}{get\+Expression}
+\item 
+def \hyperlink{classbio__expression_1_1_elem_a2a48374c8093b87d30c09222c14a8708}{get\+I\+D}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_elem_a17c61b7da60297dbf7f4164a2a78aa49}{prob}
+\item 
+\hyperlink{classbio__expression_1_1_elem_a024d48dfc32b4486db3e0147bb57f2cf}{choice}
+\item 
+\hyperlink{classbio__expression_1_1_elem_ae9652f5b42921e03b8623baf034e01be}{default}
+\item 
+\hyperlink{classbio__expression_1_1_elem_a862e4fd7b70af8a2bd3c0db048dc90a5}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class extracting an expression from a dictionary. 
+
+A typical example consists in returning the probability of a chosen alternative in a choice model. Consider the following dictionary\+: 
+\begin{DoxyCode}
+1 P = \{  1: exp(V1) / (exp(V1)+exp(V2)+exp(V3)),
+2 2: exp(V2) / (exp(V1)+exp(V2)+exp(V3)),
+3 3: exp(V3) / (exp(V1)+exp(V2)+exp(V3))\}
+\end{DoxyCode}
+ and assume that the variable Choice in the data file contains the identifier of the chosen alternative of the corresponding observation, that is 1, 2 or 3. Then, the probability of the chosen alternative is given by 
+\begin{DoxyCode}
+1 chosenProba = Elem(P,Choice)
+\end{DoxyCode}
+ If the result of \char`\"{}\+Choice\char`\"{} does not correspond to any valid entry in the dictionary, a warning is issued and the value of the default expression is returned. The warning is issued because this situation is usually not wanted by the user. To turn off the warning, set the parameter warns\+For\+Illegal\+Elements to 0. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_elem_a364649cdfb339e7177200501136b4a3b}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Elem.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dictionary, }
+\item[{}]{key, }
+\item[{}]{default = {\ttfamily {\bf Numeric}(0)}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_elem_a364649cdfb339e7177200501136b4a3b}
+
+\begin{DoxyParams}{Parameters}
+{\em dictionary} & A dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) such that the indices are numerical values that can match the result of an expression \\
+\hline
+{\em key} & expression identifying the entry in the dictionary  If the result of key does not correspond to any valid entry in the dictionary, the value of the default expression is returned. This argument is optional. If omitted, the default value is 0. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_elem_a2733a5fe40635709324de8507de2ca5a}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Elem.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_elem_a2733a5fe40635709324de8507de2ca5a}
+\hypertarget{classbio__expression_1_1_elem_a2a48374c8093b87d30c09222c14a8708}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!get\+I\+D@{get\+I\+D}}
+\index{get\+I\+D@{get\+I\+D}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{get\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Elem.\+get\+I\+D (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_elem_a2a48374c8093b87d30c09222c14a8708}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_elem_a024d48dfc32b4486db3e0147bb57f2cf}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!choice@{choice}}
+\index{choice@{choice}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{choice}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Elem.\+choice}}\label{classbio__expression_1_1_elem_a024d48dfc32b4486db3e0147bb57f2cf}
+\hypertarget{classbio__expression_1_1_elem_ae9652f5b42921e03b8623baf034e01be}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!default@{default}}
+\index{default@{default}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{default}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Elem.\+default}}\label{classbio__expression_1_1_elem_ae9652f5b42921e03b8623baf034e01be}
+\hypertarget{classbio__expression_1_1_elem_a862e4fd7b70af8a2bd3c0db048dc90a5}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Elem.\+operator\+Index}}\label{classbio__expression_1_1_elem_a862e4fd7b70af8a2bd3c0db048dc90a5}
+\hypertarget{classbio__expression_1_1_elem_a17c61b7da60297dbf7f4164a2a78aa49}{\index{bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}!prob@{prob}}
+\index{prob@{prob}!bio\+\_\+expression\+::\+Elem@{bio\+\_\+expression\+::\+Elem}}
+\subsubsection[{prob}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Elem.\+prob}}\label{classbio__expression_1_1_elem_a17c61b7da60297dbf7f4164a2a78aa49}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

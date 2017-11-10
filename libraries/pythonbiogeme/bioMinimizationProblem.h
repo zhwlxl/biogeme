@@ -9,10 +9,11 @@
 #ifndef bioMinimizationProblem_h
 #define bioMinimizationProblem_h
 
-#include "patMyMatrix.h"
+//#include "patMyMatrix.h"
 #include "patNonLinearProblem.h"
 #include "trBounds.h"
 #include "trParameters.h"
+#include "bioOptimizationResults.h"
 
 class bioMinimizationProblem : public patNonLinearProblem {
 public:
@@ -41,20 +42,25 @@ public:
   virtual patString getProblemName() ;
   void addEqualityConstraint(trFunction* c) ;
   patBoolean isFeasible(trVector& x, patError*& err) const ; 
-  patULong getSizeOfVarCovar() ;
-  patBoolean computeVarCovar(trVector* x,
-			     patMyMatrix* varCovar,
-			     patMyMatrix* robustVarCovar,
-			     map<patReal,patVariables>* eigVec,
-			     patReal* smallSV,
-			     patError*& err) ;
+  //  patULong getSizeOfVarCovar() ;
+  bioOptimizationResults* getOptimizationResults(patVariables x,
+						 patBoolean secondDerivatives,
+						 patError*& err);
+  // patBoolean computeVarCovar(trVector* x,
+  // 			     patMyMatrix* varCovar,
+  // 			     patMyMatrix* robustVarCovar,
+  // 			     map<patReal,patVariables>* eigVec,
+  // 			     patReal* smallSV,
+  // 			     patError*& err) ;
 private:
   trFunction* theFunction ;
   trBounds theBounds ;
   vector<trFunction*> equalityConstraints ;
-  patMyMatrix* bigMatrix ;
-  patMyMatrix* matHess ;
+  // patMyMatrix* bigMatrix ;
+  // patMyMatrix* matHess ;
   trParameters theTrParameters ;
+  bioOptimizationResults* theOptimizationResults ;
+
 };
 
 #endif

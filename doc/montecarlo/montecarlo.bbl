@@ -1,0 +1,52 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Bhat}{2001}{Bhat2001}
+Bhat, C.  \harvardyearleft 2001\harvardyearright .
+\newblock Quasi-random maximum simulated likelihood estimation of the mixed
+  multinomial logit model, {\em Transportation Research Part B} {\bf
+  35}:~677--693.
+
+\harvarditem{Bhat}{2003}{Bhat2003837}
+Bhat, C.~R.  \harvardyearleft 2003\harvardyearright .
+\newblock Simulation estimation of mixed discrete choice models using
+  randomized and scrambled halton sequences, {\em Transportation Research Part
+  B: Methodological} {\bf 37}(9):~837 -- 855.
+\newline\harvardurl{http://www.sciencedirect.com/science/article/pii/S0191261502000905}
+
+\harvarditem[Bierlaire et~al.]{Bierlaire, Axhausen \harvardand\
+  Abay}{2001}{BierAxhaAbay01}
+Bierlaire, M., Axhausen, K. \harvardand\ Abay, G.  \harvardyearleft
+  2001\harvardyearright .
+\newblock The acceptance of modal innovation: The case of swissmetro, {\em
+  Proceedings of the Swiss Transport Research Conference}, Ascona, Switzerland.
+
+\harvarditem{Halton}{1960}{Halt60}
+Halton, J.~H.  \harvardyearleft 1960\harvardyearright .
+\newblock On the efficiency of certain quasi-random sequences of points in
+  evaluating multi-dimensional integrals, {\em Numerische Mathematik} {\bf
+  2}(1):~84--90.
+\newline\harvardurl{http://dx.doi.org/10.1007/BF01386213}
+
+\harvarditem[Hess et~al.]{Hess, Train \harvardand\ Polak}{2006}{HessTraiPola05}
+Hess, S., Train, K. \harvardand\ Polak, J.  \harvardyearleft
+  2006\harvardyearright .
+\newblock On the use of modified latin hypercube sampling ({MLHS}) method in
+  the estimation of mixed logit model for vehicle choice, {\em Transportation
+  Research Part B} {\bf 40}(2):~147--163.
+
+\harvarditem{Ross}{2012}{Ross12}
+Ross, S.  \harvardyearleft 2012\harvardyearright .
+\newblock {\em Simulation}, fifth edition edn, Academic Press.
+\newline\harvardurl{http://books.google.ch/books?id=sZjDT6MQGF4C}
+
+\harvarditem{S\'andor \harvardand\ Train}{2004}{Sandor2004313}
+S\'andor, Z. \harvardand\ Train, K.  \harvardyearleft 2004\harvardyearright .
+\newblock Quasi-random simulation of discrete choice models, {\em
+  Transportation Research Part B: Methodological} {\bf 38}(4):~313 -- 327.
+
+\harvarditem{Train}{2000}{Trai2000}
+Train, K.  \harvardyearleft 2000\harvardyearright .
+\newblock Halton sequences for mixed logit, {\em Technical Report E00-278},
+  Department of Economics, University of California, Berkeley.
+
+\end{thebibliography}

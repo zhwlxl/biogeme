@@ -1,0 +1,9 @@
+This file has automatically been generated.
+Tue Mar 14 07:39:58 2017
+Michel Bierlaire, EPFL
+
+biogeme 2.6a [Lun 13 mar 2017 11:30:40 CET]
+Michel Bierlaire, EPFL
+
+Warning: [07:39:58]bioGtkGui.cc:73  Error: FileError: L'ouverture du fichier « gtkbiogeme.ui » a échoué : No such file or directory
+

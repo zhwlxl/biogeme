@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Bison Biogeme: run</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">BISON BIOGEME <acronym
+	title="Biogeme" class="local-color-text">run</acronym></a></h1>
+
+<div class="clear "></div>
+
+
+<div id="content" class="content">
+
+<div class="fullbox">
+
+<h3>Invoking Biogeme</h3>
+
+<p>
+Biogeme  is invoked in a shell under Linux, in a DOS command window or a Cygwin command window 
+under Windows using the following statement structure
+</p>
+<p align='center'>
+<code>biogeme model_name sample_file_1 sample_file2 sample_file3 ...</code>
+</p>
+<p>
+By default, the <code>sample_file_1</code> is assumed to be <code>sample.dat</code>, and the <code>model_name</code> to be <code>default</code>. Therefore, typing
+<p align='center'>
+<code>biogeme model_name</code>
+</p>
+<p>
+is equivalent to typing
+</p>
+<p align='center'>
+<code>biogeme model_name sample.dat</code>
+</p>
+<p>
+and typing
+</p>
+<p align='center'>
+<code>biogeme</code>
+</p>
+<p>
+is equivalent to typing
+</p>
+<p align='center'>
+<code>biogeme default sample.dat</code>
+</p>
+<p>
+Finally, typing
+</p>
+<p align='center'>
+<code>biogeme -h</code>
+</p>
+<p>
+generates an output looking like
+</p>
+<p>
+<code>
+<pre>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BIOGEME Version n.x [date]
+Michel Bierlaire, EPFL
+-- Compiled by Michel Bierlaire on MINGW32_NT-5.1
+See http://biogeme.epfl.ch
+                    !! CFSQP is available !!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        "In every non-trivial program there is at least one bug."
+
+Usage: biogeme model_name sampleFile1 sampleFile2 sampleFile3 ... 
+</pre>
+</code>
+</p>
+<p>
+If the name of the model is <code>mymodel</code>, say, Biogeme reads the following files:
+<ul>
+<li> a file containing the parameters controlling the behavior of Biogeme: <code>mymodel.par</code>,</li>
+<li> a file containing the model specification: <code>mymodel.mod</code>,</li>
+<li> a file containing the data: <code>sample.dat</code>,</li>
+<li> optionally a file containing the random numbers to use if estimation is based on simulation.</li>
+</ul>
+<p>
+It automatically generates the following output files:
+<ul>
+<li> a file reporting the results of the estimation: <code>mymodel.rep</code>,</li>
+<li> the same file in HTML format: <code>mymodel.html</code>,</li>
+<li> a file containing the main results in LaTeX format: <code>mymodel.tex</code>,</li>
+<li> a file containing the main results in ALogit format: <code>mymodel.F12</code>,</li>
+<li> a file containing the specification of the estimated model, in the same format as the model specification file: <code>mymodel.res</code>,</li> 
+<li> a file containing the specification of the estimated model at each iteration, in the same format as the model specification file: <code>mymodel.bck</code> (only if the parameter <code>gevSaveIntermediateResults</code> is set to one), </li>
+<li> a file containing some descriptive statistics on the data: <code>mymodel.sta</code>,</li>
+</ul>
+and the following files to help understanding possible problems
+<ul>
+<li> a file containing messages produced by Biogeme during the run: <code>mymodel.log</code>,</li>
+<li> a file containing the values of the parameters which have been actually used by Biogeme: <code>parameters.out</code>,</li>
+<li> a file containing the data stored in Biogeme to represent
+the model: <code>model.debug</code>,</li>
+<li> a file containing the specification of the model, as it has actually been understood by Biogeme: <code>__specFile.debug</code>.</li>
+</ul>
+
+These file names may be modified, according to the following rules: 
+<ol>
+<li> If an input file <code>mymodel.xxx</code> does not exist, Biogeme
+      attempts to open the file <code>default.xxx</code>. If this file does not
+      exist, Biogeme exits with an error. Typically, the parameter file
+      is not model-dependent. Therefore, it is common to call it
+      <code>default.par</code> to avoid copying it for each different model to
+      be estimated.</li>
+<li> If an output file <code>mymodel.xxx</code> already exists, Biogeme does not overwrite it. 
+      Instead, it creates the file <code>mymodel~1.xxx</code>. If the file <code>mymodel~1.xxx</code> exists, 
+      Biogeme  creates the file <code>mymodel~2.xxx</code>, and so on.</li>
+</ol>
+
+To avoid any ambiguity, Biogeme displays the filenames it has actually used for a specific run, 
+for instance
+<code>
+<pre>
+BIOGEME Input files
+===================
+Parameters:                     default.par
+Model specification:            mymodel.mod
+Sample 1 :                      sample.dat
+Sample 2 :                      sample2.dat
+BIOGEME Output files
+====================
+Estimation results:             mymodel~3.rep
+Estimation results (HTML):      mymodel~3.html
+Estimation results (Latex):     mymodel~5.tex
+Estimation results (ALogit):    mymodel~1.F12
+Result model spec. file:        mymodel~2.res
+Sample statistics:              mymodel~1.sta
+BIOGEME Debug files
+===================
+Log file:                       mymodel.log
+Parameters debug:               parameters.out
+Model debug:                    model.debug
+Model spec. file debug:         __specFile.debug
+</pre>
+</code>
+
+Biogeme also generates a file called <code>summary.html</code> where a
+summary of all runs performed in the working directory are
+gathered. The name of this file can be modified.
+
+It is highly recommended to regularly clean the working directory and
+save the output files in a different place.
+
+</div>
+
+</div>
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+
+<ul class="tree">
+<li><a href="index.html">Back</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</ul>
+
+
+</div>    
+    <div class="clear"></div>
+
+<a href="index.html">Back</a><br>
+<a href="http://biogeme.epfl.ch">Biogeme</a>
+
+
+</body>
+</html>

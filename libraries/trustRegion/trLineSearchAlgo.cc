@@ -7,6 +7,10 @@
 //--------------------------------------------------------------------
 
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <iomanip>
 #include <sstream>
 #include <numeric>
@@ -29,7 +33,7 @@ trLineSearchAlgo::trLineSearchAlgo(patNonLinearProblem* aProblem,
 				   const trVector& initSolution,
 				   trParameters tp,
 				   patError*& err) :
-  trNonLinearAlgo(aProblem),
+  trNonLinearAlgo(aProblem,NULL),
   solution(initSolution),
   theParameters(tp),
   hessian(NULL),
@@ -353,7 +357,7 @@ patBoolean trLineSearchAlgo::checkOpt(const trVector& x,
   trVector::const_iterator gIter = g.begin() ;
   trVector::const_iterator xIter = solution.begin() ;
   for ( ; gIter != g.end() ; ++gIter, ++xIter) {
-    patReal gRel = patAbs(*gIter) * patMax(1.0,patAbs(*xIter)) / 
+    patReal gRel = patAbs(*gIter) * patMax(patOne,patAbs(*xIter)) / 
       patMax(patAbs(function),theParameters.typicalF) ;
     gMax = patMax(gMax,gRel) ;
   }

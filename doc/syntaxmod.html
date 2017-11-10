@@ -1,0 +1,1229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Bison biogeme: model specification</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">BISON BIOGEME <acronym
+	title="Biogeme" class="local-color-text">Model specification file</acronym></a></h1>
+
+<div class="clear "></div>
+
+<div id="content" class="content">
+
+<div class="fullbox">
+
+<p>The file <code>mymodel.mod</code> contains the specification of the discrete choice
+model to be estimated.
+The sections of this file have to be specified as described below.
+Note that comments can be included using <code>//</code>. All characters
+after this command, up to the end of the current line, are ignored.</p>
+
+</div>
+<div class="fullbox">
+</div>
+<div class="fullbox">
+
+<h4>[<a name='ModelDescription'>ModelDescription</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+<p>
+      Type here any text that describes the model. It may contain several lines. Each line must be within double-quotes, like this
+<code>
+<pre>
+[ModelDescription]
+"This is the first line of the model description"
+"This is the second line of the model description"
+</pre>
+</code>
+</p>
+<p>
+Note that it will be copied verbatim in the LaTeX file. Therefore, if it contains special characters which are interpreted by LaTeX, such as $ or &amp;, you may need to edit the LaTeX file before processing it.
+</p>
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Choice'>Choice</a>]</h4> 
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<p>Provide here the formula to compute the identifier of
+      the chosen alternative from the data file. Typically, a ``<code>choice</code>''
+      entry will be available directly in the file, but any formula can be used to
+      compute it. 
+Assume for example that you have numbered alternatives 100, 200 and 300. But in the data file, they are numbered 1,2 and 3. In this case, you must write 
+<code>
+<pre>
+[Choice]
+100  *  choice  
+</pre>
+</code>
+
+ Any expression  described in the section [Expressions] is valid here.
+</p>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='Weight'>Weight</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<p>
+ Provide here the formula to compute the
+      weight associated to each observation. The weight of an observation
+      will be multiplied to the corresponding term in the log-likelihood
+      function. Ideally, the sum of the weights should be equal to the
+      total number of observations, although it is not required. The file
+      reporting the statistics contains a recommendation to adjust the
+      weights in order to comply with this convention.
+</p>
+<p>
+<font color='red'>Important: do not use weights in Biosim.</font>
+</p>
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Beta'>Beta</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+<p>
+      Each line of this section corresponds to a parameter of the utility
+      functions. Five entries must be provided for each parameter:
+<ol>
+<li> Name: the first character must be a letter (any case) or an underscore
+            (_), followed by a sequence of letters, digits, underscore (_)
+            or dashes (-), and terminated by a white space. Note that case sensitivity is enforced. 
+            Therefore <code>varname</code> and <code>Varname</code> would represent two different variables.</li>
+<li> Default value that will be used as a starting point for the estimation, or used directly for the simulation in Biosim.</li>
+<li>    Lower bound on the valid values. Bounds specification is mandatory in Biogeme. If you do not want bounds, just put large negative values for lower bounds and large positive values for upper bounds. Anyway, if the bound is not active at the solution, it does not play any role, except for safeguarding the algorithm.;</li>
+<li> Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given default value. </li>
+</ol>
+
+      Note that this section is independent of the specific model to be
+      estimated, as it captures the deterministic part of the utility function.
+
+<code>
+<pre>
+      [Beta]
+      // Name  Value      LowerBound  UpperBound status
+         ASC1  0          -10000      10000      1
+         ASC2  -0.159016  -10000      10000      0
+         ASC3  -0.0869287 -10000      10000      0
+         ASC4  -0.51122   -10000      10000      0
+         ASC5  0.718513   -10000      10000      0
+         ASC6  -1.39177   -10000      10000      0
+         BETA1 0.778982   -10000      10000      0
+         BETA2 0.809772   -10000      10000      0
+</pre>
+</code>
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Mu'>Mu</a>]</h4> 
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+<p>
+&mu; is the homogeneity parameter of the MEV
+      model. Usually, it is constrained to be one. However, Biogeme  enables to
+       estimate it if requested (see example <a href="textFile.php?file=examples/swissmetro/biogeme/10nestedBottom.mod"><code>10nestedBottom.mod</code></a> for a nested logit model normalized from the bottom, so that &mu; is estimated). Four entries are specified here:
+<ol>
+<li> Default value that will be used as a starting point for the estimation (common value: 1.0);</li>
+<li> Lower bound on the valid values (common value: 1.0e-5);</li>
+<li> Upper bound on the valid values (common value: 1.0);</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter 
+            has to be maintained at the given value. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Utilities'>Utilities</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<p> Each row of this section corresponds to an
+      alternative. Four entries are specified:
+<ol>
+<li> The identifier of the alternative, with a numbering convention
+         consistent with the choice definition;</li>
+<li> The name of the alternative:  the first character must be a letter (any case) or an 
+         underscore (_), followed by a sequence of letters, digits, underscore (_)
+         or dashes (-), and terminated by a white space;</li>
+<li> The availability condition: this must be a direct reference to an entry
+         in the data file, or to an expression defined in the section [Expressions];</li>
+<li> The linear-in-parameter utility function is composed of a list of terms,
+       separated by a plus sign (+). Each term is composed of the name of a
+         parameter and the name of an attribute,
+       separated by a multiplication sign (*). The parameter must be listed in the section [Beta], if it is a regular parameter. If it
+         is a random parameter, the syntax is
+<code>
+<pre>
+            nameParam [ nameParam ] 
+</pre>
+</code>
+         in the case of the normal distribution, or :
+<code>
+<pre>
+            nameParam { nameParam }
+</pre>
+</code>
+
+         to get a random parameter that comes from a uniform distribution.  For example, 
+         in the case of the normal:
+<code>
+<pre>
+            BETA [ SIGMA ] 
+</pre>
+</code>
+         Note that the blank after each name parameter is required. Also,
+         parameters <code>BETA</code> and <code>SIGMA</code> have to be listed in the
+         section [Beta]. In the context of an independent random parameter, 
+         <code>BETA</code> represents the mean while <code>SIGMA</code> corresponds to the standard deviation. 
+         With correlated random parameters, <code>SIGMA</code> technically corresponds to the appropriate term 
+         in the Cholesky decomposition matrix that captures the variance-covariance structure among 
+         the random parameters.
+         An attribute must be an entry of the data file,
+         or an expression defined in the Section [Expressions].
+         In order to comply with this syntax, the  Alternative Specific Constants must
+         appear in a term like <code>ASC * one</code>, where <code>one</code> is defined in the section [Expressions}.
+         Here is an example:
+<code>
+<pre>
+[Utilities]
+// Id Name  Avail  linear-in-parameter expression
+  1   Alt1   av1   ASC1 * one + BETA1 [SIGMA] * x11 + BETA2 * x12
+  2   Alt2   av2   ASC2 * one + BETA1 [SIGMA] * x21 + BETA2 * x22
+  3   Alt3   av3   ASC3 * one + BETA1 [SIGMA] * x31 + BETA2 * x32
+  4   Alt4   av4   ASC4 * one + BETA1 [SIGMA] * x41 + BETA2 * x42
+  5   Alt5   av5   ASC5 * one + BETA1 [SIGMA] * x51 + BETA2 * x52
+  6   Alt6   av6   ASC6 * one + BETA1 [SIGMA] * x61 + BETA2 * x62
+</pre>
+</code>
+         
+         If the utility function does not contain any part which is
+         linear-in-parameters, then the keyword <code>$NONE</code> must be
+         written. For example:
+<code>
+<pre>
+[Utilities]
+// Id Name  Avail linear-in-parameter expression
+  1   Alt1   av1  $NONE
+</pre>
+</code>
+</li>
+</ol>
+</div>
+<div class="fullbox">
+  
+<h4>[<a name='GeneralizedUtilities'>GeneralizedUtilities</a>]</h4> 
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'>  </a>
+
+    This section enables the user to add nonlinear terms to the utility
+      function. For each alternative, the syntax is simply the identifier of the
+      alternative, followed by the expression.  For example, if the utility
+      of alternative 1 is 
+<p>
+<code>
+      &beta;<sub>1</sub> x<sub>11</sub> + &beta;<sub>2</sub> (x<sub>12</sub><sup>&lambda;</sup>-1)/&lambda;, 
+</code>
+</p>
+      the syntax
+      is 
+<code>
+<pre>
+      [Utilities]
+      1 Alt1 av1 BETA_1 * X11
+
+      [GeneralizedUtilities]
+      1 BETA_2 * (X21 ^ LAMBDA - 1) / LAMBDA
+</pre>
+</code>      
+      Another example where a non-linear part is required is when specifying a log-normal 
+      random coefficient.
+
+</div>
+<div class="fullbox">
+      
+<h4>[<a name='ParameterCovariances'>ParameterCovariances</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'>  </a>
+
+    Biogeme allows normally distributed random parameters to be correlated, and can estimate
+      their covariance. By default, the variance-covariance matrix of the
+      random parameters is supposed to be diagonal, and no covariance is
+      estimated. If some covariances must be estimated, each pair of correlated 
+      random coefficients must be identified in this section. 
+      Each entry of the section should contain: 
+<ol>
+<li> The name of the first random parameter in the given pair. If it appears in the
+utility function as <code>BETA [ SIGMA ]</code>, its name must be typed
+            <code>BETA_SIGMA</code>.</li> 
+<li> The name of the second random parameter involved in the pair, using the same naming          convention. </li>
+<li> The default value that will be used as a starting point for the estimation;</li>
+<li> The lower bound on the valid values;</li>
+<li> The upper bound on the valid values;</li>
+<li> The status, which is 0 if the parameter must be estimated, or 1 if the parameter 
+            has to be maintained at the given value. </li>
+</ol>
+      If no covariance is to be estimated, you must either entirely remove
+      the section, or specify <code>$NONE</code> as follows:
+<code>
+<pre>
+      [ParameterCovariances]
+      $NONE
+</pre>
+</code>
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Draws'>Draws</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+ Number of draws to be used in Maximum Simulated Likelihood estimation. 
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Expressions'>Expressions</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+      In this section are defined all expressions appearing either in the
+      availability conditions or in the utility functions of the alternatives
+      defined in the section <a href="#Utilities">[Utilities]</a>. If the expression is
+      readily available from the data file, it can be omitted in the list. 
+      It is good practice to generate new variables from this 
+      section especially when one objective is to compute market shares or to evaluate effects of 
+      policies with the help of Biosim.
+</p>
+<p>
+      We now summarize the syntax that can be used for generating new variables. Variables which form
+      an expression might be of type float or of type integer.  You can use numerical values or the name
+      of a numerical variable. New variables can be created using unary and binary expression operators.
+
+<dl>
+      <dt>Unary expressions</dt>
+<dd>
+<ul>
+<li><code>y = sqrt(x)        // y is square root of x.</code></li>
+<li><code>y = log(x)         // y is natural log of x.</code></li>
+<li><code>y = exp(x)         // y is exponential of x.</code></li>
+<li><code>y = abs(x)         // y is absolute value of x.</code></li>
+</ul>
+</dd>
+<dt> Numerical binary expressions</dt>  
+<dd>
+<ul>
+<li><code>y = x + z // y is sum of variables x and z</code></li>
+<li><code>y = x - z // y is difference of variables x and z</code></li>
+<li><code>y = x * z // y is product of variables x by z</code></li>
+<li><code>y = x / z // y is division of variable x by z</code></li>
+<li><code>y = x ^ z // y is x to power of z (square would be y = x ^ 2)</code></li>
+<li><code>y = x % z // y is x modulo z, i.e. rest of x/z</code></li>
+</ul>
+</dd>
+<dt>Logical binary expressions</dt>
+<dd><ul>
+<code>
+<li>y = x == z     // y is 1 if x equals  z, 0 otherwise</li>
+<li>y = x != z     // y is 1 if x not equal to z, 0 otherwise</li>
+<li>y = x || z     // y is 1 if x != 0 OR  z != 0, 0 otherwise</li>
+<li>y = x && z     // y is 1 if x != 0 AND z != 0, 0 otherwise</li>
+<li>y = x < z      // y is 1 if x < z      (note: also > )</li>
+<li>y = x <= z     // y is 1 if x <= z     (note: also >= )</li>
+<li>y = max(x,z)   // y is max of x and z  (note: also min)</li>
+</code>
+</ul>
+</dd>
+</dl>
+<p>
+      Note that an expression is considered to be TRUE if it is non zero, and FALSE if it is zero. 
+      For a full description of these expressions and alternative syntax, please
+      look at the files <code>patSpecParser.y</code> and <code>patSpecScanner.l</code> in the Biogeme distribution.</p>
+<p>
+
+      Loops can be defined if several expressions have almost the same syntax. 
+      The idea is to replace all occurrences of a string, say <code>xx</code>, by numbers. 
+      The numbers are generated within a loop, defined by 3 numbers: the start of the loop (<code>a</code>), 
+      the end of the loop (<code>b</code>) and the step (<code>c</code>) with the following syntax:
+<code>
+<pre>
+         $LOOP {xx a b c}
+</pre>
+</code>
+      The expression
+<code>
+<pre>
+      $LOOP {xx 1 5 2} my_expression_xx = other_expression_xx * term_xx_first
+</pre>
+</code>
+      is equivalent to 
+<code>
+<pre>
+      my_expression_1 = other_expression_1 * term_1_first
+      my_expression_3 = other_expression_3 * term_3_first
+      my_expression_5 = other_expression_5 * term_5_first
+</pre>
+</code>
+
+      Warning: make sure that the string is awkward enough so that it cannot match any other instance by mistake. For example, the loop
+<code>
+<pre>
+      {xp 1 5 2} my_expression_xp = other_expression_xp * term_xp_first
+</pre>
+</code>
+      is equivalent to
+<code>
+<pre>
+      my_e1ression_1 = other_e1ression_1 * term_1_first
+      my_e3ression_3 = other_e3ression_3 * term_3_first
+      my_e5ression_5 = other_e5ression_5 * term_5_first
+</pre>
+</code>
+      which is probably not the desired effect.
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Group'>Group</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<p>
+      Provide here the formula to compute  the group ID of the  observed
+      individual. Typically, a ``group'' entry will be available directly
+      from the data file, but
+      any formula can be used to compute it.  Any expression
+      described in the section [Expressions] is valid here. A
+      different scale parameter will be estimated for the
+      utility of each group.
+</p>      
+
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Exclude'>Exclude</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+<p> Define an expression (see section [Expressions]) which identifies entries of
+      the data file to be excluded. If the result of the expression is not
+      zero, the entry will be discarded.  
+</p>
+</div>
+<div class="fullbox">
+
+<h4>[<a name='Model'>Model</a>]</h4> 
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<p>Specifies which model is to be used. Valid
+      entries are 
+<ul>
+<li><code>$BP</code> for the binary probit model,</li>
+<li><code>$MNL</code> for the  logit model,</li>
+<li><code>$NL</code> for the single level nested logit model,</li>
+<li><code>$CNL</code> for the cross-nested logit model, </li>
+<li><code>$NGEV</code> for the network GEV,</li>
+<li><code>$OL</code> for the ordered logit model.</li>
+</ul>
+</div>
+<div class="fullbox">
+
+<h4>[<a name='PanelData'>PanelData</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+ Used to specify the name of the variable (ex: <code>userID</code>) in the dataset 
+      identifying the observations belonging to a given individual and to specify the 
+      name of the random parameters that are invariant within the observation of a given individual 
+      <code>userID</code>.
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='Scale'>Scale</a>]</h4> 
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+A scale parameter is associated with each group. The
+      utility function of each member of a group is multiplied by the associated
+      scale parameter. A typical application is the joined estimation of revealed
+      and stated preferences. It is therefore possible to estimate a logit model combining
+      both data sources, without playing around with dummy nested structures. Each row of this section corresponds to a
+      group. Five entries are required per row:
+<ol>
+<li> Group number: the numbering must be consistent with the group definition;</li>
+<li> Default value that will be used as a starting point for the estimation
+(1.0 is a good guess);</li>
+<li> Lower bound on the valid values (should be strictly positive);</li>
+<li>Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+</ol>
+      Clearly, one of the groups must have a fixed scale parameter. 
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='SelectionBias'>SelectionBias</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+     Identifies the parameters
+capturing the selection bias, using the estimator proposed by <a href="http://dx.doi.org/10.1016/j.trb.2007.09.003" target="_blank">Bierlaire, Bolduc and McFadden (2008)</a>. Each of them has to  be listed in
+        the section [Beta]. The section must contain a
+         row per alternative for which a selection bias has to be
+         estimated. Each row contains the number of the alternative
+         and the name of the associated parameter. Note that these parameters play a similar role as the alternative specific constants, and must not be used with a logit model. 
+<code>
+<pre>
+[SelectionBias]
+1 SB_1
+4 SB_4
+6 SB_6
+</pre>
+</code>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='NLNests'>NLNests</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+         This section is relevant only if the
+      <code>$NL</code> option has been selected in the section [Model]. 
+     If the model to estimate is not a  nested logit model, the section will be
+      simply ignored. Note that multilevel nested logit models must be modeled as network GEV models.
+      Each row of this section corresponds to a nest. Six entries are required per row:
+<ol>
+<li> Nest name:   the first character must be a letter (any case) or an underscore
+(_), followed by a sequence of letters, digits, underscore (_)
+or dashes (-), and terminated by a white space;</li>
+<li> Default value of the nest parameter <code>&mu;<sub>m</sub></code> that will be used as a  starting point for the estimation (1.0 is a good guess);</li>
+<li> Lower bound on the valid values. It is usually 1.0, if <code>&mu;</code> is
+constrained to be 1.0. Do not forget that, for each nest <code>i</code>, the condition
+		   <code>&mu;<sub>i</sub> &geq; &mu;</code> must be verified to be consistent with discrete choice             theory;</li>
+<li> Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+<li> The list of alternatives belonging to the nest, numbered as specified in the section [Utilities]. Make sure that each alternative
+            belongs to exactly one nest, as no automatic verification is implemented in Biogeme.</li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='CNLNests'>CNLNests</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+  This section is relevant only if the
+      <code>$CNL</code> option has been selected in the section [Model]. If the model to estimate is not a cross-nested logit model, the section will be
+      simply ignored.  Note that multilevel cross-nested logit models must be modeled as network GEV models.
+      Each row of this section corresponds to a nest. Five entries are required per row:
+<ol>
+<li> Nest name:   the first character must be a letter (any case) or an underscore
+(_), followed by a sequence of letters, digits, underscore (_)
+or dashes (-), and terminated by a white space; </li>
+<li> Default value of the nest parameter <code>&mu;<sub>m</sub></code> that will be used as a starting point for the estimation;</li>
+<li> Lower bound on the valid values. It is usually 1.0, if &mu; is constrained to be 1.0. Do not forget that, for each nest <em>i</em>, the condition
+  &mu;<sub>i</sub> &geq; &mu; must be verified to be consistent with discrete choice
+            theory;</li>
+<li> Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='CNLAlpha'>CNLAlpha</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+ This section is relevant only if the
+      <code>$CNL</code> option has been selected in the section [Model]. If the model to estimate is not a cross-nested logit model, the section will be
+      simply ignored. 
+      Each row of this section corresponds to a combination of a nest and an alternative. Six entries are required per row:
+<ol>
+<li> Alternative name, as defined in the section [Utilities];</li>
+<li>  Nest name:   the first character must be a letter (any case) or an underscore
+            (_), followed by a sequence of letters, digits, underscore (_)
+            or dashes (-), and terminated by a white space;</li>
+<li> Default value of the  parameter capturing the level at which an alternative belongs to a nest that will be used as a starting point for the estimation;</li>
+<li> Lower bound on the valid values (usually 0.0);</li>
+<li> Upper bound on the valid values (usually 1.0);</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='Ratios'>Ratios</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+It is sometimes useful to read the ratio of two
+      estimated coefficients. The most typical case is the value-of-time, being the
+      ratio of the time coefficient and the cost coefficient. This feature is only implemented for fixed parameters. 
+      Computation of ratio of random parameters is not permitted in this version.  Note that it is not 
+      straightforward to characterize the distribution of the ratio of two random coefficients.  
+				<a href="http://pubsindex.trb.org/view.aspx?id=385096" target="_blank">Ben-Akiva, Bolduc and Bradley (1993></a> suggest a simple approach that is directly implementable in Biogeme
+      to handle ratio of random parameters.
+      Each row in this section enables to specify such ratios to be produced in the output
+      file. Three entries are required:
+<ol>
+<li> The parameter (from the section [Beta]) being the numerator of the ratio;</li>
+<li> The parameter (from the section [Beta]) being the denominator of the ratio;</li>
+<li> The name of the ratio, to appear in the output file:  the first character must be a letter (any case) or an underscore
+            (_), followed by a sequence of letters, digits, underscore (_)
+            or dashes (-), and terminated by a white space. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='ConstraintNestCoef'>ConstraintNestCoef</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+It is possible to
+      constrain nests parameters to be equal. This is achieved by adding to this section expressions like
+<code>
+<pre>
+         NEST_A = NEST_B
+</pre>
+</code>
+      where <code>NEST_A</code> and <code>NEST_B</code> are names of nests defined in the section [NLNests], the section [CNLNests] or  the section [NetworkGEVNodes]. This section will become obsolete in future releases, as there is now a section for linear constraints on the parameters: section [LinearConstraints].
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='NetworkGEVNodes'>NetworkGEVNodes</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+This section is relevant only if the
+<code>$NGEV</code> option has been selected in the section [Model]. If the model to estimate is not a Network GEV model, the section will be simply ignored.  Each row of this section corresponds to a node of the network GEV model.
+      All nodes of the network GEV model except the root and the alternatives must be listed here,  with their associated parameter.
+       Five entries are required per row: 
+<ol>
+<li> Node name:   the first character must be a letter (any case) or an underscore
+            (_), followed by a sequence of letters, digits, underscore (_)
+            or dashes (-), and terminated by a white space;</li>
+<li> Default value of the node parameter &mu;<sub>j</sub> that will be used as a starting point for the estimation;</li>
+<li> Lower bound on the valid values. It is usually 1.0. Check the condition
+																      on the parameters for the model to be consistent with the theory in <a href="http://transp-or.epfl.ch/documents/proceedings/Bier02.pdf">Bierlaire, 2002</a>;</li>
+<li> Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='NetworkGEVLinks'>NetworkGEVLinks</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+ This section is relevant only if the
+      <code>$NGEV</code> option has been selected in the section [Model]. If the model to estimate is not a Network GEV model, the section
+      will be simply ignored.  Each row of this section corresponds to a link of the
+      network GEV model, starting from the <em>a</em>-node to the <em>b</em>-node.
+       The root node is denoted by <code>__ROOT</code>.
+       All other nodes must be either an alternative or a node listed in
+       the section [NetworkGEVNodes].
+       Note that an alternative cannot be the <em>a</em>-node of any link,
+       and the root node cannot be the <em>b</em>-node of any link.
+       Six entries are required per row: 
+<ol>
+<li> Name of the <em>a</em>-node: it must be either <code>__ROOT</code> or  a node listed in the section [NetworkGEVNodes].</li>  
+<li> Name of the <em>b</em>-node: it must be either a node listed in
+the section [NetworkGEVNodes], or the name of an    alternative.  </li>
+<li> Default value of the link parameter that will be used as a starting point for the estimation;</li>
+<li> Lower bound on the valid values.</li>
+<li> Upper bound on the valid values;</li>
+<li> Status, which is 0 if the parameter must be estimated, or 1 if the parameter has to be maintained at the given value. </li>
+</ol>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='LinearConstraints'>LinearConstraints</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+      In this section, the user can define a list of linear constraints, in one of the following syntax:
+<ol>
+<li> Formula = number,</li>
+<li> Formula &leq; number,</li>
+<li> Formula &geq; number.</li>
+</ol>
+      The syntax is formally defined as follows:
+<code>
+<pre>
+      oneConstraint : equation <= numberParam | 
+                  equation = numberParam | 
+                  equation >= numberParam  
+      equation: eqTerm |  
+              - eqTerm | 
+              equation + eqTerm  | 
+              equation - eqTerm 
+      eqTerm: parameter | numberParam * parameter 
+</pre>
+</code>
+            For example, the constraint
+<p>
+&Sigma;<sub>i</sub> ASC<sub>i</sub> = 0.0
+</p>
+      is written
+<code>
+<pre>
+      ASC1 + ASC2 + ASC3 + ASC4 + ASC5 + ASC6 = 0.0
+</pre>
+</code>
+      and the constraint
+<p>
+&mu; &leq; &mu;<sub>j</sub>
+</p>
+      is written 
+<code>
+<pre>
+      MU - MUJ <= 0.0
+</pre>
+</code>
+      or
+<code>
+<pre>
+      MUJ - MU >= 0.0
+</pre>
+</code>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='NonLinearEqualityConstraints'>NonLinearEqualityConstraints</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+      In this section, the user can define a list of nonlinear equality constraints of the form 
+<p>
+      h(x) = 0.0.
+</p>
+      The section must contain a list of functions h(x). For example, the constraint
+<p>
+&alpha;<sup>&mu;<sub>a</sub></sup><sub>a1</sub>  +
+&alpha;<sup>&mu;<sub>b</sub></sup><sub>b1</sub> = 1
+</p>
+      is written
+<code>
+<pre>
+      [NonLinearEqualityConstraints]
+      ALPHA_A1 ^ MU_A  + ALPHA_B1 ^ MU_B - 1.0
+</pre>
+</code>
+
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='NonLinearInequalityConstraints'>NonLinearInequalityConstraints</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+
+      Biogeme is not able to handle nonlinear inequality constraints yet. It should be available in a future version.
+
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='DiscreteDistributions'>DiscreteDistributions</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+Provide here the list of random parameters with a discrete distribution, or <code>$NONE</code> if there are none in the model. Each discrete parameter is described using the following syntax:
+<code>
+<pre>
+nameDiscreteParam < listOfDiscreteTerms >
+</pre>
+</code>
+where <code>nameDiscreteParam</code> is the name of the random parameter, and 
+  <code>listOfDiscreteTerms</code> is recursively defined as
+<code>
+<pre>
+oneDiscreteTerm |
+listOfDiscreteTerms oneDiscreteTerm
+</pre>
+</code>
+where <code>oneDiscreteTerm</code> is defined as 
+<code>
+<pre>
+nameValueParam ( nameProbaParam )
+</pre>
+</code>
+where <code>nameValueParam</code> is the name of the parameter capturing the discrete value of the random parameter, and <code>nameProbaParam</code> is the name of the parameter capturing the associated probability. Both must be defined in the section [Beta]. As an example,
+<code>
+<pre>
+[DiscreteDistributions]
+BETA1 < B1 ( W1 ) B2 ( W2 ) >
+</pre>
+</code>
+defines a random parameter <code>BETA1</code>, which takes the value <code>B1</code> with probability (or weight) <code>W1</code>, and the value <code>B2</code> with probability <code>W2</code>. Note that for this to make sense, the constraint <code>W1 + W2 = 1.0</code> should be imposed (Section [LinearConstraints]). Note also that the parameter <code>BETA1</code> must not appear in the section [Beta].
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='AggregateLast'>AggregateLast</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+ Boolean which, for each row in the sample file,   identifies if it is the last observation in an aggregate. Make sure that the value for the last row is nonzero. As all booleans in Biogeme, a numerical value of 0 means ``FALSE'' and a numerical value different from 0 means ``TRUE''. 
+ Any expression  described in the section [Expressions] is valid here.
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='AggregateWeight'>AggregateWeight</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+Associates a weight to elemental observations of an aggregate. 
+ Any expression  described in the section [Expressions] is valid here.
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='LaTeX'>LaTeX</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+This section allows to define a description of each parameter to be used in the LaTeX file. Here is an example:
+<code>
+<pre>
+[LaTeX]
+ASC1   "Constant for alt. 1"
+ASC2   "Constant for alt. 2"
+ASC3   "Constant for alt. 3"
+ASC4   "Constant for alt. 4"
+ASC5   "Constant for alt. 5"
+ASC6   "Constant for alt. 6"
+BETA1  "$\beta_1$"
+BETA2  "$\beta_2$"
+</pre>
+</code>
+
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='Derivatives'>Derivatives</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+<em><strong>This section is for advanced users only. Use it at your own risk.</strong></em>
+
+When nonlinear utility functions are used, Biogeme computes
+automatically the derivatives needed by the maximum likelihood
+procedure. However, this automatic derivation can significantly slow
+down the estimation process, as no simplification is performed. This
+section allows the user to provide Biogeme with the analytical
+derivatives of the utility function, in order to speed up the estimation process. In some instances, half the estimation time was spared thanks to this feature.  
+
+A row must be provided for each
+combination of nonlinear utilities (defined in the section
+ [GeneralizedUtilities]) and
+parameters involved in the formula. Each of these rows contains three
+items:
+<ul>
+<li> the identifier of the alternative,</li>
+<li> the name of the parameter,</li>
+<li> the formula of the derivative.</li>
+</ul>
+
+For instance, assume that the systematic utility of alternative 1 is 
+is coded in Biogeme as follows: 
+<code>
+<pre>
+[Utilities]
+// Id Name  Avail  linear-in-parameter expression (beta1*x1 + beta2*x2 + ... )
+  1   Alt1   av1   ASC1 * one 
+  .
+  .
+[GeneralizedUtilities]
+1  BETA1 * ((x11 + 10 ) ^ LAMBDA11 - 1) / LAMBDA11 + 
+   BETA2 * ((x12 + 10 ) ^ LAMBDA12 - 1) / LAMBDA12
+</pre>
+</code>
+																      Then, the <code>[Derivatives]</code> section can be coded as follows:
+<code>
+<pre>
+[Derivatives]
+1 BETA1 ((x11 + 10 ) ^ LAMBDA11 - 1) / LAMBDA11
+1 BETA2 ((x12 + 10 ) ^ LAMBDA12 - 1) / LAMBDA12
+1 LAMBDA11 
+      BETA1 * ((x11 + 10) ^ LAMBDA11 * LN(x11 + 10) * LAMBDA11 
+             - (x11 + 10) ^ LAMBDA11 + 1) / (LAMBDA11 * LAMBDA11 )
+1 LAMBDA12 
+      BETA2 * ((x12 + 10) ^ LAMBDA12 * LN(x12 + 10) * LAMBDA12 
+             - (x12 + 10) ^ LAMBDA12 + 1) / (LAMBDA12 * LAMBDA12 )
+</pre>
+</code>
+
+
+In addition to usual  expressions, the formula may contain the following instruction:
+<code>
+<pre>
+$DERIV( formula , param )
+</pre>
+</code>
+which means that you ask Biogeme to perform the derivation of the
+formula for you. Although it may be useful to simplify the coding of
+the derivatives, it is mandatory to use it for random parameters.
+
+If <code>BETA [ SIGMA ]</code> is a random parameter, its derivative with
+respect to <code>BETA</code> is 1, but its derivative with respect to
+<code>SIGMA</code> cannot be written by the user, and must be coded
+
+<code>
+<pre>
+$DERIV( BETA [ SIGMA ] , SIGMA )
+</pre>
+</code>
+
+For instance, assume that the nonlinear utilities are defined as
+<code>
+<pre>
+1 exp( BETA1 [ SIGMA1 ] ) * x11
+2 exp( BETA1 [ SIGMA1 ] ) * x21
+</pre>
+</code>
+The derivatives are coded as follows:
+<code>
+<pre>
+[Derivatives]
+1 BETA1    exp( BETA1 [ SIGMA1 ] ) * x11
+1 SIGMA1   exp( BETA1 [ SIGMA1 ] ) * x11 
+              * $DERIV( BETA1 [ SIGMA1 ] , SIGMA1 )
+2 BETA1    exp( BETA1 [ SIGMA1 ] ) * x21
+2 SIGMA1   exp( BETA1 [ SIGMA1 ] ) * x21 
+              * $DERIV( BETA1 [ SIGMA1 ] , SIGMA1 )
+</pre>
+</code>
+
+<font color='red'>It is very easy to do an error in coding the analytical
+derivatives. If there is an error, Biogeme will not be able to
+estimate the parameters, and will not even be able to detect that
+there is an error. Therefore, we strongly suggest to set the parameter
+<code>gevCheckDerivatives</code> to 1 and make
+sure that the numerical derivatives match sufficiently well the
+analytical derivatives. Also, estimate the model with few observations
+and few draws, once with and once without this section. The results
+should be exactly the same.</font>
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='SNP'>SNP</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+																      This section allows to implement the test proposed by <a href='http://dx.doi.org/10.1016/j.trb.2007.01.002'>Fosgerau and Bierlaire, 2007</a> (read the paper first if you are not familiar with the test). 
+The section is composed of two things:
+<ol>
+<li> The name of the random parameter to be tested.  If this parameter appears in the
+            utility function as <code>BETA [ SIGMA ]</code>, its name in this section must be typed  <code>BETA_SIGMA</code>. </li>
+<li> A list of positive integers associated with a parameter. The integer is the degree of the Legendre polynomial, and the parameter the associated coefficient in the development. Note that the name of the parameter must appear in the section [Beta].</li>
+</ul>
+
+For instance, if the distribution of the parameter <code>BETA [ SIGMA ]</code> is tested using a seminonparametric development defined by
+<p>
+																      1 + &delta;<sub>1</sub> L<sub>1</sub>(x) + &delta;<sub>3</sub> L<sub>3</sub>(x) + &delta;<sub>4</sub> L<sub>4</sub>(x),
+</p>
+the syntax in Biogeme is
+
+<code>
+<pre>
+[Beta]
+// Name  Value LowerBound UpperBound  status (0=variable, 1=fixed)
+....
+   BETA  0     -10000     10000       0
+   SIGMA 1     -10000     10000       0  
+   SMP1  0     -10000     10000       0
+   SMP3  0     -10000     10000       0
+   SMP4  0     -10000     10000       0
+
+[SNP]
+// Define the coefficients of the series 
+// generated by the Legendre polynomials
+BETA_SIGMA
+1 SMP1
+3 SMP3
+4 SMP4
+</pre>
+</code>
+
+
+Note that only one random parameter can be transformed  at a time. 
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='OrdinalLogit'>OrdinalLogit</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+An ordinal binary choice model is derived when ordinal responses are
+available, where the respondent not only reports the preference, but
+also the strength of the preference. For instance, if alternatives <em>i</em>
+and <em>j</em> are available, the respondent can report one of the following.
+<ul>
+<li> definitely choose <em>j</em>;</li>
+<li> probably choose <em>j</em>;</li>
+<li> indifferent;</li>
+<li> probably choose <em>i</em>;</li>
+<li> definitely choose <em>i</em>.</li>
+</ul>
+
+As for the binary choice model, the selected category is explained by the
+																      difference U<sub>in</sub>-U<sub>jn</sub> between the utilities of the two alternatives, as depicted. But, here, more than two responses are possible. Formally, we consider Q &geq; 2 categories, ordered such that category <em>q</em>
+corresponds to a stronger preference towards alternative <em>i</em> compared
+to category <em>q-1</em>, for <em>q=1,...,Q</em>.
+We define <em>Q+1</em> parameters
+																      &tau;<sub>q</sub>, q=0,...,Q, such that &tau;<sub>0</sub> = -&infin;,
+																      &tau;<sub>Q</sub>=+&infin;, and &tau;<sub>q-1</sub> &leq; &tau;<sub>q</sub>, q=1,...,Q. A
+																      category q is associated with the interval [&tau;<sub>q-1</sub>,&tau;<sub>q</sub>].
+The probability for  category q to be selected by the respondent is
+ 
+<p>
+<table>
+<tr>
+ <td>P<sub>n</sub>(q)</td><td>=</td><td> P(&tau;<sub>q-1</sub> &leq; U<sub>in</sub> - U<sub>jn</sub> &leq;  &tau;<sub>q</sub>)</td>
+</tr>
+																      <tr>																      <td></td><td>=</td> <td>P(&tau;<sub>q-1</sub> &leq; (V<sub>in</sub> - V<sub>jn</sub>) - (&epsilon;<sub>jn</sub> - &epsilon;<sub>in</sub>) &leq; &tau;<sub>q</sub>) </td></tr>
+<tr>
+																      <td></td><td>=</td><td> P(V<sub>in</sub> - V<sub>jn</sub> - &tau;<sub>q</sub> &leq; &epsilon;<sub>n</sub> &leq; V<sub>in</sub> - V<sub>jn</sub> -&tau;<sub>q-1</sub>)</td></tr>
+																      <tr>     <td></td><td>=</td> <td>F<sub>&epsilon;<sub>n</sub></sub>(V<sub>in</sub> - V<sub>jn</sub> -&tau;<sub>q-1</sub>) - F<sub>&epsilon;<sub>n</sub></sub>(V<sub>in</sub> - V<sub>jn</sub> - &tau;<sub>q</sub>)</td></tr>
+</table>
+																      where &epsilon;<sub>n</sub>=&epsilon;<sub>jn</sub> - &epsilon;<sub>in</sub>, and F<sub>&epsilon;<sub>n</sub></sub> is the CDF of &epsilon;<sub>n</sub>.
+
+																      In particular, if &epsilon;<sub>n</sub> is logistically distributed, we obtain the <em>ordinal logit</em> model. 
+We immediately note that binary choice models are specific instances
+																      of ordinal binary choice models, with two categories (Q=2), and &tau;<sub>1</sub>=0.
+
+
+																      The parameters &tau; of ordinal binary logit
+models can be estimated using this section of the model specification file.
+
+  The segments of the
+utility difference space must be numbered in a sequential  way,
+increasing from the leftmost to the rightmost. In this section, each
+segment must be associated with its lower bound, except the first
+																      (because its lower bound is -&infin;). For instance, if there are 4
+segments, the following
+syntax is used:  
+<code>
+<pre>
+[Beta]
+....
+tau1 0.3 -1000 1000 1
+tau2 0.4 -1000 1000 0 
+tau3 0.5 -1000 1000 0 
+
+[OrdinalLogit]
+1 $NONE    //  -infty --> tau1 
+2 tau1     //  tau1   --> tau2
+3 tau2     //  tau2   --> tau3
+4 tau3     //  tau3   --> +infty
+
+[LinearConstraints]
+tau1 - tau2 <= 0
+tau2 - tau3 <= 0
+</pre>
+</code>
+
+Note that the constraints impose that the segments are well-defined.
+Recall also that the characters <code>//</code> represent a comment in the file and they are not interpreted by Biogeme , as well as all remaining characters on the same line. Therefore, the following syntax for that section is completely equivalent:
+<code>
+<pre>
+[OrdinalLogit]
+1 $NONE
+2 tau1 
+3 tau2 
+4 tau3 
+</pre>
+</code>
+However, we strongly advise to use comments in order to clearly identify the segments.
+
+																      The numbering of the alternatives in an ordinal logit model specification is required in order to comply with the Biogeme syntax, but is used in a completely different way as for choice models. Exactly two alternatives must be specified in the section [Utilities]. It is advised to number them 1 and 2, and to call them Alt1 and Alt2. This numbering is used only to compute the utility difference U<sub>1</sub>-U<sub>2</sub>. To avoid any ambiguity about the sign of the difference (U<sub>1</sub>-U<sub>2</sub> or U<sub>2</sub>-U<sub>1</sub>), the formula actually used is reported in the output file. The value of the variable defined in the section [Choice] identifies the category actually selected by the respondent.
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='SampleEnum'>SampleEnum</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+ This section is ignored by Biogeme. It is
+      used by Biosim and contains the number of simulations to perform in
+      the sample enumeration step.
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='ZhengFosgerau'>ZhengFosgerau</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+  This section is ignored by Biogeme. It is
+      used by Biosim and contains instructions to perform the
+Zheng-Fosgerau specification test and residual analysis. Make sure to
+																      read the paper by <a href="http://www.jocm.org.uk/index.php/JOCM/article/view/7/13">Fosgerau, 2008</a> before using this section.
+
+There is a line for each test, containing four items:
+<ol>
+<li> The first item defines the function <em>t</em> introduced by <a href="http://www.jocm.org.uk/index.php/JOCM/article/view/7/13">Fosgerau, 2008</a> to reduce the dimensionality of the test. It is
+typically either the probability of an alternative, or an expression
+involving coefficients and attributes of the models, as soon as the
+expression is continuous and not discrete. If it is a probability, the
+syntax is
+<code>
+<pre>
+$P { AltName }
+</pre>
+</code>
+where <code>AltName</code> is the name of the alternative as defined in
+the section [Utilities]. If it is a general
+expression, the syntax is 
+<code>
+<pre>
+$E { expr }
+</pre>
+</code>
+where <code>expr</code> is an expression complying with the syntax of
+the section [Expressions]. However, it may also
+contain estimated parameters. </li>
+<li> The second item is a parameter <em>c</em> used to define the bandwidth for the
+nonparametric regression performed by the test  (see end of Section
+2.1 in  <a href="http://www.jocm.org.uk/index.php/JOCM/article/view/7/13">Fosgerau, 2008</a>). The bandwidth used by Biosim is defined as <code>c/&radic;<span style="text-decoration:overline">n</span></code>, where n is the sample size. Most users will use the
+value <code>c=1</code>.</li>
+<li> The third and the fourth item are lower and upper bounds
+(resp.) Values of <em>t</em> outside of the bounds will not be used in the
+produced pictures. It is good practice to use wide bounds first, and
+to adjust them in order to obtain decent pictures.  Note that if <em>t</em>
+is a probability, it does not make sense to have bounds wider and [0:1].</li>
+<li> The last item is the name of the function <em>t</em>, used in the
+report. Make sure to put the name between double-quotes.</li>
+</ol>
+Here is an example of the syntax:
+<code>
+<pre>
+[ZhengFosgerau]
+$P { Alt1 } 1 0 1 "P1"
+$E { x31 } 1 -1000 1000 "x31"  
+</pre>
+</code>
+
+
+</div>
+<div class="fullbox">
+
+
+<h4>[<a name='IIATest'>IIATest</a>]</h4>
+<a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></a>
+
+ This section is ignored by Biogeme. It is used by Biosim to compute the variables necessary to perform the McFadden omitted variables test on a subset of alternatives .
+<p>
+Suppose that we have estimated a logit model, using all the observations. Denote by P<sub>in</sub> the probability given by this model that individual n in the sample chooses alternative i.
+    </p>
+<p>
+Consider <font style="text-decoration: overline;">C</font> &sube; C a given subset of alternatives. Define the new variables
+</p>
+<p>
+																      z<sub>in</sub> = V<sub>in</sub> - (&Sigma;<sub>j &isin; <font style="text-decoration: overline;">C</font></sub> P<sub>jn</sub> V<sub>jn</sub>/&Sigma;<sub>j &isin; <font style="text-decoration: overline;">C</font></sub> P<sub>jn</sub>) if i &isin; <font style="text-decoration: overline;">C</font>, 0 otherwise.
+
+</p><p>
+Estimate the same model as before where the new variables have been
+also included in the specification.  Testing if IIA holds is
+equivalent to testing if all the coefficients of the new variables are 0,
+which can be performed with a likelihood ratio test.
+</p>
+Biosim can compute these variables. The syntax is illustrated by the following example.
+<code>
+<pre>
+[IIATest]
+// Description of the choice subsets to compute the new 
+// variable for McFadden's IIA test
+// Name list_of_alt
+C123 1 2 3
+C345 3 4 5
+</pre>
+</code>
+Each row corresponds to a new variable. It consists in the name of the variable (it will appear as the column header in the output of Biosim), followed by the list of alternatives to be included in the associated subset <font style="text-decoration: overline;">C</font>.  
+
+
+</div>
+
+</div>
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+<p>
+<ul class="tree">
+<li>Sections of the file
+<ul>
+<li><a href='#ModelDescription'>ModelDescription</a></li>
+<li><a href='#Choice'>Choice</a></li>
+<li><a href='#Weight'>Weight</a></li>
+<li><a href='#Beta'>Beta</a></li>
+<li><a href='#Mu'>Mu</a></li>
+<li><a href='#Utilities'>Utilities</a></li>
+<li><a href='#GeneralizedUtilities'>GeneralizedUtilities</a></li>
+<li><a href='#ParameterCovariances'>ParameterCovariances</a></li>
+<li><a href='#Draws'>Draws</a></li>
+<li><a href='#Expressions'>Expressions</a></li>
+<li><a href='#Group'>Group</a></li>
+<li><a href='#Exclude'>Exclude</a></li>
+<li><a href='#Model'>Model</a></li>
+<li><a href='#PanelData'>PanelData</a></li>
+<li><a href='#Scale'>Scale</a></li>
+<li><a href='#SelectionBias'>SelectionBias</a></li>
+<li><a href='#NLNests'>NLNests</a></li>
+<li><a href='#CNLNests'>CNLNests</a></li>
+<li><a href='#CNLAlpha'>CNLAlpha</a></li>
+<li><a href='#ConstraintNestCoef'>ConstraintNestCoef</a></li>
+<li><a href='#NetworkGEVNodes'>NetworkGEVNodes</a></li>
+<li><a href='#NetworkGEVLinks'>NetworkGEVLinks</a></li>
+<li><a href='#LinearConstraints'>LinearConstraints</a></li>
+<li><a href='#NonLinearEqualityConstraints'>NonLinearEqualityConstraints</a></li>
+<li><a href='#NonLinearInequalityConstraints'>NonLinearInequalityConstraints</a></li>
+<li><a href='#DiscreteDistributions'>DiscreteDistributions</a></li>
+<li><a href='#AggregateLast'>AggregateLast</a></li>
+<li><a href='#AggregateWeight'>AggregateWeight</a></li>
+<li><a href='#LaTeX'>LaTeX</a></li>
+<li><a href='#Derivatives'>Derivatives</a></li>
+<li><a href='#SNP'>SNP</a></li>
+<li><a href='#OrdinalLogit'>OrdinalLogit</a></li>
+<li><a href='#SampleEnum'>SampleEnum</a></li>
+<li><a href='#ZhengFosgerau'>ZhengFosgerau</a></li>
+<li><a href='#IIATest'>IIATest</a></li>
+</ul>
+<li><a href="index.html">Back</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</li>
+</div>
+
+    <div class="clear"></div>
+
+<a href="index.html">Back</a><BR>
+<a href="http://biogeme.epfl.ch">Biogeme</a>
+
+
+</body>
+</html>

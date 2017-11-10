@@ -16,6 +16,7 @@
 #include "patVariables.h"
 #include "bioIteratorSpan.h"
 class bioMetaIterator ;
+class bioRandomMetaIterator ;
 class bioRowIterator ;
 class bioIdIterator ;
 class bioExpression ;
@@ -30,10 +31,10 @@ class bioExpression ;
  */
 class bioSample {
 
-public :
+public : //Methods
 
   bioSample(patString filename, patError*& err) ;
-  
+
   ~bioSample() ;
 
   patULong size() const ;
@@ -51,6 +52,9 @@ public :
   patULong getNumberOfColumns() const ;
 
   bioMetaIterator* createMetaIterator(bioIteratorSpan theSpan, bioIteratorSpan theThreadSpan, patError*& err) const ;
+
+  // For bootstrapping on panel data
+  bioRandomMetaIterator* createRandomMetaIterator(bioIteratorSpan theSpan, bioIteratorSpan theThreadSpan, patError*& err) const ;
 
   bioRowIterator* createRowIterator(bioIteratorSpan theSpan, bioIteratorSpan theThreadSpan, patBoolean printMessages, patError*& err) const ;
 
@@ -84,16 +88,21 @@ public :
   // Name of the data file used for estimation. It is either the text
   // file or the binary file
   patString getDataFileName() const ;
-private:
+
+  bioSample getBootstrap(patError*& err) ;
+  
+private: // Methods
+  bioSample getRegularBootstrap(patError*& err) ;
+  bioSample getPanelBootstrap(patError*& err) ;
+  bioSample(patULong _nbrOfExcludedRows,
+	    patReal _rowNumber,
+	    patULong _physicalRowNumber,
+	    vector<patString>& _headers,
+	    vector<patVariables>& _samples,
+	    patULong _numberOfRealColumns,
+	    patString _fileName) ;
   patString getTextFileName() const ;
   patString getBinaryFileName() const ;
-
-
-private :
-
-  patULong nbrOfExcludedRows ;
-  patReal rowNumber ;
-  patULong physicalRowNumber ;
   void computeMapOfDatabase(patError*& err) ;
   void generatePythonHeaders(patError*& err) ;
   void readFile(bioExpression* exclude, 
@@ -103,25 +112,25 @@ private :
   void readTextFile(bioExpression* exclude, 
 		vector<pair<patString, bioExpression*> >* userExpressions, 
 		patError*& err) ;
-
-
   void readBinaryFile(bioExpression* exclude, 
 		vector<pair<patString, bioExpression*> >* userExpressions, 
 		patError*& err) ;
-
-
   void addObservationData(patVariables data) ;
   void printHeaders() ;
 
+
+private : // Data
+
+  patULong nbrOfExcludedRows ;
+  patReal rowNumber ;
+  patULong physicalRowNumber ;
   vector<patString> headers ;
   vector<patVariables> samples ;
-
   patULong numberOfRealColumns ;
-  
   patString fileName ;
-
   patTimeInterval processTime ;
   patBoolean dataReadFromBinary ;
+
 };
 
 #endif

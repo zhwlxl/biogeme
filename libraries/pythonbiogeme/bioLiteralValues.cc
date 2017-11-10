@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioLiteralValues.h"
 #include "patDisplay.h"
 #include "patErrMiscError.h"

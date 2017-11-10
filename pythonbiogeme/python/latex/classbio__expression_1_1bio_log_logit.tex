@@ -1,0 +1,82 @@
+\hypertarget{classbio__expression_1_1bio_log_logit}{}\section{bio\+\_\+expression.\+bio\+Log\+Logit Class Reference}
+\label{classbio__expression_1_1bio_log_logit}\index{bio\+\_\+expression.\+bio\+Log\+Logit@{bio\+\_\+expression.\+bio\+Log\+Logit}}
+
+
+Class calculating the log of a logit choice probability.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Log\+Logit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_log_logit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_log_logit_a11e021d5eb0326fcda189b53d694d689}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, util, av, choice)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1bio_log_logit_a3a60714712d99147fb6ef10d0d25cd63}{}\label{classbio__expression_1_1bio_log_logit_a3a60714712d99147fb6ef10d0d25cd63}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries prob}\hypertarget{classbio__expression_1_1bio_log_logit_aa9285cd4c43e3971d1826df2d0539485}{}\label{classbio__expression_1_1bio_log_logit_aa9285cd4c43e3971d1826df2d0539485}
+
+\item 
+{\bfseries av}\hypertarget{classbio__expression_1_1bio_log_logit_a0d9b462c9a6fdac433eb8533fe684017}{}\label{classbio__expression_1_1bio_log_logit_a0d9b462c9a6fdac433eb8533fe684017}
+
+\item 
+{\bfseries choice}\hypertarget{classbio__expression_1_1bio_log_logit_abe5b0cbd989c8c26eadab9122ad6bf89}{}\label{classbio__expression_1_1bio_log_logit_abe5b0cbd989c8c26eadab9122ad6bf89}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1bio_log_logit_afaee157bd3e3ff25d79af92ee29bd49c}{}\label{classbio__expression_1_1bio_log_logit_afaee157bd3e3ff25d79af92ee29bd49c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class calculating the log of a logit choice probability. 
+
+Computes the log of the probability given by the logit model, that is \[ V_i - \log\left(\sum_{j=1}^{J} a_j e^{V_j}\right) \] Example\+: 
+\begin{DoxyCode}
+1 V = \{1: V1, 2: V2, 3: V3\}
+2 av = \{1: av\_1, 2: 1, 3: av\_3\}
+3 logprob = bioLogLogit(V,av,CHOICE) 
+\end{DoxyCode}
+ 
+
+Definition at line 913 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Log\+Logit@{bio\+\_\+expression\+::bio\+Log\+Logit}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Log\+Logit@{bio\+\_\+expression\+::bio\+Log\+Logit}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, util, av, choice)}{__init__(self, util, av, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Log\+Logit.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{util, }
+\item[{}]{av, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_log_logit_a11e021d5eb0326fcda189b53d694d689}{}\label{classbio__expression_1_1bio_log_logit_a11e021d5eb0326fcda189b53d694d689}
+
+\begin{DoxyParams}{Parameters}
+{\em util} & dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) containing the utility functions $V_i$. \\
+\hline
+{\em av} & dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) containing the availability conditions for each alternative $a_i$ (if 0, alternative is not available, if different from zero, it is available). The number of entries and the labeling must be consistent with utilities. \\
+\hline
+{\em choice} & expression providing the index of the alternative for which the probability is being computed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 927 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

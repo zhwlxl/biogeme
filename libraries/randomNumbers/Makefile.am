@@ -26,7 +26,6 @@ patHalton.cc \
 patHessTrain.cc \
 patNormal.cc \
 patNormalWichura.cc \
-patRandomInteger.cc \
 patUnixUniform.cc \
 patUniform.cc \
 patZeroOneUniform.cc \
@@ -40,7 +39,6 @@ patHalton.h \
 patHessTrain.h \
 patNormal.h \
 patNormalWichura.h \
-patRandomInteger.h \
 patRandomNumberGenerator.h \
 patUniform.h \
 patUnixUniform.h \

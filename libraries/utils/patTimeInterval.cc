@@ -12,8 +12,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <iomanip>
 #include "patDisplay.h"
 #include "patAbsTime.h"
@@ -33,7 +34,6 @@ patString patTimeInterval::getTimeString(patTimeIntervalStringFormat format) con
     output += patTISeparator ;
     output += e.getTimeString(patTsfFULL) ;
     output += patTICloseBracket ;
-    cout << "--> time interval " << output << endl ;
     return output ;
     case patTIsfHMS:
     default:
@@ -42,7 +42,6 @@ patString patTimeInterval::getTimeString(patTimeIntervalStringFormat format) con
     output += patTISeparator ;
     output += e.getTimeString(patTsfHMS) ;
     output += patTICloseBracket ;
-    cout << "--> time interval " << output << endl ;
     return output ;
   }
 }

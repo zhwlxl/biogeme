@@ -1,0 +1,15 @@
+# Fdb version 3
+["cusdep gp tex fig-piecewiseIncome"] 0 "fig-piecewiseIncome.gp" "fig-piecewiseIncome.tex" "fig-piecewiseIncome" 1466582154
+  "fig-piecewiseIncome.gp" 1465376680 1891 d2b1ad440ce2056ee57ba05fe77e0dea ""
+  (generated)
+  "fig-piecewiseIncome.tex"
+["dvipdf"] 0 "fig-piecewiseIncome.dvi" "fig-piecewiseIncome.pdf" "fig-piecewiseIncome" 0
+  "fig-piecewiseIncome.dvi" 0 -1 0 "latex"
+  (generated)
+  "fig-piecewiseIncome.pdf"
+["latex"] 1466582154 "fig-piecewiseIncome.tex" "fig-piecewiseIncome.dvi" "fig-piecewiseIncome" 1466582154
+  "fig-piecewiseIncome.aux" 1466223735 8 a94a2480d3289e625eea47cd1b285758 ""
+  "fig-piecewiseIncome.tex" 1465376681 4590 c2ad8459f6b8cd9174bbe5af2901d80b "cusdep gp tex fig-piecewiseIncome"
+  (generated)
+  "fig-piecewiseIncome.log"
+  "fig-piecewiseIncome.dvi"

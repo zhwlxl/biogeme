@@ -7,9 +7,10 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
-#include <stdlib.h>
+
+#include <cstdlib>
 #include "patBiogemeScripting.h"
 #include "patFileNames.h"
 #include "patVersion.h"

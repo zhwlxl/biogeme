@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Biogeme: install</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<?php readfile("http://www.epfl.ch/templates/fragments/header.sig.html")?>
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+
+
+</head>
+<body>
+<a name="top"></a>
+
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">BIOGEME <acronym
+	title="Biogeme" class="local-color-text">Install</acronym></a></h1>
+
+<div class="clear "></div>
+
+
+<div id="content" class="content">
+
+<div class="fullbox">
+
+<p>
+Although executables are distributed (see the menu on the right), it is highly recommended to install the software from sources, so that the executables are tuned for your own machine. 
+</p>
+<p>
+It is assumed that you are working on a machine where the <a href="http://www.gnu.org/" target="_blank">GNU</a> development tools have been installed, in particular
+  the <a href="http://www.gnu.org/software/gcc/" target="_blank">GNU C++ compiler</a>. 
+</p>
+<dl>
+<dt>Mac OS X</dt>
+<dd>If you are working on Mac OS X, make sure to install <a href="http://developer.apple.com/technologies/tools/xcode.html" target="_blank">Xcode</a> and <a href="http://python.org/download/" target="_blank">Python 3</a>. Note that Python 2, which is usually installed by default, cannot be used. Also, it won't compile on Mac against the macports distribution of
+Python 3.2. It's fine to compile it again a custom build of Python
+3.2, or the macports distribution of Python 3.1. After installation,
+one can reinstall macports Python 3.2, they won't interfere once build
+and installed. In any case, executables for Macintosh are also available.
+   Biogeme has been developed and tested on that platform with the following tools:
+<ul>
+<li>g++ 4.5.1</li>
+<li>Python 3.1.2 and Python 3.2</li>
+<li>flex 2.5.35</li>
+</ul>
+</dd>
+<dd>
+Executables for Mac OS X are distributed. The package contains executables for Bison Biogeme (<code>biogeme</code> and <code>biosim</code>), an executable for data manipulation (<code>biomerge</code>) and an experimental version of Pythonbiogeme (the script <code>pythonbiogeme</code>, and the executable <code>pybiogeme</code>, called by that script). Note that this experimental version contains pieces of code from the Python distribution, which are under <a href='http://docs.python.org/license.html'>license</a>.
+</dd>
+<dt>Linux</dt>
+<dd>
+ In general, the GNU  tools are directly available on any machines running linux.
+Make sure that <a href="http://python.org/download/" tarhet="_blank">Python 3</a> is installed. On some platforms, it is also necessary to install python3-dev (onUbuntu, use <code>sudo apt-get install python3-dev</code>).
+ It has been tested on the following platforms
+<ul>
+<li>Red Hat 4.1.2-48
+<li>Ubuntu 4.4.3-4ubuntu5
+</ul>
+</dd>
+<dt>Windows</dt>
+<dd>There are some GNU environment distributed under Windows:
+<ul>
+<li><a href="http://cygwin.com/" target="_blank">Cygwin</a></li>
+<li><a href="http://www.mingw.org/" target="_blank">MinGW</a></li>
+<li><a href="http://gnuwin32.sourceforge.net/" target="_blank">GnuWin</a></li>
+</ul>
+However, it is recommended to install a native Linux distribution on the machine. 
+</dd>
+</dl>
+
+<p>
+</p>
+<p>
+In order to install pythonbiogeme, <code>python 3</code> must also be installed (see <a href="http://python.org/" target="_blank">python.org</a>). Note that older versions of python, such as <code>python 2.x</code> are not compatible. <code>python 3.1</code> is required. Sometimes, 
+</p>
+<p>
+The procedure to install biogeme on a linux machine or a mac, <a href="http://biogeme.epfl.ch/v22/biogeme-2.2.tar.gz">download the file <code>biogeme-2.2.tar.gz</code></a> in a temporary directory, and apply the following procedure:
+<code>
+<pre>
+tar xvzf biogeme-2.2.tar-gz
+cd biogeme-2.2
+./configure --enable-bison
+make
+sudo make install
+</pre>
+</code>
+</p>
+<p>The <code>configure</code> step is pretty verbose. The relevant information is displayed at the end, and looks like:</p>
+<pre>
+  biogeme 2.2:  Automatic configuration OK.
+ Build biogeme...........yes 
+ Build biomerge..........yes 
+ Build biosim............yes 
+ Build python biogeme....no (use option --enable-python)
+ Build gui version.......yes 
+ Static executables......no (use option --enable-staticexec)
+ Versioned installation..no (use option --enable-versioned)
+</pre>
+<p>
+It reports those features that will be built, and those that will not. Some features (such as <code>python biogeme</code> in the above example) are not installed because they have not been "enabled" using the corresponding <code>--enable</code> option. Some features require additional software, such as <code><a href="http://python.org/" target="_blank">python 3.1</a></code> or <a href="http://www.fltk.org/" target="_blank">Fast Light Toolkit</a>.
+</p>
+<p>
+The procedure to install both  biogeme and the python version is the following:
+<code>
+<pre>
+tar xvzf biogeme-2.2.tar-gz
+cd biogeme-2.2
+./configure --enable-bison --enable-python
+make
+sudo make install
+</pre>
+</code>
+</p>
+</div>
+
+</div>
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+
+<ul class="tree">
+<li><a href="index.html">Back</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</ul>
+</div>    
+    <div class="clear"></div>
+
+<a href="index.html">Back</a><br>
+<a href="http://biogeme.epfl.ch">Biogeme</a>
+
+
+</body>
+</html>

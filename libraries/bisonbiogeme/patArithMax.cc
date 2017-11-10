@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patArithMax.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"

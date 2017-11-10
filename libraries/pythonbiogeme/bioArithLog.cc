@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 
@@ -168,23 +168,23 @@ bioFunctionAndDerivatives* bioArithLog::getNumericalFunctionAndGradient(vector<p
 	}
       }
     }
-    if (result.theHessian != NULL && computeHessian) {
+    if (computeHessian) {
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
-	  patReal h = c->theHessian->getElement(i,j,err) ;
+	  patReal h = c->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
 	  }
 	  if (h == 0.0 && (c->theGradient[i] == 0.0 || c->theGradient[j] == 0.0)) {
-	    result.theHessian->setElement(i,j,0,err) ;
+	    result.theHessian.setElement(i,j,0,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
 	    }
 	  }
 	  else {
-	    result.theHessian->setElement(i,j,patMaxReal,err) ;
+	    result.theHessian.setElement(i,j,patMaxReal,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
@@ -213,12 +213,12 @@ bioFunctionAndDerivatives* bioArithLog::getNumericalFunctionAndGradient(vector<p
 	}
       }
     }
-    if (result.theHessian != NULL && computeHessian) {
+    if (computeHessian) {
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	for (patULong j = i ; j < literalIds.size() ; ++j) {
 	  patReal v = -result.theGradient[i] * c->theGradient[j] / c->theFunction ;
 	  //	DEBUG_MESSAGE("v["<<i<<"]["<<j<<"] = " << v) ;
-	  patReal hs = c->theHessian->getElement(i,j,err) ;
+	  patReal hs = c->theHessian.getElement(i,j,err) ;
 	  //	DEBUG_MESSAGE("hs["<<i<<"]["<<j<<"] = " << v) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
@@ -233,7 +233,7 @@ bioFunctionAndDerivatives* bioArithLog::getNumericalFunctionAndGradient(vector<p
 	    DEBUG_MESSAGE("c->theFunction: " << c->theFunction) ;
 	    DEBUG_MESSAGE("H("<<i<<","<<j<<")="<<v) ;
 	  }
-	  result.theHessian->setElement(i,j,v,err) ;
+	  result.theHessian.setElement(i,j,v,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;

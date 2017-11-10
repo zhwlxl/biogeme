@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: montecarlo.aux
+The style file: dcu.bst
+Database file #1: ../dca.bib
+You've used 8 entries,
+            2921 wiz_defined-function locations,
+            708 strings with 6215 characters,
+and the built_in function-call counts, 20818 in all, are:
+= -- 3246
+> -- 307
+< -- 1
++ -- 1454
+- -- 91
+* -- 1702
+:= -- 4430
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 112
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 113
+empty$ -- 254
+format.name$ -- 113
+if$ -- 3699
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 38
+num.names$ -- 82
+pop$ -- 26
+preamble$ -- 1
+purify$ -- 120
+quote$ -- 0
+skip$ -- 94
+stack$ -- 0
+substring$ -- 4433
+swap$ -- 14
+text.length$ -- 113
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 0
+while$ -- 176
+width$ -- 0
+write$ -- 116

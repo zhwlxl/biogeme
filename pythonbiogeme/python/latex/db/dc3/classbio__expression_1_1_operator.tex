@@ -1,0 +1,171 @@
+\hypertarget{classbio__expression_1_1_operator}{\section{bio\+\_\+expression.\+Operator Class Reference}
+\label{classbio__expression_1_1_operator}\index{bio\+\_\+expression.\+Operator@{bio\+\_\+expression.\+Operator}}
+}
+
+
+Generic class for an operator.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_operator_a8541e72c91e88d2a7582a6d6490442a6}{get\+Op\+Index}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a9218912b24cbbf93ec6437f8fcb7425b}{num} = 'numeric'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a57e66dc86a1f2dc1b445de72cb6b5ae3}{var} = 'variable'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a36db50b667d12009b2416d75f867e812}{userexpr} = 'User\+Expression'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a75ff5560af6c3a51cdb1e081c43c5307}{rv} = 'random\+Variable'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a65fbaabbd4d58d42b0dfcf289dc471a7}{param} = 'beta'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_afa09011c1c34b89d546c13770a2cfe41}{normal} = 'N(0,1)'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a7dbfc1dc2e494f3e2b223009d9da589d}{uniform} = 'U\mbox{[}0,1\mbox{]}'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_af0fdc1f7125448dd8f87c775b4e92bc0}{uniform\+Sym} = 'U\mbox{[}-\/1,1\mbox{]}'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a7e1eb8e6000edd55e5e9db7f4fb2c65b}{bio\+Normal\+Cdf} = '\hyperlink{classbio__expression_1_1bio_normal_cdf}{bio\+Normal\+Cdf}'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a34050786a36ab06632249277eb27b84c}{mh\+Op} = '\hyperlink{classbio__expression_1_1_m_h}{M\+H}'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a482c5c114fe61acfb6d94d8de4fe73ab}{bayes\+Mean\+Op} = '\hyperlink{classbio__expression_1_1bio_bayes_normal_draw}{bio\+Bayes\+Normal\+Draw}'
+\item 
+string \hyperlink{classbio__expression_1_1_operator_a697c8f61e4d58a600f19d613e98ba9a8}{define\+Op} = 'define'
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a261a3955ad077daed9f2e80b31e2bddc}{M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 0
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a47efbd1f29c35b911e126f339ca4756f}{M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 19
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a2cd0b877af530e1c834d4b06de370869}{M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 20
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a161b9e6177929bf42daf3f29f4709765}{M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 39
+\item 
+int \hyperlink{classbio__expression_1_1_operator_adc7a893db52306ff0411e5a0967806fe}{M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 40
+\item 
+int \hyperlink{classbio__expression_1_1_operator_af07caaa4f6e4cc46e9a28eb966524a91}{M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 69
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a0dd404dd529039f3cea746b7e87438e1}{M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 70
+\item 
+int \hyperlink{classbio__expression_1_1_operator_a8cf931344da7c909e67faa669a95e2c5}{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X} = 89
+\item 
+int \hyperlink{classbio__expression_1_1_operator_ab57f80edbd4390898e69f9222be629e1}{U\+N\+D\+E\+F\+\_\+\+O\+P} = -\/1
+\item 
+dictionary \hyperlink{classbio__expression_1_1_operator_a7a73e3af3a9dcc697b1450e442f3bec5}{operator\+Index\+Dic}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic class for an operator. 
+
+Manages the I\+Ds of the various operators. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_operator_a8541e72c91e88d2a7582a6d6490442a6}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!get\+Op\+Index@{get\+Op\+Index}}
+\index{get\+Op\+Index@{get\+Op\+Index}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{get\+Op\+Index}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Operator.\+get\+Op\+Index (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{op}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_operator_a8541e72c91e88d2a7582a6d6490442a6}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_operator_a482c5c114fe61acfb6d94d8de4fe73ab}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!bayes\+Mean\+Op@{bayes\+Mean\+Op}}
+\index{bayes\+Mean\+Op@{bayes\+Mean\+Op}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{bayes\+Mean\+Op}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+bayes\+Mean\+Op = '{\bf bio\+Bayes\+Normal\+Draw}'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a482c5c114fe61acfb6d94d8de4fe73ab}
+\hypertarget{classbio__expression_1_1_operator_a7e1eb8e6000edd55e5e9db7f4fb2c65b}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!bio\+Normal\+Cdf@{bio\+Normal\+Cdf}}
+\index{bio\+Normal\+Cdf@{bio\+Normal\+Cdf}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{bio\+Normal\+Cdf}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+bio\+Normal\+Cdf = '{\bf bio\+Normal\+Cdf}'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a7e1eb8e6000edd55e5e9db7f4fb2c65b}
+\hypertarget{classbio__expression_1_1_operator_a697c8f61e4d58a600f19d613e98ba9a8}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!define\+Op@{define\+Op}}
+\index{define\+Op@{define\+Op}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{define\+Op}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+define\+Op = 'define'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a697c8f61e4d58a600f19d613e98ba9a8}
+\hypertarget{classbio__expression_1_1_operator_af07caaa4f6e4cc46e9a28eb966524a91}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+A\+X\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X = 69\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_af07caaa4f6e4cc46e9a28eb966524a91}
+\hypertarget{classbio__expression_1_1_operator_a8cf931344da7c909e67faa669a95e2c5}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X = 89\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a8cf931344da7c909e67faa669a95e2c5}
+\hypertarget{classbio__expression_1_1_operator_a161b9e6177929bf42daf3f29f4709765}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+A\+X\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X = 39\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a161b9e6177929bf42daf3f29f4709765}
+\hypertarget{classbio__expression_1_1_operator_a47efbd1f29c35b911e126f339ca4756f}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+A\+X\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X = 19\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a47efbd1f29c35b911e126f339ca4756f}
+\hypertarget{classbio__expression_1_1_operator_a34050786a36ab06632249277eb27b84c}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!mh\+Op@{mh\+Op}}
+\index{mh\+Op@{mh\+Op}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{mh\+Op}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+mh\+Op = '{\bf M\+H}'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a34050786a36ab06632249277eb27b84c}
+\hypertarget{classbio__expression_1_1_operator_adc7a893db52306ff0411e5a0967806fe}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+I\+N\+\_\+\+B\+I\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X = 40\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_adc7a893db52306ff0411e5a0967806fe}
+\hypertarget{classbio__expression_1_1_operator_a0dd404dd529039f3cea746b7e87438e1}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+I\+N\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+O\+P\+\_\+\+I\+N\+D\+E\+X = 70\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a0dd404dd529039f3cea746b7e87438e1}
+\hypertarget{classbio__expression_1_1_operator_a2cd0b877af530e1c834d4b06de370869}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+I\+N\+\_\+\+U\+N\+O\+P\+\_\+\+I\+N\+D\+E\+X = 20\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a2cd0b877af530e1c834d4b06de370869}
+\hypertarget{classbio__expression_1_1_operator_a261a3955ad077daed9f2e80b31e2bddc}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}}
+\index{M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X@{M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+M\+I\+N\+\_\+\+Z\+E\+R\+O\+O\+P\+\_\+\+I\+N\+D\+E\+X = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a261a3955ad077daed9f2e80b31e2bddc}
+\hypertarget{classbio__expression_1_1_operator_afa09011c1c34b89d546c13770a2cfe41}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!normal@{normal}}
+\index{normal@{normal}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{normal}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+normal = 'N(0,1)'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_afa09011c1c34b89d546c13770a2cfe41}
+\hypertarget{classbio__expression_1_1_operator_a9218912b24cbbf93ec6437f8fcb7425b}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!num@{num}}
+\index{num@{num}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{num}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+num = 'numeric'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a9218912b24cbbf93ec6437f8fcb7425b}
+\hypertarget{classbio__expression_1_1_operator_a7a73e3af3a9dcc697b1450e442f3bec5}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!operator\+Index\+Dic@{operator\+Index\+Dic}}
+\index{operator\+Index\+Dic@{operator\+Index\+Dic}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{operator\+Index\+Dic}]{\setlength{\rightskip}{0pt plus 5cm}dictionary bio\+\_\+expression.\+Operator.\+operator\+Index\+Dic\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a7a73e3af3a9dcc697b1450e442f3bec5}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{num:0, \(\backslash\)
+2                     var:1, \(\backslash\)
+3                     param:2, \(\backslash\)
+4                     normal:3, \(\backslash\)
+5                     uniform:4, \(\backslash\)
+6                    rv:5, \(\backslash\)
+7                     uniformSym:6, \(\backslash\)
+8                     userexpr:7, \(\backslash\)
+9                     absOp:20, negOp:21, \(\backslash\)
+10                     exp:30, log:31, bioNormalCdf: 33, \(\backslash\)
+11                     add:40, sub:41, mul:42, div:43, power:44, \(\backslash\)
+12                     andOp:45, orOp:46, equal:47, notEqual:48, \(\backslash\)
+13                     greater:49, greaterEq:50, less:51, lessEq:52, \(\backslash\)
+14                     minOp:53, maxOp:54, mod:55, \(\backslash\)
+15                     sumOp:70, prodOp:71,  \(\backslash\)
+16                     elemOp:90, enumOp:91,  integralOp:92, derivativeOp:93, \(\backslash\)
+17                     defineOp:94, logitOp:95, bioNormalPdf:96, multSumOp:97, multProdOp:98, mhOp:99, 
+      bayesMeanOp:100             \}
+\end{DoxyCode}
+\hypertarget{classbio__expression_1_1_operator_a65fbaabbd4d58d42b0dfcf289dc471a7}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!param@{param}}
+\index{param@{param}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{param}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+param = 'beta'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a65fbaabbd4d58d42b0dfcf289dc471a7}
+\hypertarget{classbio__expression_1_1_operator_a75ff5560af6c3a51cdb1e081c43c5307}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!rv@{rv}}
+\index{rv@{rv}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{rv}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+rv = 'random\+Variable'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a75ff5560af6c3a51cdb1e081c43c5307}
+\hypertarget{classbio__expression_1_1_operator_ab57f80edbd4390898e69f9222be629e1}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!U\+N\+D\+E\+F\+\_\+\+O\+P@{U\+N\+D\+E\+F\+\_\+\+O\+P}}
+\index{U\+N\+D\+E\+F\+\_\+\+O\+P@{U\+N\+D\+E\+F\+\_\+\+O\+P}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{U\+N\+D\+E\+F\+\_\+\+O\+P}]{\setlength{\rightskip}{0pt plus 5cm}int bio\+\_\+expression.\+Operator.\+U\+N\+D\+E\+F\+\_\+\+O\+P = -\/1\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_ab57f80edbd4390898e69f9222be629e1}
+\hypertarget{classbio__expression_1_1_operator_a7dbfc1dc2e494f3e2b223009d9da589d}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!uniform@{uniform}}
+\index{uniform@{uniform}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{uniform}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+uniform = 'U\mbox{[}0,1\mbox{]}'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a7dbfc1dc2e494f3e2b223009d9da589d}
+\hypertarget{classbio__expression_1_1_operator_af0fdc1f7125448dd8f87c775b4e92bc0}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!uniform\+Sym@{uniform\+Sym}}
+\index{uniform\+Sym@{uniform\+Sym}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{uniform\+Sym}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+uniform\+Sym = 'U\mbox{[}-\/1,1\mbox{]}'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_af0fdc1f7125448dd8f87c775b4e92bc0}
+\hypertarget{classbio__expression_1_1_operator_a36db50b667d12009b2416d75f867e812}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!userexpr@{userexpr}}
+\index{userexpr@{userexpr}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{userexpr}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+userexpr = 'User\+Expression'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a36db50b667d12009b2416d75f867e812}
+\hypertarget{classbio__expression_1_1_operator_a57e66dc86a1f2dc1b445de72cb6b5ae3}{\index{bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}!var@{var}}
+\index{var@{var}!bio\+\_\+expression\+::\+Operator@{bio\+\_\+expression\+::\+Operator}}
+\subsubsection[{var}]{\setlength{\rightskip}{0pt plus 5cm}string bio\+\_\+expression.\+Operator.\+var = 'variable'\hspace{0.3cm}{\ttfamily [static]}}}\label{classbio__expression_1_1_operator_a57e66dc86a1f2dc1b445de72cb6b5ae3}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

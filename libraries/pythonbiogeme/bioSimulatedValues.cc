@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioSimulatedValues.h"
 #include "patQuantiles.h"
 #include "patErrMiscError.h"
@@ -124,11 +128,13 @@ void bioSimulatedValues::calculateAggregateValues(patError*& err) {
   nominalWeightedNonZeros = 0.0 ;
   nominalMinimum = patMaxReal ;
   nominalMaximum = -patMaxReal ;
+  nominalTotalWeight = 0.0 ;
   
   for (patULong i = 0 ; i < getNumberOfValues() ; ++i) {
     patReal value = nominalValues[i] ;
     nominalTotal += value ;
     if (weights != NULL) {
+      nominalTotalWeight += (*weights)[i] ;
       nominalWeightedTotal += (*weights)[i] * value ;
     }
     if (value != 0.0) {
@@ -181,6 +187,18 @@ patReal bioSimulatedValues::getTotal(patError*& err) {
   return nominalTotal ;
 }
 
+patReal bioSimulatedValues::getTotalWeight(patError*& err) {
+  if (!aggregateValuesCalculated) {
+    calculateAggregateValues(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return patReal() ;
+    }
+  }
+  return nominalTotalWeight ;
+}
+
+
 patInterval bioSimulatedValues::getTotalConfidenceInterval(patError*& err)  {
   patInterval res = generateConfidenceInterval(&total,err) ;
   if (err != NULL) {
@@ -208,6 +226,44 @@ patInterval bioSimulatedValues::getWeightedTotalConfidenceInterval(patError*& er
     return patInterval() ;
   }
   return res ;
+}
+
+
+patReal bioSimulatedValues::getNormalizedWeightedTotal(patError*& err)  {
+  if (!aggregateValuesCalculated) {
+    calculateAggregateValues(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return patReal() ;
+    }
+  }
+  patReal tw = getTotalWeight(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return patReal() ;
+  }
+  return nominalWeightedTotal / tw ;
+}
+
+patInterval bioSimulatedValues::getNormalizedWeightedTotalConfidenceInterval(patError*& err)  {
+  if (!aggregateValuesCalculated) {
+    calculateAggregateValues(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return patInterval() ;
+    }
+  }
+  patInterval result = getWeightedTotalConfidenceInterval(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return patInterval() ;
+  }
+  patReal tw = getTotalWeight(err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return patInterval() ;
+  }
+  return result / tw  ;
 }
 
 patReal bioSimulatedValues::getAverage(patError*& err)  {

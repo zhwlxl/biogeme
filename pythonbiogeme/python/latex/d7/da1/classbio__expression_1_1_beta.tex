@@ -1,0 +1,126 @@
+\hypertarget{classbio__expression_1_1_beta}{\section{bio\+\_\+expression.\+Beta Class Reference}
+\label{classbio__expression_1_1_beta}\index{bio\+\_\+expression.\+Beta@{bio\+\_\+expression.\+Beta}}
+}
+
+
+Class representing a parameter to be estimated.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Beta\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/da1/classbio__expression_1_1_beta}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_beta_a5f6dba2d51c7d2b4ac93f7fe0fb0a789}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_beta_a974d6436cd733422c07670a3650a7366}{get\+Expression}
+\item 
+def \hyperlink{classbio__expression_1_1_beta_aafcc5ad23acfd743f7a1d31a2050f8dc}{get\+I\+D}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_beta_ae40aca026321dc4873216baea65c209a}{name}
+\item 
+\hyperlink{classbio__expression_1_1_beta_af9ff8e36aac16ad655894d20003fb8af}{val}
+\item 
+\hyperlink{classbio__expression_1_1_beta_a7709223a6780122c4dd1f17516b53f5c}{lb}
+\item 
+\hyperlink{classbio__expression_1_1_beta_a0923a6e1480c5747a7eecae9a23ca6ad}{ub}
+\item 
+\hyperlink{classbio__expression_1_1_beta_a7789b899e6f1bb2186387f234f48ca30}{st}
+\item 
+\hyperlink{classbio__expression_1_1_beta_aad1a82e31c5f2389dfac1e4358265ea4}{desc}
+\item 
+\hyperlink{classbio__expression_1_1_beta_a7435b0e78fc4790d737438a508dda221}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a parameter to be estimated. 
+
+It is highly recommended to use the same name as an argument as the name of the python variable on the left of the equal sign. Indeed, Biogeme has no access to the name of the python variable, and the report will use only the name provided as an argument. Example\+: 
+\begin{DoxyCode}
+1 beta = Beta( \textcolor{stringliteral}{'beta'}, 0.0, -10000, 10000, 0)
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_beta_a5f6dba2d51c7d2b4ac93f7fe0fb0a789}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Beta.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{value, }
+\item[{}]{lowerbound, }
+\item[{}]{upperbound, }
+\item[{}]{status, }
+\item[{}]{desc = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_beta_a5f6dba2d51c7d2b4ac93f7fe0fb0a789}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the parameter \\
+\hline
+{\em value} & starting value of the parameter \\
+\hline
+{\em lowerbound} & minimum value that the parameter can take \\
+\hline
+{\em upperbound} & maximum value that the parameter can take \\
+\hline
+{\em status} & 0 if the parameter must be estimated, 1 if the starting value is maintained \\
+\hline
+{\em desc} & text used in the La\+Te\+X output file (optional, default value\+:'' \mbox{[}empty string\mbox{]}) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_beta_a974d6436cd733422c07670a3650a7366}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Beta.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_beta_a974d6436cd733422c07670a3650a7366}
+\hypertarget{classbio__expression_1_1_beta_aafcc5ad23acfd743f7a1d31a2050f8dc}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!get\+I\+D@{get\+I\+D}}
+\index{get\+I\+D@{get\+I\+D}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{get\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Beta.\+get\+I\+D (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_beta_aafcc5ad23acfd743f7a1d31a2050f8dc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_beta_aad1a82e31c5f2389dfac1e4358265ea4}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!desc@{desc}}
+\index{desc@{desc}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{desc}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+desc}}\label{classbio__expression_1_1_beta_aad1a82e31c5f2389dfac1e4358265ea4}
+\hypertarget{classbio__expression_1_1_beta_a7709223a6780122c4dd1f17516b53f5c}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!lb@{lb}}
+\index{lb@{lb}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{lb}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+lb}}\label{classbio__expression_1_1_beta_a7709223a6780122c4dd1f17516b53f5c}
+\hypertarget{classbio__expression_1_1_beta_ae40aca026321dc4873216baea65c209a}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!name@{name}}
+\index{name@{name}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+name}}\label{classbio__expression_1_1_beta_ae40aca026321dc4873216baea65c209a}
+\hypertarget{classbio__expression_1_1_beta_a7435b0e78fc4790d737438a508dda221}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+operator\+Index}}\label{classbio__expression_1_1_beta_a7435b0e78fc4790d737438a508dda221}
+\hypertarget{classbio__expression_1_1_beta_a7789b899e6f1bb2186387f234f48ca30}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!st@{st}}
+\index{st@{st}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{st}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+st}}\label{classbio__expression_1_1_beta_a7789b899e6f1bb2186387f234f48ca30}
+\hypertarget{classbio__expression_1_1_beta_a0923a6e1480c5747a7eecae9a23ca6ad}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!ub@{ub}}
+\index{ub@{ub}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{ub}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+ub}}\label{classbio__expression_1_1_beta_a0923a6e1480c5747a7eecae9a23ca6ad}
+\hypertarget{classbio__expression_1_1_beta_af9ff8e36aac16ad655894d20003fb8af}{\index{bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}!val@{val}}
+\index{val@{val}!bio\+\_\+expression\+::\+Beta@{bio\+\_\+expression\+::\+Beta}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Beta.\+val}}\label{classbio__expression_1_1_beta_af9ff8e36aac16ad655894d20003fb8af}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

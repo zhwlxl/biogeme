@@ -1,0 +1,94 @@
+\hypertarget{classbio__expression_1_1_m_h}{}\section{bio\+\_\+expression.\+MH Class Reference}
+\label{classbio__expression_1_1_m_h}\index{bio\+\_\+expression.\+MH@{bio\+\_\+expression.\+MH}}
+
+
+Class performing draws from densities for Bayesian estimation using Metropolis-\/\+Hastings algorithm.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+MH\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1_m_h}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_m_h_a3508f4e451a572c9dcdd891060bb30a7}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, beta, density, warmup, steps)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries type}\hypertarget{classbio__expression_1_1_m_h_a48c07484d5abd341e38f82bd8ef43b0c}{}\label{classbio__expression_1_1_m_h_a48c07484d5abd341e38f82bd8ef43b0c}
+
+\item 
+{\bfseries beta}\hypertarget{classbio__expression_1_1_m_h_a767bb48ec82475fb60d73d297f6f722d}{}\label{classbio__expression_1_1_m_h_a767bb48ec82475fb60d73d297f6f722d}
+
+\item 
+{\bfseries density}\hypertarget{classbio__expression_1_1_m_h_a5a3443d482b7fd5afa1f4b9ea1b3586a}{}\label{classbio__expression_1_1_m_h_a5a3443d482b7fd5afa1f4b9ea1b3586a}
+
+\item 
+{\bfseries warmup}\hypertarget{classbio__expression_1_1_m_h_a56901e6f39d9fc5a25b97c2f8c5f4e23}{}\label{classbio__expression_1_1_m_h_a56901e6f39d9fc5a25b97c2f8c5f4e23}
+
+\item 
+{\bfseries steps}\hypertarget{classbio__expression_1_1_m_h_a78adda7cb0d4557dbb12620ed5577621}{}\label{classbio__expression_1_1_m_h_a78adda7cb0d4557dbb12620ed5577621}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1_m_h_af6d51b6718c53ba42e71f5071850fe06}{}\label{classbio__expression_1_1_m_h_af6d51b6718c53ba42e71f5071850fe06}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class performing draws from densities for Bayesian estimation using Metropolis-\/\+Hastings algorithm. 
+
+Values of \hyperlink{classbio__expression_1_1_beta}{Beta} parameters are drawn from a given density function using a Metropolis-\/\+Hastings algorithm. Example\+: 
+\begin{DoxyCode}
+1 BETA = \{ASC\_CAR, ASC\_TRAIN, B\_TIME, B\_COST\}
+2 prob = bioLogit(V,av,CHOICE)
+3 rowIterator(\textcolor{stringliteral}{'obsIter'}) 
+4 likelihood = Prod(prob,\textcolor{stringliteral}{'obsIter'})
+5 BIOGEME\_OBJECT.BAYESIAN = MH(BETA,likelihood)
+\end{DoxyCode}
+ 
+
+Definition at line 1087 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::\+MH@{bio\+\_\+expression\+::\+MH}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+MH@{bio\+\_\+expression\+::\+MH}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, beta, density, warmup, steps)}{__init__(self, beta, density, warmup, steps)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+M\+H.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{beta, }
+\item[{}]{density, }
+\item[{}]{warmup, }
+\item[{}]{steps}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1_m_h_a3508f4e451a572c9dcdd891060bb30a7}{}\label{classbio__expression_1_1_m_h_a3508f4e451a572c9dcdd891060bb30a7}
+
+\begin{DoxyParams}{Parameters}
+{\em beta} & a list of the form 
+\begin{DoxyCode}
+1 \{beta1, beta2,...\}
+\end{DoxyCode}
+ where beta1, beta2, etc. are defined by the \hyperlink{classbio__expression_1_1_beta}{Beta} expression. \\
+\hline
+{\em density} & valid expression representing the density to draw from. \\
+\hline
+{\em warmup} & number of steps of the Markov chain to perform to reach stationarity. \\
+\hline
+{\em steps} & number of steps to skip between two draws. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1098 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

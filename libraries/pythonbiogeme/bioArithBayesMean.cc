@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioArithBayesMean.h"
 #include "bioExpressionRepository.h"
 #include "bioParameters.h"

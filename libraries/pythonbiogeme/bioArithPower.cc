@@ -6,9 +6,14 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 
 #include "patMath.h"
+#include "patPower.h"
 #include "patDisplay.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"
@@ -100,8 +105,7 @@ patReal bioArithPower::getValue(patBoolean prepareGradient, patULong currentLap,
             //return ere ;
           }
         } else {
-          lastValue = pow(l,r) ;
-          //return pow(l,r) ;
+          lastValue = patPower(l,r) ;
         }
       }
     }
@@ -350,7 +354,7 @@ patBoolean computeHessian,
 	}
       }
       else {
-	result.theFunction = pow(l->theFunction,r->theFunction) ;
+	result.theFunction = patPower(l->theFunction,r->theFunction) ;
       }
     }
   }
@@ -382,13 +386,13 @@ patBoolean computeHessian,
     }    
   }
 
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
 	patReal v = G[i] * result.theGradient[j] ;
 	if (result.theFunction != 0) {
 	  patReal term(0.0) ;
-	  patReal hright = r->theHessian->getElement(i,j,err) ;
+	  patReal hright = r->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -406,7 +410,7 @@ patBoolean computeHessian,
 	    patReal asquare = l->theFunction * l->theFunction ;
 	    term -= l->theGradient[i] * l->theGradient[j] * r->theFunction / asquare ;
 	  }
-	  patReal hleft = l->theHessian->getElement(i,j,err) ;
+	  patReal hleft = l->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -423,7 +427,7 @@ patBoolean computeHessian,
 	    v = patMaxReal ;
 	  }
 	}
-	result.theHessian->setElement(i,j,v,err) ;
+	result.theHessian.setElement(i,j,v,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

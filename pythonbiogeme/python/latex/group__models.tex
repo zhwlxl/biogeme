@@ -1,0 +1,733 @@
+\hypertarget{group__models}{}\section{Specific choice models}
+\label{group__models}\index{Specific choice models@{Specific choice models}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__models_gaad071c762f25d4397d5d3f0012e24ae0}{cnl.\+cnl\+\_\+avail} (V, availability, nests, choice)
+\begin{DoxyCompactList}\small\item\em Implements the cross-\/nested logit model as a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gaf4bfbebdcae30855bdc625a6d5469cf2}{cnl.\+logcnl\+\_\+avail} (V, availability, nests, choice)
+\begin{DoxyCompactList}\small\item\em Implements the log of the cross-\/nested logit model as a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gaec0022b0d3469608fc369f92f47604e3}{cnl.\+cnlmu} (V, availability, nests, choice, bmu)
+\begin{DoxyCompactList}\small\item\em Implements the cross-\/nested logit model as a M\+EV model with the homogeneity parameters is explicitly involved. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gafb459235bcf08258e6c4c995831dc946}{cnl.\+logcnlmu} (V, availability, nests, choice, bmu)
+\begin{DoxyCompactList}\small\item\em Implements the log of the cross-\/nested logit model as a M\+EV model with the homogeneity parameters is explicitly involved. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga0db5ee301cdc92305f5f6f8e72b009fb}{logit.\+logit\+\_\+av\+\_\+scale} (V, availability, choice, group, scale)
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability with utilities scaled according to the group. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga3917c75704c624eac9d67a7b9edb651d}{logit.\+logit} (V, choice)
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability, where all alternatives are available. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga46e956b929c828c47c60e4ce414d570e}{logit.\+logit\+\_\+scale} (V, choice, group, scale)
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability with utilities scaled according to the group. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga73dedfec95ea7f0a438607d0b150ea1c}{mev.\+mev} (V, Gi, av, choice)
+\begin{DoxyCompactList}\small\item\em Choice probability for a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga7efc936612380b8713ba501c3134255a}{mev.\+logmev} (V, Gi, av, choice)
+\begin{DoxyCompactList}\small\item\em Log of the choice probability for a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga35783e69358bb7c705d8594438f16307}{mev.\+mev\+\_\+selection\+Bias} (V, Gi, av, correction, choice)
+\begin{DoxyCompactList}\small\item\em Choice probability for a M\+EV model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga943e542b2505591e45672d27a8ab4e69}{mev.\+logmev\+\_\+selection\+Bias} (V, Gi, av, correction, choice)
+\begin{DoxyCompactList}\small\item\em Log of choice probability for a M\+EV model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga137c8e126651077da86c84c2558ab440}{nested.\+get\+Mev\+For\+Nested} (V, availability, nests)
+\begin{DoxyCompactList}\small\item\em Implements the M\+EV generating function for the nested logit model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gacd532648885a85e6f0b8aa2450e24c95}{nested.\+nested} (V, availability, nests, choice)
+\begin{DoxyCompactList}\small\item\em Implements the nested logit model as a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga214ab7d40fbd5f55956681dabaf5949d}{nested.\+lognested} (V, availability, nests, choice)
+\begin{DoxyCompactList}\small\item\em Implements the log of a nested logit model as a M\+EV model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga2cd8625931f8f303763cebc767ce355e}{nested.\+nested\+Mev\+Mu} (V, availability, nests, choice, mu)
+\begin{DoxyCompactList}\small\item\em Implements the nested logit model as a M\+EV model, where mu is also a parameter, if the user wants to test different normalization schemes. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gac121e6462db942150e4df4b2e33bb04c}{nested.\+lognested\+Mev\+Mu} (V, availability, nests, choice, mu)
+\begin{DoxyCompactList}\small\item\em Implements the log of the nested logit model as a M\+EV model, where mu is also a parameter, if the user wants to test different normalization schemes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Specific choice models@{Specific choice models}!cnl\+\_\+avail@{cnl\+\_\+avail}}
+\index{cnl\+\_\+avail@{cnl\+\_\+avail}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{cnl\+\_\+avail(\+V, availability, nests, choice)}{cnl_avail(V, availability, nests, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+cnl\+\_\+avail (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gaad071c762f25d4397d5d3f0012e24ae0}{}\label{group__models_gaad071c762f25d4397d5d3f0012e24ae0}
+
+
+Implements the cross-\/nested logit model as a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping the alternative ids with the cross-\/nested parameters for the corresponding nest. Example with two nests and 6 alternatives\+: 
+\begin{DoxyCode}
+1 alphaA = \{1: alpha1a,
+2           2: alpha2a,
+3           3: alpha3a,
+4           4: alpha4a,
+5           5: alpha5a,
+6           6: alpha6a\}
+7 alphaB = \{1: alpha1b,
+8           2: alpha2b,
+9           3: alpha3b,
+10           4: alpha4b,
+11           5: alpha5b,
+12           6: alpha6b\}
+13 nesta = MUA , alphaA
+14 nestb = MUB , alphaB
+15 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the cross-\/nested logit model. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file cnl.\+py.
+
+\index{Specific choice models@{Specific choice models}!cnlmu@{cnlmu}}
+\index{cnlmu@{cnlmu}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{cnlmu(\+V, availability, nests, choice, bmu)}{cnlmu(V, availability, nests, choice, bmu)}}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+cnlmu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{bmu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gaec0022b0d3469608fc369f92f47604e3}{}\label{group__models_gaec0022b0d3469608fc369f92f47604e3}
+
+
+Implements the cross-\/nested logit model as a M\+EV model with the homogeneity parameters is explicitly involved. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping the alternative ids with the cross-\/nested parameters for the corresponding nest. Example with two nests and 6 alternatives\+: 
+\begin{DoxyCode}
+1 alphaA = \{1: alpha1a,
+2           2: alpha2a,
+3           3: alpha3a,
+4           4: alpha4a,
+5           5: alpha5a,
+6           6: alpha6a\}
+7 alphaB = \{1: alpha1b,
+8           2: alpha2b,
+9           3: alpha3b,
+10           4: alpha4b,
+11           5: alpha5b,
+12           6: alpha6b\}
+13 nesta = MUA , alphaA
+14 nestb = MUB , alphaB
+15 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em bmu} & Homogeneity parameter $\mu$. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the cross-\/nested logit model. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file cnl.\+py.
+
+\index{Specific choice models@{Specific choice models}!get\+Mev\+For\+Nested@{get\+Mev\+For\+Nested}}
+\index{get\+Mev\+For\+Nested@{get\+Mev\+For\+Nested}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{get\+Mev\+For\+Nested(\+V, availability, nests)}{getMevForNested(V, availability, nests)}}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+get\+Mev\+For\+Nested (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga137c8e126651077da86c84c2558ab440}{}\label{group__models_ga137c8e126651077da86c84c2558ab440}
+
+
+Implements the M\+EV generating function for the nested logit model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{1}{\mu_m}-1} \] where $m$ is the (only) nest containing alternative $i$, and $G$ is the M\+EV generating function. 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file nested.\+py.
+
+\index{Specific choice models@{Specific choice models}!logcnl\+\_\+avail@{logcnl\+\_\+avail}}
+\index{logcnl\+\_\+avail@{logcnl\+\_\+avail}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logcnl\+\_\+avail(\+V, availability, nests, choice)}{logcnl_avail(V, availability, nests, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+logcnl\+\_\+avail (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gaf4bfbebdcae30855bdc625a6d5469cf2}{}\label{group__models_gaf4bfbebdcae30855bdc625a6d5469cf2}
+
+
+Implements the log of the cross-\/nested logit model as a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping the alternative ids with the cross-\/nested parameters for the corresponding nest. Example with two nests and 6 alternatives\+: 
+\begin{DoxyCode}
+1 alphaA = \{1: alpha1a,
+2           2: alpha2a,
+3           3: alpha3a,
+4           4: alpha4a,
+5           5: alpha5a,
+6           6: alpha6a\}
+7 alphaB = \{1: alpha1b,
+8           2: alpha2b,
+9           3: alpha3b,
+10           4: alpha4b,
+11           5: alpha5b,
+12           6: alpha6b\}
+13 nesta = MUA , alphaA
+14 nestb = MUB , alphaB
+15 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the cross-\/nested logit model. 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file cnl.\+py.
+
+\index{Specific choice models@{Specific choice models}!logcnlmu@{logcnlmu}}
+\index{logcnlmu@{logcnlmu}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logcnlmu(\+V, availability, nests, choice, bmu)}{logcnlmu(V, availability, nests, choice, bmu)}}]{\setlength{\rightskip}{0pt plus 5cm}def cnl.\+logcnlmu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{bmu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gafb459235bcf08258e6c4c995831dc946}{}\label{group__models_gafb459235bcf08258e6c4c995831dc946}
+
+
+Implements the log of the cross-\/nested logit model as a M\+EV model with the homogeneity parameters is explicitly involved. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping the alternative ids with the cross-\/nested parameters for the corresponding nest. Example with two nests and 6 alternatives\+: 
+\begin{DoxyCode}
+1 alphaA = \{1: alpha1a,
+2           2: alpha2a,
+3           3: alpha3a,
+4           4: alpha4a,
+5           5: alpha5a,
+6           6: alpha6a\}
+7 alphaB = \{1: alpha1b,
+8           2: alpha2b,
+9           3: alpha3b,
+10           4: alpha4b,
+11           5: alpha5b,
+12           6: alpha6b\}
+13 nesta = MUA , alphaA
+14 nestb = MUB , alphaB
+15 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em bmu} & Homogeneity parameter $\mu$. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Log of choice probability for the cross-\/nested logit model. 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file cnl.\+py.
+
+\index{Specific choice models@{Specific choice models}!logit@{logit}}
+\index{logit@{logit}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logit(\+V, choice)}{logit(V, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga3917c75704c624eac9d67a7b9edb651d}{}\label{group__models_ga3917c75704c624eac9d67a7b9edb651d}
+
+
+Compute the logit choice probability, where all alternatives are available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{V_i}}{\sum_j e^{V_j}}\] 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file logit.\+py.
+
+\index{Specific choice models@{Specific choice models}!logit\+\_\+av\+\_\+scale@{logit\+\_\+av\+\_\+scale}}
+\index{logit\+\_\+av\+\_\+scale@{logit\+\_\+av\+\_\+scale}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logit\+\_\+av\+\_\+scale(\+V, availability, choice, group, scale)}{logit_av_scale(V, availability, choice, group, scale)}}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit\+\_\+av\+\_\+scale (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{choice, }
+\item[{}]{group, }
+\item[{}]{scale}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga0db5ee301cdc92305f5f6f8e72b009fb}{}\label{group__models_ga0db5ee301cdc92305f5f6f8e72b009fb}
+
+
+Compute the logit choice probability with utilities scaled according to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em group} & id of the group, or market segment. \\
+\hline
+{\em scale} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each group id with the expression providing the corresponding scale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{\mu_g V_i}}{\sum_j a_j e^{\mu_g V_j}}\] where $a_j$ is 1 if alternative $j$ is available, 0 otherwise, and $\mu_g$ is the scale parameter associated with group $g$. 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file logit.\+py.
+
+\index{Specific choice models@{Specific choice models}!logit\+\_\+scale@{logit\+\_\+scale}}
+\index{logit\+\_\+scale@{logit\+\_\+scale}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logit\+\_\+scale(\+V, choice, group, scale)}{logit_scale(V, choice, group, scale)}}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit\+\_\+scale (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{choice, }
+\item[{}]{group, }
+\item[{}]{scale}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga46e956b929c828c47c60e4ce414d570e}{}\label{group__models_ga46e956b929c828c47c60e4ce414d570e}
+
+
+Compute the logit choice probability with utilities scaled according to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em group} & id of the group, or market segment. \\
+\hline
+{\em scale} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each group id with the expression providing the corresponding scale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{\mu_g V_i}}{\sum_j e^{\mu_g V_j}}\] where $\mu_g$ is the scale parameter associated with group $g$. 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file logit.\+py.
+
+\index{Specific choice models@{Specific choice models}!logmev@{logmev}}
+\index{logmev@{logmev}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logmev(\+V, Gi, av, choice)}{logmev(V, Gi, av, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+logmev (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga7efc936612380b8713ba501c3134255a}{}\label{group__models_ga7efc936612380b8713ba501c3134255a}
+
+
+Log of the choice probability for a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+EV generating function. If an alternative $i$ is not available, then $G_i = 0$. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Log of the choice probability of the M\+EV model, given by \[ V_i + \ln G_i(e^{V_1},\ldots,e^{V_J}) - \log\left(\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}\right) \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_ga7efc936612380b8713ba501c3134255a}{logmev}(V,Gi,av,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4        H[i] =  Elem(\{0:0, 1: v + log(Gi[i])\},Gi[i]!=0)  
+5     P = bioLogLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 
+
+Definition at line 75 of file mev.\+py.
+
+\index{Specific choice models@{Specific choice models}!logmev\+\_\+selection\+Bias@{logmev\+\_\+selection\+Bias}}
+\index{logmev\+\_\+selection\+Bias@{logmev\+\_\+selection\+Bias}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{logmev\+\_\+selection\+Bias(\+V, Gi, av, correction, choice)}{logmev_selectionBias(V, Gi, av, correction, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+logmev\+\_\+selection\+Bias (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{correction, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga943e542b2505591e45672d27a8ab4e69}{}\label{group__models_ga943e542b2505591e45672d27a8ab4e69}
+
+
+Log of choice probability for a M\+EV model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+EV generating function. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em correction} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the correction. Typically, it is a value, or a parameter to be estimated. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Log of choice probability of the M\+EV model, given by \[ V_i + \ln G_i(e^{V_1},\ldots,e^{V_J}) - \log\left(\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}\right) \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_ga943e542b2505591e45672d27a8ab4e69}{logmev\_selectionBias}(V,Gi,av,correction,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4         H[i] = v + log(Gi[i]) + correction[i]
+5     P = bioLogLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 
+
+Definition at line 169 of file mev.\+py.
+
+\index{Specific choice models@{Specific choice models}!lognested@{lognested}}
+\index{lognested@{lognested}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{lognested(\+V, availability, nests, choice)}{lognested(V, availability, nests, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+lognested (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga214ab7d40fbd5f55956681dabaf5949d}{}\label{group__models_ga214ab7d40fbd5f55956681dabaf5949d}
+
+
+Implements the log of a nested logit model as a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Log of choice probability for the nested logit model, based on the derivatives of the M\+EV generating function produced by the function nested\+::get\+Mev\+For\+Nested 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file nested.\+py.
+
+\index{Specific choice models@{Specific choice models}!lognested\+Mev\+Mu@{lognested\+Mev\+Mu}}
+\index{lognested\+Mev\+Mu@{lognested\+Mev\+Mu}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{lognested\+Mev\+Mu(\+V, availability, nests, choice, mu)}{lognestedMevMu(V, availability, nests, choice, mu)}}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+lognested\+Mev\+Mu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{mu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gac121e6462db942150e4df4b2e33bb04c}{}\label{group__models_gac121e6462db942150e4df4b2e33bb04c}
+
+
+Implements the log of the nested logit model as a M\+EV model, where mu is also a parameter, if the user wants to test different normalization schemes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em mu} & expression producing the value of the top-\/level scale parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nested logit choice probability based on the following derivatives of the M\+EV generating function\+: \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = \mu e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{\mu}{\mu_m}-1} \] where $m$ is the (only) nest containing alternative $i$, and $G$ is the M\+EV generating function. 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file nested.\+py.
+
+\index{Specific choice models@{Specific choice models}!mev@{mev}}
+\index{mev@{mev}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{mev(\+V, Gi, av, choice)}{mev(V, Gi, av, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+mev (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga73dedfec95ea7f0a438607d0b150ea1c}{}\label{group__models_ga73dedfec95ea7f0a438607d0b150ea1c}
+
+
+Choice probability for a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+EV generating function. If an alternative $i$ is not available, then $G_i = 0$. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability of the M\+EV model, given by \[ \frac{e^{V_i + \ln G_i(e^{V_1},\ldots,e^{V_J})}}{\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}} \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_ga73dedfec95ea7f0a438607d0b150ea1c}{mev}(V,Gi,av,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4        H[i] =  Elem(\{0:0, 1: v + log(Gi[i])\},Gi[i]!=0)  
+5     P = bioLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 
+
+Definition at line 37 of file mev.\+py.
+
+\index{Specific choice models@{Specific choice models}!mev\+\_\+selection\+Bias@{mev\+\_\+selection\+Bias}}
+\index{mev\+\_\+selection\+Bias@{mev\+\_\+selection\+Bias}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{mev\+\_\+selection\+Bias(\+V, Gi, av, correction, choice)}{mev_selectionBias(V, Gi, av, correction, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+mev\+\_\+selection\+Bias (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{correction, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga35783e69358bb7c705d8594438f16307}{}\label{group__models_ga35783e69358bb7c705d8594438f16307}
+
+
+Choice probability for a M\+EV model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+EV generating function. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em correction} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the correction. Typically, it is a value, or a parameter to be estimated. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability of the M\+EV model, given by \[ \frac{e^{V_i + \ln G_i(e^{V_1},\ldots,e^{V_J})}}{\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}} \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_ga35783e69358bb7c705d8594438f16307}{mev\_selectionBias}(V,Gi,av,correction,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4         H[i] = v + log(Gi[i]) + correction[i]
+5     P = bioLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 
+
+Definition at line 121 of file mev.\+py.
+
+\index{Specific choice models@{Specific choice models}!nested@{nested}}
+\index{nested@{nested}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{nested(\+V, availability, nests, choice)}{nested(V, availability, nests, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+nested (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_gacd532648885a85e6f0b8aa2450e24c95}{}\label{group__models_gacd532648885a85e6f0b8aa2450e24c95}
+
+
+Implements the nested logit model as a M\+EV model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for the nested logit model, based on the derivatives of the M\+EV generating function produced by the function nested\+::get\+Mev\+For\+Nested 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file nested.\+py.
+
+\index{Specific choice models@{Specific choice models}!nested\+Mev\+Mu@{nested\+Mev\+Mu}}
+\index{nested\+Mev\+Mu@{nested\+Mev\+Mu}!Specific choice models@{Specific choice models}}
+\subsubsection[{\texorpdfstring{nested\+Mev\+Mu(\+V, availability, nests, choice, mu)}{nestedMevMu(V, availability, nests, choice, mu)}}]{\setlength{\rightskip}{0pt plus 5cm}def nested.\+nested\+Mev\+Mu (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{nests, }
+\item[{}]{choice, }
+\item[{}]{mu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__models_ga2cd8625931f8f303763cebc767ce355e}{}\label{group__models_ga2cd8625931f8f303763cebc767ce355e}
+
+
+Implements the nested logit model as a M\+EV model, where mu is also a parameter, if the user wants to test different normalization schemes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em nests} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing as many items as nests. Each item is also a \href{http://docs.python.org/py3k/tutorial/datastructures.html#tuples-and-sequences}{\tt tuple} containing two items\+:
+\begin{DoxyItemize}
+\item An \href{http://biogeme.epfl.ch/expressions.html}{\tt expression} representing the nest parameter.
+\item A \href{http://docs.python.org/py3k/tutorial/introduction.html#lists}{\tt list} containing the list of identifiers of the alternatives belonging to the nest. Example\+: 
+\begin{DoxyCode}
+1 nesta = MUA , [1,2,3]
+2 nestb = MUB , [4,5,6]
+3 nests = nesta, nestb
+\end{DoxyCode}
+ 
+\end{DoxyItemize}\\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em mu} & expression producing the value of the top-\/level scale parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nested logit choice probability based on the following derivatives of the M\+EV generating function\+: \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = \mu e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{\mu}{\mu_m}-1} \] where $m$ is the (only) nest containing alternative $i$, and $G$ is the M\+EV generating function. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file nested.\+py.
+

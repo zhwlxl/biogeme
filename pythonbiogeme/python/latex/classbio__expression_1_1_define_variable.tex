@@ -1,0 +1,78 @@
+\hypertarget{classbio__expression_1_1_define_variable}{}\section{bio\+\_\+expression.\+Define\+Variable Class Reference}
+\label{classbio__expression_1_1_define_variable}\index{bio\+\_\+expression.\+Define\+Variable@{bio\+\_\+expression.\+Define\+Variable}}
+
+
+Class representing the definition of a new variable.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Define\+Variable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1_define_variable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_define_variable_a281024ef6dde471eb9164448c7404bf2}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, name, expression)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1_define_variable_a0908c7e52d4d847db090eb21c023b492}{}\label{classbio__expression_1_1_define_variable_a0908c7e52d4d847db090eb21c023b492}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries name}\hypertarget{classbio__expression_1_1_define_variable_ad6fbc0e163c5cd0a76e0d86960d831a7}{}\label{classbio__expression_1_1_define_variable_ad6fbc0e163c5cd0a76e0d86960d831a7}
+
+\item 
+{\bfseries expression}\hypertarget{classbio__expression_1_1_define_variable_a06ba185542aaef35a3ed57c92b427126}{}\label{classbio__expression_1_1_define_variable_a06ba185542aaef35a3ed57c92b427126}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1_define_variable_a4f43782aed1e3a2fdf23b75480952cd5}{}\label{classbio__expression_1_1_define_variable_a4f43782aed1e3a2fdf23b75480952cd5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the definition of a new variable. 
+
+Defining a new variable is equivalent to add a column to the data file. Note that the expression defining the new variable is computed during the processing of the data file, before the estimation, so that it saves computational time to define variables using this technique. Example\+: 
+\begin{DoxyCode}
+1 TRAIN\_TT\_SCALED = DefineVariable(\textcolor{stringliteral}{'TRAIN\_TT\_SCALED'}, TRAIN\_TT / 100.0)
+\end{DoxyCode}
+ will result in a more efficient estimation than the statement\+: 
+\begin{DoxyCode}
+1 TRAIN\_TT\_SCALED = TRAIN\_TT / 100.0
+\end{DoxyCode}
+ 
+
+Definition at line 290 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Define\+Variable@{bio\+\_\+expression\+::\+Define\+Variable}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, name, expression)}{__init__(self, name, expression)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Define\+Variable.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1_define_variable_a281024ef6dde471eb9164448c7404bf2}{}\label{classbio__expression_1_1_define_variable_a281024ef6dde471eb9164448c7404bf2}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the variable \\
+\hline
+{\em expression} & expression to compute the value of the variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 293 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

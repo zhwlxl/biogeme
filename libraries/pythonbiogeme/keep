@@ -1,0 +1,75 @@
+void bioArithMonteCarlo::calculateControlVariate(patError*& err) {
+  if (integral == NULL || integrand == NULL) {
+    err = new patErrNullPointer("bioExpression") ;
+    WARNING(err->describe()) ;
+    return ;
+  }
+  patReal controlVariateAnalytical = integral->getValue(patFALSE, patLapForceCompute, err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return  ;
+  }
+
+  if (theIter == NULL) {
+    theIter = bioRandomDraws::the()->createIterator(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return  ;
+    }
+  }
+  if (theIter == NULL) {
+    err = new patErrNullPointer("bioDrawIterator") ;
+    WARNING(err->describe()) ;
+    return  ;
+  }
+  patULong currentDraw(0) ;
+  for (theIter->first() ; !theIter->isDone() ; theIter->next()) {
+    child->setDraws(theIter->currentItem()) ;
+    integrand->setDraws(theIter->currentItem()) ;
+    // Calculate the current draw
+    patReal expression = child->getValue(patFALSE, patLapForceCompute, err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return  ;
+    }
+    newDrawsDep[currentDraw] = expression ;
+
+    // Calculate the control variate draw
+    patReal cv = integrand->getValue(patFALSE, patLapForceCompute, err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return  ;
+    }
+    newCvDrawsIndep[currentDraw] = cv ;
+    ++currentDraw ;
+  }
+
+  theFilter.addData(newDrawsDep,newCvDrawsIndep,err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return  ;
+  }
+      
+  if (reportControlVariate) {
+    if (theReport == NULL) {
+      err = new patErrNullPointer("bioReporting") ;
+      WARNING(err->describe()) ;
+      return ;
+    }
+    patStatistics theMainDraws ;
+    patStatistics theCvDraws ;
+    theMainDraws.addData(newDrawsDep) ;
+    theCvDraws.addData(newCvDrawsIndep) ;
+    patReal a = theFilter.getCoefficient() ;
+    theReport->addMonteCarloReport(theMainDraws.getMean(),
+				   theFilter.evaluate(controlVariateAnalytical),
+				   sqrt(theMainDraws.getVariance())/sqrt(patReal(theMainDraws.getSize())),
+				   sqrt(theMainDraws.getVariance() - a * a * theCvDraws.getVariance())/sqrt(patReal(theMainDraws.getSize())),
+				   theCvDraws.getMean(),
+				   controlVariateAnalytical,err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+  }
+}

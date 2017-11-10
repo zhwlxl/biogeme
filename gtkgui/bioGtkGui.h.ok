@@ -1,0 +1,115 @@
+//-*-c++-*------------------------------------------------------------
+//
+// File name : bioGtkGui.h
+// Author :    Michel Bierlaire
+// Date :      Fri Mar 25 18:48:09 2016
+//
+//--------------------------------------------------------------------
+
+#ifndef bioGtkGui_h
+#define bioGtkGui_h
+
+#include <gtkmm/window.h>
+#include <gtkmm/grid.h>
+#include <gtkmm/label.h>
+#include <gtkmm/menu.h>
+#include <gtkmm/menubar.h>
+#include <gtkmm/aboutdialog.h>
+#include <gtkmm/comboboxtext.h>
+#include <gtkmm/filechooserbutton.h>
+#include <gtkmm/linkbutton.h>
+#include <gtkmm/checkmenuitem.h>
+#include <gtkmm/cssprovider.h>
+
+#include "patType.h"
+#include "patError.h"
+
+#include "bioLogWindow.h" 
+#include "bioGtkFileViewer.h"
+
+class bioGtkGui: public Gtk::Window {
+
+ public: 
+  bioGtkGui(Glib::RefPtr<Gtk::Application> app,
+	    Glib::ustring pp, 
+	    patError*& err) ;
+  virtual ~bioGtkGui() ;
+
+ protected:
+  void getModelFileName() ;
+  void getDataFileName() ;
+  void versionSelect() ;
+  void runBiogeme() ;
+  void runPythonBiogeme() ;
+  void runBisonBiogeme() ;
+  void runModToPy() ;
+  void runBisonBiosim() ;
+  void updateCommand() ;
+  void updateFilters() ;
+  void quitApplication() ;
+  void showAboutDialog() ;
+  void showFileViewer() ;
+  void hideFileViewer() ;
+  void toggleFileViewer() ;
+  void freezeButtons() ;
+  void resetAll() ;
+  Glib::ustring removeExtension(Glib::ustring fileName) ;
+  Glib::ustring getExtension(Glib::ustring fileName) const ;
+
+  void copyFile(Glib::ustring file, Glib::ustring destDir) ;
+  
+  patBoolean bisonCheckFileName() const ;
+  patBoolean pythonCheckFileName() const ;
+protected:
+  Glib::RefPtr<Gtk::CssProvider> cssProvider ;
+  Glib::RefPtr<Gtk::StyleContext> styleContext ;
+  Gtk::Box menuVbox ;
+  Gtk::MenuBar menuBar ;
+  Gtk::MenuItem menuItemFile ;
+  Gtk::Menu menuFile ;
+  Gtk::MenuItem menuItemView ;
+  Gtk::Menu menuView ;
+  Gtk::MenuItem menuItemQuit ;
+  Gtk::CheckMenuItem menuItemFileViewer ;
+  Gtk::MenuItem menuItemHelp ;
+  Gtk::Menu menuHelp ;
+  Gtk::MenuItem menuItemAbout ;
+
+  Gtk::Grid grid ;
+  Gtk::Label wVersion ;
+  Gtk::Label wChooseModel ;
+  Gtk::Label wChooseData ;
+  Gtk::FileChooserButton modelFileButton ;
+  Gtk::FileChooserButton dataFileButton ;
+  Gtk::Button runButton ;
+  Gtk::Button quitButton ;
+  Gtk::ComboBoxText selectVersionBiogeme ;
+  Gtk::Entry displayCommand ;
+  Glib::RefPtr<Gtk::Application> theApplication ;  
+  Glib::ustring modelFileName ;
+  Glib::ustring modelFileName_file ;
+  Glib::ustring modelFileName_dir ;
+  patBoolean modelFileSelected ;
+  Glib::ustring dataFileName ;
+  Glib::ustring dataFileName_file ;
+  Glib::ustring dataFileName_dir ;
+  patBoolean dataFileSelected ;
+  Glib::ustring theChosenVersion ;
+
+  Gtk::AboutDialog aboutDialog ;
+  //  Gtk::LinkButton theOutputFile ;
+
+  bioLogWindow theLogWindow ;
+  bioGtkFileViewer theFileViewer ;
+
+  Glib::RefPtr<Gtk::FileFilter>  allFilter ;
+  Glib::RefPtr<Gtk::FileFilter>  modFilter ;
+  Glib::RefPtr<Gtk::FileFilter>  pyFilter ;
+  Glib::RefPtr<Gtk::FileFilter>  datFilter ;
+
+  Glib::ustring thePythonPath ;
+  Glib::RefPtr< Gdk::Pixbuf >  theLogo ;
+  
+};
+
+#endif

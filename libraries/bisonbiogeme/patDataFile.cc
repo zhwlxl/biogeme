@@ -8,8 +8,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patDataFile.h"
 #include "patOutputFiles.h"
 #include "patDataFileObsIterator.h"

@@ -1,0 +1,145 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Abbe et~al.]{Abbe, Bierlaire \harvardand\
+  Toledo}{2007}{AbbeBierTole07}
+Abbe, E., Bierlaire, M. \harvardand\ Toledo, T.  \harvardyearleft
+  2007\harvardyearright .
+\newblock Normalization and correlation of cross-nested logit models, {\em
+  Transportation Research Part B} {\bf 41}(7):~795--808.
+
+\harvarditem{Ben-Akiva \harvardand\ Bierlaire}{2003}{BenABier03}
+Ben-Akiva, M. \harvardand\ Bierlaire, M.  \harvardyearleft
+  2003\harvardyearright .
+\newblock Discrete choice models with applications to departure time and route
+  choice, {\em in} R.~Hall (ed.), {\em Handbook of Transportation Science, 2nd
+  edition}, Operations Research and Management Science, Kluwer, pp.~7--38.
+\newblock ISBN:1-4020-7246-5.
+
+\harvarditem[Ben-Akiva et~al.]{Ben-Akiva, Bolduc \harvardand\
+  Bradley}{1993}{BenABoldBrad93}
+Ben-Akiva, M., Bolduc, D. \harvardand\ Bradley, M.  \harvardyearleft
+  1993\harvardyearright .
+\newblock Estimation of travel model choice models with randomly distributed
+  values of time, {\em Transportation Research Record} {\bf 1413}:~88--97.
+
+\harvarditem{Ben-Akiva}{1973}{BenA73}
+Ben-Akiva, M.~E.  \harvardyearleft 1973\harvardyearright .
+\newblock {\em Structure of Passenger Travel Demand Models}, PhD thesis,
+  Massachusetts Institute of Technology.
+
+\harvarditem{Ben-Akiva \harvardand\ Lerman}{1985}{BenALerm85}
+Ben-Akiva, M.~E. \harvardand\ Lerman, S.~R.  \harvardyearleft
+  1985\harvardyearright .
+\newblock {\em Discrete Choice Analysis: Theory and Application to Travel
+  Demand}, MIT Press, Cambridge, Ma.
+
+\harvarditem[Berndt et~al.]{Berndt, Hall, Hall \harvardand\
+  Hausman}{1974}{BernHallHallHaus74}
+Berndt, E.~K., Hall, B.~H., Hall, R.~E. \harvardand\ Hausman, J.~A.
+  \harvardyearleft 1974\harvardyearright .
+\newblock Estimation and inference in nonlinear structural models, {\em Annals
+  of Economic and Social Measurement} {\bf 3/4}:~653--665.
+
+\harvarditem{Bierlaire}{2002}{Bier02}
+Bierlaire, M.  \harvardyearleft 2002\harvardyearright .
+\newblock The network {GEV} model, {\em Proceedings of the 2nd Swiss
+  Transportation Research Conference}, Ascona, Switzerland.
+
+\harvarditem{Bierlaire}{2006}{Bier06-cnl}
+Bierlaire, M.  \harvardyearleft 2006\harvardyearright .
+\newblock A theoretical analysis of the cross-nested logit model, {\em Annals
+  of operations research} {\bf 144}(1):~287--300.
+
+\harvarditem[Bierlaire et~al.]{Bierlaire, Axhausen \harvardand\
+  Abay}{2001}{BierAxhaAbay01}
+Bierlaire, M., Axhausen, K. \harvardand\ Abay, G.  \harvardyearleft
+  2001\harvardyearright .
+\newblock The acceptance of modal innovation: The case of swissmetro, {\em
+  Proceedings of the Swiss Transport Research Conference}, Ascona, Switzerland.
+
+\harvarditem[Bierlaire et~al.]{Bierlaire, Bolduc \harvardand\
+  McFadden}{2008}{BierBoldMcFa08}
+Bierlaire, M., Bolduc, D. \harvardand\ McFadden, D.  \harvardyearleft
+  2008\harvardyearright .
+\newblock The estimation of generalized extreme value models from choice-based
+  samples, {\em Transportation Research Part B} {\bf 42}(4):~381--394.
+
+\harvarditem[Conn et~al.]{Conn, Gould \harvardand\ Toint}{2000}{ConnGoulToin00}
+Conn, A.~R., Gould, N. I.~M. \harvardand\ Toint, P.  \harvardyearleft
+  2000\harvardyearright .
+\newblock {\em Trust region methods}, {MPS--SIAM} Series on Optimization, SIAM.
+
+\harvarditem{Daly}{1987}{Daly87}
+Daly, A.  \harvardyearleft 1987\harvardyearright .
+\newblock Estimating ``tree'' logit models, {\em Transportation Research Part
+  B} {\bf 21}(4):~251--268.
+
+\harvarditem{Daly}{2001}{Daly01}
+Daly, A.  \harvardyearleft 2001\harvardyearright .
+\newblock Recursive nested {EV} model, {\em {ITS} Working Paper 559}, Institute
+  for Transport Studies, University of Leeds.
+
+\harvarditem{Daly \harvardand\ Bierlaire}{2006}{DalyBier06}
+Daly, A. \harvardand\ Bierlaire, M.  \harvardyearleft 2006\harvardyearright .
+\newblock A general and operational representation of generalised extreme value
+  models, {\em Transportation Research Part B} {\bf 40}(4):~285--305.
+
+\harvarditem{Dennis \harvardand\ Schnabel}{1996}{DennSchn96}
+Dennis, J.~E. \harvardand\ Schnabel, R.~B.  \harvardyearleft
+  1996\harvardyearright .
+\newblock {\em Numerical methods for unconstrained optimization and nonlinear
+  equations}, Society for Industrial and Applied Mathematics (SIAM).
+
+\harvarditem[Hess et~al.]{Hess, Train \harvardand\ Polak}{2006}{HessTraiPola05}
+Hess, S., Train, K. \harvardand\ Polak, J.  \harvardyearleft
+  2006\harvardyearright .
+\newblock On the use of modified latin hypercube sampling ({MLHS}) method in
+  the estimation of mixed logit model for vehicle choice, {\em Transportation
+  Research Part B} {\bf 40}(2):~147--163.
+
+\harvarditem{Kauermann \harvardand\ Carroll}{2001}{KaueCarr2001}
+Kauermann, G. \harvardand\ Carroll, R.  \harvardyearleft 2001\harvardyearright
+  .
+\newblock A note on the efficiency of sandwich covariance matrix estimation,
+  {\em Journal of the American Statistical Association} {\bf 96}(456).
+
+\harvarditem{{McFadden}}{1978}{McFa78}
+{McFadden}, D.  \harvardyearleft 1978\harvardyearright .
+\newblock Modelling the choice of residential location, {\em in} {A. Karlquist
+  \emph{et al.}} (ed.), {\em Spatial interaction theory and residential
+  location}, North-Holland, Amsterdam, pp.~75--96.
+
+\harvarditem{Papola}{2004}{Papo04}
+Papola, A.  \harvardyearleft 2004\harvardyearright .
+\newblock Some developments on the cross-nested logit model, {\em
+  Transportation Research B} {\bf 38}(9):~833--851.
+
+\harvarditem{Small}{1987}{Smal87}
+Small, K.  \harvardyearleft 1987\harvardyearright .
+\newblock A discrete choice model for ordered alternatives, {\em Econometrica}
+  {\bf 55}(2):~409--424.
+
+\harvarditem{Train}{2009}{Trai09}
+Train, K.  \harvardyearleft 2009\harvardyearright .
+\newblock {\em Discrete Choice Methods with Simulation}, 2nd edn, Cambridge
+  University Press.
+\newblock http://emlab.berkeley.edu/books/choice2.html.
+
+\harvarditem{Vovsha}{1997}{Vovs97}
+Vovsha, P.  \harvardyearleft 1997\harvardyearright .
+\newblock Cross-nested logit model: an application to mode choice in the
+  {T}el-{A}viv metropolitan area, {\em Transportation Research Record} {\bf
+  1607}:~6--15.
+
+\harvarditem{Wen \harvardand\ Koppelman}{2001}{WenKopp01}
+Wen, C.-H. \harvardand\ Koppelman, F.~S.  \harvardyearleft
+  2001\harvardyearright .
+\newblock The generalized nested logit model, {\em Transportation Research Part
+  B} {\bf 35}(7):~627--641.
+
+\harvarditem{White}{1982}{Whit82}
+White, H.  \harvardyearleft 1982\harvardyearright .
+\newblock Maximum likelihood estimation of misspecified models, {\em
+  Econometrica} {\bf 50}:~1--25.
+
+\end{thebibliography}

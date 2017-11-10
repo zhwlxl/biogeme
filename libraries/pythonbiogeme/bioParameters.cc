@@ -5,8 +5,9 @@
 // Date :      Fri Jul 17 14:17:08 2009
 //
 //--------------------------------------------------------------------
+
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 
@@ -65,13 +66,18 @@ bioParameters::bioParameters() : docFile(patString("pythonparam.html")) {
 
 
 
-  integerValues["deriveAnalyticalHessian"] =
+  integerValues["calculateAnalyticalHessian"] =
     pair<long int,patString>(1,
-			    patString("The second derivative matrix of the likelihood function is derived if this parameters is different from 0."));
+			    patString("If this parameters is different from 0, the second derivative matrix of the likelihood function is calculated at the solution."));
+
+  integerValues["calculateFinDiffHessian"] =
+    pair<long int,patString>(0,
+			    patString("If the parameter 'calculateAnalyticalHessian' is 0, and this parameters is different from 0, the second derivative matrix of the likelihood function is calculated at the solution using finite difference approximation."));
+
 
   integerValues["useAnalyticalHessianForOptimization"] =
     pair<long int,patString>(0,
-			    patString("If the second derivative matrix is available, it is used in the optimization algorithm if the parameter is different from 0."));
+			    patString("If the analytical second derivative matrix is available, it is used in the optimization algorithm if the parameter is different from 0."));
 
 
   integerValues["DumpSensitivityAnalysis"] =
@@ -102,10 +108,31 @@ bioParameters::bioParameters() : docFile(patString("pythonparam.html")) {
     pair<long int,patString>(6,
 			     patString("Sets the decimal precision to be used to format floating-point values on output operations with the SIMULATE function.")) ;
 
+  integerValues["forceScientificNotation"] = 
+    pair<long int,patString>(0,
+			     patString("If 1, use the scientific notation in reporting the results.")) ;
+
+  integerValues["precisionTStats"] = 
+    pair<long int,patString>(2,
+			     patString("Number of decimals when reporting the t-statistics.")) ;
+
+  integerValues["precisionParameters"] = 
+    pair<long int,patString>(3,
+			     patString("Number of significant digits when reporting the estimated parameters.")) ;
+
+  integerValues["precisionStatistics"] = 
+    pair<long int,patString>(3,
+			     patString("Number of significant digits when reporting statistics.")) ;
+  
   integerValues["allowNestedMonteCarlo"] =
     pair<long int,patString>(0,
 			     patString("If different from 0, nested MonteCarlo statements are allowed in a formula. In general, the nesting is due to a syntax error, and not explicitly desired. Therefore, the default value is 0.")) ;
 
+  integerValues["bootstrapStdErr"] = 
+    pair<long int,patString>(0,
+			     patString("If different from 0, Biogeme calculates the statistics using boostrap. The value of the parameter defines the number of resampling used in the bootstrap. A value of 100 is usually appropriate.")) ;
+
+  
   integerValues["computeInitLoglikelihood"] = 
     pair<long int,patString>(1,
 			     patString("If 1, Biogeme computes the log likelihood at the starting point, before running the algorithm.")) ;
@@ -120,10 +147,17 @@ bioParameters::bioParameters() : docFile(patString("pythonparam.html")) {
 			      patString("If set to 1, the analytical derivatives of each expression are analyzed and the program is the interrupted. Use for debug purposes. Most users do not need this parameter."));
 #endif
 
+  realValues["prematureConvergenceThreshold"] =
+    pair<patReal, patString>(0.0,
+			      patString("Convergence towards previously visited points can be detected using BIOGEME_OBJECT.OLDBETAS. If an iterate is close to a solution in the list, iteration are interrupted. It happens when the Euclidean distance is lesser or equal to this parameter. A value of 0.0 disable this feature."));
   realValues["toleranceCheckDerivatives"] = 
     pair<patReal, patString>(0.001,
 			      patString("Difference between analytical and finite differences derivative is considered to be significant if greater or equal to this value"));
 
+  integerValues["printGradient"] =
+    pair<long int,patString>(0,
+			     patString("If 0, Biogeme does not print the gradient of the log likelihood in the report file."));
+  
   integerValues["buildAnalyticalGradient"] = 
     pair<long int,patString>(1,
 			     patString("If 1, Biogeme generates the analytical gradient of the log likelihood. If 0, the finite difference approximation is used instead."));
@@ -642,8 +676,9 @@ patString bioParameters::printPythonCode() const {
 
 }
 
-trParameters bioParameters::getTrParameters(patError*& err) const {
+trParameters bioParameters::getTrParameters() const {
 
+  patError* err(NULL) ;
   trParameters p ;
   p.eta1 = getValueReal("BTREta1",err) ;
   if (err != NULL) {

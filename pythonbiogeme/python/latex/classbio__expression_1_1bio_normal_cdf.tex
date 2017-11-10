@@ -1,0 +1,68 @@
+\hypertarget{classbio__expression_1_1bio_normal_cdf}{}\section{bio\+\_\+expression.\+bio\+Normal\+Cdf Class Reference}
+\label{classbio__expression_1_1bio_normal_cdf}\index{bio\+\_\+expression.\+bio\+Normal\+Cdf@{bio\+\_\+expression.\+bio\+Normal\+Cdf}}
+
+
+Class representing the cumulative distribution function of the normal distribution.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Normal\+Cdf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_normal_cdf}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_normal_cdf_aac307b8074c9886391c43d5c733f64a1}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, expression)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1bio_normal_cdf_a527e3b80ec29cb8965d2520dc665e206}{}\label{classbio__expression_1_1bio_normal_cdf_a527e3b80ec29cb8965d2520dc665e206}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries expression}\hypertarget{classbio__expression_1_1bio_normal_cdf_a072f5a5a5a9d3d142c8314f89ea0a656}{}\label{classbio__expression_1_1bio_normal_cdf_a072f5a5a5a9d3d142c8314f89ea0a656}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1bio_normal_cdf_aa53261a1e8c2adb0080b545da7e74f0c}{}\label{classbio__expression_1_1bio_normal_cdf_aa53261a1e8c2adb0080b545da7e74f0c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the cumulative distribution function of the normal distribution. 
+
+The C\+DF of the normal distribution is \[ \mbox{bioNormalCdf}(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x \exp\left(\frac{-t^2}{2}\right) dt \] A typical example is the probability of a binary probit model, which is computed as follows\+: 
+\begin{DoxyCode}
+1 prob = normalCdf(V1-V2)
+\end{DoxyCode}
+ 
+
+Definition at line 537 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Normal\+Cdf@{bio\+\_\+expression\+::bio\+Normal\+Cdf}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Normal\+Cdf@{bio\+\_\+expression\+::bio\+Normal\+Cdf}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, expression)}{__init__(self, expression)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Normal\+Cdf.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_normal_cdf_aac307b8074c9886391c43d5c733f64a1}{}\label{classbio__expression_1_1bio_normal_cdf_aac307b8074c9886391c43d5c733f64a1}
+
+\begin{DoxyParams}{Parameters}
+{\em expression} & any valid bio\+\_\+expression \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 539 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

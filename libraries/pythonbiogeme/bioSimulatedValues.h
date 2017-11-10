@@ -27,9 +27,13 @@ class bioSimulatedValues {
   patBoolean hasSimulatedValues() const ;
 
   patReal getTotal(patError*& err)  ;
+  // The sum of all weights
+  patReal getTotalWeight(patError*& err) ;
   patInterval getTotalConfidenceInterval(patError*& err)  ;
   patReal getWeightedTotal(patError*& err)  ;
   patInterval getWeightedTotalConfidenceInterval(patError*& err)  ;
+  patReal getNormalizedWeightedTotal(patError*& err)  ;
+  patInterval getNormalizedWeightedTotalConfidenceInterval(patError*& err)  ;
   patReal getAverage(patError*& err)  ;
   patInterval getAverageConfidenceInterval(patError*& err)  ;
   patReal getWeightedAverage(patError*& err)  ;
@@ -45,7 +49,6 @@ class bioSimulatedValues {
 
   patULong getNonZeros(patError*& err)  ;
   patReal getWeightedNonZeros(patError*& err)  ;
-  patReal getTotalWeight(patError*& err)  ;
   void setWeights(vector<patReal>* w) ;
   void calculateConfidenceIntervals(patError*& err) ;
   void setNominalValue(patULong i, patReal v) ;
@@ -70,6 +73,7 @@ private:
 
   patReal nominalTotal ;
   patReal nominalWeightedTotal ;
+  patReal nominalTotalWeight ;
   patULong nominalNonZeros ;
   patULong nominalWeightedNonZeros ;
   patReal nominalMinimum ;

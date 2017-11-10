@@ -27,7 +27,9 @@ class patCfsqp : public trNonLinearAlgo {
 public:
   /**
    */
-  patCfsqp(patIterationBackup* i, patNonLinearProblem* aProblem = NULL) ;
+  patCfsqp(patIterationBackup* i,
+	   bioAlgorithmManager* aStoppingCriteria,
+	   patNonLinearProblem* aProblem = NULL) ;
   /**
    */
   virtual ~patCfsqp() ;
@@ -91,8 +93,7 @@ public:
 		     int _miter,
 		     patReal _eps,
 		     patReal _epseqn,
-		     patReal _udelta,
-		     patString sf) ;
+		     patReal _udelta) ;
 
 private:
 
@@ -112,7 +113,6 @@ private:
   patReal epseqn;
   patReal udelta ;
   patIterationBackup* theInteraction ;
-  patString stopFile ;
   int nIter ;
 };
 

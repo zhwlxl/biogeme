@@ -30,6 +30,8 @@ class bioRowIterator: public bioIterator<const patVariables*> {
 
 public:
 
+  friend ostream& operator<<(ostream &str, const bioRowIterator& x) ;
+
   bioRowIterator(const vector<patVariables>* db, 
 		 bioIteratorSpan aSpan,
 		 bioIteratorSpan threadSpan,

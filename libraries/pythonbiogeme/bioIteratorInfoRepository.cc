@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "patDisplay.h"
 #include "bioIteratorInfoRepository.h"
@@ -267,3 +271,15 @@ patString bioIteratorInfoRepository::getIndexName(patString name, patError*& err
 
 }
 
+patString bioIteratorInfoRepository::getTopIteratorName() const {
+  return topIterator ;
+}
+
+patBoolean bioIteratorInfoRepository::isTopIteratorMeta(patError*& err) const {
+  patBoolean result = isMetaIterator(topIterator,err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return patFALSE ;
+  }
+  return result ;
+}

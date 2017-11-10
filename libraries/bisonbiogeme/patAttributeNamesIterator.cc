@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patAttributeNamesIterator.h"
 
 patAttributeNamesIterator::patAttributeNamesIterator(vector<patString>* x) : theMap(x) {

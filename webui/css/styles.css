@@ -1,0 +1,207 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@charset 'UTF-8';
+
+
+#Console{height:120%;overflow:auto}
+.console{
+  background-color:black;
+  color:green;
+  padding-left:10;
+}
+
+.header{
+height:3%;
+position: relative;
+
+}
+
+.filterbox{
+  background-color: rgba(100,20,103,0);
+  height:25px;
+  text-align:center;
+  resize: none;
+  overflow:hidden; 
+}
+
+.dropbox
+{float:left; width:100px; height:25px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+
+.textarea{
+  background-color: rgba(100,20,103,0);
+  height:40px;
+  text-align:center;
+  resize: none;
+  padding-top:10px;
+  overflow:hidden; 
+}
+.imagePlay{
+  float:left; width:100%; height:100%;}
+}
+
+
+.border{
+  border:5px solid red;
+  outline: 3px dotted #4D17FF;
+  outline-offset: 3px;
+}
+
+.roundShadow{
+  padding: 2%;
+  border-top-left-radius: 2px;
+border-top-right-radius: 10px;
+border-bottom-right-radius: 2px;
+border-bottom-left-radius: 10px;
+-webkit-box-shadow: rgb(100, 100, 100) 2px 2px 2px 2px;
+box-shadow: rgb(100, 100, 100) 2px 2px 2px 2px;
+position:relative;
+z-index:1;
+margin-top: 3%
+}
+.roundShadow h2 {
+  position: absolute;
+  margin-top: -16px;
+  top: 0;
+  left: 15;
+  border:1px solid black;
+  background-color: rgba(255, 255, 255, 255);
+  color: rgba(0,0, 0, 255);
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  padding-left:3px;
+  padding-right:3px;
+  z-index:2;
+}
+
+.blabla{
+  position: relative;
+  display: table;
+}
+
+.Toolbar
+{
+position: relative;
+display: table;
+}
+
+.Toolbar > div
+{
+display: table-cell;
+padding-right: 8px;
+vertical-align: top;
+}
+
+.Toolbar
+{
+.btn-group, .btn-group-vertical
+{
+    vertical-align: inherit;
+}
+}
+
+
+
+.pageContent {
+width: 95%;
+height:68%;
+margin: 0 auto;
+margin-top:50px;
+margin-bottom: 35px;
+position: relative;
+
+}
+
+.pageContentHelp {
+width: 95%;
+height:120%;
+margin: 0 auto;
+margin-top:50px;
+margin-bottom: 35px;
+padding-top: 2%;
+position: relative;
+
+}
+
+.maxh{
+  max-height: 100%;
+  height: 100%;
+}
+
+.tierH{
+  height: 50%;
+}
+
+
+.separation{width:auto; height:4%; background-color: rgba(73, 14, 255, 0)}
+.files {   height:100%; display:block;}
+.upload {  height:4%; display:block;}
+.run  { height:4%; display:block;}
+
+.listHolder{
+  overflow:auto;
+  height: 86%;
+  margin-bottom: 1%;
+}
+
+.marginTop{
+  margin-top: 1%;
+}
+
+
+.altfoot{position:fixed; width:100%; height:3%; 
+  zoom: 1;
+  background: #f5f5f5;
+  background: -moz-linear-gradient(top, #f5f5f5 0%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #f5f5f5 0%, #ffffff 100%);
+  background: -o-linear-gradient(top, #f5f5f5 0%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #f5f5f5 0%, #ffffff 100%);
+  background: linear-gradient(top, #f5f5f5 0%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top-color', endColorstr='@bottom-color', GradientType=0);
+  padding: 5px 10px;
+  bottom:0; }
+
+.altfoot table{
+  width:100%;
+}
+
+.alignRight{
+  text-align: right;
+}
+.alignLeft{
+  text-align: left;
+}
+.alignCenter{
+  text-align: center;
+}
+
+.shutdownMessage{
+  margin-top: 10%;
+}
+
+table.ulsd tr:nth-child(odd) {color: #000; background: #FFF;}
+table.ulsd tr:nth-child(even) {color: #000; background: #CCC;}
+
+table.ulsd td:nth-child(1){width:2%; text-align: center;}
+table.ulsd td:nth-last-child(2){width:68%; text-align: left;}
+table.ulsd td:nth-last-child(1){width:30%; text-align: right; padding-right: 2px}
+
+table.ulsd th:nth-child(1){width:2%;}
+table.ulsd th:nth-last-child(2){width:68%; text-align: left;}
+table.ulsd th:nth-last-child(1){width:30%; text-align: right;}
+table.ulsd{
+  width:100%;
+}
+
+.invisible{
+  color: rgba(200,0,100,0.1);
+}
+
+.carousel-IMAGE{
+  max-width: none;
+  max-height: 100%;
+}
+
+
+
+
+

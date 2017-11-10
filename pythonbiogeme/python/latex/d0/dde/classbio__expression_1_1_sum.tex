@@ -1,0 +1,92 @@
+\hypertarget{classbio__expression_1_1_sum}{\section{bio\+\_\+expression.\+Sum Class Reference}
+\label{classbio__expression_1_1_sum}\index{bio\+\_\+expression.\+Sum@{bio\+\_\+expression.\+Sum}}
+}
+
+
+Class representing the sum of the same expression applied to a list of data.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Sum\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/dde/classbio__expression_1_1_sum}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_sum_afc907480a976fc87d1dc0eef08dd7f82}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_sum_a74a59ab9a188f737fc0c8a6296792cc2}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_sum_a9b0f02242bfe80afe341327f79388b87}{function}
+\item 
+\hyperlink{classbio__expression_1_1_sum_ad7a2c6824d64ea23672b11d9ca471f98}{iterator\+Name}
+\item 
+\hyperlink{classbio__expression_1_1_sum_a739503e877a65edff2e652623635c44d}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the sum of the same expression applied to a list of data. 
+
+The concept of iterators identifies a sequence such that, for each instance, the value of the variables is read from the data file, and an expression can be evaluated. The two expressions described in this section consider one iterator and one expression, and evaluate the expression for each instance defined by the iterator. A sum can then be computed. Example\+: 
+\begin{DoxyCode}
+1 prob = bioLogit(V,av,CHOICE)
+2 rowIterator(\textcolor{stringliteral}{'obsIter'}) 
+3 loglikelihood = Sum(log(prob),\textcolor{stringliteral}{'obsIter'})
+\end{DoxyCode}
+ When the iterator is of type draw\+Iterator, the operator \hyperlink{classbio__expression_1_1_sum}{Sum} actually computes the average and not the sum, as the result is automatically divided by the number R of draws (see \hyperlink{namespaceloglikelihood_ad38ed3ddf12bbc51eb728fb56a0bc8de}{loglikelihood\+::mixedloglikelihood}). Example\+: 
+\begin{DoxyCode}
+1 drawIterator(\textcolor{stringliteral}{'drawIter'})
+2 prob = Sum(condProb,\textcolor{stringliteral}{'drawIter'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_sum_afc907480a976fc87d1dc0eef08dd7f82}{\index{bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Sum.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{iterator\+Name}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_sum_afc907480a976fc87d1dc0eef08dd7f82}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & any valid \hyperlink{namespacebio__expression}{bio\+\_\+expression} \\
+\hline
+{\em iterator\+Name} & name of an iterator already defined \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_sum_a74a59ab9a188f737fc0c8a6296792cc2}{\index{bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Sum.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_sum_a74a59ab9a188f737fc0c8a6296792cc2}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_sum_a9b0f02242bfe80afe341327f79388b87}{\index{bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}!function@{function}}
+\index{function@{function}!bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Sum.\+function}}\label{classbio__expression_1_1_sum_a9b0f02242bfe80afe341327f79388b87}
+\hypertarget{classbio__expression_1_1_sum_ad7a2c6824d64ea23672b11d9ca471f98}{\index{bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}!iterator\+Name@{iterator\+Name}}
+\index{iterator\+Name@{iterator\+Name}!bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}}
+\subsubsection[{iterator\+Name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Sum.\+iterator\+Name}}\label{classbio__expression_1_1_sum_ad7a2c6824d64ea23672b11d9ca471f98}
+\hypertarget{classbio__expression_1_1_sum_a739503e877a65edff2e652623635c44d}{\index{bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Sum@{bio\+\_\+expression\+::\+Sum}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Sum.\+operator\+Index}}\label{classbio__expression_1_1_sum_a739503e877a65edff2e652623635c44d}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

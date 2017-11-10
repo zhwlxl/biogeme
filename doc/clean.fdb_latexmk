@@ -1,0 +1,11 @@
+# Fdb version 3
+["dvipdf"] 0 "clean.dvi" "clean.pdf" "clean" 0
+  "clean.dvi" 0 -1 0 "latex"
+  (generated)
+  "clean.pdf"
+["latex"] 1439329030 "clean" "clean.dvi" "clean" 1439329034
+  "clean" 0 -1 0 ""
+  "clean.aux" 0 -1 0 ""
+  (generated)
+  "clean.log"
+  "clean.dvi"

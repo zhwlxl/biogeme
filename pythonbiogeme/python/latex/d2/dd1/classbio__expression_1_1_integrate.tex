@@ -1,0 +1,98 @@
+\hypertarget{classbio__expression_1_1_integrate}{\section{bio\+\_\+expression.\+Integrate Class Reference}
+\label{classbio__expression_1_1_integrate}\index{bio\+\_\+expression.\+Integrate@{bio\+\_\+expression.\+Integrate}}
+}
+
+
+Class performing numerical integration relying on the \href{http://en.wikipedia.org/wiki/Gaussian_quadrature}{\tt Gauss-\/\+Hermite quadrature} to compute \[ \int_{-\infty}^{+\infty} f(\omega) d\omega. \].  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Integrate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dd1/classbio__expression_1_1_integrate}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_integrate_a0ce66b3a16e295afdb7c6f0819f46d6d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_integrate_a1aff67b31caf78c898f342ccc4c52a80}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_integrate_aa0b26e5e7ef188bddbbbac6d2734eb1e}{function}
+\item 
+\hyperlink{classbio__expression_1_1_integrate_a8aa2ae870cce644d72a76ecae5497121}{variable}
+\item 
+\hyperlink{classbio__expression_1_1_integrate_ae6f4e73d2daf792fc223e12b205c4904}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class performing numerical integration relying on the \href{http://en.wikipedia.org/wiki/Gaussian_quadrature}{\tt Gauss-\/\+Hermite quadrature} to compute \[ \int_{-\infty}^{+\infty} f(\omega) d\omega. \]. 
+
+As an example, the computation of a normal mixture of logit models is performed using the following syntax, where condprob is the conditional (logit) choice probability\+: 
+\begin{DoxyCode}
+1 omega = RandomVariable(\textcolor{stringliteral}{'omega'})
+2 density = bioNormalPdf(omega) 
+3 result = Integrate(condprob * density,\textcolor{stringliteral}{'omega'})
+\end{DoxyCode}
+ Comments\+:
+\begin{DoxyItemize}
+\item The Gauss-\/\+Hermite procedure is designed to compute integrals of the form \[ \int_{-\infty}^{+\infty} e^{-\omega^2} f(\omega) d\omega. \] Therefore, Biogeme multiplies the expression by $e^{\omega^2}$ before applying the Gauss-\/\+Hermite algorithm. This is transparent for the user.
+\end{DoxyItemize}
+
+It is usually more accurate to compute an integral using a quadrature procedure. However, it should be used only in the presence of few (one or two) random variables. The same integral can be computed using Monte-\/\+Carlo integration using the following syntax\+: 
+\begin{DoxyCode}
+1 omega = bioNormalDraws(\textcolor{stringliteral}{'omega'})
+2 drawIterator(\textcolor{stringliteral}{'drawIter'})
+3 result = Sum(condprob,\textcolor{stringliteral}{'drawIter'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_integrate_a0ce66b3a16e295afdb7c6f0819f46d6d}{\index{bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Integrate.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_integrate_a0ce66b3a16e295afdb7c6f0819f46d6d}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & any valid \hyperlink{namespacebio__expression}{bio\+\_\+expression} representing the expression to integrate \\
+\hline
+{\em v} & name of the integration variable, previously defined using a bio\+Expression\+::\+Random\+Variable statement. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_integrate_a1aff67b31caf78c898f342ccc4c52a80}{\index{bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Integrate.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_integrate_a1aff67b31caf78c898f342ccc4c52a80}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_integrate_aa0b26e5e7ef188bddbbbac6d2734eb1e}{\index{bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}!function@{function}}
+\index{function@{function}!bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Integrate.\+function}}\label{classbio__expression_1_1_integrate_aa0b26e5e7ef188bddbbbac6d2734eb1e}
+\hypertarget{classbio__expression_1_1_integrate_ae6f4e73d2daf792fc223e12b205c4904}{\index{bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Integrate.\+operator\+Index}}\label{classbio__expression_1_1_integrate_ae6f4e73d2daf792fc223e12b205c4904}
+\hypertarget{classbio__expression_1_1_integrate_a8aa2ae870cce644d72a76ecae5497121}{\index{bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}!variable@{variable}}
+\index{variable@{variable}!bio\+\_\+expression\+::\+Integrate@{bio\+\_\+expression\+::\+Integrate}}
+\subsubsection[{variable}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Integrate.\+variable}}\label{classbio__expression_1_1_integrate_a8aa2ae870cce644d72a76ecae5497121}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

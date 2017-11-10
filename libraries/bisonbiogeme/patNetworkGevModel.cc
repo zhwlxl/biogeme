@@ -7,9 +7,10 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
-#include <assert.h>
+
+#include <cassert>
 #include "patNetworkGevModel.h"
 #include "patModelSpec.h"
 #include "patNetworkGevAlt.h"

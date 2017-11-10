@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{The model}{}% 1
+\BOOKMARK [1][-]{section.2}{Market shares and revenues}{}% 2
+\BOOKMARK [1][-]{section.3}{Elasticities}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Point elasticities}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Arc elasticities}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Using PythonBiogeme for point elasticities}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Using PythonBiogeme for cross elasticities}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Using PythonBiogeme for arc elasticities}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Willingness to pay}{}% 9
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 10
+\BOOKMARK [1][-]{appendix.A}{Complete specification files}{}% 11
+\BOOKMARK [2][-]{subsection.A.1}{01nestedEstimation.py}{appendix.A}% 12
+\BOOKMARK [2][-]{subsection.A.2}{02nestedSimulation.py}{appendix.A}% 13
+\BOOKMARK [2][-]{subsection.A.3}{03nestedElasticities.py}{appendix.A}% 14
+\BOOKMARK [2][-]{subsection.A.4}{04nestedElasticities.py}{appendix.A}% 15
+\BOOKMARK [2][-]{subsection.A.5}{05nestedElasticities.py}{appendix.A}% 16
+\BOOKMARK [2][-]{subsection.A.6}{06nestedWTP.py}{appendix.A}% 17

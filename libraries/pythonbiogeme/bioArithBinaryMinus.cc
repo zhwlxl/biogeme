@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 
 #include "patDisplay.h"
@@ -184,30 +188,20 @@ bioFunctionAndDerivatives* bioArithBinaryMinus::getNumericalFunctionAndGradient(
   }
 
   // The second derivative matrix
-  if (result.theHessian != NULL && computeHessian) {
-    if (l->theHessian == NULL) {
-      err = new patErrNullPointer("trHessian") ;
-      WARNING(err->describe()) ;
-      return NULL ;
-    }
-    if (r->theHessian == NULL) {
-      err = new patErrNullPointer("trHessian") ;
-      WARNING(err->describe()) ;
-      return NULL ;
-    }
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
-	patReal r1 = l->theHessian->getElement(i,j,err) ;
+	patReal r1 = l->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
 	}
-	patReal r2 = r->theHessian->getElement(i,j,err) ;
+	patReal r2 = r->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
 	}
-	result.theHessian->setElement(i,j,r1-r2,err) ; 
+	result.theHessian.setElement(i,j,r1-r2,err) ; 
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

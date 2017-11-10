@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: latent.aux
+The style file: dcu.bst
+Database file #1: ../dca.bib
+You've used 9 entries,
+            2921 wiz_defined-function locations,
+            710 strings with 6542 characters,
+and the built_in function-call counts, 37615 in all, are:
+= -- 6128
+> -- 509
+< -- 1
++ -- 2912
+- -- 154
+* -- 3231
+:= -- 7587
+add.period$ -- 18
+call.type$ -- 9
+change.case$ -- 125
+chr.to.int$ -- 9
+cite$ -- 9
+duplicate$ -- 131
+empty$ -- 277
+format.name$ -- 184
+if$ -- 6750
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 39
+num.names$ -- 94
+pop$ -- 25
+preamble$ -- 1
+purify$ -- 135
+quote$ -- 0
+skip$ -- 126
+stack$ -- 0
+substring$ -- 8633
+swap$ -- 23
+text.length$ -- 127
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 0
+while$ -- 200
+width$ -- 0
+write$ -- 130

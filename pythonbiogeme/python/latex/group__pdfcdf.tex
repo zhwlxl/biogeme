@@ -1,0 +1,179 @@
+\hypertarget{group__pdfcdf}{}\section{pdf and C\+DF of common distributions}
+\label{group__pdfcdf}\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__pdfcdf_ga29778e1123c9e3c097c75b7b4baba234}{distributions.\+normalpdf} (x, mu=0.\+0, s=1.\+0)
+\begin{DoxyCompactList}\small\item\em Normal pdf. \end{DoxyCompactList}\item 
+def \hyperlink{group__pdfcdf_ga497d2b033cdb7d6145aff8eebd21faf6}{distributions.\+lognormalpdf} (x, mu, s)
+\begin{DoxyCompactList}\small\item\em Log normal pdf. \end{DoxyCompactList}\item 
+def \hyperlink{group__pdfcdf_ga76fa8d628eea8916663ed087c8128263}{distributions.\+uniformpdf} (x, a=-\/1, b=1.\+0)
+\begin{DoxyCompactList}\small\item\em Uniform pdf. \end{DoxyCompactList}\item 
+def \hyperlink{group__pdfcdf_ga2e4416223b57e1063c2d49720912fb62}{distributions.\+triangularpdf} (x, a=-\/1.\+0, b=1.\+0, c=0.\+0)
+\begin{DoxyCompactList}\small\item\em Triangular pdf. \end{DoxyCompactList}\item 
+def \hyperlink{group__pdfcdf_ga3b4a7ea110fb1ade61f8a5455ff174c2}{distributions.\+logisticcdf} (x, mu=0.\+0, s=1.\+0)
+\begin{DoxyCompactList}\small\item\em Logistic C\+DF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}!logisticcdf@{logisticcdf}}
+\index{logisticcdf@{logisticcdf}!pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsubsection[{\texorpdfstring{logisticcdf(x, mu=0.\+0, s=1.\+0)}{logisticcdf(x, mu=0.0, s=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}def distributions.\+logisticcdf (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{mu = {\ttfamily 0.0}, }
+\item[{}]{s = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{group__pdfcdf_ga3b4a7ea110fb1ade61f8a5455ff174c2}{}\label{group__pdfcdf_ga3b4a7ea110fb1ade61f8a5455ff174c2}
+
+
+Logistic C\+DF. 
+
+Cumulative distribution function of a logistic distribution \[ f(x;\mu,\sigma) = \frac{1}{1+\exp\left(-\frac{x-\mu}{\sigma} \right)} \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the pdf \\
+\hline
+{\em mu} & location parameter $\mu$ (Default\+: 0) \\
+\hline
+{\em s} & scale parameter $\sigma$ (Default\+: 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is assumed that $\sigma > 0$, but it is not verified by the code. 
+\end{DoxyNote}
+
+
+Definition at line 74 of file distributions.\+py.
+
+\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}!lognormalpdf@{lognormalpdf}}
+\index{lognormalpdf@{lognormalpdf}!pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsubsection[{\texorpdfstring{lognormalpdf(x, mu, s)}{lognormalpdf(x, mu, s)}}]{\setlength{\rightskip}{0pt plus 5cm}def distributions.\+lognormalpdf (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{mu, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{group__pdfcdf_ga497d2b033cdb7d6145aff8eebd21faf6}{}\label{group__pdfcdf_ga497d2b033cdb7d6145aff8eebd21faf6}
+
+
+Log normal pdf. 
+
+Probability density function of a log normal distribution \[ f(x;\mu,\sigma) = \frac{1}{x\sigma \sqrt{2\pi}} \exp{-\frac{(\ln x-\mu)^2}{2\sigma^2}} \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the pdf \\
+\hline
+{\em mu} & location parameter $\mu$ (Default\+: 0) \\
+\hline
+{\em s} & scale parameter $\sigma$ (Default\+: 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is assumed that $\sigma > 0$, but it is not verified by the code. 
+\end{DoxyNote}
+
+
+Definition at line 32 of file distributions.\+py.
+
+\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}!normalpdf@{normalpdf}}
+\index{normalpdf@{normalpdf}!pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsubsection[{\texorpdfstring{normalpdf(x, mu=0.\+0, s=1.\+0)}{normalpdf(x, mu=0.0, s=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}def distributions.\+normalpdf (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{mu = {\ttfamily 0.0}, }
+\item[{}]{s = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{group__pdfcdf_ga29778e1123c9e3c097c75b7b4baba234}{}\label{group__pdfcdf_ga29778e1123c9e3c097c75b7b4baba234}
+
+
+Normal pdf. 
+
+Probability density function of a normal distribution \[ f(x;\mu,\sigma) = \frac{1}{\sigma \sqrt{2\pi}} \exp{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the pdf \\
+\hline
+{\em mu} & location parameter $\mu$ (Default\+: 0) \\
+\hline
+{\em s} & scale parameter $\sigma$ (Default\+: 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is assumed that $\sigma > 0$, but it is not verified by the code. 
+\end{DoxyNote}
+
+
+Definition at line 15 of file distributions.\+py.
+
+\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}!triangularpdf@{triangularpdf}}
+\index{triangularpdf@{triangularpdf}!pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsubsection[{\texorpdfstring{triangularpdf(x, a=-\/1.\+0, b=1.\+0, c=0.\+0)}{triangularpdf(x, a=-1.0, b=1.0, c=0.0)}}]{\setlength{\rightskip}{0pt plus 5cm}def distributions.\+triangularpdf (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a = {\ttfamily -\/1.0}, }
+\item[{}]{b = {\ttfamily 1.0}, }
+\item[{}]{c = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{group__pdfcdf_ga2e4416223b57e1063c2d49720912fb62}{}\label{group__pdfcdf_ga2e4416223b57e1063c2d49720912fb62}
+
+
+Triangular pdf. 
+
+Probability density function of a triangular distribution \[ f(x;a,b,c) = \left\{ \begin{array}{ll} 0 & \text{if } x < a \\\frac{2(x-a)}{(b-a)(c-a)} & \text{if } a \leq x < c \\\frac{2(b-x)}{(b-a)(b-c)} & \text{if } c \leq x < b \\0 & \text{if } x \geq b.\end{array} \right.\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the pdf \\
+\hline
+{\em a} & lower bound $a$ of the distribution (Default\+: -\/1) \\
+\hline
+{\em b} & upper bound $b$ of the distribution (Default\+: 1) \\
+\hline
+{\em c} & mode $c$ of the distribution (Default\+: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is assumed that $a < b $, and $a \leq c \leq b$, but it is not verified by the code. 
+\end{DoxyNote}
+
+
+Definition at line 62 of file distributions.\+py.
+
+\index{pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}!uniformpdf@{uniformpdf}}
+\index{uniformpdf@{uniformpdf}!pdf and C\+D\+F of common distributions@{pdf and C\+D\+F of common distributions}}
+\subsubsection[{\texorpdfstring{uniformpdf(x, a=-\/1, b=1.\+0)}{uniformpdf(x, a=-1, b=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}def distributions.\+uniformpdf (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a = {\ttfamily -\/1}, }
+\item[{}]{b = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{group__pdfcdf_ga76fa8d628eea8916663ed087c8128263}{}\label{group__pdfcdf_ga76fa8d628eea8916663ed087c8128263}
+
+
+Uniform pdf. 
+
+Probability density function of a uniform distribution \[ f(x;a,b) = \left\{ \begin{array}{ll} \frac{1}{b-a} & \text{for } x \in [a,b] \\ 0 & \text{otherwise}\end{array} \right.\]
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & argument of the pdf \\
+\hline
+{\em a} & lower bound $a$ of the distribution (Default\+: -\/1) \\
+\hline
+{\em b} & upper bound $b$ of the distribution (Default\+: 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is assumed that $a < b $, but it is not verified by the code. 
+\end{DoxyNote}
+
+
+Definition at line 49 of file distributions.\+py.
+

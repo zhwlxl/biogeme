@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 
 #include <cassert>
 #include "patDisplay.h"
@@ -20,7 +21,8 @@ patSingletonFactory::patSingletonFactory() :
   thePatOutputFiles(NULL),
   thePatVersion(NULL),
   thePatTimer(NULL),
-  thePatNormalCdf(NULL) {
+  thePatNormalCdf(NULL),
+  thePatRandomInteger(NULL) {
 
 }
 
@@ -72,6 +74,13 @@ patNormalCdf* patSingletonFactory::patNormalCdf_the() {
     thePatNormalCdf = new patNormalCdf() ;
   }
   return thePatNormalCdf ;
+}
+
+patRandomInteger* patSingletonFactory::patRandomInteger_the() {
+  if (thePatRandomInteger == NULL) {
+    thePatRandomInteger = new patRandomInteger() ;
+  }
+  return thePatRandomInteger ;
 }
 
 

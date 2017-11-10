@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bisonsyntax.aux
+The style file: dcu.bst
+Database file #1: ../dca.bib
+Database file #2: refs.bib
+Repeated entry---line 437 of file refs.bib
+ : @article{BierBoldMcFa08
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1875 of file refs.bib
+ : @article{BenABoldBrad93
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2419 of file refs.bib
+ : @inproceedings{Bier02
+ :                      ,
+I'm skipping whatever remains of this entry
+You've used 8 entries,
+            2921 wiz_defined-function locations,
+            811 strings with 8207 characters,
+and the built_in function-call counts, 28688 in all, are:
+= -- 4645
+> -- 353
+< -- 1
++ -- 2156
+- -- 105
+* -- 2419
+:= -- 5849
+add.period$ -- 17
+call.type$ -- 8
+change.case$ -- 112
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 122
+empty$ -- 266
+format.name$ -- 135
+if$ -- 5156
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 37
+num.names$ -- 82
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 120
+quote$ -- 0
+skip$ -- 110
+stack$ -- 0
+substring$ -- 6480
+swap$ -- 22
+text.length$ -- 113
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 32
+warning$ -- 0
+while$ -- 177
+width$ -- 0
+write$ -- 118
+(There were 3 error messages)

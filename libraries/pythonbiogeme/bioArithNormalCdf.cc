@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 #include <sstream>
@@ -215,10 +215,10 @@ bioFunctionAndDerivatives* bioArithNormalCdf::getNumericalFunctionAndGradient(ve
       result.theGradient[i] = thePdf * c->theGradient[i] ;
     }
   }
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
-	patReal h = c->theHessian->getElement(i,j,err) ;
+	patReal h = c->theHessian.getElement(i,j,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
@@ -232,7 +232,7 @@ bioFunctionAndDerivatives* bioArithNormalCdf::getNumericalFunctionAndGradient(ve
 	    c->theGradient[j] != 0) {
 	  v -= thePdf * c->theFunction * c->theGradient[i] * c->theGradient[j] ;
 	}
-	result.theHessian->setElement(i,j,v,err) ;
+	result.theHessian.setElement(i,j,v,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

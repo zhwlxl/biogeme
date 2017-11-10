@@ -1,0 +1,85 @@
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws}{\section{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws Class Reference}
+\label{classbio__expression_1_1bio_uniform_symmetric_draws}\index{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws}}
+}
+
+
+Class representing a uniformly distributed random variable on \mbox{[}-\/1,1\mbox{]} for simulated integration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/d9b/classbio__expression_1_1bio_uniform_symmetric_draws}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_a8997eecc699c13ac3f1df4f148f2ca82}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_acf37af2e6e1e7a68cd389ae83c648b3e}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_aab7be549ea560902d59e88bdb4cbb255}{name}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_a07f762feb8b8f5ef9a6a98bc52adfa87}{index}
+\item 
+\hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_aeef138ac83667f40e020df25eed624a1}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a uniformly distributed random variable on \mbox{[}-\/1,1\mbox{]} for simulated integration. 
+
+A different set of draws will be generated for each group in the data file. By default, the groups are identified by {\bfseries row\+Id}, and a set of draws is generated for each row in the sample. Another typical case corresponds to panel data, where several rows correspond to the same individual. If Id identifies individuals in the data set, a set of draws will be generated for each individual, and not for each observation. Example\+: 
+\begin{DoxyCode}
+1 Errorcomp = bioUniformSymmetricDraws(\textcolor{stringliteral}{'Errorcomp'},\textcolor{stringliteral}{'Id'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_a8997eecc699c13ac3f1df4f148f2ca82}{\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{index = {\ttfamily '\+\_\+\+\_\+rowId\+\_\+\+\_\+'}}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_uniform_symmetric_draws_a8997eecc699c13ac3f1df4f148f2ca82}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the random variable \\
+\hline
+{\em index} & name of the identifier of groups of data associated with a different set of draws. (optional, default='{\bfseries row\+Id}') \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_acf37af2e6e1e7a68cd389ae83c648b3e}{\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1bio_uniform_symmetric_draws_acf37af2e6e1e7a68cd389ae83c648b3e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_a07f762feb8b8f5ef9a6a98bc52adfa87}{\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!index@{index}}
+\index{index@{index}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+index}}\label{classbio__expression_1_1bio_uniform_symmetric_draws_a07f762feb8b8f5ef9a6a98bc52adfa87}
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_aab7be549ea560902d59e88bdb4cbb255}{\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!name@{name}}
+\index{name@{name}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+name}}\label{classbio__expression_1_1bio_uniform_symmetric_draws_aab7be549ea560902d59e88bdb4cbb255}
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_aeef138ac83667f40e020df25eed624a1}{\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+operator\+Index}}\label{classbio__expression_1_1bio_uniform_symmetric_draws_aeef138ac83667f40e020df25eed624a1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

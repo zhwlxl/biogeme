@@ -1,0 +1,85 @@
+\hypertarget{classbio__iterator_1_1meta_iterator}{\section{bio\+\_\+iterator.\+meta\+Iterator Class Reference}
+\label{classbio__iterator_1_1meta_iterator}\index{bio\+\_\+iterator.\+meta\+Iterator@{bio\+\_\+iterator.\+meta\+Iterator}}
+}
+
+
+meta iterators are designed to iterate on group of rows of the data file.  
+
+
+Inheritance diagram for bio\+\_\+iterator.\+meta\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/db9/classbio__iterator_1_1meta_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__iterator_1_1meta_iterator_af50b46aa10d29e207623885644f42e0d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__iterator_1_1meta_iterator_acc36049ad5625b94dccbe176505cfaaa}{type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+meta iterators are designed to iterate on group of rows of the data file. 
+
+They are typically used for panel data, where several rows correspond to the same individual. In the example represented in the table below, the meta iterator will identify 4 groups of data\+: rows 1 to 4, rows 5 to 7, rows 8 to 9 and rows 10 to 11. Note that group 1 and group 4 share the same Id. But the iterator does not take this into account, as only changes of the value of the identifier characterize a change of group. If rows 10 and 11 indeed belong to group 1, the data file must be edited so that they appear directly after row 4. 
+\begin{DoxyCode}
+1 \_\_rowId\_\_       Id      ObsId   Variables
+2         1       1       1       ...
+3         2       1       2       ...
+4         3       1       3       ...
+5         4       1       4       ...
+6         5       2       1       ...
+7         6       2       2       ...
+8         7       2       3       ...
+9         8       3       1       ...
+10         9       3       2       ...
+11        10       1       5       ...
+12        11       1       6       ...
+\end{DoxyCode}
+ An example of iterator on this data is 
+\begin{DoxyCode}
+1 metaIterator(\textcolor{stringliteral}{'personIter'},\textcolor{stringliteral}{'\_\_dataFile\_\_'},\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'Id'})
+2 rowIterator(\textcolor{stringliteral}{'panelObsIter'},\textcolor{stringliteral}{'personIter'})
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__iterator_1_1meta_iterator_af50b46aa10d29e207623885644f42e0d}{\index{bio\+\_\+iterator\+::meta\+Iterator@{bio\+\_\+iterator\+::meta\+Iterator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+iterator\+::meta\+Iterator@{bio\+\_\+iterator\+::meta\+Iterator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+iterator.\+meta\+Iterator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{iterator\+Name, }
+\item[{}]{name, }
+\item[{}]{child, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}}\label{classbio__iterator_1_1meta_iterator_af50b46aa10d29e207623885644f42e0d}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator\+Name} & Name of the iterator. \\
+\hline
+{\em name} & Name of the set of data that is being iterated. It is either the name of a metaiterator, or the string {\bfseries data\+File}, when the iterator spans the entire database. \\
+\hline
+{\em child} & Name of the child \\
+\hline
+{\em variable} & Variable that contains the I\+D of the elements being iterated. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__iterator_1_1meta_iterator_acc36049ad5625b94dccbe176505cfaaa}{\index{bio\+\_\+iterator\+::meta\+Iterator@{bio\+\_\+iterator\+::meta\+Iterator}!type@{type}}
+\index{type@{type}!bio\+\_\+iterator\+::meta\+Iterator@{bio\+\_\+iterator\+::meta\+Iterator}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+iterator.\+meta\+Iterator.\+type}}\label{classbio__iterator_1_1meta_iterator_acc36049ad5625b94dccbe176505cfaaa}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__iterator_8py}{bio\+\_\+iterator.\+py}\end{DoxyCompactItemize}

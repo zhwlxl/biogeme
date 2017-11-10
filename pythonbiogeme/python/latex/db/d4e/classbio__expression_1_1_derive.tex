@@ -1,0 +1,85 @@
+\hypertarget{classbio__expression_1_1_derive}{\section{bio\+\_\+expression.\+Derive Class Reference}
+\label{classbio__expression_1_1_derive}\index{bio\+\_\+expression.\+Derive@{bio\+\_\+expression.\+Derive}}
+}
+
+
+Class generating the analytical derivative of an expression.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+Derive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/d4e/classbio__expression_1_1_derive}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1_derive_aec4593b78894c252344208f528a7b2d5}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbio__expression_1_1_derive_afc6d7ed5eff276e094f3b861a3c85d3e}{get\+Expression}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio__expression_1_1_derive_a1a2eee35fb9f6d59bcd3566d3ed19c83}{function}
+\item 
+\hyperlink{classbio__expression_1_1_derive_a341cac7e9fa0b5aec5de04f9a78b6f6b}{variable}
+\item 
+\hyperlink{classbio__expression_1_1_derive_acc082adfb3029c3237009c0f47502918}{operator\+Index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class generating the analytical derivative of an expression. 
+
+This class generates the expression for \[ \frac{\partial f(x)}{\partial x} \] The computation of derivatives is usually not necessary for estimation, as Biogeme automatically generates the analytical derivatives of the log likelihood function. It is particularly usuful for simulation, to compute the elasticities of complex models. Example\+: The computation of the elasticity of a model prob with respect to the variable T\+R\+A\+I\+N\+\_\+\+T\+T, say, is obtained as follows, whatever the model defined by prob\+: 
+\begin{DoxyCode}
+1 elasticity = Derive(prob,\textcolor{stringliteral}{'TRAIN\_TT'}) * TRAIN\_TT / prob
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio__expression_1_1_derive_aec4593b78894c252344208f528a7b2d5}{\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Derive.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{term, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_derive_aec4593b78894c252344208f528a7b2d5}
+
+\begin{DoxyParams}{Parameters}
+{\em term} & any valid \hyperlink{namespacebio__expression}{bio\+\_\+expression} to derive \\
+\hline
+{\em v} & the variable \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio__expression_1_1_derive_afc6d7ed5eff276e094f3b861a3c85d3e}{\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{get\+Expression}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+Derive.\+get\+Expression (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio__expression_1_1_derive_afc6d7ed5eff276e094f3b861a3c85d3e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio__expression_1_1_derive_a1a2eee35fb9f6d59bcd3566d3ed19c83}{\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!function@{function}}
+\index{function@{function}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Derive.\+function}}\label{classbio__expression_1_1_derive_a1a2eee35fb9f6d59bcd3566d3ed19c83}
+\hypertarget{classbio__expression_1_1_derive_acc082adfb3029c3237009c0f47502918}{\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!operator\+Index@{operator\+Index}}
+\index{operator\+Index@{operator\+Index}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{operator\+Index}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Derive.\+operator\+Index}}\label{classbio__expression_1_1_derive_acc082adfb3029c3237009c0f47502918}
+\hypertarget{classbio__expression_1_1_derive_a341cac7e9fa0b5aec5de04f9a78b6f6b}{\index{bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}!variable@{variable}}
+\index{variable@{variable}!bio\+\_\+expression\+::\+Derive@{bio\+\_\+expression\+::\+Derive}}
+\subsubsection[{variable}]{\setlength{\rightskip}{0pt plus 5cm}bio\+\_\+expression.\+Derive.\+variable}}\label{classbio__expression_1_1_derive_a341cac7e9fa0b5aec5de04f9a78b6f6b}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

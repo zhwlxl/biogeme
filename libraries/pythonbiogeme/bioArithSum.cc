@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 #include <sstream>
@@ -312,7 +312,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
   
   patReal theScale(0.0) ;
   if (scaleDerivatives) {
-    theScale = patMax(patReal(1.0),patAbs(getValue(patFALSE,patLapForceCompute,err))) ;
+    theScale = patMax(patOne,patAbs(getValue(patFALSE,patLapForceCompute,err))) ;
     if (err != NULL) {
       WARNING(err->describe()) ;
       return NULL ;
@@ -320,7 +320,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
   }
 
   if (isTop() && bhhh == NULL) {
-    trParameters p = bioParameters::the()->getTrParameters(err) ;
+    trParameters p = bioParameters::the()->getTrParameters() ;
     if (err != NULL) {
       WARNING(err->describe()) ;
       return NULL ;
@@ -336,8 +336,8 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
   patReal rfct(0.0) ;
   
   vector<patReal> gradient(literalIds.size(),0.0) ;
-  if (result.theHessian != NULL && computeHessian) {
-    result.theHessian->setToZero() ;
+  if (computeHessian) {
+    result.theHessian.setToZero() ;
   }
 
   if(bhhh != NULL) {
@@ -403,11 +403,11 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	  gradient[i] += term ;
 	}
       }
-      if (result.theHessian != NULL && computeHessian) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
 	    if (weight != NULL && isTop()) {
-	      patReal elem = w * fg->theHessian->getElement(i,j,err) ;
+	      patReal elem = w * fg->theHessian.getElement(i,j,err) ;
 	      if (err != NULL) {
 		patULong theRow = theIter->getCurrentRow() ;
 		stringstream str ;
@@ -420,7 +420,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	      if (scaleDerivatives && theScale != 1.0) {
 		elem /= theScale ;
 	      }
-	      result.theHessian->addElement(i,j,elem,err) ;
+	      result.theHessian.addElement(i,j,elem,err) ;
 	      if (err != NULL) {
 		patULong theRow = theIter->getCurrentRow() ;
 		stringstream str ;
@@ -432,7 +432,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	      }
 	    }
 	    else {
-	      patReal elem = fg->theHessian->getElement(i,j,err) ;
+	      patReal elem = fg->theHessian.getElement(i,j,err) ;
 	      if (err != NULL) {
 		patULong theRow = theIter->getCurrentRow() ;
 		stringstream str ;
@@ -445,7 +445,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	      if (scaleDerivatives && theScale != 1.0) {
 		elem /= theScale ;
 	      }
-	      result.theHessian->addElement(i,j,elem,err) ;
+	      result.theHessian.addElement(i,j,elem,err) ;
 	      if (err != NULL) {
 		patULong theRow = theIter->getCurrentRow() ;
 		stringstream str ;
@@ -493,7 +493,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	result.theGradient[i] = gradient[i] * theScale ;
       }
-      result.theHessian->multAllEntries(theScale,err) ;
+      result.theHessian.multAllEntries(theScale,err) ;
       if (err != NULL) {
 	WARNING(err->describe()) ;
 	return NULL ;
@@ -559,10 +559,10 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	}
 	gradient[i] += term ;
       }
-      if (result.theHessian != NULL) {
+      if (computeHessian) {
 	for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	  for (patULong j = i ; j < literalIds.size() ; ++j) {
-	    patReal r = fg->theHessian->getElement(i,j,err) ;
+	    patReal r = fg->theHessian.getElement(i,j,err) ;
 	    if (err != NULL) {
 	      WARNING(err->describe()) ;
 	      return NULL ;
@@ -570,7 +570,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
 	    if (scaleDerivatives && theScale != 1.0) {
 	      r /= theScale ;
 	    }
-	    result.theHessian->addElement(i,j,r,err) ;
+	    result.theHessian.addElement(i,j,r,err) ;
 	  }	
 	}
       }
@@ -592,7 +592,7 @@ bioFunctionAndDerivatives* bioArithSum::getNumericalFunctionAndGradient(vector<p
       for (patULong i = 0 ; i < literalIds.size() ; ++i) {
 	result.theGradient[i] = gradient[i] * theScale ;
       }
-      result.theHessian->multAllEntries(theScale,err) ;
+      result.theHessian.multAllEntries(theScale,err) ;
       if (err != NULL) {
 	WARNING(err->describe()) ;
 	return NULL ;

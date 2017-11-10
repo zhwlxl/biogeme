@@ -13,12 +13,17 @@
 #include "bioConstraintWrapper.h"
 #include "bioReporting.h"
 #include "bioBayesianResults.h"
+#include "bioOptimizationResults.h"
 
 class bioSample ;
 class bioModel ;
 class bioStatistics ;
 class bioConstraints ;
 class bioExpressionRepository ;
+class trNonLinearAlgo ;
+class bioAlgoStopFile ;
+class bioPrematureStop ;
+class bioAlgorithmStopping ;
 #include "trParameters.h"
 #include "solvoptParameters.h"
 
@@ -41,15 +46,20 @@ class bioMain {
   patString getHtmlFile() const ;
   patString getLatexFile() const ;
   patString getPythonEstimated() const ;
-  
- private:
+
+private: // Methods
+  bioOptimizationResults* optimize(patVariables startingPoint,
+				   bioSample* sample,
+				   patBoolean secondDerivatives,
+				   patError*& err) ;
+private: // Data
   bioPythonWrapper* theFunction;
   bioSample* theSample ;
   bioModel* theModel ;
   bioStatistics* theStatistics ;
   bioConstraints* theConstraints ;
-  bioRawResults* theRawResults ;
   bioReporting* theReport ;
+  trNonLinearAlgo* algo ;
 
   trParameters theTrParameters ;
   solvoptParameters theSolvoptParameters ;
@@ -59,6 +69,10 @@ class bioMain {
   patString htmlFile ;
   patString latexFile ;
   patString pythonEstimated ;
+
+  bioAlgoStopFile* theStopFileCriterion ;
+  bioPrematureStop* thePrematureCriterion ;
+  bioAlgorithmStopping* theUserDefinedStoppingCriteria ;
 };
 
 #endif

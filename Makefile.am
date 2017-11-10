@@ -10,6 +10,7 @@ libraries/ipopt \
 libraries/solvopt \
 libraries/randomNumbers \
 libraries/gaussHermite \
+libraries/stochasticGradient \
 libraries/parameters \
 libraries/bisonbiogeme \
 libraries/pythonbiogeme \
@@ -22,3 +23,4 @@ biosim \
 mod2py \
 biomerge \
 gtkgui
+

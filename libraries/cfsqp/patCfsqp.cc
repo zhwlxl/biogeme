@@ -9,8 +9,9 @@
 //#define FINDIFF
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <sstream>
 #include <numeric>
 #include "trFunction.h"
@@ -21,9 +22,12 @@
 #include "patNonLinearProblem.h"
 #include "cfsqpusr.h"
 #include "patIterationBackup.h"
+#include "bioAlgorithmManager.h"
 
-patCfsqp::patCfsqp(patIterationBackup* i, patNonLinearProblem* aProblem) :
-  trNonLinearAlgo(aProblem),
+patCfsqp::patCfsqp(patIterationBackup* i,
+		   bioAlgorithmManager* aStoppingCriteria,
+		   patNonLinearProblem* aProblem) :
+  trNonLinearAlgo(aProblem,aStoppingCriteria),
   startingPoint((aProblem==NULL)?0:aProblem->nVariables()),
   solution((aProblem==NULL)?0:aProblem->nVariables()),
   lowerBoundsLambda((aProblem==NULL)?0:aProblem->nVariables()),
@@ -39,7 +43,6 @@ patCfsqp::patCfsqp(patIterationBackup* i, patNonLinearProblem* aProblem) :
   epseqn(6.05545e-06),
   udelta(0.0) ,
   theInteraction(i),
-  stopFile("STOP"),
   nIter(static_cast<int>(patBadId)) 
 {
 
@@ -187,7 +190,7 @@ patString patCfsqp::run(patError*& err) {
 	&gradcn                            , // gradcn
 	(void*)theProblem                  , // cd 
 	theInteraction,
-	stopFile,
+	theStoppingCriteria,
 	&nIter) ; 
   
   stringstream str ;
@@ -219,7 +222,7 @@ patString patCfsqp::run(patError*& err) {
   case 9:
     str << "Penalty > " << patMaxReal << ". Unable to satisfy nonlinear constraints" ;
   case 10:
-    str << "Iterations interrupted by the user using file " << stopFile ;
+    str << "Iterations interrupted by the user:" << theStoppingCriteria->reasonForInterruption() ;
     break ;
   default:
     str << "Unknown diagnostic" ;
@@ -662,8 +665,7 @@ void patCfsqp::setParameters(int _mode,
 			     int _miter,
 			     patReal _eps,
 			     patReal _epseqn,
-			     patReal _udelta,
-			     patString sf) {
+			     patReal _udelta) {
   
  mode = _mode ;
  iprint = _iprint ;
@@ -671,5 +673,4 @@ void patCfsqp::setParameters(int _mode,
  eps = _eps ;
  epseqn = _epseqn ;
  udelta  = _udelta  ;
- stopFile = sf ;
 }

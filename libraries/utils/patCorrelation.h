@@ -50,6 +50,18 @@ struct patCorrelation {
    */
   patReal robust_ttest ;
 
+  /**
+   */
+  patReal bootstrap_covariance ;
+
+  /**
+   */
+  patReal bootstrap_correlation ;
+
+  /**
+   */
+  patReal bootstrap_ttest ;
+
 
 
 };

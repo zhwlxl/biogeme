@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patConstraintNestIterator.h"
 
 patConstraintNestIterator::patConstraintNestIterator(const vector<pair<unsigned long, unsigned long> >& v) : theVector(v) {

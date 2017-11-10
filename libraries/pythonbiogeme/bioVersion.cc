@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include <cassert>
 #include "bioVersion.h"
@@ -13,7 +17,6 @@
 #include "bioUser.h"
 #include "bioPythonSingletonFactory.h"
 
-#include "config.h"
 
 bioVersion::bioVersion() :
   version(PACKAGE_VERSION),

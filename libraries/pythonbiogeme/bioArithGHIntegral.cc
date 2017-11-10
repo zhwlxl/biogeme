@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 
 #include "patMath.h"
@@ -183,11 +187,11 @@ bioFunctionAndDerivatives* bioArithGHIntegral::getNumericalFunctionAndGradient(v
       result.theGradient[j] = patMaxReal ;
     }
   }
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     patULong index = 1 + result.theGradient.size() ;
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
-	result.theHessian->setElement(i,j,r[index],err) ;
+	result.theHessian.setElement(i,j,r[index],err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;

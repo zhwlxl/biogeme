@@ -6,10 +6,15 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioModel.h"
 #include "bioArithLiteral.h"
 #include "patDisplay.h"
 #include "bioExpressionRepository.h"
+#include "bioLiteralRepository.h"
 
 bioModel::bioModel(): theFormula(patBadId), 
 		      statistics(NULL), 
@@ -21,7 +26,8 @@ bioModel::bioModel(): theFormula(patBadId),
 		      theRepository(NULL) ,
 		      varCovarForSensitivity(NULL),
 		      performSensitivityAnalysis(patFALSE),
-		      theBayesianExpr(NULL){
+		      theBayesianExpr(NULL),
+		      oldBetas(NULL) {
 }
 
 void bioModel::setRepository(bioExpressionRepository* rep) {
@@ -164,3 +170,56 @@ patBoolean bioModel::involvesMonteCarlo() {
   return theExpr->containsMonteCarlo() ;
 }
 
+
+void bioModel::setOldBetas(map<patString,vector<patReal> >* r) {
+  oldBetas = r ;
+}
+
+vector<patVariables>* bioModel::getOldBetas(patError*& err) {
+  if (oldBetas == NULL) {
+    return NULL ;
+  }
+  patULong size = 0 ;
+  vector<patVariables>* result = new vector<patVariables> ;
+  // Check if the lengths are consistent
+  for (map<patString,vector<patReal> >::iterator i = oldBetas->begin() ;
+       i != oldBetas->end() ;
+       ++i) {
+    patString betaName = i->first ;
+    bioLiteralRepository::the()->getBetaValue(betaName, err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return NULL ;
+    }
+    
+    if (size == 0) {
+      size = i->second.size() ;
+    }
+    else {
+      if (i->second.size() != size) {
+	stringstream str ;
+	str << "The number of old values for " << betaName << " should be " << size << " and not " <<  i->second.size() ;
+	err = new patErrMiscError(str.str()) ;
+	WARNING(err->describe()) ;
+	return NULL ;
+      }
+    }
+  }
+
+  for (patULong k = 0 ; k < size ; ++k) {
+    for (map<patString,vector<patReal> >::iterator i = oldBetas->begin() ;
+	 i != oldBetas->end() ;
+	 ++i) {
+      patString betaName = i->first ;
+      bioLiteralRepository::the()->setBetaValue(betaName, i->second[k], err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return NULL ;
+      }
+    }
+    patVariables x = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
+    DEBUG_MESSAGE("Old solution " << k << ": " << x) ;
+    result->push_back(x) ;
+  }
+  return result ;
+}

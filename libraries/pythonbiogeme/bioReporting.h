@@ -13,7 +13,7 @@
 #include "patMyMatrix.h"
 
 class bioSimulatedValues ;
-class bioRawResults ;
+class bioOptimizationResults ;
 class bioBayesianResults ;
 class bioSample ;
 class patStatistics ;
@@ -28,7 +28,7 @@ class bioReporting {
   patBoolean isRaoCramerAvailable() const ;
   patBoolean isSandwichAvailable() const ;
   void computeFromSample(bioSample* s, patError*& err)  ;
-  void computeEstimationResults(bioRawResults* rr,patError*& err) ;
+  void computeEstimationResults(bioOptimizationResults* rr,patError*& err) ;
   void computeBayesianResults(bioBayesianResults* rr,patError*& err) ;
   void setDiagnostic(patString diag) ;
   void setIterations(patULong i) ;
@@ -41,18 +41,21 @@ class bioReporting {
 			    patBoolean sensitivity) ;
   void printEstimatedParameters(patString filename, patError*& err) ;
   void addMonteCarloReport(patStatistics* mainDraws,
-				       patStatistics* cvDraws,
-				       patKalman* theFilter,
-				       patReal analytical, patError*& err) ;
+			   patStatistics* cvDraws,
+			   patKalman* theFilter,
+			   patReal analytical, patError*& err) ;
   void involvesMonteCarlo() ;
   void setAlgorithm(patString a) ;
+  patBoolean bootstrapAvailable() ;
+  patULong getBootstrapDraws() ; 
 private:
   void compute(patError*& err) ;
   patBoolean reportDraws ;
-  bioRawResults* theRawResults ;
+  bioOptimizationResults* theOptimizationResults ;
   bioBayesianResults* theBayesianResults ;
   patVariables stdErr ;
   patVariables robustStdErr ;
+  patVariables bootstrapStdErr ;
   patULong nbrDraws ;
   patULong nbrParameters ;
   patULong sampleSize ;
@@ -78,6 +81,10 @@ private:
   patULong mcReporting ;
   patBoolean parameterRead ;
   patBoolean sensitivityAnalysis ;
+  patMyMatrix raoCramer ;
+  patMyMatrix robustVarCovar ;
+  patMyMatrix bootstrapVarCovar ;
+  
 };
 
 #endif

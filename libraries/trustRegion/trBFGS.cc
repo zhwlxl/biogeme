@@ -6,8 +6,13 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <numeric>
 #include "patMath.h"
+#include "patPower.h"
 #include "patErrNullPointer.h"
 #include "trBFGS.h"
 #include "trSchnabelEskow.h"
@@ -88,7 +93,7 @@ void trBFGS::update(const trVector& sk,
   }
   
   static patReal eta = 
-    pow(10.0,
+    patPower(10.0,
 	patReal(-theParameters.significantDigits)) ;
 
   patBoolean skipUpdate = patTRUE ;

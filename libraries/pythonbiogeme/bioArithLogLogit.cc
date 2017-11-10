@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 #ifdef DEBUG
@@ -40,7 +40,8 @@ bioArithLogLogit::bioArithLogLogit(bioExpressionRepository* rep,
   indexCalculationId(ind),
   theDictionaryIds(aDict),
   theAvailDictIds(avDict),
-  loglogit(ll)
+  loglogit(ll),
+  logitresult(0)
  {
 
   
@@ -816,7 +817,7 @@ bioFunctionAndDerivatives* bioArithLogLogit::getNumericalFunctionAndGradient(vec
     }
   }
 
-  if (result.theHessian != NULL && computeHessian) {
+  if (computeHessian) {
     patReal dsquare = denominator * denominator ;
     for (patULong i = 0 ; i < literalIds.size() ; ++i) {
       for (patULong j = i ; j < literalIds.size() ; ++j) {
@@ -825,7 +826,7 @@ bioFunctionAndDerivatives* bioArithLogLogit::getNumericalFunctionAndGradient(vec
 	  if (Vig[k]->theGradient[i] != 0 && Vig[k]->theGradient[j] != 0.0) {
 	    dsecond += expi[k] * Vig[k]->theGradient[i] * Vig[k]->theGradient[j] ;
 	  }
-	  patReal vih = Vig[k]->theHessian->getElement(i,j,err) ;
+	  patReal vih = Vig[k]->theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -834,13 +835,13 @@ bioFunctionAndDerivatives* bioArithLogLogit::getNumericalFunctionAndGradient(vec
 	    dsecond += expi[k] * vih ;
 	  }
 	}
-	patReal v =  Vig[iChosen]->theHessian->getElement(i,j,err) ;
+	patReal v =  Vig[iChosen]->theHessian.getElement(i,j,err) ;
 	patReal v1(0.0) ;
 	if (weightedSum[i] != 0.0 && weightedSum[j] != 0.0) {
 	  v1 = weightedSum[i] * weightedSum[j] / dsquare ;
 	}
 	patReal v2 = dsecond / denominator ;
-	result.theHessian->setElement(i,j,v+v1-v2,err) ;
+	result.theHessian.setElement(i,j,v+v1-v2,err) ;
 	if (err != NULL) {
 	  WARNING(err->describe()) ;
 	  return NULL ;
@@ -851,7 +852,7 @@ bioFunctionAndDerivatives* bioArithLogLogit::getNumericalFunctionAndGradient(vec
 	      result.theGradient[j] != 0.0) {
 	    term1 = logitresult.theGradient[i] * result.theGradient[j] ;
 	  }
-	  patReal term2 = result.theHessian->getElement(i,j,err) ;
+	  patReal term2 = result.theHessian.getElement(i,j,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;
@@ -859,7 +860,7 @@ bioFunctionAndDerivatives* bioArithLogLogit::getNumericalFunctionAndGradient(vec
 	  if (term2 != 0.0) {
 	    term2 *= logitresult.theFunction ;
 	  }
-	  logitresult.theHessian->setElement(i,j,term1+term2,err) ;
+	  logitresult.theHessian.setElement(i,j,term1+term2,err) ;
 	  if (err != NULL) {
 	    WARNING(err->describe()) ;
 	    return NULL ;

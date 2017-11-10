@@ -1,0 +1,63 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Ashok et~al.]{Ashok, Dillon \harvardand\
+  Yuan}{2002}{ashok2002extending}
+Ashok, K., Dillon, W.~R. \harvardand\ Yuan, S.  \harvardyearleft
+  2002\harvardyearright .
+\newblock Extending discrete choice models to incorporate attitudinal and other
+  latent variables, {\em Journal of Marketing Research} {\bf 39}(1):~31--46.
+
+\harvarditem[Atasoy et~al.]{Atasoy, Glerum \harvardand\
+  Bierlaire}{2011}{AtaGleBier_ICMC2011}
+Atasoy, B., Glerum, A. \harvardand\ Bierlaire, M.  \harvardyearleft
+  2011\harvardyearright .
+\newblock Mode choice with attitudinal latent class: a swiss case-study, {\em
+  Proceedings of the Second International Choice Modeling Conference}, Leeds,
+  UK.
+
+\harvarditem[Atasoy et~al.]{Atasoy, Glerum \harvardand\
+  Bierlaire}{2013}{AtaGlerBier2012_DISP}
+Atasoy, B., Glerum, A. \harvardand\ Bierlaire, M.  \harvardyearleft
+  2013\harvardyearright .
+\newblock Attitudes towards mode choice in switzerland, {\em disP - The
+  Planning Review} {\bf 49}(2):~101--117.
+
+\harvarditem[Ben-Akiva et~al.]{Ben-Akiva, Walker, Bernardino, Gopinath,
+  Morikawa \harvardand\ Polydoropoulou}{2002}{ben2002integration}
+Ben-Akiva, M., Walker, J., Bernardino, A.~T., Gopinath, D.~A., Morikawa, T.
+  \harvardand\ Polydoropoulou, A.  \harvardyearleft 2002\harvardyearright .
+\newblock Integration of choice and latent variable models, {\em Perpetual
+  motion: Travel behaviour research opportunities and application challenges}
+  pp.~431--470.
+
+\harvarditem{Bierlaire}{2015}{Bier15}
+Bierlaire, M.  \harvardyearleft 2015\harvardyearright .
+\newblock Monte-carlo integration with pythonbiogeme, {\em Technical Report
+  150806}, Transport and Mobility Laboratory, Ecole Polytechnique F\'ed\'erale
+  de Lausanne.
+
+\harvarditem{Greene \harvardand\ Hensher}{2003}{greene2003latent}
+Greene, W.~H. \harvardand\ Hensher, D.~A.  \harvardyearleft
+  2003\harvardyearright .
+\newblock A latent class model for discrete choice analysis: contrasts with
+  mixed logit, {\em Transportation Research Part B: Methodological} {\bf
+  37}(8):~681--698.
+
+\harvarditem{Likert}{1932}{likert1932technique}
+Likert, R.  \harvardyearleft 1932\harvardyearright .
+\newblock A technique for the measurement of attitudes, {\em Archives of
+  psychology} {\bf 140}:~1--55.
+
+\harvarditem{Vij \harvardand\ Walker}{2016}{vij2016and}
+Vij, A. \harvardand\ Walker, J.~L.  \harvardyearleft 2016\harvardyearright .
+\newblock How, when and why integrated choice and latent variable models are
+  latently useful, {\em Transportation Research Part B: Methodological} {\bf
+  90}:~192--217.
+
+\harvarditem{Walker}{2001}{walker2001extended}
+Walker, J.~L.  \harvardyearleft 2001\harvardyearright .
+\newblock {\em Extended discrete choice models: integrated framework, flexible
+  error structures, and latent variables}, PhD thesis, Massachusetts Institute
+  of Technology.
+
+\end{thebibliography}

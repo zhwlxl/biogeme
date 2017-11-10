@@ -1,0 +1,157 @@
+\hypertarget{classbio_matrix_1_1bio_matrix}{\section{bio\+Matrix.\+bio\+Matrix Class Reference}
+\label{classbio_matrix_1_1bio_matrix}\index{bio\+Matrix.\+bio\+Matrix@{bio\+Matrix.\+bio\+Matrix}}
+}
+
+
+This class implements a matrix object designed to store the variance covariance matrix.  
+
+
+Inheritance diagram for bio\+Matrix.\+bio\+Matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/de9/classbio_matrix_1_1bio_matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio_matrix_1_1bio_matrix_a0924580e7767b45da03405cbb54b505c}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+def \hyperlink{classbio_matrix_1_1bio_matrix_a4192e4d0f7b1978559d06478c5bad330}{setvalue}
+\begin{DoxyCompactList}\small\item\em Set an entry of the matrix. \end{DoxyCompactList}\item 
+def \hyperlink{classbio_matrix_1_1bio_matrix_a3083675e2837632d201b4f94ab449703}{getvalue}
+\begin{DoxyCompactList}\small\item\em Get an entry of the matrix. \end{DoxyCompactList}\item 
+def \hyperlink{classbio_matrix_1_1bio_matrix_ac838522b7fff4159e4a97a2548bc2cbc}{\+\_\+\+\_\+str\+\_\+\+\_\+}
+\begin{DoxyCompactList}\small\item\em Function called by the print statement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_matrix_1_1bio_matrix_a3f0a9cf4ebf8b5a5caddef88d3628d19}{dim}
+\begin{DoxyCompactList}\small\item\em Dimension of the (square) matrix. \end{DoxyCompactList}\item 
+\hyperlink{classbio_matrix_1_1bio_matrix_af9f4bf1730bd2901c587018c69c12e64}{names}
+\item 
+\hyperlink{classbio_matrix_1_1bio_matrix_ac90ed5d6e7ed7779c2566203d2d4a90e}{keys}
+\item 
+\hyperlink{classbio_matrix_1_1bio_matrix_a8adb934516744a9ba7296921ef30eae6}{matrix}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements a matrix object designed to store the variance covariance matrix. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbio_matrix_1_1bio_matrix_a0924580e7767b45da03405cbb54b505c}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+Matrix.\+bio\+Matrix.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dim, }
+\item[{}]{names, }
+\item[{}]{values}
+\end{DoxyParamCaption}
+)}}\label{classbio_matrix_1_1bio_matrix_a0924580e7767b45da03405cbb54b505c}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & Dimension of the (square) matrix \\
+\hline
+{\em names} & Array of dimension dim containing the names of the parameters \\
+\hline
+{\em values} & Two-\/dimensional array of dimension dim x dim containing the entries of the matrix\\
+\hline
+\end{DoxyParams}
+Example for the diagonal matrix \[\begin{array}{cccc} 7 & 0 & 0 & 0 \\ 0 & 7 & 0 & 0 \\ 0 & 0 & 7 & 0 \\ 0 & 0 & 0 & 7 \end{array}\] 
+\begin{DoxyCode}
+1 names = [\textcolor{stringliteral}{"ASC\_TRAIN"},\textcolor{stringliteral}{"B\_TIME"},\textcolor{stringliteral}{"B\_COST"},\textcolor{stringliteral}{"ASC\_CAR"}]
+2 values = [[7.0,0.0,0.0,0.0],[0.0,7.0,0.0,0.0],[0.0,0.0,7.0,0.0],[0.0,0.0,0.0,7.0]]
+3 theMatrix = \hyperlink{namespacebio_matrix}{bioMatrix}(4,names,values)
+\end{DoxyCode}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbio_matrix_1_1bio_matrix_ac838522b7fff4159e4a97a2548bc2cbc}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+str\+\_\+\+\_\+@{\+\_\+\+\_\+str\+\_\+\+\_\+}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{\+\_\+\+\_\+str\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+Matrix.\+bio\+Matrix.\+\_\+\+\_\+str\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classbio_matrix_1_1bio_matrix_ac838522b7fff4159e4a97a2548bc2cbc}
+
+
+Function called by the print statement. 
+
+\hypertarget{classbio_matrix_1_1bio_matrix_a3083675e2837632d201b4f94ab449703}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!getvalue@{getvalue}}
+\index{getvalue@{getvalue}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{getvalue}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+Matrix.\+bio\+Matrix.\+getvalue (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{rowname, }
+\item[{}]{colname}
+\end{DoxyParamCaption}
+)}}\label{classbio_matrix_1_1bio_matrix_a3083675e2837632d201b4f94ab449703}
+
+
+Get an entry of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rowname} & Name of the row \\
+\hline
+{\em colname} & Name of the column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value 
+\end{DoxyReturn}
+\hypertarget{classbio_matrix_1_1bio_matrix_a4192e4d0f7b1978559d06478c5bad330}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{setvalue}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+Matrix.\+bio\+Matrix.\+setvalue (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{rowname, }
+\item[{}]{colname, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}}\label{classbio_matrix_1_1bio_matrix_a4192e4d0f7b1978559d06478c5bad330}
+
+
+Set an entry of the matrix. 
+
+If it is an off-\/diagonal entry, the symmetric entry is set to the same value to maintain the symmetry of the matrix. 
+\begin{DoxyParams}{Parameters}
+{\em rowname} & Name of the row \\
+\hline
+{\em colname} & Name of the column \\
+\hline
+{\em v} & Value \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbio_matrix_1_1bio_matrix_a3f0a9cf4ebf8b5a5caddef88d3628d19}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!dim@{dim}}
+\index{dim@{dim}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{dim}]{\setlength{\rightskip}{0pt plus 5cm}bio\+Matrix.\+bio\+Matrix.\+dim}}\label{classbio_matrix_1_1bio_matrix_a3f0a9cf4ebf8b5a5caddef88d3628d19}
+
+
+Dimension of the (square) matrix. 
+
+\hypertarget{classbio_matrix_1_1bio_matrix_ac90ed5d6e7ed7779c2566203d2d4a90e}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!keys@{keys}}
+\index{keys@{keys}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{keys}]{\setlength{\rightskip}{0pt plus 5cm}bio\+Matrix.\+bio\+Matrix.\+keys}}\label{classbio_matrix_1_1bio_matrix_ac90ed5d6e7ed7779c2566203d2d4a90e}
+\hypertarget{classbio_matrix_1_1bio_matrix_a8adb934516744a9ba7296921ef30eae6}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}bio\+Matrix.\+bio\+Matrix.\+matrix}}\label{classbio_matrix_1_1bio_matrix_a8adb934516744a9ba7296921ef30eae6}
+\hypertarget{classbio_matrix_1_1bio_matrix_af9f4bf1730bd2901c587018c69c12e64}{\index{bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}!names@{names}}
+\index{names@{names}!bio\+Matrix\+::bio\+Matrix@{bio\+Matrix\+::bio\+Matrix}}
+\subsubsection[{names}]{\setlength{\rightskip}{0pt plus 5cm}bio\+Matrix.\+bio\+Matrix.\+names}}\label{classbio_matrix_1_1bio_matrix_af9f4bf1730bd2901c587018c69c12e64}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio_matrix_8py}{bio\+Matrix.\+py}\end{DoxyCompactItemize}

@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patProbaPanelModel.h"
 #include "patDisplay.h"
 #include "patModelSpec.h"
@@ -84,7 +85,7 @@ patReal patProbaPanelModel::evalProbaLog(patIndividualData* individual,
 
   patReal weight = individual->getWeight() ;
 
-  unsigned long R = (patModelSpec::the()->isMixedLogit()) 
+  unsigned long Rdraws = (patModelSpec::the()->isMixedLogit()) 
     ? patModelSpec::the()->getAlgoNumberOfDraws() 
     : 1 ;
   
@@ -136,7 +137,7 @@ patReal patProbaPanelModel::evalProbaLog(patIndividualData* individual,
 
   patReal sumOfProba(0.0) ;
 
-  for (unsigned long drawNumber = 1 ; drawNumber <= R ; ++drawNumber) {
+  for (unsigned long drawNumber = 1 ; drawNumber <= Rdraws ; ++drawNumber) {
     
     
     //    DEBUG_MESSAGE("Ind " << individual->id << " draw " << drawNumber) ;
@@ -249,7 +250,7 @@ patReal patProbaPanelModel::evalProbaLog(patIndividualData* individual,
 
 
   
-  return (weight * log(sumOfProba / patReal(R))) ;
+  return (weight * log(sumOfProba / patReal(Rdraws))) ;
 
   
   
@@ -724,12 +725,12 @@ void patProbaPanelModel::generateCppCode(ostream& cppFile,
 
   cppFile << "    patReal weight = individual->getWeight() ;" << endl ;
   
-  unsigned long R = (patModelSpec::the()->isMixedLogit()) 
+  unsigned long Rdraws = (patModelSpec::the()->isMixedLogit()) 
     ? patModelSpec::the()->getAlgoNumberOfDraws() 
     : 1 ;
-  if (R <= 1) {
+  if (Rdraws <= 1) {
     stringstream str ;
-    str << "The number of draws is " << R << ". It should be greater than 1" ;
+    str << "The number of draws is " << Rdraws << ". It should be greater than 1" ;
     err = new patErrMiscError(str.str()) ;
     WARNING(err->describe());
     return ;
@@ -747,7 +748,7 @@ void patProbaPanelModel::generateCppCode(ostream& cppFile,
 
 
   cppFile << "  for (unsigned long drawNumber = 1 ; drawNumber <= "
-	  << R 
+	  << Rdraws 
 	  << "  ; ++drawNumber) {" 
 	  << endl ;
   
@@ -760,7 +761,7 @@ void patProbaPanelModel::generateCppCode(ostream& cppFile,
   if (derivatives) {
     cppFile << "    sumOfGradient += gradientPerDraw ;" << endl ;
   }
-  cppFile << "    logProbaOneObs =  weight * (log(sumOfProba) - log(patReal(" << R << "))) ;" << endl ;
+  cppFile << "    logProbaOneObs =  weight * (log(sumOfProba) - log(patReal(" << Rdraws << "))) ;" << endl ;
   if (derivatives) {
     cppFile << "gradientLogOneObs = (weight / sumOfProba) * sumOfGradient ;" ;
   }

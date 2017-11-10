@@ -1,6 +1,6 @@
 #define YY_patBisonParam_h_included
 
-/*  A Bison++ parser, made from patParserParam.yy  */
+/*  A Bison++ parser, made from /Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy  */
 
  /* with Bison++ version bison++ Version 1.21-8, adapted from GNU bison by coetmeur@icdc.fr
   */
@@ -81,14 +81,18 @@ void *alloca ();
 #define YYBISON 1  
 
 /* #line 73 "/usr/local/lib/bison.cc" */
-#line 85 "patParserParam.yy.tab.c"
+#line 85 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 #define YY_patBisonParam_ERROR_BODY  = 0
 #define YY_patBisonParam_LEX_BODY  = 0
 #define YY_patBisonParam_MEMBERS  patScannerParam scanner; patParameters *pParameters; virtual ~patBisonParam() {};
 #define YY_patBisonParam_CONSTRUCTOR_PARAM  const string& fname_
 #define YY_patBisonParam_CONSTRUCTOR_INIT  : scanner(fname_) , pParameters(NULL)
-#line 19 "patParserParam.yy"
+#line 19 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
   
 #include <fstream>
 #include <sstream>
@@ -174,7 +178,7 @@ public:
 
 
 
-#line 108 "patParserParam.yy"
+#line 112 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 typedef union {
   long        itype;
   float       ftype;
@@ -229,7 +233,7 @@ typedef union {
 #ifndef YY_patBisonParam_PURE
 
 /* #line 117 "/usr/local/lib/bison.cc" */
-#line 233 "patParserParam.yy.tab.c"
+#line 237 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
 #line 117 "/usr/local/lib/bison.cc"
 /*  YY_patBisonParam_PURE */
@@ -238,14 +242,14 @@ typedef union {
 /* section apres lecture def, avant lecture grammaire S2 */
 
 /* #line 121 "/usr/local/lib/bison.cc" */
-#line 242 "patParserParam.yy.tab.c"
+#line 246 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
 #line 121 "/usr/local/lib/bison.cc"
 /* prefix */
 #ifndef YY_patBisonParam_DEBUG
 
 /* #line 123 "/usr/local/lib/bison.cc" */
-#line 249 "patParserParam.yy.tab.c"
+#line 253 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
 #line 123 "/usr/local/lib/bison.cc"
 /* YY_patBisonParam_DEBUG */
@@ -255,7 +259,7 @@ typedef union {
 #ifndef YY_patBisonParam_LSP_NEEDED
 
 /* #line 128 "/usr/local/lib/bison.cc" */
-#line 259 "patParserParam.yy.tab.c"
+#line 263 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
 #line 128 "/usr/local/lib/bison.cc"
  /* YY_patBisonParam_LSP_NEEDED*/
@@ -368,7 +372,7 @@ typedef
 /* TOKEN C */
 
 /* #line 236 "/usr/local/lib/bison.cc" */
-#line 372 "patParserParam.yy.tab.c"
+#line 376 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 #define	pat_BasicTrustRegionSection	258
 #define	pat_BTRMaxGcpIter	259
 #define	pat_BTRArmijoBeta1	260
@@ -653,7 +657,7 @@ public:
 /* static const int token ... */
 
 /* #line 280 "/usr/local/lib/bison.cc" */
-#line 657 "patParserParam.yy.tab.c"
+#line 661 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 static const int pat_BasicTrustRegionSection;
 static const int pat_BTRMaxGcpIter;
 static const int pat_BTRArmijoBeta1;
@@ -897,7 +901,7 @@ static const int patPAIR;
 enum YY_patBisonParam_ENUM_TOKEN { YY_patBisonParam_NULL_TOKEN=0
 
 /* #line 283 "/usr/local/lib/bison.cc" */
-#line 901 "patParserParam.yy.tab.c"
+#line 905 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 	,pat_BasicTrustRegionSection=258
 	,pat_BTRMaxGcpIter=259
 	,pat_BTRArmijoBeta1=260
@@ -1169,7 +1173,7 @@ public:
 #if YY_patBisonParam_USE_CONST_TOKEN != 0
 
 /* #line 314 "/usr/local/lib/bison.cc" */
-#line 1173 "patParserParam.yy.tab.c"
+#line 1177 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 const int YY_patBisonParam_CLASS::pat_BasicTrustRegionSection=258;
 const int YY_patBisonParam_CLASS::pat_BTRMaxGcpIter=259;
 const int YY_patBisonParam_CLASS::pat_BTRArmijoBeta1=260;
@@ -1421,7 +1425,7 @@ YY_patBisonParam_CONSTRUCTOR_CODE;
 #endif
 
 /* #line 325 "/usr/local/lib/bison.cc" */
-#line 1425 "patParserParam.yy.tab.c"
+#line 1429 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
 
 #define	YYFINAL		717
@@ -1623,34 +1627,34 @@ static const short yyrhs[] = {   239,
 
 #if YY_patBisonParam_DEBUG != 0
 static const short yyrline[] = { 0,
-   367,   371,   372,   374,   375,   376,   377,   378,   379,   380,
-   381,   382,   383,   384,   385,   386,   387,   388,   390,   391,
-   392,   394,   398,   403,   408,   413,   418,   423,   428,   433,
-   438,   443,   448,   453,   458,   463,   469,   474,   479,   484,
-   489,   494,   499,   504,   509,   514,   519,   524,   529,   534,
-   539,   545,   546,   547,   549,   553,   558,   563,   568,   573,
-   578,   583,   588,   593,   598,   603,   608,   613,   618,   623,
-   628,   633,   638,   643,   648,   653,   658,   663,   668,   673,
-   678,   683,   688,   693,   698,   703,   708,   713,   719,   720,
-   721,   723,   727,   732,   737,   742,   747,   753,   754,   755,
-   757,   761,   766,   771,   776,   781,   786,   791,   796,   801,
-   806,   811,   816,   821,   826,   832,   833,   834,   836,   841,
-   847,   853,   859,   865,   871,   877,   883,   889,   895,   901,
-   907,   913,   920,   921,   922,   924,   928,   933,   938,   943,
-   949,   950,   951,   953,   958,   964,   970,   975,   980,   985,
-   990,   995,  1000,  1005,  1010,  1015,  1020,  1025,  1030,  1035,
-  1040,  1046,  1051,  1056,  1061,  1067,  1073,  1079,  1085,  1090,
-  1096,  1101,  1106,  1111,  1116,  1121,  1126,  1132,  1137,  1142,
-  1147,  1153,  1158,  1164,  1170,  1176,  1181,  1186,  1191,  1196,
-  1201,  1206,  1211,  1216,  1221,  1226,  1231,  1236,  1241,  1246,
-  1251,  1256,  1261,  1267,  1272,  1277,  1282,  1287,  1292,  1297,
-  1302,  1307,  1312,  1317,  1322,  1327,  1332,  1337,  1342,  1347,
-  1353,  1354,  1355,  1357,  1361,  1366,  1371,  1377,  1378,  1379,
-  1381,  1385,  1390,  1396,  1397,  1398,  1400,  1404,  1409,  1415,
-  1416,  1417,  1419,  1423,  1429,  1430,  1431,  1433,  1437,  1442,
-  1447,  1452,  1457,  1463,  1464,  1465,  1467,  1471,  1476,  1482,
-  1483,  1484,  1486,  1490,  1495,  1500,  1505,  1511,  1512,  1513,
-  1515,  1519,  1524,  1529,  1536,  1541,  1546
+   371,   375,   376,   378,   379,   380,   381,   382,   383,   384,
+   385,   386,   387,   388,   389,   390,   391,   392,   394,   395,
+   396,   398,   402,   407,   412,   417,   422,   427,   432,   437,
+   442,   447,   452,   457,   462,   467,   473,   478,   483,   488,
+   493,   498,   503,   508,   513,   518,   523,   528,   533,   538,
+   543,   549,   550,   551,   553,   557,   562,   567,   572,   577,
+   582,   587,   592,   597,   602,   607,   612,   617,   622,   627,
+   632,   637,   642,   647,   652,   657,   662,   667,   672,   677,
+   682,   687,   692,   697,   702,   707,   712,   717,   723,   724,
+   725,   727,   731,   736,   741,   746,   751,   757,   758,   759,
+   761,   765,   770,   775,   780,   785,   790,   795,   800,   805,
+   810,   815,   820,   825,   830,   836,   837,   838,   840,   845,
+   851,   857,   863,   869,   875,   881,   887,   893,   899,   905,
+   911,   917,   924,   925,   926,   928,   932,   937,   942,   947,
+   953,   954,   955,   957,   962,   968,   974,   979,   984,   989,
+   994,   999,  1004,  1009,  1014,  1019,  1024,  1029,  1034,  1039,
+  1044,  1050,  1055,  1060,  1065,  1071,  1077,  1083,  1089,  1094,
+  1100,  1105,  1110,  1115,  1120,  1125,  1130,  1136,  1141,  1146,
+  1151,  1157,  1162,  1168,  1174,  1180,  1185,  1190,  1195,  1200,
+  1205,  1210,  1215,  1220,  1225,  1230,  1235,  1240,  1245,  1250,
+  1255,  1260,  1265,  1271,  1276,  1281,  1286,  1291,  1296,  1301,
+  1306,  1311,  1316,  1321,  1326,  1331,  1336,  1341,  1346,  1351,
+  1357,  1358,  1359,  1361,  1365,  1370,  1375,  1381,  1382,  1383,
+  1385,  1389,  1394,  1400,  1401,  1402,  1404,  1408,  1413,  1419,
+  1420,  1421,  1423,  1427,  1433,  1434,  1435,  1437,  1441,  1446,
+  1451,  1456,  1461,  1467,  1468,  1469,  1471,  1475,  1480,  1486,
+  1487,  1488,  1490,  1494,  1499,  1504,  1509,  1515,  1516,  1517,
+  1519,  1523,  1528,  1533,  1540,  1545,  1550
 };
 
 static const char * const yytname[] = {   "$","error","$illegal.","pat_BasicTrustRegionSection",
@@ -2592,115 +2596,115 @@ YYLABEL(yyreduce)
 
 
 /* #line 811 "/usr/local/lib/bison.cc" */
-#line 2596 "patParserParam.yy.tab.c"
+#line 2600 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
 
   switch (yyn) {
 
 case 1:
-#line 367 "patParserParam.yy"
+#line 371 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
              ;
     break;}
 case 22:
-#line 394 "patParserParam.yy"
+#line 398 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRMaxGcpIter(yyvsp[0].itype) ;
 ;
     break;}
 case 23:
-#line 399 "patParserParam.yy"
+#line 403 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRArmijoBeta1(yyvsp[0].ftype) ;
 ;
     break;}
 case 24:
-#line 404 "patParserParam.yy"
+#line 408 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRArmijoBeta2(yyvsp[0].ftype) ;
 ;
     break;}
 case 25:
-#line 409 "patParserParam.yy"
+#line 413 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRStartDraws(yyvsp[0].itype) ;
 ;
     break;}
 case 26:
-#line 414 "patParserParam.yy"
+#line 418 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRIncreaseDraws(yyvsp[0].ftype) ;
 ;
     break;}
 case 27:
-#line 419 "patParserParam.yy"
+#line 423 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTREta1(yyvsp[0].ftype) ;
 ;
     break;}
 case 28:
-#line 424 "patParserParam.yy"
+#line 428 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTREta2(yyvsp[0].ftype) ;
 ;
     break;}
 case 29:
-#line 429 "patParserParam.yy"
+#line 433 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRGamma1(yyvsp[0].ftype) ;
 ;
     break;}
 case 30:
-#line 434 "patParserParam.yy"
+#line 438 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRGamma2(yyvsp[0].ftype) ;
 ;
     break;}
 case 31:
-#line 439 "patParserParam.yy"
+#line 443 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRInitRadius(yyvsp[0].ftype) ;
 ;
     break;}
 case 32:
-#line 444 "patParserParam.yy"
+#line 448 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRIncreaseTRRadius(yyvsp[0].ftype) ;
 ;
     break;}
 case 33:
-#line 449 "patParserParam.yy"
+#line 453 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRUnfeasibleCGIterations(yyvsp[0].itype) ;
 ;
     break;}
 case 34:
-#line 454 "patParserParam.yy"
+#line 458 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRForceExactHessianIfMnl(yyvsp[0].itype) ;
 ;
     break;}
 case 35:
-#line 459 "patParserParam.yy"
+#line 463 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRExactHessian(yyvsp[0].itype) ;
 ;
     break;}
 case 36:
-#line 464 "patParserParam.yy"
+#line 468 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   DEBUG_MESSAGE("Set cheapHessian to " << yyvsp[0].itype) ;
@@ -2708,497 +2712,497 @@ case 36:
 ;
     break;}
 case 37:
-#line 470 "patParserParam.yy"
+#line 474 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRQuasiNewtonUpdate(yyvsp[0].itype) ;
 ;
     break;}
 case 38:
-#line 475 "patParserParam.yy"
+#line 479 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRInitQuasiNewtonWithTrueHessian(yyvsp[0].itype) ;
 ;
     break;}
 case 39:
-#line 480 "patParserParam.yy"
+#line 484 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRInitQuasiNewtonWithBHHH(yyvsp[0].itype) ;
 ;
     break;}
 case 40:
-#line 485 "patParserParam.yy"
+#line 489 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 41:
-#line 490 "patParserParam.yy"
+#line 494 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRTypf(yyvsp[0].ftype) ;
 ;
     break;}
 case 42:
-#line 495 "patParserParam.yy"
+#line 499 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRTolerance(yyvsp[0].ftype) ;
 ;
     break;}
 case 43:
-#line 500 "patParserParam.yy"
+#line 504 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRMaxTRRadius(yyvsp[0].ftype) ;
 ;
     break;}
 case 44:
-#line 505 "patParserParam.yy"
+#line 509 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRMinTRRadius(yyvsp[0].ftype) ;
 ;
     break;}
 case 45:
-#line 510 "patParserParam.yy"
+#line 514 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRUsePreconditioner(yyvsp[0].itype) ;
 ;
     break;}
 case 46:
-#line 515 "patParserParam.yy"
+#line 519 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRSingularityThreshold(yyvsp[0].ftype) ;
 ;
     break;}
 case 47:
-#line 520 "patParserParam.yy"
+#line 524 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRKappaEpp(yyvsp[0].ftype) ;
 ;
     break;}
 case 48:
-#line 525 "patParserParam.yy"
+#line 529 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRKappaLbs(yyvsp[0].ftype) ;
 ;
     break;}
 case 49:
-#line 530 "patParserParam.yy"
+#line 534 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRKappaUbs(yyvsp[0].ftype) ;
 ;
     break;}
 case 50:
-#line 535 "patParserParam.yy"
+#line 539 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRKappaFrd(yyvsp[0].ftype) ;
 ;
     break;}
 case 51:
-#line 540 "patParserParam.yy"
+#line 544 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setBTRSignificantDigits(yyvsp[0].itype) ;
 ;
     break;}
 case 55:
-#line 549 "patParserParam.yy"
+#line 553 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAETA0(yyvsp[0].ftype) ;
 ;
     break;}
 case 56:
-#line 554 "patParserParam.yy"
+#line 558 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAETA1(yyvsp[0].ftype) ;
 ;
     break;}
 case 57:
-#line 559 "patParserParam.yy"
+#line 563 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAETA2(yyvsp[0].ftype) ;
 ;
     break;}
 case 58:
-#line 564 "patParserParam.yy"
+#line 568 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAGAMMA1(yyvsp[0].ftype) ;
 ;
     break;}
 case 59:
-#line 569 "patParserParam.yy"
+#line 573 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAGAMMA2(yyvsp[0].ftype) ;
 ;
     break;}
 case 60:
-#line 574 "patParserParam.yy"
+#line 578 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAEPSILONC(yyvsp[0].ftype) ;
 ;
     break;}
 case 61:
-#line 579 "patParserParam.yy"
+#line 583 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAALPHA(yyvsp[0].ftype) ;
 ;
     break;}
 case 62:
-#line 584 "patParserParam.yy"
+#line 588 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMU(yyvsp[0].itype) ;
 ;
     break;}
 case 63:
-#line 589 "patParserParam.yy"
+#line 593 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMAXNBRFUNCTEVAL(yyvsp[0].itype) ;
 ;
     break;}
 case 64:
-#line 594 "patParserParam.yy"
+#line 598 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMAXLENGTH(yyvsp[0].itype) ;
 ;
     break;}
 case 65:
-#line 599 "patParserParam.yy"
+#line 603 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMAXDATA(yyvsp[0].itype) ;
 ;
     break;}
 case 66:
-#line 604 "patParserParam.yy"
+#line 608 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRANBROFBESTPTS(yyvsp[0].itype) ;
 ;
     break;}
 case 67:
-#line 609 "patParserParam.yy"
+#line 613 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAPOWER(yyvsp[0].ftype) ;
 ;
     break;}
 case 68:
-#line 614 "patParserParam.yy"
+#line 618 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMAXRAD(yyvsp[0].itype) ;
 ;
     break;}
 case 69:
-#line 619 "patParserParam.yy"
+#line 623 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMINRAD(yyvsp[0].ftype) ;
 ;
     break;}
 case 70:
-#line 624 "patParserParam.yy"
+#line 628 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAUPPERBOUND(yyvsp[0].ftype) ;
 ;
     break;}
 case 71:
-#line 629 "patParserParam.yy"
+#line 633 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRALOWERBOUND(yyvsp[0].ftype) ;
 ;
     break;}
 case 72:
-#line 634 "patParserParam.yy"
+#line 638 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAGAMMA3(yyvsp[0].ftype) ;
 ;
     break;}
 case 73:
-#line 639 "patParserParam.yy"
+#line 643 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAGAMMA4(yyvsp[0].ftype) ;
 ;
     break;}
 case 74:
-#line 644 "patParserParam.yy"
+#line 648 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACOEFVALID(yyvsp[0].ftype) ;
 ;
     break;}
 case 75:
-#line 649 "patParserParam.yy"
+#line 653 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACOEFGEN(yyvsp[0].ftype) ;
 ;
     break;}
 case 76:
-#line 654 "patParserParam.yy"
+#line 658 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAEPSERROR(yyvsp[0].ftype) ;
 ;
     break;}
 case 77:
-#line 659 "patParserParam.yy"
+#line 663 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAEPSPOINT(yyvsp[0].ftype) ;
 ;
     break;}
 case 78:
-#line 664 "patParserParam.yy"
+#line 668 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACOEFNORM(yyvsp[0].ftype) ;
 ;
     break;}
 case 79:
-#line 669 "patParserParam.yy"
+#line 673 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMINSTEP(yyvsp[0].ftype) ;
 ;
     break;}
 case 80:
-#line 674 "patParserParam.yy"
+#line 678 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAMINPIVOTVALUE(yyvsp[0].ftype) ;
 ;
     break;}
 case 81:
-#line 679 "patParserParam.yy"
+#line 683 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAGOODPIVOTVALUE(yyvsp[0].ftype) ;
 ;
     break;}
 case 82:
-#line 684 "patParserParam.yy"
+#line 688 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAFINEPS(yyvsp[0].ftype) ;
 ;
     break;}
 case 83:
-#line 689 "patParserParam.yy"
+#line 693 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAFINEPSREL(yyvsp[0].ftype) ;
 ;
     break;}
 case 84:
-#line 694 "patParserParam.yy"
+#line 698 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACHECKEPS(yyvsp[0].ftype) ;
 ;
     break;}
 case 85:
-#line 699 "patParserParam.yy"
+#line 703 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACHECKTESTEPS(yyvsp[0].ftype) ;
 ;
     break;}
 case 86:
-#line 704 "patParserParam.yy"
+#line 708 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRACHECKTESTEPSREL(yyvsp[0].ftype) ;
 ;
     break;}
 case 87:
-#line 709 "patParserParam.yy"
+#line 713 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAVALMINGAUSS(yyvsp[0].ftype) ;
 ;
     break;}
 case 88:
-#line 714 "patParserParam.yy"
+#line 718 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCTRAFACTOFPOND(yyvsp[0].ftype) ;
 ;
     break;}
 case 92:
-#line 723 "patParserParam.yy"
+#line 727 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setPrecond(yyvsp[0].itype) ;
 ;
     break;}
 case 93:
-#line 728 "patParserParam.yy"
+#line 732 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setEpsilon(yyvsp[0].ftype) ;
 ;
     break;}
 case 94:
-#line 733 "patParserParam.yy"
+#line 737 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCondLimit(yyvsp[0].ftype) ;
 ;
     break;}
 case 95:
-#line 738 "patParserParam.yy"
+#line 742 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setPrecResidu(yyvsp[0].ftype) ;
 ;
     break;}
 case 96:
-#line 743 "patParserParam.yy"
+#line 747 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMaxCGIter(yyvsp[0].itype) ;
 ;
     break;}
 case 97:
-#line 748 "patParserParam.yy"
+#line 752 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setTolSchnabelEskow(yyvsp[0].ftype) ;
 ;
     break;}
 case 101:
-#line 757 "patParserParam.yy"
+#line 761 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 102:
-#line 762 "patParserParam.yy"
+#line 766 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setInitStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 103:
-#line 767 "patParserParam.yy"
+#line 771 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMinStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 104:
-#line 772 "patParserParam.yy"
+#line 776 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMaxEval(yyvsp[0].itype) ;
 ;
     break;}
 case 105:
-#line 777 "patParserParam.yy"
+#line 781 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setNbrRun(yyvsp[0].itype) ;
 ;
     break;}
 case 106:
-#line 782 "patParserParam.yy"
+#line 786 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMaxStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 107:
-#line 787 "patParserParam.yy"
+#line 791 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setAlphaProba(yyvsp[0].ftype) ;
 ;
     break;}
 case 108:
-#line 792 "patParserParam.yy"
+#line 796 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setStepReduc(yyvsp[0].ftype) ;
 ;
     break;}
 case 109:
-#line 797 "patParserParam.yy"
+#line 801 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setStepIncr(yyvsp[0].ftype) ;
 ;
     break;}
 case 110:
-#line 802 "patParserParam.yy"
+#line 806 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setExpectedImprovement(yyvsp[0].ftype) ;
 ;
     break;}
 case 111:
-#line 807 "patParserParam.yy"
+#line 811 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setAllowPremUnsucc(yyvsp[0].itype) ;
 ;
     break;}
 case 112:
-#line 812 "patParserParam.yy"
+#line 816 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setPrematureStart(yyvsp[0].ftype) ;
 ;
     break;}
 case 113:
-#line 817 "patParserParam.yy"
+#line 821 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setPrematureStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 114:
-#line 822 "patParserParam.yy"
+#line 826 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMaxUnsuccIter(yyvsp[0].itype) ;
 ;
     break;}
 case 115:
-#line 827 "patParserParam.yy"
+#line 831 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setNormWeight(yyvsp[0].ftype) ;
 ;
     break;}
 case 119:
-#line 836 "patParserParam.yy"
+#line 840 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setInputDirectory(*yyvsp[0].stype) ;
@@ -3206,7 +3210,7 @@ case 119:
 ;
     break;}
 case 120:
-#line 842 "patParserParam.yy"
+#line 846 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setOutputDirectory(*yyvsp[0].stype) ;
@@ -3214,7 +3218,7 @@ case 120:
 ;
     break;}
 case 121:
-#line 848 "patParserParam.yy"
+#line 852 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setTmpDirectory(*yyvsp[0].stype) ;
@@ -3222,7 +3226,7 @@ case 121:
 ;
     break;}
 case 122:
-#line 854 "patParserParam.yy"
+#line 858 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setFunctionEvalExec(*yyvsp[0].stype) ;
@@ -3230,7 +3234,7 @@ case 122:
 ;
     break;}
 case 123:
-#line 860 "patParserParam.yy"
+#line 864 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setjonSimulator(*yyvsp[0].stype) ;
@@ -3238,7 +3242,7 @@ case 123:
 ;
     break;}
 case 124:
-#line 866 "patParserParam.yy"
+#line 870 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setCandidateFile(*yyvsp[0].stype) ;
@@ -3246,7 +3250,7 @@ case 124:
 ;
     break;}
 case 125:
-#line 872 "patParserParam.yy"
+#line 876 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setResultFile(*yyvsp[0].stype) ;
@@ -3254,7 +3258,7 @@ case 125:
 ;
     break;}
 case 126:
-#line 878 "patParserParam.yy"
+#line 882 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setOutsifFile(*yyvsp[0].stype) ;
@@ -3262,7 +3266,7 @@ case 126:
 ;
     break;}
 case 127:
-#line 884 "patParserParam.yy"
+#line 888 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setLogFile(*yyvsp[0].stype) ;
@@ -3270,7 +3274,7 @@ case 127:
 ;
     break;}
 case 128:
-#line 890 "patParserParam.yy"
+#line 894 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setProblemsFile(*yyvsp[0].stype) ;
@@ -3278,7 +3282,7 @@ case 128:
 ;
     break;}
 case 129:
-#line 896 "patParserParam.yy"
+#line 900 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMITSIMorigin(*yyvsp[0].stype) ;
@@ -3286,7 +3290,7 @@ case 129:
 ;
     break;}
 case 130:
-#line 902 "patParserParam.yy"
+#line 906 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMITSIMinformation(*yyvsp[0].stype) ;
@@ -3294,7 +3298,7 @@ case 130:
 ;
     break;}
 case 131:
-#line 908 "patParserParam.yy"
+#line 912 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMITSIMtravelTime(*yyvsp[0].stype) ;
@@ -3302,7 +3306,7 @@ case 131:
 ;
     break;}
 case 132:
-#line 914 "patParserParam.yy"
+#line 918 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setMITSIMexec(*yyvsp[0].stype) ;
@@ -3310,42 +3314,42 @@ case 132:
 ;
     break;}
 case 136:
-#line 924 "patParserParam.yy"
+#line 928 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setAugmentationStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 137:
-#line 929 "patParserParam.yy"
+#line 933 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setReductionStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 138:
-#line 934 "patParserParam.yy"
+#line 938 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setSubSpaceMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 139:
-#line 939 "patParserParam.yy"
+#line 943 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setSubSpaceConsecutiveFailure(yyvsp[0].itype) ;
 ;
     break;}
 case 140:
-#line 944 "patParserParam.yy"
+#line 948 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setWarmUpnbre(yyvsp[0].itype) ;
 ;
     break;}
 case 144:
-#line 953 "patParserParam.yy"
+#line 957 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevInputDirectory(*yyvsp[0].stype) ;
@@ -3353,7 +3357,7 @@ case 144:
 ;
     break;}
 case 145:
-#line 959 "patParserParam.yy"
+#line 963 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevOutputDirectory(*yyvsp[0].stype) ;
@@ -3361,7 +3365,7 @@ case 145:
 ;
     break;}
 case 146:
-#line 965 "patParserParam.yy"
+#line 969 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevWorkingDirectory(*yyvsp[0].stype) ;
@@ -3369,105 +3373,105 @@ case 146:
 ;
     break;}
 case 147:
-#line 971 "patParserParam.yy"
+#line 975 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSignificantDigitsParameters(yyvsp[0].itype) ;
 ;
     break;}
 case 148:
-#line 976 "patParserParam.yy"
+#line 980 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDecimalDigitsTTest(yyvsp[0].itype) ;
 ;
     break;}
 case 149:
-#line 981 "patParserParam.yy"
+#line 985 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDecimalDigitsStats(yyvsp[0].itype) ;
 ;
     break;}
 case 150:
-#line 986 "patParserParam.yy"
+#line 990 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevForceScientificNotation(yyvsp[0].itype) ;
 ;
     break;}
 case 151:
-#line 991 "patParserParam.yy"
+#line 995 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSingularValueThreshold(yyvsp[0].ftype) ;
 ;
     break;}
 case 152:
-#line 996 "patParserParam.yy"
+#line 1000 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevPrintVarCovarAsList(yyvsp[0].itype) ;
 ;
     break;}
 case 153:
-#line 1001 "patParserParam.yy"
+#line 1005 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevPrintVarCovarAsMatrix(yyvsp[0].itype) ;
 ;
     break;}
 case 154:
-#line 1006 "patParserParam.yy"
+#line 1010 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevPrintPValue(yyvsp[0].itype) ;
 ;
     break;}
 case 155:
-#line 1011 "patParserParam.yy"
+#line 1015 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNumberOfThreads(yyvsp[0].itype) ;
 ;
     break;}
 case 156:
-#line 1016 "patParserParam.yy"
+#line 1020 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSaveIntermediateResults(yyvsp[0].itype) ;
 ;
     break;}
 case 157:
-#line 1021 "patParserParam.yy"
+#line 1025 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevVarCovarFromBHHH(yyvsp[0].itype) ;
 ;
     break;}
 case 158:
-#line 1026 "patParserParam.yy"
+#line 1030 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDebugDataFirstRow(yyvsp[0].itype) ;
 ;
     break;}
 case 159:
-#line 1031 "patParserParam.yy"
+#line 1035 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDebugDataLastRow(yyvsp[0].itype) ;
 ;
     break;}
 case 160:
-#line 1036 "patParserParam.yy"
+#line 1040 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevStoreDataOnFile(yyvsp[0].itype) ;
 ;
     break;}
 case 161:
-#line 1041 "patParserParam.yy"
+#line 1045 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevBinaryDataFile(*yyvsp[0].stype) ;
@@ -3475,28 +3479,28 @@ case 161:
 ;
     break;}
 case 162:
-#line 1047 "patParserParam.yy"
+#line 1051 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDumpDrawsOnFile(yyvsp[0].itype) ;
 ;
     break;}
 case 163:
-#line 1052 "patParserParam.yy"
+#line 1056 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevReadDrawsFromFile(yyvsp[0].itype) ;
 ;
     break;}
 case 164:
-#line 1057 "patParserParam.yy"
+#line 1061 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGenerateActualSample(yyvsp[0].itype) ;
 ;
     break;}
 case 165:
-#line 1062 "patParserParam.yy"
+#line 1066 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevOutputActualSample(*yyvsp[0].stype) ;
@@ -3504,7 +3508,7 @@ case 165:
 ;
     break;}
 case 166:
-#line 1068 "patParserParam.yy"
+#line 1072 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNormalDrawsFile(*yyvsp[0].stype) ;
@@ -3512,7 +3516,7 @@ case 166:
 ;
     break;}
 case 167:
-#line 1074 "patParserParam.yy"
+#line 1078 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevRectangularDrawsFile(*yyvsp[0].stype) ;
@@ -3520,7 +3524,7 @@ case 167:
 ;
     break;}
 case 168:
-#line 1080 "patParserParam.yy"
+#line 1084 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevRandomDistrib(*yyvsp[0].stype) ;
@@ -3528,14 +3532,14 @@ case 168:
 ;
     break;}
 case 169:
-#line 1086 "patParserParam.yy"
+#line 1090 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevMaxPrimeNumber(yyvsp[0].itype) ;
 ;
     break;}
 case 170:
-#line 1091 "patParserParam.yy"
+#line 1095 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevWarningSign(*yyvsp[0].stype) ;
@@ -3543,49 +3547,49 @@ case 170:
 ;
     break;}
 case 171:
-#line 1097 "patParserParam.yy"
+#line 1101 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevWarningLowDraws(yyvsp[0].itype) ;
 ;
     break;}
 case 172:
-#line 1102 "patParserParam.yy"
+#line 1106 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevMissingValue(yyvsp[0].ftype) ;
 ;
     break;}
 case 173:
-#line 1107 "patParserParam.yy"
+#line 1111 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGenerateFilesForDenis(yyvsp[0].itype) ;
 ;
     break;}
 case 174:
-#line 1112 "patParserParam.yy"
+#line 1116 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGenerateGnuplotFile(yyvsp[0].itype) ;
 ;
     break;}
 case 175:
-#line 1117 "patParserParam.yy"
+#line 1121 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGeneratePythonFile(yyvsp[0].itype) ;
 ;
     break;}
 case 176:
-#line 1122 "patParserParam.yy"
+#line 1126 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevPythonFileWithEstimatedParam(yyvsp[0].itype) ;
 ;
     break;}
 case 177:
-#line 1127 "patParserParam.yy"
+#line 1131 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevFileForDenis(*yyvsp[0].stype) ;
@@ -3593,28 +3597,28 @@ case 177:
 ;
     break;}
 case 178:
-#line 1133 "patParserParam.yy"
+#line 1137 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevAutomaticScalingOfLinearUtility(yyvsp[0].itype) ;
 ;
     break;}
 case 179:
-#line 1138 "patParserParam.yy"
+#line 1142 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevInverseIteration(yyvsp[0].itype) ;
 ;
     break;}
 case 180:
-#line 1143 "patParserParam.yy"
+#line 1147 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSeed(yyvsp[0].itype) ;
 ;
     break;}
 case 181:
-#line 1148 "patParserParam.yy"
+#line 1152 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevOne(*yyvsp[0].stype) ;
@@ -3622,14 +3626,14 @@ case 181:
 ;
     break;}
 case 182:
-#line 1154 "patParserParam.yy"
+#line 1158 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevMinimumMu(yyvsp[0].ftype) ;
 ;
     break;}
 case 183:
-#line 1159 "patParserParam.yy"
+#line 1163 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSummaryParameters(*yyvsp[0].stype) ;
@@ -3637,7 +3641,7 @@ case 183:
 ;
     break;}
 case 184:
-#line 1165 "patParserParam.yy"
+#line 1169 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSummaryFile(*yyvsp[0].stype) ;
@@ -3645,7 +3649,7 @@ case 184:
 ;
     break;}
 case 185:
-#line 1171 "patParserParam.yy"
+#line 1175 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevStopFileName(*yyvsp[0].stype) ;
@@ -3653,126 +3657,126 @@ case 185:
 ;
     break;}
 case 186:
-#line 1177 "patParserParam.yy"
+#line 1181 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevCheckDerivatives(yyvsp[0].itype) ;
 ;
     break;}
 case 187:
-#line 1182 "patParserParam.yy"
+#line 1186 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevBufferSize(yyvsp[0].itype) ;
 ;
     break;}
 case 188:
-#line 1187 "patParserParam.yy"
+#line 1191 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDataFileDisplayStep(yyvsp[0].itype) ;
 ;
     break;}
 case 189:
-#line 1192 "patParserParam.yy"
+#line 1196 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevTtestThreshold(yyvsp[0].ftype) ;
 ;
     break;}
 case 190:
-#line 1197 "patParserParam.yy"
+#line 1201 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGlobal(yyvsp[0].itype) ;
 ;
     break;}
 case 191:
-#line 1202 "patParserParam.yy"
+#line 1206 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevAnalGrad(yyvsp[0].itype) ;
 ;
     break;}
 case 192:
-#line 1207 "patParserParam.yy"
+#line 1211 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevAnalHess(yyvsp[0].itype) ;
 ;
     break;}
 case 193:
-#line 1212 "patParserParam.yy"
+#line 1216 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevCheapF(yyvsp[0].itype) ;
 ;
     break;}
 case 194:
-#line 1217 "patParserParam.yy"
+#line 1221 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevFactSec(yyvsp[0].itype) ;
 ;
     break;}
 case 195:
-#line 1222 "patParserParam.yy"
+#line 1226 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevTermCode(yyvsp[0].itype) ;
 ;
     break;}
 case 196:
-#line 1227 "patParserParam.yy"
+#line 1231 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevTypx(yyvsp[0].itype) ;
 ;
     break;}
 case 197:
-#line 1232 "patParserParam.yy"
+#line 1236 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevTypF(yyvsp[0].ftype) ;
 ;
     break;}
 case 198:
-#line 1237 "patParserParam.yy"
+#line 1241 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevFDigits(yyvsp[0].itype) ;
 ;
     break;}
 case 199:
-#line 1242 "patParserParam.yy"
+#line 1246 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGradTol(yyvsp[0].ftype) ;
 ;
     break;}
 case 200:
-#line 1247 "patParserParam.yy"
+#line 1251 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevMaxStep(yyvsp[0].ftype) ;
 ;
     break;}
 case 201:
-#line 1252 "patParserParam.yy"
+#line 1256 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevItnLimit(yyvsp[0].itype) ;
 ;
     break;}
 case 202:
-#line 1257 "patParserParam.yy"
+#line 1261 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevDelta(yyvsp[0].ftype) ;
 ;
     break;}
 case 203:
-#line 1262 "patParserParam.yy"
+#line 1266 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevAlgo(*yyvsp[0].stype) ;
@@ -3780,349 +3784,349 @@ case 203:
 ;
     break;}
 case 204:
-#line 1268 "patParserParam.yy"
+#line 1272 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevScreenPrintLevel(yyvsp[0].itype) ;
 ;
     break;}
 case 205:
-#line 1273 "patParserParam.yy"
+#line 1277 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevLogFilePrintLevel(yyvsp[0].itype) ;
 ;
     break;}
 case 206:
-#line 1278 "patParserParam.yy"
+#line 1282 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGeneratedGroups(yyvsp[0].itype) ;
 ;
     break;}
 case 207:
-#line 1283 "patParserParam.yy"
+#line 1287 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGeneratedData(yyvsp[0].itype) ;
 ;
     break;}
 case 208:
-#line 1288 "patParserParam.yy"
+#line 1292 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGeneratedAttr(yyvsp[0].itype) ;
 ;
     break;}
 case 209:
-#line 1293 "patParserParam.yy"
+#line 1297 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevGeneratedAlt(yyvsp[0].itype) ;
 ;
     break;}
 case 210:
-#line 1298 "patParserParam.yy"
+#line 1302 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSubSampleLevel(yyvsp[0].itype) ;
 ;
     break;}
 case 211:
-#line 1303 "patParserParam.yy"
+#line 1307 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevSubSampleBasis(yyvsp[0].itype) ;
 ;
     break;}
 case 212:
-#line 1308 "patParserParam.yy"
+#line 1312 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevComputeLastHessian(yyvsp[0].itype) ;
 ;
     break;}
 case 213:
-#line 1313 "patParserParam.yy"
+#line 1317 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevEigenvalueThreshold(yyvsp[0].ftype) ;
 ;
     break;}
 case 214:
-#line 1318 "patParserParam.yy"
+#line 1322 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotRes(yyvsp[0].itype) ;
 ;
     break;}
 case 215:
-#line 1323 "patParserParam.yy"
+#line 1327 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotMaxY(yyvsp[0].ftype) ;
 ;
     break;}
 case 216:
-#line 1328 "patParserParam.yy"
+#line 1332 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotXSizeCm(yyvsp[0].itype) ;
 ;
     break;}
 case 217:
-#line 1333 "patParserParam.yy"
+#line 1337 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotYSizeCm(yyvsp[0].itype) ;
 ;
     break;}
 case 218:
-#line 1338 "patParserParam.yy"
+#line 1342 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotMinXSizeCm(yyvsp[0].ftype) ;
 ;
     break;}
 case 219:
-#line 1343 "patParserParam.yy"
+#line 1347 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setgevNonParamPlotMinYSizeCm(yyvsp[0].ftype) ;
 ;
     break;}
 case 220:
-#line 1348 "patParserParam.yy"
+#line 1352 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setsvdMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 224:
-#line 1357 "patParserParam.yy"
+#line 1361 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->sethieMultinomial(yyvsp[0].itype) ;
 ;
     break;}
 case 225:
-#line 1362 "patParserParam.yy"
+#line 1366 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->sethieTruncStructUtil(yyvsp[0].itype) ;
 ;
     break;}
 case 226:
-#line 1367 "patParserParam.yy"
+#line 1371 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->sethieUpdateHessien(yyvsp[0].itype) ;
 ;
     break;}
 case 227:
-#line 1372 "patParserParam.yy"
+#line 1376 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->sethieDateInLog(yyvsp[0].itype) ;
 ;
     break;}
 case 231:
-#line 1381 "patParserParam.yy"
+#line 1385 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setbolducMaxAlts(yyvsp[0].itype) ;
 ;
     break;}
 case 232:
-#line 1386 "patParserParam.yy"
+#line 1390 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setbolducMaxFact(yyvsp[0].itype) ;
 ;
     break;}
 case 233:
-#line 1391 "patParserParam.yy"
+#line 1395 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setbolducMaxNVar(yyvsp[0].itype) ;
 ;
     break;}
 case 237:
-#line 1400 "patParserParam.yy"
+#line 1404 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setStepSecondIndividual(yyvsp[0].ftype) ;
 ;
     break;}
 case 238:
-#line 1405 "patParserParam.yy"
+#line 1409 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setNLgWeight(yyvsp[0].ftype) ;
 ;
     break;}
 case 239:
-#line 1410 "patParserParam.yy"
+#line 1414 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setNLhWeight(yyvsp[0].ftype) ;
 ;
     break;}
 case 243:
-#line 1419 "patParserParam.yy"
+#line 1423 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setTSFractionGradientRequired(yyvsp[0].ftype) ;
 ;
     break;}
 case 244:
-#line 1424 "patParserParam.yy"
+#line 1428 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setTSExpTheta(yyvsp[0].ftype) ;
 ;
     break;}
 case 248:
-#line 1433 "patParserParam.yy"
+#line 1437 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpMode(yyvsp[0].itype) ;
 ;
     break;}
 case 249:
-#line 1438 "patParserParam.yy"
+#line 1442 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpIprint(yyvsp[0].itype) ;
 ;
     break;}
 case 250:
-#line 1443 "patParserParam.yy"
+#line 1447 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 251:
-#line 1448 "patParserParam.yy"
+#line 1452 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpEps(yyvsp[0].ftype) ;
 ;
     break;}
 case 252:
-#line 1453 "patParserParam.yy"
+#line 1457 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpEpsEqn(yyvsp[0].ftype) ;
 ;
     break;}
 case 253:
-#line 1458 "patParserParam.yy"
+#line 1462 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setcfsqpUdelta(yyvsp[0].ftype) ;
 ;
     break;}
 case 257:
-#line 1467 "patParserParam.yy"
+#line 1471 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdfoAddToLWRK(yyvsp[0].itype) ;
 ;
     break;}
 case 258:
-#line 1472 "patParserParam.yy"
+#line 1476 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdfoAddToLIWRK(yyvsp[0].itype) ;
 ;
     break;}
 case 259:
-#line 1477 "patParserParam.yy"
+#line 1481 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdfoMaxFunEval(yyvsp[0].itype) ;
 ;
     break;}
 case 263:
-#line 1486 "patParserParam.yy"
+#line 1490 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdonlp2Epsx(yyvsp[0].ftype) ;
 ;
     break;}
 case 264:
-#line 1491 "patParserParam.yy"
+#line 1495 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdonlp2Delmin(yyvsp[0].ftype) ;
 ;
     break;}
 case 265:
-#line 1496 "patParserParam.yy"
+#line 1500 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdonlp2Smallw(yyvsp[0].ftype) ;
 ;
     break;}
 case 266:
-#line 1501 "patParserParam.yy"
+#line 1505 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdonlp2Epsdif(yyvsp[0].ftype) ;
 ;
     break;}
 case 267:
-#line 1506 "patParserParam.yy"
+#line 1510 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setdonlp2NReset(yyvsp[0].itype) ;
 ;
     break;}
 case 271:
-#line 1515 "patParserParam.yy"
+#line 1519 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setsolvoptMaxIter(yyvsp[0].itype) ;
 ;
     break;}
 case 272:
-#line 1520 "patParserParam.yy"
+#line 1524 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setsolvoptDisplay(yyvsp[0].itype) ;
 ;
     break;}
 case 273:
-#line 1525 "patParserParam.yy"
+#line 1529 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setsolvoptErrorArgument(yyvsp[0].ftype) ;
 ;
     break;}
 case 274:
-#line 1530 "patParserParam.yy"
+#line 1534 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   assert (pParameters != NULL) ;
   pParameters->setsolvoptErrorFunction(yyvsp[0].ftype) ;
 ;
     break;}
 case 275:
-#line 1536 "patParserParam.yy"
+#line 1540 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   string* str = new string((scanner.removeDelimeters()));
   yyval.stype = str ;
 ;
     break;}
 case 276:
-#line 1541 "patParserParam.yy"
+#line 1545 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   yyval.ftype = atof( scanner.value().c_str() );
 ;
     break;}
 case 277:
-#line 1546 "patParserParam.yy"
+#line 1550 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 {
   yyval.itype = atoi( scanner.value().c_str() );
 ;
@@ -4331,8 +4335,8 @@ YYLABEL(yyerrhandle)
 /* END */
 
 /* #line 1010 "/usr/local/lib/bison.cc" */
-#line 4335 "patParserParam.yy.tab.c"
-#line 1554 "patParserParam.yy"
+#line 4339 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.c"
+#line 1558 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 
 
 

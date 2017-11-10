@@ -1,0 +1,113 @@
+\hypertarget{namespacestatistics}{\section{statistics Namespace Reference}
+\label{namespacestatistics}\index{statistics@{statistics}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacestatistics_a36e39c9efbe7010620ff303c2b3626e7}{null\+Loglikelihood}
+\begin{DoxyCompactList}\small\item\em Computes the null loglikelihood from the sample and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{namespacestatistics_a4167098c8b95a0f5dbae6ae3fc72643b}{choice\+Statistics}
+\begin{DoxyCompactList}\small\item\em Computes the number of times each alternative is chosen in the data set and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{namespacestatistics_a6e63004ff1ea899ebf75c21f42470cdb}{availability\+Statistics}
+\begin{DoxyCompactList}\small\item\em Computes the number of times each alternative is declared available in the data set and ask Biogeme to include it in the output file. \end{DoxyCompactList}\item 
+def \hyperlink{namespacestatistics_abc7878bf7b77881ed5aee5a28e1cc43e}{cte\+Loglikelihood}
+\begin{DoxyCompactList}\small\item\em Computes the constant loglikelihood from the sample and ask Biogeme to include it in the output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacestatistics_a6e63004ff1ea899ebf75c21f42470cdb}{\index{statistics@{statistics}!availability\+Statistics@{availability\+Statistics}}
+\index{availability\+Statistics@{availability\+Statistics}!statistics@{statistics}}
+\subsubsection[{availability\+Statistics}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+availability\+Statistics (
+\begin{DoxyParamCaption}
+\item[{}]{availability, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}}\label{namespacestatistics_a6e63004ff1ea899ebf75c21f42470cdb}
+
+
+Computes the number of times each alternative is declared available in the data set and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt Dictionary} containing for each alternative the expression for its availability. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} n with an entry n\mbox{[}i\mbox{]} for each alternative i containing the number of times it is available. 
+\end{DoxyReturn}
+\hypertarget{namespacestatistics_a4167098c8b95a0f5dbae6ae3fc72643b}{\index{statistics@{statistics}!choice\+Statistics@{choice\+Statistics}}
+\index{choice\+Statistics@{choice\+Statistics}!statistics@{statistics}}
+\subsubsection[{choice\+Statistics}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+choice\+Statistics (
+\begin{DoxyParamCaption}
+\item[{}]{choice\+Set, }
+\item[{}]{choice, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}}\label{namespacestatistics_a4167098c8b95a0f5dbae6ae3fc72643b}
+
+
+Computes the number of times each alternative is chosen in the data set and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice\+Set} & list containing the alternatives for which statistics must be computed. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} n with an entry n\mbox{[}i\mbox{]} for each alternative i containing the number of times it is chosen. 
+\end{DoxyReturn}
+\hypertarget{namespacestatistics_abc7878bf7b77881ed5aee5a28e1cc43e}{\index{statistics@{statistics}!cte\+Loglikelihood@{cte\+Loglikelihood}}
+\index{cte\+Loglikelihood@{cte\+Loglikelihood}!statistics@{statistics}}
+\subsubsection[{cte\+Loglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+cte\+Loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{choice\+Set, }
+\item[{}]{choice, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}}\label{namespacestatistics_abc7878bf7b77881ed5aee5a28e1cc43e}
+
+
+Computes the constant loglikelihood from the sample and ask Biogeme to include it in the output file. 
+
+It assumes that the full choice set is available for each observation. 
+\begin{DoxyParams}{Parameters}
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative I\+D with its availability condition. \\
+\hline
+{\em choice\+Set} & list containing the alternatives in the choice set. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+loglikelihood of a logit model where the only parameters are the alternative specific constant. If $n_i$ is the number of time alternative $i$ is chosen, then it is given by \[ \mathcal{L} = \sum_i n_i \ln(n_i) - n \ln(n) \] where $ n = \sum_i n_i $ is the total number of observation. 
+\end{DoxyReturn}
+\hypertarget{namespacestatistics_a36e39c9efbe7010620ff303c2b3626e7}{\index{statistics@{statistics}!null\+Loglikelihood@{null\+Loglikelihood}}
+\index{null\+Loglikelihood@{null\+Loglikelihood}!statistics@{statistics}}
+\subsubsection[{null\+Loglikelihood}]{\setlength{\rightskip}{0pt plus 5cm}def statistics.\+null\+Loglikelihood (
+\begin{DoxyParamCaption}
+\item[{}]{availability, }
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}}\label{namespacestatistics_a36e39c9efbe7010620ff303c2b3626e7}
+
+
+Computes the null loglikelihood from the sample and ask Biogeme to include it in the output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative I\+D with its availability condition. \\
+\hline
+{\em iterator} & An iterator on the data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+loglikelihood of a model where the choice probability for observation $n$ is given by is $1/J_n$, where $J_n$ is the number of available alternatives, i.\+e. \[ \mathcal{L} = -\sum_n \ln(J_n) \] 
+\end{DoxyReturn}

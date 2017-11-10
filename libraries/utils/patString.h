@@ -9,7 +9,7 @@
 #ifndef patString_h
 #define patString_h
 
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <vector>
 

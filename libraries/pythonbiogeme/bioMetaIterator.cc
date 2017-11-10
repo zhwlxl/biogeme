@@ -6,6 +6,9 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include "patDisplay.h"
 #include "bioMetaIterator.h"

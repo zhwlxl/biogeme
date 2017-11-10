@@ -9,10 +9,15 @@
 // Source: Conn, Gould Toint (2000) Trust Region Methods
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <numeric>
 #include <cmath>
 #include "patDisplay.h"
 #include "patMath.h"
+#include "patPower.h"
 #include "patErrNullPointer.h"
 #include "trPrecondCG.h"
 #include "trVector.h"
@@ -106,7 +111,7 @@ trPrecondCG::trTermStatus trPrecondCG::run(patError*& err) {
 
   patULong unfeasibleIter = 0 ;
 
-  while (gkNorm > normG * patMin(theParameters.fractionGradientRequired,pow(normG,theParameters.expTheta))
+  while (gkNorm > normG * patMin(theParameters.fractionGradientRequired,patPower(normG,theParameters.expTheta))
 	 && iter <= maxIter) {
     
     ++iter;

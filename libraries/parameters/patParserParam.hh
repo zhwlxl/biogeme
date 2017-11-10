@@ -17,14 +17,18 @@
 #include <stdio.h>
 
 /* #line 14 "/usr/local/lib/bison.h" */
-#line 21 "patParserParam.yy.tab.h"
+#line 21 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 #define YY_patBisonParam_ERROR_BODY  = 0
 #define YY_patBisonParam_LEX_BODY  = 0
 #define YY_patBisonParam_MEMBERS  patScannerParam scanner; patParameters *pParameters; virtual ~patBisonParam() {};
 #define YY_patBisonParam_CONSTRUCTOR_PARAM  const string& fname_
 #define YY_patBisonParam_CONSTRUCTOR_INIT  : scanner(fname_) , pParameters(NULL)
-#line 19 "patParserParam.yy"
+#line 19 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
   
 #include <fstream>
 #include <sstream>
@@ -110,7 +114,7 @@ public:
 
 
 
-#line 108 "patParserParam.yy"
+#line 112 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 typedef union {
   long        itype;
   float       ftype;
@@ -170,21 +174,21 @@ typedef union {
 #ifndef YY_patBisonParam_PURE
 
 /* #line 63 "/usr/local/lib/bison.h" */
-#line 174 "patParserParam.yy.tab.h"
+#line 178 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 
 #line 63 "/usr/local/lib/bison.h"
 /* YY_patBisonParam_PURE */
 #endif
 
 /* #line 65 "/usr/local/lib/bison.h" */
-#line 181 "patParserParam.yy.tab.h"
+#line 185 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 
 #line 65 "/usr/local/lib/bison.h"
 /* prefix */
 #ifndef YY_patBisonParam_DEBUG
 
 /* #line 67 "/usr/local/lib/bison.h" */
-#line 188 "patParserParam.yy.tab.h"
+#line 192 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 
 #line 67 "/usr/local/lib/bison.h"
 /* YY_patBisonParam_DEBUG */
@@ -192,7 +196,7 @@ typedef union {
 #ifndef YY_patBisonParam_LSP_NEEDED
 
 /* #line 70 "/usr/local/lib/bison.h" */
-#line 196 "patParserParam.yy.tab.h"
+#line 200 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 
 #line 70 "/usr/local/lib/bison.h"
  /* YY_patBisonParam_LSP_NEEDED*/
@@ -270,7 +274,7 @@ extern YY_patBisonParam_STYPE YY_patBisonParam_LVAL;
 
 
 /* #line 143 "/usr/local/lib/bison.h" */
-#line 274 "patParserParam.yy.tab.h"
+#line 278 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 #define	pat_BasicTrustRegionSection	258
 #define	pat_BTRMaxGcpIter	259
 #define	pat_BTRArmijoBeta1	260
@@ -550,7 +554,7 @@ public:
 /* static const int token ... */
 
 /* #line 182 "/usr/local/lib/bison.h" */
-#line 554 "patParserParam.yy.tab.h"
+#line 558 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 static const int pat_BasicTrustRegionSection;
 static const int pat_BTRMaxGcpIter;
 static const int pat_BTRArmijoBeta1;
@@ -794,7 +798,7 @@ static const int patPAIR;
 enum YY_patBisonParam_ENUM_TOKEN { YY_patBisonParam_NULL_TOKEN=0
 
 /* #line 185 "/usr/local/lib/bison.h" */
-#line 798 "patParserParam.yy.tab.h"
+#line 802 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 	,pat_BasicTrustRegionSection=258
 	,pat_BTRMaxGcpIter=259
 	,pat_BTRArmijoBeta1=260
@@ -1086,9 +1090,9 @@ public:
 /* END */
 
 /* #line 236 "/usr/local/lib/bison.h" */
-#line 1090 "patParserParam.yy.tab.h"
+#line 1094 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy.tab.h"
 
-#line 1556 "patParserParam.yy"
+#line 1560 "/Users/michelbierlaire/gitbiogeme/biogeme/dev/source/libraries/parameters/patParserParam.yy"
 
 //--------------------------------------------------------------------
 // Following pieces of code will be verbosely copied into the parser.

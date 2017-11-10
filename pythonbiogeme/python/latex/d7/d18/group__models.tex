@@ -1,0 +1,181 @@
+\hypertarget{group__models}{\section{Specific choice models}
+\label{group__models}\index{Specific choice models@{Specific choice models}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{group__models_gaa1fe1d39643113961336001852bd9847}{logit.\+logit\+\_\+av\+\_\+scale}
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability with utilities scaled according to the group. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gaa78a7685299279e172947a45f3b31a8f}{logit.\+logit}
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability, where all alternatives are available. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gaa9c3a2702105789a7f4e7c56128072df}{logit.\+logit\+\_\+scale}
+\begin{DoxyCompactList}\small\item\em Compute the logit choice probability with utilities scaled according to the group. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_ga9f62049fa1c5836071328e800dbc30dd}{mev.\+mev}
+\begin{DoxyCompactList}\small\item\em Choice probability for a M\+E\+V model. \end{DoxyCompactList}\item 
+def \hyperlink{group__models_gaa009fc631ba3993ae2092ef250dbb68f}{mev.\+mev\+\_\+selection\+Bias}
+\begin{DoxyCompactList}\small\item\em Choice probability for a M\+E\+V model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__models_gaa78a7685299279e172947a45f3b31a8f}{\index{Specific choice models@{Specific choice models}!logit@{logit}}
+\index{logit@{logit}!Specific choice models@{Specific choice models}}
+\subsubsection[{logit}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}}\label{group__models_gaa78a7685299279e172947a45f3b31a8f}
+
+
+Compute the logit choice probability, where all alternatives are available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{V_i}}{\sum_j e^{V_j}}\] 
+\end{DoxyReturn}
+\hypertarget{group__models_gaa1fe1d39643113961336001852bd9847}{\index{Specific choice models@{Specific choice models}!logit\+\_\+av\+\_\+scale@{logit\+\_\+av\+\_\+scale}}
+\index{logit\+\_\+av\+\_\+scale@{logit\+\_\+av\+\_\+scale}!Specific choice models@{Specific choice models}}
+\subsubsection[{logit\+\_\+av\+\_\+scale}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit\+\_\+av\+\_\+scale (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{availability, }
+\item[{}]{choice, }
+\item[{}]{group, }
+\item[{}]{scale}
+\end{DoxyParamCaption}
+)}}\label{group__models_gaa1fe1d39643113961336001852bd9847}
+
+
+Compute the logit choice probability with utilities scaled according to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em availability} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em group} & id of the group, or market segment. \\
+\hline
+{\em scale} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each group id with the expression providing the corresponding scale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{\mu_g V_i}}{\sum_j a_j e^{\mu_g V_j}}\] where $a_j$ is 1 if alternative $j$ is available, 0 otherwise, and $\mu_g$ is the scale parameter associated with group $g$. 
+\end{DoxyReturn}
+\hypertarget{group__models_gaa9c3a2702105789a7f4e7c56128072df}{\index{Specific choice models@{Specific choice models}!logit\+\_\+scale@{logit\+\_\+scale}}
+\index{logit\+\_\+scale@{logit\+\_\+scale}!Specific choice models@{Specific choice models}}
+\subsubsection[{logit\+\_\+scale}]{\setlength{\rightskip}{0pt plus 5cm}def logit.\+logit\+\_\+scale (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{choice, }
+\item[{}]{group, }
+\item[{}]{scale}
+\end{DoxyParamCaption}
+)}}\label{group__models_gaa9c3a2702105789a7f4e7c56128072df}
+
+
+Compute the logit choice probability with utilities scaled according to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em choice} & expression producing the id of the chosen alternative. \\
+\hline
+{\em group} & id of the group, or market segment. \\
+\hline
+{\em scale} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each group id with the expression providing the corresponding scale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability for chosen alternative $i$ and individual in group $g$\+: \[ \frac{e^{\mu_g V_i}}{\sum_j e^{\mu_g V_j}}\] where $\mu_g$ is the scale parameter associated with group $g$. 
+\end{DoxyReturn}
+\hypertarget{group__models_ga9f62049fa1c5836071328e800dbc30dd}{\index{Specific choice models@{Specific choice models}!mev@{mev}}
+\index{mev@{mev}!Specific choice models@{Specific choice models}}
+\subsubsection[{mev}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+mev (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}}\label{group__models_ga9f62049fa1c5836071328e800dbc30dd}
+
+
+Choice probability for a M\+E\+V model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+E\+V generating function. If an alternative $i$ is not available, then $G_i = 0$. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability of the M\+E\+V model, given by \[ \frac{e^{V_i + \ln G_i(e^{V_1},\ldots,e^{V_J})}}{\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}} \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_ga9f62049fa1c5836071328e800dbc30dd}{mev}(V,Gi,av,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4        H[i] =  Elem(\{0:0, 1: v + log(Gi[i])\},Gi[i]!=0)  
+5     P = bioLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ \hypertarget{group__models_gaa009fc631ba3993ae2092ef250dbb68f}{\index{Specific choice models@{Specific choice models}!mev\+\_\+selection\+Bias@{mev\+\_\+selection\+Bias}}
+\index{mev\+\_\+selection\+Bias@{mev\+\_\+selection\+Bias}!Specific choice models@{Specific choice models}}
+\subsubsection[{mev\+\_\+selection\+Bias}]{\setlength{\rightskip}{0pt plus 5cm}def mev.\+mev\+\_\+selection\+Bias (
+\begin{DoxyParamCaption}
+\item[{}]{V, }
+\item[{}]{Gi, }
+\item[{}]{av, }
+\item[{}]{correction, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}}\label{group__models_gaa009fc631ba3993ae2092ef250dbb68f}
+
+
+Choice probability for a M\+E\+V model, including the correction for endogenous sampling as proposed by \href{http://dx.doi.org/10.1016/j.trb.2007.09.003}{\tt Bierlaire, Bolduc and Mc\+Fadden (2008)}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the utility function. \\
+\hline
+{\em Gi} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the function \[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \] where $G$ is the M\+E\+V generating function. \\
+\hline
+{\em av} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with its availability condition. \\
+\hline
+{\em correction} & A \href{http://docs.python.org/py3k/tutorial/datastructures.html#dictionaries}{\tt dictionary} mapping each alternative id with the expression of the correction. Typically, it is a value, or a parameter to be estimated. \\
+\hline
+{\em choice} & Expression producing the id of the chosen alternative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Choice probability of the M\+E\+V model, given by \[ \frac{e^{V_i + \ln G_i(e^{V_1},\ldots,e^{V_J})}}{\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}} \]
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 \textcolor{keyword}{def }\hyperlink{group__models_gaa009fc631ba3993ae2092ef250dbb68f}{mev\_selectionBias}(V,Gi,av,correction,choice) :
+2     H = \{\}
+3     \textcolor{keywordflow}{for} i,v \textcolor{keywordflow}{in} V.items() :
+4         H[i] = v + log(Gi[i]) + correction[i]
+5     P = bioLogit(H,av,choice)
+6     \textcolor{keywordflow}{return} P
+\end{DoxyCode}
+ 

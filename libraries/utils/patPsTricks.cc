@@ -7,8 +7,10 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
+#include "patPower.h"
 #include "patPsTricks.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"
@@ -156,8 +158,8 @@ patString patPsTricks::getCode(patReal maxY,
 				 3,
 				 ymax) <<")" << endl ;
 
-  patReal dx = pow(10,round(log10(xmax-xmin)-0.5)) ;
-  patReal dy = pow(10,round(log10(ymax-ymin)-0.5)) ;
+  patReal dx = patPower(10,round(log10(xmax-xmin)-0.5)) ;
+  patReal dy = patPower(10,round(log10(ymax-ymin)-0.5)) ;
 
   str << "\\psaxes[Dx=" << theNumber.format(patFALSE,
 					      patTRUE,

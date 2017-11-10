@@ -7,11 +7,11 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include <fstream>
 #include <numeric>
-#include <assert.h>
 #include <sstream>
 
 

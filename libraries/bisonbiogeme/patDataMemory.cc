@@ -9,8 +9,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patDisplay.h"
 #include "patModelSpec.h"
 #include "patDataMemory.h"

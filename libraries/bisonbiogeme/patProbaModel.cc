@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patProbaModel.h"
 #include "patErrNullPointer.h"
 #include "patModelSpec.h"
@@ -219,7 +220,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
   
   patReal weight = observation->weight ;
 
-  unsigned long R = (patModelSpec::the()->isMixedLogit()) 
+  unsigned long Rdraws = (patModelSpec::the()->isMixedLogit()) 
     ? patModelSpec::the()->getAlgoNumberOfDraws() 
     : 1 ;
   
@@ -270,7 +271,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
 
   patReal sumOfProba(0.0) ;
 
-  for (unsigned long drawNumber = 1 ; drawNumber <= R ; ++drawNumber) {
+  for (unsigned long drawNumber = 1 ; drawNumber <= Rdraws ; ++drawNumber) {
     patValueVariables::the()->setRandomDraws(&(observation->draws[drawNumber-1])) ;
 
     //    DEBUG_MESSAGE("Ind " << observation->id << " draw " << drawNumber) ;
@@ -286,7 +287,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
       snpCorrection = qForSnp * qForSnp / normalizeSnpTerms ;
     }
 
-    proba = evalProbaPerDraw((R == 1),
+    proba = evalProbaPerDraw((Rdraws == 1),
 			     observation,
 			     drawNumber,
 			     beta,
@@ -334,7 +335,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
   
   if (!noDerivative) {
     if (betaDerivatives != NULL) {
-      if ( R > 1) {
+      if ( Rdraws > 1) {
 	if (patModelSpec::the()->applySnpTransform()) {
 	  for (unsigned short term = 0 ;
 	       term < idOfSnpBetaParameters.size() ;
@@ -349,7 +350,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
       }
     }
     if (paramDerivatives != NULL) {
-      if (R > 1) {
+      if (Rdraws > 1) {
 	(*paramDerivatives) += (weight / sumOfProba) * (*paramDrawDerivatives)  ;
       }
       else {
@@ -357,7 +358,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
       }
     }
     if (compMuDerivative) {
-      if (R > 1) {
+      if (Rdraws > 1) {
 	(*muDerivative) += weight * (*muDrawDerivative) / sumOfProba ;
       }
       else {
@@ -365,7 +366,7 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
       }
     }
     if (compScaleDerivative) {
-      if (R > 1) {
+      if (Rdraws > 1) {
 	(*scaleDerivative) += weight * (*scaleDrawDerivative) / sumOfProba ;
       }
       else {
@@ -376,8 +377,8 @@ patReal patProbaModel::evalProbaLog(patObservationData* observation,
   }
 
 
-  if (R > 1) {
-    return (weight * log(sumOfProba / patReal(R))) ;
+  if (Rdraws > 1) {
+    return (weight * log(sumOfProba / patReal(Rdraws))) ;
   }
   else {
     return (weight * sumOfProba) ;
@@ -411,7 +412,7 @@ void patProbaModel::generateCppCode(ostream& cppFile,
   
     cppFile << "    patReal weight = observation->weight ;" << endl ;
     
-    unsigned long R = (patModelSpec::the()->isMixedLogit()) 
+    unsigned long Rdraws = (patModelSpec::the()->isMixedLogit()) 
       ? patModelSpec::the()->getAlgoNumberOfDraws() 
       : 1 ;
     
@@ -421,7 +422,7 @@ void patProbaModel::generateCppCode(ostream& cppFile,
       return ;
     }
     
-    if (R > 1) {
+    if (Rdraws > 1) {
       cppFile << "    patReal probaPerDraw(0.0) ;" << endl ;
       cppFile << "    patReal sumOfProba(0.0) ;" << endl ;
     }
@@ -430,7 +431,7 @@ void patProbaModel::generateCppCode(ostream& cppFile,
     }
 
     if (derivatives) {
-      if (R > 1) {
+      if (Rdraws > 1) {
 	cppFile << "    trVector gradientPerDraw(" << K << ",0.0) ;" << endl ;
 	cppFile << "    trVector sumOfGradient(" << K << ",0.0) ;" << endl ;
       }
@@ -439,12 +440,12 @@ void patProbaModel::generateCppCode(ostream& cppFile,
       }
     }
 
-    if (R > 1) {
-      cppFile << "for (unsigned long drawNumber = 1 ; drawNumber <= " << R << " ; ++drawNumber) {" << endl ;
+    if (Rdraws > 1) {
+      cppFile << "for (unsigned long drawNumber = 1 ; drawNumber <= " << Rdraws << " ; ++drawNumber) {" << endl ;
     }
 
     generateCppCodePerDraw(cppFile,
-                           (R == 1),
+                           (Rdraws == 1),
  			   derivatives,
  			   secondDerivatives,
  			   err)  ;
@@ -455,7 +456,7 @@ void patProbaModel::generateCppCode(ostream& cppFile,
       return  ;
     }
 
-    if (R > 1) {
+    if (Rdraws > 1) {
       cppFile << "    sumOfProba += probaPerDraw ;" << endl ;
       if (derivatives) {
 	cppFile << "    sumOfGradient += gradientPerDraw ;" << endl ;
@@ -464,12 +465,12 @@ void patProbaModel::generateCppCode(ostream& cppFile,
     }
 
     // Close the loop on draws
-    if (R > 1) {
-      cppFile << "    } // for (unsigned long drawNumber = 1 ; drawNumber <= " << R << " ; ++drawNumber) " << endl ;
+    if (Rdraws > 1) {
+      cppFile << "    } // for (unsigned long drawNumber = 1 ; drawNumber <= " << Rdraws << " ; ++drawNumber) " << endl ;
     }
 
-    if (R > 1) {
-      cppFile << "    logProbaOneObs =  weight * (log(sumOfProba) - log(patReal(" << R << "))) ;" << endl ;
+    if (Rdraws > 1) {
+      cppFile << "    logProbaOneObs =  weight * (log(sumOfProba) - log(patReal(" << Rdraws << "))) ;" << endl ;
       if (derivatives) {
 	cppFile << "gradientLogOneObs = (weight / sumOfProba) * sumOfGradient ;" ;
       }

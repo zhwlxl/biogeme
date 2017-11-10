@@ -10,7 +10,7 @@
 #define bioModelParser_i_h
 
 #include <Python.h> // Before all other includes
-#include <limits.h>
+#include <climits>
 
 #include <map>
 #include "patString.h"
@@ -45,6 +45,7 @@ Name of classes, functions or variables in 'biogeme.py'
 *******************************************************/
 #define BIOGEME_OBJECT  "BIOGEME_OBJECT"
 #define ESTIMATE        "ESTIMATE"
+#define OLDBETAS        "OLDBETAS"
 #define DRAWS           "DRAWS"
 #define UNIFDRAWS       "UNIFDRAWS"
 #define BAYESIAN        "BAYESIAN"

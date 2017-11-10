@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patCnlAlphaIterator.h"
 
 patCnlAlphaIterator::patCnlAlphaIterator(map<patString,patCnlAlphaParameter>* x) : theMap(x) {

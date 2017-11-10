@@ -6,7 +6,12 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <numeric>
+#include "patPower.h"
 #include "patMath.h"
 #include "patErrNullPointer.h"
 #include "trSR1.h"
@@ -103,7 +108,7 @@ void trSR1::update(const trVector& sk,
   }
   
   static patReal eta = 
-    pow(10.0,patReal(-theParameters.significantDigits)) ;
+    patPower(10.0,patReal(-theParameters.significantDigits)) ;
 
   patBoolean skipUpdate = patTRUE ;
   for (unsigned long l = 0 ; l < yk.size() && skipUpdate ; ++l) {

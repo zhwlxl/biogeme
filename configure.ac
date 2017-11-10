@@ -7,7 +7,7 @@
 #
 AC_PREREQ([2.68])
 LT_PREREQ([2.4])
-AC_INIT([biogeme], [2.6a], [https://groups.google.com/d/forum/biogeme],[biogeme],[http://biogeme.epfl.ch])
+AC_INIT([biogeme], [2.7b], [https://groups.google.com/d/forum/biogeme],[biogeme],[http://biogeme.epfl.ch])
 AC_LANG(C++)
 AC_CONFIG_AUX_DIR([.])
 AC_CONFIG_MACRO_DIR([m4])
@@ -19,7 +19,18 @@ AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([no-dependencies -Wno-portability])
 
-AM_CXXFLAGS="$AM_CXXFLAGS -std=c++11"
+# R
+: ${R_HOME=`R RHOME`}
+if test -z "${R_HOME}"; then
+  RINSTALLED=no
+else
+  RINSTALLED=yes
+  RCXX=`"${R_HOME}/bin/R" CMD config CXX`
+  RCXXFLAGS=`"${R_HOME}/bin/R" CMD config CXXFLAGS`
+  RLDFLAGS=`"${R_HOME}/bin/R" CMD config LDFLAGS`
+fi
+
+AM_CXXFLAGS="$AM_CXXFLAGS -std=gnu++11"
 AM_LDFLAGS="$AM_LDFLAGS -no-undefined"
 AC_PROG_CXX([clang++ g++])
 AC_PROG_CC([clang gcc])
@@ -37,6 +48,7 @@ AC_CONFIG_FILES([Makefile
 	libraries/solvopt/Makefile 
 	libraries/randomNumbers/Makefile 
 	libraries/gaussHermite/Makefile 
+	libraries/stochasticGradient/Makefile 
 	libraries/parameters/Makefile 
 	libraries/bisonbiogeme/Makefile 
 	libraries/pythonbiogeme/Makefile 
@@ -48,6 +60,7 @@ AC_CONFIG_FILES([Makefile
 	biomerge/Makefile 
         pythonbiogeme/Makefile        
 	pybiogeme/Makefile
+	r/Makefile 
         gtkgui/Makefile])
 
 
@@ -105,6 +118,10 @@ AC_ARG_ENABLE([gui],
   AS_HELP_STRING([--disable-gui],[Does not build the version with a GUI]),[],[enable_gui=yes]
 )
 
+AC_ARG_ENABLE([r],
+  AS_HELP_STRING([--disable-r],[Does not build the interface with R]),[],[enable_r=yes]
+)
+
 AC_ARG_ENABLE([python],
   AS_HELP_STRING([--disable-python],[Does not build Python Biogeme]),[],[enable_python=yes]
 )
@@ -132,6 +149,17 @@ AC_ARG_WITH([ipopt],
             [],
             [with_ipopt=yes]
 )
+
+# R
+
+AC_ARG_WITH([r],
+       AS_HELP_STRING([--without-r],
+              [disable support for R]),
+            [],
+            [with_r=yes]
+)
+
+
 
 # python31
 AC_ARG_WITH([python_dir],
@@ -167,6 +195,7 @@ AC_ARG_WITH([latexmk_dir],
   [latexmk_path=$withval],
   [latexmk_path=$PATH]
 )
+
 
 #gtkmm
 
@@ -259,6 +288,45 @@ fi
 
 AM_CONDITIONAL([BUILD_IPOPT], [test "x$IPOPTBIO" = "xyes"])
 
+# R
+
+if test "x$RINSTALLED" = "xyes" ; then 
+
+  if test "x$with_r" = "xyes" ; then 
+    AC_CHECK_PROG(HAVE_RSCRIPT,[Rscript],[yes],[no])
+    if test "x$HAVE_RSCRIPT" = "xyes" ; then
+      RBIO="yes"
+      RBIO_SUGGEST=""
+      AC_MSG_CHECKING([whether to build an R interface])
+      AC_MSG_RESULT(yes)
+    else
+      RBIO="no"
+      RBIO_SUGGEST="(Rscript in not in the path. Install R and Rcpp)"
+      AC_MSG_CHECKING([whether to build an R interface])
+      AC_MSG_RESULT(no)
+    fi
+  else
+      RBIO="no"
+      RBIO_SUGGEST="(disabled by the --without-r option)"
+      AC_MSG_CHECKING([whether to build an R interface])
+      AC_MSG_RESULT(no)
+  fi
+  
+  
+  if test "x$RBIO" = "xyes" ; then
+      R_CXXFLAGS="`Rscript -e 'Rcpp:::CxxFlags()'`"
+      AC_DEFINE([Rscript],[],[R interface available])
+      AC_SUBST(R_CXXFLAGS)
+  fi
+else
+  RBIO_SUGGEST="(RHOME cannot be found. Install R)"
+  RBIO="no"
+fi
+
+AM_CONDITIONAL([BUILD_R], [test "x$RBIO" = "xyes"])
+
+
+
 
 # Python
 
@@ -330,7 +398,7 @@ AM_CONDITIONAL([SYSTEM_WITH_PBS],[test "x$PBS" != "xno"])
 # Checks for libraries.
 
 # Checks for header files.
-AC_CHECK_HEADERS([float.h stdlib.h sys/time.h sys/wait.h errno.h math.h malloc.h sys/malloc.h stdio.h pthread.h unistd.h direct.h])
+AC_CHECK_HEADERS([float.h stdlib.h sys/stat.h sys/time.h sys/wait.h errno.h math.h malloc.h sys/malloc.h stdio.h pthread.h unistd.h direct.h])
 
 #Check setenv
 AC_CHECK_FUNC(setenv,AC_DEFINE([HAVE_SETENV],[1],[Define if setenv exists.]),[])
@@ -411,6 +479,7 @@ AC_MSG_RESULT([
  Build biosim.............$BISONBIO $BISONBIO_SUGGEST
  Build python biogeme.....$NEWBIO $NEWBIO_SUGGEST
  Build GTK GUI version....$GTKBIO $GTKBIO_SUGGEST
+ Build R interface........$RBIO $RBIO_SUGGEST
  Use IPOPT optimization...$IPOPTBIO $IPOPTBIO_SUGGEST
  Static executables.......$STATIC
  Long double..............$WITHLONGDOUBLE

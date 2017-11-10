@@ -14,11 +14,18 @@
 This file has been adapted for g++ compiler by Michel Bierlaire, Thu Feb 21 08:30:40 2002
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include "bioAlgorithmManager.h"
+
+#include "patType.h"
 #include "patString.h"
 #include <cstdlib>
 #include <cstdio>
 #include "patMath.h"
-#include "patType.h"
+#include "patPower.h"
 
 #define errmes "\nSolvOpt error:"
 #define wrnmes "\nSolvOpt warning:"
@@ -54,7 +61,8 @@ patReal solvopt(unsigned short n,
                void grad(patReal x[], patReal g[]),
                patReal options[],
                patReal func(patReal x[]),
-               void gradc(patReal x[], patReal gc[]))
+		void gradc(patReal x[], patReal gc[]),
+		bioAlgorithmManager* theStoppingCriteria)
 {
 
 /*solvopt  returns the optimum function value.
@@ -318,8 +326,8 @@ while (1)
    while (1) 
    {  k+=1; kcheck+=1; laststep=dx;
    /* ADJUST GAMMA : */
-      gamma=one+patMax(pow(ajb,(ajp-kcheck)*n),two*options[2]);
-      gamma=patMin(gamma,pow(ajs,patMax(one,log10(nng+one))));
+      gamma=one+patMax(patPower(ajb,(ajp-kcheck)*n),two*options[2]);
+      gamma=patMin(gamma,patPower(ajs,patMax(one,log10(nng+one))));
    
    /* Gradient in the transformed space (gt) : */
       ngt=zero; ng1=zero; dd=zero;
@@ -462,7 +470,7 @@ while (1)
             }
          }   
       /*  USE A SMALLER STEP:   */
-         else if (h1*f<h1*pow(gamma,dd)*f1)
+         else if (h1*f<h1*patPower(gamma,dd)*f1)
          {  if (ksm) break;
             k2+=1; k1=0; hp/=dq; for (i=0;i<n;i++) x[i]=x1[i]; f=f1; 
             if (constr) { FsbPnt=FsbPnt1; fp=fp1; }
@@ -562,7 +570,7 @@ while (1)
       if (knorms>=2)  { for(i=knorms-1;i>0;i--) gnorms[i]=gnorms[i-1]; }
       gnorms[0]=ng;
       nng=one; for(i=0;i<knorms;i++)  nng*=gnorms[i];
-      nng=pow(nng,one/knorms);
+      nng=patPower(nng,one/knorms);
    }
    /* Norm of X: */
    nx=zero; for(i=0;i<n;i++) nx+=x[i]*x[i];  nx=sqrt(nx);
@@ -583,7 +591,22 @@ while (1)
 
    /*-----------------------------------------------------------------
    CHECK THE STOPPING CRITERIA: */
-       
+
+   if (theStoppingCriteria != NULL) {
+    patVariables currentSolution(n) ;
+    patVariables currentGradient(n) ;
+    for (unsigned short i = 0 ; i < n ; ++i) {
+      currentSolution[i] = x[i] ;
+      currentGradient[i] = g[i] ;
+    }
+    theStoppingCriteria->setCurrentIterate(currentSolution) ;
+    theStoppingCriteria->setCurrentGradient(currentGradient) ;
+    theStoppingCriteria->setCurrentFunction(f) ;
+     if (theStoppingCriteria->interruptIterations()) {
+       goto endrun ;
+     }
+   }
+   
     termflag=1;
     if (constr) { if (!FsbPnt) termflag=0; }
     if(kcheck<=5 || (kcheck<=12 && ng>one)) termflag=0;

@@ -7,8 +7,9 @@
 //--------------------------------------------------------------------
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
+
 #include "patProbaOrdinalLogit.h"
 #include "patErrNullPointer.h"
 #include "patModelSpec.h"

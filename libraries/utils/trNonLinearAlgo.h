@@ -18,15 +18,18 @@
 #include "patError.h"
 #include "patVariables.h"
 
+
 class patNonLinearProblem ;
 class patIterationBackup ;
+class bioAlgorithmManager ;
 
 class trNonLinearAlgo {
 
 public:
   /**
    */
-  trNonLinearAlgo(patNonLinearProblem* aProblem = NULL) ;
+  //  trNonLinearAlgo(patNonLinearProblem* aProblem = NULL, bioAlgorithmManager* aStoppingCriteria = NULL) ;
+  trNonLinearAlgo(patNonLinearProblem* aProblem , bioAlgorithmManager* aStoppingCriteria) ;
   /**
    */
   virtual ~trNonLinearAlgo() ;  
@@ -68,6 +71,7 @@ public:
 protected:
   patNonLinearProblem* theProblem ;
   patIterationBackup* theBackup ;
+  bioAlgorithmManager* theStoppingCriteria ;
 
 };
 #endif 

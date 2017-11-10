@@ -53,7 +53,7 @@ const patReal patOne = 1.0;
 
 const patReal patZero = 0.0;
 
-const patReal patSQRT_EPSILON = pow(patEPSILON,0.5) ;
+const patReal patSQRT_EPSILON = pow(patEPSILON,patReal(0.5)) ;
 
 #endif
 /**

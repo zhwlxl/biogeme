@@ -11,6 +11,10 @@
 // Source: Conn, Gould Toint (2000) Trust Region Methods
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 
 #include <iomanip>
 #include "patConst.h"
@@ -36,7 +40,7 @@ trSimBasedSimpleBoundsAlgo::trSimBasedSimpleBoundsAlgo(patSimBasedOptimizationPr
 						       const trVector& initSolution,
 						       trParameters theParameters,
 						       patError*& err) :
-  trNonLinearAlgo(aProblem->theProblem),
+  trNonLinearAlgo(aProblem->theProblem,NULL),
   theSimBasedProblem(aProblem),
   status(trUNKNOWN),
   solution(initSolution),
@@ -84,7 +88,7 @@ trSimBasedSimpleBoundsAlgo::trSimBasedSimpleBoundsAlgo(patSimBasedOptimizationPr
     return ;
   }
   if (!feas) {
-    WARNING("Initial solution not feasible. Its projection onto the feasible set is sued instead.") ;
+    WARNING("Initial solution not feasible. Its projection onto the feasible set is used instead.") ;
     solution = bounds->getProjection(initSolution,err) ;
     if (err != NULL) {
       WARNING(err->describe()) ;
@@ -842,7 +846,7 @@ patBoolean trSimBasedSimpleBoundsAlgo::checkOpt(const trVector& x,
   trVector::const_iterator gIter = g.begin() ;
   trVector::const_iterator xIter = solution.begin() ;
   for ( ; gIter != g.end() ; ++gIter, ++xIter) {
-    patReal gRel = patAbs(*gIter) * patMax(1.0,patAbs(*xIter)) / 
+    patReal gRel = patAbs(*gIter) * patMax(patOne,patAbs(*xIter)) / 
       patMax(patAbs(function),theParameters.typicalF) ;
     gMax = patMax(gMax,gRel) ;
   }
@@ -854,7 +858,7 @@ patReal trSimBasedSimpleBoundsAlgo::computeRhoK(patReal fold,
 					patReal modelImprovement) {
 
   patReal rhok  ;
-  patReal deltaK = 10.0*patEPSILON*patMax(1.0,patAbs(fold)) ;
+  patReal deltaK = 10.0*patEPSILON*patMax(patOne,patAbs(fold)) ;
   patReal deltaF = fnew - fold - deltaK ;
   patReal deltaM = modelImprovement - deltaK ;
   if (patAbs(deltaF) < 10*patEPSILON 

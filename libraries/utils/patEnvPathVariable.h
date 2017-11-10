@@ -9,10 +9,6 @@
 #ifndef patEnvPathVariable_h
 #define patEnvPathVariable_h
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include "patEnvironmentVariable.h"
 
 class patEnvPathVariable : public patEnvironmentVariable {

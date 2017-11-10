@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "bioArithRandom.h"
 #include "bioArithConstant.h"
 #include "patDisplay.h"

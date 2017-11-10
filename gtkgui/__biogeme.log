@@ -1,0 +1,56 @@
+This file has automatically been generated.
+Fri Apr 14 15:13:08 2017
+Michel Bierlaire, EPFL
+
+biogeme 2.6a [Lun 10 avr 2017 19:22:32 CEST]
+Michel Bierlaire, EPFL
+
+[15:13:08]bioUiFile.cc:25  Checking ./gtkbiogeme.ui
+[15:13:08]bioUiFile.cc:25  Checking ./gtkbiogeme.ui
+Warning: [15:13:31]bioMain.cc:108  pythonbiogeme 01logit.py /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/swissmetro.dat
+[15:13:31]bioParameters.cc:399  Parameter documentation generated: pythonparam.html
+[15:13:31]bioModelParser.cc:109  01logit.py exists
+ Read sample in binary format from __bin_swissmetro.dat *****
+ Processing the sample file: __bin_swissmetro.dat [00:00]
+ Nbr of cores reported by the system: 4
+ Nbr of cores used by biogeme: 2
+ Init. log-likelihood: -6964.66 [00:00]
+     gmax Iter   radius        f(x)     Status       rhok nFree
+ +1.44e-03    1 1.00e+00 +6.9646630e+03 ****Converg  +1.07e+00 4  ++ P
+ +1.94e-03    2 2.00e+00 +5.4217993e+03 ****Converg  +1.08e+00 4  ++ P
+ +1.97e-03    3 4.00e+00 +5.3328087e+03 ****Converg  +1.02e+00 4  ++ P
+ +2.34e-04    4 8.00e+00 +5.3312529e+03 ****Converg  +1.00e+00 4  ++ P
+ Convergence reached...
+ Run time interval: [15:13:32,15:13:32]
+ Run time: 00:00
+ Estimated parameters: 
+ASC_TRAIN = -0.701187
+
+B_TIME = -1.27786
+
+B_COST = -1.08379
+
+ASC_SM = 0
+
+ASC_CAR = -0.154633
+
+
+ File 01logit_param.py created
+ --------------------------------------------------------
+ Directory: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/python
+ The following files have been generated
+ --------------------------------------------------------
+ Debug files
+ --------------------------------------------------------
+      headers.py: List of headers of the data file (biogeme use only)
+ --------------------------------------------------------
+ Useful files
+ --------------------------------------------------------
+      pythonparam.html: Documentation of the parameters
+      __parametersUsed.py: Values of the parameters actually used
+      01logit~76.tex: Results in LaTeX format
+ --------------------------------------------------------
+ Important files
+ --------------------------------------------------------
+      01logit_param.py: Results in Python format (to copy/paste for simulation)
+      01logit.html: Results in HTML format

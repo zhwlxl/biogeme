@@ -1,0 +1,71 @@
+\hypertarget{classbio__expression_1_1exp}{}\section{bio\+\_\+expression.\+exp Class Reference}
+\label{classbio__expression_1_1exp}\index{bio\+\_\+expression.\+exp@{bio\+\_\+expression.\+exp}}
+
+
+Class representing the expression for exponential.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+exp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1exp}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1exp_a282c1a261fa5aea973c94887cd314aa7}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, expression)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1exp_a1c8a2e4276953b72088b39542728a5cc}{}\label{classbio__expression_1_1exp_a1c8a2e4276953b72088b39542728a5cc}
+
+\item 
+def {\bfseries get\+ID} (self)\hypertarget{classbio__expression_1_1exp_a061ceabb8bd6576f6438f2568fa763be}{}\label{classbio__expression_1_1exp_a061ceabb8bd6576f6438f2568fa763be}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries expression}\hypertarget{classbio__expression_1_1exp_a9590d174f4e17fcf29d14c458d4e4e29}{}\label{classbio__expression_1_1exp_a9590d174f4e17fcf29d14c458d4e4e29}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1exp_ae8ade0c740b0b6732ddacc6f247284bb}{}\label{classbio__expression_1_1exp_ae8ade0c740b0b6732ddacc6f247284bb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing the expression for exponential. 
+
+Roughly speaking, floating point arithmetic allows to represent positive real numbers between $10^{-307}$ and $10^{+308}$, which corresponds to a range between $e^{-707}$ and $e^{709}$. Make sure that the value of the expression of exp does not lie outside the range \mbox{[}-\/707,709\mbox{]}. Example\+: 
+\begin{DoxyCode}
+1 P = exp(V1) / (exp(V1) + exp(V2))
+\end{DoxyCode}
+ 
+
+Definition at line 500 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::exp@{bio\+\_\+expression\+::exp}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::exp@{bio\+\_\+expression\+::exp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, expression)}{__init__(self, expression)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+exp.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1exp_a282c1a261fa5aea973c94887cd314aa7}{}\label{classbio__expression_1_1exp_a282c1a261fa5aea973c94887cd314aa7}
+
+\begin{DoxyParams}{Parameters}
+{\em expression} & any valid bio\+\_\+expression \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 502 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

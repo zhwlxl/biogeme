@@ -1,0 +1,84 @@
+\form#0:$10^{-307}$
+\form#1:$10^{+308}$
+\form#2:$e^{-707}$
+\form#3:$e^{709}$
+\form#4:$y=\log(x)$
+\form#5:$x=e^y$
+\form#6:$b \neq 1$
+\form#7:\[ \log_b(x) = \log(x) / \log(b) \]
+\form#8:\[ \mbox{bioNormalCdf}(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x \exp\left(\frac{-t^2}{2}\right) dt \]
+\form#9:\[ \mbox{condProbIndiv} = P(y_1,\ldots,y_T|\xi_n) = \prod_t P(y_t|\xi_n)\]
+\form#10:\[ \mbox{probIndiv} = \int_{\xi_n}P(y_1,\ldots,y_T|\xi_n) \approx \sum_r P(y_1,\ldots,y_T|\xi_r) / R \]
+\form#11:$\xi_r$
+\form#12:$\xi_n$
+\form#13:\[ \mbox{loglikelihood} = \sum_n \log(\sum_r P(y_1,\ldots,y_T|\xi_r) / R) \]
+\form#14:\[ \int_{-\infty}^{+\infty} f(\omega) d\omega. \]
+\form#15:\[ \int_{-\infty}^{+\infty} e^{-\omega^2} f(\omega) d\omega. \]
+\form#16:$e^{\omega^2}$
+\form#17:\[ \frac{\partial f(x)}{\partial x} \]
+\form#18:\[ \mbox{bioNormalPdf}(x) = \frac{1}{\sqrt{2\pi}}e^{-t^2/2}. \]
+\form#19:\[ \frac{a_i e^{V_i}}{\sum_{j=1}^{J} a_j e^{V_j}} \]
+\form#20:\[ V_i - \log\left(\sum_{j=1}^{J} a_j e^{V_j}\right) \]
+\form#21:$\beta_n$
+\form#22:$n=1,\ldots,N$
+\form#23:$N(b,W)$
+\form#24:$b$
+\form#25:\[ N(\bar{\beta},W/N) \]
+\form#26:\[ \prod_r x_r = \exp(\sum_r \ln x_r)\]
+\form#27:$V_i$
+\form#28:$a_i$
+\form#29:\[\begin{array}{cccc} 7 & 0 & 0 & 0 \\ 0 & 7 & 0 & 0 \\ 0 & 0 & 7 & 0 \\ 0 & 0 & 0 & 7 \end{array}\]
+\form#30:$\lambda$
+\form#31:\[ \frac{x^\lambda - 1 }{\lambda} \]
+\form#32:$\mu$
+\form#33:\[ f(x;\mu,\sigma) = \frac{1}{\sigma \sqrt{2\pi}} \exp{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+\form#34:$\sigma$
+\form#35:$\sigma > 0$
+\form#36:\[ f(x;\mu,\sigma) = \frac{1}{x\sigma \sqrt{2\pi}} \exp{-\frac{(\ln x-\mu)^2}{2\sigma^2}} \]
+\form#37:\[ f(x;a,b) = \left\{ \begin{array}{ll} \frac{1}{b-a} & \text{for } x \in [a,b] \\ 0 & \text{otherwise}\end{array} \right.\]
+\form#38:$a$
+\form#39:$a < b $
+\form#40:\[ f(x;a,b,c) = \left\{ \begin{array}{ll} 0 & \text{if } x < a \\\frac{2(x-a)}{(b-a)(c-a)} & \text{if } a \leq x < c \\\frac{2(b-x)}{(b-a)(b-c)} & \text{if } c \leq x < b \\0 & \text{if } x \geq b.\end{array} \right.\]
+\form#41:$c$
+\form#42:$a \leq c \leq b$
+\form#43:\[ f(x;\mu,\sigma) = \frac{1}{1+\exp\left(-\frac{x-\mu}{\sigma} \right)} \]
+\form#44:\[ L_n(x) = \frac{\sqrt{4n^2-1}}{n}(2x-1)L_{n-1}(x)-\frac{(n-1)\sqrt{2n+1}}{n \sqrt{2n-3}} L_{n-2}(x), \]
+\form#45:$L_0(x)=1$
+\form#46:$L_1(x)=\sqrt{3}(2x-1)$
+\form#47:$L_2(x) = \sqrt{5}(6x^2-6x+1)$
+\form#48:\[ L_0(x) = 1 \]
+\form#49:\[ L_1(x)=\sqrt{3}(2x-1) \]
+\form#50:\[ L_2(x)=\sqrt{5}(6x^2-6x+1) \]
+\form#51:\[ L_3(x)=\sqrt{7}(20 x^3 30 x^2+12x-1) \]
+\form#52:$i$
+\form#53:$g$
+\form#54:\[ \frac{e^{\mu_g V_i}}{\sum_j a_j e^{\mu_g V_j}}\]
+\form#55:$a_j$
+\form#56:$j$
+\form#57:$\mu_g$
+\form#58:\[ \frac{e^{V_i}}{\sum_j e^{V_j}}\]
+\form#59:\[ \frac{e^{\mu_g V_i}}{\sum_j e^{\mu_g V_j}}\]
+\form#60:\[ P(i|\xi_1,\ldots,\xi_L)\]
+\form#61:\[ \ln\left(\sum_{r=1}^R P(i|\xi^r_1,\ldots,\xi^r_L) \right)\]
+\form#62:$R$
+\form#63:$\xi_j^r$
+\form#64:$\xi_j$
+\form#65:$y$
+\form#66:$m$
+\form#67:\[ \frac{1}{\sigma} \phi\left( \frac{y-m}{\sigma} \right) \]
+\form#68:$ \phi(\cdot)$
+\form#69:\[ -\left( \frac{(y-m)^2}{2\sigma^2} \right) - \log(\sigma) - \frac{1}{2}\log(2\pi) \]
+\form#70:\[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) \]
+\form#71:$G$
+\form#72:$G_i = 0$
+\form#73:\[ \frac{e^{V_i + \ln G_i(e^{V_1},\ldots,e^{V_J})}}{\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}} \]
+\form#74:\[ V_i + \ln G_i(e^{V_1},\ldots,e^{V_J}) - \log\left(\sum_j e^{V_j + \ln G_j(e^{V_1},\ldots,e^{V_J})}\right) \]
+\form#75:\[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{1}{\mu_m}-1} \]
+\form#76:\[ \frac{\partial G}{\partial y_i}(e^{V_1},\ldots,e^{V_J}) = \mu e^{(\mu_m-1)V_i} \left(\sum_{i=1}^{J_m} e^{\mu_m V_i}\right)^{\frac{\mu}{\mu_m}-1} \]
+\form#77:$n$
+\form#78:$1/J_n$
+\form#79:$J_n$
+\form#80:\[ \mathcal{L} = -\sum_n \ln(J_n) \]
+\form#81:$n_i$
+\form#82:\[ \mathcal{L} = \sum_i n_i \ln(n_i) - n \ln(n) \]
+\form#83:$ n = \sum_i n_i $

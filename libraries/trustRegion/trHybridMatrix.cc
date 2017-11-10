@@ -8,6 +8,10 @@
 // trMatrixVector interface
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "trHybridMatrix.h"
 
 trHybridMatrix::trHybridMatrix(patHybridMatrix* _mPtr)  : 

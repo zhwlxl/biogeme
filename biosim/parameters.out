@@ -1,0 +1,16 @@
+gevAlgo = BIO
+gevScreenPrintLevel = 1
+gevLogFilePrintLevel = 2
+gevRandomDistrib = MLHS
+gevPrintVarCovarAsList = 1
+gevPrintVarCovarAsMatrix = 0
+gevPrintPValue = 1
+gevDecimalDigitsStats = 3
+gevSignificantDigitsParameters = 3
+gevDecimalDigitsTTest = 2
+gevNumberOfThreads = 2
+BTRMaxIter = 1000
+cfsqpMaxIter = 1000
+solvoptMaxIter = 1000
+gevStopFileName = STOP
+gevStoreDataOnFile = 0

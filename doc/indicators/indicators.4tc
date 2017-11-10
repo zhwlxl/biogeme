@@ -1,0 +1,26 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{The model}}{1}\relax 
+\doTocEntry\toclot{1}{\csname a:TocLink\endcsname{1}{x1-10121}{}{\ignorespaces \label {tab:estimatedParameters}Nested logit model: estimated parameters}}{table}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-3}{Market shares and revenues}}{4}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-30003}{QQ2-1-4}{Elasticities}}{13}\relax 
+\doTocEntry\tocsubsection{3.1}{\csname a:TocLink\endcsname{1}{x1-40003.1}{QQ2-1-5}{Point elasticities}}{14}\relax 
+\doTocEntry\tocsubsection{3.2}{\csname a:TocLink\endcsname{1}{x1-50003.2}{QQ2-1-6}{Arc elasticities}}{17}\relax 
+\doTocEntry\tocsubsection{3.3}{\csname a:TocLink\endcsname{1}{x1-60003.3}{QQ2-1-7}{Using PythonBiogeme for point elasticities}}{19}\relax 
+\doTocEntry\tocsubsection{3.4}{\csname a:TocLink\endcsname{1}{x1-70003.4}{QQ2-1-8}{Using PythonBiogeme for cross elasticities}}{21}\relax 
+\doTocEntry\tocsubsection{3.5}{\csname a:TocLink\endcsname{1}{x1-80003.5}{QQ2-1-9}{Using PythonBiogeme for arc elasticities}}{22}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-90004}{QQ2-1-10}{Willingness to pay}}{23}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-100005}{QQ2-1-11}{Conclusion}}{27}\relax 
+\doTocEntry\tocsection{A}{\csname a:TocLink\endcsname{1}{x1-11000A}{QQ2-1-12}{Complete specification files}}{29}\relax 
+\doTocEntry\tocsubsection{A.1}{\csname a:TocLink\endcsname{1}{x1-12000A.1}{QQ2-1-13}{\lstinline $01nestedEstimation.py$}}{29}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-12001}{}{../../../test/simulation/01nestedEstimation.py}}{29}\relax 
+\doTocEntry\tocsubsection{A.2}{\csname a:TocLink\endcsname{1}{x1-13000A.2}{QQ2-1-15}{\lstinline $02nestedSimulation.py$}}{29}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-13001}{}{../../../test/simulation/02nestedSimulation.py}}{29}\relax 
+\doTocEntry\tocsubsection{A.3}{\csname a:TocLink\endcsname{1}{x1-14000A.3}{QQ2-1-17}{\lstinline $03nestedElasticities.py$}}{29}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-14001}{}{../../../test/simulation/03nestedElasticities.py}}{29}\relax 
+\doTocEntry\tocsubsection{A.4}{\csname a:TocLink\endcsname{1}{x1-15000A.4}{QQ2-1-19}{\lstinline $04nestedElasticities.py$}}{29}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-15001}{}{../../../test/simulation/04nestedElasticities.py}}{30}\relax 
+\doTocEntry\tocsubsection{A.5}{\csname a:TocLink\endcsname{1}{x1-16000A.5}{QQ2-1-21}{\lstinline $05nestedElasticities.py$}}{30}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-16001}{}{../../../test/simulation/05nestedElasticities.py}}{30}\relax 
+\doTocEntry\tocsubsection{A.6}{\csname a:TocLink\endcsname{1}{x1-17000A.6}{QQ2-1-23}{\lstinline $06nestedWTP.py$}}{30}\relax 
+\doTocEntry\toclol{}{\csname a:TocLink\endcsname{1}{x1-17001}{}{../../../test/simulation/06nestedWTP.py}}{30}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-18000A.6}{QQ2-1-25}{References}}{31}\relax 

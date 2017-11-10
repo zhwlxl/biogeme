@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Bison Biogeme: parameters</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/epfl.css" media="all"
+	rel="stylesheet" type="text/css" />
+<link href="http://www.epfl.ch/css/enac.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://www.epfl.ch/js/jquery-epfl.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="http://www.epfl.ch/js/globalnav.js"></script>
+<script src="http://transp-or.epfl.ch/biogeme/sorttable.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+<div id="main-content">
+
+<div class="clear "></div>
+
+ 
+<h1><a href="http://biogeme.epfl.ch">Bison Biogeme <acronym
+	title="Biogeme" class="local-color-text">Parameters</acronym></a></h1>
+
+<div class="clear "></div>
+
+
+<div id="content" class="content">
+
+
+<p>The parameter file  provides the parameters controlling the
+execution of Biogeme. It is not mandatory. If it does not exist, Biogeme uses the default values, and automatically creates a file named <code>default.par</code>.
+If entries are missing in the file, Biogeme will use the default values.
+
+The file is divided into sections, each section containing a list of
+  parameters and their corresponding value.</p><p>
+
+  To sort the table, click on the header "Parameter name" or "Section".
+
+
+
+<div class="fullbox">
+<table  class="sortable">
+<tr><th width="10%">Parameter name</th>
+<th width="5%">Section</th>
+<th width="10%">Default value</th>
+<th width="70%">Description</th>
+<th width="5%"></th>
+</tr>
+
+<tr>
+<td><code><a name='gevAlgo'>gevAlgo</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>BIO</code></td>
+<td> It selects the optimization algorithm to be used for log-likelihood estimation. Valid values: <code>BIO</code>, <code>BIOMC</code>, <code>CFSQP</code>, <code>SOLVOPT</code>, <code>DONLP2</code>. <a href='algorithms.php' target='_blank'>Click here for more details</a>.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevScreenPrintLevel'>gevScreenPrintLevel</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1</code></td>
+<td>This parameter defines the level of display to be produced on the screen during a run. Valid values are 1 for general messages only, 2 for detailed messages, and 3 for debug messages.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevLogFilePrintLevel'>gevLogFilePrintLevel</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>2</code></td>
+<td>This parameter defines the level of display to be produced in the log file during a run. Valid values are 1 for general messages only, 2 for detailed messages, and 3 for debug messages. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevPrintVarCovarAsList'>gevPrintVarCovarAsList</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1</code></td>
+<td>If set to 1, the variance-covariance matrix of the estimated parameters is displayed as a list (one row per entry).</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevPrintVarCovarAsMatrix'>gevPrintVarCovarAsMatrix</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>If set to 1, the variance-covariance matrix of the estimated parameters is displayed as a matrix. We recommend to use this feature only if the number of parameters is small (not more than 10).</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevAutomaticScalingOfLinearUtility'>gevAutomaticScalingOfLinearUtility</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>If 1, linear utility functions are automatically scaled to avoid numerical problems during the estimation. The scaling is computed in such a way that all attributes have a level of magnitude of about 1.0. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevBinaryDataFile'>gevBinaryDataFile</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>__BiogemeData.bin</code></td>
+<td>This is the name of the binary data file where the processed data are stored.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevBufferSize'>gevBufferSize</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>100000</code></td>
+<td>Biogeme reads the first line of the data files, and stores it in a buffer to analyze it and extract the labels. The size of the buffer is determined by this parameter. Adjust the value if the first line of your data file contains more that 99'999 characters. Biogeme provides a warning if the default value is exceeded.  </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevCheckDerivatives'>gevCheckDerivatives</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>If set to 1, the analytical derivatives of the log-likelihood functions and the nonlinear constraints are compared to the finite difference derivatives. This is used basically when a new model is included and for debugging purposes. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDataFileDisplayStep'>gevDataFileDisplayStep</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>500</code></td>
+<td>While pre-processing the data file before the estimation, Biogeme reports progress each time it has read a  number of rows specified by this parameter.  </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDebugDataFirstRow'>gevDebugDataFirstRow</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td> Biogeme can print what it actually reads from the data file. This parameter is the number of the first row for which his information is displayed. It is recommended to use it when strange results are generated by the package. It helps identifying garbage in the data file, such as strings, for instance. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDebugDataLastRow'>gevDebugDataLastRow</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td> Biogeme can print what it actually reads from the data file. This parameter is the number of the last row for which his information is displayed. It is recommended to use it when strange results are generated by the package. It helps identifying garbage in the data file, such as strings, for instance. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDecimalDigitsStats'>gevDecimalDigitsStats</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>3</code></td>
+<td>Number of digits after the decimal points to be used for printing general statistics in the output files.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDecimalDigitsTTest'>gevDecimalDigitsTTest</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>2</code></td>
+<td> Number of digits after the decimal points to be used for printing <em>t</em>-tests in the output files. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevDumpDrawsOnFile'>gevDumpDrawsOnFile</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>If set to 1, Biogeme dumps the draws used for simulated likelihood estimation. The name of the file is displayed at the end of the run. If the model name is <code>model</code>, the filename is <code>model.draws</code>.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevForceScientificNotation'>gevForceScientificNotation</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td> If 1, use the scientific notation for printing results. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevGenerateActualSample'>gevGenerateActualSample</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td> If set to 1, Biogeme generates a copy of the sample file containing only the observations that have not been excluded.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevMinimumMu'>gevMinimumMu</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1.0e-5</code></td>
+<td>When the homogeneity parameter &mu; of MEV models is estimated, its theoretical lower bound must be zero. However, numerically, a value of 0 generates problems during the computation of the model. Therefore, the lower bound is automatically set to the value defined by this parameter. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevMaxPrimeNumber'>gevMaxPrimeNumber</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1000</code></td>
+<td> The generation of Halton sequences is based on prime numbers. This parameter defines the maximum number of prime numbers that can be used. Most users will never have to change the default value. But if it is too low, an error message is generated: <code>Warning:  Error: 23 Halton series must be generated, but there are only 10 prime numbers available. Increase the value of gevMaxPrimeNumber in the parameters file</code></td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevMissingValue'>gevMissingValue</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>99999</code></td>
+<td> This parameter is used mainly for debugging purposes. It defines the value given to missing values in the data file. If one of them is used in the computation of the utility functions, an error message is triggered.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevNonParamPlotRes'>gevNonParamPlotRes</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>100</code></td>
+<td>This parameter defines the number of equally distributed values on the <em>x</em>-axis used to generate nonparametric plots (Biosim only) .</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevNonParamPlotMaxY'>gevNonParamPlotMaxY</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1000</code></td>
+<td>When generating nonparametric plots, values larger that this parameter are considered equal to the parameter. Symmetrically, values lower than the negative parameter are considered equal to the negative value. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevNonParamPlotXSizeCm'>gevNonParamPlotXSizeCm</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>15</code></td>
+<td> Width in centimeters of the nonparametric plots in the \LaTeX\ output.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevNonParamPlotMinXSizeCm'>gevNonParamPlotMinXSizeCm</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0.00001</code></td>
+<td> Units on the <em>x</em>-axis are computed automatically for nonparametric plots, but will no be lower than the value of this parameter.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevNonParamPlotMinYSizeCm'>gevNonParamPlotMinYSizeCm</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0.00001</code></td>
+<td>Units on the <em>y</em>-axis are computed automatically for nonparametric plots, but will no be lower than the value of this parameter./td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevOne'>gevOne</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>one</code></td>
+<td>Name of the expression that is replaced by the value 1.0. It can be used in the specification of the utility without explicitly defining it in the Section <code>[Expressions]</code>.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevOutputActualSample'>gevOutputActualSample</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>__actualSample.dat</code></td>
+<td> If the parameter <code>gevGenerateActualSample</code> is set to 1, this parameter defines the name of the file where the sample is saved.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevPrintPValue'>gevPrintPValue</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1</code></td>
+<td> If 1, print the <em>p</em>-value in the results. The <em>p</em>-value is computed as follows: if <em>t</em> is the <em>t</em>-test of the parameters, then <em>p = 2 (1 - &Phi;(t))</em>,
+where <em>&Phi;(.)</em> is the cumulative density function of the univariate normal distribution.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevRandomDistrib'>gevRandomDistrib</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>PSEUDO</code></td>
+<td>Type fo draws use for simulating random distributions. Valid values are <ul><li><code>PSEUDO</code>: Pseudo random numbers</li><li><code>HALTON</code>: Halton sequences</li><li><code>MLHS</code>: Modified Latin Hypercube Sampling (see <a href='http://dx.doi.org/10.1016/j.trb.2004.10.005'  target='_blank'>Hess et al., 2006</a>).</li></ul></td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSaveIntermediateResults'>gevSaveIntermediateResults</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>If 1, the current estimates are saved at each iteration in a file with extension <code>.bck</code>. This is particularly useful for models that take a while to estimate, so that the estimation can be restarted from the last iterate.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSeed'>gevSeed</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>9021967</code></td>
+<td>It defines the seed value for the  pseudo-random number generator.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSignificantDigitsParameters'>gevSignificantDigitsParameters</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>3</code></td>
+<td> Number of significant digits to be used for printing estimated parameters in the output files.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSingularValueThreshold'>gevSingularValueThreshold</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1.0e-4</code></td>
+<td>Identification problems are analyzed using a Singular Value Decomposition procedure. If a singular value is small (that is, its absolute value is less than the value defined by this parameter), the model is considered degenerate and the source of this degeneracy is displayed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevStopFileName'>gevStopFileName</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>STOP</code></td>
+<td> During the optimization process, Biogeme checks for the existence of a file, whose name is defined by this parameter. If the file exists, Biogeme interrupts the iterations and generate output files. This is convenient to prematurely stop iterations without loosing the computations performed thus far.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevStoreDataOnFile'>gevStoreDataOnFile</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>Biogeme uses a database  gathering the processed data from the file provided by the user and, if applicable, the draws for the simulated maximum likelihood estimation. If the parameter is 0, the database is stored in memory. If 1, it is stored in the binary file defined by the parameter <code>gevBinaryDataFile</code>. It is recommended to use 0, except if the data does not fit in  memory. Indeed, accessing to the file slows down the estimation process.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSummaryFile'>gevSummaryFile</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>summary.html</code></td>
+<td>Name of the file summarizing the results  of  several runs of Biogeme.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevSummaryParameters'>gevSummaryParameters</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>summary.lis</code></td>
+<td>Name of the file containing the name of the parameters whose estimated values must be reported in  the summary file.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevVarCovarFromBHHH'>gevVarCovarFromBHHH</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>0</code></td>
+<td>The computation of the variance-covariance matrix of the estimated parameters using finite difference approximation may take a while for complex models. It is sometimes useful to use the BHHH approximation, which is much faster to compute. If so, set this parameter to 1. It is recommended not to use BHHH in the final model.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevTtestThreshold'>gevTtestThreshold</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1.96</code></td>
+<td>Set the threshold for the <em>t</em>-test hypothesis tests. If the absolute value of a <em>t</em>-test is less than <code>gevTtestThreshold</code>, a symbol * will be appended to the relevant line in the report file.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevWarningLowDraws'>gevWarningLowDraws</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>1000</code></td>
+<td>Biogeme displays a warning if the number of draws for simulated maximum likelihood estimation is  considered too low. This parameter defines the threshold used in the  generation of this warning message. Note that it has no effect on  the estimation itself.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='gevWarningSign'>gevWarningSign</a></code></td>
+<td><code>[GEV]</code></td>
+<td><code>*</code></td>
+<td>When a <em>t</em>-test is not successful, a warning size is      displayed in the report file and in the HTML file. This parameter defines the nature of this sign.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRMaxIter'>BTRMaxIter</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1000</code></td>
+<td> Maximum number of iterations to be  performed. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRTypf'>BTRTypf</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1.0</code></td>
+<td>Typical value of the log likelihood function, with opposite sign </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRTolerance'>BTRTolerance</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>6.05545e-06</code></td>
+<td> Value used for the stopping criterion.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRCheapHessian'>BTRCheapHessian</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1</code></td>
+<td>If 1,  BHHH (see <a href='http://www.nber.org/chapters/c10206.pdf'>Berndt et al, 1974</a>) is used as an approximation of the second derivatives matrix.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRUsePreconditioner'>BTRUsePreconditioner</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>0</code></td>
+<td> If 1, the subproblem is  preconditioned using a modified Cholesky factorization (see Schnabel and Eskow, 1991).</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRInitRadius'>BTRInitRadius</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1.0</code></td>
+<td>Defines the initial radius of the trust region.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRIncreaseTRRadius'>BTRIncreaseTRRadius</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>2.0</code></td>
+<td> Defines the factor by which the radius of the trust region is multiplied after a successful iteration.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRMinTRRadius'>BTRMinTRRadius</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1.0e-7</code></td>
+<td> Defines the minimum radius of the trust region. If this radius is reached, the iterations are interrupted.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRMaxTRRadius'>BTRMaxTRRadius</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>1.0e10</code></td>
+<td> Defines the maximum radius of the trust region. If this radius is reached, the trust region is not enlarged anymore.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRStartDraws'>BTRStartDraws</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>10</code></td>
+ <td>If BIOMC is used for  simulated maximum likelihood estimation, this  parameter defines the number of draws which are used during the first iterations.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='BTRIncreaseDraws'>BTRIncreaseDraws</a></code></td>
+<td><code>[BasicTrustRegion]</code></td>
+<td><code>2</code></td>
+<td> If BIOMC is used for  simulated maximum likelihood estimation, this  parameters defines the factor by which  the number of draws  is increased.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpIprint'>cfsqpIprint</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>1</code></td>
+<td> Set it to  1 for silent mode, and to 2 for information at each iteration of the optimization algorithm. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpMaxIter'>cfsqpMaxIter</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>500</code></td>
+<td>Maximum number of iterations. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpMode'>cfsqpMode</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>110</code></td>
+<td> Even if it is a descent algorithm, CFSQP
+         sometimes allows non-monotone iterates, hoping not to be trapped in
+         local minima. If the function is convex, a descent algorithm is more
+         appropriate. In this case, set the value to 100. See CFSQP manual for
+         more details. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpEps'>cfsqpEps</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>6.05545e-06</code></td>
+<td> See CFSQP manual. In  general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpEpsEqn'>cfsqpEpsEqn</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>6.05545e-06</code></td>
+<td> See CFSQP manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='cfsqpUdelta'>cfsqpUdelta</a></code></td>
+<td><code>[cfsqp]</code></td>
+<td><code>0.0</code></td>
+<td> See CFSQP manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='solvoptMaxIter'>solvoptMaxIter</a></code></td>
+<td><code>[solvopt]</code></td>
+<td><code>15000</code></td>
+<td> Maximum number of iterations. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='solvoptDisplay'>solvoptDisplay</a></code></td>
+<td><code>[solvopt]</code></td>
+<td><code>1</code></td>
+<td> Controls the display of the
+         algorithm. See <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf'>SOLVOPT manual</a>. </td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='solvoptErrorArgument'>solvoptErrorArgument</a></code></td>
+<td><code>[solvopt]</code></td>
+<td><code>1.0e-4</code></td>
+<td> See <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf'>SOLVOPT manual</a>.  In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='solvoptErrorFunction'>solvoptErrorFunction</a></code></td>
+<td><code>[solvopt]</code></td>
+<td><code>1.0e-6</code></td>
+<td> See <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf'>SOLVOPT manual</a>.  In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='donlp2Epsx'>donlp2Epsx</a></code></td>
+<td><code>[donlp2]</code></td>
+<td><code>1.0e-5</code></td>
+<td>See DONLP2 manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='donlp2Delmin'>donlp2Delmin</a></code></td>
+<td><code>[donlp2]</code></td>
+<td><code>1.0e-6</code></td>
+<td>See DONLP2 manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='donlp2Smallw'>donlp2Smallw</a></code></td>
+<td><code>[donlp2]</code></td>
+<td><code>3.66685e-11</code></td>
+<td>See DONLP2 manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='donlp2Epsdif'>donlp2Epsdif</a></code></td>
+<td><code>[donlp2]</code></td>
+<td><code>0.0</code></td>
+<td>See DONLP2 manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+<tr>
+<td><code><a name='donlp2NReset'>donlp2NReset</a></code></td>
+<td><code>[donlp2]</code></td>
+<td><code>9</code></td>
+<td>See DONLP2 manual. In general, it should not be changed.</td>
+<td><a href='#top'><img align='right' src='http://transp-or.epfl.ch/images/back.bmp' alt='Top' border='0'></td>
+</tr>
+
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================================================================================================================= -->
+
+<div class="right-col"><!-- div 1 -->
+
+
+<div class="box">
+<p>
+<ul class="tree">
+<li><a href="index.html">Back</a></li>
+<li><a href="http://biogeme.epfl.ch">Biogeme</a></li>
+</ul>
+<ul class="tree">
+<li>[GEV]
+<ul>
+<li><a href='#gevAlgo'>gevAlgo</a></li>
+<li><a href='#gevScreenPrintLevel'>gevScreenPrintLevel</a></li>
+<li><a href='#gevLogFilePrintLevel'>gevLogFilePrintLevel</a></li>
+<li><a href='#gevPrintVarCovarAsList'>gevPrintVarCovarAsList</a></li>
+<li><a href='#gevPrintVarCovarAsMatrix'>gevPrintVarCovarAsMatrix</a></li>
+<li><a href='#gevAutomaticScalingOfLinearUtility'>gevAutomaticScalingOfLinearUtility</a></li>
+<li><a href='#gevBinaryDataFile'>gevBinaryDataFile</a></li>
+<li><a href='#gevBufferSize'>gevBufferSize</a></li>
+<li><a href='#gevCheckDerivatives'>gevCheckDerivatives</a></li>
+<li><a href='#gevDataFileDisplayStep'>gevDataFileDisplayStep</a></li>
+<li><a href='#gevDebugDataFirstRow'>gevDebugDataFirstRow</a></li>
+<li><a href='#gevDebugDataLastRow'>gevDebugDataLastRow</a></li>
+<li><a href='#gevDecimalDigitsStats'>gevDecimalDigitsStats</a></li>
+<li><a href='#gevDecimalDigitsTTest'>gevDecimalDigitsTTest</a></li>
+<li><a href='#gevDumpDrawsOnFile'>gevDumpDrawsOnFile</a></li>
+<li><a href='#gevForceScientificNotation'>gevForceScientificNotation</a></li>
+<li><a href='#gevGenerateActualSample'>gevGenerateActualSample</a></li>
+<li><a href='#gevMinimumMu'>gevMinimumMu</a></li>
+<li><a href='#gevMaxPrimeNumber'>gevMaxPrimeNumber</a></li>
+<li><a href='#gevMissingValue'>gevMissingValue</a></li>
+<li><a href='#gevNonParamPlotRes'>gevNonParamPlotRes</a></li>
+<li><a href='#gevNonParamPlotMaxY'>gevNonParamPlotMaxY</a></li>
+<li><a href='#gevNonParamPlotXSizeCm'>gevNonParamPlotXSizeCm</a></li>
+<li><a href='#gevNonParamPlotMinXSizeCm'>gevNonParamPlotMinXSizeCm</a></li>
+<li><a href='#gevNonParamPlotMinYSizeCm'>gevNonParamPlotMinYSizeCm</a></li>
+<li><a href='#gevOne'>gevOne</a></li>
+<li><a href='#gevOutputActualSample'>gevOutputActualSample</a></li>
+<li><a href='#gevPrintPValue'>gevPrintPValue</a></li>
+<li><a href='#gevRandomDistrib'>gevRandomDistrib</a></li>
+<li><a href='#gevSaveIntermediateResults'>gevSaveIntermediateResults</a></li>
+<li><a href='#gevSeed'>gevSeed</a></li>
+<li><a href='#gevSignificantDigitsParameters'>gevSignificantDigitsParameters</a></li>
+<li><a href='#gevSingularValueThreshold'>gevSingularValueThreshold</a></li>
+<li><a href='#gevStopFileName'>gevStopFileName</a></li>
+<li><a href='#gevStoreDataOnFile'>gevStoreDataOnFile</a></li>
+<li><a href='#gevSummaryFile'>gevSummaryFile</a></li>
+<li><a href='#gevSummaryParameters'>gevSummaryParameters</a></li>
+<li><a href='#gevVarCovarFromBHHH'>gevVarCovarFromBHHH</a></li>
+<li><a href='#gevTtestThreshold'>gevTtestThreshold</a></li>
+<li><a href='#gevWarningLowDraws'>gevWarningLowDraws</a></li>
+<li><a href='#gevWarningSign'>gevWarningSign</a></li>
+</ul>
+</li>
+<li>[BasicTrustRegion]
+<ul>
+<li><a href='#BTRMaxIter'>BTRMaxIter</a></li>
+<li><a href='#BTRTypf'>BTRTypf</a></li>
+<li><a href='#BTRTolerance'>BTRTolerance</a></li>
+<li><a href='#BTRCheapHessian'>BTRCheapHessian</a></li>
+<li><a href='#BTRUsePreconditioner'>BTRUsePreconditioner</a></li>
+<li><a href='#BTRInitRadius'>BTRInitRadius</a></li>
+<li><a href='#BTRIncreaseTRRadius'>BTRIncreaseTRRadius</a></li>
+<li><a href='#BTRMinTRRadius'>BTRMinTRRadius</a></li>
+<li><a href='#BTRMaxTRRadius'>BTRMaxTRRadius</a></li>
+<li><a href='#BTRStartDraws'>BTRStartDraws</a></li>
+<li><a href='#BTRIncreaseDraws'>BTRIncreaseDraws</a></li>
+</ul>
+</li>
+<li>[cfsqp]
+<ul>
+<li><a href='#cfsqpIprint'>cfsqpIprint</a></li>
+<li><a href='#cfsqpMaxIter'>cfsqpMaxIter</a></li>
+<li><a href='#cfsqpMode'>cfsqpMode</a></li>
+<li><a href='#cfsqpEps'>cfsqpEps</a></li>
+<li><a href='#cfsqpEpsEqn'>cfsqpEpsEqn</a></li>
+<li><a href='#cfsqpUdelta'>cfsqpUdelta</a></li>
+</ul>
+</li>
+<li>[solvopt]
+<ul>
+<li><a href='#solvoptMaxIter'>solvoptMaxIter</a></li>
+<li><a href='#solvoptDisplay'>solvoptDisplay</a></li>
+<li><a href='#solvoptErrorArgument'>solvoptErrorArgument</a></li>
+<li><a href='#solvoptErrorFunction'>solvoptErrorFunction</a></li>
+</ul>
+</li>
+<li>[donlp2]
+<ul>
+<li><a href='#donlp2Epsx'>donlp2Epsx</a></li>
+<li><a href='#donlp2Delmin'>donlp2Delmin</a></li>
+<li><a href='#donlp2Smallw'>donlp2Smallw</a></li>
+<li><a href='#donlp2Epsdif'>donlp2Epsdif</a></li>
+<li><a href='#donlp2NReset'>donlp2NReset</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+</div>    
+    <div class="clear"></div>
+
+<div id="footer">
+</div>
+
+
+</body>
+</html>

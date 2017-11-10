@@ -50,7 +50,7 @@ void    cfsqp(int,int,int,int,int,int,int,int,int,int *,int,int,
                    void (*)(int,int,patReal *,patReal *,void *),void *),
               void (*)(int,int,patReal *,patReal *,
                    void (*)(int,int,patReal *,patReal *,void *),void *),
-              void *, patIterationBackup*, patString, int *);
+              void *, patIterationBackup*, bioAlgorithmManager*, int *);
 #else
 void    cfsqp();
 #endif

@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <numeric>
 #include <map>
 
@@ -13,6 +17,7 @@
 #include "patSolvOpt.h"
 #include "solvopt.h"
 #include "patNonLinearProblem.h"
+#include "bioAlgorithmManager.h"
 #include "patErrNullPointer.h"
 #include "trFunction.h"
 
@@ -49,13 +54,15 @@ patReal solvopt(unsigned short n,
                void grad(patReal x[], patReal g[]),
                patReal options[],
                patReal func(patReal x[]),
-               void gradc(patReal x[], patReal gc[])
+		void gradc(patReal x[], patReal gc[]),
+		bioAlgorithmManager* aStoppingCriteria
 	       ) ;
 
 
 patSolvOpt::patSolvOpt(solvoptParameters p,
+		       bioAlgorithmManager* aStoppingCriteria,
 		       patNonLinearProblem* aProblem) :
-  trNonLinearAlgo(aProblem),
+  trNonLinearAlgo(aProblem,aStoppingCriteria),
   theParameters(p),
   startingPoint((aProblem==NULL)?0:aProblem->nVariables()),
   solution((aProblem==NULL)?0:aProblem->nVariables()) {
@@ -148,7 +155,8 @@ patString patSolvOpt::run(patError*& err) {
 	  &ObjectFunctionGradient,
 	  solvopt_options,
 	  &MaxResidual,
-	  &GradMaxResConstr);
+	  &GradMaxResConstr,
+	  theStoppingCriteria);
 
 
   // Number of iterations
@@ -167,7 +175,12 @@ patString patSolvOpt::run(patError*& err) {
     WARNING(err->describe()) ;
     return(err->describe()) ;
   }
-  
+
+  if (theStoppingCriteria != NULL) {
+    if (theStoppingCriteria->interruptIterations()) {
+      return (theStoppingCriteria->reasonForInterruption()) ;
+    }
+  }
   return patString("Normal termination") ;
 }
 
@@ -194,7 +207,7 @@ patReal ObjectFunctionValue(patReal x[]) {
     return patMaxReal ;    
   }
   patBoolean success ;
-  patReal result = f->computeFunction(&localx,&success,err) ;
+  patReal function = f->computeFunction(&localx,&success,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return patMaxReal ;
@@ -204,7 +217,7 @@ patReal ObjectFunctionValue(patReal x[]) {
     return patMaxReal ;    
   }
   //  DEBUG_MESSAGE("f(x)=" << result) ;
-  return result ;
+  return function ;
 }
 
 void ObjectFunctionGradient(patReal x[], patReal g[]) {

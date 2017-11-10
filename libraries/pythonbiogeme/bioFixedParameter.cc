@@ -6,8 +6,14 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
+#include "patDisplay.h"
 #include "bioFixedParameter.h"
+#include "bioParameters.h"
 #include "patFormatRealNumbers.h"
 #include "patMath.h"
 #include "patPValue.h"
@@ -122,7 +128,27 @@ patULong bioFixedParameter::getEstimatedParameterId() const {
 }
 
 patString bioFixedParameter::getLaTeXRow(patReal stdErr, patError*& err) const {
-  patFormatRealNumbers theNumber ;
+ int fsn =  bioParameters::the()->getValueInt("forceScientificNotation",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return patString();
+ }
+ int tstats = bioParameters::the()->getValueInt("precisionTStats",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return patString() ;
+ }
+ int param = bioParameters::the()->getValueInt("precisionParameters",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return patString();
+ }
+ int stats =  bioParameters::the()->getValueInt("precisionStatistics",err) ;
+ if (err != NULL) {
+   WARNING(err->describe()) ;
+   return patString();
+ }
+ patFormatRealNumbers theNumber(fsn,tstats,param,stats) ;
   stringstream latexFile ;
   latexFile << latexName << " & " ;
   

@@ -1,0 +1,28 @@
+// This file has automatically been generated.
+// Thu Mar 31 10:45:01 2016
+// Michel Bierlaire, EPFL
+
+// biogeme 2.5.c [Jeu 31 mar 2016 09:29:39 CEST]
+// Michel Bierlaire, EPFL
+
+[GEV]
+gevAlgo = "BIO"
+gevScreenPrintLevel = 1
+gevLogFilePrintLevel = 2
+gevRandomDistrib = "MLHS"
+gevPrintVarCovarAsList = 1
+gevPrintVarCovarAsMatrix = 0
+gevPrintPValue  = 1
+gevDecimalDigitsStats = 3
+gevSignificantDigitsParameters = 3
+gevDecimalDigitsTTest  = 2
+gevNumberOfThreads  = 2
+
+[BasicTrustRegion]
+BTRMaxIter = 1000
+
+[cfsqp]
+cfsqpMaxIter = 1000
+
+[solvopt]
+solvoptMaxIter = 1000

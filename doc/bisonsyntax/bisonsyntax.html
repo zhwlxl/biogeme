@@ -1,0 +1,2241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>BisonBiogeme: syntax of the modeling language</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="bisonsyntax.tex"> 
+<link rel="stylesheet" type="text/css" href="bisonsyntax.css"> 
+</head><body 
+>
+<!--l. 349--><p class="noindent" >
+                                                                          
+
+                                                                          
+   <div class="maketitle">
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+
+<h2 class="titleHead">BisonBiogeme: syntax of the modeling
+language</h2>
+ <div class="author" ><span 
+class="cmr-12x-x-120">Michel Bierlaire</span></div><br />
+<div class="date" ><span 
+class="cmr-12x-x-120">November 2, 2015</span></div>
+   </div>
+<div class="center" 
+>
+<!--l. 355--><p class="noindent" >
+<!--l. 356--><p class="noindent" ><span 
+class="cmr-10x-x-109">Report TRANSP-OR 151102</span><br />
+<span 
+class="cmr-10x-x-109">Transport and Mobility Laboratory</span><br />
+<span 
+class="cmr-10x-x-109">School of Architecture, Civil and Environmental Engineering</span><br />
+<span 
+class="cmr-10x-x-109">Ecole Polytechnique F</span><span 
+class="cmr-10x-x-109">éd</span><span 
+class="cmr-10x-x-109">érale de Lausanne</span><br />
+<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10x-x-109">transp-or.epfl.ch</span></span></span>
+<div class="center" 
+>
+<!--l. 357--><p class="noindent" >
+<!--l. 358--><p class="noindent" ><span 
+class="cmcsc-10x-x-109">S<span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">i</span><span 
+class="small-caps">e</span><span 
+class="small-caps">s</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">n</span> B<span 
+class="small-caps">i</span><span 
+class="small-caps">o</span><span 
+class="small-caps">g</span><span 
+class="small-caps">e</span><span 
+class="small-caps">m</span><span 
+class="small-caps">e</span></span></div>
+</div>
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+<!--l. 366--><p class="noindent" >The package BisonBiogeme (<span 
+class="cmtt-12">biogeme.epfl.ch</span>) is designed to estimate the
+parameters of various models using maximum likelihood estimation. It is
+particularly designed for discrete choice models. In this document, we present the
+syntax of the modeling language of BisonBiogeme.
+<!--l. 371--><p class="indent" >   This document is designed to be a reference. We strongly encourage the reader
+to first consult <a 
+href="#XBierBiogeme2015a">Bierlaire</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBierBiogeme2015a">2015</a></span>), where the syntax of a first model is analyzed in
+details, as well as the many examples provided online. This document has been
+written using BisonBiogeme&#x00A0;2.4, but should be valid for future versions, as no
+major release if foreseen.
+<!--l. 377--><p class="indent" >   The model description is written in a file with an extension <span 
+class="cmtt-12">.mod</span>.
+The file is organized into sections. Each section starts by a statement
+like
+<div class="center" 
+>
+<!--l. 380--><p class="noindent" >
+<!--l. 381--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[NameOfTheSection]</span></span></span>.</div>
+<!--l. 383--><p class="noindent" >The sections of this file have to be specified as described below. Note that comments
+can be included using <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">//</span></span></span>. All characters after this command, up to the end of the
+current line, are ignored.
+<!--l. 387--><p class="indent" >   Note that only relevant sections must be specified. Morevover, the order of the
+section is irrelevant. However, we suggest to comply to the order as described
+below.
+      <dl class="description"><dt class="description">
+<span 
+class="cmtt-12">[ModelDescription]</span> </dt><dd 
+class="description">Type here any text that describes the model. It may
+      contain several lines. Each line must be within double-quotes, like
+      this
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-1">
+      [ModelDescription]
+      &#x00A0;<br />"This&#x00A0;is&#x00A0;the&#x00A0;first&#x00A0;line&#x00A0;of&#x00A0;the&#x00A0;model&#x00A0;description"
+      &#x00A0;<br />"This&#x00A0;is&#x00A0;the&#x00A0;second&#x00A0;line&#x00A0;of&#x00A0;the&#x00A0;model&#x00A0;description"
+</div>
+      <!--l. 400--><p class="nopar" >
+      <!--l. 402--><p class="noindent" >Note that it will be copied verbatim in the output files. Note that, if it
+      contains special characters which are interpreted by <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>, such as $ or &amp;,
+      you may need to edit the <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>&#x00A0;output file before processing
+      it.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Choice]</span> </dt><dd 
+class="description">Provide here the formula to compute the identifier of the chosen
+      alternative from the data file. Typically, a &#8220;<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">choice</span></span></span>&#8221; entry will be available
+      directly in the file, but any formula can be used to compute it. Assume for
+      example that, in your model, you have numbered alternatives 100, 200 and
+      300. But in the data file, they are numbered 1, 2 and 3. In this case, you
+      must write
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-2">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[Choice]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;100&#x00A0;&#x00A0;*&#x00A0;&#x00A0;choice
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 417--><p class="nopar" > Any expression described in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span> is valid here.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Weight]</span> </dt><dd 
+class="description">Provide here the formula to compute the weight associated with each
+      observation. The weight of an observation will be multiplied to the
+      corresponding term in the log likelihood function. Ideally, the sum of
+      the weights should be equal to the total number of observations,
+      although it is not required. The file reporting the statistics contains a
+      recommendation to adjust the weights in order to comply with this
+      convention.
+      <!--l. 429--><p class="noindent" >Important: do not use the weight section in Biosim.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Beta]</span> </dt><dd 
+class="description">Each line of this section corresponds to a parameter of the utility
+      functions. Five entries must be provided for each parameter:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-3x1">Name:  the  first  character  must  be  a  letter  (any  case)  or  an
+           underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters, digits, underscore
+           (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white space. Note that
+           case sensitivity is enforced. Therefore <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">varname</span></span></span> and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">Varname</span></span></span> would
+           represent two different variables.
+           </li>
+           <li 
+  class="enumerate" id="x1-5x2">Default  value  that  will  be  used  as  a  starting  point  for  the
+           estimation, or used directly for the simulation in BIOSIM.
+           </li>
+           <li 
+  class="enumerate" id="x1-7x3">Lower bound on the valid values<span class="footnote-mark"><a 
+href="bisonsyntax2.html#fn1x0">1</a></span><a 
+ id="x1-8f1"></a> ;
+           </li>
+           <li 
+  class="enumerate" id="x1-10x4">Upper bound on the valid values;
+                                                                          
+
+                                                                          
+           </li>
+           <li 
+  class="enumerate" id="x1-12x5">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given default value.</li></ol>
+      <!--l. 444--><p class="noindent" >Note that this section is independent of the specific model to be estimated,
+      as it captures the deterministic part of the utility function.
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-3">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[Beta]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;Name&#x00A0;&#x00A0;Value&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;LowerBound&#x00A0;&#x00A0;UpperBound&#x00A0;status
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC1&#x00A0;&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;1
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC2&#x00A0;&#x00A0;-0.159016&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC3&#x00A0;&#x00A0;-0.0869287&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC4&#x00A0;&#x00A0;-0.51122&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC5&#x00A0;&#x00A0;0.718513&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC6&#x00A0;&#x00A0;-1.39177&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BETA1&#x00A0;0.778982&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BETA2&#x00A0;0.809772&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 458--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Mu]</span> </dt><dd 
+class="description"><span 
+class="eurm-10x-x-120">&#x03BC; </span>is the homogeneity parameter of the MEV model. Usually, it is
+      constrained to be one. However, BisonBiogeme&#x00A0;enables to estimate it if
+      requested (see the Swissmetro example <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">10nestedBottom.mod</span></span></span> for a nested
+      logit model normalized from the bottom, so that <span 
+class="eurm-10x-x-120">&#x03BC; </span>is estimated). Four
+      entries are specified here:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-14x1">Default  value  that  will  be  used  as  a  starting  point  for  the
+           estimation (common value: 1.0);
+           </li>
+           <li 
+  class="enumerate" id="x1-16x2">Lower bound on the valid values (common value: 1.0e-5);
+           </li>
+           <li 
+  class="enumerate" id="x1-18x3">Upper bound on the valid values (common value: 1.0);
+           </li>
+           <li 
+  class="enumerate" id="x1-20x4">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Utilities]</span> </dt><dd 
+class="description">Each row of this section corresponds to an alternative. Four entries
+      are specified:
+                                                                          
+
+                                                                          
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-22x1">The  identifier  of  the  alternative,  with  a  numbering  convention
+           consistent with the choice definition;
+           </li>
+           <li 
+  class="enumerate" id="x1-24x2">The name of the alternative: the first character must be a letter
+           (any case) or an underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters,
+           digits, underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white
+           space;
+           </li>
+           <li 
+  class="enumerate" id="x1-26x3">The availability condition: this must be a direct reference to an
+           entry in the data file, or to an expression defined in the Section
+           <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span>;
+           </li>
+           <li 
+  class="enumerate" id="x1-28x4">The linear-in-parameter utility function is composed of a list of
+           terms, separated by a <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">+</span></span></span>. Each term is composed of the name of
+           a parameter and the name of an attribute, separated by a
+           <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">*</span></span></span>. The parameter must be listed in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>, if it is a
+           regular parameter. If it is a random parameter, the syntax
+           is
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-4">
+           &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;nameParam&#x00A0;[&#x00A0;nameParam&#x00A0;]
+           &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+           <!--l. 490--><p class="nopar" > in the case of the normal distribution, or :
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-5">
+           &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;nameParam&#x00A0;{&#x00A0;nameParam&#x00A0;}
+           &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+           <!--l. 494--><p class="nopar" > to get a random parameter that comes from a uniform distribution.
+           For example, in the case of the normal:
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-6">
+           &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BETA&#x00A0;[&#x00A0;SIGMA&#x00A0;]
+           &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+           <!--l. 499--><p class="nopar" >
+           <!--l. 501--><p class="noindent" >Note that the blank after each name parameter is required. Also,
+           parameters <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span></span></span> and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">SIGMA</span></span></span> have to be listed in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>. In the
+           context of an independent random parameter, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span></span></span> represents the
+           mean while <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">SIGMA</span></span></span> corresponds to the standard deviation. With
+           correlated random parameters, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">SIGMA</span></span></span> technically corresponds to the
+           appropriate term in the Cholesky decomposition matrix that captures
+           the variance-covariance structure among the random parameters. An
+           attribute must be an entry of the data file, or an expression defined in
+           Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span>. In order to comply with this syntax, the
+           Alternative Specific Constants must appear in a term like <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">ASC</span><span 
+class="cmtt-12">&#x00A0;*</span><span 
+class="cmtt-12">&#x00A0;one</span></span></span>,
+           where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">one</span></span></span> is defined in the Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span>. Here is an
+           example:
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-7">
+           [Utilities]
+           &#x00A0;<br />//&#x00A0;Id&#x00A0;Name&#x00A0;&#x00A0;Avail&#x00A0;&#x00A0;linear-in-parameter&#x00A0;expression
+           &#x00A0;<br />&#x00A0;&#x00A0;1&#x00A0;&#x00A0;&#x00A0;Alt1&#x00A0;&#x00A0;&#x00A0;av1&#x00A0;&#x00A0;&#x00A0;ASC1&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x11&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x12
+           &#x00A0;<br />&#x00A0;&#x00A0;2&#x00A0;&#x00A0;&#x00A0;Alt2&#x00A0;&#x00A0;&#x00A0;av2&#x00A0;&#x00A0;&#x00A0;ASC2&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x21&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x22
+           &#x00A0;<br />&#x00A0;&#x00A0;3&#x00A0;&#x00A0;&#x00A0;Alt3&#x00A0;&#x00A0;&#x00A0;av3&#x00A0;&#x00A0;&#x00A0;ASC3&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x31&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x32
+           &#x00A0;<br />&#x00A0;&#x00A0;4&#x00A0;&#x00A0;&#x00A0;Alt4&#x00A0;&#x00A0;&#x00A0;av4&#x00A0;&#x00A0;&#x00A0;ASC4&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x41&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x42
+           &#x00A0;<br />&#x00A0;&#x00A0;5&#x00A0;&#x00A0;&#x00A0;Alt5&#x00A0;&#x00A0;&#x00A0;av5&#x00A0;&#x00A0;&#x00A0;ASC5&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x51&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x52
+           &#x00A0;<br />&#x00A0;&#x00A0;6&#x00A0;&#x00A0;&#x00A0;Alt6&#x00A0;&#x00A0;&#x00A0;av6&#x00A0;&#x00A0;&#x00A0;ASC6&#x00A0;*&#x00A0;one&#x00A0;+&#x00A0;BETA1&#x00A0;[SIGMA]&#x00A0;*&#x00A0;x61&#x00A0;+&#x00A0;BETA2&#x00A0;*&#x00A0;x62
+</div>
+           <!--l. 522--><p class="nopar" >
+           <!--l. 524--><p class="noindent" >If the utility function does not contain any part which is
+           linear-in-parameters, then the keyword <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NONE</span></span></span> must be written. For
+           example:
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-8">
+           [Utilities]
+           &#x00A0;<br />//&#x00A0;Id&#x00A0;Name&#x00A0;&#x00A0;Avail&#x00A0;linear-in-parameter&#x00A0;expression
+           &#x00A0;<br />&#x00A0;&#x00A0;1&#x00A0;&#x00A0;&#x00A0;Alt1&#x00A0;&#x00A0;&#x00A0;av1&#x00A0;&#x00A0;$NONE
+</div>
+           <!--l. 531--><p class="nopar" ></li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[GeneralizedUtilities]</span> </dt><dd 
+class="description">This section enables the user to add nonlinear terms
+      to the utility function. For each alternative, the syntax is simply the
+      identifier of the alternative, followed by the expression. For example, if the
+      utility of alternative 1 is
+      <center class="math-display" >
+      <img 
+src="bisonsyntax0x.png" alt="          x&#x03BB; -  1
+&#x03B2;1x11 + &#x03B2;2-12----,
+             &#x03BB;
+      " class="math-display" ></center>
+      <!--l. 541--><p class="nopar" > the syntax is
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-9">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[Utilities]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;1&#x00A0;Alt1&#x00A0;av1&#x00A0;BETA_1&#x00A0;*&#x00A0;X11
+      &#x00A0;<br />
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[GeneralizedUtilities]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;1&#x00A0;BETA_2&#x00A0;*&#x00A0;(X21&#x00A0;^&#x00A0;LAMBDA&#x00A0;-&#x00A0;1)&#x00A0;/&#x00A0;LAMBDA
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 550--><p class="nopar" >
+      <!--l. 552--><p class="noindent" >Another example where a nonlinear part is required is when specifying a log
+      normal random coefficient.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[ParameterCovariances]</span> </dt><dd 
+class="description">BisonBiogeme&#x00A0;allows normally distributed random
+      parameters to be correlated, and can estimate their covariance. By
+      default, the variance-covariance matrix of the random parameters is
+      supposed to be diagonal, and no covariance is estimated. If some
+      covariances must be estimated, each pair of correlated random coefficients
+      must be identified in this section. Each entry of the section should
+      contain:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-30x1">The name of the first random parameter in the given pair. If it
+           appears in the utility function as <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span><span 
+class="cmtt-12">&#x00A0;[</span><span 
+class="cmtt-12">&#x00A0;SIGMA</span><span 
+class="cmtt-12">&#x00A0;]</span></span></span>, its name must
+           be typed <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA_SIGMA</span></span></span>.
+           </li>
+           <li 
+  class="enumerate" id="x1-32x2">The name of the second random parameter involved in the pair,
+           using the same naming convention.
+           </li>
+           <li 
+  class="enumerate" id="x1-34x3">The default value that will be used as a starting point for the
+           estimation;
+           </li>
+           <li 
+  class="enumerate" id="x1-36x4">The lower bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-38x5">The upper bound on the valid values;
+                                                                          
+
+                                                                          
+           </li>
+           <li 
+  class="enumerate" id="x1-40x6">The status, which is 0 if the parameter must be estimated, or 1 if
+           the parameter has to be maintained at the given value.</li></ol>
+      <!--l. 574--><p class="noindent" >If no covariance is to be estimated, you must either entirely remove the
+      section, or specify <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NONE</span></span></span> as follows:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-10">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[ParameterCovariances]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$NONE
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 579--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Draws]</span> </dt><dd 
+class="description">Number of draws to be used in Maximum Simulated Likelihood
+      estimation.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Expressions]</span> </dt><dd 
+class="description">In this section are defined all expressions appearing either in the
+      availability conditions or in the utility functions of the alternatives defined
+      in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Utilities]</span></span></span>. If the expression is readily available from the data
+      file, it can be omitted in the list. It is good practice to generate
+      new variables from this section especially when one objective is to
+      compute market shares or to evaluate effects of policies with the help of
+      Biosim.
+      <!--l. 593--><p class="noindent" >We now summarize the syntax that can be used for generating new
+      variables. Variables which form an expression might be of type float or of
+      type integer. You can use numerical values or the name of a numerical
+      variable. New variables can be created using unary and binary expression
+      operators.
+      <!--l. 597--><p class="noindent" >Unary expressions:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-42x1"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;sqrt(x)</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;square</span><span 
+class="cmtt-12">&#x00A0;root</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x.</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-44x2"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;log(x)</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;natural</span><span 
+class="cmtt-12">&#x00A0;log</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x.</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-46x3"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;exp(x)</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;exponential</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x.</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-48x4"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;abs(x)</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;absolute</span><span 
+class="cmtt-12">&#x00A0;value</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x.</span></span></span></li></ol>
+      <!--l. 605--><p class="noindent" >binary expression: (Numerical)
+                                                                          
+
+                                                                          
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-50x1"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;+</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;sum</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;variables</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;and</span><span 
+class="cmtt-12">&#x00A0;z</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-52x2"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;-</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;difference</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;variables</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;and</span><span 
+class="cmtt-12">&#x00A0;z</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-54x3"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;*</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;product</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;variables</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;by</span><span 
+class="cmtt-12">&#x00A0;z</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-56x4"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;/</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;division</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;variable</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;by</span><span 
+class="cmtt-12">&#x00A0;z</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-58x5"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;^</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;to</span><span 
+class="cmtt-12">&#x00A0;power</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;(square</span><span 
+class="cmtt-12">&#x00A0;would</span><span 
+class="cmtt-12">&#x00A0;be</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;^</span><span 
+class="cmtt-12">&#x00A0;2)</span><span 
+class="cmtt-12">&#x00A0;</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-60x6"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;%</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;modulo</span><span 
+class="cmtt-12">&#x00A0;z,</span><span 
+class="cmtt-12">&#x00A0;i.e.</span><span 
+class="cmtt-12">&#x00A0;rest</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x/z</span><span 
+class="cmtt-12">&#x00A0;</span></span></span></li></ol>
+      <!--l. 615--><p class="noindent" >binary expression: (Logical)
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-62x1"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;==</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;equals</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;z,</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;otherwise</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-64x2"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;!=</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;not</span><span 
+class="cmtt-12">&#x00A0;equal</span><span 
+class="cmtt-12">&#x00A0;to</span><span 
+class="cmtt-12">&#x00A0;z,</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;otherwise</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-66x3"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;||</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;!=</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;OR</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;!=</span><span 
+class="cmtt-12">&#x00A0;0,</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;otherwise</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-68x4"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;&amp;&amp;</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;!=</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;AND</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;!=</span><span 
+class="cmtt-12">&#x00A0;0,</span><span 
+class="cmtt-12">&#x00A0;0</span><span 
+class="cmtt-12">&#x00A0;otherwise</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-70x5"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;&#x003C;</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;&#x003C;</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;(note:</span><span 
+class="cmtt-12">&#x00A0;also</span><span 
+class="cmtt-12">&#x00A0;&#x003E;</span><span 
+class="cmtt-12">&#x00A0;)</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-72x6"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;&#x003C;=</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;1</span><span 
+class="cmtt-12">&#x00A0;if</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;&#x003C;=</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;(note:</span><span 
+class="cmtt-12">&#x00A0;also</span><span 
+class="cmtt-12">&#x00A0;&#x003E;=</span><span 
+class="cmtt-12">&#x00A0;)</span></span></span>
+           </li>
+           <li 
+  class="enumerate" id="x1-74x7"><span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">y</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;max(x,z)</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;//</span><span 
+class="cmtt-12">&#x00A0;y</span><span 
+class="cmtt-12">&#x00A0;is</span><span 
+class="cmtt-12">&#x00A0;max</span><span 
+class="cmtt-12">&#x00A0;of</span><span 
+class="cmtt-12">&#x00A0;x</span><span 
+class="cmtt-12">&#x00A0;and</span><span 
+class="cmtt-12">&#x00A0;z</span><span 
+class="cmtt-12">&#x00A0;</span><span 
+class="cmtt-12">&#x00A0;(note:</span><span 
+class="cmtt-12">&#x00A0;also</span><span 
+class="cmtt-12">&#x00A0;min)</span></span></span></li></ol>
+      <!--l. 627--><p class="noindent" >Note that an expression is considered to be TRUE if it is non zero, and
+      FALSE if it is zero. For a full description of these expressions and
+      alternative syntaxes, please look at the files <span 
+class="cmtt-12">patSpecParser.y </span>and
+      <span 
+class="cmtt-12">patSpecScanner.l </span>in the BIOGEME distribution.
+      <!--l. 631--><p class="noindent" >Loops can be defined if several expressions have almost the same syntax.
+      The idea is to replace all occurrences of a string, say <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">xx</span></span></span>, by numbers. The
+      numbers are generated within a loop, defined by 3 numbers: the start of the
+      loop (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">a</span></span></span>), the end of the loop (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">b</span></span></span>) and the step (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">c</span></span></span>) with the following
+      syntax:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-11">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$LOOP&#x00A0;{xx&#x00A0;a&#x00A0;b&#x00A0;c}
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 637--><p class="nopar" >
+      <!--l. 640--><p class="noindent" >The expression
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-12">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$LOOP&#x00A0;{xx&#x00A0;1&#x00A0;5&#x00A0;2}&#x00A0;my_expression_xx&#x00A0;=
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;other_expression_xx&#x00A0;*&#x00A0;term_xx_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 644--><p class="nopar" > is equivalent to
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-13">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_expression_1&#x00A0;=&#x00A0;other_expression_1&#x00A0;*&#x00A0;term_1_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_expression_3&#x00A0;=&#x00A0;other_expression_3&#x00A0;*&#x00A0;term_3_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_expression_5&#x00A0;=&#x00A0;other_expression_5&#x00A0;*&#x00A0;term_5_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 650--><p class="nopar" >
+      <!--l. 652--><p class="noindent" >Warning: make sure that the string is awkward enough so that it cannot
+      match any other instance by mistake. For example, the loop
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-14">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{xp&#x00A0;1&#x00A0;5&#x00A0;2}&#x00A0;my_expression_xp&#x00A0;=&#x00A0;other_expression_xp&#x00A0;*&#x00A0;term_xp_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 655--><p class="nopar" > is equivalent to
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-15">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_e1ression_1&#x00A0;=&#x00A0;other_e1ression_1&#x00A0;*&#x00A0;term_1_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_e3ression_3&#x00A0;=&#x00A0;other_e3ression_3&#x00A0;*&#x00A0;term_3_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;my_e5ression_5&#x00A0;=&#x00A0;other_e5ression_5&#x00A0;*&#x00A0;term_5_first
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 661--><p class="nopar" > which is probably not the desired effect.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Group]</span> </dt><dd 
+class="description">Provide here the formula to compute the group ID of the observed
+      individual. Typically, a &#8220;<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">group</span></span></span>&#8221; entry will be available directly
+      from the data file, but any formula can be used to compute it. Any
+      expression described in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span> is valid here. A
+      different scale parameter will be estimated for the utility of each
+      group.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Exclude]</span> </dt><dd 
+class="description">Define an expression (see Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span>) which identifies
+      entries of the data file to be excluded. If the result of the expression is not
+      zero, the entry will be discarded.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Model]</span> </dt><dd 
+class="description">Specifies which MEV model is to be used. Valid entries are <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$BP</span></span></span> for
+      Binary Probit, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$MNL</span></span></span> for Multinomial Logit model, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NL</span></span></span> for single level Nested
+      Logit model, <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$CNL</span></span></span> for Cross-Nested Logit model and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NGEV</span></span></span> for Network
+      GEV model.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[PanelData]</span> </dt><dd 
+class="description">Used to specify the name of the variable (ex: <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">userID</span></span></span>) in the dataset
+      identifying the observations belonging to a given individual and to specify
+      the name of the random parameters that are invariant within the
+      observation of a given individual <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">userID</span></span></span>.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Scale]</span> </dt><dd 
+class="description">A scale parameter is associated with each group. The utility function of
+      each member of a group is multiplied by the associated scale parameter. A
+      typical application is the joined estimation of revealed and stated
+      preferences. It is therefore possible to estimate a logit model combining
+      both data sources, without playing around with dummy nested
+                                                                          
+
+                                                                          
+      structures as proposed by <a 
+href="#XBradDaly91">Bradley and&#x00A0;Daly</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBradDaly91">1991</a></span>). Each row of
+      this section corresponds to a group. Five entries are required per
+      row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-76x1">Group number: the numbering must be consistent with the group
+           definition;
+           </li>
+           <li 
+  class="enumerate" id="x1-78x2">Default  value  that  will  be  used  as  a  starting  point  for  the
+           estimation (1.0 is a good guess);
+           </li>
+           <li 
+  class="enumerate" id="x1-80x3">Lower bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-82x4">Upper bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-84x5">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      <!--l. 707--><p class="noindent" >Clearly, one of the groups must have a fixed scale parameter.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[SelectionBias]</span> </dt><dd 
+class="description">Identifies the parameters capturing the selection bias, using the
+      estimator proposed by <a 
+href="#XBierBoldMcFa08">Bierlaire et&#x00A0;al.</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBierBoldMcFa08">2008</a></span>). Each of them has to
+      be listed in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>. The section must contain a row per
+      alternative for which a selection bias has to be estimated. Each
+      row contains the number of the alternative and the name of the
+      associated parameter. Note that these parameters play a similar role
+      as the alternative specific constants, and must not be used with
+      logit.
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-16">
+      [SelectionBias]
+      &#x00A0;<br />1&#x00A0;SB_1
+      &#x00A0;<br />4&#x00A0;SB_4
+      &#x00A0;<br />6&#x00A0;SB_6
+</div>
+      <!--l. 721--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[NLNests]</span> </dt><dd 
+class="description">This section is relevant only if the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NL</span></span></span> option has been selected in
+      Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Model]</span></span></span>. If the model to estimate is not a Nested Logit
+      model, the section will simply be ignored. Note that multilevel Nested
+      Logit models must be modeled as Network MEV models. Each row
+      of this section corresponds to a nest. Six entries are required per
+      row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-86x1">Nest name: the first character must be a letter (any case) or an
+           underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters, digits, underscore
+           (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white space;
+           </li>
+           <li 
+  class="enumerate" id="x1-88x2">Default value of the nest parameter <span 
+class="eurm-10x-x-120">&#x03BC;</span><sub><span 
+class="eurm-10x-x-80">m</span></sub>  that will be used as a
+           starting point for the estimation (1.0 is a good guess);
+           </li>
+           <li 
+  class="enumerate" id="x1-90x3">Lower  bound  on  the  valid  values.  It  is  usually  1.0,  if  <span 
+class="eurm-10x-x-120">&#x03BC;  </span>is
+           constrained to be 1.0. Do not forget that, for each nest <span 
+class="eurm-10x-x-120">i</span>, the
+           condition <span 
+class="eurm-10x-x-120">&#x03BC;</span><sub><span 
+class="eurm-10x-x-80">i</span></sub>  <span 
+class="cmsy-10x-x-120">&#x2265; </span><span 
+class="eurm-10x-x-120">&#x03BC; </span>must be verified to be consistent with discrete
+           choice theory;
+           </li>
+           <li 
+  class="enumerate" id="x1-92x4">Upper bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-94x5">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.
+           </li>
+           <li 
+  class="enumerate" id="x1-96x6">The  list  of  alternatives  belonging  to  the  nest,  numbered  as
+           specified in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Utilities]</span></span></span>. Make sure that each alternative
+           belongs  to  exactly  one  nest,  as  no  automatic  verification  is
+           implemented in BisonBiogeme.</li></ol>
+                                                                          
+
+                                                                          
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[CNLNests]</span> </dt><dd 
+class="description">This section is relevant only if the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$CNL</span></span></span> option has been selected in
+      Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Model]</span></span></span>. If the model to estimate is not a Cross-Nested Logit
+      model, the section will simply be ignored. Note that multilevel Cross-Nested
+      Logit models must be modeled as Network MEV models. Each row of
+      this section corresponds to a nest. Five entries are required per
+      row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-98x1">Nest name: the first character must be a letter (any case) or an
+           underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters, digits, underscore
+           (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white space;
+           </li>
+           <li 
+  class="enumerate" id="x1-100x2">Default value of the nest parameter <span 
+class="eurm-10x-x-120">&#x03BC;</span><sub><span 
+class="eurm-10x-x-80">m</span></sub>  that will be used as a
+           starting point for the estimation;
+           </li>
+           <li 
+  class="enumerate" id="x1-102x3">Lower  bound  on  the  valid  values.  It  is  usually  1.0,  if  <span 
+class="eurm-10x-x-120">&#x03BC;  </span>is
+           constrained to be 1.0. Do not forget that, for each nest <span 
+class="eurm-10x-x-120">i</span>, the
+           condition <span 
+class="eurm-10x-x-120">&#x03BC;</span><sub><span 
+class="eurm-10x-x-80">i</span></sub>  <span 
+class="cmsy-10x-x-120">&#x2265; </span><span 
+class="eurm-10x-x-120">&#x03BC; </span>must be verified to be consistent with discrete
+           choice theory;
+           </li>
+           <li 
+  class="enumerate" id="x1-104x4">Upper bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-106x5">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[CNLAlpha]</span> </dt><dd 
+class="description">This section is relevant only if the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$CNL</span></span></span> option has been selected in
+      Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Model]</span></span></span>. If the model to estimate is not a Cross-Nested Logit
+      model, the section will simply be ignored. Each row of this section
+      corresponds to a combination of a nest and an alternative. Six entries are
+      required per row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-108x1">Alternative name, as defined in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Utilities]</span></span></span>;
+           </li>
+           <li 
+  class="enumerate" id="x1-110x2">Nest name: the first character must be a letter (any case) or an
+           underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters, digits, underscore
+           (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white space;
+                                                                          
+
+                                                                          
+           </li>
+           <li 
+  class="enumerate" id="x1-112x3">Default value of the parameter capturing the level at which an
+           alternative belongs to a nest that will be used as a starting point
+           for the estimation;
+           </li>
+           <li 
+  class="enumerate" id="x1-114x4">Lower bound on the valid values (usually 0.0);
+           </li>
+           <li 
+  class="enumerate" id="x1-116x5">Upper bound on the valid values (usually 1.0);
+           </li>
+           <li 
+  class="enumerate" id="x1-118x6">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Ratios]</span> </dt><dd 
+class="description">It is sometimes useful to read the ratio of two estimated coefficients.
+      The most typical case is the value-of-time, being the ratio of the time
+      coefficient and the cost coefficient. This feature is only implemented for fixed
+      parameters. Computation of ratio of random parameters is not permitted.
+      Note that it is not straightforward to characterize the distribution of the
+      ratio of two random coefficients. <a 
+href="#XBenABoldBrad93">Ben-Akiva et&#x00A0;al.</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBenABoldBrad93">1993</a></span>) suggest a simple
+      approach that is directly implementable in BIOGEME to handle
+      ratio of random parameters. Each row in this section enables to
+      specify such ratios to be produced in the output file. Three entries are
+      required:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-120x1">The parameter (from Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>) being the numerator of the
+           ratio;
+           </li>
+           <li 
+  class="enumerate" id="x1-122x2">The parameter (from Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>) being the denominator of
+           the ratio;
+           </li>
+           <li 
+  class="enumerate" id="x1-124x3">The  name  of  the  ratio,  to  appear  in  the  output  file:  the  first
+           character must be a letter (any case) or an underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed
+           by a sequence of letters, digits, underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and
+           terminated by a white space.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[ConstraintNestCoef]</span> </dt><dd 
+class="description">It is possible to constrain nests parameters to
+      be equal. This is achieved by adding to this section expressions
+      like
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-17">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;NEST_A&#x00A0;=&#x00A0;NEST_B
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 803--><p class="nopar" > where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">NEST_A</span></span></span> and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">NEST_B</span></span></span> are names of nests defined in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[NLNests]</span></span></span>,
+      Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[CNLNests]</span></span></span> or Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[NetworkGEVNodes]</span></span></span>. This section will
+      become obsolete in future releases, as there is now a section for linear
+      constraints on the parameters: (Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[LinearConstraints]</span></span></span>).
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[NetworkGEVNodes]</span> </dt><dd 
+class="description">This section is relevant only if the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NGEV</span></span></span> option has been
+      selected in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Model]</span></span></span>. If the model to estimate is not a Network GEV
+      model, the section will be simply ignored. Each row of this section
+      corresponds to a node of the Network GEV model. All nodes of the Network
+      GEV model except the root and the alternatives must be listed
+      here, with their associated parameter. Five entries are required per
+      row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-126x1">Node name: the first character must be a letter (any case) or an
+           underscore (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>), followed by a sequence of letters, digits, underscore
+           (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">_</span></span></span>) or dashes (<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">-</span></span></span>), and terminated by a white space;
+           </li>
+           <li 
+  class="enumerate" id="x1-128x2">Default value of the node parameter <span 
+class="eurm-10x-x-120">&#x03BC;</span><sub><span 
+class="eurm-10x-x-80">j</span></sub>  that will be used as a
+           starting point for the estimation;
+           </li>
+           <li 
+  class="enumerate" id="x1-130x3">Lower  bound  on  the  valid  values.  It  is  usually  1.0.  Check  the
+           condition on the parameters for the model to be consistent with
+           the theory in <a 
+href="#XBier02">Bierlaire</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBier02">2002</a></span>);
+           </li>
+           <li 
+  class="enumerate" id="x1-132x4">Upper bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-134x5">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[NetworkGEVLinks]</span> </dt><dd 
+class="description">This section is relevant only if the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NGEV</span></span></span> option has been
+                                                                          
+
+                                                                          
+      selected in Section [Model]. If the model to estimate is not a Network GEV
+      model, the section will be simply ignored. Each row of this section
+      corresponds to a link of the Network GEV model, starting from the <span 
+class="eurm-10x-x-120">a</span>-node
+      to the <span 
+class="eurm-10x-x-120">b</span>-node. The root node is denoted by <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">__ROOT</span></span></span>. All other nodes must be
+      either an alternative or a node listed in the section [NetworkGEVNodes].
+      Note that an alternative cannot be the <span 
+class="eurm-10x-x-120">a</span>-node of any link, and the root
+      node cannot be the <span 
+class="eurm-10x-x-120">b</span>-node of any link. Six entries are required per
+      row:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-136x1">Name of the <span 
+class="eurm-10x-x-120">a</span>-node: it must be either <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">__ROOT</span></span></span> or a node listed in
+           the section [NetworkGEVNodes].
+           </li>
+           <li 
+  class="enumerate" id="x1-138x2">Name of the <span 
+class="eurm-10x-x-120">b</span>-node: it must be either a node listed in the section
+           [NetworkGEVNodes], or the name of an alternative.
+           </li>
+           <li 
+  class="enumerate" id="x1-140x3">Default value of the link parameter that will be used as a starting
+           point for the estimation;
+           </li>
+           <li 
+  class="enumerate" id="x1-142x4">Lower bound on the valid values.
+           </li>
+           <li 
+  class="enumerate" id="x1-144x5">Upper bound on the valid values;
+           </li>
+           <li 
+  class="enumerate" id="x1-146x6">Status, which is 0 if the parameter must be estimated, or 1 if the
+           parameter has to be maintained at the given value.</li></ol>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[LinearConstraints]</span> </dt><dd 
+class="description">In this section, the user can define a list of linear
+      constraints, in one of the following syntaxes:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-148x1">Formula = number,
+           </li>
+           <li 
+  class="enumerate" id="x1-150x2">Formula <span 
+class="cmsy-10x-x-120">&#x2264; </span>number,
+           </li>
+           <li 
+  class="enumerate" id="x1-152x3">Formula <span 
+class="cmsy-10x-x-120">&#x2265; </span>number.</li></ol>
+      <!--l. 858--><p class="noindent" >The syntax is formally defined as follows:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-18">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;oneConstraint&#x00A0;:&#x00A0;equation&#x00A0;&#x003C;=&#x00A0;numberParam&#x00A0;|
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;equation&#x00A0;=&#x00A0;numberParam&#x00A0;|
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;equation&#x00A0;&#x003E;=&#x00A0;numberParam
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;equation:&#x00A0;eqTerm&#x00A0;|
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-&#x00A0;eqTerm&#x00A0;|
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;equation&#x00A0;+&#x00A0;eqTerm&#x00A0;&#x00A0;|
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;equation&#x00A0;-&#x00A0;eqTerm
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;eqTerm:&#x00A0;parameter&#x00A0;|&#x00A0;numberParam&#x00A0;*&#x00A0;parameter
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 868--><p class="nopar" >
+      <!--l. 870--><p class="noindent" >For example, the constraint
+      <center class="math-display" >
+      <img 
+src="bisonsyntax1x.png" alt="&#x2211;
+    ASCi  = 0. 0
+  i
+      " class="math-display" ></center>
+      <!--l. 873--><p class="nopar" > is written
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-19">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ASC1&#x00A0;+&#x00A0;ASC2&#x00A0;+&#x00A0;ASC3&#x00A0;+&#x00A0;ASC4&#x00A0;+&#x00A0;ASC5&#x00A0;+&#x00A0;ASC6&#x00A0;=&#x00A0;0.0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 877--><p class="nopar" > and the constraint
+      <center class="math-display" >
+      <img 
+src="bisonsyntax2x.png" alt="&#x03BC; &#x2264;  &#x03BC;j
+      " class="math-display" ></center>
+      <!--l. 881--><p class="nopar" > is written
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-20">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;MU&#x00A0;-&#x00A0;MUJ&#x00A0;&#x003C;=&#x00A0;0.0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 885--><p class="nopar" > or
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-21">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;MUJ&#x00A0;-&#x00A0;MU&#x00A0;&#x003E;=&#x00A0;0.0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 889--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[NonLinearEqualityConstraints]</span> </dt><dd 
+class="description">In this section, the user can define a list of
+      nonlinear equality constraints of the form
+      <center class="math-display" >
+      <img 
+src="bisonsyntax3x.png" alt="h (x ) = 0.0.
+      " class="math-display" ></center>
+      <!--l. 895--><p class="nopar" > The section must contain a list of functions <span 
+class="eurm-10x-x-120">h</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="eurm-10x-x-120">x</span><span 
+class="eufm-10x-x-120">)</span>. For example, the
+      constraint
+      <center class="math-display" >
+      <img 
+src="bisonsyntax4x.png" alt="&#x03B1;&#x03BC;a + &#x03B1;&#x03BC;b = 1
+ a1    b1
+      " class="math-display" ></center>
+      <!--l. 899--><p class="nopar" > is written
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-22">
+      &#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;[NonLinearEqualityConstraints]
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ALPHA_A1&#x00A0;^&#x00A0;MU_A&#x00A0;&#x00A0;+&#x00A0;ALPHA_B1&#x00A0;^&#x00A0;MU_B&#x00A0;-&#x00A0;1.0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+</div>
+      <!--l. 904--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[NonLinearInequalityConstraints]</span> </dt><dd 
+class="description">BisonBiogeme&#x00A0;is not able to handle
+      nonlinear inequality constraints yet. Note that the constraint
+      <center class="math-display" >
+      <img 
+src="bisonsyntax5x.png" alt="h (x) &#x003C;=  0
+      " class="math-display" ></center>
+      <!--l. 911--><p class="nopar" > is equivalent to
+      <center class="math-display" >
+      <img 
+src="bisonsyntax6x.png" alt="h(x) + z2 = 0,
+      " class="math-display" ></center>
+      <!--l. 915--><p class="nopar" > where <span 
+class="eurm-10x-x-120">z </span>is an additional variable (called <span 
+class="cmti-12">slack </span>variable).
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[DiscreteDistributions]</span> </dt><dd 
+class="description">Provide here the list of random parameters with a
+      discrete distribution, or <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">$NONE</span></span></span> if there are none in the model. Each discrete
+      parameter is described using the following syntax:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-23">
+      nameDiscreteParam&#x00A0;&#x003C;&#x00A0;listOfDiscreteTerms&#x00A0;&#x003E;
+</div>
+      <!--l. 922--><p class="nopar" > where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">nameDiscreteParam</span></span></span> is the name of the random parameter, and
+      <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">listOfDiscreteTerms</span></span></span> is recursively defined as
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-24">
+      oneDiscreteTerm&#x00A0;|
+      &#x00A0;<br />listOfDiscreteTerms&#x00A0;oneDiscreteTerm
+</div>
+      <!--l. 928--><p class="nopar" > where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">oneDiscreteTerm</span></span></span> is defined as
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-25">
+      nameValueParam&#x00A0;(&#x00A0;nameProbaParam&#x00A0;)
+</div>
+      <!--l. 932--><p class="nopar" > where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">nameValueParam</span></span></span> is the name of the parameter capturing the discrete
+      value of the random parameter, and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">nameProbaParam</span></span></span> is the name of the
+      parameter capturing the associated probability. Both must be defined in
+      Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>. As an example,
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-26">
+      [DiscreteDistributions]
+      &#x00A0;<br />BETA1&#x00A0;&#x003C;&#x00A0;B1&#x00A0;(&#x00A0;W1&#x00A0;)&#x00A0;B2&#x00A0;(&#x00A0;W2&#x00A0;)&#x00A0;&#x003E;
+</div>
+      <!--l. 937--><p class="nopar" > defines a random parameter <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA1</span></span></span>, which takes the value <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">B1</span></span></span> with
+      probability (or weight) <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">W1</span></span></span>, and the value <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">B2</span></span></span> with probability <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">W2</span></span></span>. Note that
+      for this to make sense, the constraint <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">W1</span><span 
+class="cmtt-12">&#x00A0;+</span><span 
+class="cmtt-12">&#x00A0;W2</span><span 
+class="cmtt-12">&#x00A0;=</span><span 
+class="cmtt-12">&#x00A0;1.0</span></span></span> should be imposed
+      (Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[LinearConstraints]</span></span></span>). Note also that the parameter <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA1</span></span></span> must
+      not appear in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[AggregateLast]</span> </dt><dd 
+class="description">This section is relevant when the observation corresponds to a
+      latent choice (see <a 
+href="#XBierFrej07">Bierlaire and&#x00A0;Frejinger</a>,&#x00A0;<a 
+href="#XBierFrej07">2008</a> and next section). It
+      contains a boolean which, for each row in the sample file, identifies if it is
+      the last observation in an aggregate. Make sure that the value for the last
+      row is nonzero. As all booleans in BisonBiogeme, a numerical value of
+      0 means &#8220;FALSE&#8221; and a numerical value different from 0 means
+      &#8220;TRUE&#8221;. Any expression described in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span> is valid
+      here.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[AggregateWeight]</span> </dt><dd 
+class="description">This section is relevant when the observation correspnds to a
+      latent choice. A choice is said to be &#8220;latent&#8221; when it is not directly observed.
+      This idea has been proposed by <a 
+href="#XBierFrej07">Bierlaire and&#x00A0;Frejinger</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBierFrej07">2008</a></span>) in a route
+      choice context where the actual chosen route was not directly observed.
+      Instead, the respondent reported a sequence of locations that they traversed.
+      In many cases, several routes in the network may have produced the same
+      reported locations.
+      <!--l. 956--><p class="noindent" >Each observation consists of an aggregate, a set of actual alternatives that
+      may correspond to the observed situations. If <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-43.png" alt="C" class="10-120x-x-43" /></span><sub></sub>obs is the observed
+      aggregate, than the probability given by the choice model is
+      <table 
+class="equation"><tr><td><a 
+ id="x1-153r1"></a>
+      <center class="math-display" >
+                                                                          
+
+                                                                          
+      <img 
+src="bisonsyntax7x.png" alt="         &#x2211;
+P(Cobs) =    P(Cobs| i)P (i|C).
+          i&#x2208;C
+      " class="math-display" ></center></td><td class="equation-label">(1)</td></tr></table>
+      <!--l. 962--><p class="nopar" >
+      <!--l. 964--><p class="noindent" >Equation <span 
+class="eurm-10x-x-120">P</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-43.png" alt="C" class="10-120x-x-43" /></span><sub></sub>obs<span 
+class="eusm-10x-x-120">|</span><span 
+class="eurm-10x-x-120">i</span><span 
+class="eufm-10x-x-120">) </span>can be viewed as a measurement equation, and
+      represents the probability to observe <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-43.png" alt="C" class="10-120x-x-43" /></span><sub></sub>obs if <span 
+class="eurm-10x-x-120">i </span>was the actual choice.
+      <!--l. 968--><p class="noindent" >In BisonBiogeme, an aggregate observation is represented by a consecutive
+      sequence of elemental observations, associated with the probability
+      <span 
+class="eurm-10x-x-120">P</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-43.png" alt="C" class="10-120x-x-43" /></span><sub></sub>obs<span 
+class="eusm-10x-x-120">|</span><span 
+class="eurm-10x-x-120">i</span><span 
+class="eufm-10x-x-120">)</span>. Two additional sections in the model specification file are
+      used for the specification: section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[AggregateLast]</span></span></span> (see above) and
+      section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[AggregateWeight]</span></span></span>, that associates a weight to elemental
+      observations of an aggregate. It corresponds to the term <span 
+class="eurm-10x-x-120">P</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-43.png" alt="C" class="10-120x-x-43" /></span><sub></sub>obs<span 
+class="eusm-10x-x-120">|</span><span 
+class="eurm-10x-x-120">i</span><span 
+class="eufm-10x-x-120">) </span>in Eq.
+      (<a 
+href="#x1-153r1">1<!--tex4ht:ref: eq:latentChoice --></a>). Any expression described in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span> is valid
+      here.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[LaTeX]</span> </dt><dd 
+class="description">This section allows to define a description of each parameter to be used
+      in the <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>&#x00A0;file. For instance, the following section
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-27">
+      [LaTeX]
+      &#x00A0;<br />ASC1&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;1"
+      &#x00A0;<br />ASC2&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;2"
+      &#x00A0;<br />ASC3&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;3"
+      &#x00A0;<br />ASC4&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;4"
+      &#x00A0;<br />ASC5&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;5"
+      &#x00A0;<br />ASC6&#x00A0;&#x00A0;&#x00A0;"Constant&#x00A0;for&#x00A0;alt.&#x00A0;6"
+      &#x00A0;<br />BETA1&#x00A0;&#x00A0;"$\beta_1$"
+      &#x00A0;<br />BETA2&#x00A0;&#x00A0;"$\beta_2$"
+</div>
+      <!--l. 988--><p class="nopar" > will produce the following table:
+      <div class="center" 
+>
+<!--l. 990--><p class="noindent" >
+<div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"><col 
+id="TBL-2-2"><col 
+id="TBL-2-3"><col 
+id="TBL-2-4"><col 
+id="TBL-2-5"><col 
+id="TBL-2-6"><col 
+id="TBL-2-7"><col 
+id="TBL-2-8"><col 
+id="TBL-2-9"><col 
+id="TBL-2-10"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-1-1"  
+class="td11">        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
+class="td11">                  </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-1-3"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div>          </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-1-5"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10x-x-109">Robust</span></div>   </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-1-7"  
+class="td10"></td> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-2-1"  
+class="td11"> <span 
+class="cmr-10x-x-109">Variable </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
+class="td11"> </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-2-3"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10x-x-109">Coeff.</span></div></td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-2-5"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10x-x-109">Asympt.</span></div></td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-2-7"  
+class="td10"></td><div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-3-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">number  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Description           </span></td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-3-3"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10x-x-109">estimate</span></div>  </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-3-5"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10x-x-109">std. error</span></div> </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-3-7"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="eurm-10x-x-109">t</span><span 
+class="cmr-10x-x-109">-stat</span></div>   </td><td colspan="2" style="white-space:nowrap; text-align:right;" id="TBL-2-3-9"  
+class="td10"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="eurm-10x-x-109">p</span><span 
+class="cmr-10x-x-109">-value</span></div>
+</td></tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-4-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">1  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Constant for alt. 2  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-4-3"  
+class="td10"> <span 
+class="cmr-10x-x-109">-0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-4"  
+class="td01"><span 
+class="cmr-10x-x-109">159   </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-4-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-6"  
+class="td01"><span 
+class="cmr-10x-x-109">106    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-4-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">-1.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-8"  
+class="td01"><span 
+class="cmr-10x-x-109">49  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-4-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-10"  
+class="td01"><span 
+class="cmr-10x-x-109">13   </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-5-1"  
+class="td11"> <span 
+class="cmr-10x-x-109">2 </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Constant for alt. 3 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-5-3"  
+class="td10"> <span 
+class="cmr-10x-x-109">-0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-4"  
+class="td01"><span 
+class="cmr-10x-x-109">0869 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-5-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-6"  
+class="td01"><span 
+class="cmr-10x-x-109">111 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-5-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">-0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-8"  
+class="td01"><span 
+class="cmr-10x-x-109">78 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-5-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-10"  
+class="td01"><span 
+class="cmr-10x-x-109">43</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-6-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">3  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Constant for alt. 4  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-6-3"  
+class="td10"> <span 
+class="cmr-10x-x-109">-0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-4"  
+class="td01"><span 
+class="cmr-10x-x-109">511   </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-6-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-6"  
+class="td01"><span 
+class="cmr-10x-x-109">172    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-6-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">-2.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-8"  
+class="td01"><span 
+class="cmr-10x-x-109">97  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-6-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-10"  
+class="td01"><span 
+class="cmr-10x-x-109">00   </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-7-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">4  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Constant for alt. 5  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-7-3"  
+class="td10">  <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-4"  
+class="td01"><span 
+class="cmr-10x-x-109">719   </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-7-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-6"  
+class="td01"><span 
+class="cmr-10x-x-109">158    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-7-7"  
+class="td10">  <span 
+class="cmr-10x-x-109">4.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-8"  
+class="td01"><span 
+class="cmr-10x-x-109">54  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-7-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-10"  
+class="td01"><span 
+class="cmr-10x-x-109">00   </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-8-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">5  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-2"  
+class="td11"> <span 
+class="cmr-10x-x-109">Constant for alt. 6  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-8-3"  
+class="td10"> <span 
+class="cmr-10x-x-109">-1.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-4"  
+class="td01"><span 
+class="cmr-10x-x-109">39     </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-8-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-6"  
+class="td01"><span 
+class="cmr-10x-x-109">195    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-8-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">-7.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-8"  
+class="td01"><span 
+class="cmr-10x-x-109">12  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-8-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-10"  
+class="td01"><span 
+class="cmr-10x-x-109">00   </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-9-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">6  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-2"  
+class="td11"> <span 
+class="eurm-10x-x-109">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">1</span></sub>                               </td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-9-3"  
+class="td10">  <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-4"  
+class="td01"><span 
+class="cmr-10x-x-109">779   </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-9-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-6"  
+class="td01"><span 
+class="cmr-10x-x-109">0301  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-9-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">25.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-8"  
+class="td01"><span 
+class="cmr-10x-x-109">85  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-9-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-10"  
+class="td01"><span 
+class="cmr-10x-x-109">00   </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-10-1"  
+class="td11">       <span 
+class="cmr-10x-x-109">7  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-2"  
+class="td11"> <span 
+class="eurm-10x-x-109">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">2</span></sub>                               </td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-10-3"  
+class="td10">  <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-4"  
+class="td01"><span 
+class="cmr-10x-x-109">810   </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-10-5"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-6"  
+class="td01"><span 
+class="cmr-10x-x-109">0307  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-10-7"  
+class="td10"> <span 
+class="cmr-10x-x-109">26.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-8"  
+class="td01"><span 
+class="cmr-10x-x-109">42  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-2-10-9"  
+class="td10"> <span 
+class="cmr-10x-x-109">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-10"  
+class="td01"><span 
+class="cmr-10x-x-109">00   </span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-11-1"  
+class="td11">         </td>
+</tr></table>
+</div> </div>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[Derivatives]</span> </dt><dd 
+class="description">
+      <!--l. 1016--><p class="noindent" ><span 
+class="cmbx-12">This section is for advanced users only. Use it at your own risk. If</span>
+      <span 
+class="cmbx-12">you feel that you need it, you may seriously consider using</span>
+      <span 
+class="cmbx-12">PythonBiogeme instead of BisonBiogeme.</span>
+      <!--l. 1018--><p class="noindent" >When nonlinear utility functions are used, BisonBiogeme&#x00A0;computes
+      automatically the derivatives needed by the maximum likelihood procedure.
+      However, this automatic derivation can significantly slow down the
+      estimation process, as no simplification is performed. This section allows the
+      user to provide BisonBiogeme&#x00A0;with the analytical derivatives of the
+      utility function, in order to speed up the estimation process. In
+      some instances, half the estimation time was spared thanks to this
+      feature.
+                                                                          
+
+                                                                          
+      <!--l. 1025--><p class="noindent" >A row must be provided for each combination of nonlinear utilities (defined
+      in the Section Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[GeneralizedUtilities]</span></span></span>) and parameters involved
+      in the formula. Each of these rows contains three items:
+           <ul class="itemize1">
+           <li class="itemize">the identifier of the alternative,
+           </li>
+           <li class="itemize">the name of the parameter,
+           </li>
+           <li class="itemize">the formula of the derivative.</li></ul>
+      <!--l. 1036--><p class="noindent" >For instance, assume that the systematic utility of alternative 1
+      is
+      <center class="math-display" >
+      <img 
+src="bisonsyntax8x.png" alt="                (x11 + 10 )&#x03BB;11 - 1    (x12 + 10)&#x03BB;12 - 1
+V1 = ASC1  + &#x03B2;1 ----------------+  &#x03B2;2----------------
+                      &#x03BB;11                   &#x03BB;12
+      " class="math-display" ></center>
+      <!--l. 1039--><p class="nopar" > so that
+      <center class="math-display" >
+      <img 
+src="bisonsyntax9x.png" alt="&#x2202;V1-     (x11 +-10)&#x03BB;11---1
+&#x03B2;    =          &#x03BB;
+  1              11
+                   &#x03BB;12
+&#x2202;V1- =   (x12 +-10)-----1
+&#x03B2;2              &#x03BB;12
+
+&#x2202;V1         (x11 +  10)&#x03BB;11&#x03BB;11ln(x11 + 10) - (x11 + 10)&#x03BB;11 + 1
+---- =   &#x03B2;1 ----------------------2------------------------
+&#x03BB;11                   &#x03BB;12         &#x03BB;11               &#x03BB;12
+&#x2202;V1- =   &#x03B2;2 (x12-+--10)--&#x03BB;12ln(x12-+-10) --(x12 +-10)--+--1-
+&#x03BB;12                              &#x03BB;212
+      " class="math-display" ></center>
+      <!--l. 1050--><p class="nopar" > which is coded in BisonBiogeme&#x00A0;as follows:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-28">
+      [Utilities]
+      &#x00A0;<br />//&#x00A0;Id&#x00A0;Name&#x00A0;&#x00A0;Avail&#x00A0;&#x00A0;linear-in-parameter&#x00A0;expression&#x00A0;(beta1*x1&#x00A0;+&#x00A0;beta2*x2&#x00A0;+&#x00A0;...&#x00A0;)
+      &#x00A0;<br />&#x00A0;&#x00A0;1&#x00A0;&#x00A0;&#x00A0;Alt1&#x00A0;&#x00A0;&#x00A0;av1&#x00A0;&#x00A0;&#x00A0;ASC1&#x00A0;*&#x00A0;one
+      &#x00A0;<br />&#x00A0;&#x00A0;.
+      &#x00A0;<br />&#x00A0;&#x00A0;.
+      &#x00A0;<br />[GeneralizedUtilities]
+      &#x00A0;<br />1&#x00A0;&#x00A0;BETA1&#x00A0;*&#x00A0;((x11&#x00A0;+&#x00A0;10&#x00A0;)&#x00A0;^&#x00A0;LAMBDA11&#x00A0;-&#x00A0;1)&#x00A0;/&#x00A0;LAMBDA11&#x00A0;+
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;BETA2&#x00A0;*&#x00A0;((x12&#x00A0;+&#x00A0;10&#x00A0;)&#x00A0;^&#x00A0;LAMBDA12&#x00A0;-&#x00A0;1)&#x00A0;/&#x00A0;LAMBDA12
+      &#x00A0;<br />
+      &#x00A0;<br />[Derivatives]
+      &#x00A0;<br />1&#x00A0;BETA1&#x00A0;((x11&#x00A0;+&#x00A0;10&#x00A0;)&#x00A0;^&#x00A0;LAMBDA11&#x00A0;-&#x00A0;1)&#x00A0;/&#x00A0;LAMBDA11
+      &#x00A0;<br />1&#x00A0;BETA2&#x00A0;((x12&#x00A0;+&#x00A0;10&#x00A0;)&#x00A0;^&#x00A0;LAMBDA12&#x00A0;-&#x00A0;1)&#x00A0;/&#x00A0;LAMBDA12
+      &#x00A0;<br />1&#x00A0;LAMBDA11
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BETA1&#x00A0;*&#x00A0;((x11&#x00A0;+&#x00A0;10)&#x00A0;^&#x00A0;LAMBDA11&#x00A0;*&#x00A0;LN(x11&#x00A0;+&#x00A0;10)&#x00A0;*&#x00A0;LAMBDA11
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-&#x00A0;(x11&#x00A0;+&#x00A0;10)&#x00A0;^&#x00A0;LAMBDA11&#x00A0;+&#x00A0;1)&#x00A0;/&#x00A0;(LAMBDA11&#x00A0;*&#x00A0;LAMBDA11&#x00A0;)
+      &#x00A0;<br />1&#x00A0;LAMBDA12
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BETA2&#x00A0;*&#x00A0;((x12&#x00A0;+&#x00A0;10)&#x00A0;^&#x00A0;LAMBDA12&#x00A0;*&#x00A0;LN(x12&#x00A0;+&#x00A0;10)&#x00A0;*&#x00A0;LAMBDA12
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-&#x00A0;(x12&#x00A0;+&#x00A0;10)&#x00A0;^&#x00A0;LAMBDA12&#x00A0;+&#x00A0;1)&#x00A0;/&#x00A0;(LAMBDA12&#x00A0;*&#x00A0;LAMBDA12&#x00A0;)
+</div>
+      <!--l. 1071--><p class="nopar" >
+      <!--l. 1074--><p class="noindent" >In addition to usual expressions, the formula may contain the following
+      instruction:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-29">
+      $DERIV(&#x00A0;formula&#x00A0;,&#x00A0;param&#x00A0;)
+</div>
+      <!--l. 1077--><p class="nopar" > which means that you ask BisonBiogeme&#x00A0;to perform the derivation of the
+      formula for you. Although it may be useful to simplify the coding of the
+      derivatives, it is mandatory to use it for random parameters.
+      <!--l. 1082--><p class="noindent" >If <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span><span 
+class="cmtt-12">&#x00A0;[</span><span 
+class="cmtt-12">&#x00A0;SIGMA</span><span 
+class="cmtt-12">&#x00A0;]</span></span></span> is a random parameter, its derivative with respect to
+      <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span></span></span> is 1, but its derivative with respect to <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">SIGMA</span></span></span> cannot be written by the
+      user, and must be coded
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-30">
+      $DERIV(&#x00A0;BETA&#x00A0;[&#x00A0;SIGMA&#x00A0;]&#x00A0;,&#x00A0;SIGMA&#x00A0;)
+</div>
+      <!--l. 1088--><p class="nopar" >
+      <!--l. 1090--><p class="noindent" >For instance, assume that the nonlinear utilities are defined as
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-31">
+      1&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x11
+      &#x00A0;<br />2&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x21
+</div>
+      <!--l. 1094--><p class="nopar" > The derivatives are coded as follows:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-32">
+      [Derivatives]
+      &#x00A0;<br />1&#x00A0;BETA1&#x00A0;&#x00A0;&#x00A0;&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x11
+      &#x00A0;<br />1&#x00A0;SIGMA1&#x00A0;&#x00A0;&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x11
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;*&#x00A0;$DERIV(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;,&#x00A0;SIGMA1&#x00A0;)
+      &#x00A0;<br />2&#x00A0;BETA1&#x00A0;&#x00A0;&#x00A0;&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x21
+      &#x00A0;<br />2&#x00A0;SIGMA1&#x00A0;&#x00A0;&#x00A0;exp(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;)&#x00A0;*&#x00A0;x21
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;*&#x00A0;$DERIV(&#x00A0;BETA1&#x00A0;[&#x00A0;SIGMA1&#x00A0;]&#x00A0;,&#x00A0;SIGMA1&#x00A0;)
+</div>
+      <!--l. 1104--><p class="nopar" >
+      <!--l. 1114--><p class="noindent" ><span 
+class="cmbx-12">It is very easy to do an error in coding the analytical derivatives.</span>
+      <span 
+class="cmbx-12">If there is an error, BisonBiogeme</span><span 
+class="cmbx-12">&#x00A0;will not be able to estimate the</span>
+      <span 
+class="cmbx-12">parameters, and will not even be able to detect that there is an</span>
+      <span 
+class="cmbx-12">error. Therefore, we strongly suggest to set the parameter</span>
+      <span 
+class="cmtt-12">gevCheckDerivatives </span><span 
+class="cmbx-12">to 1 and make sure that the numerical</span>
+      <span 
+class="cmbx-12">derivatives match sufficiently well the analytical derivatives. Also,</span>
+      <span 
+class="cmbx-12">estimate the model with few observations and few draws, once</span>
+      <span 
+class="cmbx-12">with and once without this section. The results should be exactly</span>
+      <span 
+class="cmbx-12">the same.</span>
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[SNP]</span> </dt><dd 
+class="description">This section allows to implement the test proposed by <a 
+href="#XFosgBier07">Fosgerau
+      and&#x00A0;Bierlaire</a>&#x00A0;(<span class="bib-year"><a 
+href="#XFosgBier07">2007</a></span>) (read the paper first if you are not familiar with the
+      test). The section is composed of two things:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-155x1">The name of the random parameter to be tested. If this parameter
+           appears in the utility function as <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span><span 
+class="cmtt-12">&#x00A0;[</span><span 
+class="cmtt-12">&#x00A0;SIGMA</span><span 
+class="cmtt-12">&#x00A0;]</span></span></span>, its name in
+           this section must be typed <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA_SIGMA</span></span></span>.
+           </li>
+           <li 
+  class="enumerate" id="x1-157x2">A list of positive integers associated with a parameter. The integer
+           is the degree of the Legendre polynomial, and the parameter the
+           associated coefficient in the development. Note that the name of
+           the parameter must appear in Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Beta]</span></span></span>.</li></ol>
+      <!--l. 1124--><p class="noindent" >For instance, if parameter <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">BETA</span><span 
+class="cmtt-12">&#x00A0;[</span><span 
+class="cmtt-12">&#x00A0;SIGMA</span><span 
+class="cmtt-12">&#x00A0;]</span></span></span> is tested using a seminonparametric
+      development defined by
+                                                                          
+
+                                                                          
+      <center class="math-display" >
+      <img 
+src="bisonsyntax10x.png" alt="1 + &#x03B4; L (x) + &#x03B4; L (x) + &#x03B4; L (x),
+     1 1       3 3       4 4
+      " class="math-display" ></center>
+      <!--l. 1127--><p class="nopar" > the syntax in BisonBiogeme&#x00A0;is
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-33">
+      [Beta]
+      &#x00A0;<br />//&#x00A0;Name&#x00A0;&#x00A0;Value&#x00A0;LowerBound&#x00A0;UpperBound&#x00A0;&#x00A0;status&#x00A0;(0=variable,&#x00A0;1=fixed)
+      &#x00A0;<br />....
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;BETA&#x00A0;&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;SIGMA&#x00A0;1&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;SMP1&#x00A0;&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;SMP3&#x00A0;&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;SMP4&#x00A0;&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;-10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;10000&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;0
+      &#x00A0;<br />
+      &#x00A0;<br />[SNP]
+      &#x00A0;<br />//&#x00A0;Define&#x00A0;the&#x00A0;coefficients&#x00A0;of&#x00A0;the&#x00A0;series
+      &#x00A0;<br />//&#x00A0;generated&#x00A0;by&#x00A0;the&#x00A0;Legendre&#x00A0;polynomials
+      &#x00A0;<br />BETA_SIGMA
+      &#x00A0;<br />1&#x00A0;SMP1
+      &#x00A0;<br />3&#x00A0;SMP3
+      &#x00A0;<br />4&#x00A0;SMP4
+</div>
+      <!--l. 1147--><p class="nopar" >
+      <!--l. 1150--><p class="noindent" >Note that only one random parameter can be transformed at a
+      time.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[OrdinalLogit]</span> </dt><dd 
+class="description">The parameters of ordinal binary logit models can be estimated.
+      <span 
+class="cmbx-12">However, this feature has not been fully tested, and should be</span>
+      <span 
+class="cmbx-12">seen as a prototype. Thank you for reporting any bug. </span>The segments
+      of the utility difference space must be numbered in a sequential way,
+      increasing from the leftmost to the rightmost. In this section, each segment
+      must be associated with its lower bound, except the first (because its lower
+      bound is <span 
+class="eufm-10x-x-120">-</span><span 
+class="euex-10x-x-120">&#x221E;</span>). For instance, if there are 4 segments the following syntax is
+      used:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-34">
+      [Beta]
+      &#x00A0;<br />....
+      &#x00A0;<br />tau1&#x00A0;0.3&#x00A0;-1000&#x00A0;1000&#x00A0;1
+      &#x00A0;<br />tau2&#x00A0;0.4&#x00A0;-1000&#x00A0;1000&#x00A0;0
+      &#x00A0;<br />tau3&#x00A0;0.5&#x00A0;-1000&#x00A0;1000&#x00A0;0
+      &#x00A0;<br />
+      &#x00A0;<br />[OrdinalLogit]
+      &#x00A0;<br />1&#x00A0;$NONE&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;&#x00A0;-infty&#x00A0;--&#x003E;&#x00A0;tau1
+      &#x00A0;<br />2&#x00A0;tau1&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;&#x00A0;tau1&#x00A0;&#x00A0;&#x00A0;--&#x003E;&#x00A0;tau2
+      &#x00A0;<br />3&#x00A0;tau2&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;&#x00A0;tau2&#x00A0;&#x00A0;&#x00A0;--&#x003E;&#x00A0;tau3
+      &#x00A0;<br />4&#x00A0;tau3&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;&#x00A0;tau3&#x00A0;&#x00A0;&#x00A0;--&#x003E;&#x00A0;+infty
+      &#x00A0;<br />
+      &#x00A0;<br />[LinearConstraints]
+      &#x00A0;<br />tau1&#x00A0;-&#x00A0;tau2&#x00A0;&#x003C;=&#x00A0;0
+      &#x00A0;<br />tau2&#x00A0;-&#x00A0;tau3&#x00A0;&#x003C;=&#x00A0;0
+</div>
+      <!--l. 1179--><p class="nopar" >
+      <!--l. 1181--><p class="noindent" >Note that the constraints impose that the segments are well-defined. Recall
+      also that the characters <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">//</span></span></span> represent a comment in the file and they are not
+      interpreted by BisonBiogeme, as well as all remaining characters on the
+      same line. Therefore, the following syntax for that section is completely
+      equivalent:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-35">
+      [OrdinalLogit]
+      &#x00A0;<br />1&#x00A0;$NONE
+      &#x00A0;<br />2&#x00A0;tau1
+      &#x00A0;<br />3&#x00A0;tau2
+      &#x00A0;<br />4&#x00A0;tau3
+</div>
+      <!--l. 1189--><p class="nopar" >
+      <!--l. 1191--><p class="noindent" >However, we strongly advise to use comments in order to clearly identify the
+      segments.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[SampleEnum]</span> </dt><dd 
+class="description">This section is ignored by BIOGEME. It is used by Biosim and
+      contains the number of simulations to perform in the sample enumeration
+      step.
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[ZhengFosgerau]</span> </dt><dd 
+class="description">This section is ignored by BIOGEME. It is used by Biosim and
+      contains instructions to perform the Zheng-Fosgerau specification test and
+      residual analysis. Make sure to read the paper by <a 
+href="#XFosg08">Fosgerau</a>&#x00A0;(<span class="bib-year"><a 
+href="#XFosg08">2008</a></span>) before
+      using this section.
+      <!--l. 1201--><p class="noindent" >There is a line for each test, containing four items:
+           <ol  class="enumerate1" >
+           <li 
+  class="enumerate" id="x1-159x1">The first item defines the function <span 
+class="eurm-10x-x-120">t </span>introduced by <a 
+href="#XFosg08">Fosgerau</a>&#x00A0;(<span class="bib-year"><a 
+href="#XFosg08">2008</a></span>)
+           to reduce the dimensionality of the test. It is typically either
+           the probability of an alternative, or an expression involving
+           coefficients and attributes of the models, as soon as the expression is
+           continuous and not discrete. If it is a probability, the syntax
+           is
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-36">
+           $P&#x00A0;{&#x00A0;AltName&#x00A0;}
+</div>
+           <!--l. 1211--><p class="nopar" > where <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">AltName</span></span></span> is the name of the alternative as defined in
+           Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Utilities]</span></span></span>. If it is a general expression, the syntax
+           is
+                                                                          
+
+                                                                          
+           <div class="verbatim" id="verbatim-37">
+           $E&#x00A0;{&#x00A0;expr&#x00A0;}
+</div>
+           <!--l. 1217--><p class="nopar" > where <span 
+class="cmtt-12">expr </span>is an expression complying with the syntax of
+           Section <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">[Expressions]</span></span></span>. However, it may also contain estimated
+           parameters.
+           </li>
+           <li 
+  class="enumerate" id="x1-161x2">The second item is a parameter <span 
+class="eurm-10x-x-120">c </span>used to define the bandwidth for the
+           nonparametric regression performed by the test (see end of Section 2.1
+           in <a 
+href="#XFosg08">Fosgerau</a>,&#x00A0;<a 
+href="#XFosg08">2008</a>). The bandwidth used by Biosim is defined as
+           <span 
+class="eurm-10x-x-120">c&#x2215;</span><img 
+src="bisonsyntax11x.png" alt="&#x221A; --
+  n"  class="sqrt" >, where <span 
+class="eurm-10x-x-120">n </span>is the sample size. Most users will use the value
+           <span 
+class="eurm-10x-x-120">c </span><span 
+class="eufm-10x-x-120">= </span><span 
+class="eurm-10x-x-120">1</span>.
+           </li>
+           <li 
+  class="enumerate" id="x1-163x3">The third and the fourth item are lower and upper bounds (resp.)
+           Values of <span 
+class="eurm-10x-x-120">t </span>outside of the bounds will not be used in the produced
+           pictures. It is good practice to use wide bounds first, and to adjust
+           them in order to obtain decent pictures. Note that if <span 
+class="eurm-10x-x-120">t </span>is a
+           probability, it does not make sense to have bounds wider and
+           <span 
+class="eufm-10x-x-120">[</span><span 
+class="eurm-10x-x-120">0 </span><span 
+class="eufm-10x-x-120">: </span><span 
+class="eurm-10x-x-120">1</span><span 
+class="eufm-10x-x-120">]</span>.
+           </li>
+           <li 
+  class="enumerate" id="x1-165x4">The last item is the name of the function <span 
+class="eurm-10x-x-120">t</span>, used in the report. Make
+           sure to put the name between double-quotes.</li></ol>
+      <!--l. 1234--><p class="noindent" >Here is an example of the syntax:
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-38">
+      [ZhengFosgerau]
+      &#x00A0;<br />$P&#x00A0;{&#x00A0;Alt1&#x00A0;}&#x00A0;1&#x00A0;0&#x00A0;1&#x00A0;"P1"
+      &#x00A0;<br />$E&#x00A0;{&#x00A0;x31&#x00A0;}&#x00A0;1&#x00A0;-1000&#x00A0;1000&#x00A0;"x31"
+</div>
+      <!--l. 1239--><p class="nopar" >
+      </dd><dt class="description">
+<span 
+class="cmtt-12">[IIATest]</span> </dt><dd 
+class="description">This section is ignored by BIOGEME. It is used to compute the
+      variables necessary to perform the McFadden omitted variables test on a
+      subset of alternatives:
+      <table 
+class="equation"><tr><td><a 
+ id="x1-166r2"></a>
+      <center class="math-display" >
+      <img 
+src="bisonsyntax12x.png" alt="               &#x2211;    P  V
+      {  Vin - -&#x2211;j&#x2208;^C--jn--jn- if i &#x2208; ^C,
+z  =               j&#x2208;C^Pjn
+ in
+         0                  if i &#x2044;&#x2208; ^C.
+      " class="math-display" ></center></td><td class="equation-label">(2)</td></tr></table>
+      <!--l. 1250--><p class="nopar" >
+      The syntax is illustrated by the following example.
+                                                                          
+
+                                                                          
+      <div class="verbatim" id="verbatim-39">
+      [IIATest]
+      &#x00A0;<br />//&#x00A0;Description&#x00A0;of&#x00A0;the&#x00A0;choice&#x00A0;subsets&#x00A0;to&#x00A0;compute&#x00A0;the&#x00A0;new
+      &#x00A0;<br />//&#x00A0;variable&#x00A0;for&#x00A0;McFadden&#8217;s&#x00A0;IIA&#x00A0;test
+      &#x00A0;<br />//&#x00A0;Name&#x00A0;list_of_alt
+      &#x00A0;<br />C123&#x00A0;1&#x00A0;2&#x00A0;3
+      &#x00A0;<br />C345&#x00A0;3&#x00A0;4&#x00A0;5
+</div>
+      <!--l. 1259--><p class="nopar" > Each row corresponds to a new variable. It consists in the name of the
+      variable (it will appear as the column header in the output of Biosim),
+      followed by the list of alternatives to be included in the associated
+      subset.
+      </dd></dl>
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+     <div class="thebibliography">
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBenABoldBrad93"></a>Ben-Akiva, M., Bolduc, D. and&#x00A0;Bradley, M. (<span class="bib-year">1993</span>).  Estimation of
+     travel model choice models with randomly distributed values of time,
+     <span 
+class="cmti-12">Transportation Research Record </span><span 
+class="cmbx-12">1413</span>:&#x00A0;88&#8211;97.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBier02"></a>Bierlaire, M. (<span class="bib-year">2002</span>). The network GEV model, <span 
+class="cmti-12">Proceedings of the 2nd</span>
+     <span 
+class="cmti-12">Swiss Transportation Research Conference</span>, Ascona, Switzerland.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBierBiogeme2015a"></a>Bierlaire,  M.  (<span class="bib-year">2015</span>).   BisonBiogeme  2.4:  estimating  a  first  model,
+     <span 
+class="cmti-12">Series on Biogeme TRANSP-OR 150720</span>, Ecole Polytechnique Fédérale
+     de Lausanne. <br 
+class="newline" /><a 
+href="biogeme.epfl.ch" ><span 
+class="cmti-12">biogeme.epfl.ch</span></a>
+                                                                          
+
+                                                                          
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBierBoldMcFa08"></a>Bierlaire, M., Bolduc, D. and&#x00A0;McFadden, D. (<span class="bib-year">2008</span>).  The estimation
+     of  generalized  extreme  value  models  from  choice-based  samples,
+     <span 
+class="cmti-12">Transportation Research Part B </span><span 
+class="cmbx-12">42</span>(4):&#x00A0;381&#8211;394.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBierFrej07"></a>Bierlaire,  M.  and&#x00A0;Frejinger,  E.  (<span class="bib-year">2008</span>).    Route  choice  modeling
+     with  network-free  data,  <span 
+class="cmti-12">Transportation  Research  Part  C:  Emerging</span>
+     <span 
+class="cmti-12">Technologies </span><span 
+class="cmbx-12">16</span>(2):&#x00A0;187&#8211;198.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBradDaly91"></a>Bradley,  M.&#x00A0;A.  and&#x00A0;Daly,  A.  (<span class="bib-year">1991</span>).   Estimation  of  logit  choice
+     models  using  mixed  stated  preferences  and  revealed  preferences
+     information, <span 
+class="cmti-12">Methods for understanding travel behaviour in the 1990&#8217;s</span>,
+     International Association for Travel Behaviour, Québec, pp.&#x00A0;116&#8211;133.
+     6th international conference on travel behaviour.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XFosg08"></a>Fosgerau, M. (<span class="bib-year">2008</span>).  Specification testing of discrete choice models:
+     a note on the use of a nonparametric test, <span 
+class="cmti-12">Journal of Choice Modelling</span>
+     <span 
+class="cmbx-12">1</span>(1):&#x00A0;26&#8211;239.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XFosgBier07"></a>Fosgerau, M. and&#x00A0;Bierlaire, M. (<span class="bib-year">2007</span>). A practical test for the choice of
+     mixing distribution in discrete choice models, <span 
+class="cmti-12">Transportation Research</span>
+     <span 
+class="cmti-12">Part B: Methodological </span><span 
+class="cmbx-12">41</span>(7):&#x00A0;784&#8211;794.
+</p>
+     </div>
+    
+</body></html> 
+
+                                                                          
+
+

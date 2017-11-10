@@ -1,0 +1,44 @@
+This file has automatically been generated.
+Wed Jul 27 09:57:42 2016
+Michel Bierlaire, EPFL
+
+biogeme 2.5 [Sam 23 jul 2016 10:59:56 CEST]
+Michel Bierlaire, EPFL
+
+Warning: [09:57:42]bioGtkGui.cc:276  Directory: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/python
+Warning: [09:57:42]bioGtkGui.cc:277  Current dir: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/python
+Warning: [09:57:42]bioMain.cc:102  pythonbiogeme 01logit.py /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/swissmetro.dat
+[09:57:42]bioParameters.cc:373  Parameter documentation generated: pythonparam.html
+[09:57:42]bioModelParser.cc:109  01logit.py exists
+ Read sample file: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/swissmetro.dat
+ Processing the sample file: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/swissmetro.dat [00:00]
+ Nbr of cores reported by the system: 4
+ Nbr of cores used by biogeme: 2
+ Init. log-likelihood: -6964.66 [00:00]
+     gmax Iter   radius        f(x)     Status       rhok nFree
+ +1.44e-03    1 1.00e+00 +6.9646630e+03 ****Converg  +1.07e+00 4  ++ P
+ +1.94e-03    2 2.00e+00 +5.4217993e+03 ****Converg  +1.08e+00 4  ++ P
+ +1.97e-03    3 4.00e+00 +5.3328087e+03 ****Converg  +1.02e+00 4  ++ P
+ +2.34e-04    4 8.00e+00 +5.3312529e+03 ****Converg  +1.00e+00 4  ++ P
+ Convergence reached...
+ Run time interval: [09:57:42,09:57:42]
+ Run time: 00:00
+ Estimated parameters: 
+ASC_SM = 0
+
+B_TIME = -1.27786
+
+B_COST = -1.08379
+
+ASC_CAR = -0.154633
+
+ASC_TRAIN = -0.701187
+
+
+ File 01logit~4_param.py created
+ Directory: /Users/michelbierlaire/gitbiogeme/biogeme/web/examples/swissmetro/python
+ --------------------------------------------------------
+ Results (HTML) are available in 01logit~4.html
+ --------------------------------------------------------
+ Results (LaTeX) are available in 01logit~4.tex
+ --------------------------------------------------------

@@ -35,7 +35,7 @@ class patImportance {
     patDETAILED,
     /**
      */
-    patDEBUG
+    patDEBUG,
   } ;
 
   patImportance(type p) ;
@@ -43,6 +43,7 @@ class patImportance {
   friend patBoolean operator<(const patImportance& i1, const patImportance& i2) ;
   friend patBoolean operator<=(const patImportance& i1, const patImportance& i2) ;
 
+  friend patBoolean operator==(const patImportance& i1, const patImportance& i2) ; 
   type operator()() const ;
 private:
   type theType ;

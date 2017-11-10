@@ -1,0 +1,263 @@
+htfcss: cmitt font-family: monospace; font-style: italic;
+htfcss: cmtt font-family: monospace;
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+htfcss: cmti  font-style: italic;
+htfcss: cmtt font-family: monospace;
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+htfcss: cmtt font-family: monospace;
+htfcss: cmtt font-family: monospace;
+File: montecarlo.html
+File: montecarlo.css
+File: montecarlo.tmp
+Font_Class(4,"4"): <span  class="small-caps"></span>
+Font_Class(1,"1"): <img  src="" alt="" class="%s-%dx-x-%x" />
+Css: p.noindent { text-indent: 0em }
+Css: td p.noindent { text-indent: 0em; margin-top:0em; }
+Css: p.nopar { text-indent: 0em; }
+Css: p.indent{ text-indent: 1.5em }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 1px; margin:0px; }
+Css: .tabbing-right {text-align:right;}
+Css: span.TEX {letter-spacing: -0.125em; }
+Css: span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+Css: a span.TEX span.E {text-decoration: none; }
+Css: span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+Css: span.LATEX span.TEX{ position:relative; left: -0.4em; }
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Font_Size: 12
+Css: .quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+Css: .abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .lstlisting .label{margin-right:0.5em; }
+Css: div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+Css: div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
+Css: .lstinputlisting .label{margin-right:0.5em;}
+Css: div.boxedminipage{border : 1px solid; margin-top:1pt; margin-bottom:1pt;}
+Css: .figure img.graphics {margin-left:10%;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:100%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: .subfigcaption {margin-top:1em; margin-left:1em; text-align:center;}
+Css: div.subfigure {text-align:center;}
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 1px; margin:0px; }
+Css: div.array {text-align:center;}
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: div.longtable{text-align:center;}
+--- needs --- montecarlo.idv[2] ==> montecarlo0x.png ---
+--- needs --- montecarlo.idv[4] ==> montecarlo1x.png ---
+--- needs --- montecarlo.idv[6] ==> montecarlo2x.png ---
+--- needs --- montecarlo.idv[8] ==> montecarlo3x.png ---
+--- needs --- montecarlo.idv[10] ==> montecarlo4x.png ---
+--- needs --- montecarlo.idv[12] ==> montecarlo5x.png ---
+--- needs --- montecarlo.idv[14] ==> montecarlo6x.png ---
+--- needs --- montecarlo.idv[16] ==> montecarlo7x.png ---
+--- needs --- montecarlo.idv[18] ==> montecarlo8x.png ---
+--- needs --- montecarlo.idv[20] ==> montecarlo9x.png ---
+--- needs --- montecarlo.idv[22] ==> montecarlo10x.png ---
+--- needs --- montecarlo.idv[24] ==> montecarlo11x.png ---
+--- needs --- montecarlo.idv[26] ==> montecarlo12x.png ---
+--- needs --- montecarlo.idv[28] ==> montecarlo13x.png ---
+--- needs --- montecarlo.idv[30] ==> montecarlo14x.png ---
+--- needs --- montecarlo.idv[32] ==> montecarlo15x.png ---
+--- needs --- montecarlo.idv[34] ==> montecarlo16x.png ---
+--- needs --- montecarlo.idv[36] ==> montecarlo17x.png ---
+--- needs --- montecarlo.idv[38] ==> montecarlo18x.png ---
+--- needs --- montecarlo.idv[40] ==> montecarlo19x.png ---
+--- needs --- montecarlo.idv[42] ==> montecarlo20x.png ---
+--- needs --- montecarlo.idv[44] ==> montecarlo21x.png ---
+--- needs --- montecarlo.idv[46] ==> montecarlo22x.png ---
+--- needs --- montecarlo.idv[48] ==> montecarlo23x.png ---
+--- needs --- montecarlo.idv[50] ==> montecarlo24x.png ---
+--- needs --- montecarlo.idv[52] ==> montecarlo25x.png ---
+--- needs --- montecarlo.idv[54] ==> montecarlo26x.png ---
+--- needs --- montecarlo.idv[56] ==> montecarlo27x.png ---
+--- needs --- montecarlo.idv[58] ==> montecarlo28x.png ---
+--- needs --- montecarlo.idv[60] ==> montecarlo29x.png ---
+--- needs --- montecarlo.idv[62] ==> montecarlo30x.png ---
+--- needs --- montecarlo.idv[64] ==> montecarlo31x.png ---
+--- needs --- montecarlo.idv[66] ==> montecarlo32x.png ---
+--- needs --- montecarlo.idv[68] ==> montecarlo33x.png ---
+--- needs --- montecarlo.idv[70] ==> montecarlo34x.png ---
+--- needs --- montecarlo.idv[72] ==> montecarlo35x.png ---
+--- needs --- montecarlo.idv[74] ==> montecarlo36x.png ---
+--- needs --- montecarlo.idv[76] ==> montecarlo37x.png ---
+--- needs --- montecarlo.idv[78] ==> montecarlo38x.png ---
+--- needs --- montecarlo.idv[80] ==> montecarlo39x.png ---
+--- needs --- montecarlo.idv[82] ==> montecarlo40x.png ---
+--- needs --- montecarlo.idv[84] ==> montecarlo41x.png ---
+--- needs --- montecarlo.idv[86] ==> montecarlo42x.png ---
+--- needs --- montecarlo.idv[88] ==> montecarlo43x.png ---
+--- needs --- montecarlo.idv[90] ==> montecarlo44x.png ---
+--- needs --- montecarlo.idv[92] ==> montecarlo45x.png ---
+--- needs --- montecarlo.idv[94] ==> montecarlo46x.png ---
+--- needs --- montecarlo.idv[96] ==> montecarlo47x.png ---
+--- needs --- montecarlo.idv[98] ==> montecarlo48x.png ---
+--- needs --- montecarlo.idv[100] ==> montecarlo49x.png ---
+--- needs --- montecarlo.idv[101] ==> montecarlo50x.png ---
+--- needs --- montecarlo.idv[103] ==> montecarlo51x.png ---
+--- needs --- montecarlo.idv[104] ==> montecarlo52x.png ---
+--- needs --- montecarlo.idv[106] ==> montecarlo53x.png ---
+--- needs --- montecarlo.idv[107] ==> montecarlo54x.png ---
+--- needs --- montecarlo.idv[109] ==> montecarlo55x.png ---
+--- needs --- montecarlo.idv[110] ==> montecarlo56x.png ---
+--- needs --- montecarlo.idv[112] ==> montecarlo57x.png ---
+--- needs --- montecarlo.idv[113] ==> montecarlo58x.png ---
+--- needs --- montecarlo.idv[115] ==> montecarlo59x.png ---
+--- needs --- montecarlo.idv[116] ==> montecarlo60x.png ---
+--- needs --- montecarlo.idv[118] ==> montecarlo61x.png ---
+--- needs --- montecarlo.idv[119] ==> montecarlo62x.png ---
+--- characters ---
+Font("cmr","10","10","100")
+Font("cmmi","10","10","100")
+Font("cmsy","10","10","100")
+Font("cmr","12","12","100")
+Font("cmr","17","17","120")
+Font("cmr","12","12","120")
+Font("eufm","10","10","100")
+Font("cmr","10","10","109")
+Font("cmtt","10","10","109")
+Font("cmcsc","10","10","109")
+Font("cmtt","12","12","100")
+Font("cmr","6","6","100")
+Font("eurm","10","10","120")
+Font("eurm","10","10","80")
+Font("eurm","7","7","85")
+Font("cmsy","10","10","120")
+--- needs --- montecarlo.idv[121] ==> cmsy10-c-4c.png ---
+--- needs --- montecarlo.idv[122] ==> cmsy10-c-43.png ---
+Font("cmsy","8","8","100")
+Font("cmex","10","10","120")
+Font("eufm","10","10","120")
+Font("eufm","10","10","80")
+Font("eusm","10","10","120")
+Font("euex","10","10","120")
+Font("euex","8","8","100")
+Font("msbm","10","10","120")
+Font("cmtt","10","10","100")
+Font("cmti","12","12","100")
+Font("cmbx","12","12","100")
+Font("cmitt","10","10","100")

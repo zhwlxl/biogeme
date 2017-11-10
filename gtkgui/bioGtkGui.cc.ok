@@ -1,0 +1,632 @@
+//-*-c++-*------------------------------------------------------------
+//
+// File name : bioGtkGui.cc
+// Author :    Michel Bierlaire
+// Date :      Fri Mar 25 18:51:58 2016
+//
+//--------------------------------------------------------------------
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#else
+#include <direct.h>
+#endif
+
+#include "bioGtkGui.h"
+#include "patDisplay.h"
+#include <gtkmm.h>
+#include "logo.h"
+#include "patError.h"
+#include "patBiogeme.h"
+#include "patVersion.h"
+#include "bioMain.h"
+
+#include "patEnvPathVariable.h"
+
+#include "patSingletonFactory.h"
+#include "patBisonSingletonFactory.h"
+#include "bioPythonSingletonFactory.h"
+
+bioGtkGui::bioGtkGui( Glib::RefPtr<Gtk::Application> app,
+		      Glib::ustring pp,
+		      patError*& err) : 
+  wVersion("Version:"),
+  wChooseModel("Model file:"),
+  wChooseData("Data file:"),
+  modelFileButton(Gtk::FILE_CHOOSER_ACTION_OPEN) ,
+  dataFileButton(Gtk::FILE_CHOOSER_ACTION_OPEN) ,
+  modelFileSelected(patFALSE),
+  dataFileSelected(patFALSE),
+  theChosenVersion("PythonBiogeme"),
+  runButton("Run..."),
+  quitButton("Quit"),
+  theApplication(app),
+  thePythonPath(pp),
+  menuVbox(Gtk::ORIENTATION_VERTICAL,0),
+  menuItemFile("_File",true),
+  menuItemView("_View",true),
+  menuItemHelp("_Help",true),
+  menuItemFileViewer("File viewer",true),
+  menuItemQuit("_Quit",true),
+  menuItemAbout("_About",true),
+  theLogo(Gdk::Pixbuf::create_from_inline (262144,my_pixbuf))  {
+
+  // CSS style
+  Glib::ustring data = "GtkLabel {color: #ff00ea;font-size:large;font-family: courier, sans-serif}";
+  cssProvider = Gtk::CssProvider::create() ;
+  try {
+    cssProvider->load_from_data(data);
+  }
+  catch (Gtk::CssProviderError e ) {
+    cerr << "Failed to load css: " << e.what() << endl;
+    std::exit(1);
+  }
+
+  ///////////
+  // CSS seems to load well (if theere is a syntax error in the CSS,
+  // an exception is thrown), but I did not succeed in actually
+  // changing the fonts of the wVersion label. To be investigated.
+  ///////////
+
+  styleContext = wVersion.get_style_context() ;
+  
+  Glib::RefPtr<Gdk::Screen> screen = this->get_screen();
+  styleContext->add_provider_for_screen(screen,
+					cssProvider,
+					GTK_STYLE_PROVIDER_PRIORITY_USER);
+
+  //////////////////////////
+  
+  set_icon(theLogo) ;
+
+  // The following do not seem to work on mac. To be tested in windows.
+
+   std::vector<Glib::ustring> accels ;
+   accels.push_back("<Ctrl>Q") ;
+   app->set_accels_for_action("app.quit",accels) ;
+
+  // About dialog
+
+ 
+  aboutDialog.set_logo(theLogo) ;
+  aboutDialog.set_program_name("Biogeme") ;
+  aboutDialog.set_version(patVersion::the()->getVersion()) ;
+  aboutDialog.set_copyright(patVersion::the()->getCopyright()) ;
+  aboutDialog.set_website("http://biogeme.epfl.ch") ;
+  aboutDialog.set_website_label("biogeme.epfl.ch") ;
+  aboutDialog.set_license(patVersion::the()->getLicense()) ;
+  std::vector< Glib::ustring > authors ;
+  authors.push_back(patVersion::the()->getVersionInfoAuthor()) ;
+  aboutDialog.set_authors(authors) ;
+  aboutDialog.set_comments(patVersion::the()->getVersionInfoCompiledDate()) ;
+  aboutDialog.set_transient_for(*this) ;
+  // Menu
+  add(menuVbox);
+  menuVbox.pack_start(menuBar, Gtk::PACK_SHRINK, 0);
+  menuBar.append(menuItemFile);
+  menuItemFile.set_submenu(menuFile);
+  menuBar.append(menuItemView);
+  menuItemView.set_submenu(menuView);
+  menuBar.append(menuItemHelp);
+  menuItemHelp.set_submenu(menuHelp);
+  menuItemQuit.signal_activate().connect(sigc::mem_fun(*this, &bioGtkGui::quitApplication));
+  menuFile.append(menuItemQuit);
+  menuView.append(menuItemFileViewer);
+  menuItemFileViewer.set_draw_as_radio(true) ;
+  menuItemFileViewer.signal_toggled().connect(sigc::mem_fun(*this, &bioGtkGui::toggleFileViewer));
+  menuHelp.append(menuItemAbout);
+  menuItemAbout.signal_activate().connect(sigc::mem_fun(*this, &bioGtkGui::showAboutDialog));
+
+  theFileViewer.set_transient_for(*this) ;
+
+  allFilter = Gtk::FileFilter::create();
+  allFilter->set_name("All files") ;
+  allFilter->add_pattern("*.*") ;
+
+  
+  modFilter = Gtk::FileFilter::create();
+  modFilter->set_name("Bison Biogeme files") ;
+  modFilter->add_pattern("*.mod") ;
+
+  pyFilter = Gtk::FileFilter::create() ;
+  pyFilter->set_name("Python files") ;
+  pyFilter->add_pattern("*.py") ;
+
+  datFilter = Gtk::FileFilter::create() ;
+  datFilter->set_name("Data files") ;
+  datFilter->add_pattern("*.dat") ;
+  datFilter->add_pattern("*.csv") ;
+  datFilter->add_pattern("*.txt") ;
+
+  modelFileButton.add_filter(pyFilter) ;
+  modelFileButton.add_filter(allFilter) ;
+  dataFileButton.add_filter(datFilter) ;
+  dataFileButton.add_filter(allFilter) ;
+  dataFileButton.set_tooltip_text("Select the data file") ;
+
+  set_title(patVersion::the()->getVersionInfo()) ;
+  set_default_size(400,400) ;
+  grid.set_hexpand(TRUE) ;
+  grid.set_border_width(10) ;
+  modelFileButton.set_hexpand(TRUE) ;
+  modelFileButton.set_tooltip_text("Select the model file") ;
+  //  add(grid) ;
+  menuVbox.pack_end(grid) ;
+  grid.set_column_spacing(5) ;
+  grid.set_row_spacing(10) ;
+  
+  wVersion.set_justify(Gtk::JUSTIFY_RIGHT) ;
+  grid.attach(wVersion,0,0,1,1) ;
+  
+  grid.attach(selectVersionBiogeme,1,0,1,1) ;
+  
+  wChooseModel.set_justify(Gtk::JUSTIFY_RIGHT) ;
+  grid.attach(wChooseModel,0,1,1,1) ;
+
+  wChooseData.set_justify(Gtk::JUSTIFY_RIGHT) ;
+  grid.attach(wChooseData,0,2,1,1) ;
+  
+  
+  grid.attach(modelFileButton,1,1,1,1) ;
+  grid.attach(dataFileButton,1,2,1,1) ;
+  runButton.set_sensitive(FALSE) ;
+  grid.attach(runButton,0,3,2,1) ;
+  grid.attach(theLogWindow,0,4,3,1) ;
+  // grid.attach(theOutputFile,0,5,1,1) ;
+  grid.attach(quitButton,0,5,1,1) ;
+
+  //  theOutputFile.set_sensitive(FALSE) ;
+
+  selectVersionBiogeme.append("PythonBiogeme") ;
+  selectVersionBiogeme.append("BisonBiogeme") ;
+  selectVersionBiogeme.append("BisonBiosim") ;
+  selectVersionBiogeme.append("mod2py") ;
+  selectVersionBiogeme.set_active(0) ;
+  selectVersionBiogeme.set_tooltip_text("Select the version of biogeme to run") ;
+
+  
+  selectVersionBiogeme.signal_changed().connect(sigc::mem_fun(*this,&bioGtkGui::versionSelect)) ;
+
+  modelFileButton.signal_file_set().connect(sigc::mem_fun(*this,&bioGtkGui::getModelFileName)) ;
+
+  dataFileButton.signal_file_set().connect(sigc::mem_fun(*this,&bioGtkGui::getDataFileName)) ;
+
+  runButton.signal_clicked().connect(sigc::mem_fun(*this,&bioGtkGui::runBiogeme)) ;
+
+  quitButton.signal_clicked().connect(sigc::mem_fun(*this,&bioGtkGui::quitApplication)) ;
+  theLogWindow.show_all() ;
+  show_all() ;
+}
+
+bioGtkGui::~bioGtkGui() {
+
+}
+
+void bioGtkGui::getModelFileName() {
+  modelFileName = modelFileButton.get_filename() ;
+  modelFileName_file = Glib::path_get_basename(modelFileName) ;
+  modelFileName_dir = Glib::path_get_dirname(modelFileName) ;
+  modelFileSelected = patTRUE ;
+  if ((dataFileSelected) || (theChosenVersion == "mod2py")) {
+    runButton.set_sensitive(TRUE) ;
+  }
+}
+
+void bioGtkGui::getDataFileName() {
+  dataFileName = dataFileButton.get_filename() ;
+  dataFileName_file = Glib::path_get_basename(dataFileName) ;
+  dataFileName_dir = Glib::path_get_dirname(dataFileName) ;
+  dataFileSelected = patTRUE ;
+  if (modelFileSelected) {
+    runButton.set_sensitive(TRUE) ;
+  } 
+}
+
+void bioGtkGui::runBiogeme() {
+
+  theLogWindow.initLog() ;
+  if (theChosenVersion == "mod2py") {
+    if (bisonCheckFileName()) {
+      runModToPy() ;
+    }
+    else {
+      Gtk::MessageDialog dialog(*this, "Incorrect file extension");
+      stringstream str ;
+      str << "mod2py biogeme requires a model file with extension .mod and not " << getExtension(modelFileName_file) ;
+      dialog.set_secondary_text(str.str());
+      dialog.run();
+    }
+  }
+  if (theChosenVersion == "BisonBiogeme") {
+    if (bisonCheckFileName()) {
+      runBisonBiogeme() ;
+    }
+    else {
+      Gtk::MessageDialog dialog(*this, "Incorrect file extension");
+      stringstream str ;
+      str << "Bison biogeme requires a model file with extension .mod and not " << getExtension(modelFileName_file) ;
+      dialog.set_secondary_text(str.str());
+      dialog.run();
+    }
+  }
+  if (theChosenVersion == "BisonBiosim") {
+    if (bisonCheckFileName()) {
+      runBisonBiosim() ;
+    }
+    else {
+      Gtk::MessageDialog dialog(*this, "Incorrect file extension");
+      stringstream str ;
+      str << "Bison biosim requires a model file with extension .mod and not " << getExtension(modelFileName_file) ;
+      dialog.set_secondary_text(str.str());
+      dialog.run();
+    }
+  }
+  if (theChosenVersion == "PythonBiogeme") {
+    if (pythonCheckFileName()) {
+      runPythonBiogeme() ;
+    }
+    else {
+      Gtk::MessageDialog dialog(*this, "Incorrect file extension");
+      dialog.set_secondary_text(
+				"Python biogeme requires a model file with extension .py");
+  
+      dialog.run();
+
+    }
+  }
+}
+
+
+void bioGtkGui::versionSelect() {
+  theChosenVersion = selectVersionBiogeme.get_active_text() ;
+  updateFilters() ;
+}
+
+
+void bioGtkGui::quitApplication() {
+  theApplication->quit() ;
+}
+
+void bioGtkGui::showAboutDialog() {
+  aboutDialog.run() ;
+  aboutDialog.hide() ;
+}
+void bioGtkGui::runPythonBiogeme() {
+  
+  patError* err = NULL ;
+  resetAll() ;
+  patDisplay::the().setScreenImportanceLevel(patImportance::patDEBUG) ;
+
+  patEnvPathVariable pythonPath("PYTHONPATH") ;
+  pythonPath.readFromSystem() ;
+  pythonPath.addPath(".") ;
+  pythonPath.addPath(__PYTHONBIOGEME) ;
+  pythonPath.addPath(Glib::get_current_dir()) ;
+  pythonPath.addPath(thePythonPath) ;
+  pythonPath.registerToSystem(err) ;
+
+
+#ifdef HAVE_CHDIR
+  chdir(modelFileName_dir.c_str()) ;
+  WARNING("Directory: " << modelFileName_dir) ;
+  WARNING("Current dir: " << Glib::get_current_dir()) ;
+  stringstream ppath ;
+#endif
+
+
+
+
+  bioMain theMain ;
+
+  if (modelFileName_dir == dataFileName_dir) {
+    
+    theMain.run(patString(modelFileName_file),patString(dataFileName_file),err) ;
+    if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    }
+  }
+  else {
+    theMain.run(patString(modelFileName_file),patString(dataFileName),err) ;
+    if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    }
+
+  }
+
+  patString htmlFile = theMain.getHtmlFile() ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+
+  std::pair<Glib::ustring,Glib::ustring > hf(htmlFile,"Pythonbiogeme estimation results") ;
+  theFileViewer.addFile(hf) ;
+
+  theFileViewer.show_all() ;
+  menuItemFileViewer.set_active(true) ;
+  return ;
+
+}
+
+void bioGtkGui::runModToPy() {
+  patError* err = NULL ;
+#ifdef HAVE_CHDIR
+  Glib::ustring tmpdir = Glib::get_tmp_dir() ;
+  chdir(tmpdir.c_str()) ;
+#endif
+
+  copyFile(modelFileName,tmpdir) ;
+
+  // Parameter file
+
+  patString paramFileName(tmpdir + "default.par") ;
+  cout << "Parameter: " << paramFileName << endl ;
+  ofstream paramFile(paramFileName.c_str()) ;
+  paramFile << "[GEV]" << endl ;
+  paramFile <<  "gevGeneratePythonFile = 1" << endl ;
+  paramFile <<  "gevPythonFileWithEstimatedParam = 0" << endl ;
+  paramFile.close() ;
+  patString tmpFileName(tmpdir + "default.dat") ;
+  cout << "Data: " << tmpFileName << endl ;
+  ofstream dataFile(tmpFileName.c_str()) ;
+  dataFile << "FakeHeader" << endl ;
+  dataFile.close() ;
+
+  patFileNames::the()->setModelName(patString(removeExtension(modelFileName_file)));
+  patFileNames::the()->addSamFile(tmpFileName) ;
+  patBiogeme biogeme ;
+  
+  biogeme.loadModelAndSample(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  biogeme.estimate(NULL,err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+
+  patString pyFile(removeExtension(modelFileName_file) + ".py") ;
+  copyFile(pyFile,modelFileName_dir) ;
+  stringstream str ;
+  str << "The file " << pyFile << " has been created in " << modelFileName_dir ;
+  Gtk::MessageDialog dialog(*this,Glib::ustring(str.str())) ;
+  dialog.set_secondary_text("Make sure to edit it before using it") ;
+  dialog.run() ;
+}
+
+void bioGtkGui::runBisonBiogeme() {
+  patError* err = NULL ;
+#ifdef HAVE_CHDIR
+  chdir(modelFileName_dir.c_str()) ;
+#endif
+
+  patFileNames::the()->setModelName(patString(removeExtension(modelFileName_file)));
+  if (modelFileName_dir == dataFileName_dir) {
+    patFileNames::the()->addSamFile(patString(dataFileName_file)) ;
+  }
+  else {
+    patFileNames::the()->addSamFile(patString(dataFileName)) ;
+  }
+  patString htmlFile = patFileNames::the()->getHtmlFile(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  patBiogeme biogeme ;
+
+  biogeme.loadModelAndSample(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  biogeme.estimate(NULL,err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+
+  std::pair<Glib::ustring,Glib::ustring > hf(htmlFile,"Bisonbiogeme estimation results") ;
+  theFileViewer.addFile(hf) ;
+
+  patString staFile = patFileNames::the()->getStaFile(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  std::pair<Glib::ustring,Glib::ustring > sf(staFile,"Sample statistics") ;
+  theFileViewer.addFile(sf) ;
+
+  freezeButtons() ;
+  Gtk::MessageDialog dialog(*this,"biogeme has terminated normally but cannot be relaunched.") ;
+  dialog.set_secondary_text("Please quit the application") ;
+  dialog.run() ;
+  theFileViewer.show_all() ;
+  menuItemFileViewer.set_active(true) ;
+
+
+  // stringstream str ;
+  // Glib::RefPtr<Gio::File> theFile = Gio::File::create_for_path(htmlFile);
+  // Glib::ustring uri = theFile->get_uri() ;
+  // theOutputFile.set_uri(uri) ;
+  // theOutputFile.set_sensitive(TRUE) ;
+  return ;
+}
+
+
+void bioGtkGui::runBisonBiosim() {
+  patError* err = NULL ;
+#ifdef HAVE_CHDIR
+  chdir(modelFileName_dir.c_str()) ;
+#endif
+
+  patFileNames::the()->setModelName(patString(removeExtension(modelFileName_file)));
+  if (modelFileName_dir == dataFileName_dir) {
+    patFileNames::the()->addSamFile(patString(dataFileName_file)) ;
+  }
+  else {
+    patFileNames::the()->addSamFile(patString(dataFileName)) ;
+  }
+  patBiogeme biogeme ;
+
+  biogeme.loadModelAndSample(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  biogeme.sampleEnumeration(NULL,0,0,err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  patString enuFile = patFileNames::the()->getEnuFile(err) ;
+  if (err != NULL) {
+      freezeButtons() ;
+      Gtk::MessageDialog dialog(*this,Glib::ustring(err->describe())) ;
+      dialog.set_secondary_text("Please quit the application") ;
+      dialog.run() ;
+    return ;
+  }
+  std::pair<Glib::ustring,Glib::ustring > ef(enuFile,"Bisonbiogeme simulation results") ;
+  theFileViewer.addFile(ef) ;
+
+
+  freezeButtons() ;
+  Gtk::MessageDialog dialog(*this,"biosim has terminated normally.") ;
+  dialog.set_secondary_text("Please quit the application") ;
+  dialog.run() ;
+  theFileViewer.show_all() ;
+  menuItemFileViewer.set_active(true) ;
+
+  return ;
+}
+
+
+Glib::ustring bioGtkGui::removeExtension(Glib::ustring fileName) {
+    int posDot = fileName.find_first_of('.') ;
+    return fileName.substr(0,posDot) ;
+}
+
+Glib::ustring bioGtkGui::getExtension(Glib::ustring fileName) const {
+    int posDot = fileName.find_first_of('.') ;
+    return fileName.substr(posDot+1) ;
+}
+
+
+void bioGtkGui::freezeButtons() {
+    runButton.set_sensitive(FALSE) ;
+    modelFileButton.set_sensitive(FALSE) ;
+    dataFileButton.set_sensitive(FALSE) ;
+    selectVersionBiogeme.set_sensitive(FALSE) ;
+
+}
+
+patBoolean bioGtkGui::bisonCheckFileName() const {
+  Glib::ustring extension = getExtension(modelFileName_file) ;
+  return (extension == "mod") ;
+}
+
+patBoolean bioGtkGui::pythonCheckFileName() const {
+  Glib::ustring extension = getExtension(modelFileName_file) ;
+  return (extension == "py") ;
+}
+
+void bioGtkGui::updateFilters() {
+  modelFileButton.remove_filter(pyFilter) ;
+  modelFileButton.remove_filter(modFilter) ;
+  modelFileButton.remove_filter(allFilter) ;
+  if (theChosenVersion == "PythonBiogeme") {
+    modelFileButton.add_filter(pyFilter) ;
+    modelFileButton.add_filter(allFilter) ;
+  }
+  else {
+    modelFileButton.add_filter(modFilter) ;
+    modelFileButton.add_filter(allFilter) ;
+  }
+}
+
+void bioGtkGui::resetAll() {
+  patSingletonFactory::the()->reset() ;
+  bioPythonSingletonFactory::the()->reset() ;
+}
+
+void bioGtkGui::toggleFileViewer() {
+
+  bool checked = menuItemFileViewer.get_active() ;
+  if (checked) {
+    showFileViewer() ;
+  }
+  else {
+    hideFileViewer() ;
+  }
+}
+
+void bioGtkGui::showFileViewer() {
+  theFileViewer.show_all() ;
+  menuItemFileViewer.set_active(true) ;
+  
+}
+
+void bioGtkGui::hideFileViewer() {
+  theFileViewer.hide() ;
+  menuItemFileViewer.set_active(false) ;
+}
+
+void bioGtkGui::copyFile(Glib::ustring fileName, Glib::ustring destDir) {
+  try {
+    Glib::ustring fileName_base = Glib::path_get_basename(fileName) ;
+    Glib::RefPtr<Gio::File> fromFile = 
+      Gio::File::create_for_path(fileName); 
+    
+    Glib::RefPtr<Gio::File> toFile = 
+      Gio::File::create_for_path(destDir + fileName_base); 
+    
+    fromFile->copy(toFile); 
+    
+  } 
+  catch(const Glib::Exception& ex) 
+    {
+      stringstream str ;
+      str << "Exception ocurred: " << ex.what() ; 
+      Gtk::MessageDialog dialog(*this, str.str());
+
+    } 
+}

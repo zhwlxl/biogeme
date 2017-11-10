@@ -1,0 +1,60 @@
+\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws}{}\section{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws Class Reference}
+\label{classbio__expression_1_1bio_uniform_symmetric_draws}\index{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws}}
+
+
+Class representing a uniformly distributed random variable on \mbox{[}-\/1,1\mbox{]} for simulated integration.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_uniform_symmetric_draws}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_uniform_symmetric_draws_af310c2bc491a7d84b66cbe21231c9707}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, name, index=\textquotesingle{}\+\_\+\+\_\+row\+Id\+\_\+\+\_\+\textquotesingle{})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class representing a uniformly distributed random variable on \mbox{[}-\/1,1\mbox{]} for simulated integration. 
+
+A different set of draws will be generated for each group in the data file. By default, the groups are identified by {\bfseries row\+Id}, and a set of draws is generated for each row in the sample. Another typical case corresponds to panel data, where several rows correspond to the same individual. If Id identifies individuals in the data set, a set of draws will be generated for each individual, and not for each observation. Example\+: 
+\begin{DoxyCode}
+1 Errorcomp = bioUniformSymmetricDraws(\textcolor{stringliteral}{'Errorcomp'},\textcolor{stringliteral}{'Id'})
+\end{DoxyCode}
+ 
+
+Definition at line 430 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws@{bio\+\_\+expression\+::bio\+Uniform\+Symmetric\+Draws}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, name, index=\textquotesingle{}\+\_\+\+\_\+row\+Id\+\_\+\+\_\+\textquotesingle{})}{__init__(self, name, index='__rowId__')}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Uniform\+Symmetric\+Draws.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{index = {\ttfamily \textquotesingle{}\+\_\+\+\_\+rowId\+\_\+\+\_\+\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_uniform_symmetric_draws_af310c2bc491a7d84b66cbe21231c9707}{}\label{classbio__expression_1_1bio_uniform_symmetric_draws_af310c2bc491a7d84b66cbe21231c9707}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the random variable \\
+\hline
+{\em index} & name of the identifier of groups of data associated with a different set of draws. (optional, default=\textquotesingle{}{\bfseries row\+Id}\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 435 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

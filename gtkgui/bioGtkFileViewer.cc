@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <giomm.h>
 #include <gtkmm/messagedialog.h>
 #include "patDisplay.h"

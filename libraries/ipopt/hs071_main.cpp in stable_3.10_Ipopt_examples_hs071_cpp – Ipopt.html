@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0103)https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      hs071_main.cpp in stable/3.10/Ipopt/examples/hs071_cpp
+     – Ipopt
+    </title>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="https://projects.coin-or.org/Ipopt/search">
+        <link rel="help" href="https://projects.coin-or.org/Ipopt/wiki/TracGuide">
+        <link rel="alternate" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174&amp;format=txt" type="text/plain" title="Plain Text"><link rel="alternate" href="https://projects.coin-or.org/Ipopt/export/2174/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp" type="text/x-c++src; charset=iso-8859-15" title="Original Format">
+        <link rel="up" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">
+        <link rel="start" href="https://projects.coin-or.org/Ipopt/wiki">
+        <link rel="stylesheet" href="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/trac.css" type="text/css"><link rel="stylesheet" href="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/code.css" type="text/css"><link rel="stylesheet" href="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/trac(1).css" type="text/css"><link rel="stylesheet" href="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/browser.css" type="text/css">
+        <link rel="prev" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2032" title="Revision 2032">
+        <link rel="shortcut icon" href="https://projects.coin-or.org/Ipopt/chrome/common/trac.ico" type="image/x-icon">
+        <link rel="icon" href="https://projects.coin-or.org/Ipopt/chrome/common/trac.ico" type="image/x-icon">
+    
+      <link type="application/opensearchdescription+xml" rel="search" href="https://projects.coin-or.org/Ipopt/search/opensearch" title="Search Ipopt">
+      <script type="text/javascript" charset="utf-8" src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/search.js"></script>
+    <script type="text/javascript">
+      jQuery("#trac-noscript").remove();
+      jQuery(document).ready(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script>
+    <script type="text/javascript" src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".trac-toggledeleted").show().click(function() {
+                  $(this).siblings().find(".trac-deleted").toggle();
+                  return false;
+        }).click();
+        $("#jumploc input").hide();
+        $("#jumploc select").change(function () {
+          this.parentNode.parentNode.submit();
+        });
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+      });
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://www.coin-or.org/"><img src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/coin_banner.png" alt="COIN-OR" height="80" width="80"></a>
+      </div>
+      <form id="search" action="https://projects.coin-or.org/Ipopt/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="Search">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="https://projects.coin-or.org/Ipopt/login">Login</a></li><li><a href="https://projects.coin-or.org/Ipopt/wiki/TracGuide">Help/Guide</a></li><li><a href="https://projects.coin-or.org/Ipopt/about">About Trac</a></li><li><a href="https://projects.coin-or.org/Ipopt/prefs">Preferences</a></li><li class="last"><a href="https://projects.coin-or.org/Ipopt/register">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="https://projects.coin-or.org/Ipopt/wiki">Wiki</a></li><li><a href="https://projects.coin-or.org/Ipopt/timeline">Timeline</a></li><li><a href="https://projects.coin-or.org/Ipopt/roadmap">Roadmap</a></li><li class="active"><a href="https://projects.coin-or.org/Ipopt/browser">Browse Source</a></li><li><a href="https://projects.coin-or.org/Ipopt/report">View Tickets</a></li><li class="last"><a href="https://projects.coin-or.org/Ipopt/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>← <a class="prev" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2032" title="Revision 2032">Previous Revision</a></span></li><li><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">Latest Revision</a></li><li><span class="missing">Next Revision →</span></li><li><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?annotate=blame&amp;rev=2174" title="Annotate each line with the last changed revision (this can be time consuming...)">Blame</a></li><li class="last"><a href="https://projects.coin-or.org/Ipopt/log/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174">Revision Log</a></li>
+        </ul>
+        <hr>
+      </div>
+    <div id="content" class="browser">
+        <h1>
+          
+<a class="pathentry first" href="https://projects.coin-or.org/Ipopt/browser?rev=2174&amp;order=name" title="Go to repository root">source:</a>
+<a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable?rev=2174&amp;order=name" title="View stable">stable</a><span class="pathentry sep">/</span><a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10?rev=2174&amp;order=name" title="View 3.10">3.10</a><span class="pathentry sep">/</span><a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt?rev=2174&amp;order=name" title="View Ipopt">Ipopt</a><span class="pathentry sep">/</span><a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples?rev=2174&amp;order=name" title="View examples">examples</a><span class="pathentry sep">/</span><a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp?rev=2174&amp;order=name" title="View hs071_cpp">hs071_cpp</a><span class="pathentry sep">/</span><a class="pathentry" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174&amp;order=name" title="View hs071_main.cpp">hs071_main.cpp</a>
+<span class="pathentry sep">@</span>
+  <a class="pathentry" href="https://projects.coin-or.org/Ipopt/changeset/2174/" title="View changeset 2174">2174</a>
+<br style="clear: both">
+
+        </h1>
+        <div id="diffrev">
+          <form action="https://projects.coin-or.org/Ipopt/changeset" method="get">
+            <div>
+              <label title="Show the diff against a specific revision">
+                View diff against: <input type="text" name="old" size="6">
+                <input type="hidden" name="old_path" value="stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">
+                <input type="hidden" name="new" value="2174">
+                <input type="hidden" name="new_path" value="stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">
+              </label>
+            </div>
+          </form>
+        </div>
+        <div id="jumprev">
+          <form action="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174" method="get">
+            <div>
+              <label for="rev" title="Hint: clear the field to view latest revision">
+                View revision:</label>
+              <input type="text" id="rev" name="rev" value="2174" size="6">
+            </div>
+          </form>
+        </div>
+        <div id="jumploc">
+          <form action="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174" method="get">
+            <div style="display:none;"><input type="text" name="sfp_email" value="" style="display: none;"><input type="hidden" name="sfph_mail" value="" style="display: none;"></div><div class="buttons">
+              <label for="preselected">Visit:</label>
+              <select id="preselected" name="preselected">
+                <option selected="selected"></option>
+                <optgroup label="branches">
+                  <option value="/Ipopt/browser/trunk">trunk</option><option value="/Ipopt/browser/branches/parallel">branches/parallel</option><option value="/Ipopt/browser/branches/parametric">branches/parametric</option>
+                </optgroup><optgroup label="tags">
+                  <option value="/Ipopt/browser/tags/release-3.0.1?rev=710">tags/release-3.0.1</option>
+                </optgroup>
+              </select>
+              <input type="submit" value="Go!" title="Jump to the chosen preselected path" style="display: none;">
+            </div>
+          </form>
+        </div>
+        <div class="trac-tags">
+        </div>
+      <table id="info" summary="Revision info">
+        <tbody><tr>
+          <th>
+                <a href="https://projects.coin-or.org/Ipopt/changeset/2174/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp" title="View differences">Last change</a>
+                  on this file since 2174 was
+                  <a href="https://projects.coin-or.org/Ipopt/changeset/2174/" title="View changeset 2174">2174</a>,
+                  checked in by stefan, <a class="timeline" href="https://projects.coin-or.org/Ipopt/timeline?from=2013-03-30T13%3A39%3A42-04%3A00&amp;precision=second" title="See timeline at Mar 30, 2013 1:39:42 PM">4 years ago</a>
+          </th>
+        </tr>
+        <tr>
+          <td class="message searchable">
+              <p>
+merge <a class="changeset" href="https://projects.coin-or.org/Ipopt/changeset/2172" title="don&#39;t change to relax bounds if all variables are fixed: just do ...">r2172</a>, <a class="changeset" href="https://projects.coin-or.org/Ipopt/changeset/2173" title="skip finalize_solution call in case of NO_FREE_VARIABLES* exception: ...">r2173</a> from trunk: fix for <a class="closed ticket" href="https://projects.coin-or.org/Ipopt/ticket/179" title="defect: solution not within bounds when all variables are fixed (closed: fixed)">#179</a><br>
+</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ul class="props">
+              <li>
+                  Property <strong>svn:eol-style</strong> set to
+                  <em><code>native</code></em>
+              </li><li>
+                  Property <strong>svn:keywords</strong> set to
+                  <em><code>Author Date Id Revision</code></em>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr><td colspan="2">
+            <strong>File size:</strong>
+            <span title="1947 bytes">1.9 KB</span>
+          </td></tr>
+      </tbody></table>
+      <div id="preview" class="searchable">
+        
+  <table class="code"><thead><tr><th class="lineno" title="Line numbers (click to hide column)" style="cursor: pointer;">Line</th><th class="content">&nbsp;</th></tr></thead><tbody><tr><th id="L1"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L1">1</a></th><td><span class="cp">// Copyright (C) 2005, 2009 International Business Machines and others.</span></td></tr><tr><th id="L2"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L2">2</a></th><td><span class="cp">// All Rights Reserved.</span></td></tr><tr><th id="L3"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L3">3</a></th><td><span class="cp">// This code is published under the Eclipse Public License.</span></td></tr><tr><th id="L4"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L4">4</a></th><td><span class="cp">//</span></td></tr><tr><th id="L5"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L5">5</a></th><td><span class="cp">// $Id: hs071_main.cpp 2174 2013-03-30 17:39:42Z stefan $</span></td></tr><tr><th id="L6"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L6">6</a></th><td><span class="cp">//</span></td></tr><tr><th id="L7"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L7">7</a></th><td><span class="cp">// Authors:&nbsp; Carl Laird, Andreas Waechter&nbsp; &nbsp; &nbsp;IBM&nbsp; &nbsp; 2005-08-10</span></td></tr><tr><th id="L8"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L8">8</a></th><td><span class="cp"></span></td></tr><tr><th id="L9"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L9">9</a></th><td><span class="cp">#include "IpIpoptApplication.hpp"</span></td></tr><tr><th id="L10"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L10">10</a></th><td><span class="cp">#include "hs071_nlp.hpp"</span></td></tr><tr><th id="L11"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L11">11</a></th><td><span class="cp"></span></td></tr><tr><th id="L12"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L12">12</a></th><td><span class="cp">#include &lt;iostream&gt;</span></td></tr><tr><th id="L13"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L13">13</a></th><td><span class="cp"></span></td></tr><tr><th id="L14"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L14">14</a></th><td><span class="k">using</span>&nbsp;<span class="k">namespace</span>&nbsp;Ipopt<span class="p">;</span></td></tr><tr><th id="L15"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L15">15</a></th><td></td></tr><tr><th id="L16"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L16">16</a></th><td><span class="kt">int</span>&nbsp;main<span class="p">(</span><span class="kt">int</span>&nbsp;argv<span class="p">,</span>&nbsp;<span class="kt">char</span><span class="o">*</span>&nbsp;argc<span class="p">[])</span></td></tr><tr><th id="L17"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L17">17</a></th><td><span class="p">{</span></td></tr><tr><th id="L18"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L18">18</a></th><td>&nbsp; <span class="c1">// Create a new instance of your nlp</span></td></tr><tr><th id="L19"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L19">19</a></th><td><span class="c1"></span>&nbsp; <span class="c1">//&nbsp; (use a SmartPtr, not raw)</span></td></tr><tr><th id="L20"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L20">20</a></th><td><span class="c1"></span>&nbsp; SmartPtr<span class="o">&lt;</span>TNLP<span class="o">&gt;</span>&nbsp;mynlp <span class="o">=</span>&nbsp;<span class="k">new</span>&nbsp;HS071_NLP<span class="p">();</span></td></tr><tr><th id="L21"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L21">21</a></th><td></td></tr><tr><th id="L22"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L22">22</a></th><td>&nbsp; <span class="c1">// Create a new instance of IpoptApplication</span></td></tr><tr><th id="L23"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L23">23</a></th><td><span class="c1"></span>&nbsp; <span class="c1">//&nbsp; (use a SmartPtr, not raw)</span></td></tr><tr><th id="L24"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L24">24</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// We are using the factory, since this allows us to compile this</span></td></tr><tr><th id="L25"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L25">25</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// example with an Ipopt Windows DLL</span></td></tr><tr><th id="L26"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L26">26</a></th><td><span class="c1"></span>&nbsp; SmartPtr<span class="o">&lt;</span>IpoptApplication<span class="o">&gt;</span>&nbsp;app <span class="o">=</span>&nbsp;IpoptApplicationFactory<span class="p">();</span></td></tr><tr><th id="L27"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L27">27</a></th><td></td></tr><tr><th id="L28"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L28">28</a></th><td>&nbsp; <span class="c1">// Change some options</span></td></tr><tr><th id="L29"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L29">29</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// Note: The following choices are only examples, they might not be</span></td></tr><tr><th id="L30"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L30">30</a></th><td><span class="c1"></span>&nbsp; <span class="c1">//&nbsp; &nbsp; &nbsp; &nbsp;suitable for your optimization problem.</span></td></tr><tr><th id="L31"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L31">31</a></th><td><span class="c1"></span>&nbsp; app<span class="o">-&gt;</span>Options<span class="p">()</span><span class="o">-&gt;</span>SetNumericValue<span class="p">(</span><span class="s">"tol"</span><span class="p">,</span>&nbsp;<span class="mf">1e-7</span><span class="p">);</span></td></tr><tr><th id="L32"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L32">32</a></th><td>&nbsp; app<span class="o">-&gt;</span>Options<span class="p">()</span><span class="o">-&gt;</span>SetStringValue<span class="p">(</span><span class="s">"mu_strategy"</span><span class="p">,</span>&nbsp;<span class="s">"adaptive"</span><span class="p">);</span></td></tr><tr><th id="L33"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L33">33</a></th><td>&nbsp; app<span class="o">-&gt;</span>Options<span class="p">()</span><span class="o">-&gt;</span>SetStringValue<span class="p">(</span><span class="s">"output_file"</span><span class="p">,</span>&nbsp;<span class="s">"ipopt.out"</span><span class="p">);</span></td></tr><tr><th id="L34"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L34">34</a></th><td>&nbsp; <span class="c1">// The following overwrites the default name (ipopt.opt) of the</span></td></tr><tr><th id="L35"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L35">35</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// options file</span></td></tr><tr><th id="L36"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L36">36</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// app-&gt;Options()-&gt;SetStringValue("option_file_name", "hs071.opt");</span></td></tr><tr><th id="L37"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L37">37</a></th><td><span class="c1"></span></td></tr><tr><th id="L38"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L38">38</a></th><td>&nbsp; <span class="c1">// Initialize the IpoptApplication and process the options</span></td></tr><tr><th id="L39"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L39">39</a></th><td><span class="c1"></span>&nbsp; ApplicationReturnStatus status<span class="p">;</span></td></tr><tr><th id="L40"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L40">40</a></th><td>&nbsp; status <span class="o">=</span>&nbsp;app<span class="o">-&gt;</span>Initialize<span class="p">();</span></td></tr><tr><th id="L41"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L41">41</a></th><td>&nbsp; <span class="k">if</span>&nbsp;<span class="p">(</span>status <span class="o">!=</span>&nbsp;Solve_Succeeded<span class="p">)</span>&nbsp;<span class="p">{</span></td></tr><tr><th id="L42"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L42">42</a></th><td>&nbsp; &nbsp; std<span class="o">::</span>cout <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;<span class="s">"*** Error during initialization!"</span>&nbsp;<span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl<span class="p">;</span></td></tr><tr><th id="L43"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L43">43</a></th><td>&nbsp; &nbsp; <span class="k">return</span>&nbsp;<span class="p">(</span><span class="kt">int</span><span class="p">)</span>&nbsp;status<span class="p">;</span></td></tr><tr><th id="L44"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L44">44</a></th><td>&nbsp; <span class="p">}</span></td></tr><tr><th id="L45"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L45">45</a></th><td></td></tr><tr><th id="L46"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L46">46</a></th><td>&nbsp; <span class="c1">// Ask Ipopt to solve the problem</span></td></tr><tr><th id="L47"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L47">47</a></th><td><span class="c1"></span>&nbsp; status <span class="o">=</span>&nbsp;app<span class="o">-&gt;</span>OptimizeTNLP<span class="p">(</span>mynlp<span class="p">);</span></td></tr><tr><th id="L48"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L48">48</a></th><td></td></tr><tr><th id="L49"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L49">49</a></th><td>&nbsp; <span class="k">if</span>&nbsp;<span class="p">(</span>status <span class="o">==</span>&nbsp;Solve_Succeeded<span class="p">)</span>&nbsp;<span class="p">{</span></td></tr><tr><th id="L50"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L50">50</a></th><td>&nbsp; &nbsp; std<span class="o">::</span>cout <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;<span class="s">"*** The problem solved!"</span>&nbsp;<span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl<span class="p">;</span></td></tr><tr><th id="L51"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L51">51</a></th><td>&nbsp; <span class="p">}</span></td></tr><tr><th id="L52"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L52">52</a></th><td>&nbsp; <span class="k">else</span>&nbsp;<span class="p">{</span></td></tr><tr><th id="L53"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L53">53</a></th><td>&nbsp; &nbsp; std<span class="o">::</span>cout <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl <span class="o">&lt;&lt;</span>&nbsp;<span class="s">"*** The problem FAILED!"</span>&nbsp;<span class="o">&lt;&lt;</span>&nbsp;std<span class="o">::</span>endl<span class="p">;</span></td></tr><tr><th id="L54"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L54">54</a></th><td>&nbsp; <span class="p">}</span></td></tr><tr><th id="L55"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L55">55</a></th><td></td></tr><tr><th id="L56"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L56">56</a></th><td>&nbsp; <span class="c1">// As the SmartPtrs go out of scope, the reference count</span></td></tr><tr><th id="L57"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L57">57</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// will be decremented and the objects will automatically</span></td></tr><tr><th id="L58"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L58">58</a></th><td><span class="c1"></span>&nbsp; <span class="c1">// be deleted.</span></td></tr><tr><th id="L59"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L59">59</a></th><td><span class="c1"></span></td></tr><tr><th id="L60"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L60">60</a></th><td>&nbsp; <span class="k">return</span>&nbsp;<span class="p">(</span><span class="kt">int</span><span class="p">)</span>&nbsp;status<span class="p">;</span></td></tr><tr><th id="L61"><a href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174#L61">61</a></th><td><span class="p">}</span></td></tr></tbody></table>
+
+      </div>
+      <div id="anydiff">
+        <form action="https://projects.coin-or.org/Ipopt/diff" method="get">
+          <div style="display:none;"><input type="text" name="sfp_email" value=""><input type="hidden" name="sfph_mail" value=""></div><div class="buttons">
+            <input type="hidden" name="new_path" value="/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">
+            <input type="hidden" name="old_path" value="/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">
+            <input type="hidden" name="new_rev" value="2174">
+            <input type="hidden" name="old_rev" value="2174">
+            <input type="submit" value="View changes..." title="Select paths and revs for Diff">
+          </div>
+        </form>
+      </div>
+      <div id="help"><strong>Note:</strong> See <a href="https://projects.coin-or.org/Ipopt/wiki/TracBrowser">TracBrowser</a>
+        for help on using the repository browser.</div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp?rev=2174&amp;format=txt">Plain Text</a>
+        </li><li class="last">
+          <a rel="nofollow" href="https://projects.coin-or.org/Ipopt/export/2174/stable/3.10/Ipopt/examples/hs071_cpp/hs071_main.cpp">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="./hs071_main.cpp in stable_3.10_Ipopt_examples_hs071_cpp – Ipopt_files/trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">Powered by <a href="https://projects.coin-or.org/Ipopt/about"><strong>Trac 1.0.11</strong></a><br>
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

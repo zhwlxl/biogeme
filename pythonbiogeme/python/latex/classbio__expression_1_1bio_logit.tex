@@ -1,0 +1,82 @@
+\hypertarget{classbio__expression_1_1bio_logit}{}\section{bio\+\_\+expression.\+bio\+Logit Class Reference}
+\label{classbio__expression_1_1bio_logit}\index{bio\+\_\+expression.\+bio\+Logit@{bio\+\_\+expression.\+bio\+Logit}}
+
+
+Class calculating a logit choice probability.  
+
+
+Inheritance diagram for bio\+\_\+expression.\+bio\+Logit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio__expression_1_1bio_logit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbio__expression_1_1bio_logit_a25567c2014b5b34edc7769df7a3a312a}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, util, av, choice)
+\item 
+def {\bfseries get\+Expression} (self)\hypertarget{classbio__expression_1_1bio_logit_a35b306d8e0b89a2fd97d4d3649da531f}{}\label{classbio__expression_1_1bio_logit_a35b306d8e0b89a2fd97d4d3649da531f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries prob}\hypertarget{classbio__expression_1_1bio_logit_ad5fd23e6737a77f2b75ef3efea466a93}{}\label{classbio__expression_1_1bio_logit_ad5fd23e6737a77f2b75ef3efea466a93}
+
+\item 
+{\bfseries av}\hypertarget{classbio__expression_1_1bio_logit_acf8d45c3bf980e2070c2003cf906f305}{}\label{classbio__expression_1_1bio_logit_acf8d45c3bf980e2070c2003cf906f305}
+
+\item 
+{\bfseries choice}\hypertarget{classbio__expression_1_1bio_logit_a8ab839cd1684c1d3171dc28018fa9fc6}{}\label{classbio__expression_1_1bio_logit_a8ab839cd1684c1d3171dc28018fa9fc6}
+
+\item 
+{\bfseries operator\+Index}\hypertarget{classbio__expression_1_1bio_logit_a08e2231bfabc66c1a35cb3a932d2fc45}{}\label{classbio__expression_1_1bio_logit_a08e2231bfabc66c1a35cb3a932d2fc45}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class calculating a logit choice probability. 
+
+Computes the probability given by the logit model, that is \[ \frac{a_i e^{V_i}}{\sum_{j=1}^{J} a_j e^{V_j}} \] Example\+: 
+\begin{DoxyCode}
+1 V = \{1: V1, 2: V2, 3: V3\}
+2 av = \{1: av\_1, 2: 1, 3: av\_3\}
+3 prob = bioLogit(V,av,CHOICE) 
+\end{DoxyCode}
+ 
+
+Definition at line 865 of file bio\+\_\+expression.\+py.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bio\+\_\+expression\+::bio\+Logit@{bio\+\_\+expression\+::bio\+Logit}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bio\+\_\+expression\+::bio\+Logit@{bio\+\_\+expression\+::bio\+Logit}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, util, av, choice)}{__init__(self, util, av, choice)}}]{\setlength{\rightskip}{0pt plus 5cm}def bio\+\_\+expression.\+bio\+Logit.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{util, }
+\item[{}]{av, }
+\item[{}]{choice}
+\end{DoxyParamCaption}
+)}\hypertarget{classbio__expression_1_1bio_logit_a25567c2014b5b34edc7769df7a3a312a}{}\label{classbio__expression_1_1bio_logit_a25567c2014b5b34edc7769df7a3a312a}
+
+\begin{DoxyParams}{Parameters}
+{\em util} & dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) containing the utility functions $V_i$. \\
+\hline
+{\em av} & dictionary (see \href{http://docs.python.org/py3k/tutorial/datastructures.html}{\tt Python documentation}) containing the availability conditions for each alternative $a_i$ (if 0, alternative is not available, if different from zero, it is available). The number of entries and the labeling must be consistent with utilities. \\
+\hline
+{\em choice} & expression providing the index of the alternative for which the probability is being computed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 879 of file bio\+\_\+expression.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bio__expression_8py}{bio\+\_\+expression.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,4635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>PythonBiogeme: a short introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="pythonfirstmodel.tex"> 
+<link rel="stylesheet" type="text/css" href="pythonfirstmodel.css"> 
+</head><body 
+>
+<!--l. 347--><p class="noindent" >
+                                                                          
+
+                                                                          
+   <div class="maketitle">
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+
+<h2 class="titleHead">PythonBiogeme: a short introduction</h2>
+ <div class="author" ><span 
+class="cmr-12x-x-120">Michel Bierlaire</span></div><br />
+<div class="date" ><span 
+class="cmr-12x-x-120">July 6, 2016</span></div>
+   </div>
+<div class="center" 
+>
+<!--l. 353--><p class="noindent" >
+<!--l. 354--><p class="noindent" ><span 
+class="cmr-10x-x-109">Report TRANSP-OR 160706</span><br />
+<span 
+class="cmr-10x-x-109">Transport and Mobility Laboratory</span><br />
+<span 
+class="cmr-10x-x-109">School of Architecture, Civil and Environmental Engineering</span><br />
+<span 
+class="cmr-10x-x-109">Ecole Polytechnique F</span><span 
+class="cmr-10x-x-109">éd</span><span 
+class="cmr-10x-x-109">érale de Lausanne</span><br />
+<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10x-x-109">transp-or.epfl.ch</span></span></span>
+<div class="center" 
+>
+<!--l. 355--><p class="noindent" >
+<!--l. 356--><p class="noindent" ><span 
+class="cmcsc-10x-x-109">S<span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">i</span><span 
+class="small-caps">e</span><span 
+class="small-caps">s</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">n</span> B<span 
+class="small-caps">i</span><span 
+class="small-caps">o</span><span 
+class="small-caps">g</span><span 
+class="small-caps">e</span><span 
+class="small-caps">m</span><span 
+class="small-caps">e</span></span></div>
+</div>
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+<!--l. 364--><p class="noindent" >The package Biogeme (<span 
+class="cmtt-12">biogeme.epfl.ch</span>) is designed to estimate the parameters
+of various models using maximum likelihood estimation. It is particularly designed
+for discrete choice models. In this document, we present step by step how to
+specify a simple model, estimate its parameters and interpret the output of the
+software package. We assume that the reader is already familiar with discrete
+choice models, and has successfully installed PythonBiogeme. This document has
+been written using PythonBiogeme&#x00A0;2.5, but should remain valid for future
+versions.
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>The data file</h3>
+<!--l. 375--><p class="noindent" >Biogeme assumes that the data file contains in its first line a list of labels
+corresponding to the available data, and that each subsequent line contains the
+exact same number of numerical data, each row corresponding to an observation.
+Delimiters can be tabs or spaces. The tool <span class="lstinline"><span 
+class="cmtt-10">biopreparedata</span></span> can be used to
+transform a file in Comma Separated Version (CSV) into the required format.
+The tool <span class="lstinline"><span 
+class="cmtt-10">biocheckdata</span></span> verifies if the data file complies with the required
+format.
+<!--l. 385--><p class="indent" >   The data file used for this example is <span 
+class="cmtt-12">swissmetro.dat</span>. Note that the first
+time a data file is used by Biogeme, it is compressed and saved in binary format in
+a file. The name of this file is the same as the original file, preceeded by <span class="lstinline"><span 
+class="cmtt-10">__bin_</span></span>. In
+our example, the binary file is <span class="lstinline"><span 
+class="cmtt-10">__bin_optima</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">dat</span></span>. If the original text file is modifed,
+the binary file must be erased from the directory in order to account for the
+changes. The name of the file that has actually been used is reported in the
+output file.
+<!--l. 395--><p class="indent" >   Biogeme&#x00A0;is available in two versions. <span 
+class="cmti-12">BisonBiogeme </span>is designed to estimate
+the parameters of a list of predetermined discrete choice models such as
+logit, binary probit, nested logit, cross-nested logit, multivariate extreme
+value models, discrete and continuous mixtures of multivariate extreme
+value models, models with nonlinear utility functions, models designed for
+panel data, and heteroscedastic models. It is based on a formal and simple
+language for model specification. <span 
+class="cmti-12">PythonBiogeme </span>is designed for general
+purpose parametric models. The specification of the model and of the
+likelihood function is based on an extension of the python programming
+language. A series of discrete choice models are precoded for an easy
+use.
+<!--l. 408--><p class="indent" >   In this document, we describe the model specification for PythonBiogeme.
+                                                                          
+
+                                                                          
+<!--l. 411--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>The model</h3>
+<!--l. 412--><p class="noindent" >The model is a logit model with 3 alternatives: <span 
+class="cmti-12">train</span>, <span 
+class="cmti-12">Swissmetro </span>and <span 
+class="cmti-12">car</span>. The
+utility functions are defined as: <!--l. 413-->
+   <div class="lstlisting" id="listing-1"><span class="label"><a 
+ id="x1-2001r1"></a></span><span 
+class="cmtt-10">V_1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-2002r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-2003r3"></a></span><span 
+class="cmtt-10">V_2</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-2004r4"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-2005r5"></a></span><span 
+class="cmtt-10">V_3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-2006r6"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_CO_SCALED</span>
+   
+   </div>
+<!--l. 421--><p class="indent" >   where <span class="lstinline"><span 
+class="cmtt-10">TRAIN_TT_SCALED</span></span>, <span class="lstinline"><span 
+class="cmtt-10">TRAIN_COST_SCALED</span></span>, <span class="lstinline"><span 
+class="cmtt-10">SM_TT_SCALED</span></span>, <span class="lstinline"><span 
+class="cmtt-10">SM_COST_SCALED</span></span>,
+<span class="lstinline"><span 
+class="cmtt-10">CAR_TT_SCALED</span></span>, <span class="lstinline"><span 
+class="cmtt-10">CAR_CO_SCALED</span></span> are variables, and <span class="lstinline"><span 
+class="cmtt-10">ASC_TRAIN</span></span>, <span class="lstinline"><span 
+class="cmtt-10">ASC_SM</span></span>, <span class="lstinline"><span 
+class="cmtt-10">ASC_CAR</span></span>, <span class="lstinline"><span 
+class="cmtt-10">B_TIME</span></span>,
+<span class="lstinline"><span 
+class="cmtt-10">B_COST</span></span> are parameters to be estimated. Note that it is not possible to identify all
+alternative specific constants <span class="lstinline"><span 
+class="cmtt-10">ASC_TRAIN</span></span>, <span class="lstinline"><span 
+class="cmtt-10">ASC_SM</span></span>, <span class="lstinline"><span 
+class="cmtt-10">ASC_CAR</span></span> from data. Consequently,
+<span class="lstinline"><span 
+class="cmtt-10">ASC_SM</span></span> is normalized to 0.
+<!--l. 438--><p class="indent" >   The availability of an alternative <span 
+class="cmtt-12">i </span>is determined by the variable <span 
+class="eurm-10x-x-120">y</span><sub><span 
+class="eurm-10x-x-80">i</span></sub>,
+<span 
+class="cmtt-12">i</span>=1,...3, which is equal to 1 if the alternative is available, 0 otherwise. The
+probability of choosing an available alternative <span 
+class="cmtt-12">i </span>is given by the logit
+model:
+   <table 
+class="equation"><tr><td><a 
+ id="x1-2007r1"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel0x.png" alt="                               y eVi(x,&#x03B2;)
+P (i|{1, 2, 3};x, &#x03B2;) =-----------i------------------.
+                   y1eV1 (x,&#x03B2;) + y2eV2(x,&#x03B2;) + y3eV3(x,&#x03B2;)
+" class="math-display" ></center></td><td class="equation-label">(1)</td></tr></table>
+<!--l. 444--><p class="nopar" >
+Given a data set of <span 
+class="eurm-10x-x-120">N </span>observations, the log likelihood of the sample is
+   <table 
+class="equation"><tr><td><a 
+ id="x1-2008r2"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel1x.png" alt="    &#x2211;
+L =     logP (in |{1, 2, 3};&#x03B2;)
+      n
+" class="math-display" ></center></td><td class="equation-label">(2)</td></tr></table>
+<!--l. 449--><p class="nopar" >
+where <span 
+class="eurm-10x-x-120">i</span><sub><span 
+class="eurm-10x-x-80">n</span></sub> is the alternative actually chosen by individual <span 
+class="eurm-10x-x-120">n</span>.
+<!--l. 453--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-30003"></a>Model specification: PythonBiogeme</h3>
+<!--l. 456--><p class="noindent" >The model specification file must have an extension <span class="lstinline"><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span></span>. The file <span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span></span> is
+reported in Section&#x00A0;<a 
+href="#x1-7000A.1">A.1<!--tex4ht:ref: sec:modelPython --></a>. We describe here its content.
+<!--l. 460--><p class="indent" >   THe objective is to provide to PythonBiogeme&#x00A0;the formula of the log
+likelihood function to maximize, using a syntax based on the Python
+programming language, and extended for the specific needs of Biogeme. The file
+can contain comments, designed to document the specification. Comments are
+included using the characters <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">#</span></span></span>, consistently with the Python syntax. All
+characters after this command, up to the end of the current line, are ignored by
+PythonBiogeme. In our example, the file starts with comments describing the
+name of the file, its author and the date when it was created. A short description
+of its content is also provided. <!--l. 471-->
+   <div class="lstlisting" id="listing-2"><span class="label"><a 
+ id="x1-3001r1"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">#######################################</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3002r2"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3003r3"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@file</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">01</span><span 
+class="cmitt-10">logit</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">py</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3004r4"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@author</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Michel</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Bierlaire</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">EPFL</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3005r5"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@date</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Wed</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Dec</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">21</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">13:23:27</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">2011</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3006r6"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3007r7"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Logit</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">model</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3008r8"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Three</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">alternatives</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Train</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Car</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">and</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3009r9"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">SP</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3010r10"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3011r11"></a></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">######################################</span>
+   
+   </div>
+<!--l. 484--><p class="indent" >   These comments are completely ignored by PythonBiogeme. However, it is
+recommended to use many comments to describe the model specification, for
+future reference, or to help other persons to understand the specification.
+<!--l. 489--><p class="indent" >   The specification file must start by loading the Python libraries needed
+by PythonBiogeme. Two libraries are mandatory <span class="lstinline"><span 
+class="cmtt-10">biogeme</span></span> and <span class="lstinline"><span 
+class="cmtt-10">headers</span></span>.
+The first includes the extension of the PYthon programming language
+needed by PythonBiogeme. The second imports the names of the headers
+of the data file, so that they can be directly used in the specification
+of the model. In this example, an additional library is loaded as well:
+<span class="lstinline"><span 
+class="cmtt-10">statistics</span></span>. It implements some functions that report statistics about the data
+file.
+   <!--l. 498-->
+   <div class="lstlisting" id="listing-3"><span class="label"><a 
+ id="x1-3012r1"></a></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">biogeme</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3013r2"></a></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">headers</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3014r3"></a></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">statistics</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span>
+   
+   </div>
+                                                                          
+
+                                                                          
+<!--l. 504--><p class="indent" >   The next statements use the function <span class="lstinline"><span 
+class="cmtt-10">Beta</span></span> to define the parameters to
+be estimated. For each parameter, the following information must be
+mentioned:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-3016x1">the name of the parameter,
+      </li>
+      <li 
+  class="enumerate" id="x1-3018x2">the default value,
+      </li>
+      <li 
+  class="enumerate" id="x1-3020x3">a lower bound,
+      </li>
+      <li 
+  class="enumerate" id="x1-3022x4">an upper bound,
+      </li>
+      <li 
+  class="enumerate" id="x1-3024x5">a flag that indicates if the parameter must be estimated (0) or if it
+      keeps its default value (1),
+      </li>
+      <li 
+  class="enumerate" id="x1-3026x6">a description of the parameter, to be used in the <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>&#x00A0;report.</li></ol>
+<!--l. 517--><p class="indent" >   Note that, in Python, case sensitivity is enforced, so that <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">varname</span></span></span> and
+<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">Varname</span></span></span> would represent two different variables. In our example, the default value
+of each parameter is 0. If a previous estimation had been performed before,
+we could have used the previous estimates as default value. Note that,
+for the parameters that are estimated by PythonBiogeme, the default
+value is used as the starting value for the optimization algorithm. For the
+parameters that are not estimated, the default value is used throughout the
+estimation process. In our example, the parameter <span class="lstinline"><span 
+class="cmtt-10">ASC_SM</span></span> is not estimated (as
+specified by the <span class="lstinline"><span 
+class="cmtt-10">1</span></span> in the fifth argument on the corresponding line), and its
+value is fixed to <span class="lstinline"><span 
+class="cmtt-10">0</span></span>. A lower bound and an upper bound must be specified.
+By default, we suggest to use <span class="lstinline"><span 
+class="cmtt-10">-1000</span></span> and <span class="lstinline"><span 
+class="cmtt-10">1000</span></span>. If the estimated value of
+the parameter happens to equal to one of these bounds, it is a sign that
+the bounds are too tight and larger values should be provided. However,
+most of the time, if a coefficient reaches the value 1000 or -1000, it means
+that its variable is poorly scaled, and that its units should be changed.
+<!--l. 535-->
+   <div class="lstlisting" id="listing-4"><span class="label"><a 
+ id="x1-3027r1"></a></span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Car</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3028r2"></a></span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Train</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3029r3"></a></span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,1,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3030r4"></a></span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Travel</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">time</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3031r5"></a></span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Travel</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cost</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+                                                                          
+
+                                                                          
+<!--l. 542--><p class="indent" >   Note that none of the Python variables is used by PythonBiogeme. They are
+used only to simplify the writing of the formula. Therefore, nothing prevents to
+write <!--l. 545-->
+   <div class="lstlisting" id="listing-5"><span class="label"><a 
+ id="x1-3032r1"></a></span><span 
+class="cmtt-10">car_cte</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Car</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 548--><p class="indent" >   and to use <span class="lstinline"><span 
+class="cmtt-10">car_cte</span></span> later in the specification. The variable <span class="lstinline"><span 
+class="cmtt-10">car_cte</span></span> will be
+unknown by PythonBiogeme&#x00A0;and will not appear in any reporting file. We
+<span 
+class="cmbx-12">strongly </span>advise against this practice, and suggest to use the exact same name for
+the Python variable on the left hand side, and for the PythonBiogeme
+variable, appearing as the first argument of the function, as illustrated in this
+example.
+<!--l. 556--><p class="indent" >   It is possible to define new variables in addition to the variables defined in the
+data files. It can be done either by defining Python variables using the Python
+syntax: <!--l. 559-->
+   <div class="lstlisting" id="listing-6"><span class="label"><a 
+ id="x1-3033r1"></a></span><span 
+class="cmtt-10">SM_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">GA</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3034r2"></a></span><span 
+class="cmtt-10">TRAIN_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">GA</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 563--><p class="indent" >   It can also be done by defining PythonBiogeme&#x00A0;variables, using the function
+<span class="lstinline"><span 
+class="cmtt-10">DefineVariable</span></span>. <!--l. 565-->
+   <div class="lstlisting" id="listing-7"><span class="label"><a 
+ id="x1-3035r1"></a></span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CAR_AV</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3036r2"></a></span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">TRAIN_AV</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span>
+   
+   </div>
+<!--l. 569--><p class="indent" >   The latter definition is equivalent to add a column with the specified header to
+the data file. It means that the value of the new variables for each observation is
+calculated once before the estimation starts. On the contrary, with the method
+based on Python variable, the calculation will be applied again and again, each
+time it is needed by the algorithm. For small models, it may not make any
+difference, and the first method may be more readable. But for models requiring
+a significant amount of time to be estimated, the time savings may be
+substantial.
+<!--l. 579--><p class="indent" >   When boolean expressions are involved, the value TRUE is represented by 1,
+and the value FALSE is represented by 0. Therefore, a multiplication involving a
+boolean expression is equivalent to a &#8220;AND&#8221; operator. The above code is
+interpreted in the following way:
+      <ul class="itemize1">
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">CAR_AV_SP</span></span> is equal to <span class="lstinline"><span 
+class="cmtt-10">CAR_AV</span></span> if <span class="lstinline"><span 
+class="cmtt-10">SP</span></span> is different from 0, and is equal to 0
+      otherwise. <span class="lstinline"><span 
+class="cmtt-10">TRAIN_AV_SP</span></span> is defined similarly.
+                                                                          
+
+                                                                          
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">SM_COST</span></span> is equal to <span class="lstinline"><span 
+class="cmtt-10">SM_CO</span></span> if <span class="lstinline"><span 
+class="cmtt-10">GA</span></span> is equal to 0, that is, if the traveler
+      does not have a yearly pass (called &#8220;general abonment&#8221;). If the traveler
+      possesses a yearly pass, then <span class="lstinline"><span 
+class="cmtt-10">GA</span></span> is different from 0, and the variable
+      <span class="lstinline"><span 
+class="cmtt-10">SM_COST</span></span> is zero. The variable <span class="lstinline"><span 
+class="cmtt-10">TRAIN_COST</span></span> is defined in the same way.</li></ul>
+<!--l. 596--><p class="indent" >   Variables can be also be rescaled. For numerical reasons, it is good practice to
+scale the data so that the values of the estimated parameters are around 1.0. A
+previous estimation with the unscaled data has generated parameters around
+-0.01 for both cost and time. Therefore, time and cost are divided by
+100.
+   <!--l. 601-->
+   <div class="lstlisting" id="listing-8"><span class="label"><a 
+ id="x1-3037r1"></a></span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3038r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100.0)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3039r3"></a></span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3040r4"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3041r5"></a></span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100.0)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3042r6"></a></span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3043r7"></a></span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3044r8"></a></span><span 
+class="cmtt-10">CAR_CO_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_CO_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span>
+   
+   </div>
+<!--l. 612--><p class="indent" >   We now write the specification of the utility functions.
+   <!--l. 615-->
+   <div class="lstlisting" id="listing-9"><span class="label"><a 
+ id="x1-3045r1"></a></span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3046r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3047r3"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3048r4"></a></span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3049r5"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3050r6"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3051r7"></a></span><span 
+class="cmtt-10">V3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3052r8"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3053r9"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_CO_SCALED</span>
+   
+   </div>
+<!--l. 627--><p class="indent" >   We need to associate each utility function with the number of the
+alternative, using the numering convention in the data file. In this example, the
+convention is described in Table&#x00A0;<a 
+href="#x1-30601">1<!--tex4ht:ref: tab:choice --></a>. To do this, we use a Python dictionary:
+<!--l. 631-->
+   <div class="lstlisting" id="listing-10"><span class="label"><a 
+ id="x1-3054r1"></a></span><span 
+class="cmtt-10">V</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">{1:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3055r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3056r3"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V3</span><span 
+class="cmtt-10">}</span>
+   
+   </div>
+<!--l. 636--><p class="indent" >   We use also a dictionary to describe the availability conditions of each
+alternative: <!--l. 638-->
+   <div class="lstlisting" id="listing-11"><span class="label"><a 
+ id="x1-3057r1"></a></span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">{1:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3058r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_AV</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3059r3"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">}</span>
+   
+   </div>
+   <div class="table">
+                                                                          
+
+                                                                          
+<!--l. 644--><p class="indent" >   <a 
+ id="x1-30601"></a><hr class="float"><div class="float" 
+>
+                                                                          
+
+                                                                          
+<div class="center" 
+>
+<!--l. 645--><p class="noindent" >
+<div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"><col 
+id="TBL-2-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-1-1"  
+class="td11">     Train  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
+class="td11"> 1  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-2-1"  
+class="td11"> Swissmetro  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
+class="td11"> 2  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-2-3-1"  
+class="td11">       Car  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-2"  
+class="td11"> 3  </td></tr></table>
+</div></div>
+<br /> <div class="caption" 
+><span class="id">Table&#x00A0;1: </span><span  
+class="content">Numbering of the alternatives</span></div><!--tex4ht:label?: x1-30601 -->
+                                                                          
+
+                                                                          
+   </div><hr class="endfloat" />
+   </div>
+<!--l. 655--><p class="indent" >   We now define the choice model. The function <span class="lstinline"><span 
+class="cmtt-10">bioLogLogit</span></span> provides
+the logarithm of the choice probability of the logit model. It takes three
+arguments:
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-3062x1">the dictionary describing the utility functions,
+      </li>
+      <li 
+  class="enumerate" id="x1-3064x2">the dictionary describing the availability conditions,
+      </li>
+      <li 
+  class="enumerate" id="x1-3066x3">the alternative for which the probability must be calculated.</li></ol>
+<!--l. 663--><p class="noindent" >In this example, we obtain <!--l. 664-->
+   <div class="lstlisting" id="listing-12"><span class="label"><a 
+ id="x1-3067r1"></a></span><span 
+class="cmtt-10">logprob</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">bioLogLogit</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">V</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 667--><p class="indent" >   We next defined an iterator on the data using the statement <!--l. 668-->
+   <div class="lstlisting" id="listing-13"><span class="label"><a 
+ id="x1-3068r1"></a></span><span 
+class="cmtt-10">rowIterator</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 671--><p class="indent" >   and define the <span class="lstinline"><span 
+class="cmtt-10">ESTIMATE</span></span> variable of the <span class="lstinline"><span 
+class="cmtt-10">BIOGEME_OBJECT</span></span> with the formula of the
+log likelihood function: <!--l. 674-->
+   <div class="lstlisting" id="listing-14"><span class="label"><a 
+ id="x1-3069r1"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">ESTIMATE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Sum</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">logprob</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 678--><p class="indent" >   Other variables can be defined in the <span class="lstinline"><span 
+class="cmtt-10">BIOGEME_OBJECT</span></span>. In particular, the <span class="lstinline"><span 
+class="cmtt-10">EXCLUDE</span></span>
+variable allows to ignore some observations in the data file. It contains a boolean
+expression that is evaluated for each observation in the data file. Each observation
+such that this expression is &#8220;true&#8221; is discarded from the sample. In our example,
+the modeler has developed the model only for work trips, so that every
+observation such that the trip purpose is not 1 or 3 is removed. Observations such
+that the dependent variable <span class="lstinline"><span 
+class="cmtt-10">CHOICE</span></span> is 0 are also removed. Remember the
+convention that &#8220;false&#8221; is represented by 0, and &#8220;true&#8221; by 1, so that the &#8216;*&#8217;
+can be interpreted as a &#8220;and&#8221;, and the &#8216;+&#8217; as a &#8220;or&#8221;. Note also that the
+result of the &#8216;+&#8217; can be 2, so that we test is the result is equal to 0 or not.
+The exclude condition in our example is therefore interpreted as: either
+(<span class="lstinline"><span 
+class="cmtt-10">PURPOSE</span></span> different from 1 and <span class="lstinline"><span 
+class="cmtt-10">PURPOSE</span></span> different from 3), or <span class="lstinline"><span 
+class="cmtt-10">CHOICE</span></span> equal to
+0.
+   <!--l. 695-->
+                                                                          
+
+                                                                          
+   <div class="lstlisting" id="listing-15"><span class="label"><a 
+ id="x1-3070r1"></a></span><span 
+class="cmtt-10">exclude</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">((</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3071r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x003E;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3072r3"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">EXCLUDE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">exclude</span>
+   
+   </div>
+<!--l. 701--><p class="indent" >   Note that we have conveniently used an intermediary Python variable <span class="lstinline"><span 
+class="cmtt-10">exclude</span></span>
+in this example. It is not necessary. The above statement is completely equivalent
+to <!--l. 704-->
+   <div class="lstlisting" id="listing-16"><span class="label"><a 
+ id="x1-3073r1"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">EXCLUDE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3074r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">((</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3075r3"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x003E;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span>
+   
+   </div>
+<!--l. 710--><p class="indent" >   The variable <span class="lstinline"><span 
+class="cmtt-10">PARAMETERS</span></span> allows to define various parameters controlling the
+configuration of PythonBiogeme. In this example, we have selected to use the
+optimization algorithm <span class="lstinline"><span 
+class="cmtt-10">BIO</span></span> using the following syntax. <!--l. 714-->
+   <div class="lstlisting" id="listing-17"><span class="label"><a 
+ id="x1-3076r1"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">PARAMETERS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">optimizationAlgorithm</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">"</span><span 
+class="cmtt-10">BIO</span><span 
+class="cmtt-10">"</span>
+   
+   </div>
+<!--l. 718--><p class="indent" >   The variable <span class="lstinline"><span 
+class="cmtt-10">FORMULAS</span></span> is used to select the parts of the model specification
+that are reported in the report file. In general, the formula of the log
+likelihood function is too complicated to be readable, and it is preferred to
+report only the specification of the utility functions, as in this example.
+<!--l. 723-->
+   <div class="lstlisting" id="listing-18"><span class="label"><a 
+ id="x1-3077r1"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Train</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3078r2"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3079r3"></a></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Car</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V3</span>
+   
+   </div>
+<!--l. 729--><p class="indent" >   Finally, we request PythonBiogeme&#x00A0;to calculate some statistics about the null
+log likelihood, the log likelihood of a model with constants only, and statistics
+about the availability of the alternatives.
+   <!--l. 733-->
+   <div class="lstlisting" id="listing-19"><span class="label"><a 
+ id="x1-3080r1"></a></span><span 
+class="cmtt-10">nullLoglikelihood</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3081r2"></a></span><span 
+class="cmtt-10">choiceSet</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">[1,2,3]</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3082r3"></a></span><span 
+class="cmtt-10">cteLoglikelihood</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">choiceSet</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-3083r4"></a></span><span 
+class="cmtt-10">availabilityStatistics</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span>
+   
+   </div>
+<!--l. 740--><p class="indent" >   The function <span class="lstinline"><span 
+class="cmtt-10">nullLoglikelihood</span></span> computes the null loglikelihood from the
+sample and ask PythonBiogeme&#x00A0;to include it in the output file. The first
+argument is a dictionary mapping each alternative ID with its availability
+condition. The second is an iterator on the data file. The result is the
+log likelihood of a model where the choice probability for observation
+<span 
+class="eurm-10x-x-120">n </span>is given by is <span 
+class="eurm-10x-x-120">1&#x2215;J</span><sub><span 
+class="eurm-10x-x-80">n</span></sub>, where <span 
+class="eurm-10x-x-120">J</span><sub><span 
+class="eurm-10x-x-80">n</span></sub>  is the number of available alternatives,
+i.e.
+   <table 
+class="equation"><tr><td><a 
+ id="x1-3084r3"></a>
+                                                                          
+
+                                                                          
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel2x.png" alt="      &#x2211;
+L = -     ln(Jn).
+        n
+" class="math-display" ></center></td><td class="equation-label">(3)</td></tr></table>
+<!--l. 748--><p class="nopar" >
+<!--l. 751--><p class="indent" >   The function <span class="lstinline"><span 
+class="cmtt-10">cteLoglikelihood</span></span> computes the constant loglikelihood from the
+sample and ask PythonBiogeme&#x00A0;to include it in the output file. It assumes that
+the full choice set is available for each observation. The first argument is a list
+containing the alternatives in the choice set. The second argument is the
+choice expression producing the id of the chosen alternative. The third
+argument is an iterator on the data file. The result is the log likelihood
+of a logit model where the only parameters are the alternative specific
+constants. If <span 
+class="eurm-10x-x-120">n</span><sub><span 
+class="eurm-10x-x-80">i</span></sub> is the number of times alternative <span 
+class="eurm-10x-x-120">i </span>is chosen, then it is given
+by
+   <table 
+class="equation"><tr><td><a 
+ id="x1-3085r4"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel3x.png" alt="    &#x2211;
+L =     ni ln(ni ) - n ln(n)
+      i
+" class="math-display" ></center></td><td class="equation-label">(4)</td></tr></table>
+<!--l. 760--><p class="nopar" >
+where <span 
+class="eurm-10x-x-120">n </span><span 
+class="eufm-10x-x-120">=</span> <span 
+class="euex-10x-x-120">&#x2211;</span>
+    <sub><span 
+class="eurm-10x-x-80">i</span></sub><span 
+class="eurm-10x-x-120">n</span><sub><span 
+class="eurm-10x-x-80">i</span></sub> is the total number of observations.
+<!--l. 763--><p class="indent" >   The function <span class="lstinline"><span 
+class="cmtt-10">availabilityStatistics</span></span> computes the number of times each
+alternative is declared available in the data set and ask PythonBiogeme&#x00A0;to
+include it in the output file. The first argument is a dictionary containing for each
+alternative the expression for its availability. The second is an iterator on the data
+file. The result is a dictionary <span class="lstinline"><span 
+class="cmtt-10">D</span></span> with an entry <span class="lstinline"><span 
+class="cmtt-10">D</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">i</span><span 
+class="cmtt-10">]</span></span> for each alternative i
+containing the number of times it is available.
+                                                                          
+
+                                                                          
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-40004"></a>Running PythonBiogeme</h3>
+<!--l. 773--><p class="noindent" >The estimation of the model is performed using the following command
+<!--l. 774-->
+   <div class="lstlisting" id="listing-20"><span class="label"><a 
+ id="x1-4001r1"></a></span><span 
+class="cmtt-10">pythonbiogeme</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">swissmetro</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">dat</span>
+   
+   </div>
+<!--l. 778--><p class="indent" >   The following information is displayed during the execution.
+      <ul class="itemize1">
+      <li class="itemize">Some information about the version of Biogeme. <!--l. 781-->
+      <div class="lstlisting" id="listing-21"><span class="label"><a 
+ id="x1-4002r1"></a></span><span 
+class="cmtt-10">This</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">is</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">biogeme</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">pythonbiogeme</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2.5</span>
+      
+      </div>
+      </li>
+      <li class="itemize">The name of the sample file that is read. <!--l. 785-->
+      <div class="lstlisting" id="listing-22"><span class="label"><a 
+ id="x1-4003r1"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Read</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">sample</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">file</span><span 
+class="cmtt-10">:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">swissmetro</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">dat</span>
+      
+      </div>
+      </li>
+      <li class="itemize">PythonBiogeme&#x00A0;is able to use several processors if they are available. By
+      default, it uses half of the number fo available processors on the computer.
+      <!--l. 791-->
+      <div class="lstlisting" id="listing-23"><span class="label"><a 
+ id="x1-4004r1"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Nbr</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">of</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cores</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">reported</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">by</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">the</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">system</span><span 
+class="cmtt-10">:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">4</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4005r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Nbr</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">of</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cores</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">used</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">by</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">biogeme</span><span 
+class="cmtt-10">:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2</span>
+      
+      </div>
+      </li>
+      <li class="itemize">The details about the iterations of the estimation procedure are reported.
+      <!--l. 797-->
+      <div class="lstlisting" id="listing-24"><span class="label"><a 
+ id="x1-4006r1"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">Init</span><span 
+class="cmtt-8x-x-75">.</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">log</span><span 
+class="cmtt-8x-x-75">-</span><span 
+class="cmtt-8x-x-75">likelihood</span><span 
+class="cmtt-8x-x-75">:</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">-6964.66</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">[00:00]</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4007r2"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">gmax</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">Iter</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">radius</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">f</span><span 
+class="cmtt-8x-x-75">(</span><span 
+class="cmtt-8x-x-75">x</span><span 
+class="cmtt-8x-x-75">)</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">Status</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">rhok</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">nFree</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4008r3"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+1.44</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">-01</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">1</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">1.00</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+6.9646630</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+03</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">****</span><span 
+class="cmtt-8x-x-75">Converg</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+1.07</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">++</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">P</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4009r4"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+5.29</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">-02</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">2</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">2.00</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+5.4217993</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+03</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">****</span><span 
+class="cmtt-8x-x-75">Converg</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+1.08</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">++</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">P</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4010r5"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+9.43</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">-03</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">3</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4.00</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+5.3328087</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+03</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">****</span><span 
+class="cmtt-8x-x-75">Converg</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+1.02</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">++</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">P</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4011r6"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+2.34</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">-04</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">8.00</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+5.3312529</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+03</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">****</span><span 
+class="cmtt-8x-x-75">Converg</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">+1.00</span><span 
+class="cmtt-8x-x-75">e</span><span 
+class="cmtt-8x-x-75">+00</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">4</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">++</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">P</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4012r7"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4013r8"></a></span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">Convergence</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">reached</span><span 
+class="cmtt-8x-x-75">...</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4014r9"></a></span><span 
+class="cmtt-8x-x-75">--&#x003E;</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">time</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">interval</span><span 
+class="cmtt-8x-x-75">&#x00A0;</span><span 
+class="cmtt-8x-x-75">[16:28:46,16:28:46]</span>
+      
+      </div>
+      </li>
+      <li class="itemize">The value of the parameters at the end of the iterarions. <!--l. 809-->
+      <div class="lstlisting" id="listing-25"><span class="label"><a 
+ id="x1-4015r1"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Estimated</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">parameters</span><span 
+class="cmtt-10">:</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4016r2"></a></span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-0.154633</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4017r3"></a></span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-1.27786</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4018r4"></a></span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-1.08379</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4019r5"></a></span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4020r6"></a></span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">-0.701187</span>
+      
+                                                                          
+
+                                                                          
+      </div>
+      </li></ul>
+<!--l. 818--><p class="noindent" >The following files are generated by PythonBiogeme:
+      <ul class="itemize1">
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">html</span></span>: the results of the estimation in Html format. Its content
+      is described in Section&#x00A0;<a 
+href="#x1-50005">5<!--tex4ht:ref: sec:pythonreport --></a>.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit_param</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span></span>: the estimated value of the parameters, together with
+      the variance-covariance matrix of the estimates, in a syntax that can
+      be directly reused in a model specification file.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">log</span></span>:     a     file     containing     messages     produced     by
+      PythonBiogeme&#x00A0;during the run.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">tex</span></span>: a file containing the main results in <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>&#x00A0;format. See
+      Table&#x00A0;<a 
+href="#x1-40242">2<!--tex4ht:ref: tab:latex --></a>.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">hess</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">lis</span></span>:  contains  the  final  BHHH  and  the  second  derivative,  or
+      Hessian, matrix. The format is such that it can be copied and pasted
+      in a matrix language such as Matlab or Octave.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">hessian</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">lis</span></span>: contains the (opposite of the) Hessian matrix of the log
+      likelihood function at each iteration, in a Matlab compatible format.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">__parametersUsed</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span></span>: provides an exhaustive list of the parameters used
+      by the run of PythonBiogeme, together with the value that has been
+      used.</li></ul>
+<!--l. 840--><p class="indent" >   In order to avoid erasing previously generated results, the name of the files
+may vary from one run to the next. Therefore, PythonBiogeme&#x00A0;explicitly
+mentions the name of the main files that have been generated.
+   <!--l. 845-->
+   <div class="lstlisting" id="listing-26"><span class="label"><a 
+ id="x1-4021r1"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">File</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit_param</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">created</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4022r2"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">File</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">html</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">has</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">been</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">generated</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4023r3"></a></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">File</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">tex</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">has</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">been</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">generated</span>
+   
+   </div>
+   <div class="table">
+                                                                          
+
+                                                                          
+<!--l. 851--><p class="indent" >   <a 
+ id="x1-40242"></a><hr class="float"><div class="float" 
+>
+                                                                          
+
+                                                                          
+<div class="tabular"> <table id="TBL-3" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-1"  
+class="td11"> <!--tex4ht:inline--><div class="tabular"> <table id="TBL-4" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1"><col 
+id="TBL-4-2"><col 
+id="TBL-4-3"><col 
+id="TBL-4-4"><col 
+id="TBL-4-5"><col 
+id="TBL-4-6"><col 
+id="TBL-4-7"><col 
+id="TBL-4-8"><col 
+id="TBL-4-9"><col 
+id="TBL-4-10"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-1-1"  
+class="td11">        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-2"  
+class="td11">          </td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-1-3"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div>       </td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-1-5"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10">Robust</span></div>   </td><td colspan="4" style="white-space:nowrap; text-align:left;" id="TBL-4-1-7"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-2-1"  
+class="td11"><span 
+class="cmr-10">Parameter</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-2"  
+class="td11"> </td> <td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-2-3"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10">Coeff.</span></div> </td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-2-5"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10">Asympt.</span></div> </td><td colspan="4" style="white-space:nowrap; text-align:left;" id="TBL-4-2-7"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-3-1"  
+class="td11">  <span 
+class="cmr-10">number</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-2"  
+class="td11"><span 
+class="cmr-10">Description</span></td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-3-3"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10">estimate</span></div></td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-3-5"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmr-10">std. error</span></div></td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-3-7"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="eurm-10">t</span><span 
+class="cmr-10">-stat</span></div>    </td><td colspan="2" style="white-space:nowrap; text-align:left;" id="TBL-4-3-9"  
+class="td10"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="eurm-10">p</span><span 
+class="cmr-10">-value</span></div>
+</td></tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-1"  
+class="td11">        <span 
+class="cmr-10">1</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-2"  
+class="td11"><span 
+class="cmr-10">Car cte.     </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-3"  
+class="td10"><span 
+class="cmr-10">-0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-4"  
+class="td01"><span 
+class="cmr-10">155</span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-5"  
+class="td10"><span 
+class="cmr-10">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-6"  
+class="td01"><span 
+class="cmr-10">0582 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-7"  
+class="td10"> <span 
+class="cmr-10">-2.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-8"  
+class="td01"><span 
+class="cmr-10">66</span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-9"  
+class="td10"><span 
+class="cmr-10">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-10"  
+class="td01"><span 
+class="cmr-10">01 </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-1"  
+class="td11"> <span 
+class="cmr-10">2</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-2"  
+class="td11"><span 
+class="cmr-10">Train cte. </span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-3"  
+class="td10"><span 
+class="cmr-10">-0.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-4"  
+class="td01"><span 
+class="cmr-10">701</span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-5"  
+class="td10"><span 
+class="cmr-10">0.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-6"  
+class="td01"><span 
+class="cmr-10">0826 </span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-7"  
+class="td10"> <span 
+class="cmr-10">-8.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-8"  
+class="td01"><span 
+class="cmr-10">49</span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-9"  
+class="td10"><span 
+class="cmr-10">0.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-10"  
+class="td01"><span 
+class="cmr-10">00</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-1"  
+class="td11">        <span 
+class="cmr-10">3</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-2"  
+class="td11"><span 
+class="cmr-10">Travel cost </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-3"  
+class="td10"><span 
+class="cmr-10">-1.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-4"  
+class="td01"><span 
+class="cmr-10">08  </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-5"  
+class="td10"><span 
+class="cmr-10">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-6"  
+class="td01"><span 
+class="cmr-10">0682 </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-7"  
+class="td10"><span 
+class="cmr-10">-15.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-8"  
+class="td01"><span 
+class="cmr-10">89</span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-9"  
+class="td10"><span 
+class="cmr-10">0.</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-10"  
+class="td01"><span 
+class="cmr-10">00 </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-1"  
+class="td11"> <span 
+class="cmr-10">4</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-2"  
+class="td11"><span 
+class="cmr-10">Travel time</span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-3"  
+class="td10"><span 
+class="cmr-10">-1.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-4"  
+class="td01"><span 
+class="cmr-10">28 </span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-5"  
+class="td10"><span 
+class="cmr-10">0.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-6"  
+class="td01"><span 
+class="cmr-10">104 </span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-7"  
+class="td10"><span 
+class="cmr-10">-12.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-8"  
+class="td01"><span 
+class="cmr-10">26</span></td> <td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-9"  
+class="td10"><span 
+class="cmr-10">0.</span></td> <td  style="white-space:nowrap; text-align:left;" id="TBL-4-7-10"  
+class="td01"><span 
+class="cmr-10">00</span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-8-"><td  style="white-space:nowrap; text-align:right;" id="TBL-4-8-1"  
+class="td11">         </td></tr></table>                                                                </div> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-1"  
+class="td11"> <!--tex4ht:inline--><div class="tabular"> <table id="TBL-5" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-5-1g"><col 
+id="TBL-5-1"><col 
+id="TBL-5-2"><col 
+id="TBL-5-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-5-1-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-5-1-1"  
+class="td11"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="cmbx-10">Summary statistics</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-2-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-5-2-1"  
+class="td11"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"> <span 
+class="cmr-10">Number of observations = </span><span 
+class="eurm-10">6768</span></div></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-3-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-5-3-1"  
+class="td11"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"> <span 
+class="cmr-10">Number of excluded observations = </span><span 
+class="eurm-10">3960</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-4-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-5-4-1"  
+class="td11"><div class="multicolumn"  style="white-space:nowrap; text-align:left;"> <span 
+class="cmr-10">Number of estimated parameters = </span><span 
+class="eurm-10">4</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-5-1"  
+class="td11">          <span 
+class="cmsy-10"><img 
+src="cmsy10-4c.png" alt="L" class="10x-x-4c" /></span><span 
+class="eufm-10">(</span><span 
+class="eurm-10">&#x03B2;</span><sub><span 
+class="eurm-7">0</span></sub><span 
+class="eufm-10">)</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-5-2"  
+class="td11"><span 
+class="cmr-10">=</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-5-3"  
+class="td11"><span 
+class="eufm-10">-</span><span 
+class="eurm-10">6964.663         </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-6-1"  
+class="td11">           <span 
+class="cmsy-10"><img 
+src="cmsy10-4c.png" alt="L" class="10x-x-4c" /></span><span 
+class="eufm-10">(</span><img 
+src="pythonfirstmodel4x.png" alt="^&#x03B2;"  class="circ" ><span 
+class="eufm-10">)</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-6-2"  
+class="td11"><span 
+class="cmr-10">=</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-6-3"  
+class="td11"><span 
+class="eufm-10">-</span><span 
+class="eurm-10">5331.252         </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-7-1"  
+class="td11"><span 
+class="eufm-10">-</span><span 
+class="eurm-10">2</span><span 
+class="eufm-10">[</span><span 
+class="cmsy-10"><img 
+src="cmsy10-4c.png" alt="L" class="10x-x-4c" /></span><span 
+class="eufm-10">(</span><span 
+class="eurm-10">&#x03B2;</span><sub><span 
+class="eurm-7">0</span></sub><span 
+class="eufm-10">) - </span><span 
+class="cmsy-10"><img 
+src="cmsy10-4c.png" alt="L" class="10x-x-4c" /></span><span 
+class="eufm-10">(</span><img 
+src="pythonfirstmodel5x.png" alt="^&#x03B2;"  class="circ" ><span 
+class="eufm-10">)]</span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-7-2"  
+class="td11"><span 
+class="cmr-10">=</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-7-3"  
+class="td11"><span 
+class="eurm-10">3266.822            </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-8-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-8-1"  
+class="td11">             <span 
+class="eurm-10">&#x03C1;</span><sup><span 
+class="eurm-7">2</span></sup></td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-8-2"  
+class="td11"><span 
+class="cmr-10">=</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-8-3"  
+class="td11"><span 
+class="eurm-10">0.235                </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-9-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-9-1"  
+class="td11">             <span class="bar-css"><span 
+class="eurm-10">&#x03C1;</span></span><sup><span 
+class="eurm-7">2</span></sup></td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-9-2"  
+class="td11"><span 
+class="cmr-10">=</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-5-9-3"  
+class="td11"><span 
+class="eurm-10">0.234                </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-10-"><td  style="white-space:nowrap; text-align:right;" id="TBL-5-10-1"  
+class="td11">               </td></tr></table>                                                          </div> </td>
+</tr></table></div>
+<br /> <div class="caption" 
+><span class="id">Table&#x00A0;2: </span><span  
+class="content">Results of the estimation in <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span></span></div><!--tex4ht:label?: x1-40242 -->
+                                                                          
+
+                                                                          
+   </div><hr class="endfloat" />
+   </div>
+                                                                          
+
+                                                                          
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-50005"></a>PythonBiogeme: the report file</h3>
+<!--l. 888--><p class="noindent" >The report file generated by PythonBiogeme&#x00A0;gathers various information about
+the result of the estimation. First, some information about the version of
+Biogeme, and some links to relevant URLs is provided. Next, the name of the
+report file and the sample file are reported.
+<!--l. 893--><p class="indent" >   If some formulas have been requested to be reported, it is done in the next
+section. After is a list of statistics requested in the model specification file. The
+estimation report follows, including
+      <ul class="itemize1">
+      <li class="itemize">The number of parameters that have been estimated.
+      </li>
+      <li class="itemize">The number of observations, that is, the number of rows in the data
+      file that have not been excluded.
+      </li>
+      <li class="itemize">The number of excluded observations.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Init</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">log</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">likelihood</span></span> is the log likelihood <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-4c.png" alt="L" class="10-120x-x-4c" /></span><sup><span 
+class="eurm-10x-x-80">i</span></sup> of the sample for the model
+      defined with the default values of the parameters.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Final</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">log</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">likelihood</span></span> is  the  log  likelihood  <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-4c.png" alt="L" class="10-120x-x-4c" /></span><sup><span 
+class="cmsy-8">*</span></sup> of  the  sample  for  the
+      estimated model.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Likelihood</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ratio</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">test</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">for</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">the</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">init</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">model</span></span> is
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5001r5"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel6x.png" alt="     i    *
+-2(L  - L  )
+      " class="math-display" ></center></td><td class="equation-label">(5)</td></tr></table>
+                                                                          
+
+                                                                          
+      <!--l. 912--><p class="nopar" >
+      where <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-4c.png" alt="L" class="10-120x-x-4c" /></span><sup><span 
+class="eurm-10x-x-80">i</span></sup> is the null log likelihood of the init model as defined above, and <span 
+class="cmsy-10x-x-120"><img 
+src="cmsy10-c-4c.png" alt="L" class="10-120x-x-4c" /></span><sup><span 
+class="cmsy-8">*</span></sup>
+      is the log likelihood of the sample for the estimated model.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Rho</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">square</span></span> is
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5002r6"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel7x.png" alt="  2       L*-
+&#x03C1;  = 1 -  Li.
+      " class="math-display" ></center></td><td class="equation-label">(6)</td></tr></table>
+      <!--l. 919--><p class="nopar" >
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Rho</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">square</span><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">bar</span></span> is
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5003r7"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel8x.png" alt="           *
+&#x03C1;2 = 1 - L-----K.
+            Li
+      " class="math-display" ></center></td><td class="equation-label">(7)</td></tr></table>
+      <!--l. 923--><p class="nopar" >
+      where <span 
+class="eurm-10x-x-120">K </span>is the number of estimated parameters. Note that this statistic is
+      meaningless in the presence of constraints, where the number of degrees of
+      freedom is less than the number of parameters.
+                                                                          
+
+                                                                          
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Final</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">gradient</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">norm</span></span> is the gradient of the log likelihood function computed
+      for the estimated parameters. If no constraint is active at the solution, it
+      should be close to 0. If there are equality constraints, or if some bound
+      constraints or inequality constraints are active at the solution (that is,
+      they are verified with equality), the gradient may not be close to
+      zero.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Diagnostic</span></span> is the diagnostic reported by the optimization algorithm. If the
+      algorithm has not converged, the estimation results presented in the file
+      cannot be used as such.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Iterations</span></span> is the number of iterations used by the algorithm before it
+      stopped.
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Run</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">time</span></span> is the actual time used by the algorithm before it stopped, in
+      minutes and seconds (format <span 
+class="cmtt-12">mm:ss</span>).
+      </li>
+      <li class="itemize"><span class="lstinline"><span 
+class="cmtt-10">Nbr</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">of</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">thread</span></span>: number of threads that is of processors, used during the
+      estimation.</li></ul>
+<!--l. 944--><p class="indent" >   The following section reports the estimates of the parameters of the utility
+function, together with some statistics. For each parameter <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub>, the following is
+reported:
+      <ul class="itemize1">
+      <li class="itemize">The name of the parameter.
+      </li>
+      <li class="itemize">The estimated value <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub>.
+      </li>
+      <li class="itemize">The standard error <span 
+class="eurm-10x-x-120">&#x03C3;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub> of the estimate, calculated as the square root of
+      the <span 
+class="eurm-10x-x-120">k</span><sup class="textsuperscript"><span 
+class="cmr-10x-x-109">th</span></sup>diagonal entry of the Rao-Cramer bound (see Appendix&#x00A0;<a 
+href="#x1-8000B">B<!--tex4ht:ref: sec:robust --></a>).
+      </li>
+      <li class="itemize">The <span 
+class="eurm-10x-x-120">t </span>statistics, calculated as <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub> <span 
+class="eufm-10x-x-120">= </span><span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><span 
+class="eurm-10x-x-120">&#x2215;&#x03C3;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub>.
+      </li>
+      <li class="itemize">The <span 
+class="eurm-10x-x-120">p </span>value, calculated as <span 
+class="eurm-10x-x-120">2</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="eurm-10x-x-120">1 </span><span 
+class="eufm-10x-x-120">- </span><span 
+class="eurm-10x-x-120">&#x03A6;</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><span 
+class="eufm-10x-x-120">))</span>, where <span 
+class="eurm-10x-x-120">&#x03A6;</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="cmsy-10x-x-120">&#x22C5;</span><span 
+class="eufm-10x-x-120">) </span>is the cumulative
+      density function of the univariate standard normal distribution.
+                                                                          
+
+                                                                          
+      </li>
+      <li class="itemize">A sign <span class="lstinline"><span 
+class="cmtt-10">*</span></span> is appended if the absolute value value of <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub> is less than 1.96,
+      emphasizing a potential lack of statistical significance. In this example,
+      no such sign appears.
+      </li>
+      <li class="itemize">The robust standard error <span 
+class="eurm-10x-x-120">&#x03C3;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup> of the estimate, calculated as the square
+      root of the <span 
+class="eurm-10x-x-120">k</span><sup class="textsuperscript"><span 
+class="cmr-10x-x-109">th</span></sup>diagonal entry of the robust estimate of the variance
+      covariance matrix. (see Appendix&#x00A0;<a 
+href="#x1-8000B">B<!--tex4ht:ref: sec:robust --></a>).
+      </li>
+      <li class="itemize">The robust <span 
+class="eurm-10x-x-120">t </span>statistics, calculated as <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup> <span 
+class="eufm-10x-x-120">= </span><span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><span 
+class="eurm-10x-x-120">&#x2215;&#x03C3;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup>.
+      </li>
+      <li class="itemize">The robust <span 
+class="eurm-10x-x-120">p </span>value, calculated as <span 
+class="eurm-10x-x-120">2</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="eurm-10x-x-120">1 </span><span 
+class="eufm-10x-x-120">- </span><span 
+class="eurm-10x-x-120">&#x03A6;</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup><span 
+class="eufm-10x-x-120">))</span>, where <span 
+class="eurm-10x-x-120">&#x03A6;</span><span 
+class="eufm-10x-x-120">(</span><span 
+class="cmsy-10x-x-120">&#x22C5;</span><span 
+class="eufm-10x-x-120">) </span>is the
+      cumulative density function of the univariate normal distribution.
+      </li>
+      <li class="itemize">A sign <span class="lstinline"><span 
+class="cmtt-10">*</span></span> is appended if the absolute value value of <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup> is less than 1.96,
+      emphasizing a potential lack of statistical significance. In this example,
+      no such sign appears.</li></ul>
+<!--l. 977--><p class="indent" >   The last section reports, for each pair of parameters <span 
+class="eurm-10x-x-120">k </span>and <span 
+class="eurm-10x-x-120">&#x2113;</span>,
+      <ul class="itemize1">
+      <li class="itemize">the name of <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub>,
+      </li>
+      <li class="itemize">the name of <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">&#x2113;</span></sub>,
+      </li>
+      <li class="itemize">the entry <span 
+class="eurm-10x-x-120">&#x03A3;</span><sub><span 
+class="eurm-10x-x-80">k,&#x2113;</span></sub> of the Rao-Cramer bound (see Appendix&#x00A0;<a 
+href="#x1-8000B">B<!--tex4ht:ref: sec:robust --></a>),
+      </li>
+      <li class="itemize">the correlation between <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub> and <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">&#x2113;</span></sub>, calculated as
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5004r8"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel9x.png" alt="&#x221A;--&#x03A3;k,&#x2113;---,
+  &#x03A3;k,k&#x03A3;&#x2113;,&#x2113;
+      " class="math-display" ></center></td><td class="equation-label">(8)</td></tr></table>
+      <!--l. 987--><p class="nopar" >
+      </li>
+      <li class="itemize">the <span 
+class="eurm-10x-x-120">t </span>statistics, calculated as
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5005r9"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel10x.png" alt="      ------&#x03B2;k---&#x03B2;&#x2113;------
+tk,&#x2113; = &#x221A; &#x03A3;---+-&#x03A3;-----2&#x03A3;---,
+         k,k     &#x2113;,&#x2113;     k,&#x2113;
+      " class="math-display" ></center></td><td class="equation-label">(9)</td></tr></table>
+      <!--l. 991--><p class="nopar" >
+      </li>
+      <li class="itemize">a sign <span class="lstinline"><span 
+class="cmtt-10">*</span></span> is appended if the absolute value value of <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k,&#x2113;</span></sub> is less than 1.96,
+      emphasizing that the hypothesis that the two parameters are equal
+      cannot be rejected at the 5% level (in this example, no such sign
+      appears),
+      </li>
+      <li class="itemize">the entry <span 
+class="eurm-10x-x-120">&#x03A3;</span><sub><span 
+class="eurm-10x-x-80">k,&#x2113;</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup> of <span 
+class="eurm-10x-x-120">&#x03A3;</span><sup><span 
+class="eurm-10x-x-80">R</span></sup>, the robust estimate of the variance covariance matrix
+      (see Appendix&#x00A0;<a 
+href="#x1-8000B">B<!--tex4ht:ref: sec:robust --></a>),
+      </li>
+      <li class="itemize">the robust correlation between <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">k</span></sub> and <span 
+class="eurm-10x-x-120">&#x03B2;</span><sub><span 
+class="eurm-10x-x-80">&#x2113;</span></sub>, calculated as
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5006r10"></a>
+                                                                          
+
+                                                                          
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel11x.png" alt="   &#x03A3;Rk,&#x2113;
+&#x2218;--R---R-,
+  &#x03A3;k,k&#x03A3;&#x2113;,&#x2113;
+      " class="math-display" ></center></td><td class="equation-label">(10)</td></tr></table>
+      <!--l. 1000--><p class="nopar" >
+      </li>
+      <li class="itemize">the robust <span 
+class="eurm-10x-x-120">t </span>statistics, calculated as
+      <table 
+class="equation"><tr><td><a 
+ id="x1-5007r11"></a>
+      <center class="math-display" >
+      <img 
+src="pythonfirstmodel12x.png" alt="tR  =  &#x2218;-----&#x03B2;k---&#x03B2;&#x2113;------,
+ k,&#x2113;     &#x03A3;Rk,k + &#x03A3;R&#x2113;,&#x2113; - 2&#x03A3;Rk,&#x2113;
+      " class="math-display" ></center></td><td class="equation-label">(11)</td></tr></table>
+      <!--l. 1005--><p class="nopar" >
+      </li>
+      <li class="itemize">a sign <span class="lstinline"><span 
+class="cmtt-10">*</span></span> is appended if the absolute value value of <span 
+class="eurm-10x-x-120">t</span><sub><span 
+class="eurm-10x-x-80">k,&#x2113;</span></sub><sup><span 
+class="eurm-10x-x-80">R</span></sup> is less than 1.96,
+      emphasizing that the hypothesis that the two parameters are equal cannot
+      be rejected at the 5% level (in this example, one such sign appears, for
+      parameters <span class="lstinline"><span 
+class="cmtt-10">B_COST</span></span> and <span class="lstinline"><span 
+class="cmtt-10">B_TIME</span></span>).</li></ul>
+<!--l. 1013--><p class="noindent" >The final line reports the value of the smallest singular value of the second derivatives
+matrix. A value close to zero is a sign of singularity, that may be due to a lack of
+variation in the data or an unidentified model.
+                                                                          
+
+                                                                          
+   <h3 class="sectionHead"><span class="titlemark">A   </span> <a 
+ id="x1-6000A"></a>Complete specification file</h3>
+<!--l. 1026--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">A.1   </span> <a 
+ id="x1-7000A.1"></a><span class="lstinline"><span 
+class="cmtt-10">01</span><span 
+class="cmtt-10">logit</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">py</span></span></h4>
+   <!--l. 1028--><div class="lstinputlisting">
+<a 
+ id="x1-7001"></a>
+   <span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7002r1"></a><span 
+class="cmr-6">1</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">#######################################</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7003r2"></a><span 
+class="cmr-6">2</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7004r3"></a><span 
+class="cmr-6">3</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@file</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">01</span><span 
+class="cmitt-10">logit</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">py</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7005r4"></a><span 
+class="cmr-6">4</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@author</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Michel</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Bierlaire</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">EPFL</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7006r5"></a><span 
+class="cmr-6">5</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">@date</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Wed</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Dec</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">21</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">13:23:27</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">2011</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7007r6"></a><span 
+class="cmr-6">6</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7008r7"></a><span 
+class="cmr-6">7</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Logit</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">model</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7009r8"></a><span 
+class="cmr-6">8</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Three</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">alternatives</span><span 
+class="cmitt-10">:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Train</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Car</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">and</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7010r9"></a><span 
+class="cmr-6">9</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">SP</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7011r10"></a><span 
+class="cmr-6">10</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7012r11"></a><span 
+class="cmr-6">11</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">######################################</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7013r12"></a><span 
+class="cmr-6">12</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7014r13"></a><span 
+class="cmr-6">13</span></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">biogeme</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7015r14"></a><span 
+class="cmr-6">14</span></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">headers</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7016r15"></a><span 
+class="cmr-6">15</span></span><span 
+class="cmtt-10">from</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">statistics</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">import</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7017r16"></a><span 
+class="cmr-6">16</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7018r17"></a><span 
+class="cmr-6">17</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">Parameters</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">be</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimated</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7019r18"></a><span 
+class="cmr-6">18</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Arguments</span><span 
+class="cmitt-10">:</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7020r19"></a><span 
+class="cmr-6">19</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">1</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Name</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">for</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">report</span><span 
+class="cmitt-10">;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Typically</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">same</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">as</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">variable</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7021r20"></a><span 
+class="cmr-6">20</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">2</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Starting</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">value</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7022r21"></a><span 
+class="cmr-6">21</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">3</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Lower</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">bound</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7023r22"></a><span 
+class="cmr-6">22</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">4</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Upper</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">bound</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7024r23"></a><span 
+class="cmr-6">23</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">5</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">0:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimate</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">parameter</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">1:</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">keep</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">it</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">fixed</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7025r24"></a><span 
+class="cmr-6">24</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7026r25"></a><span 
+class="cmr-6">25</span></span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Car</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7027r26"></a><span 
+class="cmr-6">26</span></span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Train</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7028r27"></a><span 
+class="cmr-6">27</span></span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,1,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cte</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7029r28"></a><span 
+class="cmr-6">28</span></span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Travel</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">time</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7030r29"></a><span 
+class="cmr-6">29</span></span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Beta</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,0,-1000,1000,0,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Travel</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">cost</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7031r30"></a><span 
+class="cmr-6">30</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7032r31"></a><span 
+class="cmr-6">31</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Utility</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">functions</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7033r32"></a><span 
+class="cmr-6">32</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7034r33"></a><span 
+class="cmr-6">33</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">If</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">person</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">has</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">a</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">GA</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">(</span><span 
+class="cmitt-10">season</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">ticket</span><span 
+class="cmitt-10">)</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">her</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">incremental</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">cost</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7035r34"></a><span 
+class="cmr-6">34</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">is</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">actually</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">0</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">rather</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">than</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">cost</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">value</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">gathered</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">from</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7036r35"></a><span 
+class="cmr-6">35</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">network</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7037r36"></a><span 
+class="cmr-6">36</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7038r37"></a><span 
+class="cmr-6">37</span></span><span 
+class="cmtt-10">SM_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">GA</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7039r38"></a><span 
+class="cmr-6">38</span></span><span 
+class="cmtt-10">TRAIN_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">GA</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7040r39"></a><span 
+class="cmr-6">39</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7041r40"></a><span 
+class="cmr-6">40</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">For</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">numerical</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">reasons</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">it</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">is</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">good</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">practice</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">scale</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7042r41"></a><span 
+class="cmr-6">41</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">that</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">values</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">of</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">parameters</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">are</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">around</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">1.0.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7043r42"></a><span 
+class="cmr-6">42</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">A</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">previous</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimation</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">with</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">unscaled</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">has</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">generated</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7044r43"></a><span 
+class="cmr-6">43</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">parameters</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">around</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">-0.01</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">for</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">both</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">cost</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">and</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">time</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Therefore</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">time</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7045r44"></a><span 
+class="cmr-6">44</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">and</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">cost</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">are</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">divided</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">by</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">100.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7046r45"></a><span 
+class="cmr-6">45</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7047r46"></a><span 
+class="cmr-6">46</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">The</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">following</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">statements</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">are</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">designed</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">preprocess</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7048r47"></a><span 
+class="cmr-6">47</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">It</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">is</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">like</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">creating</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">a</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">new</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">columns</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">in</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">file</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">This</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">should</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7049r48"></a><span 
+class="cmr-6">48</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">be</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">preferred</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">statement</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">like</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7050r49"></a><span 
+class="cmr-6">49</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">TRAIN_TT_SCALED</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">TRAIN_TT</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">/</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">100.0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7051r50"></a><span 
+class="cmr-6">50</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">which</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">causes</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">division</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">be</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">reevaluated</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">again</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">and</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">again</span><span 
+class="cmitt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7052r51"></a><span 
+class="cmr-6">51</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">throuh</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">iterations</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">For</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">models</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">taking</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">a</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">long</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">time</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">to</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7053r52"></a><span 
+class="cmr-6">52</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimate</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">it</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">may</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">make</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">a</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">significant</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">difference</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7054r53"></a><span 
+class="cmr-6">53</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7055r54"></a><span 
+class="cmr-6">54</span></span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7056r55"></a><span 
+class="cmr-6">55</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100.0)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7057r56"></a><span 
+class="cmr-6">56</span></span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7058r57"></a><span 
+class="cmr-6">57</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7059r58"></a><span 
+class="cmr-6">58</span></span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100.0)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7060r59"></a><span 
+class="cmr-6">59</span></span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7061r60"></a><span 
+class="cmr-6">60</span></span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_TT</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7062r61"></a><span 
+class="cmr-6">61</span></span><span 
+class="cmtt-10">CAR_CO_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_CO_SCALED</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_CO</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">/</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">100)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7063r62"></a><span 
+class="cmr-6">62</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7064r63"></a><span 
+class="cmr-6">63</span></span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_TRAIN</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7065r64"></a><span 
+class="cmr-6">64</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7066r65"></a><span 
+class="cmr-6">65</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7067r66"></a><span 
+class="cmr-6">66</span></span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_SM</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7068r67"></a><span 
+class="cmr-6">67</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7069r68"></a><span 
+class="cmr-6">68</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_COST_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7070r69"></a><span 
+class="cmr-6">69</span></span><span 
+class="cmtt-10">V3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">ASC_CAR</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7071r70"></a><span 
+class="cmr-6">70</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_TIME</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_TT_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7072r71"></a><span 
+class="cmr-6">71</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">B_COST</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_CO_SCALED</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7073r72"></a><span 
+class="cmr-6">72</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7074r73"></a><span 
+class="cmr-6">73</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Associate</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">utility</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">functions</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">with</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">numbering</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">of</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">alternatives</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7075r74"></a><span 
+class="cmr-6">74</span></span><span 
+class="cmtt-10">V</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">{1:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7076r75"></a><span 
+class="cmr-6">75</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7077r76"></a><span 
+class="cmr-6">76</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V3</span><span 
+class="cmtt-10">}</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7078r77"></a><span 
+class="cmr-6">77</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7079r78"></a><span 
+class="cmr-6">78</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Associate</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">availability</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">conditions</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">with</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">alternatives</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7080r79"></a><span 
+class="cmr-6">79</span></span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CAR_AV</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7081r80"></a><span 
+class="cmr-6">80</span></span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">DefineVariable</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">TRAIN_AV</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SP</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7082r81"></a><span 
+class="cmr-6">81</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7083r82"></a><span 
+class="cmr-6">82</span></span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">{1:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">TRAIN_AV_SP</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7084r83"></a><span 
+class="cmr-6">83</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">2:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">SM_AV</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7085r84"></a><span 
+class="cmr-6">84</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3:</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CAR_AV_SP</span><span 
+class="cmtt-10">}</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7086r85"></a><span 
+class="cmr-6">85</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7087r86"></a><span 
+class="cmr-6">86</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">The</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">choice</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">model</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">is</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">a</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">logit</span><span 
+class="cmitt-10">,</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">with</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">availability</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">conditions</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7088r87"></a><span 
+class="cmr-6">87</span></span><span 
+class="cmtt-10">logprob</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">bioLogLogit</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">V</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7089r88"></a><span 
+class="cmr-6">88</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7090r89"></a><span 
+class="cmr-6">89</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Defines</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">an</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">itertor</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">on</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">data</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7091r90"></a><span 
+class="cmr-6">90</span></span><span 
+class="cmtt-10">rowIterator</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7092r91"></a><span 
+class="cmr-6">91</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7093r92"></a><span 
+class="cmr-6">92</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">DEfine</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">likelihood</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">function</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">for</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimation</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7094r93"></a><span 
+class="cmr-6">93</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">ESTIMATE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">Sum</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">logprob</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7095r94"></a><span 
+class="cmr-6">94</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7096r95"></a><span 
+class="cmr-6">95</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">All</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">observations</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">verifying</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">following</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">expression</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">will</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">not</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">be</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7097r96"></a><span 
+class="cmr-6">96</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">considered</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">for</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">estimation</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7098r97"></a><span 
+class="cmr-6">97</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">The</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">modeler</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">here</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">has</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">developed</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">model</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">only</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">for</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">work</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">trips</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7099r98"></a><span 
+class="cmr-6">98</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Observations</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">such</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">that</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">the</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">dependent</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">variable</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">CHOICE</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">is</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7100r99"></a><span 
+class="cmr-6">99</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">are</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">also</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">removed</span><span 
+class="cmitt-10">.</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7101r100"></a><span 
+class="cmr-6">100</span></span><span 
+class="cmtt-10">exclude</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">((</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">*</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">PURPOSE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">!=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">3</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">+</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">\</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7102r101"></a><span 
+class="cmr-6">101</span></span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">==</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">))</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x003E;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7103r102"></a><span 
+class="cmr-6">102</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7104r103"></a><span 
+class="cmr-6">103</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">EXCLUDE</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">exclude</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7105r104"></a><span 
+class="cmr-6">104</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7106r105"></a><span 
+class="cmr-6">105</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7107r106"></a><span 
+class="cmr-6">106</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">PARAMETERS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">optimizationAlgorithm</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">"</span><span 
+class="cmtt-10">IPOPT</span><span 
+class="cmtt-10">"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7108r107"></a><span 
+class="cmr-6">107</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">PARAMETERS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">biogemeDisplay</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">"</span><span 
+class="cmtt-10">3</span><span 
+class="cmtt-10">"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7109r108"></a><span 
+class="cmr-6">108</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7110r109"></a><span 
+class="cmr-6">109</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Train</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V1</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7111r110"></a><span 
+class="cmr-6">110</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Swissmetro</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V2</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7112r111"></a><span 
+class="cmr-6">111</span></span><span 
+class="cmtt-10">BIOGEME_OBJECT</span><span 
+class="cmtt-10">.</span><span 
+class="cmtt-10">FORMULAS</span><span 
+class="cmtt-10">[</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">Car</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">utility</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">]</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">V3</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7113r112"></a><span 
+class="cmr-6">112</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7114r113"></a><span 
+class="cmr-6">113</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">Statistics</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7115r114"></a><span 
+class="cmr-6">114</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7116r115"></a><span 
+class="cmr-6">115</span></span><span 
+class="cmtt-10">nullLoglikelihood</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7117r116"></a><span 
+class="cmr-6">116</span></span><span 
+class="cmtt-10">choiceSet</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">=</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">[1,2,3]</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7118r117"></a><span 
+class="cmr-6">117</span></span><span 
+class="cmtt-10">cteLoglikelihood</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">choiceSet</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">CHOICE</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7119r118"></a><span 
+class="cmr-6">118</span></span><span 
+class="cmtt-10">availabilityStatistics</span><span 
+class="cmtt-10">(</span><span 
+class="cmtt-10">av</span><span 
+class="cmtt-10">,</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">obsIter</span><span 
+class="cmtt-10">&#8217;</span><span 
+class="cmtt-10">)</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7120r119"></a><span 
+class="cmr-6">119</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7121r120"></a><span 
+class="cmr-6">120</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">printGradient</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"1"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7122r121"></a><span 
+class="cmr-6">121</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">forceScientificNotation</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"0"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7123r122"></a><span 
+class="cmr-6">122</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7124r123"></a><span 
+class="cmr-6">123</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">precisionParameters</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"3"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7125r124"></a><span 
+class="cmr-6">124</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">precisionStatistics</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"3"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7126r125"></a><span 
+class="cmr-6">125</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">precisionTStats</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"14"</span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7127r126"></a><span 
+class="cmr-6">126</span></span><span 
+class="cmtt-10">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7128r127"></a><span 
+class="cmr-6">127</span></span><span 
+class="cmitt-10">#</span><span 
+class="cmitt-10">BIOGEME_OBJECT</span><span 
+class="cmitt-10">.</span><span 
+class="cmitt-10">PARAMETERS</span><span 
+class="cmitt-10">[&#8217;</span><span 
+class="cmitt-10">bootstrapStdErr</span><span 
+class="cmitt-10">&#8217;]</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">=</span><span 
+class="cmitt-10">&#x00A0;</span><span 
+class="cmitt-10">"100"</span>
+   
+   </div>
+                                                                          
+
+                                                                          
+   <h3 class="sectionHead"><span class="titlemark">B   </span> <a 
+ id="x1-8000B"></a>Estimation of the variance-covariance matrix</h3>
+<!--l. 1034--><p class="noindent" >Under relatively general conditions, the asymptotic variance-covariance matrix of
+the maximum likelihood estimates of the vector of parameters <span 
+class="eurm-10x-x-120">&#x03B8; </span><span 
+class="cmsy-10x-x-120">&#x2208;</span><span 
+class="msbm-10x-x-120">&#x211D;</span><sup><span 
+class="eurm-10x-x-80">K</span></sup> is given by
+the Cramer-Rao bound
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8001r12"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel13x.png" alt="                  {     [  2    ]} -1
+- E [&#x2207;2L (&#x03B8;)]-1 =   - E  &#x2202;-L-(&#x03B8;)      .
+                          &#x2202;&#x03B8;&#x2202;&#x03B8;T
+" class="math-display" ></center></td><td class="equation-label">(12)</td></tr></table>
+<!--l. 1040--><p class="nopar" >
+The term in square brackets is the matrix of the second derivatives of
+the log likelihood function with respect to the parameters evaluated at
+the true parameters. Thus the entry in the <span 
+class="eurm-10x-x-120">k</span>th row and the <span 
+class="eurm-10x-x-120">&#x2113;</span>th column
+is
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8002r13"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel14x.png" alt="&#x2202;2L (&#x03B8;)
+-------.
+&#x2202; &#x03B8;k&#x2202;&#x03B8;&#x2113;
+" class="math-display" ></center></td><td class="equation-label">(13)</td></tr></table>
+<!--l. 1048--><p class="nopar" >
+<!--l. 1050--><p class="indent" >   Since we do not know the actual values of the parameters at which to evaluate
+the second derivatives, or the distribution of <span 
+class="eurm-10x-x-120">x</span><sub><span 
+class="eurm-10x-x-80">in</span></sub> and <span 
+class="eurm-10x-x-120">x</span><sub><span 
+class="eurm-10x-x-80">jn</span></sub> over which to take their
+expected value, we estimate the variance-covariance matrix by evaluating
+the second derivatives at the estimated parameters <img 
+src="pythonfirstmodel15x.png" alt="^&#x03B8;"  class="circ" > and the sample
+                                                                          
+
+                                                                          
+distribution of <span 
+class="eurm-10x-x-120">x</span><sub><span 
+class="eurm-10x-x-80">in</span></sub>  and <span 
+class="eurm-10x-x-120">x</span><sub><span 
+class="eurm-10x-x-80">jn</span></sub>  instead of their true distribution. Thus we
+use
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8003r14"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel16x.png" alt="  [        ]       [                             ]
+    &#x2202;2L(&#x03B8; )    &#x2211;N   &#x2202;2 (yin ln Pn (i) + yjnlnPn (j))
+E   -------  &#x2248;      -----------------------------    ,
+    &#x2202;&#x03B8;k&#x2202;&#x03B8; &#x2113;    n=1             &#x2202;&#x03B8;k&#x2202; &#x03B8;&#x2113;            &#x03B8;=^&#x03B8;
+" class="math-display" ></center></td><td class="equation-label">(14)</td></tr></table>
+<!--l. 1059--><p class="nopar" >
+as a consistent estimator of the matrix of second derivatives.
+<!--l. 1062--><p class="indent" >   Denote this matrix as <span 
+class="eurm-10x-x-120">Â</span>. Note that, from the second order optimality
+conditions of the optimization problem, this matrix is negative semi-definite,
+which is the algebraic equivalent of the local concavity of the log likelihood
+function. If the maximum is unique, the matrix is negative definite, and the
+function is locally strictly concave.
+<!--l. 1072--><p class="indent" >   An estimate of the Cramer-Rao bound (<a 
+href="#x1-8001r12">12<!--tex4ht:ref: eq:RaoCramer --></a>) is given by
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8004r15"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel17x.png" alt="&#x03A3;^CR&#x03B8;  = - ^A -1.
+" class="math-display" ></center></td><td class="equation-label">(15)</td></tr></table>
+<!--l. 1077--><p class="nopar" >
+If the matrix <span 
+class="eurm-10x-x-120">Â</span> is negative definite then <span 
+class="eufm-10x-x-120">-</span><span 
+class="eurm-10x-x-120">Â</span> is invertible and the Cramer-Rao
+bound is positive definite.
+<!--l. 1080--><p class="indent" >   Another consistent estimator of the (negative of the) second derivatives matrix
+can be obtained by the matrix of the cross-products of first derivatives as
+follows:
+                                                                          
+
+                                                                          
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8005r16"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel18x.png" alt="    [       ]     n (        ) (        )T
+     &#x2202;2L-(&#x03B8;)     &#x2211;    &#x2202;-&#x2113;n-(&#x03B8;^)    &#x2202;&#x2113;n(^&#x03B8;-)      ^
+-E    &#x2202;&#x03B8;&#x2202; &#x03B8;T  &#x2248;         &#x2202;&#x03B8;         &#x2202;&#x03B8;      = B,
+                 n=1
+" class="math-display" ></center></td><td class="equation-label">(16)</td></tr></table>
+<!--l. 1085--><p class="nopar" >
+where
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8006r17"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel19x.png" alt="(        )
+  &#x2202; &#x2113; (&#x03B8;^)      &#x2202;
+  --n----  =  ---(log P(in|Cn;^&#x03B8;))
+    &#x2202;&#x03B8;        &#x2202;&#x03B8;
+" class="math-display" ></center></td><td class="equation-label">(17)</td></tr></table>
+<!--l. 1089--><p class="nopar" >
+is the gradient vector of the likelihood of observation <span 
+class="eurm-10x-x-120">n</span>. This approximation is
+employed by the BHHH algorithm, from the work by <a 
+href="#XBernHallHallHaus74">Berndt et&#x00A0;al.</a>&#x00A0;(<span class="bib-year"><a 
+href="#XBernHallHallHaus74">1974</a></span>).
+Therefore, an estimate of the variance-covariance matrix is given by
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8007r18"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel20x.png" alt="^&#x03A3;BH&#x03B8;HH  =  ^B-1,
+" class="math-display" ></center></td><td class="equation-label">(18)</td></tr></table>
+<!--l. 1095--><p class="nopar" >
+although it is rarely used. Instead, <img 
+src="pythonfirstmodel21x.png" alt="^B"  class="circ" > is used to derive a third consistent
+estimator of the variance-covariance matrix of the parameters, defined
+as
+   <table 
+class="equation"><tr><td><a 
+ id="x1-8008r19"></a>
+   <center class="math-display" >
+<img 
+src="pythonfirstmodel22x.png" alt="^&#x03A3;R&#x03B8; = (- ^A)-1^B (-A^)-1 = ^&#x03A3;CR&#x03B8; (^&#x03A3;B&#x03B8;HHH )-1^&#x03A3;CR&#x03B8; .
+" class="math-display" ></center></td><td class="equation-label">(19)</td></tr></table>
+<!--l. 1103--><p class="nopar" >
+<!--l. 1105--><p class="indent" >   It is called the <span 
+class="cmti-12">robust </span>estimator, or sometimes the <span 
+class="cmti-12">sandwich </span>estimator, due to
+the form of equation (<a 
+href="#x1-8008r19">19<!--tex4ht:ref: eq:robustEstimator --></a>). Biogeme&#x00A0;reports statistics based on both the
+Cramer-Rao estimate (<a 
+href="#x1-8004r15">15<!--tex4ht:ref: eq:EstimateRaoCramer --></a>) and the robust estimate (<a 
+href="#x1-8008r19">19<!--tex4ht:ref: eq:robustEstimator --></a>).
+<!--l. 1112--><p class="indent" >   When the true likelihood function is maximized, these estimators are
+asymptotically equivalent, and the Cramer-Rao bound should be preferred
+(<a 
+href="#XKaueCarr2001">Kauermann and&#x00A0;Carroll</a>,&#x00A0;<a 
+href="#XKaueCarr2001">2001</a>). When other consistent estimators are used, the
+robust estimator must be used (<a 
+href="#XWhit82">White</a>,&#x00A0;<a 
+href="#XWhit82">1982</a>). Consistent non-maximum
+likelihood estimators, known as pseudo maximum likelihood estimators, are
+often used when the true likelihood function is unknown or difficult to
+compute. In such cases, it is often possible to obtain consistent estimators
+by maximizing an objective function based on a simplified probability
+distribution.
+<!--l. 1--><p class="noindent" >
+   <h3 class="likesectionHead"><a 
+ id="x1-9000B"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+                                                                          
+
+                                                                          
+     <div class="thebibliography">
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XBernHallHallHaus74"></a>Berndt, E.&#x00A0;K., Hall, B.&#x00A0;H., Hall, R.&#x00A0;E. and&#x00A0;Hausman, J.&#x00A0;A. (<span class="bib-year">1974</span>).
+     Estimation  and  inference  in  nonlinear  structural  models,  <span 
+class="cmti-12">Annals  of</span>
+     <span 
+class="cmti-12">Economic and Social Measurement </span><span 
+class="cmbx-12">3/4</span>:&#x00A0;653&#8211;665.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XKaueCarr2001"></a>Kauermann,  G.  and&#x00A0;Carroll,  R.  (<span class="bib-year">2001</span>).   A  note  on  the  efficiency
+     of  sandwich  covariance  matrix  estimation,  <span 
+class="cmti-12">Journal  of  the  American</span>
+     <span 
+class="cmti-12">Statistical Association </span><span 
+class="cmbx-12">96</span>(456).
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+     <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="XWhit82"></a>White, H. (<span class="bib-year">1982</span>).   Maximum likelihood estimation of misspecified
+     models, <span 
+class="cmti-12">Econometrica </span><span 
+class="cmbx-12">50</span>:&#x00A0;1&#8211;25.
+</p>
+     </div>
+    
+</body></html> 
+
+                                                                          
+
+

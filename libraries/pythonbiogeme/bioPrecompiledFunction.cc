@@ -5,8 +5,9 @@
 // Date :      Mon Apr 18 18:09:01 2011
 //
 //--------------------------------------------------------------------
+
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
 #include <iterator>
@@ -36,16 +37,16 @@ bioPrecompiledFunction::bioPrecompiledFunction(bioExpressionRepository* rep,
 					       patError*& err) 
 : theExpressionRepository(bioParameters::the()->getValueInt("numberOfThreads")), 
   theExpressionId(expId),
-  bhhh(bioParameters::the()->getTrParameters(err),
+  bhhh(bioParameters::the()->getTrParameters(),
        bioLiteralRepository::the()->getNumberOfEstimatedParameters()), 
   threadGrad(bioParameters::the()->getValueInt("numberOfThreads"),
 	     trVector(bioLiteralRepository::the()->getNumberOfEstimatedParameters())), 
   threadBhhh(bioParameters::the()->getValueInt("numberOfThreads"),
-	     trHessian(bioParameters::the()->getTrParameters(err),
+	     trHessian(bioParameters::the()->getTrParameters(),
 		       bioLiteralRepository::the()->getNumberOfEstimatedParameters())), 
   threadSuccess(bioParameters::the()->getValueInt("numberOfThreads"),patFALSE),
   threadHessian(bioParameters::the()->getValueInt("numberOfThreads"),
-		trHessian(bioParameters::the()->getTrParameters(err),
+		trHessian(bioParameters::the()->getTrParameters(),
 			  bioLiteralRepository::the()->getNumberOfEstimatedParameters() )), 
   threadChildren(bioParameters::the()->getValueInt("numberOfThreads")),
   threadSpans(bioParameters::the()->getValueInt("numberOfThreads")) 
@@ -350,12 +351,10 @@ patReal bioPrecompiledFunction::computeFunctionAndDerivatives(trVector* x,
     }
     logLike = -result->theFunction;
     *grad = -result->theGradient ;
-    if (computeHessian && result->theHessian != NULL) {
-      result->theHessian->changeSign() ;
-      *h = *(result->theHessian) ;
-    }
-    
+    result->theHessian.changeSign() ;
+    *h = result->theHessian ;
   }
+  
 
   if (!patFinite(logLike)) {
     return patMaxReal ;
@@ -398,13 +397,7 @@ patBoolean bioPrecompiledFunction::isGradientAvailable() const {
 }
 
 patBoolean bioPrecompiledFunction::isHessianAvailable()  const {
-  patError* err(NULL) ;
-  int h = bioParameters::the()->getValueInt("deriveAnalyticalHessian",err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return patFALSE ;
-  }
-  return (h != 0) ;
+  return patTRUE ;
 }
 
 patBoolean bioPrecompiledFunction::isHessianTimesVectorAvailable() const {
@@ -522,12 +515,8 @@ void *computeFunctionAndGradientForThread( void *ptr ) {
   }
 
   if (input->hessian != NULL) {
-    trHessian* theHessian = result->theHessian ;
-    if (theHessian == NULL) {
-      WARNING("Error: NULL pointer") ;
-      return NULL ;
-    }
-    input->hessian->set(*theHessian,err) ;
+    trHessian theHessian = result->theHessian ;
+    input->hessian->set(theHessian,err) ;
     if (err != NULL) {
       WARNING(err->describe()) ;
       input->err = err ;

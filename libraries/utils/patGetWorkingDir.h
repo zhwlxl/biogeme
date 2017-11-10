@@ -9,10 +9,6 @@
 #ifndef patGetWorkingDir_h
 #define patGetWorkingDir_h
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <cstdio>
 
 #include "patString.h"

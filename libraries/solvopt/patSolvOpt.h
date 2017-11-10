@@ -21,6 +21,7 @@
 #include "solvoptParameters.h"
 
 class patNonLinearProblem ;
+class bioAlgorithmManager ;
 
 class patSolvOpt : public trNonLinearAlgo {
 
@@ -39,7 +40,8 @@ public:
 public:
   /**
    */
-  patSolvOpt(solvoptParameters theParameters, 
+  patSolvOpt(solvoptParameters theParameters,
+	     bioAlgorithmManager* aStoppingCriteria,
 	     patNonLinearProblem* aProblem = NULL) ;
   /**
    */
@@ -90,6 +92,8 @@ private:
   solvoptParameters theParameters ;
   patVariables startingPoint ;
   patVariables solution ;
+  patVariables gradient ;
+  patReal function ;
   patULong nIter ;
   
 };

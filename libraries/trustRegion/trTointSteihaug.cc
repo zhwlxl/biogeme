@@ -10,8 +10,13 @@
 // Source: Conn, Gould Toint (2000) Trust Region Methods
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <numeric>
 #include <cmath>
+#include "patPower.h"
 #include "patDisplay.h"
 #include "patMath.h"
 #include "patErrNullPointer.h"
@@ -102,7 +107,7 @@ trTointSteihaug::trTermStatus trTointSteihaug::run(patError*& err) {
   patReal normMpk2 = gkvk ;
   normMsk2 = 0.0 ;
 
-  while (gkNorm > normG * patMin(kfgr,pow(normG,theta))
+  while (gkNorm > normG * patMin(kfgr,patPower(normG,theta))
 	 && iter <= maxIter) {
     
     ++iter;

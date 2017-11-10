@@ -6,6 +6,10 @@
 //
 //--------------------------------------------------------------------
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sstream>
 #include "patMath.h"
 #include "bioExpression.h"
@@ -28,7 +32,9 @@ bioExpression::bioExpression(bioExpressionRepository* rep, patULong par) :
   __unifdraws(NULL),
   theSample(NULL),
   theRepository(rep),
-  theReport(NULL) {
+  result(0),
+  findiff(0),
+  theReport(NULL)  {
   
 
   theId = theRepository->addExpression(this) ;

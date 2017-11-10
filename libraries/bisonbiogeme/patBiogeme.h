@@ -24,6 +24,7 @@ class trFunction ;
 class patPythonResults ;
 class patFastBiogeme ;
 class patSampleEnuGetIndices ;
+class bioAlgoStopFile ;
 
 #ifndef patBiogeme_h
 #define patBiogeme_h
@@ -127,6 +128,8 @@ private:
 
   trParameters theTrParameters ;
   solvoptParameters theSolvoptParameters ;
+
+  bioAlgoStopFile* theStopFileCriterion ;
 };
 
 #endif
