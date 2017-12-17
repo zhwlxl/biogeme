@@ -1,0 +1,51 @@
+//-*-c++-*------------------------------------------------------------
+//
+// File name : bioStochasticGradientFunction
+// Author :    Michel Bierlaire
+// Date :      Sun Dec 17 16:09:17 2017
+//
+//--------------------------------------------------------------------
+
+
+#ifndef bioStochasticGradientFunction_h
+#define bioStochasticGradientFunction_h
+
+#include "bioIteratorSpan.h"
+#include "patError.h"
+#include "trVector.h"
+
+class bioExpression ;
+class bioExpressionRepository ;
+class bioFunctionAndDerivatives ;
+class bioSample ;
+
+class bioStochasticGradientFunction {
+
+public :
+
+  bioStochasticGradientFunction(bioExpressionRepository* rep,
+				patULong expId,
+				bioSample* sample,
+				patULong subsampleSize,
+				patError*& err) ;
+  ~bioStochasticGradientFunction() ;
+  void init() ;
+  void next() ;
+  patBoolean isDone() ;
+  bioFunctionAndDerivatives* getFunctionAndDerivatives(trVector* x,
+						       patError*& err) ;
+  
+private:
+  patULong theExpressionId ;
+  bioExpression* theExpression ;
+  bioSample* theSample ;
+  patULong theSize ;
+  bioIteratorSpan theSpan ;
+  vector<patULong> betaIds ;
+  patULong sampleSize ;
+  patBoolean debugDeriv ;
+};
+
+
+
+#endif

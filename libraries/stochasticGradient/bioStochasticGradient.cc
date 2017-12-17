@@ -12,15 +12,34 @@
 
 #include "patDisplay.h"
 #include "bioStochasticGradient.h"
+#include "bioStochasticGradientFunction.h"
 #include "patErrNullPointer.h"
 #include "patErrMiscError.h"
-#include "bioIterativeFunction.h"
+#include "bioParameters.h"
 
-bioStochasticGradient::bioStochasticGradient(bioIterativeFunction* f, patError*& err): theFunction(f)
+#include "bioFunctionAndDerivatives.h"
+
+bioStochasticGradient::bioStochasticGradient(bioStochasticGradientFunction* f,
+					     patError*& err): theFunction(f)
 {
   if (theFunction == NULL) {
     err = new patErrNullPointer("bioIterativeFunction") ;
     WARNING(err->describe());
+    return ;
+  }
+  stepSize = bioParameters::the()->getValueReal("stochasticGradientFirstStepSize",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+  stepSizeFactor = bioParameters::the()->getValueReal("stochasticGradientStepUpdate",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+  numberOfPasses = bioParameters::the()->getValueInt("stochasticGradientNumberOfPasses",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
     return ;
   }
 }
@@ -32,26 +51,55 @@ patVariables bioStochasticGradient::getSolution() const {
   return currentIterate ;
 }
 
+void bioStochasticGradient::run(patError*& err) {
+  for (patULong i = 1 ;
+       i <= numberOfPasses ;
+       ++i) {
+    GENERAL_MESSAGE("Stochastic gradient: pass " << i) ;
+    onePass(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return  ;
+    }
+  }
+}
+
+
 void bioStochasticGradient::onePass(patError*& err) {
-  theFunction->first() ;
-  for (patULong i = 0 ; i < theFunction->nbrOfElements() ; ++i) {
-    patVariables g = theFunction->getCurrentGradient(currentIterate,err) ;
+  if (theFunction == NULL) {
+    err = new patErrNullPointer("bioIterativeFunction") ;
+    WARNING(err->describe());
+    return ;
+  }
+  for (theFunction->init() ;
+       !theFunction->isDone() ;
+       theFunction->next()) {
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return  ;
+    }
+    bioFunctionAndDerivatives* theFg = theFunction->getFunctionAndDerivatives(&currentIterate,err) ;
     if (err != NULL) {
       WARNING(err->describe()) ;
       return ;
     }
-    listOfGradients.push_back(g) ;
-    updateIterate(g) ;
-    theFunction->next() ;
+    if (theFg == NULL) {
+      err = new patErrNullPointer("bioFunctionAndDerivatives") ;
+      WARNING(err->describe()) ;
+      return ;
+    }
+    updateIterate(theFg->theGradient) ;
   }
 }
 
-void bioStochasticGradient::randomStep(patError*& err) {
-  err = new patErrMiscError("Not yet implemented") ;
-  WARNING(err->describe()) ;
-  return ;
-}
   
 void bioStochasticGradient::updateIterate(patVariables& gradient) {
   
+  currentIterate += stepSize * gradient ;
+    stepSize *= stepSizeFactor ;
 }
+
+patVariables bioStochasticGradient::getSolution() {
+  return currentIterate ;
+}
+

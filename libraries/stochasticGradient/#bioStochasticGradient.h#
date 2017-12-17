@@ -14,26 +14,20 @@
 #include "patVariables.h"
 #include "patIteratorErr.h"
 
-class bioStochasticGradientFunction ;
-
 class bioFunctionAndDerivatives ;
 
 class bioStochasticGradient {
  public:
-  bioStochasticGradient(bioStochasticGradientFunction* f, patError*& err) ;
+  bioStochasticGradient( f, patError*& err) ;
   void init(patVariables x0, patError*& err) ;
-  void run(patError*& err) ;
   patVariables getSolution() const ;
+  void onePass(patError*& err) ;
   patVariables getSolution() ;
  private:
-  void onePass(patError*& err) ;
   void updateIterate(patVariables& gradient) ;
  private:
-  bioStochasticGradientFunction* theFunction ;
+  patIteratorErr<bioFunctionAndDerivatives*>* theFunction ;
   patVariables currentIterate ;
   vector<patVariables> listOfGradients ;
-  patReal stepSize ;
-  patReal stepSizeFactor ;
-  patULong numberOfPasses ;
 };
 #endif
