@@ -46,6 +46,9 @@
 #include "bioAlgoStopFile.h"
 #include "bioPrematureStop.h"
 #include "bioAlgorithmStopping.h"
+#include "patUnixUniform.h"
+#include "bioStochasticGradient.h"
+#include "bioDraftSG.h"
 
 #include "patEnvPathVariable.h"
 
@@ -293,6 +296,16 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
       WARNING(err->describe()); 
       return ;
     }
+
+    bioExpression* theExpression = theRepository->getExpression(exprId) ;
+    if (theExpression != NULL) {
+      theExpression->setSample(theSample) ;
+      if (err != NULL) {
+	WARNING(err->describe()); 
+	return ;
+      }
+    }
+
     estimate(err) ;
     if (err != NULL) {
       WARNING(err->describe()); 
@@ -427,10 +440,72 @@ void bioMain::estimate(patError*& err) {
     return ;
   }
 
+  // Determine the starting point
 
-  
-  patVariables beta = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
+  patVariables beta ;
+  patString startingPointMethod = bioParameters::the()->getValueString("startingPoint",err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+
+  if (startingPointMethod == "USER") {
+    beta = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
+  }
+  else if (startingPointMethod == "RANDOM") {
+    patVariables lb = bioLiteralRepository::the()->getLowerBounds() ;
+    patVariables ub = bioLiteralRepository::the()->getUpperBounds() ;
+    beta.resize(lb.size()) ;
+    patUnixUniform arng ;
+    for (patULong i = 0 ; i < beta.size() ; ++i) {
+      patReal rnd = arng.getUniform(err) ;
+      if (err != NULL) {
+	WARNING(err->describe()) ;
+	return ;
+      }
+      beta[i] = lb[i] + (ub[i] - lb[i]) * rnd ;
+    }
+  }
+  else if (startingPointMethod == "STOCHASTIC_GRADIENT") {
+    bioExpressionRepository* theRepository = theModel->getRepository();
+    patULong exprId = theModel->getFormula() ;
+
+    patULong sgStepSize = bioParameters::the()->getValueInt("stochasticGradientDataSize",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+
+    bioDraftSG theSgFunction(theRepository,
+			     exprId,
+			     theSample,
+			     sgStepSize,
+			     err) ;
+    
+    DEBUG_MESSAGE("READY FOR STOCHASTIC GRADIENT") ;
+    beta = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
+    bioStochasticGradient theSg(&theSgFunction,err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    theSg.init(beta,err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    theSg.run(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    beta = theSg.getSolution() ;
+  }
+  DEBUG_MESSAGE("Beta: " << beta) ;
   DEBUG_MESSAGE("Number of betas = " << beta.size()) ;
+    
+  
+
   patBoolean success ;
   patReal initLikelihood(0.0) ;
   patBoolean computeInit = (bioParameters::the()->getValueInt("computeInitLoglikelihood",err) != 0) ;
@@ -489,6 +564,7 @@ void bioMain::estimate(patError*& err) {
   if (checkDeriv) {
 
     DEBUG_MESSAGE("computing derivative");
+    patReal largestError(0.0) ;
 
     patVariables grad(beta.size(),0.0) ;
     trHessian hess(bioParameters::the()->getTrParameters(),beta.size()) ;
@@ -528,6 +604,7 @@ void bioMain::estimate(patError*& err) {
     endc.setTimeOfDay() ;
     patTimeInterval tigfd(beg,endc) ;
 
+    
     GENERAL_MESSAGE("Value: " << theFct) ;
     GENERAL_MESSAGE("First derivatives") ;
     GENERAL_MESSAGE("+++++++++++++++++") ;
@@ -538,7 +615,11 @@ void bioMain::estimate(patError*& err) {
 	WARNING(err->describe()) ;
 	return ;
       }
-      GENERAL_MESSAGE( setprecision(7) << setiosflags(ios::scientific|ios::showpos) << grad[i] << '\t' << finDiffGrad[i] << '\t' << setprecision(2) << 100*(grad[i]-finDiffGrad[i])/grad[i]<<"% \t" << name) ;
+      patReal theError = (grad[i]-finDiffGrad[i])/grad[i] ;
+      if (patAbs(theError) > largestError) {
+	largestError = patAbs(theError) ;
+      }
+      GENERAL_MESSAGE( setprecision(7) << setiosflags(ios::scientific|ios::showpos) << grad[i] << '\t' << finDiffGrad[i] << '\t' << setprecision(2) << 100*theError <<"% \t" << name) ;
     }
 
     if (computeHessian) {
@@ -569,9 +650,30 @@ void bioMain::estimate(patError*& err) {
 	    WARNING(err->describe()) ;
 	    return ;
 	  }
-	  GENERAL_MESSAGE( setprecision(7) << setiosflags(ios::scientific|ios::showpos) << an << '\t' << fd << '\t' << setprecision(2) << 100*(an-fd)/an<<"% \t" << namei << '\t' << namej) ;
+
+	  patReal theError = (an-fd)/an ;
+	  // Check first if it makes sense to calculate relative errors
+	  if ((patAbs(an) > 1.0e-7) && (patAbs(fd) > 1.0e-7)) {
+	    if (patAbs(theError) > largestError) {
+	      largestError = patAbs(theError) ;
+	    }
+	  }
+	  GENERAL_MESSAGE( setprecision(7) << setiosflags(ios::scientific|ios::showpos) << an << '\t' << fd << '\t' << setprecision(2) << 100*theError<<"% \t" << namei << '\t' << namej) ;
 	}
       }
+    }
+
+    patReal toleranceDeriv = bioParameters::the()->getValueReal("toleranceCheckDerivatives",err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    if (largestError > toleranceDeriv) {
+      stringstream str ;
+      str << "The largest error for derivatives is " << largestError << ". This is beyond the tolerance " << toleranceDeriv ;
+      err = new patErrMiscError(str.str()) ;
+      WARNING(err->describe()) ;
+      return ;
     }
   }
 
