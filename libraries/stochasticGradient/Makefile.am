@@ -16,5 +16,7 @@ endif
 
 libstochasticGradient_la_SOURCES = \
 bioStochasticGradient.cc \
+bioSaga.cc \
 bioStochasticGradient.h \
+bioSaga.h \
 bioIterativeFunction.h

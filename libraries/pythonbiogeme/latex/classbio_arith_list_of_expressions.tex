@@ -1,0 +1,130 @@
+\hypertarget{classbio_arith_list_of_expressions}{}\section{bio\+Arith\+List\+Of\+Expressions Class Reference}
+\label{classbio_arith_list_of_expressions}\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+Inheritance diagram for bio\+Arith\+List\+Of\+Expressions\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classbio_arith_list_of_expressions}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_a6ed575066b9d2f8acb4edc914cb743b9}\label{classbio_arith_list_of_expressions_a6ed575066b9d2f8acb4edc914cb743b9}} 
+{\bfseries bio\+Arith\+List\+Of\+Expressions} (pat\+U\+Long par, vector$<$ pat\+U\+Long $>$ l)
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_ae6f687023278e7369c6c922c11275375}\label{classbio_arith_list_of_expressions_ae6f687023278e7369c6c922c11275375}} 
+tr\+Hessian $\ast$ {\bfseries get\+Bhhh} ()
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_a4c5a136ef5028e8e8dc4ada39195d87f}\label{classbio_arith_list_of_expressions_a4c5a136ef5028e8e8dc4ada39195d87f}} 
+virtual vector$<$ pat\+Real $>$ {\bfseries get\+Values} (pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_list_of_expressions_af0c6e016d69454ac0b7d4f889190807e}{get\+Operator\+Name} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_a12892de13bdd862f8671bad5dab68394}\label{classbio_arith_list_of_expressions_a12892de13bdd862f8671bad5dab68394}} 
+virtual pat\+Real {\bfseries get\+Value} (pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_list_of_expressions_a14fe977b86bc69c4b3afe59d44b6c03f}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_list_of_expressions}{bio\+Arith\+List\+Of\+Expressions} $\ast$ \hyperlink{classbio_arith_list_of_expressions_af13c0c6710776c02d3f7c0e27d5cd724}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_list_of_expressions}{bio\+Arith\+List\+Of\+Expressions} $\ast$ \hyperlink{classbio_arith_list_of_expressions_afd5867cdac9cea54a704a075412b3c08}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_list_of_expressions_ac6a8b9493bc91520a1882df3cddc383d}{get\+Expression\+String} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_a22bfedcbe9c678289be1e8040a73a8ca}\label{classbio_arith_list_of_expressions_a22bfedcbe9c678289be1e8040a73a8ca}} 
+virtual \hyperlink{classbio_arith_list_of_expressions}{bio\+Arith\+List\+Of\+Expressions} $\ast$ {\bfseries get\+Function\+And\+Derivatives} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_ad1c126ae53fc25558593738125005374}\label{classbio_arith_list_of_expressions_ad1c126ae53fc25558593738125005374}} 
+tr\+Hessian $\ast$ {\bfseries bhhh}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_af13c0c6710776c02d3f7c0e27d5cd724}\label{classbio_arith_list_of_expressions_af13c0c6710776c02d3f7c0e27d5cd724}} 
+\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_list_of_expressions}{bio\+Arith\+List\+Of\+Expressions} $\ast$ bio\+Arith\+List\+Of\+Expressions\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_likelihood_fct_and_grad_a053e08511308e3c8a3e572f5c5f8f019}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}.
+
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_a14fe977b86bc69c4b3afe59d44b6c03f}\label{classbio_arith_list_of_expressions_a14fe977b86bc69c4b3afe59d44b6c03f}} 
+\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+List\+Of\+Expressions\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_likelihood_fct_and_grad_ab814e1cc11e481c88ba1d7401432c706}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}.
+
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_ac6a8b9493bc91520a1882df3cddc383d}\label{classbio_arith_list_of_expressions_ac6a8b9493bc91520a1882df3cddc383d}} 
+\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+List\+Of\+Expressions\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_likelihood_fct_and_grad_a5f34a72c24f6d3e7215e82b2b9843e19}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}.
+
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_af0c6e016d69454ac0b7d4f889190807e}\label{classbio_arith_list_of_expressions_af0c6e016d69454ac0b7d4f889190807e}} 
+\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+List\+Of\+Expressions\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_likelihood_fct_and_grad_ad181305327744af1de885d4169888378}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}.
+
+\mbox{\Hypertarget{classbio_arith_list_of_expressions_afd5867cdac9cea54a704a075412b3c08}\label{classbio_arith_list_of_expressions_afd5867cdac9cea54a704a075412b3c08}} 
+\index{bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+List\+Of\+Expressions@{bio\+Arith\+List\+Of\+Expressions}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily virtual \hyperlink{classbio_arith_list_of_expressions}{bio\+Arith\+List\+Of\+Expressions}$\ast$ bio\+Arith\+List\+Of\+Expressions\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+List\+Of\+Expressions.\+h\item 
+bio\+Arith\+List\+Of\+Expressions.\+cc\end{DoxyCompactItemize}

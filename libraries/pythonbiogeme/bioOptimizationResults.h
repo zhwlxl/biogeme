@@ -35,6 +35,7 @@ public:
   patMyMatrix getInverseHessian(patError*& err) ;
   patULong getSize() const;
   vector<patVariables> bootstrapSolutions ;
+  patString printFunctionAndDerivatives(patError* err) ;
 public:
   patBoolean readyForSecondDerivatives() const ;
   void prepareMemoryForMatrices(trParameters _theTrParameters, patError*& err) ;

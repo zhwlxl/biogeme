@@ -1,0 +1,68 @@
+\hypertarget{classbio_minimization_problem}{}\section{bio\+Minimization\+Problem Class Reference}
+\label{classbio_minimization_problem}\index{bio\+Minimization\+Problem@{bio\+Minimization\+Problem}}
+Inheritance diagram for bio\+Minimization\+Problem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_minimization_problem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a2fb56b9f429895b90a61f172f57a5c0c}\label{classbio_minimization_problem_a2fb56b9f429895b90a61f172f57a5c0c}} 
+{\bfseries bio\+Minimization\+Problem} (tr\+Function $\ast$f, tr\+Bounds b, tr\+Parameters the\+Tr\+Parameters)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a9fea99d788a3c5217ea04e1f4e9336b7}\label{classbio_minimization_problem_a9fea99d788a3c5217ea04e1f4e9336b7}} 
+virtual unsigned long {\bfseries n\+Variables} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a55a7c6ecb31797bb3f44aa43e7480738}\label{classbio_minimization_problem_a55a7c6ecb31797bb3f44aa43e7480738}} 
+virtual unsigned long {\bfseries n\+Non\+Linear\+Ineq} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_af34d9baa329746bcffe80d2d1a662836}\label{classbio_minimization_problem_af34d9baa329746bcffe80d2d1a662836}} 
+virtual unsigned long {\bfseries n\+Non\+Linear\+Eq} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a89577e06981d3a531ddb0d0edb741e85}\label{classbio_minimization_problem_a89577e06981d3a531ddb0d0edb741e85}} 
+virtual unsigned long {\bfseries n\+Linear\+Ineq} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a8ccbb51134efa77745b86ac001290fd7}\label{classbio_minimization_problem_a8ccbb51134efa77745b86ac001290fd7}} 
+virtual unsigned long {\bfseries n\+Linear\+Eq} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_aa1b20b2977a780642f804230988ffff5}\label{classbio_minimization_problem_aa1b20b2977a780642f804230988ffff5}} 
+virtual pat\+Variables {\bfseries get\+Lower\+Bounds} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_aa4797993f4811c600265c14d8794c392}\label{classbio_minimization_problem_aa4797993f4811c600265c14d8794c392}} 
+virtual pat\+Variables {\bfseries get\+Upper\+Bounds} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a1c4fc1866bf1af85942ddd7f91b035e3}\label{classbio_minimization_problem_a1c4fc1866bf1af85942ddd7f91b035e3}} 
+virtual tr\+Function $\ast$ {\bfseries get\+Objective} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a43357124d22290ab1d44b9ed460b3226}\label{classbio_minimization_problem_a43357124d22290ab1d44b9ed460b3226}} 
+virtual tr\+Function $\ast$ {\bfseries get\+Non\+Lin\+Inequality} (unsigned long i, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_af13fbe803e7eb7892db408697295b3e6}\label{classbio_minimization_problem_af13fbe803e7eb7892db408697295b3e6}} 
+virtual tr\+Function $\ast$ {\bfseries get\+Non\+Lin\+Equality} (unsigned long i, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a45b5fbb3f4999ce659acf0fbedb8bcdc}\label{classbio_minimization_problem_a45b5fbb3f4999ce659acf0fbedb8bcdc}} 
+virtual pair$<$ pat\+Variables, pat\+Real $>$ {\bfseries get\+Lin\+Inequality} (unsigned long i, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_aaf01255c906e51d37f7acb8ca29894f2}\label{classbio_minimization_problem_aaf01255c906e51d37f7acb8ca29894f2}} 
+virtual pair$<$ pat\+Variables, pat\+Real $>$ {\bfseries get\+Lin\+Equality} (unsigned long i, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a23af14aa180283fa7b89b1d96b6dfef4}\label{classbio_minimization_problem_a23af14aa180283fa7b89b1d96b6dfef4}} 
+virtual pat\+String {\bfseries get\+Problem\+Name} ()
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_a3a8a060022b61a311da6a9867c4ef908}\label{classbio_minimization_problem_a3a8a060022b61a311da6a9867c4ef908}} 
+void {\bfseries add\+Equality\+Constraint} (tr\+Function $\ast$c)
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_ab3b9e55bb792c66fb7325020d7fb0df8}\label{classbio_minimization_problem_ab3b9e55bb792c66fb7325020d7fb0df8}} 
+pat\+Boolean {\bfseries is\+Feasible} (tr\+Vector \&x, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_minimization_problem_aea682709a9b4ec2d7d419eba160a50a0}\label{classbio_minimization_problem_aea682709a9b4ec2d7d419eba160a50a0}} 
+\hyperlink{classbio_optimization_results}{bio\+Optimization\+Results} $\ast$ {\bfseries get\+Optimization\+Results} (pat\+Variables x, pat\+Boolean second\+Derivatives, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Minimization\+Problem.\+h\item 
+bio\+Minimization\+Problem.\+cc\end{DoxyCompactItemize}

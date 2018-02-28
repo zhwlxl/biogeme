@@ -1,0 +1,74 @@
+\hypertarget{classbio_optimization_results}{}\section{bio\+Optimization\+Results Class Reference}
+\label{classbio_optimization_results}\index{bio\+Optimization\+Results@{bio\+Optimization\+Results}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a90e7bd279d0cfcef0f2ca31cb3e5d89e}\label{classbio_optimization_results_a90e7bd279d0cfcef0f2ca31cb3e5d89e}} 
+{\bfseries bio\+Optimization\+Results} (pat\+Boolean second\+Derivatives=pat\+F\+A\+L\+SE, pat\+U\+Long n=0)
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a41c61212f6bbb12560997169923ed455}\label{classbio_optimization_results_a41c61212f6bbb12560997169923ed455}} 
+pat\+My\+Matrix {\bfseries get\+Inverse\+Hessian} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a2b7aba815e2837f850462f5231dbec5c}\label{classbio_optimization_results_a2b7aba815e2837f850462f5231dbec5c}} 
+pat\+U\+Long {\bfseries get\+Size} () const
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a9942cfce0ff2bcae23caaf1819ad2df5}\label{classbio_optimization_results_a9942cfce0ff2bcae23caaf1819ad2df5}} 
+pat\+String {\bfseries print\+Function\+And\+Derivatives} (pat\+Error $\ast$err)
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a13b1cf5dec67d1d8c8ae0944157a3d89}\label{classbio_optimization_results_a13b1cf5dec67d1d8c8ae0944157a3d89}} 
+pat\+Boolean {\bfseries ready\+For\+Second\+Derivatives} () const
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_af0f6e6019d935e3681cdc4b76a781d1d}\label{classbio_optimization_results_af0f6e6019d935e3681cdc4b76a781d1d}} 
+void {\bfseries prepare\+Memory\+For\+Matrices} (tr\+Parameters \+\_\+the\+Tr\+Parameters, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_af6074db88fc17044b9f32da700d3003d}\label{classbio_optimization_results_af6074db88fc17044b9f32da700d3003d}} 
+void {\bfseries cancel\+Inverse\+Calculation} ()
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a6c9b414a75858121ef804b745eb306f8}\label{classbio_optimization_results_a6c9b414a75858121ef804b745eb306f8}} 
+pat\+Boolean {\bfseries is\+Sandwich\+Available} () const
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a7233e78780c4c76b2b616cb7fbf78af1}\label{classbio_optimization_results_a7233e78780c4c76b2b616cb7fbf78af1}} 
+pat\+Real {\bfseries get\+Gradient\+Norm} ()
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a4c0378c4f0331dee3cdb2ecdeb4ad56b}\label{classbio_optimization_results_a4c0378c4f0331dee3cdb2ecdeb4ad56b}} 
+pat\+Real {\bfseries get\+Smallest\+Singular\+Value} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a449d6de9f60625015d0c141a335eda56}\label{classbio_optimization_results_a449d6de9f60625015d0c141a335eda56}} 
+pat\+Real {\bfseries objective}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a417c6164569e3db08e08d23b2aaf53a1}\label{classbio_optimization_results_a417c6164569e3db08e08d23b2aaf53a1}} 
+pat\+Variables {\bfseries solution}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a930fa4c22c86ce8bd79187cd31b3e1f2}\label{classbio_optimization_results_a930fa4c22c86ce8bd79187cd31b3e1f2}} 
+tr\+Vector {\bfseries gradient}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a60ad2269b5ce67824abd1cbf518a502d}\label{classbio_optimization_results_a60ad2269b5ce67824abd1cbf518a502d}} 
+tr\+Hessian $\ast$ {\bfseries hessian}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a9a121434ac67c79b880be9d1f64d45bd}\label{classbio_optimization_results_a9a121434ac67c79b880be9d1f64d45bd}} 
+tr\+Hessian $\ast$ {\bfseries bhhh}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a91a650dc323d336f71f9059a6ac075d0}\label{classbio_optimization_results_a91a650dc323d336f71f9059a6ac075d0}} 
+map$<$ pat\+Real, pat\+Variables $>$ {\bfseries eigen\+Vectors}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a83e9fcb9cb556d52f7eaaffdb137a5ae}\label{classbio_optimization_results_a83e9fcb9cb556d52f7eaaffdb137a5ae}} 
+pat\+String {\bfseries diagnostic}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_a5238da4fe6d9de6a24bfe0abca9a9b6e}\label{classbio_optimization_results_a5238da4fe6d9de6a24bfe0abca9a9b6e}} 
+pat\+String {\bfseries run\+Time}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_af5cdf3d583c5d92bc20768bd911c8949}\label{classbio_optimization_results_af5cdf3d583c5d92bc20768bd911c8949}} 
+pat\+U\+Long {\bfseries iterations}
+\item 
+\mbox{\Hypertarget{classbio_optimization_results_ad4864b6003b6cbf137869fd04c937a4c}\label{classbio_optimization_results_ad4864b6003b6cbf137869fd04c937a4c}} 
+vector$<$ pat\+Variables $>$ {\bfseries bootstrap\+Solutions}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Optimization\+Results.\+h\item 
+bio\+Optimization\+Results.\+cc\end{DoxyCompactItemize}

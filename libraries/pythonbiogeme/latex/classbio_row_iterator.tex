@@ -1,0 +1,84 @@
+\hypertarget{classbio_row_iterator}{}\section{bio\+Row\+Iterator Class Reference}
+\label{classbio_row_iterator}\index{bio\+Row\+Iterator@{bio\+Row\+Iterator}}
+
+
+{\ttfamily \#include $<$bio\+Row\+Iterator.\+h$>$}
+
+Inheritance diagram for bio\+Row\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_row_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a9b4847d79ecff3ee7ea2a845ffa81ca9}\label{classbio_row_iterator_a9b4847d79ecff3ee7ea2a845ffa81ca9}} 
+{\bfseries bio\+Row\+Iterator} (const vector$<$ pat\+Variables $>$ $\ast$db, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} thread\+Span, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a1b01de1bc958c45a0bee1eb48ff1b4f9}\label{classbio_row_iterator_a1b01de1bc958c45a0bee1eb48ff1b4f9}} 
+{\bfseries bio\+Row\+Iterator} (const vector$<$ pat\+Variables $>$ $\ast$db, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} thread\+Span, pat\+Boolean print\+Loop\+Time, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a66608cbe638a5934597e13fd98da4740}\label{classbio_row_iterator_a66608cbe638a5934597e13fd98da4740}} 
+void {\bfseries first} ()
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a557629aeeb1bbad1067c6b351f74a556}\label{classbio_row_iterator_a557629aeeb1bbad1067c6b351f74a556}} 
+void {\bfseries next} ()
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a75a1e1d6579527730cc6164531154f75}\label{classbio_row_iterator_a75a1e1d6579527730cc6164531154f75}} 
+pat\+Boolean {\bfseries is\+Done} ()
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a7d751836100e12314a10a411dd843d4b}\label{classbio_row_iterator_a7d751836100e12314a10a411dd843d4b}} 
+const pat\+Variables $\ast$ {\bfseries current\+Item} ()
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a4db8e13bf09144d085566b6eded84315}\label{classbio_row_iterator_a4db8e13bf09144d085566b6eded84315}} 
+pat\+U\+Long {\bfseries get\+Current\+Row} () const
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a81c96f048864ae76b308381ab4e30dad}\label{classbio_row_iterator_a81c96f048864ae76b308381ab4e30dad}} 
+pat\+U\+Long {\bfseries nbr\+Of\+Items} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_ab0f1d06f7b65680b5e24186919beeada}\label{classbio_row_iterator_ab0f1d06f7b65680b5e24186919beeada}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries row\+Pointers}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a4fbaa8d1e9ba2309cc435865b2b1ac90}\label{classbio_row_iterator_a4fbaa8d1e9ba2309cc435865b2b1ac90}} 
+pat\+String {\bfseries the\+Iterator\+Name}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a5af0091b737eafcdda8916e6f7079df4}\label{classbio_row_iterator_a5af0091b737eafcdda8916e6f7079df4}} 
+const vector$<$ pat\+Variables $>$ $\ast$ {\bfseries data\+Base}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a6225ca4c8558436b1ebdf5060f54afe1}\label{classbio_row_iterator_a6225ca4c8558436b1ebdf5060f54afe1}} 
+pat\+U\+Long {\bfseries first\+Row}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_ad6211bb8ff699901f832bd8225e34762}\label{classbio_row_iterator_ad6211bb8ff699901f832bd8225e34762}} 
+pat\+U\+Long {\bfseries last\+Row}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_a2f8ea6bbd459285397d45fca49e39a42}\label{classbio_row_iterator_a2f8ea6bbd459285397d45fca49e39a42}} 
+pat\+U\+Long {\bfseries current\+Row}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_aaa7a365a80733d661c14e79f491ffee9}\label{classbio_row_iterator_aaa7a365a80733d661c14e79f491ffee9}} 
+pat\+Boolean {\bfseries print\+Loop\+Time}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_af856fecfd5b26bd016b2391640cb3c4a}\label{classbio_row_iterator_af856fecfd5b26bd016b2391640cb3c4a}} 
+pat\+Loop\+Time {\bfseries the\+Loop\+Time}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_aacf3c229a146d72471303d8e78bf3037}\label{classbio_row_iterator_aacf3c229a146d72471303d8e78bf3037}} 
+pat\+U\+Long {\bfseries display\+Interval}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_row_iterator_aa60e8c8a13a436c680593ef4d42b4d63}\label{classbio_row_iterator_aa60e8c8a13a436c680593ef4d42b4d63}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_row_iterator}{bio\+Row\+Iterator} \&x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents an iterator through a dataset. The range of the iterator is defined by \char`\"{}a\+Span\char`\"{}. The \char`\"{}thread\+Span\char`\"{} defines the range designed for a given thread. Rule\+: assume a\+Span = \mbox{[}l,u\mbox{]} and thread\+Span\mbox{[}b,e\mbox{]}. Then every item i in the iterations such that i is strictly before b are ignored. Note that the upper bound e is completely ignored. This is on purpose, in order to avoid possible misalignent with the meta iterators. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Row\+Iterator.\+h\item 
+bio\+Row\+Iterator.\+cc\end{DoxyCompactItemize}

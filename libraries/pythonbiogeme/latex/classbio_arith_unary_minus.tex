@@ -1,0 +1,144 @@
+\hypertarget{classbio_arith_unary_minus}{}\section{bio\+Arith\+Unary\+Minus Class Reference}
+\label{classbio_arith_unary_minus}\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Unary\+Minus.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Unary\+Minus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_arith_unary_minus}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_minus_aef0b0cea108500176219e8ab209012da}\label{classbio_arith_unary_minus_aef0b0cea108500176219e8ab209012da}} 
+{\bfseries bio\+Arith\+Unary\+Minus} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long left, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_unary_minus_a59b3bcf198b25bc802775014bfce2f21}{get\+Operator\+Name} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_unary_minus_a0a31abb1d5a352b933c2d07cb2c657c8}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_unary_minus_aaf1b155993a12037850b1a22dbb36f7c}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_unary_minus}{bio\+Arith\+Unary\+Minus} $\ast$ \hyperlink{classbio_arith_unary_minus_a1bd7f28b742866f8a8e84b5f8405fbd1}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_unary_minus}{bio\+Arith\+Unary\+Minus} $\ast$ \hyperlink{classbio_arith_unary_minus_af7d31f14e0e619536f33c45fedb7fa79}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_unary_minus_a2e8b40486ef897c00ce5a99e7f8ebd03}{get\+Expression\+String} () const
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_unary_minus_a8fc3f51f45b38f8e710db12eec18b9fb}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing a unary minus operation 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_unary_minus_a1bd7f28b742866f8a8e84b5f8405fbd1}\label{classbio_arith_unary_minus_a1bd7f28b742866f8a8e84b5f8405fbd1}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_unary_minus}{bio\+Arith\+Unary\+Minus} $\ast$ bio\+Arith\+Unary\+Minus\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_aaf1b155993a12037850b1a22dbb36f7c}\label{classbio_arith_unary_minus_aaf1b155993a12037850b1a22dbb36f7c}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Unary\+Minus\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_a2e8b40486ef897c00ce5a99e7f8ebd03}\label{classbio_arith_unary_minus_a2e8b40486ef897c00ce5a99e7f8ebd03}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Unary\+Minus\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_a8fc3f51f45b38f8e710db12eec18b9fb}\label{classbio_arith_unary_minus_a8fc3f51f45b38f8e710db12eec18b9fb}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Unary\+Minus\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_a59b3bcf198b25bc802775014bfce2f21}\label{classbio_arith_unary_minus_a59b3bcf198b25bc802775014bfce2f21}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Unary\+Minus\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_af7d31f14e0e619536f33c45fedb7fa79}\label{classbio_arith_unary_minus_af7d31f14e0e619536f33c45fedb7fa79}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_unary_minus}{bio\+Arith\+Unary\+Minus} $\ast$ bio\+Arith\+Unary\+Minus\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_unary_minus_a0a31abb1d5a352b933c2d07cb2c657c8}\label{classbio_arith_unary_minus_a0a31abb1d5a352b933c2d07cb2c657c8}} 
+\index{bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Unary\+Minus@{bio\+Arith\+Unary\+Minus}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Unary\+Minus\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Unary\+Minus.\+h\item 
+bio\+Arith\+Unary\+Minus.\+cc\end{DoxyCompactItemize}

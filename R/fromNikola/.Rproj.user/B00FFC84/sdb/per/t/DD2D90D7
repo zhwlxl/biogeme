@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "calcStatsR <- function(data)\n{\n  #RCPP interface\n  .Call('calcStats', data);\n}\n\nrunBiogeme <- function(data)\n{\n    #RCPP interface\n    .Call('runBiogeme', data);\n}\n",
+    "created" : 1512470770953.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2767561508",
+    "id" : "DD2D90D7",
+    "lastKnownWriteTime" : 1512470782,
+    "last_content_update" : 1512470782167,
+    "path" : "~/switchdrive/Projects/RCPP/code/PackageTest/Biogeme/R/RcppExp.R",
+    "project_path" : "R/RcppExp.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

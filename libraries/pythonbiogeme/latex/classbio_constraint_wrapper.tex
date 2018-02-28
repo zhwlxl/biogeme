@@ -1,0 +1,179 @@
+\hypertarget{classbio_constraint_wrapper}{}\section{bio\+Constraint\+Wrapper Class Reference}
+\label{classbio_constraint_wrapper}\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+
+
+{\ttfamily \#include $<$bio\+Constraint\+Wrapper.\+h$>$}
+
+Inheritance diagram for bio\+Constraint\+Wrapper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_constraint_wrapper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_constraint_wrapper_a2dafb721494ee39bf4a0e4ca51ab2ea2}{bio\+Constraint\+Wrapper} ()
+\item 
+\hyperlink{classbio_constraint_wrapper_a0a513bd767a15dc84ab221df49ee1823}{$\sim$bio\+Constraint\+Wrapper} ()
+\item 
+pat\+Real \hyperlink{classbio_constraint_wrapper_a63a339cbc90f002d3945b1c64286fbcc}{compute\+Function} (tr\+Vector $\ast$x, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+pat\+Real \hyperlink{classbio_constraint_wrapper_abe425baa0389a902c1a4661e6d3ac6b9}{compute\+Function\+And\+Derivatives} (tr\+Vector $\ast$x, tr\+Vector $\ast$grad, tr\+Hessian $\ast$hessian, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+tr\+Hessian $\ast$ \hyperlink{classbio_constraint_wrapper_aaf986bd228a7683a758c3f734aa72049}{compute\+Cheap\+Hessian} (tr\+Hessian $\ast$hessian, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_constraint_wrapper_a21e24ec31ead35f7966a48c7755209c0}\label{classbio_constraint_wrapper_a21e24ec31ead35f7966a48c7755209c0}} 
+pat\+Boolean {\bfseries is\+Cheap\+Hessian\+Available} ()
+\item 
+tr\+Vector $\ast$ \hyperlink{classbio_constraint_wrapper_aed546d0393bc28c1d979d09a64650327}{compute\+Hessian\+Times\+Vector} (tr\+Vector $\ast$x, const tr\+Vector $\ast$v, tr\+Vector $\ast$r, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+pat\+Boolean \hyperlink{classbio_constraint_wrapper_a0596646c9d8aec807c6dee7a952d2a3f}{is\+Gradient\+Available} () const
+\item 
+pat\+Boolean \hyperlink{classbio_constraint_wrapper_a0fd19dd1f500465fbc243b60526bd76b}{is\+Hessian\+Available} () const
+\item 
+pat\+Boolean \hyperlink{classbio_constraint_wrapper_a6757a8f4928e8dbd8f26dfe1a4f53877}{is\+Hessian\+Times\+Vector\+Available} () const
+\item 
+unsigned long \hyperlink{classbio_constraint_wrapper_a8af31cb2b229ca6a4b99ba2f18ca0f15}{get\+Dimension} () const
+\item 
+void \hyperlink{classbio_constraint_wrapper_adf39800047df8d751b337f6f250af705}{generate\+Cpp\+Code} (ostream \&str, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+! This object implements the abstract tr\+Function for the constraints on the parameters, as specificed with the Python code. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbio_constraint_wrapper_a2dafb721494ee39bf4a0e4ca51ab2ea2}\label{classbio_constraint_wrapper_a2dafb721494ee39bf4a0e4ca51ab2ea2}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{bio\+Constraint\+Wrapper()}{bioConstraintWrapper()}}
+{\footnotesize\ttfamily bio\+Constraint\+Wrapper\+::bio\+Constraint\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sole constructor. \mbox{\Hypertarget{classbio_constraint_wrapper_a0a513bd767a15dc84ab221df49ee1823}\label{classbio_constraint_wrapper_a0a513bd767a15dc84ab221df49ee1823}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!````~bio\+Constraint\+Wrapper@{$\sim$bio\+Constraint\+Wrapper}}
+\index{````~bio\+Constraint\+Wrapper@{$\sim$bio\+Constraint\+Wrapper}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{$\sim$bio\+Constraint\+Wrapper()}{~bioConstraintWrapper()}}
+{\footnotesize\ttfamily bio\+Constraint\+Wrapper\+::$\sim$bio\+Constraint\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Dtor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_constraint_wrapper_aaf986bd228a7683a758c3f734aa72049}\label{classbio_constraint_wrapper_aaf986bd228a7683a758c3f734aa72049}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!compute\+Cheap\+Hessian@{compute\+Cheap\+Hessian}}
+\index{compute\+Cheap\+Hessian@{compute\+Cheap\+Hessian}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Cheap\+Hessian()}{computeCheapHessian()}}
+{\footnotesize\ttfamily tr\+Hessian $\ast$ bio\+Constraint\+Wrapper\+::compute\+Cheap\+Hessian (\begin{DoxyParamCaption}\item[{tr\+Hessian $\ast$}]{hessian,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+This method is supposed to provide a cheap approximation of the hessian. Here, it is the B\+H\+HH approximation \mbox{\Hypertarget{classbio_constraint_wrapper_a63a339cbc90f002d3945b1c64286fbcc}\label{classbio_constraint_wrapper_a63a339cbc90f002d3945b1c64286fbcc}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!compute\+Function@{compute\+Function}}
+\index{compute\+Function@{compute\+Function}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Function()}{computeFunction()}}
+{\footnotesize\ttfamily pat\+Real bio\+Constraint\+Wrapper\+::compute\+Function (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+value of the function to minimize. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the variariables stored in x correspond to thr non fixed parameters of the model (\$\$, \$\$, \$\$,\$\$, scale parameters, etc.) \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_constraint_wrapper_abe425baa0389a902c1a4661e6d3ac6b9}\label{classbio_constraint_wrapper_abe425baa0389a902c1a4661e6d3ac6b9}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!compute\+Function\+And\+Derivatives@{compute\+Function\+And\+Derivatives}}
+\index{compute\+Function\+And\+Derivatives@{compute\+Function\+And\+Derivatives}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Function\+And\+Derivatives()}{computeFunctionAndDerivatives()}}
+{\footnotesize\ttfamily pat\+Real bio\+Constraint\+Wrapper\+::compute\+Function\+And\+Derivatives (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{tr\+Vector $\ast$}]{grad,  }\item[{tr\+Hessian $\ast$}]{hessian,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & vector of \$\{R\}$^\wedge$n\$ where the function is evaluated \\
+\hline
+{\em grad} & pointer to the vector where the gradient will be stored \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_constraint_wrapper_aed546d0393bc28c1d979d09a64650327}\label{classbio_constraint_wrapper_aed546d0393bc28c1d979d09a64650327}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!compute\+Hessian\+Times\+Vector@{compute\+Hessian\+Times\+Vector}}
+\index{compute\+Hessian\+Times\+Vector@{compute\+Hessian\+Times\+Vector}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Hessian\+Times\+Vector()}{computeHessianTimesVector()}}
+{\footnotesize\ttfamily tr\+Vector $\ast$ bio\+Constraint\+Wrapper\+::compute\+Hessian\+Times\+Vector (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{const tr\+Vector $\ast$}]{v,  }\item[{tr\+Vector $\ast$}]{r,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+Computes the product of the hessian and a vector. \begin{DoxyReturn}{Returns}
+value of the hessian of the function 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the variariables stored in x correspond to the non fixed parameters of the model (\$\$, \$\$, \$\$,\$\$, scale parameters, etc.) \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_constraint_wrapper_adf39800047df8d751b337f6f250af705}\label{classbio_constraint_wrapper_adf39800047df8d751b337f6f250af705}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!generate\+Cpp\+Code@{generate\+Cpp\+Code}}
+\index{generate\+Cpp\+Code@{generate\+Cpp\+Code}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{generate\+Cpp\+Code()}{generateCppCode()}}
+{\footnotesize\ttfamily void bio\+Constraint\+Wrapper\+::generate\+Cpp\+Code (\begin{DoxyParamCaption}\item[{ostream \&}]{str,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Must comply with the tr\+Function interface, but useless here. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_constraint_wrapper_a8af31cb2b229ca6a4b99ba2f18ca0f15}\label{classbio_constraint_wrapper_a8af31cb2b229ca6a4b99ba2f18ca0f15}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!get\+Dimension@{get\+Dimension}}
+\index{get\+Dimension@{get\+Dimension}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{get\+Dimension()}{getDimension()}}
+{\footnotesize\ttfamily unsigned long bio\+Constraint\+Wrapper\+::get\+Dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Number of variable for the minimization problem 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_constraint_wrapper_a0596646c9d8aec807c6dee7a952d2a3f}\label{classbio_constraint_wrapper_a0596646c9d8aec807c6dee7a952d2a3f}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!is\+Gradient\+Available@{is\+Gradient\+Available}}
+\index{is\+Gradient\+Available@{is\+Gradient\+Available}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Gradient\+Available()}{isGradientAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Constraint\+Wrapper\+::is\+Gradient\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_constraint_wrapper_a0fd19dd1f500465fbc243b60526bd76b}\label{classbio_constraint_wrapper_a0fd19dd1f500465fbc243b60526bd76b}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!is\+Hessian\+Available@{is\+Hessian\+Available}}
+\index{is\+Hessian\+Available@{is\+Hessian\+Available}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Available()}{isHessianAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Constraint\+Wrapper\+::is\+Hessian\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_constraint_wrapper_a6757a8f4928e8dbd8f26dfe1a4f53877}\label{classbio_constraint_wrapper_a6757a8f4928e8dbd8f26dfe1a4f53877}} 
+\index{bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}!is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}}
+\index{is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}!bio\+Constraint\+Wrapper@{bio\+Constraint\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Times\+Vector\+Available()}{isHessianTimesVectorAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Constraint\+Wrapper\+::is\+Hessian\+Times\+Vector\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Constraint\+Wrapper.\+h\item 
+bio\+Constraint\+Wrapper.\+cc\end{DoxyCompactItemize}

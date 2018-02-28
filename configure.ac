@@ -19,23 +19,12 @@ AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([no-dependencies -Wno-portability])
 
-# R
-: ${R_HOME=`R RHOME`}
-if test -z "${R_HOME}"; then
-  RINSTALLED=no
-else
-  RINSTALLED=yes
-  RCXX=`"${R_HOME}/bin/R" CMD config CXX`
-  RCXXFLAGS=`"${R_HOME}/bin/R" CMD config CXXFLAGS`
-  RLDFLAGS=`"${R_HOME}/bin/R" CMD config LDFLAGS`
-fi
-
 AM_CXXFLAGS="$AM_CXXFLAGS -std=gnu++11"
 AM_LDFLAGS="$AM_LDFLAGS -no-undefined"
 AC_PROG_CXX([clang++ g++])
 AC_PROG_CC([clang gcc])
 
-# Remove the next statement before distribution
+# This has to be configured properly... --> take into account the static exec option
 #AC_DISABLE_SHARED
 AC_PROG_LIBTOOL
 
@@ -60,7 +49,7 @@ AC_CONFIG_FILES([Makefile
 	biomerge/Makefile 
         pythonbiogeme/Makefile        
 	pybiogeme/Makefile
-	r/Makefile 
+	biogemedylib/Makefile
         gtkgui/Makefile])
 
 
@@ -118,10 +107,6 @@ AC_ARG_ENABLE([gui],
   AS_HELP_STRING([--disable-gui],[Does not build the version with a GUI]),[],[enable_gui=yes]
 )
 
-AC_ARG_ENABLE([r],
-  AS_HELP_STRING([--disable-r],[Does not build the interface with R]),[],[enable_r=yes]
-)
-
 AC_ARG_ENABLE([python],
   AS_HELP_STRING([--disable-python],[Does not build Python Biogeme]),[],[enable_python=yes]
 )
@@ -149,16 +134,6 @@ AC_ARG_WITH([ipopt],
             [],
             [with_ipopt=yes]
 )
-
-# R
-
-AC_ARG_WITH([r],
-       AS_HELP_STRING([--without-r],
-              [disable support for R]),
-            [],
-            [with_r=yes]
-)
-
 
 
 # python31
@@ -288,44 +263,6 @@ fi
 
 AM_CONDITIONAL([BUILD_IPOPT], [test "x$IPOPTBIO" = "xyes"])
 
-# R
-
-if test "x$RINSTALLED" = "xyes" ; then 
-
-  if test "x$with_r" = "xyes" ; then 
-    AC_CHECK_PROG(HAVE_RSCRIPT,[Rscript],[yes],[no])
-    if test "x$HAVE_RSCRIPT" = "xyes" ; then
-      RBIO="yes"
-      RBIO_SUGGEST=""
-      AC_MSG_CHECKING([whether to build an R interface])
-      AC_MSG_RESULT(yes)
-    else
-      RBIO="no"
-      RBIO_SUGGEST="(Rscript in not in the path. Install R and Rcpp)"
-      AC_MSG_CHECKING([whether to build an R interface])
-      AC_MSG_RESULT(no)
-    fi
-  else
-      RBIO="no"
-      RBIO_SUGGEST="(disabled by the --without-r option)"
-      AC_MSG_CHECKING([whether to build an R interface])
-      AC_MSG_RESULT(no)
-  fi
-  
-  
-  if test "x$RBIO" = "xyes" ; then
-      R_CXXFLAGS="`Rscript -e 'Rcpp:::CxxFlags()'`"
-      AC_DEFINE([Rscript],[],[R interface available])
-      AC_SUBST(R_CXXFLAGS)
-  fi
-else
-  RBIO_SUGGEST="(RHOME cannot be found. Install R)"
-  RBIO="no"
-fi
-
-AM_CONDITIONAL([BUILD_R], [test "x$RBIO" = "xyes"])
-
-
 
 
 # Python
@@ -430,10 +367,11 @@ if test "x$enable_staticexec" = "xyes" ; then
   if test "x$lt_cv_prog_compiler_static_works" = "xno" ; then
     STATIC="no (flag -static not supported by the compiler)"
   else
-    AM_LDFLAGS="$AM_LDFLAGS -static -static-libgcc -static-libstdc++"
+    AM_LDFLAGS="$AM_LDFLAGS -shared"
   fi
 else
   STATIC="no (use option --enable-staticexec)"
+  AM_LDFLAGS="$AM_LDFLAGS -shared"
 fi
 
 AM_CONDITIONAL([BUILD_STATIC], [test "x$STATIC" = "xyes"])
@@ -479,7 +417,6 @@ AC_MSG_RESULT([
  Build biosim.............$BISONBIO $BISONBIO_SUGGEST
  Build python biogeme.....$NEWBIO $NEWBIO_SUGGEST
  Build GTK GUI version....$GTKBIO $GTKBIO_SUGGEST
- Build R interface........$RBIO $RBIO_SUGGEST
  Use IPOPT optimization...$IPOPTBIO $IPOPTBIO_SUGGEST
  Static executables.......$STATIC
  Long double..............$WITHLONGDOUBLE

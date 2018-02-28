@@ -22,5 +22,6 @@ pythonbiogeme \
 biosim \
 mod2py \
 biomerge \
+biogemedylib \
 gtkgui
 

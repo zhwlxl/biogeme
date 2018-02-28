@@ -1,0 +1,80 @@
+\hypertarget{classbio_reporting}{}\section{bio\+Reporting Class Reference}
+\label{classbio_reporting}\index{bio\+Reporting@{bio\+Reporting}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_reporting_a537359f9cf2ed4e4b474b33bf2d28178}\label{classbio_reporting_a537359f9cf2ed4e4b474b33bf2d28178}} 
+{\bfseries bio\+Reporting} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_aca6263feeaf1f25d0084bb537471bddd}\label{classbio_reporting_aca6263feeaf1f25d0084bb537471bddd}} 
+void {\bfseries write\+Html} (pat\+String file\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_aeb4f76a9ddfa9b32ed0e90e45e10dfb0}\label{classbio_reporting_aeb4f76a9ddfa9b32ed0e90e45e10dfb0}} 
+void {\bfseries write\+La\+TeX} (pat\+String file\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a17b9df80f83e3801db831f2957a55927}\label{classbio_reporting_a17b9df80f83e3801db831f2957a55927}} 
+void {\bfseries write\+A\+Logit} (pat\+String file\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_abfd2df44ff8b7f250603400690ef918c}\label{classbio_reporting_abfd2df44ff8b7f250603400690ef918c}} 
+pat\+Boolean {\bfseries is\+Rao\+Cramer\+Available} () const
+\item 
+\mbox{\Hypertarget{classbio_reporting_a066980b6a86be55d7eab584f77d0f702}\label{classbio_reporting_a066980b6a86be55d7eab584f77d0f702}} 
+pat\+Boolean {\bfseries is\+Sandwich\+Available} () const
+\item 
+\mbox{\Hypertarget{classbio_reporting_aba8e07f519890046682238e54ce7b4a7}\label{classbio_reporting_aba8e07f519890046682238e54ce7b4a7}} 
+void {\bfseries compute\+From\+Sample} (\hyperlink{classbio_sample}{bio\+Sample} $\ast$s, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a02959ec829d7923e6261e1d91b80b567}\label{classbio_reporting_a02959ec829d7923e6261e1d91b80b567}} 
+void {\bfseries compute\+Estimation\+Results} (\hyperlink{classbio_optimization_results}{bio\+Optimization\+Results} $\ast$rr, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_aa2ec55e5c03a0159fa95b0ef991230f4}\label{classbio_reporting_aa2ec55e5c03a0159fa95b0ef991230f4}} 
+void {\bfseries compute\+Bayesian\+Results} (\hyperlink{classbio_bayesian_results}{bio\+Bayesian\+Results} $\ast$rr, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a2b20211a93e77a9c4fe65c5e30d70f8f}\label{classbio_reporting_a2b20211a93e77a9c4fe65c5e30d70f8f}} 
+void {\bfseries set\+Diagnostic} (pat\+String diag)
+\item 
+\mbox{\Hypertarget{classbio_reporting_aa2dec8c5c6350aceda2fb1d4550aa0f0}\label{classbio_reporting_aa2dec8c5c6350aceda2fb1d4550aa0f0}} 
+void {\bfseries set\+Iterations} (pat\+U\+Long i)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a2311afa49ace2c0e4f6c895a08b58826}\label{classbio_reporting_a2311afa49ace2c0e4f6c895a08b58826}} 
+void {\bfseries set\+Run\+Time} (pat\+String t)
+\item 
+\mbox{\Hypertarget{classbio_reporting_aa77cbf7f876ab54877e009d597cf8f19}\label{classbio_reporting_aa77cbf7f876ab54877e009d597cf8f19}} 
+void {\bfseries set\+Data\+Processing\+Time} (pat\+String t)
+\item 
+\mbox{\Hypertarget{classbio_reporting_af39336ef87dda602ec218d0ee722dc8f}\label{classbio_reporting_af39336ef87dda602ec218d0ee722dc8f}} 
+void {\bfseries set\+Init\+LL} (pat\+Real l)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a4e23cce6816892e835a170e2947c8b57}\label{classbio_reporting_a4e23cce6816892e835a170e2947c8b57}} 
+void {\bfseries add\+Statistic} (pat\+String name, pat\+Real value)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a487ff64a2ea6e6c6dd49d29546b4cdb5}\label{classbio_reporting_a487ff64a2ea6e6c6dd49d29546b4cdb5}} 
+void {\bfseries add\+Formula} (pat\+String name, pat\+String formula)
+\item 
+\mbox{\Hypertarget{classbio_reporting_ae33b3b96e0cdbeb37f6bb45b66d3019b}\label{classbio_reporting_ae33b3b96e0cdbeb37f6bb45b66d3019b}} 
+void {\bfseries set\+Simulation\+Results} (map$<$ pat\+String, \hyperlink{classbio_simulated_values}{bio\+Simulated\+Values} $>$ $\ast$s, pat\+Boolean sensitivity)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a157d199de3457fe561b74dc17e537183}\label{classbio_reporting_a157d199de3457fe561b74dc17e537183}} 
+void {\bfseries print\+Estimated\+Parameters} (pat\+String filename, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a3579366dabb93a95b16735cbaea94c9f}\label{classbio_reporting_a3579366dabb93a95b16735cbaea94c9f}} 
+void {\bfseries add\+Monte\+Carlo\+Report} (pat\+Statistics $\ast$main\+Draws, pat\+Statistics $\ast$cv\+Draws, pat\+Kalman $\ast$the\+Filter, pat\+Real analytical, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a68939f289234a3060cb814de37a9cb5a}\label{classbio_reporting_a68939f289234a3060cb814de37a9cb5a}} 
+void {\bfseries involves\+Monte\+Carlo} ()
+\item 
+\mbox{\Hypertarget{classbio_reporting_aa1c19ac99db669ed9f9df4eaff70dea6}\label{classbio_reporting_aa1c19ac99db669ed9f9df4eaff70dea6}} 
+void {\bfseries set\+Algorithm} (pat\+String a)
+\item 
+\mbox{\Hypertarget{classbio_reporting_a63ab31f4dd91e777d9df058b9ee0d95c}\label{classbio_reporting_a63ab31f4dd91e777d9df058b9ee0d95c}} 
+pat\+Boolean {\bfseries bootstrap\+Available} ()
+\item 
+\mbox{\Hypertarget{classbio_reporting_a2b56f8d194549ca88a7a6263fe9396d5}\label{classbio_reporting_a2b56f8d194549ca88a7a6263fe9396d5}} 
+pat\+U\+Long {\bfseries get\+Bootstrap\+Draws} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Reporting.\+h\item 
+bio\+Reporting.\+cc\end{DoxyCompactItemize}

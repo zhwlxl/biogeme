@@ -29,6 +29,8 @@ patSvd::patSvd(patMyMatrix* aMat) : theMatrix(NULL),
   if (m == 0) return ;
   if (n == 0) return ;
   theMatrix = aMat ;
+  DEBUG_MESSAGE("matrix");
+  cout << *theMatrix << endl ;
   V = new patMyMatrix(n,n) ;
   W = new patVariables(n) ;
   if (m == n) {
@@ -390,5 +392,6 @@ patReal patSvd::getSmallestSingularValue() {
       smallestSingularValue = (*W)[i] ;
     }
   }
+  DEBUG_MESSAGE("Smallest singular value: " << smallestSingularValue) ;
   return smallestSingularValue ;
 }

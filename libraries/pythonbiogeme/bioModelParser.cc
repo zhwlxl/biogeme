@@ -13,7 +13,6 @@
 #include <iostream>
 #include <list>
 #include <new>
-
 #include "patString.h"
 #include "patError.h"
 #include "patDisplay.h"
@@ -127,21 +126,44 @@ bioModel *bioModelParser::readModel(patError*& err) {
    if (!pythonPath.readFromSystem()) {
      err = new patErrMiscError("Environment variable PYTHONPATH is undefined") ;
      WARNING(err->describe()) ;
+     return NULL ;
+   }
+   else {
+     DEBUG_MESSAGE(pythonPath) ;
    }
 
-
+   
   // Init Python
+
+   
 #ifdef STANDALONE_EXECUTABLE
   Py_NoSiteFlag = 1;
-#endif 
+#endif
+  DEBUG_MESSAGE("Init Python")
   Py_Initialize() ;
+  
   // Load the module and check if it has loaded
-  //GENERAL_MESSAGE("loading python module");
-  pModule = PyImport_ImportModule(const_cast<char *>(fn.c_str())) ;
+  GENERAL_MESSAGE("loading python module");
+  try {
+    pModule = PyImport_ImportModule(const_cast<char *>(fn.c_str())) ;
+  }
+  catch (...) {
+    DEBUG_MESSAGE("Exception caught") ;
+  }
+  GENERAL_MESSAGE("loading python module: done");
+  
   if (PY_FAIL(pModule)) {
-    PY_ERR_PRINT() ;
+    PyObject *exc_type = NULL, *exc_value = NULL, *exc_tb = NULL;
+    PyErr_Fetch(&exc_type, &exc_value, &exc_tb);
+    PyErr_NormalizeException(&exc_type, &exc_value, &exc_tb);
+    PyTracebackObject* traceback = (PyTracebackObject*)exc_tb;
+    PyObject* str_exc_value = PyObject_Repr(exc_value); //Now a unicode object
     stringstream str ;
-    str << "Failed to load " << filename ;
+    str << "Failed to load " << filename ;    
+    str << ". Error in line " << traceback->tb_lineno << ": "
+	  << patString(PyBytes_AsString(PyUnicode_AsASCIIString(str_exc_value))) << endl ;
+    PyErr_Restore(exc_type, exc_value, exc_tb);
+    PY_ERR_PRINT() ;
     err = new patErrMiscError(str.str()) ;
     WARNING(err->describe()) ;
     return NULL;
@@ -3036,3 +3058,5 @@ pair<vector<patString>,patHybridMatrix* > bioModelParser::getMatrix(PyObject* pM
    }
 
 }
+
+

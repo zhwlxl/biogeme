@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "PKG_CXXFLAGS += -I/usr/local/include\nPKG_LIBS += -L/usr/local/lib/ -lOtherLibDyn\n",
+    "created" : 1512470748349.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2282038836",
+    "id" : "8C638E4D",
+    "lastKnownWriteTime" : 1512470014,
+    "last_content_update" : 1512470014,
+    "path" : "~/switchdrive/Projects/RCPP/code/PackageTest/Biogeme/src/Makevars",
+    "project_path" : "src/Makevars",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "makefile"
+}

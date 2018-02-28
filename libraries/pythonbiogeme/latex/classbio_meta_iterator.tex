@@ -1,0 +1,45 @@
+\hypertarget{classbio_meta_iterator}{}\section{bio\+Meta\+Iterator Class Reference}
+\label{classbio_meta_iterator}\index{bio\+Meta\+Iterator@{bio\+Meta\+Iterator}}
+
+
+{\ttfamily \#include $<$bio\+Meta\+Iterator.\+h$>$}
+
+Inheritance diagram for bio\+Meta\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_meta_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_a0a0645b4dcf67a67bc0393f5ee2930ab}\label{classbio_meta_iterator_a0a0645b4dcf67a67bc0393f5ee2930ab}} 
+{\bfseries bio\+Meta\+Iterator} (const vector$<$ pat\+Variables $>$ $\ast$db, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} thread\+Span, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_a9a7811e6802aa923d096e0d066a2f99e}\label{classbio_meta_iterator_a9a7811e6802aa923d096e0d066a2f99e}} 
+void {\bfseries first} ()
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_a8ed0bb09d817f4cbd9db082bd8cf150f}\label{classbio_meta_iterator_a8ed0bb09d817f4cbd9db082bd8cf150f}} 
+void {\bfseries next} ()
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_afd2898952789ca75659b761ca4643e11}\label{classbio_meta_iterator_afd2898952789ca75659b761ca4643e11}} 
+pat\+Boolean {\bfseries is\+Done} ()
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_af127fffb01500d0dd9cee87e923e256e}\label{classbio_meta_iterator_af127fffb01500d0dd9cee87e923e256e}} 
+\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} {\bfseries current\+Item} ()
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_a6c49281dcd8940ca54c658351e7b9302}\label{classbio_meta_iterator_a6c49281dcd8940ca54c658351e7b9302}} 
+const pat\+Variables $\ast$ {\bfseries get\+First\+Row} ()
+\item 
+\mbox{\Hypertarget{classbio_meta_iterator_a55efa0ba7f8167da7d2ade63c84e670d}\label{classbio_meta_iterator_a55efa0ba7f8167da7d2ade63c84e670d}} 
+pat\+U\+Long {\bfseries nbr\+Of\+Items} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents an iterator on another iterator The range of the iterator is defined by \char`\"{}a\+Span\char`\"{}. The \char`\"{}thread\+Span\char`\"{} defines the range designed for a given thread. Rule\+: assume a\+Span = \mbox{[}l,u\mbox{]} and thread\+Span\mbox{[}b,e\mbox{]}. Then every item i in the iterations such that i is strictly before b are ignored. Note that the upper bound e is completely ignored. This is on purpose, in order to avoid possible misalignent with the meta iterators. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Meta\+Iterator.\+h\item 
+bio\+Meta\+Iterator.\+cc\end{DoxyCompactItemize}

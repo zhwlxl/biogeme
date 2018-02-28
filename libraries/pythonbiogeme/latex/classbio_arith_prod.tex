@@ -1,0 +1,153 @@
+\hypertarget{classbio_arith_prod}{}\section{bio\+Arith\+Prod Class Reference}
+\label{classbio_arith_prod}\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Prod.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Prod\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classbio_arith_prod}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_prod_a099b149adeaee35d97c8cf8be536187d}\label{classbio_arith_prod_a099b149adeaee35d97c8cf8be536187d}} 
+{\bfseries bio\+Arith\+Prod} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long left, pat\+String an\+Iterator, pat\+Boolean is\+Positive, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_prod_a9157df784bda1e1ad425de27e05804b1}{get\+Operator\+Name} () const
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_prod_a1b086a865acfc23f3cd51566eaef8ddc}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_prod}{bio\+Arith\+Prod} $\ast$ \hyperlink{classbio_arith_prod_a55008811df00e22759086f4983362a26}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_prod}{bio\+Arith\+Prod} $\ast$ \hyperlink{classbio_arith_prod_a8b4a3f836dc162ea067da896093c5f38}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_prod_a87ccb533073f5f37f5eb19280275f2cb}\label{classbio_arith_prod_a87ccb533073f5f37f5eb19280275f2cb}} 
+virtual pat\+Boolean {\bfseries is\+Sum} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_prod_a41ee5a7a988ca881666825762aafdbe8}\label{classbio_arith_prod_a41ee5a7a988ca881666825762aafdbe8}} 
+virtual pat\+Boolean {\bfseries is\+Prod} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_prod_a665209a40bfb01098c5ddde204900294}{get\+Expression\+String} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_prod_a566bd383683dcd49930df1a1e5284918}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_prod_ab8151bb2d88725408d333b151961a5c7}\label{classbio_arith_prod_ab8151bb2d88725408d333b151961a5c7}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_prod_a6f7d57d9c0ec86aed9bb7eb643beb44e}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing a product expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_prod_a55008811df00e22759086f4983362a26}\label{classbio_arith_prod_a55008811df00e22759086f4983362a26}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_prod}{bio\+Arith\+Prod} $\ast$ bio\+Arith\+Prod\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a1b086a865acfc23f3cd51566eaef8ddc}\label{classbio_arith_prod_a1b086a865acfc23f3cd51566eaef8ddc}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Prod\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a665209a40bfb01098c5ddde204900294}\label{classbio_arith_prod_a665209a40bfb01098c5ddde204900294}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Prod\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a6f7d57d9c0ec86aed9bb7eb643beb44e}\label{classbio_arith_prod_a6f7d57d9c0ec86aed9bb7eb643beb44e}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Prod\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a9157df784bda1e1ad425de27e05804b1}\label{classbio_arith_prod_a9157df784bda1e1ad425de27e05804b1}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Prod\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a8b4a3f836dc162ea067da896093c5f38}\label{classbio_arith_prod_a8b4a3f836dc162ea067da896093c5f38}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_prod}{bio\+Arith\+Prod} $\ast$ bio\+Arith\+Prod\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_prod_a566bd383683dcd49930df1a1e5284918}\label{classbio_arith_prod_a566bd383683dcd49930df1a1e5284918}} 
+\index{bio\+Arith\+Prod@{bio\+Arith\+Prod}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Prod@{bio\+Arith\+Prod}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Prod\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Prod.\+h\item 
+bio\+Arith\+Prod.\+cc\end{DoxyCompactItemize}

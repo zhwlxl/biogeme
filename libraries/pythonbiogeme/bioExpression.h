@@ -19,6 +19,7 @@
 #include "bioIteratorSpan.h"
 #include "patVariables.h" 
 #include "bioFunctionAndDerivatives.h"
+#include "patIteratorErr.h"
 
 #include "patLap.h"
 class bioExpressionRepository ;
@@ -28,6 +29,7 @@ class bioArithNamedExpression ;
 class bioSample ;
 class bioReporting ;
 class trHessian ;
+class bioIterativeFunction ;
 /*!
  This virtual class represents a generic arithmetic expression.
 
@@ -292,6 +294,15 @@ class bioExpression {
 
   virtual void checkMonteCarlo(patBoolean insideMonteCarlo, patError*& err) ;
 
+
+  // This function should be implemented only for the bioArithSum
+  // operator. It is designed ot be used by the stochastic gradient
+  // algorithm. It returns the expression as an iterator, given the
+  // algoroithm access to each individual function calculation.
+  
+  virtual patIteratorErr<bioFunctionAndDerivatives*> *getIteratorForStochasticGradient(patError*& err) ;
+
+  
 protected:
   patBoolean performCheck ;
   patULong parent ;

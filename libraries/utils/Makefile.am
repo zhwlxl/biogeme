@@ -75,6 +75,7 @@ libutils_la_SOURCES = patAbsTime.cc \
     patLap.cc \
     patInterval.cc \
     patGetWorkingDir.cc \
+bioCapture.cc \
 FlexLexer.h \
 bioAlgorithmManager.h \
 bioAlgorithmStopping.h \
@@ -107,6 +108,7 @@ patGeoCoordinates.h \
 patImportance.h \
 patIterationBackup.h \
 patIterator.h \
+patIteratorErr.h \
 patLargeNumbers.h \
 patLogMessage.h \
 patFileSize.h \
@@ -147,6 +149,7 @@ patQuantiles.h \
 patLap.h \
 patInterval.h \
 patGetWorkingDir.h \
+bioCapture.h \
 pstream.h
 
 

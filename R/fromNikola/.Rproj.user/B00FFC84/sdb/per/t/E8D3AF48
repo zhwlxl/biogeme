@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#include <Rcpp.h>\n#include <OtherLibDyn.h>\n#include <string>\n#include <stdio.h>\n#include <stdlib.h>\n#include <dlfcn.h>\n#include <iostream>\n#include <fstream>\n\nusing namespace std;\nusing namespace Rcpp;\n\n//This function version is not explicitly linking the other library\nRcppExport SEXP calcStats(SEXP p_df)\n{\n  //Cast input SEXP object into Rcpp data.frame representation.\n  DataFrame df = Rcpp::as<DataFrame>(p_df);\n\n  double min = 1000000, max = 0, sum = 0;\n\n  //Get column \"salary\" from the data frame.\n  NumericVector nv = df[\"salary\"];\n\n  //nv.size() gives the length of the column.\n  for(int i = 0;i<nv.size();i++)\n  {\n    if(nv[i] < min) min = nv[i];\n    else if(nv[i] > max) max = nv[i];\n\n    sum += nv[i];\n  }\n\n  //Create Rcpp vector of reals.\n  //Named(\"min\",min), Named(\"max\")=max and _[\"sum\"]=sum are different ways of adding a named element to the vector.\n  //I haven't found if there are functional differences between these three.\n  NumericVector v = NumericVector::create(Named(\"min\",min), Named(\"max\")=max , _[\"sum\"]=sum, _[\"test\"]=MakeNumDyn());\n\n  return v;\n}\n\nvoid runBiogeme(SEXP p_df)\n{\n    //Cast input SEXP object into Rcpp data.frame representation.\n    DataFrame df = Rcpp::as<DataFrame>(p_df);\n\n    string modelFileName = \"modFile.mod\";\n    string dataFileName = \"dataFile.dat\";\n\n    ofstream modelFile;\n    modelFile.open(modelFileName);\n    string text = \"Write this to the file\";\n    modelFile << text;\n    modelFile.close();\n\n\n    ofstream dataFile;\n    dataFile.open(dataFileName);\n    modelFile << \"Write this to the file\";\n    modelFile.close();\n\n    //Biogeme bio = new Biogeme();\n    //bio.run(modelFileName, dataFileName);\n\n}\n\nstatic const R_CallMethodDef CallEntries[] = {\n  {\"calcStats\", (DL_FUNC) &calcStats, 1},\n  {\"runBiogeme\", (DL_FUNC) &runBiogeme, 1},\n  {NULL, NULL, 0}\n};\n\nRcppExport void R_init_Biogeme3(DllInfo *dll) {\n  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);\n  R_useDynamicSymbols(dll, TRUE);\n};\n",
+    "created" : 1512470744102.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "157077984",
+    "id" : "E8D3AF48",
+    "lastKnownWriteTime" : 1512470800,
+    "last_content_update" : 1512470800786,
+    "path" : "~/switchdrive/Projects/RCPP/code/PackageTest/Biogeme/src/RcppExp.cpp",
+    "project_path" : "src/RcppExp.cpp",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}

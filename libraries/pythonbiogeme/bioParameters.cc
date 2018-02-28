@@ -137,6 +137,27 @@ bioParameters::bioParameters() : docFile(patString("pythonparam.html")) {
     pair<long int,patString>(1,
 			     patString("If 1, Biogeme computes the log likelihood at the starting point, before running the algorithm.")) ;
 
+  stringValues["startingPoint"] =
+    pair<patString,patString>(patString("USER"),
+			      patString("Determine how the starting point of the optimization is defined. USER: use the values provided by the user in the model file. RANDOM: select values uniformly distributed between the bounds. STOCHASTIC_GRADIENT: apply stochastic gradient [Experimental. Not fully tested yet]. SAGA: apply the SAGA algorithm by Defazio et al., 2014. [Experimental. Not fully tested yet]")) ;
+    
+
+  realValues["stochasticGradientFirstStepSize"] =
+    pair<patReal, patString>(0.1,patString("First step used for the stochastic gradient algortithm")) ; 
+
+  realValues["stochasticGradientStepUpdate"] =
+    pair<patReal, patString>(0.9,patString("At each iteration of the stochastic gradient algorithm, the step is multiplied by this factor.")) ; 
+  
+  integerValues["stochasticGradientNumberOfPasses"] =
+    pair<long int,patString>(1,patString("Number of times that the stochastic gradient algorithm reads the data.")) ;
+
+  realValues["sagaStepSize"] =
+    pair<patReal, patString>(1.0,patString("Step used for the SAGA algorithm")) ; 
+
+  integerValues["sagaNumberOfPasses"] =
+    pair<long int,patString>(1,patString("Number of times that the SAGA algorithm reads the data.")) ;
+
+  
   integerValues["checkDerivatives"] = 
     pair<long int, patString>(0,
 			      patString("If set to 1, the analytical derivatives of the log likelihood functions and the nonlinear constraints are compared to the finite difference derivatives. This is used mainly for debugging purposes."));
@@ -151,7 +172,7 @@ bioParameters::bioParameters() : docFile(patString("pythonparam.html")) {
     pair<patReal, patString>(0.0,
 			      patString("Convergence towards previously visited points can be detected using BIOGEME_OBJECT.OLDBETAS. If an iterate is close to a solution in the list, iteration are interrupted. It happens when the Euclidean distance is lesser or equal to this parameter. A value of 0.0 disable this feature."));
   realValues["toleranceCheckDerivatives"] = 
-    pair<patReal, patString>(0.001,
+    pair<patReal, patString>(0.01,
 			      patString("Difference between analytical and finite differences derivative is considered to be significant if greater or equal to this value"));
 
   integerValues["printGradient"] =
@@ -198,7 +219,7 @@ integerValues["shareOfProcessors"] =
     pair<long int,patString>(0,patString("Biogeme performs additional verifications about numerical issues (division by zero, log of zero, overflows, etc.) if the parameter is set to 1. It is at the cost of computing performance. ")) ;
 
   integerValues["scaleDerivativesInSums"] =
-    pair<long int,patString>(0,patString("When calculating derivatives (first and second) of sum, Biogeme divide each element by the value of the function before accumulating them, and re-multiply the final result by the same value. It avoids the accumulation of large numbers, that may go beyond the maximum value that can be represented in memory. Note that it is at the expense of performance.")) ;
+    pair<long int,patString>(0,patString("When calculating derivatives (first and second) of sum, Biogeme divides each element by the value of the function before accumulating them, and re-multiply the final result by the same value. It avoids the accumulation of large numbers, that may go beyond the maximum value that can be represented in memory. Note that it is at the expense of performance.")) ;
 
 
   integerValues["maxPrimeNumbers"] =

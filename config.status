@@ -393,7 +393,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile libraries/utils/Makefile libraries/linearAlgebra/Makefile libraries/trustRegion/Makefile libraries/cfsqp/Makefile libraries/ipopt/Makefile libraries/solvopt/Makefile libraries/randomNumbers/Makefile libraries/gaussHermite/Makefile libraries/stochasticGradient/Makefile libraries/parameters/Makefile libraries/bisonbiogeme/Makefile libraries/pythonbiogeme/Makefile tools/histograms/Makefile tools/prepareData/Makefile biogeme/Makefile biosim/Makefile mod2py/Makefile biomerge/Makefile pythonbiogeme/Makefile pybiogeme/Makefile r/Makefile gtkgui/Makefile pythonbiogeme/pythonbiogeme pythonbiogeme/debugbiogeme gtkgui/debuggui tools/prepareData/biocheckdata tools/prepareData/biosampledata tools/prepareData/biopreparedata tools/histograms/histogram tools/histograms/weightedhistogram pythonbiogeme/pythonbiogeme_static"
+config_files=" Makefile libraries/utils/Makefile libraries/linearAlgebra/Makefile libraries/trustRegion/Makefile libraries/cfsqp/Makefile libraries/ipopt/Makefile libraries/solvopt/Makefile libraries/randomNumbers/Makefile libraries/gaussHermite/Makefile libraries/stochasticGradient/Makefile libraries/parameters/Makefile libraries/bisonbiogeme/Makefile libraries/pythonbiogeme/Makefile tools/histograms/Makefile tools/prepareData/Makefile biogeme/Makefile biosim/Makefile mod2py/Makefile biomerge/Makefile pythonbiogeme/Makefile pybiogeme/Makefile biogemedylib/Makefile gtkgui/Makefile pythonbiogeme/pythonbiogeme pythonbiogeme/debugbiogeme gtkgui/debuggui tools/prepareData/biocheckdata tools/prepareData/biosampledata tools/prepareData/biopreparedata tools/histograms/histogram tools/histograms/weightedhistogram pythonbiogeme/pythonbiogeme_static"
 config_headers=" config.h"
 config_commands=" libtool"
 
@@ -560,11 +560,11 @@ SHELL='/bin/sh'
 ECHO='printf %s\n'
 PATH_SEPARATOR=':'
 host_alias=''
-host='x86_64-apple-darwin16.7.0'
-host_os='darwin16.7.0'
+host='x86_64-apple-darwin17.4.0'
+host_os='darwin17.4.0'
 build_alias=''
-build='x86_64-apple-darwin16.7.0'
-build_os='darwin16.7.0'
+build='x86_64-apple-darwin17.4.0'
+build_os='darwin17.4.0'
 SED='/usr/bin/sed'
 Xsed='/usr/bin/sed -e 1s/^X//'
 GREP='/usr/bin/grep'
@@ -675,7 +675,7 @@ postuninstall_cmds=''
 finish_cmds=''
 finish_eval=''
 hardcode_into_libs='no'
-sys_lib_search_path_spec='/Library/Developer/CommandLineTools/usr/lib/clang/8.1.0  /usr/local/lib'
+sys_lib_search_path_spec='/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0  /usr/local/lib'
 configure_time_dlsearch_path='/usr/local/lib /lib /usr/lib'
 configure_time_lt_sys_library_path=''
 hardcode_action='immediate'
@@ -821,7 +821,7 @@ do
     "biomerge/Makefile") CONFIG_FILES="$CONFIG_FILES biomerge/Makefile" ;;
     "pythonbiogeme/Makefile") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/Makefile" ;;
     "pybiogeme/Makefile") CONFIG_FILES="$CONFIG_FILES pybiogeme/Makefile" ;;
-    "r/Makefile") CONFIG_FILES="$CONFIG_FILES r/Makefile" ;;
+    "biogemedylib/Makefile") CONFIG_FILES="$CONFIG_FILES biogemedylib/Makefile" ;;
     "gtkgui/Makefile") CONFIG_FILES="$CONFIG_FILES gtkgui/Makefile" ;;
     "pythonbiogeme/pythonbiogeme") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/pythonbiogeme" ;;
     "pythonbiogeme/debugbiogeme") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/debugbiogeme" ;;
@@ -901,7 +901,7 @@ cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
 S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=" ${LIBOBJDIR}mktime$U.lo"
-S["AM_LDFLAGS"]=" -no-undefined"
+S["AM_LDFLAGS"]=" -no-undefined -shared"
 S["AM_CXXFLAGS"]=" -std=gnu++11 -O3"
 S["INSTALL_VERSION_SUFFIX"]=""
 S["INSTALL_RELEASE"]=""
@@ -933,84 +933,80 @@ S["BISON"]="bison++"
 S["PYTHON_LDFLAGS"]=" -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/config-3.6m-darwin"
 S["PYTHON_LIBS"]="-lpython3.6m -ldl  -framework CoreFoundation "
 S["PYTHON_CXXFLAGS"]="-Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall"
-S["PYTHON_INCLUDES"]="-I/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/include/python3.6m -I/usr/local/Cellar/python3/3.6.3/Frameworks/Python.fr"\
-"amework/Versions/3.6/include/python3.6m"
+S["PYTHON_INCLUDES"]="-I/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/include/python3.6m -I/usr/local/Cellar/python3/3.6.4_2/Frameworks/Pytho"\
+"n.framework/Versions/3.6/include/python3.6m"
 S["PYTHONBIN"]="/usr/local/bin/python3"
-S["BUILD_R_FALSE"]="#"
-S["BUILD_R_TRUE"]=""
-S["R_CXXFLAGS"]="-I/usr/local/lib/R/3.4/site-library/Rcpp/include"
-S["HAVE_RSCRIPT"]="yes"
 S["BUILD_IPOPT_FALSE"]="#"
 S["BUILD_IPOPT_TRUE"]=""
-S["IPOPT_STATIC_LDFLAGS"]="-L/usr/local/Cellar/ipopt/3.12.8/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl"
-S["IPOPT_STATIC_CXXFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8/include/coin"
-S["IPOPT_LDFLAGS"]="-L/usr/local/Cellar/ipopt/3.12.8/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl"
-S["IPOPT_CXXFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8/include/coin"
+S["IPOPT_STATIC_LDFLAGS"]="-L/usr/local/Cellar/ipopt/3.12.8_1/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl"
+S["IPOPT_STATIC_CXXFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8_1/include/coin"
+S["IPOPT_LDFLAGS"]="-L/usr/local/Cellar/ipopt/3.12.8_1/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl"
+S["IPOPT_CXXFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8_1/include/coin"
 S["IPOPT_LIBS"]="-lipopt -ldmumps -lmumps_common -lpord -lmpiseq -lm -ldl "
-S["IPOPT_CFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8/include/coin"
+S["IPOPT_CFLAGS"]="-I/usr/local/Cellar/ipopt/3.12.8_1/include/coin"
 S["BUILD_GUI_FALSE"]="#"
 S["BUILD_GUI_TRUE"]=""
 S["GTK_STATIC_LDFLAGS"]="-L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/l"\
-"ib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.25/lib -L/usr/local/Cellar/glib/2.54."\
-"2/lib -L/usr/local/Cellar/libepoxy/1.4.3/lib -L/usr/local/Cellar/pango/1.40.13/lib -L/usr/local/Cellar/harfbuzz/1.6.3/lib -L/usr/local/Cellar/graphi"\
-"te2/1.3.10/lib -L/usr/local/Cellar/pango/1.40.13/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/gl"\
-"ib/2.54.2/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/pixman/0.34.0_1/lib -L/usr/local/Cell"\
-"ar/fontconfig/2.12.6/lib -L/usr/local/opt/freetype/lib -L/usr/local/Cellar/libpng/1.6.32/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cell"\
-"ar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/"\
-"local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/libffi/3.2.1/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/opt/gettext/lib -L/usr/local/Cell"\
-"ar/pcre/8.41/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lgio-2.0 -lepoxy -ldl -lpangocairo-1.0 "\
-"-lpangoft2-1.0 -lharfbuzz -lm -framework ApplicationServices -lgraphite2 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lgio-2.0 -lz -lresolv -Wl,-frame"\
-"work,Foundation -Wl,-framework,Carbon -lcairomm-1.0 -lcairo -lz -lpixman-1 -lfontconfig -lexpat -lfreetype -lz -lbz2 -lpng16 -lz -lpng16 -lz -lsigc-"\
-"2.0 -lgdk_pixbuf-2.0 -lgmodule-2.0 -lpng16 -lz -lgobject-2.0 -lffi -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation -lpcre -lintl -Wl,-framework "\
-"-Wl,CoreFoundation -liconv -Wl,-framework,Carbon -Wl,-framework,Foundation -lpcre -D_THREAD_SAFE -pthread"
+"ib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.26/lib -L/usr/local/Cellar/glib/2.54."\
+"3/lib -L/usr/local/Cellar/libepoxy/1.4.3/lib -L/usr/local/Cellar/pango/1.40.14/lib -L/usr/local/Cellar/harfbuzz/1.7.5/lib -L/usr/local/Cellar/graphi"\
+"te2/1.3.10/lib -L/usr/local/Cellar/pango/1.40.14/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/gl"\
+"ib/2.54.3/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/pixman/0.34.0_1/lib -L/usr/local/Cell"\
+"ar/fontconfig/2.12.6/lib -L/usr/local/opt/freetype/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/C"\
+"ellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/lo"\
+"cal/Cellar/libffi/3.2.1/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/opt/gettext/lib -L/usr/local/Cellar/pcre/8.41/lib -lgtkmm-3.0 -latkmm-1"\
+".6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lgio-2.0 -lepoxy -ldl -lpangocairo-1.0 -lpangoft2-1.0 -lharfbuzz -lm -framewo"\
+"rk ApplicationServices -lgraphite2 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lgio-2.0 -lz -lresolv -Wl,-framework,Foundation -Wl,-framework,Carbon "\
+"-lcairomm-1.0 -lcairo -lz -lpixman-1 -lfontconfig -lexpat -lfreetype -lz -lbz2 -lpng16 -lz -lpng16 -lz -lsigc-2.0 -lgdk_pixbuf-2.0 -lgmodule-2.0 -lp"\
+"ng16 -lz -lgobject-2.0 -lffi -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation -lpcre -lintl -Wl,-framework -Wl,CoreFoundation -liconv -Wl,-framew"\
+"ork,Carbon -Wl,-framework,Foundation -lpcre -D_THREAD_SAFE -pthread"
 S["GTK_STATIC_CXXFLAGS"]="-I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include"\
-"/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkm"\
+"/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkm"\
 "m3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/l"\
 "ocal/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/"\
-"glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54."\
-"2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.13"\
-"/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.1"\
-"3/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/cairomm/1.12."\
-"2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar"\
+"glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54."\
+"3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.14"\
+"/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.1"\
+"4/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/cairomm/1.12."\
+"2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar"\
 "/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libp"\
 "ng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/us"\
-"r/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.2/include/"\
-"glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
+"r/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.3/include/"\
+"glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
 S["GTK_LDFLAGS"]="-L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/l"\
-"ib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.25/lib -L/usr/local/Cellar/pango/1.40"\
-".13/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/cairomm/1.1"\
-"2.2/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cella"\
-"r/glib/2.54.2/lib -L/usr/local/opt/gettext/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocai"\
+"ib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.26/lib -L/usr/local/Cellar/pango/1.40"\
+".14/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/cairomm/1.1"\
+"2.2/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cella"\
+"r/glib/2.54.3/lib -L/usr/local/opt/gettext/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocai"\
 "ro-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl -Wl,-framew"\
 "ork -Wl,CoreFoundation"
 S["GTK_CXXFLAGS"]="-I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include"\
-"/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkm"\
+"/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkm"\
 "m3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/l"\
 "ocal/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/"\
-"glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54."\
-"2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.13"\
-"/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.1"\
-"3/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/cairomm/1.12."\
-"2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar"\
+"glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54."\
+"3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.14"\
+"/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.1"\
+"4/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/cairomm/1.12."\
+"2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar"\
 "/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libp"\
 "ng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/us"\
-"r/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.2/include/"\
-"glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
+"r/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.3/include/"\
+"glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
 S["GTK_LIBS"]="-lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -l"\
 "gio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl "
 S["GTK_CFLAGS"]="-D_REENTRANT -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2"\
-".24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/loca"\
+".24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/loca"\
 "l/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/inc"\
 "lude -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2."\
-"54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cell"\
-"ar/glib/2.54.2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/"\
-"pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar"\
-"/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/"\
-"cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr"\
+"54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cell"\
+"ar/glib/2.54.3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/"\
+"pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar"\
+"/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/"\
+"cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr"\
 "/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/loca"\
 "l/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/"\
 "include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2."\
-"54.2/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
+"54.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include"
 S["PKG_CONFIG_LIBDIR"]=""
 S["PKG_CONFIG_PATH"]=""
 S["PKG_CONFIG"]="/usr/local/bin/pkg-config"
@@ -1074,14 +1070,14 @@ S["CPPFLAGS"]=""
 S["LDFLAGS"]=""
 S["CFLAGS"]="-g -O2"
 S["CC"]="gcc"
-S["host_os"]="darwin16.7.0"
+S["host_os"]="darwin17.4.0"
 S["host_vendor"]="apple"
 S["host_cpu"]="x86_64"
-S["host"]="x86_64-apple-darwin16.7.0"
-S["build_os"]="darwin16.7.0"
+S["host"]="x86_64-apple-darwin17.4.0"
+S["build_os"]="darwin17.4.0"
 S["build_vendor"]="apple"
 S["build_cpu"]="x86_64"
-S["build"]="x86_64-apple-darwin16.7.0"
+S["build"]="x86_64-apple-darwin17.4.0"
 S["LIBTOOL"]="$(SHELL) $(top_builddir)/libtool"
 S["target_alias"]=""
 S["host_alias"]=""
@@ -1184,8 +1180,7 @@ D["PACKAGE"]=" \"biogeme\""
 D["VERSION"]=" \"2.7b\""
 D["NODEBUG"]=" /**/"
 D["IPOPT"]=" /**/"
-D["Rscript"]=" /**/"
-D["HAVE__USR_LOCAL_CELLAR_PYTHON3_3_6_3_FRAMEWORKS_PYTHON_FRAMEWORK_VERSIONS_3_6_INCLUDE_PYTHON3_6M_PYTHON_H"]=" 1"
+D["HAVE__USR_LOCAL_CELLAR_PYTHON3_3_6_4_2_FRAMEWORKS_PYTHON_FRAMEWORK_VERSIONS_3_6_INCLUDE_PYTHON3_6M_PYTHON_H"]=" 1"
 D["PYTHONBIOGEME"]=" /**/"
 D["BISONBIOGEME"]=" /**/"
 D["HAVE_DECL__SC_NPROCESSORS_CONF"]=" 1"
@@ -1201,7 +1196,6 @@ D["HAVE_STDIO_H"]=" 1"
 D["HAVE_PTHREAD_H"]=" 1"
 D["HAVE_UNISTD_H"]=" 1"
 D["HAVE_SETENV"]=" 1"
-D["HAVE_STDBOOL_H"]=" 1"
 D["TIME_WITH_SYS_TIME"]=" 1"
 D["HAVE_SYS_TIME_H"]=" 1"
 D["HAVE_UNISTD_H"]=" 1"

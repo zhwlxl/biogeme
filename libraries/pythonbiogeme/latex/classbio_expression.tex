@@ -1,0 +1,423 @@
+\hypertarget{classbio_expression}{}\section{bio\+Expression Class Reference}
+\label{classbio_expression}\index{bio\+Expression@{bio\+Expression}}
+Inheritance diagram for bio\+Expression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{classbio_expression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_expression_a59af60871f9d47f7650ccd2c1ec365e5}\label{classbio_expression_a59af60871f9d47f7650ccd2c1ec365e5}} 
+{\bfseries bio\+Expression} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par)
+\item 
+\mbox{\Hypertarget{classbio_expression_ab44daf45ecf956d19cf2beb05fef61d8}\label{classbio_expression_ab44daf45ecf956d19cf2beb05fef61d8}} 
+virtual pat\+Boolean {\bfseries operator==} (const \hyperlink{classbio_expression}{bio\+Expression} \&x)
+\item 
+\mbox{\Hypertarget{classbio_expression_af5186de5d3f396023a6e931ed316fe56}\label{classbio_expression_af5186de5d3f396023a6e931ed316fe56}} 
+virtual pat\+Boolean {\bfseries operator!=} (const \hyperlink{classbio_expression}{bio\+Expression} \&x)
+\item 
+virtual pat\+Boolean \hyperlink{classbio_expression_a95a481610d93746accf6c294c4f4d5d4}{is\+Top} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_ad69eb9a5244dea20138c3a2a4430707e}\label{classbio_expression_ad69eb9a5244dea20138c3a2a4430707e}} 
+virtual void {\bfseries set\+Top} (pat\+Boolean \hyperlink{classbio_expression_a95a481610d93746accf6c294c4f4d5d4}{is\+Top})
+\item 
+virtual pat\+Boolean \hyperlink{classbio_expression_aee422b6c10811d2478972c83300acbb0}{is\+Sum\+Iterator} () const
+\item 
+virtual pat\+Boolean \hyperlink{classbio_expression_a264c6d78671610ada8261d698e4c4c42}{is\+Structurally\+Zero} () const
+\item 
+virtual pat\+Boolean \hyperlink{classbio_expression_a754b37dd7a3e0bb943c23ed8ebd48eaa}{is\+Structurally\+One} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a58eb7741926db74527f406313c573789}\label{classbio_expression_a58eb7741926db74527f406313c573789}} 
+virtual vector$<$ pat\+U\+Long $>$ {\bfseries get\+List\+Of\+Draws} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_expression_ab0298bdb3ea8c3add547c0a9b799c969}\label{classbio_expression_ab0298bdb3ea8c3add547c0a9b799c969}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_expression_a196d9f839018800d5a0549ea567d5989}\label{classbio_expression_a196d9f839018800d5a0549ea567d5989}} 
+virtual pat\+Boolean {\bfseries contains\+Monte\+Carlo} () const
+\item 
+virtual pat\+String \hyperlink{classbio_expression_a9830c0cf012012c811b826adc54291f6}{the\+Iterator} () const
+\item 
+virtual pat\+String \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{get\+Operator\+Name} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_expression_a2af51db0148a3fecce133ca4fa4a0bdc}{get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_likelihood_fct_and_grad}{bio\+Arith\+Likelihood\+Fct\+And\+Grad} $\ast$ \hyperlink{classbio_expression_a30e6b5a6363c93af4aa8ce7a42be6e65}{get\+Likelihood\+Function\+And\+Derivatives} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_expression_aef7f12e945c110c84918b7af6c819c7f}{get\+Info} () const
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_expression_aa036b5aa081bd3320fa439de36d4657e}\label{classbio_expression_aa036b5aa081bd3320fa439de36d4657e}} 
+virtual pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_expression_afaf07cbfb3fdd2d9f004de109c24d642}\label{classbio_expression_afaf07cbfb3fdd2d9f004de109c24d642}} 
+pat\+U\+Long {\bfseries get\+Id} () const
+\item 
+pat\+String \hyperlink{classbio_expression_aa19617e73907e73780d148c5ce5e6ee5}{get\+Unique\+Name} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a68bd85731f5311c893708a75794b3970}\label{classbio_expression_a68bd85731f5311c893708a75794b3970}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a4109c43e28a0d82fa655f448b301a472}\label{classbio_expression_a4109c43e28a0d82fa655f448b301a472}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a3899893095cb89dce8ef3f2ff516fdaa}\label{classbio_expression_a3899893095cb89dce8ef3f2ff516fdaa}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_acc34026ff0b26a9f787056b14e7b73ba}\label{classbio_expression_acc34026ff0b26a9f787056b14e7b73ba}} 
+virtual pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a39780130d95d0422982cda287a5bb332}\label{classbio_expression_a39780130d95d0422982cda287a5bb332}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_aa35438b632e34185942f24ce5021c476}\label{classbio_expression_aa35438b632e34185942f24ce5021c476}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_expression_a4f993b7df57c7dc2376342e1b2535fcc}\label{classbio_expression_a4f993b7df57c7dc2376342e1b2535fcc}} 
+virtual pat\+Boolean {\bfseries is\+Constant} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a694d7224922cdcee2f297d6cd2c7e7c3}\label{classbio_expression_a694d7224922cdcee2f297d6cd2c7e7c3}} 
+virtual pat\+Boolean {\bfseries is\+Simulator} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a5f0826b2b3968d0c07aae8487abc558d}\label{classbio_expression_a5f0826b2b3968d0c07aae8487abc558d}} 
+virtual pat\+Boolean {\bfseries is\+Bayesian} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_aa7ad5b57139159b4d16c006dd189d17c}\label{classbio_expression_aa7ad5b57139159b4d16c006dd189d17c}} 
+virtual pat\+Boolean {\bfseries is\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a678590f7b79e457e52765cc91c8e49db}\label{classbio_expression_a678590f7b79e457e52765cc91c8e49db}} 
+virtual pat\+Boolean {\bfseries is\+Literal} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a6f5cbab7d011a820b37688656ad63b2b}\label{classbio_expression_a6f5cbab7d011a820b37688656ad63b2b}} 
+\hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries get\+Parent} ()
+\item 
+\mbox{\Hypertarget{classbio_expression_a8e24ba3bb14cb6b2dc38fb7d598adeff}\label{classbio_expression_a8e24ba3bb14cb6b2dc38fb7d598adeff}} 
+void {\bfseries set\+Variables} (const pat\+Variables $\ast$x)
+\item 
+\mbox{\Hypertarget{classbio_expression_a5ddcd75de93b042d8504cac9d20ae4a9}\label{classbio_expression_a5ddcd75de93b042d8504cac9d20ae4a9}} 
+void {\bfseries set\+Draws} (pair$<$ pat\+Real $\ast$$\ast$, pat\+Real $\ast$$\ast$$>$ d)
+\item 
+\mbox{\Hypertarget{classbio_expression_a0268a423696c0ae260c2a73d05dee49e}\label{classbio_expression_a0268a423696c0ae260c2a73d05dee49e}} 
+void {\bfseries set\+Sample} (\hyperlink{classbio_sample}{bio\+Sample} $\ast$s)
+\item 
+\mbox{\Hypertarget{classbio_expression_a75f443dfed7ac177d36b1c410381fcfd}\label{classbio_expression_a75f443dfed7ac177d36b1c410381fcfd}} 
+void {\bfseries set\+Report} (\hyperlink{classbio_reporting}{bio\+Reporting} $\ast$s)
+\item 
+\mbox{\Hypertarget{classbio_expression_a59845161d138486d86da07ac6b49d177}\label{classbio_expression_a59845161d138486d86da07ac6b49d177}} 
+void {\bfseries set\+Current\+Span} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span)
+\item 
+\mbox{\Hypertarget{classbio_expression_a9195931e1bd95038b77ea9070fca3af7}\label{classbio_expression_a9195931e1bd95038b77ea9070fca3af7}} 
+void {\bfseries set\+Thread\+Span} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span)
+\item 
+\mbox{\Hypertarget{classbio_expression_a6a93feb519d84007b591d8be8c2c2ce1}\label{classbio_expression_a6a93feb519d84007b591d8be8c2c2ce1}} 
+virtual tr\+Hessian $\ast$ {\bfseries get\+Bhhh} ()
+\item 
+\mbox{\Hypertarget{classbio_expression_af15dea57366cdc41ab842b7f97696f14}\label{classbio_expression_af15dea57366cdc41ab842b7f97696f14}} 
+pat\+U\+Long {\bfseries get\+Thread\+Id} () const
+\item 
+virtual pat\+String \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{get\+Expression\+String} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a208bd01191c686bf2656d7f156db2fc6}\label{classbio_expression_a208bd01191c686bf2656d7f156db2fc6}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+\mbox{\Hypertarget{classbio_expression_a107e06329d63241e0bb1bfa2f75ac195}\label{classbio_expression_a107e06329d63241e0bb1bfa2f75ac195}} 
+virtual pat\+Boolean {\bfseries is\+Named\+Expression} () const
+\item 
+\mbox{\Hypertarget{classbio_expression_a5ad53a3c4bf76c66a4f9b95a0039745c}\label{classbio_expression_a5ad53a3c4bf76c66a4f9b95a0039745c}} 
+virtual void {\bfseries check\+Monte\+Carlo} (pat\+Boolean inside\+Monte\+Carlo, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_expression_a96655e3a6d242b3cf8529f4a316b4d5c}\label{classbio_expression_a96655e3a6d242b3cf8529f4a316b4d5c}} 
+virtual pat\+Iterator\+Err$<$ \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ $>$ $\ast$ {\bfseries get\+Iterator\+For\+Stochastic\+Gradient} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_expression_acb90b5d68d1f755f978050a205f0fee0}\label{classbio_expression_acb90b5d68d1f755f978050a205f0fee0}} 
+pat\+Boolean {\bfseries perform\+Check}
+\item 
+\mbox{\Hypertarget{classbio_expression_a3c96850984088e47c43ff57b9804e053}\label{classbio_expression_a3c96850984088e47c43ff57b9804e053}} 
+pat\+U\+Long {\bfseries parent}
+\item 
+\mbox{\Hypertarget{classbio_expression_a720b31e8117c89b24dc91f811b84d790}\label{classbio_expression_a720b31e8117c89b24dc91f811b84d790}} 
+pat\+Boolean {\bfseries top}
+\item 
+\mbox{\Hypertarget{classbio_expression_a88398d7d9c708a71a16f5608a2ac6588}\label{classbio_expression_a88398d7d9c708a71a16f5608a2ac6588}} 
+pat\+U\+Long {\bfseries last\+Computed\+Lap}
+\item 
+\mbox{\Hypertarget{classbio_expression_a98163c8d976fd7fa24b9cd152414858c}\label{classbio_expression_a98163c8d976fd7fa24b9cd152414858c}} 
+pat\+Real {\bfseries last\+Value}
+\item 
+\mbox{\Hypertarget{classbio_expression_a225da2f3a14d37374ae99bf667709e72}\label{classbio_expression_a225da2f3a14d37374ae99bf667709e72}} 
+pat\+U\+Long {\bfseries the\+Id}
+\item 
+\mbox{\Hypertarget{classbio_expression_a3db12861465f5228310838c03d0561ca}\label{classbio_expression_a3db12861465f5228310838c03d0561ca}} 
+pat\+String {\bfseries additional\+Code}
+\item 
+\mbox{\Hypertarget{classbio_expression_a5122014f878b768a393c857c0aac1a85}\label{classbio_expression_a5122014f878b768a393c857c0aac1a85}} 
+pat\+Boolean {\bfseries is\+Inside\+Monte\+Carlo}
+\item 
+\mbox{\Hypertarget{classbio_expression_aa2213d83bc948422e3992748199c668c}\label{classbio_expression_aa2213d83bc948422e3992748199c668c}} 
+const pat\+Variables $\ast$ {\bfseries \+\_\+\+\_\+x}
+\item 
+\mbox{\Hypertarget{classbio_expression_a7f26c9e6c0d48833194dc0da1c387ab7}\label{classbio_expression_a7f26c9e6c0d48833194dc0da1c387ab7}} 
+pat\+Real $\ast$$\ast$ {\bfseries \+\_\+\+\_\+draws}
+\item 
+\mbox{\Hypertarget{classbio_expression_ae8a9d4e4a2ec46ccc6ac09710e553842}\label{classbio_expression_ae8a9d4e4a2ec46ccc6ac09710e553842}} 
+pat\+Real $\ast$$\ast$ {\bfseries \+\_\+\+\_\+unifdraws}
+\item 
+\mbox{\Hypertarget{classbio_expression_a4336e5492fa84d35d1ba3cd0c5c9e5f2}\label{classbio_expression_a4336e5492fa84d35d1ba3cd0c5c9e5f2}} 
+\hyperlink{classbio_sample}{bio\+Sample} $\ast$ {\bfseries the\+Sample}
+\item 
+\mbox{\Hypertarget{classbio_expression_af5fd9ddd930d85236e2960128c9c05b7}\label{classbio_expression_af5fd9ddd930d85236e2960128c9c05b7}} 
+\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} {\bfseries the\+Current\+Span}
+\item 
+\mbox{\Hypertarget{classbio_expression_ae39adc2cef6639eeba17e816bea75705}\label{classbio_expression_ae39adc2cef6639eeba17e816bea75705}} 
+\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} {\bfseries the\+Thread\+Span}
+\item 
+\mbox{\Hypertarget{classbio_expression_a0386e6be656d658b31ada05620f89c01}\label{classbio_expression_a0386e6be656d658b31ada05620f89c01}} 
+vector$<$ \hyperlink{classbio_expression}{bio\+Expression} $\ast$ $>$ {\bfseries related\+Expressions}
+\item 
+\mbox{\Hypertarget{classbio_expression_a25b7b7a1fdd5986f6522222b496eb254}\label{classbio_expression_a25b7b7a1fdd5986f6522222b496eb254}} 
+\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$ {\bfseries the\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_expression_a8330a6fe712a21c503a7e95155bb4e5a}\label{classbio_expression_a8330a6fe712a21c503a7e95155bb4e5a}} 
+\hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} {\bfseries result}
+\item 
+\mbox{\Hypertarget{classbio_expression_a0ba85862fcbbf521d13a69f4a5c33bda}\label{classbio_expression_a0ba85862fcbbf521d13a69f4a5c33bda}} 
+\hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} {\bfseries findiff}
+\item 
+\mbox{\Hypertarget{classbio_expression_a6d51658a18b9195358ea2c12f14255cc}\label{classbio_expression_a6d51658a18b9195358ea2c12f14255cc}} 
+\hyperlink{classbio_reporting}{bio\+Reporting} $\ast$ {\bfseries the\+Report}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_expression_ac9e49fd77d44bcedecf6ab385380980b}\label{classbio_expression_ac9e49fd77d44bcedecf6ab385380980b}} 
+class {\bfseries bio\+Expression\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_expression_a893420a4b8b767d8df5a8423a44b6b0b}\label{classbio_expression_a893420a4b8b767d8df5a8423a44b6b0b}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_expression}{bio\+Expression} \&x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}\label{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily virtual \hyperlink{classbio_expression}{bio\+Expression}$\ast$ bio\+Expression\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_a91a8c51e8741c4667d1a61eb738f20f5}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_print_a1a04e77640bd147c7a10d450d779ef1b}{bio\+Arith\+Print}, \hyperlink{classbio_arith_sum_ab3264f5810c52c59b96ae72370e441ff}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_ab3264f5810c52c59b96ae72370e441ff}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_ad32aa07569ab7c8f118a632f331e55d7}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_ab3264f5810c52c59b96ae72370e441ff}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_bayes_m_h_a4477bd620cc50e05a248df51e8c74ad6}{bio\+Arith\+Bayes\+MH}, \hyperlink{classbio_arith_derivative_a9cbc5395703b23816d43580b5482f9f0}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_log_logit_a95be99c67edc6920cea644dcf14c2775}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_bayes_mean_ac37c22c5d01ae43834f930a39bca5039}{bio\+Arith\+Bayes\+Mean}, \hyperlink{classbio_arith_elem_a3635350e02e428a9fe9dfeaac6247514}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_unary_minus_a1bd7f28b742866f8a8e84b5f8405fbd1}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_g_h_integral_a4864f99351baa9b168451d2356d2e7bf}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_greater_a39a03806f6465307c2086ce5ae2bed0a}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_integral_a49fa38b94818140c143ecb6cb3d7ceed}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_likelihood_fct_and_grad_a053e08511308e3c8a3e572f5c5f8f019}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, \hyperlink{classbio_arith_mult_a1b6b5a5ce5e104bf5a69010ad67ecd11}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_power_abad616d9928debfc78b8b8ecd1f0d9bd}{bio\+Arith\+Power}, \hyperlink{classbio_arith_prod_a55008811df00e22759086f4983362a26}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_random_a947f100ddb8037bf424d343faee56b83}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_ad7aaa2ab5f06eb38945d39359bb55df5}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_binary_plus_a5ec101b24a6b02bb3fb19803749b3e83}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_aa867fd8e74e654f419eee829a08e816c}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_a01b4bf9f63da99bf1ef17c518d2f6eab}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_equal_aa5ff24eef069374f9c8778ab8569ff7d}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a44f8cd0243ba7997d9799537c099c5a8}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_a47bbe003d35d47d8ff6545a5cf8dd389}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a2d083461d7be9f1c5abac00fe4066a37}{bio\+Arith\+Min}, \hyperlink{classbio_arith_not_equal_a6b6319667f2a08c63854edfbd2cae799}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_aad2095426058f90fbb4acaa4ec9bf9fb}{bio\+Arith\+Or}, \hyperlink{classbio_arith_and_aa60d3a4e8d9b4684e584991a2b1effe2}{bio\+Arith\+And}, \hyperlink{classbio_arith_binary_minus_af749ca839d3194cb7bdbf5407d2bb94b}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_max_a3b2838323b5171114cade7522e6f45dc}{bio\+Arith\+Max}, \hyperlink{classbio_arith_multinary_plus_acdd35f59addcdc2e2947fe0d3f594e1f}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_normal_cdf_ae88a5f7d19f32cc5daf01152931e9c62}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_af001f9bda79d1518e2c9913c02f98a37}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_abs_a6b39360611c4dbb11ac38c501285c4b9}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_exp_aec1900d14fe80411c3322358773c7ac6}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_list_of_expressions_af13c0c6710776c02d3f7c0e27d5cd724}{bio\+Arith\+List\+Of\+Expressions}, \hyperlink{classbio_arith_log_a1717f06ff8d70f5285272ee66c669174}{bio\+Arith\+Log}, \hyperlink{classbio_arith_constant_af2f4fed6a41757d2cfa06a06b4d16923}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_fixed_parameter_a91c2dcaf2be8731defb45a02108b7b82}{bio\+Arith\+Fixed\+Parameter}, \hyperlink{classbio_arith_random_variable_a258a34932273d07449117a20704e7811}{bio\+Arith\+Random\+Variable}, \hyperlink{classbio_arith_variable_a13698945a07c98905254d7e773555de3}{bio\+Arith\+Variable}, and \hyperlink{classbio_arith_composite_literal_aff5a7801055d4691dcc1ee84cc9fa201}{bio\+Arith\+Composite\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}\label{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily virtual \hyperlink{classbio_expression}{bio\+Expression}$\ast$ bio\+Expression\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_aae0ac80f1c463af6e6d1c3b227bae1e1}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_sum_a2c030d0fea64581fe6f33031d3d3c977}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_log_logit_a88dd7f743a13f5b836d2c4008d09845f}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_sum_a2c030d0fea64581fe6f33031d3d3c977}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_derivative_a6a985cd2c3865e04a3ed54c11a88da17}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_elem_a0905b898fe28bad14df85cd2bbcf1e1c}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_print_aa9f08ee87d538bb2c90497e4b50948e1}{bio\+Arith\+Print}, \hyperlink{classbio_arith_sum_acefb2c0e91cdea5768b09aa17974c25e}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a2c030d0fea64581fe6f33031d3d3c977}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_likelihood_fct_and_grad_ab814e1cc11e481c88ba1d7401432c706}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, \hyperlink{classbio_arith_random_a20b4fe8de86bf00654a94b0d534e6743}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_ab235d1b207d96e122b5b595ddeb70a68}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_g_h_integral_a3e017f569acbc481366ad4472ee2734d}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_aafdf4edef91568b929fc3e9cd199b202}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_power_accc8e782d664f92db194ef1dc5a19e4b}{bio\+Arith\+Power}, \hyperlink{classbio_arith_prod_a1b086a865acfc23f3cd51566eaef8ddc}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_binary_minus_a7ccf12cccc95f788423753e7f61fa64f}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_binary_plus_a790383068d3be59378a18206199fb3f1}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_a9a30c3d5586f0bce3b09cc2c932e5f67}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_a91d4c7481582a8a039dc373eddc707b8}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_a20024dcb6e37aadcdfc7e92c58dc2af3}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_greater_equal_a6964afaf174b6e1de101f2439e266477}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a031bd542ab09a456fcdd4f4e121d2940}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_aaaa08c34c10d1b89378dd0c67917239b}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a385882099c9d71855493b6aa4b6223e1}{bio\+Arith\+Min}, \hyperlink{classbio_arith_mult_a77183d650695b163328878a88fcb02a7}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_normal_cdf_adf643b1adb105be0728b921cd96d555f}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_a25ab081a2c88449126a328a5eb635818}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_not_equal_ad06316415449cf1af6657a9932f819e2}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_a25b8deace8face416cb0cc711799506d}{bio\+Arith\+Or}, \hyperlink{classbio_arith_abs_a014621c263e720e52197b663f428e46d}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_and_a78f633a87efd5a6cbf2130032ec7100c}{bio\+Arith\+And}, \hyperlink{classbio_arith_exp_ae6fb9aa47399f18af66cb4250b36f707}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_log_aeb045e82ab8f0c99919b83102d71c527}{bio\+Arith\+Log}, \hyperlink{classbio_arith_max_a4d6fcb906b3140fb4114e36f7a801d22}{bio\+Arith\+Max}, \hyperlink{classbio_arith_multinary_plus_a6677355df11e314a1729fb7bd79d9188}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_unary_minus_aaf1b155993a12037850b1a22dbb36f7c}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_bayes_a53f5d22f6a5b743fbf50bd75db697ccd}{bio\+Arith\+Bayes}, \hyperlink{classbio_arith_constant_afbe5eaceb8943323f7bf0bfd3491b19a}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_list_of_expressions_a14fe977b86bc69c4b3afe59d44b6c03f}{bio\+Arith\+List\+Of\+Expressions}, and \hyperlink{classbio_arith_literal_affebfbf01e421ec9cf55b4cf883039ce}{bio\+Arith\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}\label{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily virtual pat\+String bio\+Expression\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classbio_arith_print_a7799066d3d3f68a685c89f46025f5aa8}{bio\+Arith\+Print}, \hyperlink{classbio_arith_log_logit_a2683202928e4c00aa06460027a5aa332}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_random_a54b48a4876469d44f324f73758ea1b6c}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_a4c81af6983404929d1e06367f69a2256}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_elem_a729f5a91619948fa58f7b4902741a2f4}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_binary_plus_afb38f58cc62bf6fbce4383ce40b1aecf}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_constant_a50fd07c61fc6674c05f23345b972807c}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_multinary_plus_a11b1c8e85618101f78dee811b2bf2630}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_bayes_m_h_a7579a02175af9bde0e35c0548a6740bd}{bio\+Arith\+Bayes\+MH}, \hyperlink{classbio_arith_likelihood_fct_and_grad_ae264b073115dcff703cf2b7926384976}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, \hyperlink{classbio_arith_bayes_mean_a334b29ea459dc9f8943f888595dc4aa5}{bio\+Arith\+Bayes\+Mean}, \hyperlink{classbio_arith_elementary_expression_a9293635c83789f547b5642855f8c8f16}{bio\+Arith\+Elementary\+Expression}, \hyperlink{classbio_arith_iterator_aceb6ee1a4c024349178de5edf4624710}{bio\+Arith\+Iterator}, \hyperlink{classbio_arith_binary_expression_a6c48d0f1c7b6ba1b8cf3910b9ad04f93}{bio\+Arith\+Binary\+Expression}, \hyperlink{classbio_arith_multinary_expression_a769ab218dc1f1efcdaf3204da0ecc705}{bio\+Arith\+Multinary\+Expression}, \hyperlink{classbio_arith_derivative_a5cdf6c4903ec8123b30c0d2ce059718d}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}{bio\+Arith\+Unary\+Expression}, and \hyperlink{classbio_arith_literal_ae55e7cbd7d3561b56af50fc741009a60}{bio\+Arith\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}\label{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily virtual pat\+String bio\+Expression\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_ab8753ef1b6b13b97c7991fe238869dbf}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_print_ac850d47bf3a4d8dcf10d4b943a325103}{bio\+Arith\+Print}, \hyperlink{classbio_arith_sum_a1354d70bccf4ba5e3d8ca634005d5489}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a1354d70bccf4ba5e3d8ca634005d5489}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_log_logit_aa769251f7090278fdae9bd7a03670a53}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_sum_ade9e163192f4124f802daf463d27faa4}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a1354d70bccf4ba5e3d8ca634005d5489}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_elem_a0ea23c1cc50f06dec01ba195392c8417}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_bayes_m_h_a0211e07769cd7b73f6dc344884656199}{bio\+Arith\+Bayes\+MH}, \hyperlink{classbio_arith_derivative_ae2e8d614fcf2e46d43759c6bab201f30}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_bayes_mean_a240a65d98274bae45da8203db5a96754}{bio\+Arith\+Bayes\+Mean}, \hyperlink{classbio_arith_prod_a665209a40bfb01098c5ddde204900294}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_g_h_integral_aa245fc792bcd733e143896c9f8d33a64}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_a597593196620aa13462aebf9166f1678}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_likelihood_fct_and_grad_a5f34a72c24f6d3e7215e82b2b9843e19}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, \hyperlink{classbio_arith_mult_a7a19012c1cfe783b75de9a9c961587c2}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_power_a90e7e9f398760b8c8f928ecfb7d7c3d3}{bio\+Arith\+Power}, \hyperlink{classbio_arith_random_a9ba191f0138f188b1c70f568c5873434}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unary_minus_a2e8b40486ef897c00ce5a99e7f8ebd03}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_unif_random_a5d53c24c5b584c9ce817c6140b3e6001}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_binary_plus_af062d1a1394e9fedf99e23911110f384}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_constant_ae815cae63ba8b2807c653fc1ca343672}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_divide_a11ecaa69e3d86cb8598770f40ec03753}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_greater_a391651a15d94bbb1cba7bbf74937d3bd}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_equal_a69839ab065a8bd3d9d0409fbd529c22e}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_equal_a6585da182f8a3cf7063f55be1b68af6c}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a8f9d063a00ed8a65ea2b37e3d63405f8}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_a82a5b4eeb77747bc674fbc16453f9d67}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a22f4182d45d18801a763fb1d3d4579a3}{bio\+Arith\+Min}, \hyperlink{classbio_arith_multinary_plus_a65405ca19730cf4d30c05318f3ab29b0}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_not_equal_a8fe4fd578218783f3a18665eae9f750c}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_aa31f4d5e3b2ac7df4c52b55f51819589}{bio\+Arith\+Or}, \hyperlink{classbio_arith_and_a9b21342d9f2f1bc59bbab1596b60ed48}{bio\+Arith\+And}, \hyperlink{classbio_arith_binary_minus_abfcff7ef3048216027a44af8af40471e}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_max_a600790905b0ea5f185b579c630eb25ee}{bio\+Arith\+Max}, \hyperlink{classbio_arith_normal_cdf_a2e5b58ae0d8b71d2129e7f44ff9c647e}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_af63b696ee818be0597345caf08d0b3d1}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_abs_a52f933907c3b7e246228297d1ac253ef}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_exp_a3bf86cc33d7879bdf4e9e420890f6851}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_list_of_expressions_ac6a8b9493bc91520a1882df3cddc383d}{bio\+Arith\+List\+Of\+Expressions}, \hyperlink{classbio_arith_log_a5deea723cf9e2b50dc4f6c61a6b82090}{bio\+Arith\+Log}, and \hyperlink{classbio_arith_literal_ab75046eaffcb688b83031da7f91653f9}{bio\+Arith\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_aef7f12e945c110c84918b7af6c819c7f}\label{classbio_expression_aef7f12e945c110c84918b7af6c819c7f}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Info@{get\+Info}}
+\index{get\+Info@{get\+Info}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Info()}{getInfo()}}
+{\footnotesize\ttfamily pat\+String bio\+Expression\+::get\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Mainly for debugging \mbox{\Hypertarget{classbio_expression_a30e6b5a6363c93af4aa8ce7a42be6e65}\label{classbio_expression_a30e6b5a6363c93af4aa8ce7a42be6e65}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Likelihood\+Function\+And\+Derivatives@{get\+Likelihood\+Function\+And\+Derivatives}}
+\index{get\+Likelihood\+Function\+And\+Derivatives@{get\+Likelihood\+Function\+And\+Derivatives}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Likelihood\+Function\+And\+Derivatives()}{getLikelihoodFunctionAndDerivatives()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_likelihood_fct_and_grad}{bio\+Arith\+Likelihood\+Fct\+And\+Grad} $\ast$ bio\+Expression\+::get\+Likelihood\+Function\+And\+Derivatives (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+A sequence of expressions containing the expression itself, followed by the derivative of it w.\+r.\+t. each literal is the list. Designed to recycle intermediary expressions.
+
+In the special case of a loglikelihood function, we create an object for function and derivatives that maintain the iterator structure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_expression_a2af51db0148a3fecce133ca4fa4a0bdc}\label{classbio_expression_a2af51db0148a3fecce133ca4fa4a0bdc}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient@{get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient@{get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient()}{getNumericalFunctionAndFinDiffGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Expression\+::get\+Numerical\+Function\+And\+Fin\+Diff\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression, using finite differences 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}\label{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives}$\ast$ bio\+Expression\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_a6d0d957fe1a3eb664f07bda138d2624a}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_sum_afe9b54bab626e9dbe2b3aefebbcb6f8f}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_log_logit_a4283d349360bfc928c2f20aa2e235e0c}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_print_a22180a362c2407a7941b465598981e96}{bio\+Arith\+Print}, \hyperlink{classbio_arith_elem_a3aa76152765b0c8acb778f2070ded9f8}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_sum_afe9b54bab626e9dbe2b3aefebbcb6f8f}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a18cf2d6545bce0712f755c6eaf69407a}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_afe9b54bab626e9dbe2b3aefebbcb6f8f}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_prod_a6f7d57d9c0ec86aed9bb7eb643beb44e}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_unif_random_a0a5860c93f0efaea7f448d44f76cae60}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_derivative_afaa0e62675cc46145231f3e01d38f06a}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_random_a6f422273cd162e5d7d5e6d1d7a7ddcad}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unary_minus_a8fc3f51f45b38f8e710db12eec18b9fb}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_power_a21f939e2e8554c6ae153be6bdc873b1a}{bio\+Arith\+Power}, \hyperlink{classbio_arith_constant_a42bfbc2f6dfc86d5530fee64146b2172}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_g_h_integral_a2148674c32e7bea35d7e6ef275c2f7f5}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_a7f9cc73a8a9788b1deb8c2f424606d51}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_mult_a18612adf78adad46a0a19f2a57c4b32d}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_binary_plus_a17d6b61d7dd58d5c03c087ddc7054632}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_a29465844ff4722a8d542c8a6935c2686}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_a9462014bd44ab537c4e6d631a46e97b7}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_acd768ff3dd4a85e234cb5fa7b5e1cf91}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_greater_equal_aa5ee24b87d59239ca9a0549f72ef8c09}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a03309258107a65a08f59b00878eec548}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_a718044c38d59fc7639656a7754bfb090}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_aeeb85ace337c2e2f0b8e6a27a698625a}{bio\+Arith\+Min}, \hyperlink{classbio_arith_multinary_plus_a0ae629f9db89b4697dd2c33719704c31}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_normal_pdf_ab55fce91dd0740f61c7026426602e996}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_not_equal_ad9f06b2145f70fc6ebebc5bca51b5aa8}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_a584c8a964a188ca03db9cf69400af290}{bio\+Arith\+Or}, \hyperlink{classbio_arith_and_af6745a5c2aca1539519d14c9e1ce5f5e}{bio\+Arith\+And}, \hyperlink{classbio_arith_binary_minus_a647d9b7b5fd8d5154eeba376a11d2a27}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_max_add45318e2ced79172265d99e15214b6c}{bio\+Arith\+Max}, \hyperlink{classbio_arith_normal_cdf_ac482f8e85421635fd033018fd779ef88}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_abs_a3fada6c065ad722d23499284ad14dac4}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_exp_ab470a2671ba4ed891cd13c621d197fe1}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_log_a875351accd5a515a1d3452dea45a354d}{bio\+Arith\+Log}, \hyperlink{classbio_arith_literal_acce01225d50f0ba0a263b2fbaa71b79b}{bio\+Arith\+Literal}, and \hyperlink{classbio_arith_bayes_a3421312ddc6b7e0b080c497cdc53d1a5}{bio\+Arith\+Bayes}.
+
+\mbox{\Hypertarget{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}\label{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily virtual pat\+String bio\+Expression\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_aa968b16e7b1982445c4aea9aee714d57}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_print_a9451ac16baf5f060beafb2addb54a71e}{bio\+Arith\+Print}, \hyperlink{classbio_arith_sum_a9e0ab0b9062a7cd80e70fc16505bc282}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a9e0ab0b9062a7cd80e70fc16505bc282}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a3bebc8a594c98febfad645befc1e6afa}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a9e0ab0b9062a7cd80e70fc16505bc282}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_bayes_m_h_a9bf7951a901c6243af0ffc89bc5b6018}{bio\+Arith\+Bayes\+MH}, \hyperlink{classbio_arith_bayes_mean_a681e8636e50c05683a0d89170a264ac9}{bio\+Arith\+Bayes\+Mean}, \hyperlink{classbio_arith_log_logit_adb9566e06a59ee20cf8b0bc8897b95cd}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_derivative_ac8efdaec7482845045144e134884769a}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_elem_a501dc3818a694f54765ad69a4a67279e}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_likelihood_fct_and_grad_ad181305327744af1de885d4169888378}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, \hyperlink{classbio_arith_prod_a9157df784bda1e1ad425de27e05804b1}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_random_a0f83701f05a22956b5c4fff431c40895}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_acd356155220e3b8cbc5d1580e1ec0f47}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_g_h_integral_a2eeabe5fdedaee0370596b34d7731b77}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_abae8e14e091ddc4e7281ec5ba36f8cf8}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_power_a7edb8072b2c5aef093244305fbc76962}{bio\+Arith\+Power}, \hyperlink{classbio_arith_binary_minus_a899f710bd1ba441724b9e6d7b904aa88}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_binary_plus_a1d9032fda00f9f0d00f3244714c35cdb}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_a544e0dc66cfb2be23226a968b5d7c5cb}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_ab4a9657d32f37ab61fbe2597b3c4b9eb}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_a140169d1d84495e86d21dbd231c14f81}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_greater_equal_ab98914bebec6a6dfc6abb9c114a4c7ed}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a0be270c31ac0cec7d6e23dfe9558a138}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_ad33162b75241a2efee3ace47e899de11}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a09b89bea022328daada894ebdf834e5c}{bio\+Arith\+Min}, \hyperlink{classbio_arith_mult_aff182437fd5a1259cbc79fc7f8bc4956}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_normal_cdf_a5c5a2ee63e4df2a8ccbc117bf819e48b}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_ae2ad20d8db8f935fa7de1f4a0fd3288e}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_not_equal_a70bfdbd3473869466dc02e026620996c}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_afa8b3b4494ff72cdbbfda2012c56dc68}{bio\+Arith\+Or}, \hyperlink{classbio_arith_abs_ae3ec85c35e87b03dd5e4908e466252b3}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_and_accefac4c7d08a3698bd3691e19641bfb}{bio\+Arith\+And}, \hyperlink{classbio_arith_exp_a968d5d3d908d11da745e5c680ae981f9}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_log_a730e174a4e9509dccb32c3fab690a46c}{bio\+Arith\+Log}, \hyperlink{classbio_arith_max_a0d4f43812301caafd039e446bbd22bb7}{bio\+Arith\+Max}, \hyperlink{classbio_arith_multinary_plus_ac43848551e8c792e9776b7a5e8aef51b}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_unary_minus_a59b3bcf198b25bc802775014bfce2f21}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_constant_a13a6799f54ffbbc8b43d54b213888fe0}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_list_of_expressions_af0c6e016d69454ac0b7d4f889190807e}{bio\+Arith\+List\+Of\+Expressions}, and \hyperlink{classbio_arith_literal_a0cdf0cb347fbf2b6db50b31ef8824d9c}{bio\+Arith\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_a442534762693b92baaf33928979a1bf8}\label{classbio_expression_a442534762693b92baaf33928979a1bf8}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily virtual \hyperlink{classbio_expression}{bio\+Expression}$\ast$ bio\+Expression\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_ad91e62a31bbad6cb336f078747fbc7ae}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_print_ac6387b4dbe1741adbc9343cef406b0c0}{bio\+Arith\+Print}, \hyperlink{classbio_arith_sum_a0828ed33f49201118b143dfa336d9212}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a0828ed33f49201118b143dfa336d9212}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_ac2180e097ac045f893a789dd627b259a}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a0828ed33f49201118b143dfa336d9212}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_bayes_m_h_ab173e10b34d0eab2599ba4854f928b8f}{bio\+Arith\+Bayes\+MH}, \hyperlink{classbio_arith_derivative_a37dadf7fcbcfe40bedb900926f3fe974}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_log_logit_abf229e9d9897a4f5f0bc3c2e158c24f8}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_bayes_mean_a1cee3c48858490ec488b2754c32c56f2}{bio\+Arith\+Bayes\+Mean}, \hyperlink{classbio_arith_elem_a481ee9025662995608714643a1239a26}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_unary_minus_af7d31f14e0e619536f33c45fedb7fa79}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_g_h_integral_a15d9820a85bd45e3643c6bd15752cfe2}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_greater_a73641032a8328db66db66469573ab61f}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_integral_a0a9619e66e582266bf1975d59b7c2bec}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_mult_a58d1f8dec3f450d17bbdfe4f98b18c19}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_power_a1a95ae563759a44ffb29b42c82209f90}{bio\+Arith\+Power}, \hyperlink{classbio_arith_prod_a8b4a3f836dc162ea067da896093c5f38}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_random_aef00154ab54de9ed4acd1cf45d9036ce}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_a8e81dcec495449b481729aa3769696ad}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_binary_plus_a4e2587ad009e65821632b18d0253ff4c}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_a381a838c2c02b9f1cf9c7a4b6586dbca}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_ace5ebcd053feb9fa4a7e97920fdfe030}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_equal_a00fdd329a5be536817f97e532ad29fc5}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_a186b89363273b2972ae1beb00a1efbb0}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_a47164bfceb3759082555502a38e9f70b}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a30ded7c95902dd535ba172b2bd4918de}{bio\+Arith\+Min}, \hyperlink{classbio_arith_not_equal_a22bcfcb7855cf992f9dc39d0911cebb5}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_a64c0b100e6bc8d877bd25dbf5224ff0b}{bio\+Arith\+Or}, \hyperlink{classbio_arith_and_a3dfc8f4f9247158b3ff4c3d8e61b95ad}{bio\+Arith\+And}, \hyperlink{classbio_arith_binary_minus_a93db7cf10d0bdabd9c2b89544d767e6c}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_max_a038037a69623c574752c0e5d56c39e9b}{bio\+Arith\+Max}, \hyperlink{classbio_arith_multinary_plus_a026a46872ed07e51b2a337f45b5086ad}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_normal_cdf_af05c8a2c466ed42e1f4b517b35b4be11}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_aeec0c66c4ba5c8ae0ee9d35be0bf1eb9}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_abs_a52b8f4ba02b450fa3b9624c8d791009e}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_exp_a3d2f7448252ebfb7133a3eeef866bea4}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_list_of_expressions_afd5867cdac9cea54a704a075412b3c08}{bio\+Arith\+List\+Of\+Expressions}, \hyperlink{classbio_arith_log_aff0739f0c0576b9e70b7192e3e5baf2a}{bio\+Arith\+Log}, \hyperlink{classbio_arith_constant_a521fe691fd4efd9f93ff95a0e478148d}{bio\+Arith\+Constant}, \hyperlink{classbio_arith_fixed_parameter_a0743b72d00d4f769ec3c01faae8ebac8}{bio\+Arith\+Fixed\+Parameter}, \hyperlink{classbio_arith_random_variable_a970e51cefe17a32b0c752e8bef35285f}{bio\+Arith\+Random\+Variable}, \hyperlink{classbio_arith_variable_a5b2185aabcab07bcd474479f8ca7dd94}{bio\+Arith\+Variable}, and \hyperlink{classbio_arith_composite_literal_a99216fa86facca3b310a985c69116136}{bio\+Arith\+Composite\+Literal}.
+
+\mbox{\Hypertarget{classbio_expression_aa19617e73907e73780d148c5ce5e6ee5}\label{classbio_expression_aa19617e73907e73780d148c5ce5e6ee5}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Unique\+Name@{get\+Unique\+Name}}
+\index{get\+Unique\+Name@{get\+Unique\+Name}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Unique\+Name()}{getUniqueName()}}
+{\footnotesize\ttfamily pat\+String bio\+Expression\+::get\+Unique\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+The name is \char`\"{}bio\char`\"{} + Id \mbox{\Hypertarget{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}\label{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}} 
+\index{bio\+Expression@{bio\+Expression}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily virtual pat\+Real bio\+Expression\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_arith_monte_carlo_a0c1b08214fb40a9b77411c003bd022c5}{bio\+Arith\+Monte\+Carlo}, \hyperlink{classbio_arith_sum_a3705cb2f1aebf4541131df5638a33379}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a3705cb2f1aebf4541131df5638a33379}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a96362470d300fec04262c86df3864190}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a3705cb2f1aebf4541131df5638a33379}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_print_a6c49bec841cdebd07ae234896c6d5416}{bio\+Arith\+Print}, \hyperlink{classbio_arith_prod_a566bd383683dcd49930df1a1e5284918}{bio\+Arith\+Prod}, \hyperlink{classbio_arith_log_logit_a1d6319d3ce72bda30bc036fdf678e36c}{bio\+Arith\+Log\+Logit}, \hyperlink{classbio_arith_derivative_a332059cd224467b4a687d39ac705f269}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_elem_aac719574ab496e1b3341b9e4b71a7986}{bio\+Arith\+Elem}, \hyperlink{classbio_arith_fixed_parameter_a0eed9a884a07681f00da9b42e559cd8c}{bio\+Arith\+Fixed\+Parameter}, \hyperlink{classbio_arith_random_a57ed5e619ea85ce7a4ece51ce4e05983}{bio\+Arith\+Random}, \hyperlink{classbio_arith_random_variable_adc6a79d35ee6e66e59c3be9bc9f2c32b}{bio\+Arith\+Random\+Variable}, \hyperlink{classbio_arith_unif_random_adf48d57d0dc6d518950c58dc13b65a32}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_g_h_integral_a6eecafaf8d88fc08dfc8c4feb2d68ffd}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_a71c94eed284b1ef9e492aa6424c33365}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_power_a3274071fcc8f58adb67b82880e178842}{bio\+Arith\+Power}, \hyperlink{classbio_arith_binary_minus_a0a30a984e72adb63304f75c0c53552f9}{bio\+Arith\+Binary\+Minus}, \hyperlink{classbio_arith_binary_plus_a40a7b6945cd9118f110e580ab90c7b5f}{bio\+Arith\+Binary\+Plus}, \hyperlink{classbio_arith_divide_a8c979df7aee15572084ac982d1bd0740}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_equal_a7db4558e7e275cdf8cb525a23d7dac28}{bio\+Arith\+Equal}, \hyperlink{classbio_arith_greater_ae486d20a8a8c6cfb1d287bb9de936ddb}{bio\+Arith\+Greater}, \hyperlink{classbio_arith_greater_equal_ad9948d07e8c792d998fa6b6099b17633}{bio\+Arith\+Greater\+Equal}, \hyperlink{classbio_arith_less_aa53cd0dfe26ec7e75b760661b940ac0d}{bio\+Arith\+Less}, \hyperlink{classbio_arith_less_equal_af1741ef7a088b6a961889cd82fae3206}{bio\+Arith\+Less\+Equal}, \hyperlink{classbio_arith_min_a809fd63d92823ab01e0a6af0192c5d2e}{bio\+Arith\+Min}, \hyperlink{classbio_arith_mult_a5f0d4c6fe299be5b88cbcab100def6c9}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_normal_cdf_abf66a564a8a244d62205d19484b63315}{bio\+Arith\+Normal\+Cdf}, \hyperlink{classbio_arith_normal_pdf_a6b9af77b48e6a3eb8441df836be67d40}{bio\+Arith\+Normal\+Pdf}, \hyperlink{classbio_arith_not_equal_aa081815819ab133fa2fbfc87ecef0e66}{bio\+Arith\+Not\+Equal}, \hyperlink{classbio_arith_or_a59ec27e29f35c91f0a5fd2a8993a363b}{bio\+Arith\+Or}, \hyperlink{classbio_arith_abs_a4caa32d24495b1204a0ae99d0be72934}{bio\+Arith\+Abs}, \hyperlink{classbio_arith_and_a3e89f3ee81dd4703fd77e5b2da1e45ad}{bio\+Arith\+And}, \hyperlink{classbio_arith_exp_a291d459eb5a41df1ac6409420a8a5713}{bio\+Arith\+Exp}, \hyperlink{classbio_arith_log_a31c9d372354ff2f971caffc594c555a9}{bio\+Arith\+Log}, \hyperlink{classbio_arith_max_a7d8d72eba4b603fadd764cac3cecf23a}{bio\+Arith\+Max}, \hyperlink{classbio_arith_multinary_plus_a90c1c66054e19f52a4424664f7c09d7a}{bio\+Arith\+Multinary\+Plus}, \hyperlink{classbio_arith_unary_minus_a0a31abb1d5a352b933c2d07cb2c657c8}{bio\+Arith\+Unary\+Minus}, \hyperlink{classbio_arith_variable_a49717d281e84536b65a715918fdfc4c5}{bio\+Arith\+Variable}, \hyperlink{classbio_arith_composite_literal_ab0471105a849e772c1e93f5b45b66acb}{bio\+Arith\+Composite\+Literal}, \hyperlink{classbio_arith_constant_a60b9f8bf637586c0464356dfcf3bc4a3}{bio\+Arith\+Constant}, and \hyperlink{classbio_arith_bayes_a7292ae29cd04168543674b1ae71f4bed}{bio\+Arith\+Bayes}.
+
+\mbox{\Hypertarget{classbio_expression_a754b37dd7a3e0bb943c23ed8ebd48eaa}\label{classbio_expression_a754b37dd7a3e0bb943c23ed8ebd48eaa}} 
+\index{bio\+Expression@{bio\+Expression}!is\+Structurally\+One@{is\+Structurally\+One}}
+\index{is\+Structurally\+One@{is\+Structurally\+One}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{is\+Structurally\+One()}{isStructurallyOne()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Expression\+::is\+Structurally\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+return pat\+T\+R\+UE if the expression is structurally 1. In the base class, it return pat\+F\+A\+L\+SE. 
+
+Reimplemented in \hyperlink{classbio_arith_constant_a979ab2441d612a23a708fa3c10f3dd6a}{bio\+Arith\+Constant}.
+
+\mbox{\Hypertarget{classbio_expression_a264c6d78671610ada8261d698e4c4c42}\label{classbio_expression_a264c6d78671610ada8261d698e4c4c42}} 
+\index{bio\+Expression@{bio\+Expression}!is\+Structurally\+Zero@{is\+Structurally\+Zero}}
+\index{is\+Structurally\+Zero@{is\+Structurally\+Zero}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{is\+Structurally\+Zero()}{isStructurallyZero()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Expression\+::is\+Structurally\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+return pat\+T\+R\+UE if the expression is structurally 0 so that there is no need to evaluate it. In the base class, it return pat\+F\+A\+L\+SE. 
+
+Reimplemented in \hyperlink{classbio_arith_derivative_a8de59d734f7c023570046dd184d71a82}{bio\+Arith\+Derivative}, \hyperlink{classbio_arith_g_h_integral_a86510e9d5d13234c931278ec496e1aec}{bio\+Arith\+G\+H\+Integral}, \hyperlink{classbio_arith_integral_a7f96ce250c987eb2022512c9f65cdc1b}{bio\+Arith\+Integral}, \hyperlink{classbio_arith_mult_aedfa0cf623dde749da1760ad7fd9e326}{bio\+Arith\+Mult}, \hyperlink{classbio_arith_power_a65021bc0ae804520ac1e64c665abc62a}{bio\+Arith\+Power}, \hyperlink{classbio_arith_divide_a0363fd1159b9167508dcf989844eebb7}{bio\+Arith\+Divide}, \hyperlink{classbio_arith_constant_acd4439b84514d6612a97d422ba8f60c1}{bio\+Arith\+Constant}, and \hyperlink{classbio_arith_elem_a9d64d5197cb2cab10396c3e9d8add42b}{bio\+Arith\+Elem}.
+
+\mbox{\Hypertarget{classbio_expression_aee422b6c10811d2478972c83300acbb0}\label{classbio_expression_aee422b6c10811d2478972c83300acbb0}} 
+\index{bio\+Expression@{bio\+Expression}!is\+Sum\+Iterator@{is\+Sum\+Iterator}}
+\index{is\+Sum\+Iterator@{is\+Sum\+Iterator}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{is\+Sum\+Iterator()}{isSumIterator()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Expression\+::is\+Sum\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+return pat\+T\+R\+UE if the expression is a sum iterator. Typically used to identify a loglikelihood function. 
+
+Reimplemented in \hyperlink{classbio_arith_sum_ab0747dc4d0f4fbe2cb246b265ec3cd11}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_ab0747dc4d0f4fbe2cb246b265ec3cd11}{bio\+Arith\+Sum}, \hyperlink{classbio_arith_sum_a57d25760240c2d93b414d79679cfa5a3}{bio\+Arith\+Sum}, and \hyperlink{classbio_arith_sum_ab0747dc4d0f4fbe2cb246b265ec3cd11}{bio\+Arith\+Sum}.
+
+\mbox{\Hypertarget{classbio_expression_a95a481610d93746accf6c294c4f4d5d4}\label{classbio_expression_a95a481610d93746accf6c294c4f4d5d4}} 
+\index{bio\+Expression@{bio\+Expression}!is\+Top@{is\+Top}}
+\index{is\+Top@{is\+Top}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{is\+Top()}{isTop()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Expression\+::is\+Top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+pat\+T\+R\+UE if the node has no parent 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_expression_a9830c0cf012012c811b826adc54291f6}\label{classbio_expression_a9830c0cf012012c811b826adc54291f6}} 
+\index{bio\+Expression@{bio\+Expression}!the\+Iterator@{the\+Iterator}}
+\index{the\+Iterator@{the\+Iterator}!bio\+Expression@{bio\+Expression}}
+\subsubsection{\texorpdfstring{the\+Iterator()}{theIterator()}}
+{\footnotesize\ttfamily pat\+String bio\+Expression\+::the\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+pointer to the iterator information if the top level node is an iterator, N\+U\+LL otherwise. Not recursive. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classbio_arith_likelihood_fct_and_grad_ab7df38cb82ae1a9b77d51445931e1ac9}{bio\+Arith\+Likelihood\+Fct\+And\+Grad}, and \hyperlink{classbio_arith_iterator_a0e3f7a50861a44e7a62216e5a192a838}{bio\+Arith\+Iterator}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Expression.\+h\item 
+bio\+Expression.\+cc\end{DoxyCompactItemize}

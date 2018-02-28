@@ -1,0 +1,133 @@
+\hypertarget{classbio_arith_bayes_m_h}{}\section{bio\+Arith\+Bayes\+MH Class Reference}
+\label{classbio_arith_bayes_m_h}\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Bayes\+M\+H.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Bayes\+MH\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_arith_bayes_m_h}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a2fb0d44775923779ed7ba9f4274537e2}\label{classbio_arith_bayes_m_h_a2fb0d44775923779ed7ba9f4274537e2}} 
+{\bfseries bio\+Arith\+Bayes\+MH} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, vector$<$ pat\+U\+Long $>$ the\+Betas, pat\+U\+Long the\+Density, pat\+U\+Long the\+Warmup, pat\+U\+Long the\+Steps, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_bayes_m_h_a9bf7951a901c6243af0ffc89bc5b6018}{get\+Operator\+Name} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_bayes_m_h_a7579a02175af9bde0e35c0548a6740bd}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_bayes_m_h}{bio\+Arith\+Bayes\+MH} $\ast$ \hyperlink{classbio_arith_bayes_m_h_a4477bd620cc50e05a248df51e8c74ad6}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_bayes_m_h}{bio\+Arith\+Bayes\+MH} $\ast$ \hyperlink{classbio_arith_bayes_m_h_ab173e10b34d0eab2599ba4854f928b8f}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a1cfbf01cc05e45338a692510347b636c}\label{classbio_arith_bayes_m_h_a1cfbf01cc05e45338a692510347b636c}} 
+virtual pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_bayes_m_h_a0211e07769cd7b73f6dc344884656199}{get\+Expression\+String} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a80b66eeffb3aa3d2198549d3f811d047}\label{classbio_arith_bayes_m_h_a80b66eeffb3aa3d2198549d3f811d047}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a2db66f75cb9fe1d5fb005a53bd8e3f19}\label{classbio_arith_bayes_m_h_a2db66f75cb9fe1d5fb005a53bd8e3f19}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_aa650cb3d15ba6689d122f54658a53911}\label{classbio_arith_bayes_m_h_aa650cb3d15ba6689d122f54658a53911}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a3834d4837029d2b66c4aa74848e53890}\label{classbio_arith_bayes_m_h_a3834d4837029d2b66c4aa74848e53890}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a9d31f2a947d430b9903bcd0ce4943417}\label{classbio_arith_bayes_m_h_a9d31f2a947d430b9903bcd0ce4943417}} 
+virtual pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a1948c116d57eecf5508a9d17c670987d}\label{classbio_arith_bayes_m_h_a1948c116d57eecf5508a9d17c670987d}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_adada57d93c6a215b52b504f621556d3e}\label{classbio_arith_bayes_m_h_adada57d93c6a215b52b504f621556d3e}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a0fcc9286993eab61ac751f41dc518efb}\label{classbio_arith_bayes_m_h_a0fcc9286993eab61ac751f41dc518efb}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a7fab1f00661fb7bacf0e618a1dc36984}\label{classbio_arith_bayes_m_h_a7fab1f00661fb7bacf0e618a1dc36984}} 
+void {\bfseries initialize\+Markov\+Process} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a84261bf632f0fa9505d25bf877b62199}\label{classbio_arith_bayes_m_h_a84261bf632f0fa9505d25bf877b62199}} 
+pat\+Boolean {\bfseries update\+Betas} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a7e9507046b42b230eab714f4003461f0}\label{classbio_arith_bayes_m_h_a7e9507046b42b230eab714f4003461f0}} 
+virtual void {\bfseries get\+Next\+Draw} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree designed for the Metropolis Hastings algorithm, to draw from a complex density 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a4477bd620cc50e05a248df51e8c74ad6}\label{classbio_arith_bayes_m_h_a4477bd620cc50e05a248df51e8c74ad6}} 
+\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_bayes_m_h}{bio\+Arith\+Bayes\+MH} $\ast$ bio\+Arith\+Bayes\+M\+H\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a7579a02175af9bde0e35c0548a6740bd}\label{classbio_arith_bayes_m_h_a7579a02175af9bde0e35c0548a6740bd}} 
+\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Bayes\+M\+H\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a0211e07769cd7b73f6dc344884656199}\label{classbio_arith_bayes_m_h_a0211e07769cd7b73f6dc344884656199}} 
+\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Bayes\+M\+H\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_a9bf7951a901c6243af0ffc89bc5b6018}\label{classbio_arith_bayes_m_h_a9bf7951a901c6243af0ffc89bc5b6018}} 
+\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Bayes\+M\+H\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_m_h_ab173e10b34d0eab2599ba4854f928b8f}\label{classbio_arith_bayes_m_h_ab173e10b34d0eab2599ba4854f928b8f}} 
+\index{bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Bayes\+MH@{bio\+Arith\+Bayes\+MH}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_bayes_m_h}{bio\+Arith\+Bayes\+MH} $\ast$ bio\+Arith\+Bayes\+M\+H\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Bayes\+M\+H.\+h\item 
+bio\+Arith\+Bayes\+M\+H.\+cc\end{DoxyCompactItemize}

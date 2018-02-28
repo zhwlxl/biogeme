@@ -48,6 +48,7 @@
 #include "bioAlgorithmStopping.h"
 #include "patUnixUniform.h"
 #include "bioStochasticGradient.h"
+#include "bioSaga.h"
 #include "bioDraftSG.h"
 
 #include "patEnvPathVariable.h"
@@ -120,12 +121,15 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
     FATAL("Remove the file " << bioParameters::the()->getValueString("stopFileName")) ;
   }
 
+  DEBUG_MESSAGE("Init bioReporting")
+  
   theReport = new bioReporting(err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
     return ;
   }
 
+  DEBUG_MESSAGE("Init bioSample")
 
   
   theSample = new bioSample(sampleFile,err) ;
@@ -135,16 +139,27 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
   }
   //  DEBUG_MESSAGE("Number of columns: " << theSample->getNumberOfColumns()) ;
 
+  DEBUG_MESSAGE("Init Python")
   // Init Python
 #ifdef STANDALONE_EXECUTABLE
   Py_NoSiteFlag = 1;
 #endif 
   Py_Initialize() ;
-
-  PyRun_SimpleString("import sys") ;
+  
+  DEBUG_MESSAGE("Done") ;
+  DEBUG_MESSAGE("Python version: " << Py_GetVersion())
+  int pythonErr = PyRun_SimpleString("import sys") ;
+  DEBUG_MESSAGE("Done A") ;
+  if (pythonErr != 0) {
+    err = new patErrMiscError("Error in executing PyRun_SimpleString") ;
+    WARNING(err->describe()) ;
+    return ;
+  }
   PyRun_SimpleString("sys.path.append('./module/')") ;
+  DEBUG_MESSAGE("Done B")
 
 
+  DEBUG_MESSAGE("Get model name")
 
   // Get model name
 
@@ -165,6 +180,8 @@ void bioMain::run(patString modelFileName, patString sampleFile, patError*& err)
 
   patFileNames::the()->setModelName(fn) ;
 
+  DEBUG_MESSAGE("Init bioModelParser")
+  
   bioModelParser* parser = new bioModelParser(fn,err) ;
   if (err != NULL) {
     WARNING(err->describe()) ;
@@ -470,16 +487,9 @@ void bioMain::estimate(patError*& err) {
     bioExpressionRepository* theRepository = theModel->getRepository();
     patULong exprId = theModel->getFormula() ;
 
-    patULong sgStepSize = bioParameters::the()->getValueInt("stochasticGradientDataSize",err) ;
-    if (err != NULL) {
-      WARNING(err->describe()) ;
-      return ;
-    }
-
     bioDraftSG theSgFunction(theRepository,
 			     exprId,
 			     theSample,
-			     sgStepSize,
 			     err) ;
     
     DEBUG_MESSAGE("READY FOR STOCHASTIC GRADIENT") ;
@@ -500,6 +510,34 @@ void bioMain::estimate(patError*& err) {
       return ;
     }
     beta = theSg.getSolution() ;
+  }
+  else if (startingPointMethod == "SAGA") {
+    bioExpressionRepository* theRepository = theModel->getRepository();
+    patULong exprId = theModel->getFormula() ;
+
+    bioDraftSG theSgFunction(theRepository,
+			     exprId,
+			     theSample,
+			     err) ;
+    
+    DEBUG_MESSAGE("READY FOR SAGA") ;
+    beta = bioLiteralRepository::the()->getBetaValues(patFALSE) ;
+    bioSaga theSaga(&theSgFunction,err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    theSaga.init(beta,err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    theSaga.run(err) ;
+    if (err != NULL) {
+      WARNING(err->describe()) ;
+      return ;
+    }
+    beta = theSaga.getSolution() ;
   }
   DEBUG_MESSAGE("Beta: " << beta) ;
   DEBUG_MESSAGE("Number of betas = " << beta.size()) ;

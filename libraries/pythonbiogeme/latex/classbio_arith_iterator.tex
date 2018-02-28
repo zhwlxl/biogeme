@@ -1,0 +1,81 @@
+\hypertarget{classbio_arith_iterator}{}\section{bio\+Arith\+Iterator Class Reference}
+\label{classbio_arith_iterator}\index{bio\+Arith\+Iterator@{bio\+Arith\+Iterator}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Iterator.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.333333cm]{classbio_arith_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_aa462a3be033addf63a71f4dc2587ce69}\label{classbio_arith_iterator_aa462a3be033addf63a71f4dc2587ce69}} 
+{\bfseries bio\+Arith\+Iterator} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long left, pat\+String an\+Iterator, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_iterator_aceb6ee1a4c024349178de5edf4624710}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_iterator_a0e3f7a50861a44e7a62216e5a192a838}{the\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_ad3333ec910f68aa3c658502dc61f8c44}\label{classbio_arith_iterator_ad3333ec910f68aa3c658502dc61f8c44}} 
+virtual pat\+Boolean {\bfseries is\+Sum} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_a0110ce3c484d5a61d314ea5a8c51618f}\label{classbio_arith_iterator_a0110ce3c484d5a61d314ea5a8c51618f}} 
+virtual pat\+Boolean {\bfseries is\+Prod} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_ab99e052d4167e099c6469278d8f3fe77}\label{classbio_arith_iterator_ab99e052d4167e099c6469278d8f3fe77}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_acf59ada258bca97acb1624942a06e5e0}\label{classbio_arith_iterator_acf59ada258bca97acb1624942a06e5e0}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_a44e87dc91e2382f8ab09346eb1be8cb0}\label{classbio_arith_iterator_a44e87dc91e2382f8ab09346eb1be8cb0}} 
+pat\+String {\bfseries the\+Iterator\+Name}
+\item 
+\mbox{\Hypertarget{classbio_arith_iterator_a0338b170a0f40968c6f7e4f23231bf40}\label{classbio_arith_iterator_a0338b170a0f40968c6f7e4f23231bf40}} 
+bio\+Iterator\+Type {\bfseries the\+Iterator\+Type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing a sum or a prod expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_iterator_aceb6ee1a4c024349178de5edf4624710}\label{classbio_arith_iterator_aceb6ee1a4c024349178de5edf4624710}} 
+\index{bio\+Arith\+Iterator@{bio\+Arith\+Iterator}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Iterator@{bio\+Arith\+Iterator}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Iterator\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}{bio\+Arith\+Unary\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_iterator_a0e3f7a50861a44e7a62216e5a192a838}\label{classbio_arith_iterator_a0e3f7a50861a44e7a62216e5a192a838}} 
+\index{bio\+Arith\+Iterator@{bio\+Arith\+Iterator}!the\+Iterator@{the\+Iterator}}
+\index{the\+Iterator@{the\+Iterator}!bio\+Arith\+Iterator@{bio\+Arith\+Iterator}}
+\subsubsection{\texorpdfstring{the\+Iterator()}{theIterator()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Iterator\+::the\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+pointer to the iterator information if the top level node is an iterator, N\+U\+LL otherwise. Not recursive. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a9830c0cf012012c811b826adc54291f6}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Iterator.\+h\item 
+bio\+Arith\+Iterator.\+cc\end{DoxyCompactItemize}

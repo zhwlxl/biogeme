@@ -1,31 +1,49 @@
-  patULong bootstrap = bioParameters::the()->getValueInt("bootstrapStdErr",err) ;
-  if (err != NULL) {
-    WARNING(err->describe()) ;
-    return ;
-  }
+Well, I managed to do it myself. Here is what I am doing now to do
+this. In Python-C/C++ world, if someone wants to do the same thing,
+may use this.
+Note: For this, am assigning the cStringIO object to sys.stderr once I
+do Py_Initialize & then use cStringIO.getvalue() everytime I get
+error.
+While importing cStringIO module with Python-2.3.3, I faced the
+problem of "undefined symbol:PyObject_SelfIter". I could resolve that
+also. I have put that note in the post which I had opened for that.
+/+++++++++++++++++++++++++++++++++++++++++++++++
+PyObject *_pPyModule;
+PyObject *_pPyDictionary;
+PyObject *_pPyGetValFunc;
+PyObject *_pPyobStringIO;
 
-  patDisplay::the().initProgressReport("Performs bootstrapping",
-				       bootstrap) ;
-  
-  patLoopTime loopTime(bootstrap) ;
-  for (patULong rs = 0 ;
-       rs < bootstrap ;
-       ++rs) {
-      loopTime.setIteration(rs) ;
-      if (!patDisplay::the().updateProgressReport(rs)) {
-	patDisplay::the().terminateProgressReport() ;
-	err = new patErrMiscError("Interrupted by the user") ;
-	WARNING(err->describe()) ;
-	return  ;
-      }
-      GENERAL_MESSAGE(loopTime) ;
-      bioSample bootstrapSample = theSample->getBootstrap() ;
-      theFunction->setSample(&bootstrapSample,err) ;
-      if (err != NULL) {
-	WARNING(err->describe()) ;
-	return ;
-      }
+Init(){
+// Py_Initialize should have been done by now.....
 
-      
-  }
-  patDisplay::the().terminateProgressReport() ;
+int _getPythonErrorMessage()
+{
+    // call getvalue() method in StringIO instance
+    int ret = 0;
+    PyObject *obResult=NULL;
+    char *sresult = NULL;
+    obResult = PyObject_CallObject(_pPyGetValFunc, NULL);
+    if(PyErr_Occurred() || obResult==NULL){
+       printf("getvalue() failed\n");
+       ret = -1;
+       goto CLEAN_AND_RETURN;
+    }
+    // did getvalue return a string?
+    if(!PyString_Check(obResult)){
+       printf("getvalue() did not return error string\n");
+       ret = -1;
+       goto CLEAN_AND_RETURN;
+	}
+    // retrieve error message string from this object
+    if(NULL != (sresult = PyString_AsString(obResult))){
+       pErrorString = strdup(sresult);
+	} else {
+       ret = -1;
+       goto CLEAN_AND_RETURN;
+	}
+    return(ret);
+
+CLEAN_AND_RETURN:
+   Py_XDECREF(obResult);
+   return(ret);
+}

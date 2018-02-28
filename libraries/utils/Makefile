@@ -90,8 +90,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = x86_64-apple-darwin16.7.0
-host_triplet = x86_64-apple-darwin16.7.0
+build_triplet = x86_64-apple-darwin17.4.0
+host_triplet = x86_64-apple-darwin17.4.0
 subdir = libraries/utils
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -128,29 +128,30 @@ am__libutils_a_SOURCES_DIST = patAbsTime.cc bioAlgorithmManager.cc \
 	patPValue.cc patPower.cc patPrimeNumbers.cc patPsTricks.cc \
 	patString.cc patTimeInterval.cc patTimer.cc patVariables.cc \
 	patVersion.cc patQuantiles.cc patLap.cc patInterval.cc \
-	patGetWorkingDir.cc FlexLexer.h bioAlgorithmManager.h \
-	bioAlgorithmStopping.h bioAlgoStopFile.h patAbsTime.h \
-	patAngle.h patBiogemeRun.h patClass.h patCompare.h \
-	patCompareCorrelation.h patConst.h patCorrelation.h \
-	patDisplay.h patEnvironmentVariable.h patEnvPathVariable.h \
-	patErrFileNotFound.h patErrMiscError.h patErrNullPointer.h \
-	patErrOutOfRange.h patError.h patExecScript.h patFileExists.h \
-	patFileNames.h patOutputFiles.h patSingletonFactory.h \
-	patFormatRealNumbers.h patFunction.h patGenerateCombinations.h \
-	patGeoCoordinates.h patImportance.h patIterationBackup.h \
-	patIterator.h patLargeNumbers.h patLogMessage.h patFileSize.h \
-	patFileTime.h patStatistics.h patLoop.h patLoopTime.h \
-	patMath.h patMessage.h patMtl.h patNonParamRegression.h \
-	patNormalCdf.h patNormalPdf.h patRandomInteger.h \
-	patOutputTable.h patPValue.h patPower.h patPrimeNumbers.h \
-	patPsTricks.h patSequenceIterator.h patShuffleVector.h \
-	patStlSetIterator.h patStlVectorIterator.h patString.h \
-	patSubvectorIterator.h patSubvectorPtrIterator.h \
+	patGetWorkingDir.cc bioCapture.cc FlexLexer.h \
+	bioAlgorithmManager.h bioAlgorithmStopping.h bioAlgoStopFile.h \
+	patAbsTime.h patAngle.h patBiogemeRun.h patClass.h \
+	patCompare.h patCompareCorrelation.h patConst.h \
+	patCorrelation.h patDisplay.h patEnvironmentVariable.h \
+	patEnvPathVariable.h patErrFileNotFound.h patErrMiscError.h \
+	patErrNullPointer.h patErrOutOfRange.h patError.h \
+	patExecScript.h patFileExists.h patFileNames.h \
+	patOutputFiles.h patSingletonFactory.h patFormatRealNumbers.h \
+	patFunction.h patGenerateCombinations.h patGeoCoordinates.h \
+	patImportance.h patIterationBackup.h patIterator.h \
+	patIteratorErr.h patLargeNumbers.h patLogMessage.h \
+	patFileSize.h patFileTime.h patStatistics.h patLoop.h \
+	patLoopTime.h patMath.h patMessage.h patMtl.h \
+	patNonParamRegression.h patNormalCdf.h patNormalPdf.h \
+	patRandomInteger.h patOutputTable.h patPValue.h patPower.h \
+	patPrimeNumbers.h patPsTricks.h patSequenceIterator.h \
+	patShuffleVector.h patStlSetIterator.h patStlVectorIterator.h \
+	patString.h patSubvectorIterator.h patSubvectorPtrIterator.h \
 	patThreeStrings.h patTimeInterval.h patTimer.h patType.h \
 	patUtilFunction.h patVariables.h patVectorIterator.h \
 	patVectorPtrIterator.h patVersion.h trNonLinearAlgo.h \
 	patQuantiles.h patLap.h patInterval.h patGetWorkingDir.h \
-	pstream.h
+	bioCapture.h pstream.h
 am__objects_1 = libutils_a-patAbsTime.$(OBJEXT) \
 	libutils_a-bioAlgorithmManager.$(OBJEXT) \
 	libutils_a-bioAlgorithmStopping.$(OBJEXT) \
@@ -195,7 +196,8 @@ am__objects_1 = libutils_a-patAbsTime.$(OBJEXT) \
 	libutils_a-patVersion.$(OBJEXT) \
 	libutils_a-patQuantiles.$(OBJEXT) libutils_a-patLap.$(OBJEXT) \
 	libutils_a-patInterval.$(OBJEXT) \
-	libutils_a-patGetWorkingDir.$(OBJEXT)
+	libutils_a-patGetWorkingDir.$(OBJEXT) \
+	libutils_a-bioCapture.$(OBJEXT)
 #am_libutils_a_OBJECTS = $(am__objects_1)
 libutils_a_OBJECTS = $(am_libutils_a_OBJECTS)
 LTLIBRARIES = $(noinst_LTLIBRARIES)
@@ -227,7 +229,7 @@ am_libutils_la_OBJECTS = libutils_la-patAbsTime.lo \
 	libutils_la-patTimer.lo libutils_la-patVariables.lo \
 	libutils_la-patVersion.lo libutils_la-patQuantiles.lo \
 	libutils_la-patLap.lo libutils_la-patInterval.lo \
-	libutils_la-patGetWorkingDir.lo
+	libutils_la-patGetWorkingDir.lo libutils_la-bioCapture.lo
 nodist_libutils_la_OBJECTS =
 libutils_la_OBJECTS = $(am_libutils_la_OBJECTS) \
 	$(nodist_libutils_la_OBJECTS)
@@ -322,7 +324,7 @@ ACLOCAL = ${SHELL} /Users/michelbierlaire/GoogleDrive/biogeme/biogemeSourceCode/
 AMTAR = $${TAR-tar}
 AM_CXXFLAGS =  -std=gnu++11 -O3
 AM_DEFAULT_VERBOSITY = 1
-AM_LDFLAGS =  -no-undefined
+AM_LDFLAGS =  -no-undefined -shared
 AR = ar
 AUTOCONF = ${SHELL} /Users/michelbierlaire/GoogleDrive/biogeme/biogemeSourceCode/github/missing autoconf
 AUTOHEADER = ${SHELL} /Users/michelbierlaire/GoogleDrive/biogeme/biogemeSourceCode/github/missing autoheader
@@ -349,13 +351,12 @@ EXEEXT =
 FGREP = /usr/bin/grep -F
 FLEX = /usr/bin/flex++
 GREP = /usr/bin/grep
-GTK_CFLAGS = -D_REENTRANT -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.2/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
-GTK_CXXFLAGS = -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.2/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
-GTK_LDFLAGS = -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.25/lib -L/usr/local/Cellar/pango/1.40.13/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/opt/gettext/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation
+GTK_CFLAGS = -D_REENTRANT -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
+GTK_CXXFLAGS = -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
+GTK_LDFLAGS = -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.26/lib -L/usr/local/Cellar/pango/1.40.14/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/opt/gettext/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation
 GTK_LIBS = -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lgio-2.0 -lcairomm-1.0 -lcairo -lsigc-2.0 -lgdk_pixbuf-2.0 -lgobject-2.0 -lglib-2.0 -lintl 
-GTK_STATIC_CXXFLAGS = -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.25/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.2/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.6.3/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.13/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.10/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.2/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.2/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
-GTK_STATIC_LDFLAGS = -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.25/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/libepoxy/1.4.3/lib -L/usr/local/Cellar/pango/1.40.13/lib -L/usr/local/Cellar/harfbuzz/1.6.3/lib -L/usr/local/Cellar/graphite2/1.3.10/lib -L/usr/local/Cellar/pango/1.40.13/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.10/lib -L/usr/local/Cellar/pixman/0.34.0_1/lib -L/usr/local/Cellar/fontconfig/2.12.6/lib -L/usr/local/opt/freetype/lib -L/usr/local/Cellar/libpng/1.6.32/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/Cellar/libffi/3.2.1/lib -L/usr/local/Cellar/glib/2.54.2/lib -L/usr/local/opt/gettext/lib -L/usr/local/Cellar/pcre/8.41/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lgio-2.0 -lepoxy -ldl -lpangocairo-1.0 -lpangoft2-1.0 -lharfbuzz -lm -framework ApplicationServices -lgraphite2 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lgio-2.0 -lz -lresolv -Wl,-framework,Foundation -Wl,-framework,Carbon -lcairomm-1.0 -lcairo -lz -lpixman-1 -lfontconfig -lexpat -lfreetype -lz -lbz2 -lpng16 -lz -lpng16 -lz -lsigc-2.0 -lgdk_pixbuf-2.0 -lgmodule-2.0 -lpng16 -lz -lgobject-2.0 -lffi -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation -lpcre -lintl -Wl,-framework -Wl,CoreFoundation -liconv -Wl,-framework,Carbon -Wl,-framework,Foundation -lpcre -D_THREAD_SAFE -pthread
-HAVE_RSCRIPT = yes
+GTK_STATIC_CXXFLAGS = -I/usr/local/Cellar/gtkmm3/3.22.2/include/gtkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gtkmm-3.0/include -I/usr/local/Cellar/atkmm/2.24.2/include/atkmm-1.6 -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0/unix-print -I/usr/local/Cellar/gtkmm3/3.22.2/include/gdkmm-3.0 -I/usr/local/Cellar/gtkmm3/3.22.2/lib/gdkmm-3.0/include -I/usr/local/Cellar/glibmm/2.54.1/include/giomm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/giomm-2.4/include -I/usr/local/Cellar/pangomm/2.40.1/include/pangomm-1.4 -I/usr/local/Cellar/pangomm/2.40.1/lib/pangomm-1.4/include -I/usr/local/Cellar/glibmm/2.54.1/include/glibmm-2.4 -I/usr/local/Cellar/glibmm/2.54.1/lib/glibmm-2.4/include -I/usr/local/Cellar/gtk+3/3.22.26/include/gtk-3.0 -I/usr/local/Cellar/glib/2.54.3/include/gio-unix-2.0/ -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/libepoxy/1.4.3/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/1.7.5/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.10/include -I/usr/local/Cellar/pango/1.40.14/include/pango-1.0 -I/usr/local/Cellar/atk/2.26.1/include/atk-1.0 -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/cairomm/1.12.2/include/cairomm-1.0 -I/usr/local/Cellar/cairomm/1.12.2/lib/cairomm-1.0/include -I/usr/local/Cellar/cairo/1.14.12/include/cairo -I/usr/local/Cellar/pixman/0.34.0_1/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.12.6/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/libsigc++/2.10.0/include/sigc++-2.0 -I/usr/local/Cellar/libsigc++/2.10.0/lib/sigc++-2.0/include -I/usr/local/Cellar/gdk-pixbuf/2.36.11/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/libpng/1.6.34/include/libpng16 -I/usr/local/Cellar/glib/2.54.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.54.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.41/include
+GTK_STATIC_LDFLAGS = -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/atkmm/2.24.2/lib -L/usr/local/Cellar/gtkmm3/3.22.2/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/pangomm/2.40.1/lib -L/usr/local/Cellar/glibmm/2.54.1/lib -L/usr/local/Cellar/gtk+3/3.22.26/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/libepoxy/1.4.3/lib -L/usr/local/Cellar/pango/1.40.14/lib -L/usr/local/Cellar/harfbuzz/1.7.5/lib -L/usr/local/Cellar/graphite2/1.3.10/lib -L/usr/local/Cellar/pango/1.40.14/lib -L/usr/local/Cellar/atk/2.26.1/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/cairomm/1.12.2/lib -L/usr/local/Cellar/cairo/1.14.12/lib -L/usr/local/Cellar/pixman/0.34.0_1/lib -L/usr/local/Cellar/fontconfig/2.12.6/lib -L/usr/local/opt/freetype/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/libsigc++/2.10.0/lib -L/usr/local/Cellar/gdk-pixbuf/2.36.11/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/libpng/1.6.34/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/Cellar/libffi/3.2.1/lib -L/usr/local/Cellar/glib/2.54.3/lib -L/usr/local/opt/gettext/lib -L/usr/local/Cellar/pcre/8.41/lib -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lglibmm-2.4 -lgtk-3 -lgdk-3 -lgio-2.0 -lepoxy -ldl -lpangocairo-1.0 -lpangoft2-1.0 -lharfbuzz -lm -framework ApplicationServices -lgraphite2 -lpango-1.0 -lm -latk-1.0 -lcairo-gobject -lgio-2.0 -lz -lresolv -Wl,-framework,Foundation -Wl,-framework,Carbon -lcairomm-1.0 -lcairo -lz -lpixman-1 -lfontconfig -lexpat -lfreetype -lz -lbz2 -lpng16 -lz -lpng16 -lz -lsigc-2.0 -lgdk_pixbuf-2.0 -lgmodule-2.0 -lpng16 -lz -lgobject-2.0 -lffi -lglib-2.0 -lintl -Wl,-framework -Wl,CoreFoundation -lpcre -lintl -Wl,-framework -Wl,CoreFoundation -liconv -Wl,-framework,Carbon -Wl,-framework,Foundation -lpcre -D_THREAD_SAFE -pthread
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -363,12 +364,12 @@ INSTALL_RELEASE =
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 INSTALL_VERSION_SUFFIX = 
-IPOPT_CFLAGS = -I/usr/local/Cellar/ipopt/3.12.8/include/coin
-IPOPT_CXXFLAGS = -I/usr/local/Cellar/ipopt/3.12.8/include/coin
-IPOPT_LDFLAGS = -L/usr/local/Cellar/ipopt/3.12.8/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl
+IPOPT_CFLAGS = -I/usr/local/Cellar/ipopt/3.12.8_1/include/coin
+IPOPT_CXXFLAGS = -I/usr/local/Cellar/ipopt/3.12.8_1/include/coin
+IPOPT_LDFLAGS = -L/usr/local/Cellar/ipopt/3.12.8_1/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl
 IPOPT_LIBS = -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -lm -ldl 
-IPOPT_STATIC_CXXFLAGS = -I/usr/local/Cellar/ipopt/3.12.8/include/coin
-IPOPT_STATIC_LDFLAGS = -L/usr/local/Cellar/ipopt/3.12.8/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl
+IPOPT_STATIC_CXXFLAGS = -I/usr/local/Cellar/ipopt/3.12.8_1/include/coin
+IPOPT_STATIC_LDFLAGS = -L/usr/local/Cellar/ipopt/3.12.8_1/lib -L/usr/local/opt/mumps/lib -lipopt -ldmumps -lmumps_common -lpord -lmpiseq -framework Accelerate -lm -ldl
 LATEXMK = /Library/TeX/texbin/latexmk
 LD = /Library/Developer/CommandLineTools/usr/bin/ld
 LDFLAGS = 
@@ -405,11 +406,10 @@ PKG_CONFIG_LIBDIR =
 PKG_CONFIG_PATH = 
 PYTHONBIN = /usr/local/bin/python3
 PYTHON_CXXFLAGS = -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall
-PYTHON_INCLUDES = -I/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/include/python3.6m -I/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/include/python3.6m
+PYTHON_INCLUDES = -I/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/include/python3.6m -I/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/include/python3.6m
 PYTHON_LDFLAGS =  -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/config-3.6m-darwin
 PYTHON_LIBS = -lpython3.6m -ldl  -framework CoreFoundation 
 RANLIB = ranlib
-R_CXXFLAGS = -I/usr/local/lib/R/3.4/site-library/Rcpp/include
 SED = /usr/bin/sed
 SET_MAKE = 
 SHELL = /bin/sh
@@ -428,10 +428,10 @@ am__leading_dot = .
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = x86_64-apple-darwin16.7.0
+build = x86_64-apple-darwin17.4.0
 build_alias = 
 build_cpu = x86_64
-build_os = darwin16.7.0
+build_os = darwin17.4.0
 build_vendor = apple
 builddir = .
 datadir = ${datarootdir}
@@ -439,10 +439,10 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = x86_64-apple-darwin16.7.0
+host = x86_64-apple-darwin17.4.0
 host_alias = 
 host_cpu = x86_64
-host_os = darwin16.7.0
+host_os = darwin17.4.0
 host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
@@ -534,6 +534,7 @@ libutils_la_SOURCES = patAbsTime.cc \
     patLap.cc \
     patInterval.cc \
     patGetWorkingDir.cc \
+bioCapture.cc \
 FlexLexer.h \
 bioAlgorithmManager.h \
 bioAlgorithmStopping.h \
@@ -566,6 +567,7 @@ patGeoCoordinates.h \
 patImportance.h \
 patIterationBackup.h \
 patIterator.h \
+patIteratorErr.h \
 patLargeNumbers.h \
 patLogMessage.h \
 patFileSize.h \
@@ -606,6 +608,7 @@ patQuantiles.h \
 patLap.h \
 patInterval.h \
 patGetWorkingDir.h \
+bioCapture.h \
 pstream.h
 
 nodist_libutils_la_SOURCES = \
@@ -970,6 +973,12 @@ libutils_a-patGetWorkingDir.o: patGetWorkingDir.cc
 libutils_a-patGetWorkingDir.obj: patGetWorkingDir.cc
 	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_a_CXXFLAGS) $(CXXFLAGS) -c -o libutils_a-patGetWorkingDir.obj `if test -f 'patGetWorkingDir.cc'; then $(CYGPATH_W) 'patGetWorkingDir.cc'; else $(CYGPATH_W) '$(srcdir)/patGetWorkingDir.cc'; fi`
 
+libutils_a-bioCapture.o: bioCapture.cc
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_a_CXXFLAGS) $(CXXFLAGS) -c -o libutils_a-bioCapture.o `test -f 'bioCapture.cc' || echo '$(srcdir)/'`bioCapture.cc
+
+libutils_a-bioCapture.obj: bioCapture.cc
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_a_CXXFLAGS) $(CXXFLAGS) -c -o libutils_a-bioCapture.obj `if test -f 'bioCapture.cc'; then $(CYGPATH_W) 'bioCapture.cc'; else $(CYGPATH_W) '$(srcdir)/bioCapture.cc'; fi`
+
 libutils_la-patAbsTime.lo: patAbsTime.cc
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_la_CXXFLAGS) $(CXXFLAGS) -c -o libutils_la-patAbsTime.lo `test -f 'patAbsTime.cc' || echo '$(srcdir)/'`patAbsTime.cc
 
@@ -1110,6 +1119,9 @@ libutils_la-patInterval.lo: patInterval.cc
 
 libutils_la-patGetWorkingDir.lo: patGetWorkingDir.cc
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_la_CXXFLAGS) $(CXXFLAGS) -c -o libutils_la-patGetWorkingDir.lo `test -f 'patGetWorkingDir.cc' || echo '$(srcdir)/'`patGetWorkingDir.cc
+
+libutils_la-bioCapture.lo: bioCapture.cc
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libutils_la_CXXFLAGS) $(CXXFLAGS) -c -o libutils_la-bioCapture.lo `test -f 'bioCapture.cc' || echo '$(srcdir)/'`bioCapture.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo

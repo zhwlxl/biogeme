@@ -26,6 +26,10 @@ public :
   virtual void init() = PURE_VIRTUAL ;
   virtual void next() = PURE_VIRTUAL ;
   virtual patBoolean isDone() = PURE_VIRTUAL ;
+  virtual void random() = PURE_VIRTUAL ;
+  // It is assumed that the items are numbered from 0 to getSize()-1
+  virtual patULong getIndex() = PURE_VIRTUAL ;
+  virtual patULong getSize() = PURE_VIRTUAL ;
   virtual bioFunctionAndDerivatives* getFunctionAndDerivatives(trVector* x,
 							       patError*& err) = PURE_VIRTUAL ;
 

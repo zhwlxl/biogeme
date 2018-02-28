@@ -1,0 +1,234 @@
+\hypertarget{classbio_python_wrapper}{}\section{bio\+Python\+Wrapper Class Reference}
+\label{classbio_python_wrapper}\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+
+
+{\ttfamily \#include $<$bio\+Python\+Wrapper.\+h$>$}
+
+Inheritance diagram for bio\+Python\+Wrapper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_python_wrapper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_python_wrapper_a3309c7000124b3f5438321fd1090ae8e}{bio\+Python\+Wrapper} ()
+\item 
+\hyperlink{classbio_python_wrapper_ace7c20e3240083deb78147e5f15a910e}{$\sim$bio\+Python\+Wrapper} ()
+\item 
+pat\+Real \hyperlink{classbio_python_wrapper_a69d029db3ab8c8189d2ac832093b8d61}{compute\+Function} (tr\+Vector $\ast$x, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+pat\+Real \hyperlink{classbio_python_wrapper_a79a381fa8f8fc49f9799dec63b53f8a4}{compute\+Function\+And\+Derivatives} (tr\+Vector $\ast$x, tr\+Vector $\ast$grad, tr\+Hessian $\ast$hessian, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+tr\+Hessian $\ast$ \hyperlink{classbio_python_wrapper_a406bb4c61e198ec7aa6f55f8d466c8d0}{compute\+Cheap\+Hessian} (tr\+Hessian $\ast$hessian, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_python_wrapper_a79b2077723a6bed48851c0c4e93d707a}\label{classbio_python_wrapper_a79b2077723a6bed48851c0c4e93d707a}} 
+pat\+Boolean {\bfseries is\+Cheap\+Hessian\+Available} ()
+\item 
+tr\+Vector $\ast$ \hyperlink{classbio_python_wrapper_a2af0c18f84244ce781ca99e2afc58e48}{compute\+Hessian\+Times\+Vector} (tr\+Vector $\ast$x, const tr\+Vector $\ast$v, tr\+Vector $\ast$r, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+Boolean \hyperlink{classbio_python_wrapper_a1e8391dbed1fd49c04a042b9e15dec71}{is\+Gradient\+Available} () const
+\item 
+virtual pat\+Boolean \hyperlink{classbio_python_wrapper_a8dcb20aa1e057667c0feaf3174545fc8}{is\+Hessian\+Available} () const
+\item 
+virtual pat\+Boolean \hyperlink{classbio_python_wrapper_ad0e9def58fcc08187411ad78ef7314aa}{is\+Hessian\+Times\+Vector\+Available} () const
+\item 
+virtual unsigned long \hyperlink{classbio_python_wrapper_a63991abdfaca07aca3757e96cd06410d}{get\+Dimension} () const
+\item 
+void \hyperlink{classbio_python_wrapper_a587445d7da95e667c2332ca43ec00823}{generate\+Cpp\+Code} (ostream \&str, pat\+Error $\ast$\&err)
+\item 
+tr\+Vector \hyperlink{classbio_python_wrapper_ab61446fd399dcf7fbcaf667fa5834097}{get\+Current\+Variables} (pat\+Error $\ast$\&err) const
+\item 
+pat\+Boolean \hyperlink{classbio_python_wrapper_a8952bd430a948cdc4f42f631ca3ddbd9}{is\+User\+Based} () const
+\item 
+\mbox{\Hypertarget{classbio_python_wrapper_a4aaa6554f09421168342484468a8ebcb}\label{classbio_python_wrapper_a4aaa6554f09421168342484468a8ebcb}} 
+void {\bfseries set\+Sample} (\hyperlink{classbio_sample}{bio\+Sample} $\ast$s, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_python_wrapper_a3a71e8f565430c941d595effab9f8199}\label{classbio_python_wrapper_a3a71e8f565430c941d595effab9f8199}} 
+\hyperlink{classbio_sample}{bio\+Sample} $\ast$ {\bfseries sample}
+\item 
+\mbox{\Hypertarget{classbio_python_wrapper_ac23a8242b8126c70e29d3c213076e06e}\label{classbio_python_wrapper_ac23a8242b8126c70e29d3c213076e06e}} 
+tr\+Parameters {\bfseries the\+Tr\+Parameters}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+! This object implements the abstract tr\+Function for the maximum likelihood estimation of the model specificed with a Python program. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbio_python_wrapper_a3309c7000124b3f5438321fd1090ae8e}\label{classbio_python_wrapper_a3309c7000124b3f5438321fd1090ae8e}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{bio\+Python\+Wrapper()}{bioPythonWrapper()}}
+{\footnotesize\ttfamily bio\+Python\+Wrapper\+::bio\+Python\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sole constructor. \mbox{\Hypertarget{classbio_python_wrapper_ace7c20e3240083deb78147e5f15a910e}\label{classbio_python_wrapper_ace7c20e3240083deb78147e5f15a910e}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!````~bio\+Python\+Wrapper@{$\sim$bio\+Python\+Wrapper}}
+\index{````~bio\+Python\+Wrapper@{$\sim$bio\+Python\+Wrapper}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{$\sim$bio\+Python\+Wrapper()}{~bioPythonWrapper()}}
+{\footnotesize\ttfamily bio\+Python\+Wrapper\+::$\sim$bio\+Python\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Dtor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_python_wrapper_a406bb4c61e198ec7aa6f55f8d466c8d0}\label{classbio_python_wrapper_a406bb4c61e198ec7aa6f55f8d466c8d0}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!compute\+Cheap\+Hessian@{compute\+Cheap\+Hessian}}
+\index{compute\+Cheap\+Hessian@{compute\+Cheap\+Hessian}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Cheap\+Hessian()}{computeCheapHessian()}}
+{\footnotesize\ttfamily tr\+Hessian $\ast$ bio\+Python\+Wrapper\+::compute\+Cheap\+Hessian (\begin{DoxyParamCaption}\item[{tr\+Hessian $\ast$}]{hessian,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+This method is supposed to provide a cheap approximation of the hessian. Here, it is the B\+H\+HH approximation \mbox{\Hypertarget{classbio_python_wrapper_a69d029db3ab8c8189d2ac832093b8d61}\label{classbio_python_wrapper_a69d029db3ab8c8189d2ac832093b8d61}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!compute\+Function@{compute\+Function}}
+\index{compute\+Function@{compute\+Function}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Function()}{computeFunction()}}
+{\footnotesize\ttfamily pat\+Real bio\+Python\+Wrapper\+::compute\+Function (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+value of the function to minimize. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the variariables stored in x correspond to thr non fixed parameters of the model (\$\$, \$\$, \$\$,\$\$, scale parameters, etc.) \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_python_wrapper_a79a381fa8f8fc49f9799dec63b53f8a4}\label{classbio_python_wrapper_a79a381fa8f8fc49f9799dec63b53f8a4}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!compute\+Function\+And\+Derivatives@{compute\+Function\+And\+Derivatives}}
+\index{compute\+Function\+And\+Derivatives@{compute\+Function\+And\+Derivatives}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Function\+And\+Derivatives()}{computeFunctionAndDerivatives()}}
+{\footnotesize\ttfamily pat\+Real bio\+Python\+Wrapper\+::compute\+Function\+And\+Derivatives (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{tr\+Vector $\ast$}]{grad,  }\item[{tr\+Hessian $\ast$}]{hessian,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & vector of \$\{R\}$^\wedge$n\$ where the function is evaluated \\
+\hline
+{\em grad} & pointer to the vector where the gradient will be stored \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_python_wrapper_a2af0c18f84244ce781ca99e2afc58e48}\label{classbio_python_wrapper_a2af0c18f84244ce781ca99e2afc58e48}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!compute\+Hessian\+Times\+Vector@{compute\+Hessian\+Times\+Vector}}
+\index{compute\+Hessian\+Times\+Vector@{compute\+Hessian\+Times\+Vector}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{compute\+Hessian\+Times\+Vector()}{computeHessianTimesVector()}}
+{\footnotesize\ttfamily tr\+Vector $\ast$ bio\+Python\+Wrapper\+::compute\+Hessian\+Times\+Vector (\begin{DoxyParamCaption}\item[{tr\+Vector $\ast$}]{x,  }\item[{const tr\+Vector $\ast$}]{v,  }\item[{tr\+Vector $\ast$}]{r,  }\item[{pat\+Boolean $\ast$}]{success,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+Computes the product of the hessian and a vector. \begin{DoxyReturn}{Returns}
+value of the hessian of the function 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the variariables stored in x correspond to the non fixed parameters of the model (\$\$, \$\$, \$\$,\$\$, scale parameters, etc.) \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_python_wrapper_a587445d7da95e667c2332ca43ec00823}\label{classbio_python_wrapper_a587445d7da95e667c2332ca43ec00823}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!generate\+Cpp\+Code@{generate\+Cpp\+Code}}
+\index{generate\+Cpp\+Code@{generate\+Cpp\+Code}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{generate\+Cpp\+Code()}{generateCppCode()}}
+{\footnotesize\ttfamily void bio\+Python\+Wrapper\+::generate\+Cpp\+Code (\begin{DoxyParamCaption}\item[{ostream \&}]{str,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Must comply with the tr\+Function interface, but useless here. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbio_python_wrapper_ab61446fd399dcf7fbcaf667fa5834097}\label{classbio_python_wrapper_ab61446fd399dcf7fbcaf667fa5834097}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!get\+Current\+Variables@{get\+Current\+Variables}}
+\index{get\+Current\+Variables@{get\+Current\+Variables}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{get\+Current\+Variables()}{getCurrentVariables()}}
+{\footnotesize\ttfamily tr\+Vector bio\+Python\+Wrapper\+::get\+Current\+Variables (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Current value of the variables 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbio_python_wrapper_a63991abdfaca07aca3757e96cd06410d}\label{classbio_python_wrapper_a63991abdfaca07aca3757e96cd06410d}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!get\+Dimension@{get\+Dimension}}
+\index{get\+Dimension@{get\+Dimension}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{get\+Dimension()}{getDimension()}}
+{\footnotesize\ttfamily unsigned long bio\+Python\+Wrapper\+::get\+Dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Number of variable for the minimization problem 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_precompiled_function_a937016d0901997d9cc85b270335aa730}{bio\+Precompiled\+Function}.
+
+\mbox{\Hypertarget{classbio_python_wrapper_a1e8391dbed1fd49c04a042b9e15dec71}\label{classbio_python_wrapper_a1e8391dbed1fd49c04a042b9e15dec71}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!is\+Gradient\+Available@{is\+Gradient\+Available}}
+\index{is\+Gradient\+Available@{is\+Gradient\+Available}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Gradient\+Available()}{isGradientAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Python\+Wrapper\+::is\+Gradient\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_precompiled_function_a50c940f1d46f4ed75a4e54fbe425d11f}{bio\+Precompiled\+Function}.
+
+\mbox{\Hypertarget{classbio_python_wrapper_a8dcb20aa1e057667c0feaf3174545fc8}\label{classbio_python_wrapper_a8dcb20aa1e057667c0feaf3174545fc8}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!is\+Hessian\+Available@{is\+Hessian\+Available}}
+\index{is\+Hessian\+Available@{is\+Hessian\+Available}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Available()}{isHessianAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Python\+Wrapper\+::is\+Hessian\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_precompiled_function_aaa821c6546652dd085391c4f2199c97a}{bio\+Precompiled\+Function}.
+
+\mbox{\Hypertarget{classbio_python_wrapper_ad0e9def58fcc08187411ad78ef7314aa}\label{classbio_python_wrapper_ad0e9def58fcc08187411ad78ef7314aa}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}}
+\index{is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Times\+Vector\+Available()}{isHessianTimesVectorAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Python\+Wrapper\+::is\+Hessian\+Times\+Vector\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classbio_precompiled_function_ad29704661602c786841335f8d27795d1}{bio\+Precompiled\+Function}.
+
+\mbox{\Hypertarget{classbio_python_wrapper_a8952bd430a948cdc4f42f631ca3ddbd9}\label{classbio_python_wrapper_a8952bd430a948cdc4f42f631ca3ddbd9}} 
+\index{bio\+Python\+Wrapper@{bio\+Python\+Wrapper}!is\+User\+Based@{is\+User\+Based}}
+\index{is\+User\+Based@{is\+User\+Based}!bio\+Python\+Wrapper@{bio\+Python\+Wrapper}}
+\subsubsection{\texorpdfstring{is\+User\+Based()}{isUserBased()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Python\+Wrapper\+::is\+User\+Based (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+pat\+T\+R\+UE if inherited, user-\/based function, pat\+F\+A\+L\+SE if base class. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Python\+Wrapper.\+h\item 
+bio\+Python\+Wrapper.\+cc\end{DoxyCompactItemize}

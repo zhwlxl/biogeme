@@ -17,7 +17,7 @@
 
 class bioSample ;
 /*!
-Class implementing a node of the tree representing a sum expression
+Class implementing a node of the tree representing a sum or a prod expression
 */
 class bioArithIterator : public bioArithUnaryExpression {
 

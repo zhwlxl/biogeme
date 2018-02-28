@@ -1,0 +1,92 @@
+\hypertarget{classbio_iterator_info}{}\section{bio\+Iterator\+Info Class Reference}
+\label{classbio_iterator_info}\index{bio\+Iterator\+Info@{bio\+Iterator\+Info}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a9bb3e271e44324aa07c88a9ef2696d75}\label{classbio_iterator_info_a9bb3e271e44324aa07c88a9ef2696d75}} 
+pat\+Boolean {\bfseries operator==} (const \hyperlink{classbio_iterator_info}{bio\+Iterator\+Info} \&other) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_af4caac691988f3a73a14bec5e50ac388}\label{classbio_iterator_info_af4caac691988f3a73a14bec5e50ac388}} 
+pat\+Boolean {\bfseries operator!=} (const \hyperlink{classbio_iterator_info}{bio\+Iterator\+Info} \&other) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a41ae4bea7c632089d686a885d73c9868}\label{classbio_iterator_info_a41ae4bea7c632089d686a885d73c9868}} 
+{\bfseries bio\+Iterator\+Info} (pat\+String a\+File, pat\+String par, pat\+String child\+Iterator\+Name, pat\+String an\+Index, bio\+Iterator\+Type a\+Type)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a947311306a98ba35ddd8281f880b4eae}\label{classbio_iterator_info_a947311306a98ba35ddd8281f880b4eae}} 
+{\bfseries bio\+Iterator\+Info} (pat\+String a\+File)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a38e7162249607cb662e5b7e46c3ce548}\label{classbio_iterator_info_a38e7162249607cb662e5b7e46c3ce548}} 
+pat\+String {\bfseries get\+Info} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_af9fae6aeacca95bc94a673c5a847ecec}\label{classbio_iterator_info_af9fae6aeacca95bc94a673c5a847ecec}} 
+void {\bfseries compute\+Pointers} (pat\+U\+Long sample\+Size, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a11f10355772343163db076938acc186c}\label{classbio_iterator_info_a11f10355772343163db076938acc186c}} 
+pat\+Boolean {\bfseries is\+Top\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a79c322d5cef07b1f93d4ae77614b989c}\label{classbio_iterator_info_a79c322d5cef07b1f93d4ae77614b989c}} 
+pat\+Boolean {\bfseries is\+Row\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a9c85a419a34cc10756ed3b6ab0b5e1b3}\label{classbio_iterator_info_a9c85a419a34cc10756ed3b6ab0b5e1b3}} 
+pat\+Boolean {\bfseries is\+Meta\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a1c844072f33a1693880d94bb4b7844df}\label{classbio_iterator_info_a1c844072f33a1693880d94bb4b7844df}} 
+pat\+Boolean {\bfseries is\+Draw\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_abd14fc3d3c21520afac4925396091b60}\label{classbio_iterator_info_abd14fc3d3c21520afac4925396091b60}} 
+bio\+Iterator\+Type {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ad90c29752a7b025158d44b2b31a856e3}\label{classbio_iterator_info_ad90c29752a7b025158d44b2b31a856e3}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Iterations} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a31384c3f193dd9e52bd5ca3b488ee3cc}\label{classbio_iterator_info_a31384c3f193dd9e52bd5ca3b488ee3cc}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+Map\+Ids} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ad94172f707209c49bd8c0a04bb52357c}\label{classbio_iterator_info_ad94172f707209c49bd8c0a04bb52357c}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+Row\+Pointers} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ad66329e6e576bd743afbd2823d4b1900}\label{classbio_iterator_info_ad66329e6e576bd743afbd2823d4b1900}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries map\+Ids}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ad4af0dcaec1b50bc79683816d36103a0}\label{classbio_iterator_info_ad4af0dcaec1b50bc79683816d36103a0}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries row\+Pointers}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_aa08b8f5b66daa13cb80bc3ceefc1c409}\label{classbio_iterator_info_aa08b8f5b66daa13cb80bc3ceefc1c409}} 
+pat\+U\+Long {\bfseries number\+Of\+Iterations}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_aeb9671906450c239f9f27f606aeb8622}\label{classbio_iterator_info_aeb9671906450c239f9f27f606aeb8622}} 
+pat\+String {\bfseries child\+Iterator\+Name}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ab3c9d55d15282da443f3bfdbef615878}\label{classbio_iterator_info_ab3c9d55d15282da443f3bfdbef615878}} 
+pat\+String {\bfseries datafile}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a402295beda0180bc7a21d87d305cff04}\label{classbio_iterator_info_a402295beda0180bc7a21d87d305cff04}} 
+pat\+String {\bfseries index\+Name}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_aff295fdec2e88b7eef35e47dace534f8}\label{classbio_iterator_info_aff295fdec2e88b7eef35e47dace534f8}} 
+bio\+Iterator\+Type {\bfseries type}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a24451994f436313a43190d54a108aaf4}\label{classbio_iterator_info_a24451994f436313a43190d54a108aaf4}} 
+pat\+String {\bfseries the\+Parent}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_ac50a19df049f965c0a237216ac6f86fc}\label{classbio_iterator_info_ac50a19df049f965c0a237216ac6f86fc}} 
+pat\+String {\bfseries iterator\+Name}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a05ba98c8de3ef9936af42f0b230622a9}\label{classbio_iterator_info_a05ba98c8de3ef9936af42f0b230622a9}} 
+class {\bfseries bio\+Iterator\+Info\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_a55ce11a7313175c78d71e61185f00eb9}\label{classbio_iterator_info_a55ce11a7313175c78d71e61185f00eb9}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_iterator_info}{bio\+Iterator\+Info} \&x)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Iterator\+Info.\+h\item 
+bio\+Iterator\+Info.\+cc\end{DoxyCompactItemize}

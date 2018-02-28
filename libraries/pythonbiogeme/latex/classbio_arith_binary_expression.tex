@@ -1,0 +1,97 @@
+\hypertarget{classbio_arith_binary_expression}{}\section{bio\+Arith\+Binary\+Expression Class Reference}
+\label{classbio_arith_binary_expression}\index{bio\+Arith\+Binary\+Expression@{bio\+Arith\+Binary\+Expression}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Binary\+Expression.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Binary\+Expression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classbio_arith_binary_expression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a340b61c142b77764797950369eac7e28}\label{classbio_arith_binary_expression_a340b61c142b77764797950369eac7e28}} 
+{\bfseries bio\+Arith\+Binary\+Expression} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long lc, pat\+U\+Long rc, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_abf82c079c5929413a6f7d412fb81ba19}\label{classbio_arith_binary_expression_abf82c079c5929413a6f7d412fb81ba19}} 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries get\+Left\+Child} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_ab1cfb7635447dd42e8b8e973c8eedc24}\label{classbio_arith_binary_expression_ab1cfb7635447dd42e8b8e973c8eedc24}} 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries get\+Right\+Child} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_binary_expression_a6c48d0f1c7b6ba1b8cf3910b9ad04f93}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_aab5f6ca86bb59b081d3d915bf58b83af}\label{classbio_arith_binary_expression_aab5f6ca86bb59b081d3d915bf58b83af}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_af7ad9c883086f5058e1f93d9ebcf1800}\label{classbio_arith_binary_expression_af7ad9c883086f5058e1f93d9ebcf1800}} 
+virtual pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_add7bb73a87505b41be97b7b747e24229}\label{classbio_arith_binary_expression_add7bb73a87505b41be97b7b747e24229}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a4a91bcd3d7bb68418a0e35b33d749422}\label{classbio_arith_binary_expression_a4a91bcd3d7bb68418a0e35b33d749422}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a60b22bf5aaf9e40bafe5fb3620006d4b}\label{classbio_arith_binary_expression_a60b22bf5aaf9e40bafe5fb3620006d4b}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_af594a2a8aafaf291a615031972a9062c}\label{classbio_arith_binary_expression_af594a2a8aafaf291a615031972a9062c}} 
+virtual pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a1e1560a60cb3ac6a94ae9e5fcbd3307b}\label{classbio_arith_binary_expression_a1e1560a60cb3ac6a94ae9e5fcbd3307b}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a8515e95f3de497ca7522ade60d24e308}\label{classbio_arith_binary_expression_a8515e95f3de497ca7522ade60d24e308}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_ad9179f665fac918f733a6d2181a7298d}\label{classbio_arith_binary_expression_ad9179f665fac918f733a6d2181a7298d}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a6fb23227582cda20c43541ce35767e2d}\label{classbio_arith_binary_expression_a6fb23227582cda20c43541ce35767e2d}} 
+pat\+U\+Long {\bfseries left\+Child\+Id}
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a62727cdbc8f6518c14e08eafc9965cab}\label{classbio_arith_binary_expression_a62727cdbc8f6518c14e08eafc9965cab}} 
+pat\+U\+Long {\bfseries right\+Child\+Id}
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a99815db34d52903224e468ef574e5869}\label{classbio_arith_binary_expression_a99815db34d52903224e468ef574e5869}} 
+\hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries left\+Child}
+\item 
+\mbox{\Hypertarget{classbio_arith_binary_expression_a3b68601c3e004caa907c90dc07f41325}\label{classbio_arith_binary_expression_a3b68601c3e004caa907c90dc07f41325}} 
+\hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries right\+Child}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class for a binary expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_binary_expression_a6c48d0f1c7b6ba1b8cf3910b9ad04f93}\label{classbio_arith_binary_expression_a6c48d0f1c7b6ba1b8cf3910b9ad04f93}} 
+\index{bio\+Arith\+Binary\+Expression@{bio\+Arith\+Binary\+Expression}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Binary\+Expression@{bio\+Arith\+Binary\+Expression}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Binary\+Expression\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_binary_plus_afb38f58cc62bf6fbce4383ce40b1aecf}{bio\+Arith\+Binary\+Plus}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Binary\+Expression.\+h\item 
+bio\+Arith\+Binary\+Expression.\+cc\end{DoxyCompactItemize}

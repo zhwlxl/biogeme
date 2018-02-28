@@ -1,0 +1,77 @@
+\hypertarget{classbio_arith_composite_literal}{}\section{bio\+Arith\+Composite\+Literal Class Reference}
+\label{classbio_arith_composite_literal}\index{bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Composite\+Literal.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Composite\+Literal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classbio_arith_composite_literal}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classbio_arith_composite_literal}{bio\+Arith\+Composite\+Literal} $\ast$ \hyperlink{classbio_arith_composite_literal_aff5a7801055d4691dcc1ee84cc9fa201}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_composite_literal}{bio\+Arith\+Composite\+Literal} $\ast$ \hyperlink{classbio_arith_composite_literal_a99216fa86facca3b310a985c69116136}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_composite_literal_ab0471105a849e772c1e93f5b45b66acb}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_composite_literal_a2532b2dd05d30e3cbcb7f3051d1b90b6}\label{classbio_arith_composite_literal_a2532b2dd05d30e3cbcb7f3051d1b90b6}} 
+pat\+U\+Long {\bfseries the\+Composite\+Literal\+Id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class implementing the node for composite literals in an expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_composite_literal_aff5a7801055d4691dcc1ee84cc9fa201}\label{classbio_arith_composite_literal_aff5a7801055d4691dcc1ee84cc9fa201}} 
+\index{bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_composite_literal}{bio\+Arith\+Composite\+Literal} $\ast$ bio\+Arith\+Composite\+Literal\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_composite_literal_a99216fa86facca3b310a985c69116136}\label{classbio_arith_composite_literal_a99216fa86facca3b310a985c69116136}} 
+\index{bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_composite_literal}{bio\+Arith\+Composite\+Literal} $\ast$ bio\+Arith\+Composite\+Literal\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_composite_literal_ab0471105a849e772c1e93f5b45b66acb}\label{classbio_arith_composite_literal_ab0471105a849e772c1e93f5b45b66acb}} 
+\index{bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Composite\+Literal@{bio\+Arith\+Composite\+Literal}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Composite\+Literal\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Composite\+Literal.\+h\item 
+bio\+Arith\+Composite\+Literal.\+cc\end{DoxyCompactItemize}

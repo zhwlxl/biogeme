@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#set working directory to the location of this script\nsetwd(\"/Users/nikola.obrenovic/switchdrive/Projects/RCPP/code/PackageTest\");\n\nlibrary(Rcpp)\nlibrary(Biogeme3)\n\ndata <- read.csv(\"input.csv\");\nprint(data);\n\n#call Biogeme package\nBiogeme3::calcStatsR2(data);\n",
+    "created" : 1511524066425.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1839647693",
+    "id" : "777C018E",
+    "lastKnownWriteTime" : 1511521472,
+    "last_content_update" : 1511521472,
+    "path" : "~/switchdrive/Projects/RCPP/code/PackageTest/test.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

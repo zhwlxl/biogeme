@@ -671,10 +671,6 @@ PYTHON_LIBS
 PYTHON_CXXFLAGS
 PYTHON_INCLUDES
 PYTHONBIN
-BUILD_R_FALSE
-BUILD_R_TRUE
-R_CXXFLAGS
-HAVE_RSCRIPT
 BUILD_IPOPT_FALSE
 BUILD_IPOPT_TRUE
 IPOPT_STATIC_LDFLAGS
@@ -816,13 +812,11 @@ enable_silent_rules
 enable_longdouble
 enable_debug
 enable_gui
-enable_r
 enable_python
 enable_bison
 enable_staticexec
 enable_versioned
 with_ipopt
-with_r
 with_python_dir
 with_bison_dir
 with_lldb_dir
@@ -1479,7 +1473,6 @@ Optional Features:
 
   --enable-debug          enable debug data generation (def=no)
   --disable-gui           Does not build the version with a GUI
-  --disable-r             Does not build the interface with R
   --disable-python        Does not build Python Biogeme
   --disable-bison         Does not build Bison biogeme.
   --enable-staticexec     Build executables with static libraries.
@@ -1499,7 +1492,6 @@ Optional Packages:
   --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
                           compiler's sysroot if not specified).
   --without-ipopt         disable support for IPOPT
-  --without-r             disable support for R
   --with-python-dir=DIR   Specify the directory where Python 3 is.
   --with-bison-dir=DIR    Specify the directory where bison++ is installed.
   --with-lldb-dir=DIR     Specify the directory where lldb is installed.
@@ -15788,17 +15780,6 @@ END
 fi
 
 
-# R
-: ${R_HOME=`R RHOME`}
-if test -z "${R_HOME}"; then
-  RINSTALLED=no
-else
-  RINSTALLED=yes
-  RCXX=`"${R_HOME}/bin/R" CMD config CXX`
-  RCXXFLAGS=`"${R_HOME}/bin/R" CMD config CXXFLAGS`
-  RLDFLAGS=`"${R_HOME}/bin/R" CMD config LDFLAGS`
-fi
-
 AM_CXXFLAGS="$AM_CXXFLAGS -std=gnu++11"
 AM_LDFLAGS="$AM_LDFLAGS -no-undefined"
 ac_ext=cpp
@@ -16465,11 +16446,11 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 
 
-# Remove the next statement before distribution
+# This has to be configured properly... --> take into account the static exec option
 #AC_DISABLE_SHARED
 
 
-ac_config_files="$ac_config_files Makefile libraries/utils/Makefile libraries/linearAlgebra/Makefile libraries/trustRegion/Makefile libraries/cfsqp/Makefile libraries/ipopt/Makefile libraries/solvopt/Makefile libraries/randomNumbers/Makefile libraries/gaussHermite/Makefile libraries/stochasticGradient/Makefile libraries/parameters/Makefile libraries/bisonbiogeme/Makefile libraries/pythonbiogeme/Makefile tools/histograms/Makefile tools/prepareData/Makefile biogeme/Makefile biosim/Makefile mod2py/Makefile biomerge/Makefile pythonbiogeme/Makefile pybiogeme/Makefile r/Makefile gtkgui/Makefile"
+ac_config_files="$ac_config_files Makefile libraries/utils/Makefile libraries/linearAlgebra/Makefile libraries/trustRegion/Makefile libraries/cfsqp/Makefile libraries/ipopt/Makefile libraries/solvopt/Makefile libraries/randomNumbers/Makefile libraries/gaussHermite/Makefile libraries/stochasticGradient/Makefile libraries/parameters/Makefile libraries/bisonbiogeme/Makefile libraries/pythonbiogeme/Makefile tools/histograms/Makefile tools/prepareData/Makefile biogeme/Makefile biosim/Makefile mod2py/Makefile biomerge/Makefile pythonbiogeme/Makefile pybiogeme/Makefile biogemedylib/Makefile gtkgui/Makefile"
 
 
 
@@ -16553,15 +16534,6 @@ else
 fi
 
 
-# Check whether --enable-r was given.
-if test "${enable_r+set}" = set; then :
-  enableval=$enable_r;
-else
-  enable_r=yes
-
-fi
-
-
 # Check whether --enable-python was given.
 if test "${enable_python+set}" = set; then :
   enableval=$enable_python;
@@ -16606,19 +16578,6 @@ else
   with_ipopt=yes
 
 fi
-
-
-# R
-
-
-# Check whether --with-r was given.
-if test "${with_r+set}" = set; then :
-  withval=$with_r;
-else
-  with_r=yes
-
-fi
-
 
 
 
@@ -17057,96 +17016,6 @@ else
   BUILD_IPOPT_TRUE='#'
   BUILD_IPOPT_FALSE=
 fi
-
-
-# R
-
-if test "x$RINSTALLED" = "xyes" ; then
-
-  if test "x$with_r" = "xyes" ; then
-    # Extract the first word of "Rscript", so it can be a program name with args.
-set dummy Rscript; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
-$as_echo_n "checking for $ac_word... " >&6; }
-if ${ac_cv_prog_HAVE_RSCRIPT+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  if test -n "$HAVE_RSCRIPT"; then
-  ac_cv_prog_HAVE_RSCRIPT="$HAVE_RSCRIPT" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH
-do
-  IFS=$as_save_IFS
-  test -z "$as_dir" && as_dir=.
-    for ac_exec_ext in '' $ac_executable_extensions; do
-  if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_HAVE_RSCRIPT="yes"
-    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-  done
-IFS=$as_save_IFS
-
-  test -z "$ac_cv_prog_HAVE_RSCRIPT" && ac_cv_prog_HAVE_RSCRIPT="no"
-fi
-fi
-HAVE_RSCRIPT=$ac_cv_prog_HAVE_RSCRIPT
-if test -n "$HAVE_RSCRIPT"; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $HAVE_RSCRIPT" >&5
-$as_echo "$HAVE_RSCRIPT" >&6; }
-else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-fi
-
-
-    if test "x$HAVE_RSCRIPT" = "xyes" ; then
-      RBIO="yes"
-      RBIO_SUGGEST=""
-      { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build an R interface" >&5
-$as_echo_n "checking whether to build an R interface... " >&6; }
-      { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-    else
-      RBIO="no"
-      RBIO_SUGGEST="(Rscript in not in the path. Install R and Rcpp)"
-      { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build an R interface" >&5
-$as_echo_n "checking whether to build an R interface... " >&6; }
-      { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-    fi
-  else
-      RBIO="no"
-      RBIO_SUGGEST="(disabled by the --without-r option)"
-      { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build an R interface" >&5
-$as_echo_n "checking whether to build an R interface... " >&6; }
-      { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-  fi
-
-
-  if test "x$RBIO" = "xyes" ; then
-      R_CXXFLAGS="`Rscript -e 'Rcpp:::CxxFlags()'`"
-
-$as_echo "#define Rscript /**/" >>confdefs.h
-
-
-  fi
-else
-  RBIO_SUGGEST="(RHOME cannot be found. Install R)"
-  RBIO="no"
-fi
-
- if test "x$RBIO" = "xyes"; then
-  BUILD_R_TRUE=
-  BUILD_R_FALSE='#'
-else
-  BUILD_R_TRUE='#'
-  BUILD_R_FALSE=
-fi
-
 
 
 
@@ -18044,10 +17913,11 @@ if test "x$enable_staticexec" = "xyes" ; then
   if test "x$lt_cv_prog_compiler_static_works" = "xno" ; then
     STATIC="no (flag -static not supported by the compiler)"
   else
-    AM_LDFLAGS="$AM_LDFLAGS -static -static-libgcc -static-libstdc++"
+    AM_LDFLAGS="$AM_LDFLAGS -shared"
   fi
 else
   STATIC="no (use option --enable-staticexec)"
+  AM_LDFLAGS="$AM_LDFLAGS -shared"
 fi
 
  if test "x$STATIC" = "xyes"; then
@@ -18239,10 +18109,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${BUILD_IPOPT_TRUE}" && test -z "${BUILD_IPOPT_FALSE}"; then
   as_fn_error $? "conditional \"BUILD_IPOPT\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${BUILD_R_TRUE}" && test -z "${BUILD_R_FALSE}"; then
-  as_fn_error $? "conditional \"BUILD_R\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${SYSTEM_WITH_PBS_TRUE}" && test -z "${SYSTEM_WITH_PBS_FALSE}"; then
@@ -19272,7 +19138,7 @@ do
     "biomerge/Makefile") CONFIG_FILES="$CONFIG_FILES biomerge/Makefile" ;;
     "pythonbiogeme/Makefile") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/Makefile" ;;
     "pybiogeme/Makefile") CONFIG_FILES="$CONFIG_FILES pybiogeme/Makefile" ;;
-    "r/Makefile") CONFIG_FILES="$CONFIG_FILES r/Makefile" ;;
+    "biogemedylib/Makefile") CONFIG_FILES="$CONFIG_FILES biogemedylib/Makefile" ;;
     "gtkgui/Makefile") CONFIG_FILES="$CONFIG_FILES gtkgui/Makefile" ;;
     "pythonbiogeme/pythonbiogeme") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/pythonbiogeme" ;;
     "pythonbiogeme/debugbiogeme") CONFIG_FILES="$CONFIG_FILES pythonbiogeme/debugbiogeme" ;;
@@ -20648,7 +20514,6 @@ fi
  Build biosim.............$BISONBIO $BISONBIO_SUGGEST
  Build python biogeme.....$NEWBIO $NEWBIO_SUGGEST
  Build GTK GUI version....$GTKBIO $GTKBIO_SUGGEST
- Build R interface........$RBIO $RBIO_SUGGEST
  Use IPOPT optimization...$IPOPTBIO $IPOPTBIO_SUGGEST
  Static executables.......$STATIC
  Long double..............$WITHLONGDOUBLE
@@ -20664,7 +20529,6 @@ $as_echo "
  Build biosim.............$BISONBIO $BISONBIO_SUGGEST
  Build python biogeme.....$NEWBIO $NEWBIO_SUGGEST
  Build GTK GUI version....$GTKBIO $GTKBIO_SUGGEST
- Build R interface........$RBIO $RBIO_SUGGEST
  Use IPOPT optimization...$IPOPTBIO $IPOPTBIO_SUGGEST
  Static executables.......$STATIC
  Long double..............$WITHLONGDOUBLE

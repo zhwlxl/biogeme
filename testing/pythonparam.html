@@ -3,40 +3,21 @@
 <html xmlns='http://www.w3.org/1999/xhtml'>
 <head>
 <title>Python Biogeme</title>
-<!-- <meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1' /> -->
+<p>biogeme 2.7b [Thu Dec 28 18:17:39 CET 2017]</p>
+<p>Home page: <a href='http://biogeme.epfl.ch' target='_blank'>http://biogeme.epfl.ch</a></p>
+<p>Submit questions to <a href='https://groups.google.com/d/forum/biogeme' target='_blank'>https://groups.google.com/d/forum/biogeme</a></p>
+<p><a href='http://people.epfl.ch/michel.bierlaire'>Michel Bierlaire</a>, <a href='http://transp-or.epfl.ch'>Transport and Mobility Laboratory</a>, <a href='http://www.epfl.ch'>Ecole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL)</a></p>
+<p>This file has automatically been generated on
+Fri Dec 29 09:00:29 2017</p>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-<link href='http://www.epfl.ch/css/epfl.css' media='all'
-	rel='stylesheet' type='text/css' />
-<link href='http://www.epfl.ch/css/epfl.css' media='all'
-	rel='stylesheet' type='text/css' />
-<link href='http://www.epfl.ch/css/enac.css' media='all'
-	rel='stylesheet' type='text/css' />
-<script type='text/javascript'
-	src='http://www.epfl.ch/js/jquery-epfl.min.js'></script>
-<script type='text/javascript'>jQuery.noConflict();</script>
-<script type='text/javascript' src='http://www.epfl.ch/js/globalnav.js'></script>
-
 </head>
 <body>
-<a name='top'></a>
-<div id='main-content'>
+<h1>Python Biogeme Parameters</h1>
 
-<div class='clear '></div>
-
- 
-<h1><a href='http://biogeme.epfl.ch'>Python Biogeme <acronym
-	title='Biogeme' class='local-color-text'>Parameters</acronym></a></h1>
-
-<div class='clear '></div>
-
-
-<div id='content' class='content'>
-
-<h2>Python Biogeme: parameters</h2>
 <p>The execution of Biogeme can be controlled by user defined parameters. The syntax is
 <code>
 <pre>
-BIOGEME_OBJECT.PARAMETERS['parameterName'] = 'value'
+BIOGEME_OBJECT.PARAMETERS['parameterName'] = "value"
 </pre>
 </code>
 </p>
@@ -45,7 +26,6 @@ BIOGEME_OBJECT.PARAMETERS['parameterName'] = 'value'
 The <code>parameterName</code> must be one of the names listed below. Depending on the nature of the parameter, the value must be an integer, a real number or a string of characters. The value must be delimited by double quotes.
 </p>
 
-<div class='fullbox'>
 <table>
 <tr><th>Parameter name</th>
 <th>Type of value</th>
@@ -149,6 +129,24 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>Typical value of the log likelihood function, with opposite sign </td>
 </tr>
 <tr valign='top'>
+<td><code>IPOPTacceptable_tol</code></td>
+<td>Real</td>
+<td><code>0.0001 </code></td>
+<td>IPOPT: "Acceptable" convergence tolerance (relative). See IPOPT documentation</td>
+</tr>
+<tr valign='top'>
+<td><code>IPOPTmax_cpu_time</code></td>
+<td>Real</td>
+<td><code>1e+06 </code></td>
+<td>IPOPT: Maximum number of CPU seconds. See IPOPT documentation</td>
+</tr>
+<tr valign='top'>
+<td><code>IPOPTtol</code></td>
+<td>Real</td>
+<td><code>1e-06 </code></td>
+<td>IPOPT: Desired convergence tolerance (relative). See IPOPT documentation</td>
+</tr>
+<tr valign='top'>
 <td><code>MetropolisHastingsNeighborhoodSize</code></td>
 <td>Real</td>
 <td><code>1 </code></td>
@@ -203,6 +201,12 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>Default value for composite literals.</td>
 </tr>
 <tr valign='top'>
+<td><code>prematureConvergenceThreshold</code></td>
+<td>Real</td>
+<td><code>0 </code></td>
+<td>Convergence towards previously visited points can be detected using BIOGEME_OBJECT.OLDBETAS. If an iterate is close to a solution in the list, iteration are interrupted. It happens when the Euclidean distance is lesser or equal to this parameter. A value of 0.0 disable this feature.</td>
+</tr>
+<tr valign='top'>
 <td><code>sensitivityAnalysisAlpha</code></td>
 <td>Real</td>
 <td><code>0.05 </code></td>
@@ -227,6 +231,18 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td> See <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf'>SOLVOPT manual</a>.  In general, it should not be changed.</td>
 </tr>
 <tr valign='top'>
+<td><code>stochasticGradientFirstStepSize</code></td>
+<td>Real</td>
+<td><code>0.1 </code></td>
+<td>First step used for the stochastic gradient algortithm</td>
+</tr>
+<tr valign='top'>
+<td><code>stochasticGradientStepUpdate</code></td>
+<td>Real</td>
+<td><code>0.9 </code></td>
+<td>At each iteration of the stochastic gradient algorithm, the step is multiplied by this factor.</td>
+</tr>
+<tr valign='top'>
 <td><code>tTestThreshold</code></td>
 <td>Real</td>
 <td><code>1.96 </code></td>
@@ -235,7 +251,7 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <tr valign='top'>
 <td><code>toleranceCheckDerivatives</code></td>
 <td>Real</td>
-<td><code>0.001 </code></td>
+<td><code>0.01 </code></td>
 <td>Difference between analytical and finite differences derivative is considered to be significant if greater or equal to this value</td>
 </tr>
 <tr valign='top'>
@@ -272,7 +288,13 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td><code>optimizationAlgorithm</code></td>
 <td>String</td>
 <td><code>BIO </code></td>
-<td>Name of the optimization algorithm used to solve the maximum likelihood estimation problem. Valid values are:<dl><dt>BIO</dt><dd>Trust region method implemented for Biogeme</dd><dt>CFSQP</dt><dd>SQP method by <a href='http://hdl.handle.net/1903/5496' target='_blank'>Craig et al. (1994)</a></dd><dt>SOLVOPT</dt><dd>Implementation of Shor's method by <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf' target='_blank'>Kuntsevich and Kappel (1997)</a></dd></dl>Note that BIOMC is not yet available in Python Biogeme.</td>
+<td>Name of the optimization algorithm used to solve the maximum likelihood estimation problem. Valid values are:<dl><dt>BIO</dt><dd>Trust region method implemented for Biogeme</dd><dt>CFSQP</dt><dd>SQP method by <a href='http://hdl.handle.net/1903/5496' target='_blank'>Craig et al. (1994)</a></dd><dt>IPOPT</dt><dd><a href='https://projects.coin-or.org/Ipopt' target='_blank'>COIN-OR IPOPT</a></dd><dt>SOLVOPT</dt><dd>Implementation of Shor's method by <a href='http://www.kfunigraz.ac.at/imawww/kuntsevich/solvopt/ps/manual.pdf' target='_blank'>Kuntsevich and Kappel (1997)</a></dd></dl>Note that BIOMC is not yet available in Python Biogeme.</td>
+</tr>
+<tr valign='top'>
+<td><code>startingPoint</code></td>
+<td>String</td>
+<td><code>USER </code></td>
+<td>Determine how the starting point of the optimization is defined. USER: use the values provided by the user in the model file. RANDOM: select values uniformly distributed between the bounds. STOCHASTIC_GRADIENT: apply stochastic gradient [Experimental. Not tested yet].</td>
 </tr>
 <tr valign='top'>
 <td><code>stopFileName</code></td>
@@ -359,6 +381,18 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>If this parameter is non zero, Biogeme dumps the values simulated during sensitivity analysis in a file.</td>
 </tr>
 <tr valign='top'>
+<td><code>IPOPTacceptable_iter</code></td>
+<td>Integer</td>
+<td><code>5 </code></td>
+<td>IPOPT: Number of "acceptable" iterates before triggering termination. See IPOPT documentation</td>
+</tr>
+<tr valign='top'>
+<td><code>IPOPTmax_iter</code></td>
+<td>Integer</td>
+<td><code>3000 </code></td>
+<td>IPOPT: Maximum number of iterations. See IPOPT documentation</td>
+</tr>
+<tr valign='top'>
 <td><code>NbrOfDraws</code></td>
 <td>Integer</td>
 <td><code>1000 </code></td>
@@ -401,10 +435,28 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>If 0, only general messages are included in the log file. If 1, more detailed messages are provided. If 2 or more, messages designed for debugging purposes are also included.</td>
 </tr>
 <tr valign='top'>
+<td><code>bootstrapStdErr</code></td>
+<td>Integer</td>
+<td><code>0 </code></td>
+<td>If different from 0, Biogeme calculates the statistics using boostrap. The value of the parameter defines the number of resampling used in the bootstrap. A value of 100 is usually appropriate.</td>
+</tr>
+<tr valign='top'>
 <td><code>buildAnalyticalGradient</code></td>
 <td>Integer</td>
 <td><code>1 </code></td>
 <td>If 1, Biogeme generates the analytical gradient of the log likelihood. If 0, the finite difference approximation is used instead.</td>
+</tr>
+<tr valign='top'>
+<td><code>calculateAnalyticalHessian</code></td>
+<td>Integer</td>
+<td><code>1 </code></td>
+<td>If this parameters is different from 0, the second derivative matrix of the likelihood function is calculated at the solution.</td>
+</tr>
+<tr valign='top'>
+<td><code>calculateFinDiffHessian</code></td>
+<td>Integer</td>
+<td><code>0 </code></td>
+<td>If the parameter 'calculateAnalyticalHessian' is 0, and this parameters is different from 0, the second derivative matrix of the likelihood function is calculated at the solution using finite difference approximation.</td>
 </tr>
 <tr valign='top'>
 <td><code>cfsqpIprint</code></td>
@@ -443,10 +495,10 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>Sets the decimal precision to be used to format floating-point values on output operations with the SIMULATE function.</td>
 </tr>
 <tr valign='top'>
-<td><code>deriveAnalyticalHessian</code></td>
+<td><code>detectMissingValue</code></td>
 <td>Integer</td>
-<td><code>1 </code></td>
-<td>The second derivative matrix of the likelihood function is derived if this parameters is different from 0.</td>
+<td><code>0 </code></td>
+<td>This parameter is used mainly for debugging purposes. If set to 1, any time that a literal takes the values given by the parameter 'missingValue', an error message is triggered.</td>
 </tr>
 <tr valign='top'>
 <td><code>dumpDrawsOnFile</code></td>
@@ -459,6 +511,12 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>Integer</td>
 <td><code>10000 </code></td>
 <td>Each literal is assigned a unique ID by Biogeme. The first of these IDs is defined by this parameter. It is recommended not to modify it. </td>
+</tr>
+<tr valign='top'>
+<td><code>forceScientificNotation</code></td>
+<td>Integer</td>
+<td><code>0 </code></td>
+<td>If 1, use the scientific notation in reporting the results.</td>
 </tr>
 <tr valign='top'>
 <td><code>includeDataWhenSimulate</code></td>
@@ -497,6 +555,30 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>This parameter specifies the number of <a href='http://en.wikipedia.org/wiki/Thread_(computer_science)' target='_blank'>threads</a> that will be launched. Note that it may exceed the actual number of available processors. However, this may affect the performance by creating unnecessary overhead. If the value is 0 (which is the case by default), the number of threads is set to the number of processors, multiplied by the value of the parameter shareOfProcessors / 100. If this number is unavailable, the number of threads is set to 4.</td>
 </tr>
 <tr valign='top'>
+<td><code>precisionParameters</code></td>
+<td>Integer</td>
+<td><code>3 </code></td>
+<td>Number of significant digits when reporting the estimated parameters.</td>
+</tr>
+<tr valign='top'>
+<td><code>precisionStatistics</code></td>
+<td>Integer</td>
+<td><code>3 </code></td>
+<td>Number of significant digits when reporting statistics.</td>
+</tr>
+<tr valign='top'>
+<td><code>precisionTStats</code></td>
+<td>Integer</td>
+<td><code>2 </code></td>
+<td>Number of decimals when reporting the t-statistics.</td>
+</tr>
+<tr valign='top'>
+<td><code>printGradient</code></td>
+<td>Integer</td>
+<td><code>0 </code></td>
+<td>If 0, Biogeme does not print the gradient of the log likelihood in the report file.</td>
+</tr>
+<tr valign='top'>
 <td><code>printPValue</code></td>
 <td>Integer</td>
 <td><code>1 </code></td>
@@ -512,7 +594,7 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td><code>scaleDerivativesInSums</code></td>
 <td>Integer</td>
 <td><code>0 </code></td>
-<td>When calculating derivatives (first and second) of sum, Biogeme divide each element by the value of the function before accumulating them, and re-multiply the final result by the same value. It avoids the accumulation of large numbers, that may go beyond the maximum value that can be represented in memory. Note that it is at the expense of performance.</td>
+<td>When calculating derivatives (first and second) of sum, Biogeme divides each element by the value of the function before accumulating them, and re-multiply the final result by the same value. It avoids the accumulation of large numbers, that may go beyond the maximum value that can be represented in memory. Note that it is at the expense of performance.</td>
 </tr>
 <tr valign='top'>
 <td><code>shareOfProcessors</code></td>
@@ -539,6 +621,18 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td> Maximum number of iterations for algorithm SOLVOPT</td>
 </tr>
 <tr valign='top'>
+<td><code>stochasticGradientDataSize</code></td>
+<td>Integer</td>
+<td><code>1 </code></td>
+<td>NUmber of observations used at each iteration of the stochastic gradient method</td>
+</tr>
+<tr valign='top'>
+<td><code>stochasticGradientNumberOfPasses</code></td>
+<td>Integer</td>
+<td><code>1 </code></td>
+<td>NUmber of times that the stochastic gradient algotrithm reads the data.</td>
+</tr>
+<tr valign='top'>
 <td><code>svdMaxIter</code></td>
 <td>Integer</td>
 <td><code>150 </code></td>
@@ -548,7 +642,7 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td><code>useAnalyticalHessianForOptimization</code></td>
 <td>Integer</td>
 <td><code>0 </code></td>
-<td>If the second derivative matrix is available, it is used in the optimization algorithm if the parameter is different from 0.</td>
+<td>If the analytical second derivative matrix is available, it is used in the optimization algorithm if the parameter is different from 0.</td>
 </tr>
 <tr valign='top'>
 <td><code>varCovarFromBHHH</code></td>
@@ -563,25 +657,5 @@ The <code>parameterName</code> must be one of the names listed below. Depending 
 <td>The expression <code>Elem</code> is designed to access an element from a dictionary. If Biogeme tries to access an element not in the dictionary, it will trigger a warning if the parameter is set to 1, and stay silent if set to 0.</td>
 </tr>
 </table>
-</div>
-
-</div>
-
-<!-- ================================================================================================================= -->
-
-<div class='right-col'><!-- div 1 -->
-
-<ul class='tree'>
-<li><a href='index.html'>Content</a></li>
-<li><a href='http://biogeme.epfl.ch'>Biogeme</a></li>
-</ul>
-
-</div>    
-    <div class='clear'></div>
-
-<a href='index.html'>Content</a><BR>
-<a href='http://biogeme.epfl.ch'>Biogeme</a>
-
-
 </body>
 </html>

@@ -105,3 +105,17 @@ patReal bioFunctionAndDerivatives::compare(const bioFunctionAndDerivatives& x,
   }
   return maximum ;
 }
+
+
+void bioFunctionAndDerivatives::weight(patReal w, patError*& err) {
+  if (w == 1.0) {
+    return ;
+  }
+  theFunction *= w ;
+  theGradient *= w ;
+  theHessian.multAllEntries(w,err) ;
+  if (err != NULL) {
+    WARNING(err->describe()) ;
+    return ;
+  }
+}

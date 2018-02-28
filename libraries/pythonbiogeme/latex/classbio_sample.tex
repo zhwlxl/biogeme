@@ -1,0 +1,84 @@
+\hypertarget{classbio_sample}{}\section{bio\+Sample Class Reference}
+\label{classbio_sample}\index{bio\+Sample@{bio\+Sample}}
+
+
+{\ttfamily \#include $<$bio\+Sample.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_sample_a8e7a97ab4d5d5f2956ef57737a00c32d}\label{classbio_sample_a8e7a97ab4d5d5f2956ef57737a00c32d}} 
+{\bfseries bio\+Sample} (pat\+String filename, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_a8d1afd0ffcfa7bdaeae4bcafc90fe431}\label{classbio_sample_a8d1afd0ffcfa7bdaeae4bcafc90fe431}} 
+pat\+U\+Long {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_a31cfba2652f201351e0e0bf6e95c5d52}\label{classbio_sample_a31cfba2652f201351e0e0bf6e95c5d52}} 
+vector$<$ pat\+String $>$ {\bfseries get\+Headers} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_ad7a0e369be956b9a1aeb26000e273c5a}\label{classbio_sample_ad7a0e369be956b9a1aeb26000e273c5a}} 
+pat\+Variables $\ast$ {\bfseries at} (pat\+U\+Long index)
+\item 
+\mbox{\Hypertarget{classbio_sample_a183bdb50149bc994c56ada21cbc068f6}\label{classbio_sample_a183bdb50149bc994c56ada21cbc068f6}} 
+pat\+U\+Long {\bfseries get\+Index\+From\+Header} (pat\+String h, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_sample_a5b3c4f90ab274ddf3c705a7e4a2ac62b}\label{classbio_sample_a5b3c4f90ab274ddf3c705a7e4a2ac62b}} 
+pat\+Boolean {\bfseries is\+Equal} (\hyperlink{classbio_sample}{bio\+Sample} s)
+\item 
+\mbox{\Hypertarget{classbio_sample_ab2f8b18d4d4348e6a002492e68d86089}\label{classbio_sample_ab2f8b18d4d4348e6a002492e68d86089}} 
+void {\bfseries print\+Sample} ()
+\item 
+\mbox{\Hypertarget{classbio_sample_a1b324dbfe5a0063a73b4232acc54195c}\label{classbio_sample_a1b324dbfe5a0063a73b4232acc54195c}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Columns} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_ad2cffc4d483db4155b9f08cf138caa0a}\label{classbio_sample_ad2cffc4d483db4155b9f08cf138caa0a}} 
+\hyperlink{classbio_meta_iterator}{bio\+Meta\+Iterator} $\ast$ {\bfseries create\+Meta\+Iterator} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Thread\+Span, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_sample_a5c2c06741d9ff9d3e40e2294bfd7c4db}\label{classbio_sample_a5c2c06741d9ff9d3e40e2294bfd7c4db}} 
+\hyperlink{classbio_random_meta_iterator}{bio\+Random\+Meta\+Iterator} $\ast$ {\bfseries create\+Random\+Meta\+Iterator} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Thread\+Span, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_sample_af0e58da154abb72fa3805fe23d935de5}\label{classbio_sample_af0e58da154abb72fa3805fe23d935de5}} 
+\hyperlink{classbio_row_iterator}{bio\+Row\+Iterator} $\ast$ {\bfseries create\+Row\+Iterator} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Thread\+Span, pat\+Boolean print\+Messages, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_sample_a1af652984dad9771c202e367c66622d4}\label{classbio_sample_a1af652984dad9771c202e367c66622d4}} 
+\hyperlink{classbio_row_iterator}{bio\+Row\+Iterator} $\ast$ {\bfseries create\+Id\+Iterator} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Span, \hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} the\+Thread\+Span, pat\+String header, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_sample_ab2560bcb3968585246eab37ebd22f892}\label{classbio_sample_ab2560bcb3968585246eab37ebd22f892}} 
+void {\bfseries prepare} (\hyperlink{classbio_expression}{bio\+Expression} $\ast$exclude, vector$<$ pair$<$ pat\+String, \hyperlink{classbio_expression}{bio\+Expression} $\ast$$>$ $>$ $\ast$user\+Expressions, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_a8dfc7207f07bb239b653efe5f777e123}\label{classbio_sample_a8dfc7207f07bb239b653efe5f777e123}} 
+vector$<$ pat\+U\+Long\+Long $>$ {\bfseries get\+List\+Of\+Ids} (pat\+String header, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_a5a8e8ca6bfaa0887b1318eaf4fbd0d0f}\label{classbio_sample_a5a8e8ca6bfaa0887b1318eaf4fbd0d0f}} 
+void {\bfseries set\+Column} (pat\+String column, vector$<$ pat\+Real $>$ values, pat\+Boolean duplicate, pat\+String individual, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_a00fd6e290aa9c2125ee36e1d377366a0}\label{classbio_sample_a00fd6e290aa9c2125ee36e1d377366a0}} 
+vector$<$ pat\+Real $>$ {\bfseries get\+Column} (pat\+String column, pat\+String individual, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_abd3fa015c17b78cde86d7c260289ed30}\label{classbio_sample_abd3fa015c17b78cde86d7c260289ed30}} 
+pat\+U\+Long {\bfseries get\+Nbr\+Excluded\+Row} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_abdb52175906588a378d7b8e0d55ec2b6}\label{classbio_sample_abdb52175906588a378d7b8e0d55ec2b6}} 
+const pat\+Variables $\ast$ {\bfseries get\+First\+Row} ()
+\item 
+\mbox{\Hypertarget{classbio_sample_a44a5244ec660387bea762ec8140af1ea}\label{classbio_sample_a44a5244ec660387bea762ec8140af1ea}} 
+void {\bfseries process\+Row} (\hyperlink{classbio_expression}{bio\+Expression} $\ast$exclude, vector$<$ pat\+Real $>$ list\+OfV, vector$<$ pair$<$ pat\+String, \hyperlink{classbio_expression}{bio\+Expression} $\ast$$>$ $>$ $\ast$user\+Expressions, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_sample_a2e32b9e58dd74bd331b90b5c804d3ed5}\label{classbio_sample_a2e32b9e58dd74bd331b90b5c804d3ed5}} 
+pat\+String {\bfseries get\+Processing\+Time} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_a6ffab6ab0eebf129a242716bdb52d430}\label{classbio_sample_a6ffab6ab0eebf129a242716bdb52d430}} 
+pat\+String {\bfseries get\+Data\+File\+Name} () const
+\item 
+\mbox{\Hypertarget{classbio_sample_a900a63bd43b4c051a813a805569acefc}\label{classbio_sample_a900a63bd43b4c051a813a805569acefc}} 
+\hyperlink{classbio_sample}{bio\+Sample} {\bfseries get\+Bootstrap} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This object is in charge of the sample management. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Sample.\+h\item 
+bio\+Sample.\+cc\end{DoxyCompactItemize}

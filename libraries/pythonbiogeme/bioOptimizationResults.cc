@@ -140,3 +140,16 @@ patReal bioOptimizationResults::getSmallestSingularValue(patError*& err) {
   }
   return smallestSingularValue ;
 }
+
+patString bioOptimizationResults::printFunctionAndDerivatives(patError* err) {
+  stringstream str ;
+  str << "f = " << objective << endl ;
+  str << "g = " << gradient << endl ;
+  if (hessian != NULL) {
+    str << "h = " << *hessian << endl ;
+  }
+  if (bhhh != NULL) {
+    str << "bhhh = " << *bhhh << endl ;
+  }
+  return patString(str.str()) ;
+}

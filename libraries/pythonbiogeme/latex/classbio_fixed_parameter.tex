@@ -1,0 +1,113 @@
+\hypertarget{classbio_fixed_parameter}{}\section{bio\+Fixed\+Parameter Class Reference}
+\label{classbio_fixed_parameter}\index{bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}}
+
+
+{\ttfamily \#include $<$bio\+Fixed\+Parameter.\+h$>$}
+
+Inheritance diagram for bio\+Fixed\+Parameter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_fixed_parameter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ace264a805e77aa967d8819501f2f2d9b}\label{classbio_fixed_parameter_ace264a805e77aa967d8819501f2f2d9b}} 
+pat\+Real {\bfseries get\+Value} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ae78e294fbbcb8355bfc15ea211f713fa}\label{classbio_fixed_parameter_ae78e294fbbcb8355bfc15ea211f713fa}} 
+void {\bfseries set\+Value} (pat\+Real val)
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ad18b61b64b980d55152199f10676c151}\label{classbio_fixed_parameter_ad18b61b64b980d55152199f10676c151}} 
+bio\+Literal\+Type {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ac92d7dd89fb8597f54f014c508828531}\label{classbio_fixed_parameter_ac92d7dd89fb8597f54f014c508828531}} 
+pat\+Real {\bfseries get\+Lower\+Bound} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a6448f8302f34abfc7072af821021ea39}\label{classbio_fixed_parameter_a6448f8302f34abfc7072af821021ea39}} 
+pat\+Real {\bfseries get\+Upper\+Bound} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_aa37d5d4a9d1164f8cda12cb4f97cf125}\label{classbio_fixed_parameter_aa37d5d4a9d1164f8cda12cb4f97cf125}} 
+pat\+Boolean {\bfseries is\+Fixed\+Param} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a28b67f8170ac95d2f4393981caa5d54c}\label{classbio_fixed_parameter_a28b67f8170ac95d2f4393981caa5d54c}} 
+pat\+String {\bfseries print\+Python\+Code} (pat\+Boolean estimation=pat\+F\+A\+L\+SE) const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a416efa66d05bbf24d32ac7bb67ddcdff}\label{classbio_fixed_parameter_a416efa66d05bbf24d32ac7bb67ddcdff}} 
+pat\+U\+Long {\bfseries get\+Parameter\+Id} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a5762200b6577b190fb8e7e084d3d993f}\label{classbio_fixed_parameter_a5762200b6577b190fb8e7e084d3d993f}} 
+pat\+U\+Long {\bfseries get\+Estimated\+Parameter\+Id} () const
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_af787b70a25f7c325383172224b74a9ef}\label{classbio_fixed_parameter_af787b70a25f7c325383172224b74a9ef}} 
+pat\+String {\bfseries get\+La\+Te\+X\+Row} (pat\+Real std\+Err, pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_fixed_parameter_aec756782840347fa817e369dc8f92f12}{bio\+Fixed\+Parameter} (pat\+String the\+Name, pat\+U\+Long unique\+Id, pat\+U\+Long p\+Id, pat\+U\+Long e\+Id, pat\+Real def, pat\+Real lb, pat\+Real ub, pat\+Boolean f, pat\+String latex)
+\item 
+\hyperlink{classbio_fixed_parameter_a132679ea6cf49e582159c64e8264a475}{bio\+Fixed\+Parameter} (pat\+String the\+Name, pat\+U\+Long id, pat\+U\+Long p\+Id, pat\+U\+Long e\+Id, pat\+Real def=0.\+0)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ab9d336e443309e424e12174b58e2af43}\label{classbio_fixed_parameter_ab9d336e443309e424e12174b58e2af43}} 
+pat\+U\+Long {\bfseries the\+Parameter\+Id}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_aa2c92673aedfc4aeca0b6dffb983bd5e}\label{classbio_fixed_parameter_aa2c92673aedfc4aeca0b6dffb983bd5e}} 
+pat\+U\+Long {\bfseries the\+Estimated\+Id}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_aa2520f9d22303b24442d1e7fd7c35429}\label{classbio_fixed_parameter_aa2520f9d22303b24442d1e7fd7c35429}} 
+pat\+Real {\bfseries default\+Value}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_ae5a560fc05db936e22235283aa0cbb1e}\label{classbio_fixed_parameter_ae5a560fc05db936e22235283aa0cbb1e}} 
+pat\+Real {\bfseries current\+Value}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a57595399f5db3e400fc8499b6e7764fa}\label{classbio_fixed_parameter_a57595399f5db3e400fc8499b6e7764fa}} 
+pat\+Real {\bfseries lower\+Bound}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_aebe297c6bcc34b6952e7c76284e31dd2}\label{classbio_fixed_parameter_aebe297c6bcc34b6952e7c76284e31dd2}} 
+pat\+Real {\bfseries upper\+Bound}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a15ee783919ffbcb256c1ea3ea28d7ce4}\label{classbio_fixed_parameter_a15ee783919ffbcb256c1ea3ea28d7ce4}} 
+pat\+Boolean {\bfseries is\+Fixed}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_abb84650d18622a8c4ba1f407864fe637}\label{classbio_fixed_parameter_abb84650d18622a8c4ba1f407864fe637}} 
+pat\+String {\bfseries latex\+Name}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a6ea664ca897010b84852832942ab0274}\label{classbio_fixed_parameter_a6ea664ca897010b84852832942ab0274}} 
+class {\bfseries bio\+Literal\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_fixed_parameter_a8321153b5329d28798f29638beb7c509}\label{classbio_fixed_parameter_a8321153b5329d28798f29638beb7c509}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_fixed_parameter}{bio\+Fixed\+Parameter} \&x)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class defining a fixed parameter of the model (that is, not distributed), to be estimated from data 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbio_fixed_parameter_aec756782840347fa817e369dc8f92f12}\label{classbio_fixed_parameter_aec756782840347fa817e369dc8f92f12}} 
+\index{bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}!bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}}
+\index{bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}!bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}}
+\subsubsection{\texorpdfstring{bio\+Fixed\+Parameter()}{bioFixedParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bio\+Fixed\+Parameter\+::bio\+Fixed\+Parameter (\begin{DoxyParamCaption}\item[{pat\+String}]{the\+Name,  }\item[{pat\+U\+Long}]{unique\+Id,  }\item[{pat\+U\+Long}]{p\+Id,  }\item[{pat\+U\+Long}]{e\+Id,  }\item[{pat\+Real}]{def,  }\item[{pat\+Real}]{lb,  }\item[{pat\+Real}]{ub,  }\item[{pat\+Boolean}]{f,  }\item[{pat\+String}]{latex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Only the repository can create a parameter \mbox{\Hypertarget{classbio_fixed_parameter_a132679ea6cf49e582159c64e8264a475}\label{classbio_fixed_parameter_a132679ea6cf49e582159c64e8264a475}} 
+\index{bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}!bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}}
+\index{bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}!bio\+Fixed\+Parameter@{bio\+Fixed\+Parameter}}
+\subsubsection{\texorpdfstring{bio\+Fixed\+Parameter()}{bioFixedParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bio\+Fixed\+Parameter\+::bio\+Fixed\+Parameter (\begin{DoxyParamCaption}\item[{pat\+String}]{the\+Name,  }\item[{pat\+U\+Long}]{id,  }\item[{pat\+U\+Long}]{p\+Id,  }\item[{pat\+U\+Long}]{e\+Id,  }\item[{pat\+Real}]{def = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+lower\+Bound is set to -\/1e20, upper\+Bound is set to 1e20, is\+Fixed is set to F\+A\+L\+SE 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Fixed\+Parameter.\+h\item 
+bio\+Fixed\+Parameter.\+cc\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 # bisonBiogeme
 
 ACLOCAL_AMFLAGS = -I m4
-AM_CPPFLAGS = -I$(top_srcdir)/libraries/utils  -I$(top_srcdir)/libraries/randomNumbers -I$(top_srcdir)/libraries/gaussHermite -I$(top_srcdir)/libraries/cfsqp -I$(top_srcdir)/libraries/ipopt -I$(top_srcdir)/libraries/solvopt -I$(top_srcdir)/libraries/linearAlgebra -I$(top_srcdir)/libraries/trustRegion $(PYTHON_INCLUDES) 
+AM_CPPFLAGS = -I$(top_srcdir)/libraries/utils  -I$(top_srcdir)/libraries/randomNumbers -I$(top_srcdir)/libraries/gaussHermite -I$(top_srcdir)/libraries/cfsqp -I$(top_srcdir)/libraries/ipopt -I$(top_srcdir)/libraries/solvopt -I$(top_srcdir)/libraries/linearAlgebra -I$(top_srcdir)/libraries/trustRegion -I$(top_srcdir)/libraries/stochasticGradient $(PYTHON_INCLUDES) 
 
 if BUILD_IPOPT
 AM_CPPFLAGS += $(IPOPT_CXXFLAGS)
@@ -85,6 +85,7 @@ bioExpressionRepository.cc \
 bioFixedParameter.cc \
 bioCompositeLiteral.cc \
 bioPrecompiledFunction.cc \
+bioDraftSG.cc \
 bioIteratorInfo.cc \
 bioIteratorInfoRepository.cc \
 bioIteratorSpan.cc \
@@ -192,6 +193,7 @@ bioParameters.h \
 bioOneParameter.h \
 bioParameterIterator.h \
 bioPrecompiledFunction.h \
+bioDraftSG.h \
 bioPythonWrapper.h \
 bioRandomDraws.h \
 bioRandomVariable.h \

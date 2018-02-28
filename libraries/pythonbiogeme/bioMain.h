@@ -26,7 +26,8 @@ class bioPrematureStop ;
 class bioAlgorithmStopping ;
 #include "trParameters.h"
 #include "solvoptParameters.h"
-
+#include "patIteratorErr.h"
+#include "bioFunctionAndDerivatives.h"
 
 class bioMain {
  public:

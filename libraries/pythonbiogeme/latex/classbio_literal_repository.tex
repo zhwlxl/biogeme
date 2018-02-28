@@ -1,0 +1,189 @@
+\hypertarget{classbio_literal_repository}{}\section{bio\+Literal\+Repository Class Reference}
+\label{classbio_literal_repository}\index{bio\+Literal\+Repository@{bio\+Literal\+Repository}}
+
+
+{\ttfamily \#include $<$bio\+Literal\+Repository.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a5eae3679ee4d9411177b6f0f64e17185}\label{classbio_literal_repository_a5eae3679ee4d9411177b6f0f64e17185}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a25012b359d71de94f5bdd10fb36ece1b}\label{classbio_literal_repository_a25012b359d71de94f5bdd10fb36ece1b}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Variable} (pat\+String the\+Name, pat\+U\+Long col\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ac4e48ad7678c27db871bb8ee75bdc6b1}\label{classbio_literal_repository_ac4e48ad7678c27db871bb8ee75bdc6b1}} 
+pair$<$ pat\+Boolean, pair$<$ pat\+U\+Long, pat\+U\+Long $>$ $>$ {\bfseries add\+User\+Expression} (pat\+String the\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ab02b1fb2d3c4638c06f58f9d1b3e5356}\label{classbio_literal_repository_ab02b1fb2d3c4638c06f58f9d1b3e5356}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Random\+Variable} (pat\+String the\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a4cfbfafb199abcd879f99b66a6c1a61f}\label{classbio_literal_repository_a4cfbfafb199abcd879f99b66a6c1a61f}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Fixed\+Parameter} (pat\+String the\+Name, pat\+Real val, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a330c0a18d32d6f7d6bf1396c66285abb}\label{classbio_literal_repository_a330c0a18d32d6f7d6bf1396c66285abb}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Fixed\+Parameter} (pat\+String the\+Name, pat\+Real val, pat\+Real lb, pat\+Real up, pat\+Boolean fixed, pat\+String latex\+Name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ae95c66959688d15a97124702dd283548}\label{classbio_literal_repository_ae95c66959688d15a97124702dd283548}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Composite\+Literal} (pat\+String name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ab7aa7c4ab5d0692e49c589f1f12a3e83}\label{classbio_literal_repository_ab7aa7c4ab5d0692e49c589f1f12a3e83}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries add\+Composite\+Literal} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ab866ee2771a136756481dad60daa2581}\label{classbio_literal_repository_ab866ee2771a136756481dad60daa2581}} 
+pat\+U\+Long {\bfseries add\+Fixed\+Parameter} (\hyperlink{classbio_fixed_parameter}{bio\+Fixed\+Parameter} p)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a1ceb3fc91ed0740b68b093fc13636aeb}\label{classbio_literal_repository_a1ceb3fc91ed0740b68b093fc13636aeb}} 
+pat\+U\+Long {\bfseries get\+Literal\+Id} (pat\+String the\+Name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a6013819ad2c5fa5ce71f5dc6a5ecb519}\label{classbio_literal_repository_a6013819ad2c5fa5ce71f5dc6a5ecb519}} 
+pat\+U\+Long {\bfseries get\+Literal\+Id} (const \hyperlink{classbio_literal}{bio\+Literal} $\ast$the\+Literal, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a693f0bd1f13bdf3eb27b02cd889ba72d}\label{classbio_literal_repository_a693f0bd1f13bdf3eb27b02cd889ba72d}} 
+pat\+String {\bfseries get\+Name} (pat\+U\+Long the\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ac8d3978c02aa34b3974cf7072cbe3750}\label{classbio_literal_repository_ac8d3978c02aa34b3974cf7072cbe3750}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Variables} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a03addef16d1bb48547938073a3a6b0df}\label{classbio_literal_repository_a03addef16d1bb48547938073a3a6b0df}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Random\+Variables} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a1da5ad9bef3d86eb24e29b017d611352}\label{classbio_literal_repository_a1da5ad9bef3d86eb24e29b017d611352}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Parameters} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a77ca3d58dde911d7d9f96bbd6b1a1013}\label{classbio_literal_repository_a77ca3d58dde911d7d9f96bbd6b1a1013}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Estimated\+Parameters} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ad9be1455bf01911efc710496ab4e6168}\label{classbio_literal_repository_ad9be1455bf01911efc710496ab4e6168}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Composite\+Literals} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_af49dabcb6db2feb5ae88261601f38a48}\label{classbio_literal_repository_af49dabcb6db2feb5ae88261601f38a48}} 
+pat\+Variables {\bfseries get\+Beta\+Values} (pat\+Boolean all=pat\+T\+R\+UE) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_af955c2b7a30b86b4104c1d43ff2a7cf9}\label{classbio_literal_repository_af955c2b7a30b86b4104c1d43ff2a7cf9}} 
+pat\+Real {\bfseries get\+Beta\+Value} (pat\+String name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_aa5c54dc6f252589cad394c8edc386c3b}\label{classbio_literal_repository_aa5c54dc6f252589cad394c8edc386c3b}} 
+pat\+Variables {\bfseries get\+Lower\+Bounds} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a60909e87b23fdf9c5136e3690abae66e}\label{classbio_literal_repository_a60909e87b23fdf9c5136e3690abae66e}} 
+pat\+Variables {\bfseries get\+Upper\+Bounds} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a93b6323d1e07283fa100d7a7a7c12321}\label{classbio_literal_repository_a93b6323d1e07283fa100d7a7a7c12321}} 
+void {\bfseries set\+Beta\+Value} (pat\+String name, pat\+Real value, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_aacf5b12f477262b29eafd07d9210235e}\label{classbio_literal_repository_aacf5b12f477262b29eafd07d9210235e}} 
+void {\bfseries set\+Beta\+Values} (pat\+Variables b, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ad87247c8147523ad04289c18add9d048}\label{classbio_literal_repository_ad87247c8147523ad04289c18add9d048}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+Beta\+Ids} (pat\+Boolean all, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a5b847d018eee663185f5f1afe6936f09}\label{classbio_literal_repository_a5b847d018eee663185f5f1afe6936f09}} 
+pat\+String {\bfseries get\+Beta\+Name} (pat\+U\+Long beta\+Id, pat\+Boolean all, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a21dff09d37c5c4440f2e97aa0272013b}\label{classbio_literal_repository_a21dff09d37c5c4440f2e97aa0272013b}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries get\+Beta\+Parameter} (pat\+String name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a12afa7178de84efcafd231c1cba9624a}\label{classbio_literal_repository_a12afa7178de84efcafd231c1cba9624a}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries get\+Composite\+Literal} (pat\+U\+Long literal\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_afa72c1ea8afa9032674f940927c27b78}\label{classbio_literal_repository_afa72c1ea8afa9032674f940927c27b78}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries get\+Composite\+Literal} (pat\+String name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a3167429bc72ece1b87b25022f799675e}\label{classbio_literal_repository_a3167429bc72ece1b87b25022f799675e}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries get\+Variable} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a8d7fc80eb847728722939e60f7eef745}\label{classbio_literal_repository_a8d7fc80eb847728722939e60f7eef745}} 
+pat\+U\+Long {\bfseries get\+Column\+Id\+Of\+Variable} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a23cca75b85212f32ba96c5bd40b374f4}\label{classbio_literal_repository_a23cca75b85212f32ba96c5bd40b374f4}} 
+pair$<$ pat\+U\+Long, pat\+U\+Long $>$ {\bfseries get\+Random\+Variable} (pat\+String name, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a9480f271b52315d339f89bedcad8f373}\label{classbio_literal_repository_a9480f271b52315d339f89bedcad8f373}} 
+void {\bfseries set\+Flag} (pat\+U\+Long id)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a1f6730a89051a1bfcd994c9a76e92f4f}\label{classbio_literal_repository_a1f6730a89051a1bfcd994c9a76e92f4f}} 
+void {\bfseries unset\+Flag} (pat\+U\+Long id)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a6502679a9d3c9bf6a15baf699bf5f2b3}\label{classbio_literal_repository_a6502679a9d3c9bf6a15baf699bf5f2b3}} 
+pat\+Boolean {\bfseries is\+Flag\+Set} (pat\+U\+Long id) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_ae22576cfb2dc530b1851f4444fd93123}\label{classbio_literal_repository_ae22576cfb2dc530b1851f4444fd93123}} 
+void {\bfseries reset\+All\+Flags} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a7e03c8b3d31bdbc2bcc4543d13bf6926}\label{classbio_literal_repository_a7e03c8b3d31bdbc2bcc4543d13bf6926}} 
+pat\+String {\bfseries print\+Fixed\+Parameters} (pat\+Boolean estimation=pat\+F\+A\+L\+SE) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a01be32eb76014329d373356dc6d9b47e}\label{classbio_literal_repository_a01be32eb76014329d373356dc6d9b47e}} 
+const \hyperlink{classbio_variable}{bio\+Variable} $\ast$ {\bfseries the\+Variable} (pat\+U\+Long type\+Specific\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a645140bcaa2fc6c0156205dfaa4c8c7f}\label{classbio_literal_repository_a645140bcaa2fc6c0156205dfaa4c8c7f}} 
+const \hyperlink{classbio_composite_literal}{bio\+Composite\+Literal} $\ast$ {\bfseries the\+Composite} (pat\+U\+Long type\+Specific\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a1c13cfeb0707eb2d1edd7f22ef957e71}\label{classbio_literal_repository_a1c13cfeb0707eb2d1edd7f22ef957e71}} 
+const \hyperlink{classbio_fixed_parameter}{bio\+Fixed\+Parameter} $\ast$ {\bfseries the\+Parameter} (pat\+U\+Long type\+Specific\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a6a1f0341bd49a1065c0eda80b994c9a8}\label{classbio_literal_repository_a6a1f0341bd49a1065c0eda80b994c9a8}} 
+const \hyperlink{classbio_random_variable}{bio\+Random\+Variable} $\ast$ {\bfseries the\+Random\+Variable} (pat\+U\+Long type\+Specific\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a35cc4a77ea12f27f88235a4b795263a2}\label{classbio_literal_repository_a35cc4a77ea12f27f88235a4b795263a2}} 
+pat\+U\+Long {\bfseries get\+Literal\+Id} (pat\+U\+Long type\+Specific\+Id, bio\+Literal\+::bio\+Literal\+Type type)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a350ecc4f3ef6cdb6b77b266b7ba3c2b2}\label{classbio_literal_repository_a350ecc4f3ef6cdb6b77b266b7ba3c2b2}} 
+const \hyperlink{classbio_literal}{bio\+Literal} $\ast$ {\bfseries get\+Literal} (pat\+U\+Long id, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a8fbfa27624b35096c55e4f01a579b30c}\label{classbio_literal_repository_a8fbfa27624b35096c55e4f01a579b30c}} 
+pat\+Iterator$<$ \hyperlink{classbio_fixed_parameter}{bio\+Fixed\+Parameter} $\ast$ $>$ $\ast$ {\bfseries get\+Iterator\+Fixed\+Parameters} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a9f92ab150008937cc2045d8fce9e0674}\label{classbio_literal_repository_a9f92ab150008937cc2045d8fce9e0674}} 
+pat\+Iterator$<$ \hyperlink{classbio_fixed_parameter}{bio\+Fixed\+Parameter} $\ast$ $>$ $\ast$ {\bfseries get\+Sorted\+Iterator\+Fixed\+Parameters} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a198e5c54fe4cfdf61c0c016044439064}\label{classbio_literal_repository_a198e5c54fe4cfdf61c0c016044439064}} 
+pair$<$ pat\+U\+Long, bio\+Literal\+::bio\+Literal\+Type $>$ {\bfseries get\+Id\+And\+Type} (pat\+U\+Long unique\+Id, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_adb52a95276e732c14eb56121d360a443}\label{classbio_literal_repository_adb52a95276e732c14eb56121d360a443}} 
+pat\+Real {\bfseries get\+Composite\+Value} (pat\+U\+Long lit\+Id, pat\+U\+Long thread\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a933ff0cf289551cef4b897edfc105a07}\label{classbio_literal_repository_a933ff0cf289551cef4b897edfc105a07}} 
+void {\bfseries set\+Composite\+Value} (pat\+Real v, pat\+U\+Long lit\+Id, pat\+U\+Long thread\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a28f44affedcebadcbaae6a248a6d4516}\label{classbio_literal_repository_a28f44affedcebadcbaae6a248a6d4516}} 
+pat\+Real {\bfseries get\+Random\+Variable\+Value} (pat\+U\+Long lit\+Id, pat\+U\+Long thread\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a70ad5d5542b6ef7c5d715318da829b4e}\label{classbio_literal_repository_a70ad5d5542b6ef7c5d715318da829b4e}} 
+void {\bfseries set\+Random\+Variable\+Value} (pat\+Real v, pat\+U\+Long lit\+Id, pat\+U\+Long thread\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_af9ea459f15124311f03e5c57e17fc872}\label{classbio_literal_repository_af9ea459f15124311f03e5c57e17fc872}} 
+void {\bfseries prepare\+Memory} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_aa70ad51ea8f40e277fa13f0e9c82c8e1}\label{classbio_literal_repository_aa70ad51ea8f40e277fa13f0e9c82c8e1}} 
+int {\bfseries size} ()
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a94da79d77297540cb99791f6a4ca3dd0}\label{classbio_literal_repository_a94da79d77297540cb99791f6a4ca3dd0}} 
+pat\+U\+Long {\bfseries get\+Last\+Column\+Id} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a5842ab390556a55acf6914bc5d7a49c8}\label{classbio_literal_repository_a5842ab390556a55acf6914bc5d7a49c8}} 
+static \hyperlink{classbio_literal_repository}{bio\+Literal\+Repository} $\ast$ {\bfseries the} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a7112c3c569ac638826c63fda15012746}\label{classbio_literal_repository_a7112c3c569ac638826c63fda15012746}} 
+class {\bfseries bio\+Python\+Singleton\+Factory}
+\item 
+\mbox{\Hypertarget{classbio_literal_repository_a0672f69ea4978358c16a4f5de3a42d1a}\label{classbio_literal_repository_a0672f69ea4978358c16a4f5de3a42d1a}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_literal_repository}{bio\+Literal\+Repository} \&x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class gathering all literals, keeping track of their ID, guaranteeing their uniqueness. Literals can be accessed by name or ID. Each literal has two I\+Ds. One unique ID across all literals. Their number start at 10000 The other ID is type specific, unique and consecutive for each type of literal. The following types of literals are considered\+: Variables\+: explanatory variables of themodel, usually denoted by x. Fixed parameters\+: usually denoted by beta. By fixed, it is meant that they are not random variables. Random variables\+: used for mixing of models. Composite literals\+: used when a formula is decomposed. For instance, a formula f = log(x + y) / (1 + log(x + y)) can be written as z = log(x+y) f = z / (1 + z) where z is the composite literal. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Literal\+Repository.\+h\item 
+bio\+Literal\+Repository.\+cc\end{DoxyCompactItemize}

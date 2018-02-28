@@ -1,0 +1,69 @@
+\hypertarget{classbio_composite_literal}{}\section{bio\+Composite\+Literal Class Reference}
+\label{classbio_composite_literal}\index{bio\+Composite\+Literal@{bio\+Composite\+Literal}}
+
+
+{\ttfamily \#include $<$bio\+Composite\+Literal.\+h$>$}
+
+Inheritance diagram for bio\+Composite\+Literal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_composite_literal}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_afe535c02fbd5788556ac03016fb2129a}\label{classbio_composite_literal_afe535c02fbd5788556ac03016fb2129a}} 
+pat\+Real {\bfseries get\+Value} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a9ec9547a7004f2f64f154cc3859e6407}\label{classbio_composite_literal_a9ec9547a7004f2f64f154cc3859e6407}} 
+void {\bfseries set\+Value} (pat\+Real val, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a88baeb2be070ff57660bcc96f5244090}\label{classbio_composite_literal_a88baeb2be070ff57660bcc96f5244090}} 
+bio\+Literal\+Type {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_acda0118434588abfa08f2eec76ab11f4}\label{classbio_composite_literal_acda0118434588abfa08f2eec76ab11f4}} 
+pat\+U\+Long {\bfseries get\+Composite\+Id} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_composite_literal_a429e1e95ca034b2e8054bb4ace26f56b}{bio\+Composite\+Literal} (pat\+String the\+Name, pat\+U\+Long unique\+Id, pat\+U\+Long cl\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a23881a3ec416d5afe6ed64e8ed46d119}\label{classbio_composite_literal_a23881a3ec416d5afe6ed64e8ed46d119}} 
+pat\+Real {\bfseries current\+Value}
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a679fdee2e54117054d26edf682959679}\label{classbio_composite_literal_a679fdee2e54117054d26edf682959679}} 
+pat\+U\+Long {\bfseries the\+Composite\+Literal\+Id}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a6ea664ca897010b84852832942ab0274}\label{classbio_composite_literal_a6ea664ca897010b84852832942ab0274}} 
+class {\bfseries bio\+Literal\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_composite_literal_a097e19aadde1c432f33d7ca58d8dac93}\label{classbio_composite_literal_a097e19aadde1c432f33d7ca58d8dac93}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_composite_literal}{bio\+Composite\+Literal} \&x)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This literal represents an intermediate computation. The associated expression must be defined before its use by the user. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbio_composite_literal_a429e1e95ca034b2e8054bb4ace26f56b}\label{classbio_composite_literal_a429e1e95ca034b2e8054bb4ace26f56b}} 
+\index{bio\+Composite\+Literal@{bio\+Composite\+Literal}!bio\+Composite\+Literal@{bio\+Composite\+Literal}}
+\index{bio\+Composite\+Literal@{bio\+Composite\+Literal}!bio\+Composite\+Literal@{bio\+Composite\+Literal}}
+\subsubsection{\texorpdfstring{bio\+Composite\+Literal()}{bioCompositeLiteral()}}
+{\footnotesize\ttfamily bio\+Composite\+Literal\+::bio\+Composite\+Literal (\begin{DoxyParamCaption}\item[{pat\+String}]{the\+Name,  }\item[{pat\+U\+Long}]{unique\+Id,  }\item[{pat\+U\+Long}]{cl\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Only the repository can create a composite literal 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Composite\+Literal.\+h\item 
+bio\+Composite\+Literal.\+cc\end{DoxyCompactItemize}

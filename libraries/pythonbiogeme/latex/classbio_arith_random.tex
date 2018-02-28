@@ -1,0 +1,179 @@
+\hypertarget{classbio_arith_random}{}\section{bio\+Arith\+Random Class Reference}
+\label{classbio_arith_random}\index{bio\+Arith\+Random@{bio\+Arith\+Random}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Random.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Random\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_arith_random}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_random_a71bf8f6465482ac55bdaecf57091c09b}\label{classbio_arith_random_a71bf8f6465482ac55bdaecf57091c09b}} 
+{\bfseries bio\+Arith\+Random} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long individual, pat\+U\+Long id, bio\+Random\+Draws\+::bio\+Draws\+Type type, pat\+Error $\ast$\&err)
+\item 
+pat\+String \hyperlink{classbio_arith_random_a0f83701f05a22956b5c4fff431c40895}{get\+Operator\+Name} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_random_a57ed5e619ea85ce7a4ece51ce4e05983}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+\hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_random_a20b4fe8de86bf00654a94b0d534e6743}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+\hyperlink{classbio_arith_random}{bio\+Arith\+Random} $\ast$ \hyperlink{classbio_arith_random_a947f100ddb8037bf424d343faee56b83}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+\hyperlink{classbio_arith_random}{bio\+Arith\+Random} $\ast$ \hyperlink{classbio_arith_random_aef00154ab54de9ed4acd1cf45d9036ce}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_random_aeb2882becaab6950ee4582b750d80f35}\label{classbio_arith_random_aeb2882becaab6950ee4582b750d80f35}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+pat\+String \hyperlink{classbio_arith_random_a9ba191f0138f188b1c70f568c5873434}{get\+Expression\+String} () const
+\item 
+pat\+String \hyperlink{classbio_arith_random_a54b48a4876469d44f324f73758ea1b6c}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_random_a04107a0b2b42f92d6725c8871da676ca}\label{classbio_arith_random_a04107a0b2b42f92d6725c8871da676ca}} 
+pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_random_a6f422273cd162e5d7d5e6d1d7a7ddcad}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_random_aaeddba98a82767cc3d05b01904350acb}\label{classbio_arith_random_aaeddba98a82767cc3d05b01904350acb}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+List\+Of\+Draws} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_random_aa6f751502c47dc7030fb451cc3317a4d}\label{classbio_arith_random_aa6f751502c47dc7030fb451cc3317a4d}} 
+void {\bfseries check\+Monte\+Carlo} (pat\+Boolean inside\+Monte\+Carlo, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_random_a2370aa514ceefb3834a485daab8d8d9f}\label{classbio_arith_random_a2370aa514ceefb3834a485daab8d8d9f}} 
+pat\+U\+Long {\bfseries variable\+Id\+For\+Draws}
+\item 
+\mbox{\Hypertarget{classbio_arith_random_ac09cba65919ec62338570a8a25994f0f}\label{classbio_arith_random_ac09cba65919ec62338570a8a25994f0f}} 
+bio\+Random\+Draws\+::bio\+Draws\+Type {\bfseries type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class defining an interface for a random parameter uusing draws 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_random_a947f100ddb8037bf424d343faee56b83}\label{classbio_arith_random_a947f100ddb8037bf424d343faee56b83}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_random}{bio\+Arith\+Random} $\ast$ bio\+Arith\+Random\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a20b4fe8de86bf00654a94b0d534e6743}\label{classbio_arith_random_a20b4fe8de86bf00654a94b0d534e6743}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Random\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a54b48a4876469d44f324f73758ea1b6c}\label{classbio_arith_random_a54b48a4876469d44f324f73758ea1b6c}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Random\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}{bio\+Arith\+Unary\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a9ba191f0138f188b1c70f568c5873434}\label{classbio_arith_random_a9ba191f0138f188b1c70f568c5873434}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Random\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a6f422273cd162e5d7d5e6d1d7a7ddcad}\label{classbio_arith_random_a6f422273cd162e5d7d5e6d1d7a7ddcad}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Random\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a0f83701f05a22956b5c4fff431c40895}\label{classbio_arith_random_a0f83701f05a22956b5c4fff431c40895}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Random\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_aef00154ab54de9ed4acd1cf45d9036ce}\label{classbio_arith_random_aef00154ab54de9ed4acd1cf45d9036ce}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_random}{bio\+Arith\+Random} $\ast$ bio\+Arith\+Random\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_random_a57ed5e619ea85ce7a4ece51ce4e05983}\label{classbio_arith_random_a57ed5e619ea85ce7a4ece51ce4e05983}} 
+\index{bio\+Arith\+Random@{bio\+Arith\+Random}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Random@{bio\+Arith\+Random}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Random\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Random.\+h\item 
+bio\+Arith\+Random.\+cc\end{DoxyCompactItemize}

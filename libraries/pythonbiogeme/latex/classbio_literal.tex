@@ -1,0 +1,78 @@
+\hypertarget{classbio_literal}{}\section{bio\+Literal Class Reference}
+\label{classbio_literal}\index{bio\+Literal@{bio\+Literal}}
+
+
+{\ttfamily \#include $<$bio\+Literal.\+h$>$}
+
+Inheritance diagram for bio\+Literal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_literal}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_aa49fb98b7d7846fdec644ef546b1a302}\label{classbio_literal_aa49fb98b7d7846fdec644ef546b1a302}} 
+enum {\bfseries bio\+Literal\+Type} \{ {\bfseries V\+A\+R\+I\+A\+B\+LE}, 
+{\bfseries P\+A\+R\+A\+M\+E\+T\+ER}, 
+{\bfseries R\+A\+N\+D\+OM}, 
+{\bfseries C\+O\+M\+P\+O\+S\+I\+TE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_adb3d80edfd72790e4256a38c39affdfb}\label{classbio_literal_adb3d80edfd72790e4256a38c39affdfb}} 
+virtual pat\+Boolean {\bfseries operator$<$} (const \hyperlink{classbio_literal}{bio\+Literal} \&x) const
+\item 
+\mbox{\Hypertarget{classbio_literal_a36c85631858a1efd559550eab3897e35}\label{classbio_literal_a36c85631858a1efd559550eab3897e35}} 
+virtual bio\+Literal\+Type {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_a4a346ebddd3ccc3490406cc2a9393833}\label{classbio_literal_a4a346ebddd3ccc3490406cc2a9393833}} 
+pat\+String {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classbio_literal_a4fc3184a50035739558543d2ec7803b9}\label{classbio_literal_a4fc3184a50035739558543d2ec7803b9}} 
+pat\+U\+Long {\bfseries get\+Id} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbio_literal_a0dafb24f986651a33a06aae3d348f895}{bio\+Literal} (pat\+String the\+Name, pat\+U\+Long the\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_a6adc60747d813b36c8e4fe04b658ef9c}\label{classbio_literal_a6adc60747d813b36c8e4fe04b658ef9c}} 
+pat\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{classbio_literal_a98b45d6137ef95862ab4cf953f9f756c}\label{classbio_literal_a98b45d6137ef95862ab4cf953f9f756c}} 
+pat\+U\+Long {\bfseries unique\+Id}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_literal_a6ea664ca897010b84852832942ab0274}\label{classbio_literal_a6ea664ca897010b84852832942ab0274}} 
+class {\bfseries bio\+Literal\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_literal_af99a3b7e4984c1be48e3658c27b8eac2}\label{classbio_literal_af99a3b7e4984c1be48e3658c27b8eac2}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&str, const \hyperlink{classbio_literal}{bio\+Literal} \&x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class defining a literal, that is a parameter (fixed or random) or a variable of the model 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbio_literal_a0dafb24f986651a33a06aae3d348f895}\label{classbio_literal_a0dafb24f986651a33a06aae3d348f895}} 
+\index{bio\+Literal@{bio\+Literal}!bio\+Literal@{bio\+Literal}}
+\index{bio\+Literal@{bio\+Literal}!bio\+Literal@{bio\+Literal}}
+\subsubsection{\texorpdfstring{bio\+Literal()}{bioLiteral()}}
+{\footnotesize\ttfamily bio\+Literal\+::bio\+Literal (\begin{DoxyParamCaption}\item[{pat\+String}]{the\+Name,  }\item[{pat\+U\+Long}]{the\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Only the repository can create a parameter 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Literal.\+h\item 
+bio\+Literal.\+cc\end{DoxyCompactItemize}

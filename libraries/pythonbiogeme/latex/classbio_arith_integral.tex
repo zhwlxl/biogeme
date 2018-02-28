@@ -1,0 +1,165 @@
+\hypertarget{classbio_arith_integral}{}\section{bio\+Arith\+Integral Class Reference}
+\label{classbio_arith_integral}\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Integral.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Integral\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_arith_integral}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_integral_a62142176f2d4ac54ed701082366ad102}\label{classbio_arith_integral_a62142176f2d4ac54ed701082366ad102}} 
+{\bfseries bio\+Arith\+Integral} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long left, pat\+String a\+Literal\+Name, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_integral_abae8e14e091ddc4e7281ec5ba36f8cf8}{get\+Operator\+Name} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_integral_a71c94eed284b1ef9e492aa6424c33365}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_integral_aafdf4edef91568b929fc3e9cd199b202}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_integral}{bio\+Arith\+Integral} $\ast$ \hyperlink{classbio_arith_integral_a49fa38b94818140c143ecb6cb3d7ceed}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_integral}{bio\+Arith\+Integral} $\ast$ \hyperlink{classbio_arith_integral_a0a9619e66e582266bf1975d59b7c2bec}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+Boolean \hyperlink{classbio_arith_integral_a7f96ce250c987eb2022512c9f65cdc1b}{is\+Structurally\+Zero} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_integral_a597593196620aa13462aebf9166f1678}{get\+Expression\+String} () const
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_integral_a7f9cc73a8a9788b1deb8c2f424606d51}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_integral_adef079988a2f026769bdf7103a40a3d1}\label{classbio_arith_integral_adef079988a2f026769bdf7103a40a3d1}} 
+pat\+U\+Long {\bfseries literal\+Id}
+\item 
+\mbox{\Hypertarget{classbio_arith_integral_ac1fe8365a90bbc1a5dea95236f6712aa}\label{classbio_arith_integral_ac1fe8365a90bbc1a5dea95236f6712aa}} 
+pat\+String {\bfseries literal\+Name}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing an integral between -\/infty and +infty 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_integral_a49fa38b94818140c143ecb6cb3d7ceed}\label{classbio_arith_integral_a49fa38b94818140c143ecb6cb3d7ceed}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_integral}{bio\+Arith\+Integral} $\ast$ bio\+Arith\+Integral\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_aafdf4edef91568b929fc3e9cd199b202}\label{classbio_arith_integral_aafdf4edef91568b929fc3e9cd199b202}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Integral\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_a597593196620aa13462aebf9166f1678}\label{classbio_arith_integral_a597593196620aa13462aebf9166f1678}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Integral\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_a7f9cc73a8a9788b1deb8c2f424606d51}\label{classbio_arith_integral_a7f9cc73a8a9788b1deb8c2f424606d51}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Integral\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_abae8e14e091ddc4e7281ec5ba36f8cf8}\label{classbio_arith_integral_abae8e14e091ddc4e7281ec5ba36f8cf8}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Integral\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_a0a9619e66e582266bf1975d59b7c2bec}\label{classbio_arith_integral_a0a9619e66e582266bf1975d59b7c2bec}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_integral}{bio\+Arith\+Integral} $\ast$ bio\+Arith\+Integral\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_a71c94eed284b1ef9e492aa6424c33365}\label{classbio_arith_integral_a71c94eed284b1ef9e492aa6424c33365}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Integral\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_integral_a7f96ce250c987eb2022512c9f65cdc1b}\label{classbio_arith_integral_a7f96ce250c987eb2022512c9f65cdc1b}} 
+\index{bio\+Arith\+Integral@{bio\+Arith\+Integral}!is\+Structurally\+Zero@{is\+Structurally\+Zero}}
+\index{is\+Structurally\+Zero@{is\+Structurally\+Zero}!bio\+Arith\+Integral@{bio\+Arith\+Integral}}
+\subsubsection{\texorpdfstring{is\+Structurally\+Zero()}{isStructurallyZero()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Arith\+Integral\+::is\+Structurally\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+return pat\+T\+R\+UE if the expression is structurally 0 so that there is no need to evaluate it. In the base class, it return pat\+F\+A\+L\+SE. 
+
+Reimplemented from \hyperlink{classbio_expression_a264c6d78671610ada8261d698e4c4c42}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Integral.\+h\item 
+bio\+Arith\+Integral.\+cc\end{DoxyCompactItemize}

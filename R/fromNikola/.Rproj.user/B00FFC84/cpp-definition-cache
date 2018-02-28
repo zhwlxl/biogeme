@@ -1,0 +1,17 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 6,
+                "file" : "/Users/nikola.obrenovic/switchdrive/Projects/RCPP/code/PackageTest/Biogeme/src/RcppExp.cpp",
+                "kind" : 6,
+                "line" : 41,
+                "name" : "runBiogeme(SEXP)",
+                "parent_name" : "",
+                "usr" : "c:@F@runBiogeme#*$@S@SEXPREC#"
+            }
+        ],
+        "file" : "/Users/nikola.obrenovic/switchdrive/Projects/RCPP/code/PackageTest/Biogeme/src/RcppExp.cpp",
+        "file_last_write" : 1512470800
+    }
+]

@@ -24,6 +24,7 @@ patSingletonFactory::patSingletonFactory() :
   thePatNormalCdf(NULL),
   thePatRandomInteger(NULL) {
 
+
 }
 
 patSingletonFactory::~patSingletonFactory() {
@@ -84,10 +85,12 @@ patRandomInteger* patSingletonFactory::patRandomInteger_the() {
 }
 
 
+
 void patSingletonFactory::reset() {
   DELETE_PTR(thePatFileNames) ;
   DELETE_PTR(thePatOutputFiles) ;
   DELETE_PTR(thePatVersion) ;
   DELETE_PTR(thePatTimer) ;
   DELETE_PTR(thePatNormalCdf) ;
+  DELETE_PTR(thePatRandomInteger) ;
 }

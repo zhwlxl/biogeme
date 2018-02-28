@@ -29,6 +29,8 @@ public:
   void resize(patULong s,patReal r) ;
   //Return  the maximum difference across all quantities
   patReal compare(const bioFunctionAndDerivatives& x, patError*& err) ;
+  // Multiply everything by "weight"
+  void weight(patReal w, patError*& err) ;
 
 };
 

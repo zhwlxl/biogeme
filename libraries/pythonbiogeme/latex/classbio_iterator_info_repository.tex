@@ -1,0 +1,91 @@
+\hypertarget{classbio_iterator_info_repository}{}\section{bio\+Iterator\+Info\+Repository Class Reference}
+\label{classbio_iterator_info_repository}\index{bio\+Iterator\+Info\+Repository@{bio\+Iterator\+Info\+Repository}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a591b9af4c98eaf7f977a8a3e588a1247}\label{classbio_iterator_info_repository_a591b9af4c98eaf7f977a8a3e588a1247}} 
+void {\bfseries add\+Iterator\+Info} (pat\+String name, \hyperlink{classbio_iterator_info}{bio\+Iterator\+Info} ii, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a7ed467b0ae149a1766f21858e345f954}\label{classbio_iterator_info_repository_a7ed467b0ae149a1766f21858e345f954}} 
+pat\+String {\bfseries debug} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ab4c27922d63fb825caaba8ac89a27887}\label{classbio_iterator_info_repository_ab4c27922d63fb825caaba8ac89a27887}} 
+void {\bfseries add\+New\+Row\+Id} (pat\+String index\+Name, pat\+U\+Long row\+Number)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ae7bcfd8cb23d3faedc75812b8f03bde5}\label{classbio_iterator_info_repository_ae7bcfd8cb23d3faedc75812b8f03bde5}} 
+void {\bfseries compute\+Row\+Pointers} (pat\+U\+Long sample\+Size, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a397294a546166b459268d2e408a7276b}\label{classbio_iterator_info_repository_a397294a546166b459268d2e408a7276b}} 
+\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} {\bfseries get\+Sublist} (pat\+U\+Long index, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a95bdc3777d900538b900aed96d3ab1a9}\label{classbio_iterator_info_repository_a95bdc3777d900538b900aed96d3ab1a9}} 
+pat\+U\+Long {\bfseries generate\+Sublists\+For\+Threads} (pat\+U\+Long data\+Size, pat\+U\+Long number\+Of\+Threads, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ac67b7d18433902be8c8c31fd717513e8}\label{classbio_iterator_info_repository_ac67b7d18433902be8c8c31fd717513e8}} 
+pat\+Boolean {\bfseries is\+Top\+Iterator} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a0d45d6689685f05420b65350aff28883}\label{classbio_iterator_info_repository_a0d45d6689685f05420b65350aff28883}} 
+pat\+Boolean {\bfseries is\+Row\+Iterator} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ac615393c44b04a7c7d50a2f0fa98648f}\label{classbio_iterator_info_repository_ac615393c44b04a7c7d50a2f0fa98648f}} 
+pat\+Boolean {\bfseries is\+Meta\+Iterator} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ae71b285653402fef8705b013ccb67d56}\label{classbio_iterator_info_repository_ae71b285653402fef8705b013ccb67d56}} 
+pat\+String {\bfseries get\+Info} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ad25a5837033e0907c64161db15186221}\label{classbio_iterator_info_repository_ad25a5837033e0907c64161db15186221}} 
+bio\+Iterator\+Type {\bfseries get\+Type} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_aa9036ca7c883b1b1b15a0d6ffffb5e86}\label{classbio_iterator_info_repository_aa9036ca7c883b1b1b15a0d6ffffb5e86}} 
+pat\+U\+Long {\bfseries get\+Number\+Of\+Iterations} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ac9ec515a074ac61e9ac78f6922f1cae5}\label{classbio_iterator_info_repository_ac9ec515a074ac61e9ac78f6922f1cae5}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+Map\+Ids} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a3be873cc08e32c015e884c6d7833fc9a}\label{classbio_iterator_info_repository_a3be873cc08e32c015e884c6d7833fc9a}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries get\+Row\+Pointers} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a82c338c535847628c84ce5dd4cce7bd2}\label{classbio_iterator_info_repository_a82c338c535847628c84ce5dd4cce7bd2}} 
+vector$<$ pat\+String $>$ {\bfseries get\+List\+Of\+Iterators} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a0c4ee71a20814e3e6a7fcc753958ed37}\label{classbio_iterator_info_repository_a0c4ee71a20814e3e6a7fcc753958ed37}} 
+pat\+String {\bfseries get\+Index\+Name} (pat\+String name, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_ab7bd544d192b06e80a9babf94e3bbd2e}\label{classbio_iterator_info_repository_ab7bd544d192b06e80a9babf94e3bbd2e}} 
+pat\+String {\bfseries get\+Top\+Iterator\+Name} () const
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_af59f350610349ae86735f69ce36798e8}\label{classbio_iterator_info_repository_af59f350610349ae86735f69ce36798e8}} 
+pat\+Boolean {\bfseries is\+Top\+Iterator\+Meta} (pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classbio_iterator_info_repository}{bio\+Iterator\+Info\+Repository} $\ast$ \hyperlink{classbio_iterator_info_repository_ac2b50c8da5d49a6553f9bbb166548bab}{the} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a7112c3c569ac638826c63fda15012746}\label{classbio_iterator_info_repository_a7112c3c569ac638826c63fda15012746}} 
+class {\bfseries bio\+Python\+Singleton\+Factory}
+\item 
+\mbox{\Hypertarget{classbio_iterator_info_repository_a5e395cc9c2432c419a834708ae358507}\label{classbio_iterator_info_repository_a5e395cc9c2432c419a834708ae358507}} 
+class {\bfseries bio\+Iterator\+Info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_iterator_info_repository_ac2b50c8da5d49a6553f9bbb166548bab}\label{classbio_iterator_info_repository_ac2b50c8da5d49a6553f9bbb166548bab}} 
+\index{bio\+Iterator\+Info\+Repository@{bio\+Iterator\+Info\+Repository}!the@{the}}
+\index{the@{the}!bio\+Iterator\+Info\+Repository@{bio\+Iterator\+Info\+Repository}}
+\subsubsection{\texorpdfstring{the()}{the()}}
+{\footnotesize\ttfamily \hyperlink{classbio_iterator_info_repository}{bio\+Iterator\+Info\+Repository} $\ast$ bio\+Iterator\+Info\+Repository\+::the (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+! \begin{DoxyReturn}{Returns}
+pointer to the single instance of the class 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Iterator\+Info\+Repository.\+h\item 
+bio\+Iterator\+Info\+Repository.\+cc\end{DoxyCompactItemize}

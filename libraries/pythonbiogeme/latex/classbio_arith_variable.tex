@@ -1,0 +1,89 @@
+\hypertarget{classbio_arith_variable}{}\section{bio\+Arith\+Variable Class Reference}
+\label{classbio_arith_variable}\index{bio\+Arith\+Variable@{bio\+Arith\+Variable}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Variable.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Variable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classbio_arith_variable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_variable_aea4a29d0ed4f912e08020ba89356ab81}\label{classbio_arith_variable_aea4a29d0ed4f912e08020ba89356ab81}} 
+{\bfseries bio\+Arith\+Variable} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long unique\+Id, pat\+U\+Long v\+Id)
+\item 
+virtual \hyperlink{classbio_arith_variable}{bio\+Arith\+Variable} $\ast$ \hyperlink{classbio_arith_variable_a13698945a07c98905254d7e773555de3}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_variable}{bio\+Arith\+Variable} $\ast$ \hyperlink{classbio_arith_variable_a5b2185aabcab07bcd474479f8ca7dd94}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_variable_a49717d281e84536b65a715918fdfc4c5}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_variable_a723d43aeb4f13c31be658e181770e93f}\label{classbio_arith_variable_a723d43aeb4f13c31be658e181770e93f}} 
+pat\+U\+Long {\bfseries the\+Variable\+Id}
+\item 
+\mbox{\Hypertarget{classbio_arith_variable_a12802d4fe378cf5cbac37d0723ee23a8}\label{classbio_arith_variable_a12802d4fe378cf5cbac37d0723ee23a8}} 
+const \hyperlink{classbio_variable}{bio\+Variable} $\ast$ {\bfseries the\+Variable}
+\item 
+\mbox{\Hypertarget{classbio_arith_variable_a1653f23f7a3d6b1ad30117e536aad255}\label{classbio_arith_variable_a1653f23f7a3d6b1ad30117e536aad255}} 
+pat\+Boolean {\bfseries check\+For\+Missing\+Values}
+\item 
+\mbox{\Hypertarget{classbio_arith_variable_a1b5e076f79e9ef016ba640b1399c5577}\label{classbio_arith_variable_a1b5e076f79e9ef016ba640b1399c5577}} 
+pat\+Real {\bfseries missing\+Value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class implementing the node for variables in an expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_variable_a13698945a07c98905254d7e773555de3}\label{classbio_arith_variable_a13698945a07c98905254d7e773555de3}} 
+\index{bio\+Arith\+Variable@{bio\+Arith\+Variable}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Variable@{bio\+Arith\+Variable}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_variable}{bio\+Arith\+Variable} $\ast$ bio\+Arith\+Variable\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_variable_a5b2185aabcab07bcd474479f8ca7dd94}\label{classbio_arith_variable_a5b2185aabcab07bcd474479f8ca7dd94}} 
+\index{bio\+Arith\+Variable@{bio\+Arith\+Variable}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Variable@{bio\+Arith\+Variable}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_variable}{bio\+Arith\+Variable} $\ast$ bio\+Arith\+Variable\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_variable_a49717d281e84536b65a715918fdfc4c5}\label{classbio_arith_variable_a49717d281e84536b65a715918fdfc4c5}} 
+\index{bio\+Arith\+Variable@{bio\+Arith\+Variable}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Variable@{bio\+Arith\+Variable}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Variable\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Variable.\+h\item 
+bio\+Arith\+Variable.\+cc\end{DoxyCompactItemize}

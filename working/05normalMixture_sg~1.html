@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<script src="http://transp-or.epfl.ch/biogeme/sorttable.js"></script>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<title>05normalMixture_sg~1.html - Report from biogeme 2.7b [Sun Dec 17 16:33:10 CET 2017]</title>
+<meta name="keywords" content="biogeme, discrete choice, random utility">
+<meta name="description" content="Report from biogeme 2.7b [Sun Dec 17 16:33:10 CET 2017]">
+<meta name="author" content="Michel Bierlaire">
+<style type=text/css>
+<!--table
+.biostyle
+	{font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	font-family:Courier;}
+.boundstyle
+	{font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	font-family:Courier;
+        color:red}
+-->
+</style>
+</head>
+
+<body bgcolor="#ffffff">
+<p>biogeme 2.7b [Sun Dec 17 16:33:10 CET 2017]</p>
+<p>Home page: <a href='http://biogeme.epfl.ch' target='_blank'>http://biogeme.epfl.ch</a></p>
+<p>Submit questions to <a href='https://groups.google.com/d/forum/biogeme' target='_blank'>https://groups.google.com/d/forum/biogeme</a></p>
+<p><a href='http://people.epfl.ch/michel.bierlaire'>Michel Bierlaire</a>, <a href='http://transp-or.epfl.ch'>Transport and Mobility Laboratory</a>, <a href='http://www.epfl.ch'>Ecole Polytechnique F&eacute;d&eacute;rale de Lausanne (EPFL)</a></p>
+<p>This file has automatically been generated on
+Sun Dec 17 17:06:35 2017</p>
+<p>If you drag this HTML file into the Calc application of <a href='http://www.openoffice.org/' target='_blank'>OpenOffice</a>, or the spreadsheet of <a href='https://www.libreoffice.org/' target='_blank'>LibreOffice</a>, you will be able to perform additional calculations.</p><table><tr class=biostyle><td align=right><strong>Report file</strong>:	</td><td>05normalMixture_sg~1.html</td></tr><tr class=biostyle><td align=right><strong>Sample file</strong>:	</td><td>__bin_swissmetro.dat</td></tr></table><h1>Formulas</h1>
+<table border="0">
+<tr class=biostyle><td align=right><strong><em>Car utility:</em></strong>	</td><td><em>ASC_CAR + ( B_TIME + B_TIME_S * ( Normal(0) ) ) * CAR_TT_SCALED + B_COST * CAR_CO_SCALED</em></td></tr><tr class=biostyle><td align=right><strong><em>Swissmetro utility:</em></strong>	</td><td><em>ASC_SM + ( B_TIME + B_TIME_S * ( Normal(0) ) ) * SM_TT_SCALED + B_COST * SM_COST_SCALED</em></td></tr><tr class=biostyle><td align=right><strong><em>Train utility:</em></strong>	</td><td><em>ASC_TRAIN + ( B_TIME + B_TIME_S * ( Normal(0) ) ) * TRAIN_TT_SCALED + B_COST * TRAIN_COST_SCALED</em></td></tr></table>
+<h1>Statistics</h1>
+<table border="0">
+<tr class=biostyle><td align=right><strong><em>Alt. 1 available:</em></strong>	</td><td><em>6768</em></td></tr><tr class=biostyle><td align=right><strong><em>Alt. 1 chosen:</em></strong>	</td><td><em>908</em></td></tr><tr class=biostyle><td align=right><strong><em>Alt. 2 available:</em></strong>	</td><td><em>6768</em></td></tr><tr class=biostyle><td align=right><strong><em>Alt. 2 chosen:</em></strong>	</td><td><em>4090</em></td></tr><tr class=biostyle><td align=right><strong><em>Alt. 3 available:</em></strong>	</td><td><em>5607</em></td></tr><tr class=biostyle><td align=right><strong><em>Alt. 3 chosen:</em></strong>	</td><td><em>1770</em></td></tr><tr class=biostyle><td align=right><strong><em>Cte loglikelihood (only for full choice sets):</em></strong>	</td><td><em>-6257.86</em></td></tr><tr class=biostyle><td align=right><strong><em>Null loglikelihood:</em></strong>	</td><td><em>-6964.66</em></td></tr></table>
+<h1>Estimation report</h1>
+
+<table border="0">
+<tr class=biostyle><td align=right ><strong>Number of draws</strong>:</td> <td>500</td></tr>
+<tr class=biostyle><td align=right ><strong>Number of estimated parameters</strong>: </td> <td>5</td></tr>
+<tr class=biostyle><td align=right ><strong>Sample size</strong>:</td> <td>6768</td></tr>
+<tr class=biostyle><td align=right ><strong>Excluded observations</strong>:</td> <td>3960</td></tr>
+<tr class=biostyle><td align=right><strong>Init log likelihood</strong>:	</td> <td>-5733.950</td></tr>
+<tr class=biostyle><td align=right><strong>Final log likelihood</strong>:	</td> <td>-5214.843</td></tr>
+<tr class=biostyle><td align=right><strong>Likelihood ratio test for the init. model</strong>:	</td> <td>1038.214</td></tr>
+<tr class=biostyle><td align=right><strong>Rho-square for the init. model</strong>:	</td> <td>0.091</td></tr>
+<tr class=biostyle><td align=right><strong>Rho-square-bar for the init. model</strong>:	</td> <td>0.090</td></tr>
+<tr class=biostyle><td align=right><strong>Akaike Information Criterion</strong>:	</td> <td>10439.686</td></tr>
+<tr class=biostyle><td align=right><strong>Bayesian Information Criterion</strong>:	</td> <td>10473.786</td></tr>
+<tr class=biostyle><td align=right><strong>Final gradient norm</strong>:	</td> <td>+1.009e-03</td></tr>
+<tr class=biostyle><td align=right><strong>Diagnostic</strong>:	</td> <td>CFSQP: Normal termination. Obj: 6.05545e-06 Const: 6.05545e-06</td></tr>
+<tr class=biostyle><td align=right><strong>Iterations</strong>:	</td> <td>15</td></tr>
+<tr class=biostyle><td align=right><strong>Data processing time</strong>:	</td> <td>00:00</td></tr>
+<tr class=biostyle><td align=right><strong>Run time</strong>:	</td> <td>02:43</td></tr>
+<tr class=biostyle><td align=right><strong>Nbr of threads</strong>:	</td> <td>2</td></tr>
+</table>
+<h2>Estimated parameters</h2>
+<p><font size='-1'>Click on the headers of the columns to sort the table  [<a href='http://www.kryogenix.org/code/browser/sorttable/' target='_blank'>Credits</a>]</font></p>
+<table border="1" class="sortable">
+<tr class=biostyle><th>Name </th><th>Value</th><th>Std err</th><th>t-test</th><th>p-value</th><th></th><th>Robust Std err</th><th>Robust t-test</th><th>p-value</th><th></th></tr>
+<!-- x[5]=ASC_CAR (0,0.137367) [-10,10] FREE ID=10040--><tr class=biostyle>
+<td>ASC_CAR</td><td>0.137</td><td>0.0516</td><td>2.66</td><td>0.01</td><td></td><td>0.0518</td><td>2.65</td><td>0.01</td><td></td></tr>
+<!-- x[0]=ASC_TRAIN (0,-0.401854) [-10,10] FREE ID=10031--><tr class=biostyle>
+<td>ASC_TRAIN</td><td>-0.402</td><td>0.0635</td><td>-6.33</td><td>0.00</td><td></td><td>0.0659</td><td>-6.10</td><td>0.00</td><td></td></tr>
+<!-- x[3]=B_COST (0,-1.28506) [-10,10] FREE ID=10035--><tr class=biostyle>
+<td>B_COST</td><td>-1.29</td><td>0.0630</td><td>-20.39</td><td>0.00</td><td></td><td>0.0863</td><td>-14.90</td><td>0.00</td><td></td></tr>
+<!-- x[1]=B_TIME (0,-2.26061) [-10,10] FREE ID=10032--><tr class=biostyle>
+<td>B_TIME</td><td>-2.26</td><td>0.119</td><td>-18.96</td><td>0.00</td><td></td><td>0.117</td><td>-19.27</td><td>0.00</td><td></td></tr>
+<!-- x[2]=B_TIME_S (0,-1.65915) [-10,10] FREE ID=10033--><tr class=biostyle>
+<td>B_TIME_S</td><td>-1.66</td><td>0.139</td><td>-11.96</td><td>0.00</td><td></td><td>0.132</td><td>-12.54</td><td>0.00</td><td></td></tr>
+</table>
+<h2>Correlation of coefficients</h2>
+<p><font size='-1'>Click on the headers of the columns to sort the table [<a href='http://www.kryogenix.org/code/browser/sorttable/' target='_blank'>Credits</a>]</font></p>
+<table border="1" class="sortable">
+<tr class=biostyle><th>Coefficient1</th><th>Coefficient2</th><th>Covariance</th><th>Correlation</th><th>t-test</th><th>p-value</th><th></th><th>Rob. cov.</th><th>Rob. corr.</th><th>Rob. t-test</th><th>p-value</th></tr>
+<tr class=biostyle>
+<td>B_COST</td><td>B_TIME_S</td><td>0.00259</td><td>0.296</td><td>2.79</td><td>0.01</td><td></td><td>0.00320</td><td>0.280</td><td>2.75</td><td>0.01</td><td></td></tr><tr class=biostyle>
+<td>B_TIME</td><td>B_TIME_S</td><td>0.0128</td><td>0.774</td><td>-6.79</td><td>0.00</td><td></td><td>0.0115</td><td>0.742</td><td>-6.62</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_TRAIN</td><td>B_COST</td><td>-0.000137</td><td>-0.0343</td><td>9.71</td><td>0.00</td><td></td><td>-0.000300</td><td>-0.0528</td><td>7.94</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_TRAIN</td><td>B_TIME_S</td><td>-0.00182</td><td>-0.207</td><td>7.66</td><td>0.00</td><td></td><td>-0.00146</td><td>-0.168</td><td>7.99</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>B_COST</td><td>B_TIME</td><td>0.00238</td><td>0.317</td><td>8.42</td><td>0.00</td><td></td><td>0.00371</td><td>0.367</td><td>8.31</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_CAR</td><td>ASC_TRAIN</td><td>0.00204</td><td>0.623</td><td>10.56</td><td>0.00</td><td></td><td>0.00223</td><td>0.655</td><td>10.67</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_CAR</td><td>B_TIME_S</td><td>-0.00299</td><td>-0.417</td><td>10.76</td><td>0.00</td><td></td><td>-0.00286</td><td>-0.418</td><td>11.16</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_TRAIN</td><td>B_TIME</td><td>-0.00456</td><td>-0.603</td><td>11.24</td><td>0.00</td><td></td><td>-0.00470</td><td>-0.609</td><td>11.21</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_CAR</td><td>B_COST</td><td>0.000182</td><td>0.0559</td><td>17.95</td><td>0.00</td><td></td><td>0.000131</td><td>0.0294</td><td>14.33</td><td>0.00</td><td></td></tr><tr class=biostyle>
+<td>ASC_CAR</td><td>B_TIME</td><td>-0.00395</td><td>-0.642</td><td>15.23</td><td>0.00</td><td></td><td>-0.00388</td><td>-0.638</td><td>15.42</td><td>0.00</td><td></td></tr></table>
+<p>Smallest singular value: 31.4368</p>

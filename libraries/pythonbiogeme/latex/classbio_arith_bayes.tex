@@ -1,0 +1,118 @@
+\hypertarget{classbio_arith_bayes}{}\section{bio\+Arith\+Bayes Class Reference}
+\label{classbio_arith_bayes}\index{bio\+Arith\+Bayes@{bio\+Arith\+Bayes}}
+Inheritance diagram for bio\+Arith\+Bayes\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_arith_bayes}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_aa832659e5def15ef3d64034ed2230421}\label{classbio_arith_bayes_aa832659e5def15ef3d64034ed2230421}} 
+{\bfseries bio\+Arith\+Bayes} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, vector$<$ pat\+U\+Long $>$ the\+Betas, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a43436619a30bb17a88eeea54e34031be}\label{classbio_arith_bayes_a43436619a30bb17a88eeea54e34031be}} 
+virtual \hyperlink{classbio_bayesian_results}{bio\+Bayesian\+Results} {\bfseries generate\+Draws} (pat\+Error $\ast$\&err)
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_bayes_a7292ae29cd04168543674b1ae71f4bed}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_bayes_a3421312ddc6b7e0b080c497cdc53d1a5}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_bayes_a53f5d22f6a5b743fbf50bd75db697ccd}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a2fcca322e8e0001c5a19fbefd7b747d6}\label{classbio_arith_bayes_a2fcca322e8e0001c5a19fbefd7b747d6}} 
+virtual pat\+Boolean {\bfseries is\+Bayesian} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a96e6336d69bd78f9251beca5a10640f4}\label{classbio_arith_bayes_a96e6336d69bd78f9251beca5a10640f4}} 
+virtual void {\bfseries get\+Next\+Draw} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_acc12626e93cfc2284925324481e4e5e3}\label{classbio_arith_bayes_acc12626e93cfc2284925324481e4e5e3}} 
+vector$<$ pat\+U\+Long $>$ {\bfseries betas}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a919e7b640febedf38f99ea9e1b1bce9d}\label{classbio_arith_bayes_a919e7b640febedf38f99ea9e1b1bce9d}} 
+vector$<$ vector$<$ pat\+Real $>$ $>$ {\bfseries the\+Draws}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_af1a8a772dac8eac243a2813b3fbd378b}\label{classbio_arith_bayes_af1a8a772dac8eac243a2813b3fbd378b}} 
+vector$<$ pat\+Real $>$ {\bfseries beta\+Values}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a967ec67d4d7ea0905b64905e8f81ea33}\label{classbio_arith_bayes_a967ec67d4d7ea0905b64905e8f81ea33}} 
+vector$<$ \hyperlink{classbio_expression}{bio\+Expression} $\ast$ $>$ {\bfseries betas\+Expr}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_ab549c547068e12f61da48efd39391195}\label{classbio_arith_bayes_ab549c547068e12f61da48efd39391195}} 
+vector$<$ pat\+String $>$ {\bfseries beta\+Names}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_ad87851021a53ac4dabe7194d1ec7370d}\label{classbio_arith_bayes_ad87851021a53ac4dabe7194d1ec7370d}} 
+pat\+Normal\+Wichura $\ast$ {\bfseries the\+Normal}
+\item 
+\mbox{\Hypertarget{classbio_arith_bayes_a7ad02ee9a4b5d6515c4523f8cc62bd78}\label{classbio_arith_bayes_a7ad02ee9a4b5d6515c4523f8cc62bd78}} 
+pat\+Uniform $\ast$ {\bfseries the\+Uniform}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_bayes_a53f5d22f6a5b743fbf50bd75db697ccd}\label{classbio_arith_bayes_a53f5d22f6a5b743fbf50bd75db697ccd}} 
+\index{bio\+Arith\+Bayes@{bio\+Arith\+Bayes}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Bayes@{bio\+Arith\+Bayes}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Bayes\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_a3421312ddc6b7e0b080c497cdc53d1a5}\label{classbio_arith_bayes_a3421312ddc6b7e0b080c497cdc53d1a5}} 
+\index{bio\+Arith\+Bayes@{bio\+Arith\+Bayes}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Bayes@{bio\+Arith\+Bayes}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Bayes\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_bayes_a7292ae29cd04168543674b1ae71f4bed}\label{classbio_arith_bayes_a7292ae29cd04168543674b1ae71f4bed}} 
+\index{bio\+Arith\+Bayes@{bio\+Arith\+Bayes}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Bayes@{bio\+Arith\+Bayes}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Bayes\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Bayes.\+h\item 
+bio\+Arith\+Bayes.\+cc\end{DoxyCompactItemize}

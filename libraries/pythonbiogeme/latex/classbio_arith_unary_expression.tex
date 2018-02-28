@@ -1,0 +1,88 @@
+\hypertarget{classbio_arith_unary_expression}{}\section{bio\+Arith\+Unary\+Expression Class Reference}
+\label{classbio_arith_unary_expression}\index{bio\+Arith\+Unary\+Expression@{bio\+Arith\+Unary\+Expression}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Unary\+Expression.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Unary\+Expression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classbio_arith_unary_expression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_ac8e8a90f5935ff89e5eff3d606b45f1a}\label{classbio_arith_unary_expression_ac8e8a90f5935ff89e5eff3d606b45f1a}} 
+{\bfseries bio\+Arith\+Unary\+Expression} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long c, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a9b3fb378875ca54fcbd70acf8f6ef7a9}\label{classbio_arith_unary_expression_a9b3fb378875ca54fcbd70acf8f6ef7a9}} 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries get\+Child} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_ae40eb0f22afee1e6268d6f2a763c0d21}\label{classbio_arith_unary_expression_ae40eb0f22afee1e6268d6f2a763c0d21}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a128313ec9bd6f0ef6ebb5f8b67ccc477}\label{classbio_arith_unary_expression_a128313ec9bd6f0ef6ebb5f8b67ccc477}} 
+virtual pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_ade8b48b1ddca7299bca96c77d97bb8e9}\label{classbio_arith_unary_expression_ade8b48b1ddca7299bca96c77d97bb8e9}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_aa8e5a9972f314f6051ad47cd7c892c84}\label{classbio_arith_unary_expression_aa8e5a9972f314f6051ad47cd7c892c84}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_af93b8256cead1cb6ba632f360e78f1c2}\label{classbio_arith_unary_expression_af93b8256cead1cb6ba632f360e78f1c2}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a2f99fbc5344f4610676d40883209a61c}\label{classbio_arith_unary_expression_a2f99fbc5344f4610676d40883209a61c}} 
+virtual pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a67153c2ecbab06a404d52fed92047fad}\label{classbio_arith_unary_expression_a67153c2ecbab06a404d52fed92047fad}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a158beb11790272f8cd9438afe3b78ff2}\label{classbio_arith_unary_expression_a158beb11790272f8cd9438afe3b78ff2}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a73cf4b2ffae2bd9af88ec72ec76c2043}\label{classbio_arith_unary_expression_a73cf4b2ffae2bd9af88ec72ec76c2043}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_ad83897e3f655f2c25e603cc50249ac3a}\label{classbio_arith_unary_expression_ad83897e3f655f2c25e603cc50249ac3a}} 
+pat\+U\+Long {\bfseries child\+Id}
+\item 
+\mbox{\Hypertarget{classbio_arith_unary_expression_a654eeff5056aaab7bfc8dd825feeeb6b}\label{classbio_arith_unary_expression_a654eeff5056aaab7bfc8dd825feeeb6b}} 
+\hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries child}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing a sum expression 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}\label{classbio_arith_unary_expression_a974b7779804861f331a75e08db377926}} 
+\index{bio\+Arith\+Unary\+Expression@{bio\+Arith\+Unary\+Expression}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Unary\+Expression@{bio\+Arith\+Unary\+Expression}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Unary\+Expression\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_random_a54b48a4876469d44f324f73758ea1b6c}{bio\+Arith\+Random}, \hyperlink{classbio_arith_unif_random_a4c81af6983404929d1e06367f69a2256}{bio\+Arith\+Unif\+Random}, \hyperlink{classbio_arith_iterator_aceb6ee1a4c024349178de5edf4624710}{bio\+Arith\+Iterator}, and \hyperlink{classbio_arith_derivative_a5cdf6c4903ec8123b30c0d2ce059718d}{bio\+Arith\+Derivative}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Unary\+Expression.\+h\item 
+bio\+Arith\+Unary\+Expression.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,146 @@
+\hypertarget{classbio_model}{}\section{bio\+Model Class Reference}
+\label{classbio_model}\index{bio\+Model@{bio\+Model}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_model_a408209fbea4b5a21f13ac62e276459f3}\label{classbio_model_a408209fbea4b5a21f13ac62e276459f3}} 
+void {\bfseries set\+Formula} (pat\+U\+Long the\+Formula)
+\item 
+\mbox{\Hypertarget{classbio_model_a03a13cdc8b4397f1a5ef6207185e78be}\label{classbio_model_a03a13cdc8b4397f1a5ef6207185e78be}} 
+void {\bfseries set\+Exclude\+Expr} (pat\+U\+Long exclude\+Expr)
+\item 
+\mbox{\Hypertarget{classbio_model_a8650e153e8b532a9f2789fdd9d1d620d}\label{classbio_model_a8650e153e8b532a9f2789fdd9d1d620d}} 
+void {\bfseries set\+Weight\+Expr} (pat\+U\+Long weight\+Expr)
+\item 
+\mbox{\Hypertarget{classbio_model_a5caa754ec994e89b675dcafe46a54cc4}\label{classbio_model_a5caa754ec994e89b675dcafe46a54cc4}} 
+void {\bfseries set\+Statistics} (map$<$ pat\+String, pat\+U\+Long $>$ $\ast$stat)
+\item 
+\mbox{\Hypertarget{classbio_model_ae7dbc296cc9314067c05131ddf394359}\label{classbio_model_ae7dbc296cc9314067c05131ddf394359}} 
+void {\bfseries set\+Formulas} (map$<$ pat\+String, pat\+U\+Long $>$ $\ast$stat)
+\item 
+\mbox{\Hypertarget{classbio_model_ac4fa8d014aec7b01f77fc7de87f36493}\label{classbio_model_ac4fa8d014aec7b01f77fc7de87f36493}} 
+void {\bfseries set\+Constraints} (map$<$ pat\+String, pat\+U\+Long $>$ $\ast$constr)
+\item 
+\mbox{\Hypertarget{classbio_model_a8b60411da179a0871dd7b6d5a2c6c52f}\label{classbio_model_a8b60411da179a0871dd7b6d5a2c6c52f}} 
+void {\bfseries set\+Simulation} (\hyperlink{classbio_arith_print}{bio\+Arith\+Print} $\ast$simul)
+\item 
+\mbox{\Hypertarget{classbio_model_a6fe18f34fda1590fc5eed3a7e9a12b84}\label{classbio_model_a6fe18f34fda1590fc5eed3a7e9a12b84}} 
+void {\bfseries set\+Bayesian} (\hyperlink{classbio_arith_bayes}{bio\+Arith\+Bayes} $\ast$b)
+\item 
+\mbox{\Hypertarget{classbio_model_a1e5a7162dbcb374404035ebd72d065e6}\label{classbio_model_a1e5a7162dbcb374404035ebd72d065e6}} 
+void {\bfseries set\+Sensitivity\+Analysis} (vector$<$ pat\+String $>$ params, pat\+Hybrid\+Matrix $\ast$simul)
+\item 
+\mbox{\Hypertarget{classbio_model_a74d6202ce8f69e83c31ccdfb2024d3e2}\label{classbio_model_a74d6202ce8f69e83c31ccdfb2024d3e2}} 
+void {\bfseries set\+Repository} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep)
+\item 
+\mbox{\Hypertarget{classbio_model_a2236d9ec638d1ee295ff241d16c78892}\label{classbio_model_a2236d9ec638d1ee295ff241d16c78892}} 
+pat\+U\+Long {\bfseries get\+Formula} ()
+\item 
+\mbox{\Hypertarget{classbio_model_aca2925ffa4c535304c3f9ce350a049a4}\label{classbio_model_aca2925ffa4c535304c3f9ce350a049a4}} 
+pat\+U\+Long {\bfseries get\+Exclude\+Expr} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a224ec795f752924a613ea073936bce0f}\label{classbio_model_a224ec795f752924a613ea073936bce0f}} 
+pat\+U\+Long {\bfseries get\+Weight\+Expr} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a7414edb3f4ba702658a71d1e64414df9}\label{classbio_model_a7414edb3f4ba702658a71d1e64414df9}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries get\+Statistics} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a06b2a35c99d1ede3cd8df2a58cfe331a}\label{classbio_model_a06b2a35c99d1ede3cd8df2a58cfe331a}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries get\+Formulas} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a70242ba956b2335dbbc5055400aa92df}\label{classbio_model_a70242ba956b2335dbbc5055400aa92df}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries get\+Constraints} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a0b4092c544b40eb4561e4de6e9e745c9}\label{classbio_model_a0b4092c544b40eb4561e4de6e9e745c9}} 
+vector$<$ pair$<$ pat\+String, pat\+U\+Long $>$ $>$ $\ast$ {\bfseries get\+User\+Expressions} ()
+\item 
+\mbox{\Hypertarget{classbio_model_af5e2af441e1f646f2b2a5791262b7077}\label{classbio_model_af5e2af441e1f646f2b2a5791262b7077}} 
+\hyperlink{classbio_arith_print}{bio\+Arith\+Print} $\ast$ {\bfseries get\+Simulation} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a7d353e1f595224ee4d9720ef48abbc4f}\label{classbio_model_a7d353e1f595224ee4d9720ef48abbc4f}} 
+\hyperlink{classbio_arith_bayes}{bio\+Arith\+Bayes} $\ast$ {\bfseries get\+Bayesian} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a613036c3bd60982639ecbbe01917498b}\label{classbio_model_a613036c3bd60982639ecbbe01917498b}} 
+pat\+Boolean {\bfseries must\+Estimate} () const
+\item 
+\mbox{\Hypertarget{classbio_model_a6a6ace580172b16406c446d23ed56b4b}\label{classbio_model_a6a6ace580172b16406c446d23ed56b4b}} 
+pat\+Boolean {\bfseries must\+Bayes\+Estimate} () const
+\item 
+\mbox{\Hypertarget{classbio_model_a3c8b2ec298ccf911828caf23afca26b1}\label{classbio_model_a3c8b2ec298ccf911828caf23afca26b1}} 
+pat\+Boolean {\bfseries must\+Simulate} () const
+\item 
+\mbox{\Hypertarget{classbio_model_a7f7db5a3254168ab884ea88aa6756045}\label{classbio_model_a7f7db5a3254168ab884ea88aa6756045}} 
+pat\+Boolean {\bfseries must\+Perform\+Sensitivity\+Analysis} () const
+\item 
+\mbox{\Hypertarget{classbio_model_aa967b85939f2bdf2227385dba1a75dfa}\label{classbio_model_aa967b85939f2bdf2227385dba1a75dfa}} 
+pat\+Hybrid\+Matrix $\ast$ {\bfseries get\+Var\+Covar\+For\+Sensitivity} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a0e628d1862dab746c9c8ca5874b40c0d}\label{classbio_model_a0e628d1862dab746c9c8ca5874b40c0d}} 
+vector$<$ pat\+String $>$ {\bfseries get\+Names\+For\+Sensitivity} ()
+\item 
+\mbox{\Hypertarget{classbio_model_afc8862f382db041c2249b78b06044acb}\label{classbio_model_afc8862f382db041c2249b78b06044acb}} 
+\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$ {\bfseries get\+Repository} ()
+\item 
+\mbox{\Hypertarget{classbio_model_ac1a771443fce3ec6ec914eddf7dd6bae}\label{classbio_model_ac1a771443fce3ec6ec914eddf7dd6bae}} 
+void {\bfseries add\+User\+Expression} (pat\+String name, pat\+U\+Long expr\+Id)
+\item 
+\mbox{\Hypertarget{classbio_model_acc3ffbf13e2316e4ec8fb040194ced5d}\label{classbio_model_acc3ffbf13e2316e4ec8fb040194ced5d}} 
+pat\+Boolean {\bfseries involves\+Monte\+Carlo} ()
+\item 
+\mbox{\Hypertarget{classbio_model_a3d16cf6efdd7f53e2e60ae259e44123a}\label{classbio_model_a3d16cf6efdd7f53e2e60ae259e44123a}} 
+void {\bfseries set\+Old\+Betas} (map$<$ pat\+String, vector$<$ pat\+Real $>$ $>$ $\ast$r)
+\item 
+\mbox{\Hypertarget{classbio_model_aa767ecd42466ed2d6d1f3970c86b1343}\label{classbio_model_aa767ecd42466ed2d6d1f3970c86b1343}} 
+vector$<$ pat\+Variables $>$ $\ast$ {\bfseries get\+Old\+Betas} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_model_af9d612c741c87e6ef141ad8abba06211}\label{classbio_model_af9d612c741c87e6ef141ad8abba06211}} 
+pat\+U\+Long {\bfseries the\+Formula}
+\item 
+\mbox{\Hypertarget{classbio_model_ab7398fcb313641de3236f716f420148d}\label{classbio_model_ab7398fcb313641de3236f716f420148d}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries statistics}
+\item 
+\mbox{\Hypertarget{classbio_model_a7e5c522f6bf1eb29e9510c8459d6ca6a}\label{classbio_model_a7e5c522f6bf1eb29e9510c8459d6ca6a}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries formulas}
+\item 
+\mbox{\Hypertarget{classbio_model_addaf0ea38d819670e355bda57ef21b68}\label{classbio_model_addaf0ea38d819670e355bda57ef21b68}} 
+map$<$ pat\+String, pat\+U\+Long $>$ $\ast$ {\bfseries constraints}
+\item 
+\mbox{\Hypertarget{classbio_model_a3bfd0f095177a37ef4d7a98ff6027807}\label{classbio_model_a3bfd0f095177a37ef4d7a98ff6027807}} 
+vector$<$ pair$<$ pat\+String, pat\+U\+Long $>$ $>$ {\bfseries user\+Expressions}
+\item 
+\mbox{\Hypertarget{classbio_model_ae639234ddf3d4afdd81e943b4ee4bdee}\label{classbio_model_ae639234ddf3d4afdd81e943b4ee4bdee}} 
+\hyperlink{classbio_arith_print}{bio\+Arith\+Print} $\ast$ {\bfseries simulation}
+\item 
+\mbox{\Hypertarget{classbio_model_a6e11bb0fd978811d9101fc0e5ed58201}\label{classbio_model_a6e11bb0fd978811d9101fc0e5ed58201}} 
+pat\+U\+Long {\bfseries exclude\+Expr}
+\item 
+\mbox{\Hypertarget{classbio_model_a9011eb5179a5a31bdd7af2bf621204a0}\label{classbio_model_a9011eb5179a5a31bdd7af2bf621204a0}} 
+pat\+U\+Long {\bfseries weight\+Expr}
+\item 
+\mbox{\Hypertarget{classbio_model_abd2710883cdd52d753b990596162b6c8}\label{classbio_model_abd2710883cdd52d753b990596162b6c8}} 
+\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$ {\bfseries the\+Repository}
+\item 
+\mbox{\Hypertarget{classbio_model_a219e2140b89a4df899f8b537211780a7}\label{classbio_model_a219e2140b89a4df899f8b537211780a7}} 
+pat\+Hybrid\+Matrix $\ast$ {\bfseries var\+Covar\+For\+Sensitivity}
+\item 
+\mbox{\Hypertarget{classbio_model_a1da08b67b1c536aba1330cd11e4f0298}\label{classbio_model_a1da08b67b1c536aba1330cd11e4f0298}} 
+vector$<$ pat\+String $>$ {\bfseries names\+For\+Sensitivity}
+\item 
+\mbox{\Hypertarget{classbio_model_a4bb24b44f8b9c0b10cf42b2d7c56fd6e}\label{classbio_model_a4bb24b44f8b9c0b10cf42b2d7c56fd6e}} 
+pat\+Boolean {\bfseries perform\+Sensitivity\+Analysis}
+\item 
+\mbox{\Hypertarget{classbio_model_a1a5b3d87d39762225b02d4cfdae2cdf2}\label{classbio_model_a1a5b3d87d39762225b02d4cfdae2cdf2}} 
+\hyperlink{classbio_arith_bayes}{bio\+Arith\+Bayes} $\ast$ {\bfseries the\+Bayesian\+Expr}
+\item 
+\mbox{\Hypertarget{classbio_model_a7322634a86afae82cf09fe5d5bdfc42c}\label{classbio_model_a7322634a86afae82cf09fe5d5bdfc42c}} 
+map$<$ pat\+String, vector$<$ pat\+Real $>$ $>$ $\ast$ {\bfseries old\+Betas}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Model.\+h\item 
+bio\+Model.\+cc\end{DoxyCompactItemize}

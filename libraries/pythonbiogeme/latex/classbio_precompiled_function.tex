@@ -1,0 +1,122 @@
+\hypertarget{classbio_precompiled_function}{}\section{bio\+Precompiled\+Function Class Reference}
+\label{classbio_precompiled_function}\index{bio\+Precompiled\+Function@{bio\+Precompiled\+Function}}
+Inheritance diagram for bio\+Precompiled\+Function\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classbio_precompiled_function}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a3605784fc26900073d58ba50d4323c2d}\label{classbio_precompiled_function_a3605784fc26900073d58ba50d4323c2d}} 
+{\bfseries bio\+Precompiled\+Function} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long exp\+Id, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a7443f3ac1749a5acd78bb33fb1b053fb}\label{classbio_precompiled_function_a7443f3ac1749a5acd78bb33fb1b053fb}} 
+pat\+Real {\bfseries compute\+Function} (tr\+Vector $\ast$x, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a3ac54f252b6fa8756f9e5504b6f178c2}\label{classbio_precompiled_function_a3ac54f252b6fa8756f9e5504b6f178c2}} 
+pat\+Real {\bfseries compute\+Function\+And\+Derivatives} (tr\+Vector $\ast$x, tr\+Vector $\ast$grad, tr\+Hessian $\ast$hessian, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a73c7ac4e9ec854bbf9fe5f1db063c369}\label{classbio_precompiled_function_a73c7ac4e9ec854bbf9fe5f1db063c369}} 
+tr\+Hessian $\ast$ {\bfseries compute\+Cheap\+Hessian} (tr\+Hessian $\ast$hessian, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a942cac73e3984be372f9b50bd2d6f52b}\label{classbio_precompiled_function_a942cac73e3984be372f9b50bd2d6f52b}} 
+pat\+Boolean {\bfseries is\+Cheap\+Hessian\+Available} ()
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a70b3ba8efb3a7af37bbad84bbd25bd0f}\label{classbio_precompiled_function_a70b3ba8efb3a7af37bbad84bbd25bd0f}} 
+tr\+Vector $\ast$ {\bfseries compute\+Hessian\+Times\+Vector} (tr\+Vector $\ast$x, const tr\+Vector $\ast$v, tr\+Vector $\ast$r, pat\+Boolean $\ast$success, pat\+Error $\ast$\&err)
+\item 
+pat\+Boolean \hyperlink{classbio_precompiled_function_a50c940f1d46f4ed75a4e54fbe425d11f}{is\+Gradient\+Available} () const
+\item 
+pat\+Boolean \hyperlink{classbio_precompiled_function_aaa821c6546652dd085391c4f2199c97a}{is\+Hessian\+Available} () const
+\item 
+pat\+Boolean \hyperlink{classbio_precompiled_function_ad29704661602c786841335f8d27795d1}{is\+Hessian\+Times\+Vector\+Available} () const
+\item 
+unsigned long \hyperlink{classbio_precompiled_function_a937016d0901997d9cc85b270335aa730}{get\+Dimension} () const
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a1ce303f4628b6e3e7dd3a4cdf387b74d}\label{classbio_precompiled_function_a1ce303f4628b6e3e7dd3a4cdf387b74d}} 
+tr\+Vector {\bfseries get\+Current\+Variables} () const
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a71f20fcb49e3d6986a4b45c5b6b2b241}\label{classbio_precompiled_function_a71f20fcb49e3d6986a4b45c5b6b2b241}} 
+pat\+Boolean {\bfseries is\+User\+Based} () const
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_a237c0f2298ebaedb976f330976fd4543}\label{classbio_precompiled_function_a237c0f2298ebaedb976f330976fd4543}} 
+void {\bfseries generate\+Cpp\+Code} (ostream \&str, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_precompiled_function_aad7fa118bd84c75043f0b53b0cef2a29}\label{classbio_precompiled_function_aad7fa118bd84c75043f0b53b0cef2a29}} 
+void {\bfseries generate\+Derivatives} (pat\+Error $\ast$\&err)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_precompiled_function_a937016d0901997d9cc85b270335aa730}\label{classbio_precompiled_function_a937016d0901997d9cc85b270335aa730}} 
+\index{bio\+Precompiled\+Function@{bio\+Precompiled\+Function}!get\+Dimension@{get\+Dimension}}
+\index{get\+Dimension@{get\+Dimension}!bio\+Precompiled\+Function@{bio\+Precompiled\+Function}}
+\subsubsection{\texorpdfstring{get\+Dimension()}{getDimension()}}
+{\footnotesize\ttfamily unsigned long bio\+Precompiled\+Function\+::get\+Dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Number of variable for the minimization problem 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_python_wrapper_a63991abdfaca07aca3757e96cd06410d}{bio\+Python\+Wrapper}.
+
+\mbox{\Hypertarget{classbio_precompiled_function_a50c940f1d46f4ed75a4e54fbe425d11f}\label{classbio_precompiled_function_a50c940f1d46f4ed75a4e54fbe425d11f}} 
+\index{bio\+Precompiled\+Function@{bio\+Precompiled\+Function}!is\+Gradient\+Available@{is\+Gradient\+Available}}
+\index{is\+Gradient\+Available@{is\+Gradient\+Available}!bio\+Precompiled\+Function@{bio\+Precompiled\+Function}}
+\subsubsection{\texorpdfstring{is\+Gradient\+Available()}{isGradientAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Precompiled\+Function\+::is\+Gradient\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_python_wrapper_a1e8391dbed1fd49c04a042b9e15dec71}{bio\+Python\+Wrapper}.
+
+\mbox{\Hypertarget{classbio_precompiled_function_aaa821c6546652dd085391c4f2199c97a}\label{classbio_precompiled_function_aaa821c6546652dd085391c4f2199c97a}} 
+\index{bio\+Precompiled\+Function@{bio\+Precompiled\+Function}!is\+Hessian\+Available@{is\+Hessian\+Available}}
+\index{is\+Hessian\+Available@{is\+Hessian\+Available}!bio\+Precompiled\+Function@{bio\+Precompiled\+Function}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Available()}{isHessianAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Precompiled\+Function\+::is\+Hessian\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_python_wrapper_a8dcb20aa1e057667c0feaf3174545fc8}{bio\+Python\+Wrapper}.
+
+\mbox{\Hypertarget{classbio_precompiled_function_ad29704661602c786841335f8d27795d1}\label{classbio_precompiled_function_ad29704661602c786841335f8d27795d1}} 
+\index{bio\+Precompiled\+Function@{bio\+Precompiled\+Function}!is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}}
+\index{is\+Hessian\+Times\+Vector\+Available@{is\+Hessian\+Times\+Vector\+Available}!bio\+Precompiled\+Function@{bio\+Precompiled\+Function}}
+\subsubsection{\texorpdfstring{is\+Hessian\+Times\+Vector\+Available()}{isHessianTimesVectorAvailable()}}
+{\footnotesize\ttfamily pat\+Boolean bio\+Precompiled\+Function\+::is\+Hessian\+Times\+Vector\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_python_wrapper_ad0e9def58fcc08187411ad78ef7314aa}{bio\+Python\+Wrapper}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Precompiled\+Function.\+h\item 
+bio\+Precompiled\+Function.\+cc\end{DoxyCompactItemize}

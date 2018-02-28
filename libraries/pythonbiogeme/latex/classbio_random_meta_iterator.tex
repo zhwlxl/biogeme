@@ -1,0 +1,42 @@
+\hypertarget{classbio_random_meta_iterator}{}\section{bio\+Random\+Meta\+Iterator Class Reference}
+\label{classbio_random_meta_iterator}\index{bio\+Random\+Meta\+Iterator@{bio\+Random\+Meta\+Iterator}}
+
+
+{\ttfamily \#include $<$bio\+Random\+Meta\+Iterator.\+h$>$}
+
+Inheritance diagram for bio\+Random\+Meta\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_random_meta_iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_ae44255fd64789a5fc3b5ce0b61c1f978}\label{classbio_random_meta_iterator_ae44255fd64789a5fc3b5ce0b61c1f978}} 
+{\bfseries bio\+Random\+Meta\+Iterator} (\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} a\+Span, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_a89745256968e865e2b68732162abfefd}\label{classbio_random_meta_iterator_a89745256968e865e2b68732162abfefd}} 
+void {\bfseries first} ()
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_a7eff1bd2d9d3050e36424ccefeff29f8}\label{classbio_random_meta_iterator_a7eff1bd2d9d3050e36424ccefeff29f8}} 
+void {\bfseries next} ()
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_a440699d5b0e610216f7cd46d11edb146}\label{classbio_random_meta_iterator_a440699d5b0e610216f7cd46d11edb146}} 
+pat\+Boolean {\bfseries is\+Done} ()
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_a3c2be6c10035e0011132cb268e1bed0e}\label{classbio_random_meta_iterator_a3c2be6c10035e0011132cb268e1bed0e}} 
+\hyperlink{classbio_iterator_span}{bio\+Iterator\+Span} {\bfseries current\+Item} ()
+\item 
+\mbox{\Hypertarget{classbio_random_meta_iterator_adfa8966a2b1925b19767da96ff036f43}\label{classbio_random_meta_iterator_adfa8966a2b1925b19767da96ff036f43}} 
+pat\+U\+Long {\bfseries nbr\+Of\+Items} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents an iterator on another iterator. However, it iterate randomly on the items. This is desgined for bootstrapping panel data. The range of the iterator is defined by \char`\"{}a\+Span\char`\"{}. The \char`\"{}thread\+Span\char`\"{} defines the range designed for a given thread. Rule\+: assume a\+Span = \mbox{[}l,u\mbox{]} and thread\+Span\mbox{[}b,e\mbox{]}. Then every item i in the iterations such that i is strictly before b are ignored. Note that the upper bound e is completely ignored. This is on purpose, in order to avoid possible misalignent with the meta iterators. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Random\+Meta\+Iterator.\+h\item 
+bio\+Random\+Meta\+Iterator.\+cc\end{DoxyCompactItemize}

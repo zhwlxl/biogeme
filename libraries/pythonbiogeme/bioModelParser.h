@@ -60,6 +60,7 @@ private:
   map<patString,patULong> userExpr ;
   vector<map<patString,patReal> > simulatedValues ;
   bioExpressionRepository* theExpRepository ;
+
   
 };
 

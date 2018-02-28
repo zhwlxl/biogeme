@@ -1,0 +1,77 @@
+\hypertarget{classbio_arith_elementary_expression}{}\section{bio\+Arith\+Elementary\+Expression Class Reference}
+\label{classbio_arith_elementary_expression}\index{bio\+Arith\+Elementary\+Expression@{bio\+Arith\+Elementary\+Expression}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Elementary\+Expression.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Elementary\+Expression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.962963cm]{classbio_arith_elementary_expression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_a7e6fce4a237dae9d0a002273f1144c0f}\label{classbio_arith_elementary_expression_a7e6fce4a237dae9d0a002273f1144c0f}} 
+{\bfseries bio\+Arith\+Elementary\+Expression} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par)
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_ad0580d3a2ab21f301a131e187ee504f3}\label{classbio_arith_elementary_expression_ad0580d3a2ab21f301a131e187ee504f3}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_a5c1548f90e0ce54653c7b319ed260c2e}\label{classbio_arith_elementary_expression_a5c1548f90e0ce54653c7b319ed260c2e}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_aaea78451d997c2b3b3e911e93118d4d1}\label{classbio_arith_elementary_expression_aaea78451d997c2b3b3e911e93118d4d1}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_aa994776430d8af57c9e964ce296e8da1}\label{classbio_arith_elementary_expression_aa994776430d8af57c9e964ce296e8da1}} 
+virtual pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_ac7326fe2e8d9396cd56e45219be0867e}\label{classbio_arith_elementary_expression_ac7326fe2e8d9396cd56e45219be0867e}} 
+virtual pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_elementary_expression_a9293635c83789f547b5642855f8c8f16}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_a17e6a689c2b513c05460693f7328376b}\label{classbio_arith_elementary_expression_a17e6a689c2b513c05460693f7328376b}} 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ {\bfseries get\+Expression\+From\+Id} (pat\+U\+Long the\+Id)
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_a8f87ed84536747d5f8fe3e69773f621f}\label{classbio_arith_elementary_expression_a8f87ed84536747d5f8fe3e69773f621f}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_ae9d4c3a08a93fce0c901edf19638eedd}\label{classbio_arith_elementary_expression_ae9d4c3a08a93fce0c901edf19638eedd}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+\mbox{\Hypertarget{classbio_arith_elementary_expression_acfb07ccdaf1d39f91e3cdeda4c9c076a}\label{classbio_arith_elementary_expression_acfb07ccdaf1d39f91e3cdeda4c9c076a}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class implementing a node of the tree representing an elementary expression, without any chil 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_elementary_expression_a9293635c83789f547b5642855f8c8f16}\label{classbio_arith_elementary_expression_a9293635c83789f547b5642855f8c8f16}} 
+\index{bio\+Arith\+Elementary\+Expression@{bio\+Arith\+Elementary\+Expression}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Elementary\+Expression@{bio\+Arith\+Elementary\+Expression}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Elementary\+Expression\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{bio\+Expression}.
+
+
+
+Reimplemented in \hyperlink{classbio_arith_constant_a50fd07c61fc6674c05f23345b972807c}{bio\+Arith\+Constant}, and \hyperlink{classbio_arith_literal_ae55e7cbd7d3561b56af50fc741009a60}{bio\+Arith\+Literal}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Elementary\+Expression.\+h\item 
+bio\+Arith\+Elementary\+Expression.\+cc\end{DoxyCompactItemize}

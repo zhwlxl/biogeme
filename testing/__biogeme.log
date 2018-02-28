@@ -1,8 +1,24 @@
 This file has automatically been generated.
-Sun Apr  2 15:34:20 2017
+Fri Dec 29 09:00:29 2017
 Michel Bierlaire, EPFL
 
-biogeme 2.6a [Lun 27 mar 2017 15:26:14 CEST]
+biogeme 2.7b [Thu Dec 28 18:15:48 CET 2017]
 Michel Bierlaire, EPFL
 
-[15:34:20]testing.cc:20  Working directory: /Users/michelbierlaire/gitbiogeme/biogeme/dev/source/testing
+[09:00:29]biogemedylib.cc:39  DLL: run pythonbiogeme 01logit swissmetro.dat
+Warning: [09:00:29]bioMain.cc:117  pythonbiogeme 01logit swissmetro.dat
+[09:00:29]bioParameters.cc:450  Parameter documentation generated: pythonparam.html
+[09:00:29]bioMain.cc:123  Init bioReporting
+[09:00:29]bioMain.cc:131  Init bioSample
+[09:00:29]bioMain.cc:141  Init Python
+[09:00:29]bioMain.cc:149  Done
+[09:00:29]bioMain.cc:150  Python version: 3.6.4 (default, Dec 25 2017, 14:57:56) 
+[GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)]
+[09:00:29]bioMain.cc:152  Done A
+[09:00:29]bioMain.cc:159  Done B
+[09:00:29]bioMain.cc:162  Get model name
+[09:00:29]bioMain.cc:183  Init bioModelParser
+[09:00:29]bioModelParser.cc:113  01logit.py exists
+Warning: [09:00:29]bioModelParser.cc:129  Error: Environment variable PYTHONPATH is undefined
+Warning: [09:00:29]bioMain.cc:193  Error: Environment variable PYTHONPATH is undefined
+Warning: [09:00:29]biogemedylib.cc:42  Error: Environment variable PYTHONPATH is undefined

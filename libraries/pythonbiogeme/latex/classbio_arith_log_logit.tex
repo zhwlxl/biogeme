@@ -1,0 +1,195 @@
+\hypertarget{classbio_arith_log_logit}{}\section{bio\+Arith\+Log\+Logit Class Reference}
+\label{classbio_arith_log_logit}\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+
+
+{\ttfamily \#include $<$bio\+Arith\+Log\+Logit.\+h$>$}
+
+Inheritance diagram for bio\+Arith\+Log\+Logit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbio_arith_log_logit}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a42a95d4fa01326e82a4768cc6f6bdcd1}\label{classbio_arith_log_logit_a42a95d4fa01326e82a4768cc6f6bdcd1}} 
+{\bfseries bio\+Arith\+Log\+Logit} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+U\+Long par, pat\+U\+Long ind, map$<$ pat\+U\+Long, pat\+U\+Long $>$ a\+Dict, map$<$ pat\+U\+Long, pat\+U\+Long $>$ av\+Dict, pat\+Boolean ll, pat\+Error $\ast$\&err)
+\item 
+virtual pat\+String \hyperlink{classbio_arith_log_logit_adb9566e06a59ee20cf8b0bc8897b95cd}{get\+Operator\+Name} () const
+\item 
+virtual pat\+Real \hyperlink{classbio_arith_log_logit_a1d6319d3ce72bda30bc036fdf678e36c}{get\+Value} (pat\+Boolean prepare\+Gradient, pat\+U\+Long current\+Lap, pat\+Error $\ast$\&err)
+\item 
+virtual \hyperlink{classbio_expression}{bio\+Expression} $\ast$ \hyperlink{classbio_arith_log_logit_a88dd7f743a13f5b836d2c4008d09845f}{get\+Derivative} (pat\+U\+Long a\+Literal\+Id, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_log_logit}{bio\+Arith\+Log\+Logit} $\ast$ \hyperlink{classbio_arith_log_logit_a95be99c67edc6920cea644dcf14c2775}{get\+Deep\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual \hyperlink{classbio_arith_log_logit}{bio\+Arith\+Log\+Logit} $\ast$ \hyperlink{classbio_arith_log_logit_abf229e9d9897a4f5f0bc3c2e158c24f8}{get\+Shallow\+Copy} (\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$rep, pat\+Error $\ast$\&err) const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_log_logit_a2683202928e4c00aa06460027a5aa332}{get\+Expression} (pat\+Error $\ast$\&err) const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a4c7deadcd687ad799f0e499b697b817c}\label{classbio_arith_log_logit_a4c7deadcd687ad799f0e499b697b817c}} 
+virtual pat\+Boolean {\bfseries depends\+Of} (pat\+U\+Long a\+Literal\+Id) const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a6cf16644376b4e37d95453e8ccc7fe16}\label{classbio_arith_log_logit_a6cf16644376b4e37d95453e8ccc7fe16}} 
+virtual void {\bfseries simplify\+Zeros} (pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_adc9562426b270e7fb3f9b45004232b48}\label{classbio_arith_log_logit_adc9562426b270e7fb3f9b45004232b48}} 
+virtual pat\+U\+Long {\bfseries get\+Number\+Of\+Operations} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_ad69939393c7bd316eca7864f16bb5528}\label{classbio_arith_log_logit_ad69939393c7bd316eca7864f16bb5528}} 
+pat\+U\+Long {\bfseries last\+Index} () const
+\item 
+virtual pat\+String \hyperlink{classbio_arith_log_logit_aa769251f7090278fdae9bd7a03670a53}{get\+Expression\+String} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_ab6da440fa9bd5c36b8a7bedc780625f4}\label{classbio_arith_log_logit_ab6da440fa9bd5c36b8a7bedc780625f4}} 
+pat\+Boolean {\bfseries contains\+An\+Integral} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a71ac9387000056545590c68a4235ad62}\label{classbio_arith_log_logit_a71ac9387000056545590c68a4235ad62}} 
+pat\+Boolean {\bfseries contains\+An\+Iterator} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a015e643c9fc4e03e58a3b818526c7a92}\label{classbio_arith_log_logit_a015e643c9fc4e03e58a3b818526c7a92}} 
+pat\+Boolean {\bfseries contains\+An\+Iterator\+On\+Rows} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_af5cefc10eefedc08e9e52deb9fe5b923}\label{classbio_arith_log_logit_af5cefc10eefedc08e9e52deb9fe5b923}} 
+pat\+Boolean {\bfseries contains\+A\+Sequence} () const
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a6d7578d13eead8239162bdae8b174c28}\label{classbio_arith_log_logit_a6d7578d13eead8239162bdae8b174c28}} 
+virtual void {\bfseries collect\+Expression\+Ids} (set$<$ pat\+U\+Long $>$ $\ast$s) const
+\item 
+virtual \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ \hyperlink{classbio_arith_log_logit_a4283d349360bfc928c2f20aa2e235e0c}{get\+Numerical\+Function\+And\+Gradient} (vector$<$ pat\+U\+Long $>$ literal\+Ids, pat\+Boolean compute\+Hessian, pat\+Boolean debug\+Derivatives, pat\+Error $\ast$\&err)
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_a7b15241fbc39875c9beb3765d8f07658}\label{classbio_arith_log_logit_a7b15241fbc39875c9beb3765d8f07658}} 
+virtual pat\+String {\bfseries check} (pat\+Error $\ast$\&err) const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbio_arith_log_logit_ad8f22d5ea704665333fe3e15cb1cc293}\label{classbio_arith_log_logit_ad8f22d5ea704665333fe3e15cb1cc293}} 
+class {\bfseries bio\+Arith\+Logit}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+We have a dictionary of utilities, mapping values to utilities. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbio_arith_log_logit_a95be99c67edc6920cea644dcf14c2775}\label{classbio_arith_log_logit_a95be99c67edc6920cea644dcf14c2775}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Deep\+Copy@{get\+Deep\+Copy}}
+\index{get\+Deep\+Copy@{get\+Deep\+Copy}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Deep\+Copy()}{getDeepCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_log_logit}{bio\+Arith\+Log\+Logit} $\ast$ bio\+Arith\+Log\+Logit\+::get\+Deep\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a deep copy of the expression and returns a pointer to it. It means that new instances of the children are created. 
+
+Reimplemented from \hyperlink{classbio_expression_a4ee1b8add634078a02eaae26cd40dcc8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_a88dd7f743a13f5b836d2c4008d09845f}\label{classbio_arith_log_logit_a88dd7f743a13f5b836d2c4008d09845f}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Derivative@{get\+Derivative}}
+\index{get\+Derivative@{get\+Derivative}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Derivative()}{getDerivative()}}
+{\footnotesize\ttfamily \hyperlink{classbio_expression}{bio\+Expression} $\ast$ bio\+Arith\+Log\+Logit\+::get\+Derivative (\begin{DoxyParamCaption}\item[{pat\+U\+Long}]{a\+Literal\+Id,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the derivative w.\+r.\+t literal 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the literal involved in the derivative \\
+\hline
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a5915579d1193f25f216c1e273c97f2ce}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_a2683202928e4c00aa06460027a5aa332}\label{classbio_arith_log_logit_a2683202928e4c00aa06460027a5aa332}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Expression@{get\+Expression}}
+\index{get\+Expression@{get\+Expression}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Expression()}{getExpression()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Log\+Logit\+::get\+Expression (\begin{DoxyParamCaption}\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+printed expression 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a66a83eb0caac18dd5e568ffde5a8b5d4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_aa769251f7090278fdae9bd7a03670a53}\label{classbio_arith_log_logit_aa769251f7090278fdae9bd7a03670a53}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Expression\+String@{get\+Expression\+String}}
+\index{get\+Expression\+String@{get\+Expression\+String}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Expression\+String()}{getExpressionString()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Log\+Logit\+::get\+Expression\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compute a string that represents the expression. It is designed to replace the expression itself when used only for comparison purposes. Code\+: +\{expr1\}\{expr2\}\+: binary plus -\/\{expr1\}\{expr2\}\+: binary minus \{expr1\}\{expr2\}\+: multiplication /\{expr1\}\{expr2\}\+: division $^\wedge$\{expr1\}\{expr2\}\+: power \&\{expr1\}\{expr2\}\+: and $\vert$\{expr1\}\{expr2\}\+: or =\{expr1\}\{expr2\}\+: equal !=\{expr1\}\{expr2\}\+: not equal $<$\{expr1\}\{expr2\}\+: lesser than $<$=\{expr1\}\{expr2\}\+: lesser or equal to $>$\{expr1\}\{expr2\}\+: greater than $>$=\{expr1\}\{expr2\}\+: greater or equal to \$A\{expr\}\+: abs \$D\mbox{[}expr\mbox{]}\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: dictionary (\hyperlink{classbio_arith_elem}{bio\+Arith\+Elem}) \$E\{expr\}\+: exp \$L\{expr\}\+: log \$M\{expr\}\+: Unary minus \$\+Piterator\+\_\+name\{expr\}\+: prod \$Q\{string1\}\{string2\}\+: sequence \$\+Siterator\+\_\+name\{expr\}\+: sum \$\+Ziterator\+\_\+name\mbox{[}\{expr1\}...\{exprN\}\mbox{]}\+: merged sum \{expr1\}\{expr2\}...\{exprN\}//\+: list of expressions number\+: constant \#id\+: literal \&id\+: random 
+
+Reimplemented from \hyperlink{classbio_expression_a3e4b4dca58dbbc6f0e411b30eb3f60b4}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_a4283d349360bfc928c2f20aa2e235e0c}\label{classbio_arith_log_logit_a4283d349360bfc928c2f20aa2e235e0c}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}}
+\index{get\+Numerical\+Function\+And\+Gradient@{get\+Numerical\+Function\+And\+Gradient}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Numerical\+Function\+And\+Gradient()}{getNumericalFunctionAndGradient()}}
+{\footnotesize\ttfamily \hyperlink{classbio_function_and_derivatives}{bio\+Function\+And\+Derivatives} $\ast$ bio\+Arith\+Log\+Logit\+::get\+Numerical\+Function\+And\+Gradient (\begin{DoxyParamCaption}\item[{vector$<$ pat\+U\+Long $>$}]{literal\+Ids,  }\item[{pat\+Boolean}]{compute\+Hessian,  }\item[{pat\+Boolean}]{debug\+Derivatives,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value and gradient of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_a91c81ce80c9e972c913b10f5f3c1ed13}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_adb9566e06a59ee20cf8b0bc8897b95cd}\label{classbio_arith_log_logit_adb9566e06a59ee20cf8b0bc8897b95cd}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Operator\+Name@{get\+Operator\+Name}}
+\index{get\+Operator\+Name@{get\+Operator\+Name}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Operator\+Name()}{getOperatorName()}}
+{\footnotesize\ttfamily pat\+String bio\+Arith\+Log\+Logit\+::get\+Operator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+name of the operator 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbio_expression_a2353a4afb3a2b0af7c63aba086a72bde}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_abf229e9d9897a4f5f0bc3c2e158c24f8}\label{classbio_arith_log_logit_abf229e9d9897a4f5f0bc3c2e158c24f8}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Shallow\+Copy@{get\+Shallow\+Copy}}
+\index{get\+Shallow\+Copy@{get\+Shallow\+Copy}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Shallow\+Copy()}{getShallowCopy()}}
+{\footnotesize\ttfamily \hyperlink{classbio_arith_log_logit}{bio\+Arith\+Log\+Logit} $\ast$ bio\+Arith\+Log\+Logit\+::get\+Shallow\+Copy (\begin{DoxyParamCaption}\item[{\hyperlink{classbio_expression_repository}{bio\+Expression\+Repository} $\ast$}]{rep,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Create a shallow copy of the expression and returns a pointer to it. It means that no new instance of the children are created. It is typically called by the repository 
+
+Reimplemented from \hyperlink{classbio_expression_a442534762693b92baaf33928979a1bf8}{bio\+Expression}.
+
+\mbox{\Hypertarget{classbio_arith_log_logit_a1d6319d3ce72bda30bc036fdf678e36c}\label{classbio_arith_log_logit_a1d6319d3ce72bda30bc036fdf678e36c}} 
+\index{bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!bio\+Arith\+Log\+Logit@{bio\+Arith\+Log\+Logit}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily pat\+Real bio\+Arith\+Log\+Logit\+::get\+Value (\begin{DoxyParamCaption}\item[{pat\+Boolean}]{prepare\+Gradient,  }\item[{pat\+U\+Long}]{current\+Lap,  }\item[{pat\+Error $\ast$\&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+value of the expression 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em err} & ref. of the pointer to the error object. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbio_expression_af58662a5d4d456f15bc4f2c9bd4f8a5b}{bio\+Expression}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bio\+Arith\+Log\+Logit.\+h\item 
+bio\+Arith\+Log\+Logit.\+cc\end{DoxyCompactItemize}

@@ -264,7 +264,6 @@ void bioExpression::setCurrentSpan(bioIteratorSpan aSpan) {
        ++i) {
     (*i)->setCurrentSpan(aSpan) ;
   }
-
 }
   
 void bioExpression::setThreadSpan(bioIteratorSpan aSpan) {
@@ -324,4 +323,6 @@ void bioExpression::checkMonteCarlo(patBoolean insideMonteCarlo, patError*& err)
 }
 
 
-
+patIteratorErr<bioFunctionAndDerivatives*>* bioExpression::getIteratorForStochasticGradient(patError*& err) {
+  return NULL ;
+}
